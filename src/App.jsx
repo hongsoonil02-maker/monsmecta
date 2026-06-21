@@ -15,7 +15,7 @@ const MonsmectaLandingPage = () => {
       <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-extrabold text-brand-green tracking-tight">
-            에스앤제이 동물병원 원장 제임스홍(홍순일)
+            에스앤제이 동물병원 원장 제임스홍
           </h1>
           <nav className="hidden md:flex space-x-8 text-sm font-semibold text-gray-600">
             <a href="#about" className="hover:text-brand-green transition-colors">제품소개</a>
