@@ -15,7 +15,7 @@ const MonsmectaLandingPage = () => {
       <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt="에스앤제이 동물병원 로고" className="h-10 w-auto" />
+            <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt="에스앤제이 동물병원 로고" className="h-11 w-auto" />
             <h1 className="text-2xl font-extrabold text-brand-green tracking-tight">
               에스앤제이 동물병원 원장 제임스홍
             </h1>
