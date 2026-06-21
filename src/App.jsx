@@ -55,7 +55,7 @@ const MonsmectaLandingPage = () => {
               playsInline 
               className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
             >
-              <source src="/assets/video.mp4" type="video/mp4" />
+              <source src={`${import.meta.env.BASE_URL}assets/video.mp4`} type="video/mp4" />
               브라우저가 동영상을 지원하지 않습니다.
             </video>
           </div>
@@ -109,7 +109,7 @@ const MonsmectaLandingPage = () => {
           {/* HTML Infographic */}
           <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden relative" style={{ height: '1700px' }}>
             <iframe 
-              src="/assets/james_infographic.html" 
+              src={`${import.meta.env.BASE_URL}assets/james_infographic.html`} 
               className="absolute top-0 left-0 w-full h-full border-0" 
               title="몬스멕타 인포그래픽" 
               scrolling="no"
@@ -118,7 +118,7 @@ const MonsmectaLandingPage = () => {
           
           {/* Infographic 2 (Restored) */}
           <div className="bg-white p-4 rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-            <img src="/assets/infographic_2.png" alt="몬스멕타 인포그래픽 2" className="w-full h-auto object-contain rounded-2xl" />
+            <img src={`${import.meta.env.BASE_URL}assets/infographic_2.png`} alt="몬스멕타 인포그래픽 2" className="w-full h-auto object-contain rounded-2xl" />
           </div>
         </div>
       </section>
