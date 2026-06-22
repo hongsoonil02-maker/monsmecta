@@ -10,7 +10,7 @@
         body { font-family: 'Noto Sans KR', sans-serif; }
         .montserrat { font-family: 'Montserrat', sans-serif; }
         @media print {
-            @page { size: A4 landscape; margin: 0; }
+            @page { size: A4 portrait; margin: 0; }
             body { 
                 -webkit-print-color-adjust: exact; 
                 print-color-adjust: exact; 
@@ -25,9 +25,10 @@
             .no-print { display: none !important; }
             
             #label-container {
-                width: 270mm !important;
-                height: 180mm !important;
-                zoom: 0.8; /* Chrome native zoom for shrinking without layout box issues */
+                width: 900px !important;
+                height: auto !important;
+                zoom: 0.8;
+                transform-origin: top center;
                 margin: 0;
                 border: none !important;
                 box-shadow: none !important;
