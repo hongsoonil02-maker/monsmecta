@@ -485,6 +485,21 @@
         <div>판매원 : 에스앤제이 동물병원</div>
     </div>
 </div>
-
+<script>
+    const observer = new ResizeObserver(() => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            height: document.documentElement.scrollHeight
+        }, '*');
+    });
+    observer.observe(document.body);
+    // Also send on load
+    window.addEventListener('load', () => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            height: document.documentElement.scrollHeight
+        }, '*');
+    });
+</script>
 </body>
 </html>

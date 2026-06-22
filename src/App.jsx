@@ -1,6 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const MonsmectaSNJLanding = () => {
+  const [iframeHeight, setIframeHeight] = useState(1800); // Default fallback
+
+  useEffect(() => {
+    const handleMessage = (event) => {
+      if (event.data && event.data.type === 'resize-iframe') {
+        setIframeHeight(event.data.height);
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
   const [quantity, setQuantity] = useState(5);
   const [hospitalName, setHospitalName] = useState('');
   const [bizNumber, setBizNumber] = useState('');
@@ -227,9 +238,12 @@ const MonsmectaSNJLanding = () => {
         </div>
         <div className="space-y-12">
           {/* HTML Infographic */}
-          <div className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative h-[3800px] sm:h-[2200px] md:h-[1800px]">
+          <div 
+            className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative transition-all duration-300 w-full"
+            style={{ height: iframeHeight ? `${iframeHeight}px` : '1800px' }}
+          >
             <iframe 
-              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=1.2`} 
+              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=1.3`} 
               className="absolute top-0 left-0 w-full h-full border-0" 
               title="몬스멕타 인포그래픽" 
               scrolling="no"
