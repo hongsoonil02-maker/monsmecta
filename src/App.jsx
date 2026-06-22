@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 const MonsmectaSNJLanding = () => {
-  const [boxes, setBoxes] = useState(5);
+  const [quantity, setQuantity] = useState(5);
   const [hospitalName, setHospitalName] = useState('');
   const [bizNumber, setBizNumber] = useState('');
   const [address, setAddress] = useState('');
-  const pricePerBox = 55000;
+  const pricePerBottle = 7700;
 
   const handleCheckout = (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const MonsmectaSNJLanding = () => {
       return;
     }
 
-    alert(`[${hospitalName}] 원장님, 몬스멕타 ${boxes}박스 선결제 시스템으로 이동합니다.`);
+    alert(`[${hospitalName}] 원장님, 몬스멕타 ${quantity}병 선결제 시스템으로 이동합니다.`);
   };
 
   return (
@@ -31,7 +31,6 @@ const MonsmectaSNJLanding = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt="에스앤제이 동물병원 로고" className="h-8 w-auto drop-shadow-sm" onError={(e) => e.target.style.display='none'} />
-            <div className="w-8 h-8 bg-[#00513b] rounded text-white flex items-center justify-center font-bold text-lg shadow-sm">S&J</div>
             <span className="font-extrabold text-xl text-[#00513b] tracking-tight">에스앤제이 동물병원</span>
           </div>
           <div className="hidden md:flex space-x-8">
@@ -71,7 +70,7 @@ const MonsmectaSNJLanding = () => {
           </div>
           <div className="md:w-1/2 flex justify-center w-full relative group perspective">
             {/* 3D Mockup & Video Container */}
-            <div className="relative w-full max-w-md transform group-hover:rotate-0 rotate-2 transition-all duration-700 hover:scale-105 z-20">
+            <div className="relative w-full max-w-md transform transition-all duration-700 hover:scale-105 z-20">
               <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-emerald-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
               <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/40">
                 <video 
@@ -291,18 +290,19 @@ const MonsmectaSNJLanding = () => {
               <div className="space-y-6">
                 <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
                   <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span> 
-                  수량 선택 (Box)
+                  수량 선택 (병)
                 </h3>
                 <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-colors shadow-inner">
                   <div className="mb-6 md:mb-0 text-center md:text-left">
-                    <div className="font-black text-2xl text-slate-800 tracking-tight">몬스멕타 <span className="text-lg font-bold text-slate-500">(1Box = 50포)</span></div>
-                    <div className="text-sm font-medium text-slate-500 mt-2">병원 공급가: <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBox.toLocaleString()}원</span> <span className="text-xs">(VAT 포함)</span></div>
+                    <div className="font-black text-2xl text-slate-800 tracking-tight">몬스멕타 <span className="text-lg font-bold text-slate-500">(100ml / 병)</span></div>
+                    <div className="text-sm font-medium text-slate-500 mt-2">병원 공급가: <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}원</span> <span className="text-xs">(VAT 포함)</span></div>
+                    <p className="text-xs text-[#00513b] mt-1 font-semibold">* 최소 주문 수량: 5병</p>
                   </div>
                   
                   <div className="flex items-center bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                    <button type="button" onClick={() => setBoxes(Math.max(1, boxes - 1))} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">-</button>
-                    <div className="w-20 h-14 flex items-center justify-center font-black text-2xl text-slate-800 border-x-2 border-slate-200">{boxes}</div>
-                    <button type="button" onClick={() => setBoxes(boxes + 1)} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">+</button>
+                    <button type="button" onClick={() => setQuantity(Math.max(5, quantity - 1))} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">-</button>
+                    <div className="w-20 h-14 flex items-center justify-center font-black text-2xl text-slate-800 border-x-2 border-slate-200">{quantity}</div>
+                    <button type="button" onClick={() => setQuantity(quantity + 1)} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">+</button>
                   </div>
                 </div>
               </div>
@@ -311,7 +311,7 @@ const MonsmectaSNJLanding = () => {
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-yellow-400 opacity-10 rounded-full blur-3xl"></div>
                 <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 relative z-10">
                   <span className="text-xl font-bold text-slate-300">총 결제 예정 금액</span>
-                  <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{(boxes * pricePerBox).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">원</span></span>
+                  <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{(quantity * pricePerBottle).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">원</span></span>
                 </div>
                 <button type="submit" className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 text-2xl font-black py-5 rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition duration-300 shadow-[0_0_20px_rgba(250,204,21,0.3)] transform hover:-translate-y-1 flex justify-center items-center gap-3">
                   <span>선결제 진행하기</span>
