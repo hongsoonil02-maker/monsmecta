@@ -129,6 +129,7 @@ const MonsmectaSNJLanding = () => {
                 >
                   <source src={`${import.meta.env.BASE_URL}assets/video.mp4`} type="video/mp4" />
                 </video>
+              </div>
               
               {/* Real Bottle Photo Overlaid on corner */}
               <div className="absolute -bottom-10 -right-10 w-48 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30 hidden sm:block">
