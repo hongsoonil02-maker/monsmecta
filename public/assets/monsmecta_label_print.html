@@ -21,16 +21,13 @@
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
-                overflow: hidden;
             }
             .no-print { display: none !important; }
             
             #label-container {
                 width: 270mm !important;
-                height: auto !important;
-                max-height: 190mm !important;
-                transform: scale(0.7);
-                transform-origin: center center;
+                height: 180mm !important;
+                zoom: 0.8; /* Chrome native zoom for shrinking without layout box issues */
                 margin: 0;
                 border: none !important;
                 box-shadow: none !important;
