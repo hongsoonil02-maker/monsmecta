@@ -133,7 +133,7 @@ const MonsmectaSNJLanding = () => {
               </div>
               
               {/* Real Bottle Photo Overlaid on corner */}
-              <div className="absolute -bottom-6 -right-6 w-28 sm:-bottom-10 sm:-right-10 sm:w-40 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30">
+              <div className="absolute -bottom-6 -right-2 w-28 sm:-bottom-10 sm:-right-6 sm:w-40 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30">
                 <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="MONSMECTA Real Bottle" className="w-full h-auto object-contain rounded-2xl border-4 border-white shadow-xl bg-white" />
               </div>
             </div>
