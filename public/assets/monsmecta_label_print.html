@@ -10,22 +10,23 @@
         body { font-family: 'Noto Sans KR', sans-serif; }
         .montserrat { font-family: 'Montserrat', sans-serif; }
         @media print {
-            @page { size: A4 landscape; margin: 10mm; }
+            @page { size: A4 landscape; margin: 0; }
             body { 
                 -webkit-print-color-adjust: exact; 
                 print-color-adjust: exact; 
                 background: white !important;
                 margin: 0;
                 padding: 0;
-                min-h-screen: auto !important;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
             }
             .no-print { display: none !important; }
-            /* Force the container to act like a single image and not break */
+            
             #label-container {
-                page-break-inside: avoid;
-                break-inside: avoid;
-                margin: 0 auto;
-                max-width: 100% !important;
+                transform: scale(0.9);
+                transform-origin: top center;
+                margin-top: 5mm;
                 border: none !important;
                 box-shadow: none !important;
             }
@@ -51,10 +52,10 @@
             <!-- Background Texture -->
             <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
 
-            <div class="relative z-10 flex flex-col md:flex-row gap-12">
+            <div class="relative z-10 flex flex-row gap-12">
                 
                 <!-- Left Column (Brand & Key Selling Points) -->
-                <div class="md:w-5/12 flex flex-col justify-between">
+                <div class="w-5/12 flex flex-col justify-between">
                     <div>
                         <div class="inline-block bg-emerald-900/50 border border-emerald-500/30 rounded-full px-4 py-1.5 mb-6">
                             <span class="text-xs font-bold text-emerald-300 tracking-wider">Veterinary Exclusive Gut Health Premier Solution</span>
@@ -96,10 +97,10 @@
                 </div>
 
                 <!-- Right Column (Specs & Details) -->
-                <div class="md:w-7/12 flex flex-col justify-between">
+                <div class="w-7/12 flex flex-col justify-between">
                     <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
                         
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-[12px] leading-relaxed">
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-[12px] leading-relaxed">
                             
                             <div class="col-span-full border-b border-slate-200 pb-2 mb-2">
                                 <div class="flex justify-between items-end">
@@ -165,7 +166,7 @@
             </div>
             
             <!-- Footer (Manufacturer Details) -->
-            <div class="mt-10 pt-6 border-t border-emerald-800/50 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-emerald-100/70 gap-4">
+            <div class="mt-10 pt-6 border-t border-emerald-800/50 flex flex-row justify-between items-center text-xs text-emerald-100/70 gap-4">
                 <div class="flex items-center gap-4">
                     <img src="sj_logo.png" alt="S&J" class="w-12 h-12 rounded-full object-cover bg-white p-1 border border-emerald-600/50" onerror="this.style.display='none'">
                     <div>
@@ -174,12 +175,12 @@
                         <div><span class="text-amber-400">TEL</span> 031-321-6562</div>
                     </div>
                 </div>
-                <div class="text-left sm:text-right border-l-0 sm:border-l border-emerald-800/50 pl-0 sm:pl-6">
+                <div class="text-right border-l border-emerald-800/50 pl-6">
                     <div class="font-bold text-emerald-50 mb-0.5">제조원 : ㈜ 엠오 바이오</div>
                     <div class="mb-0.5">경기도 화성시 팔탄면 석포로 74번길 10-25(공장)</div>
                     <div><span class="text-amber-400">TEL</span> 031-458-1240 / www.mobio.co.kr</div>
                 </div>
-                <div class="text-center bg-white/10 p-2 rounded-lg ml-auto hidden md:block">
+                <div class="text-center bg-white/10 p-2 rounded-lg ml-auto">
                     <div class="w-8 h-8 border-2 border-emerald-300 mx-auto rotate-45 flex items-center justify-center mb-1">
                         <span class="text-[8px] -rotate-45 font-bold text-emerald-300">플라스틱</span>
                     </div>
