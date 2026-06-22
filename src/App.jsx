@@ -234,29 +234,58 @@ const MonsmectaSNJLanding = () => {
         </div>
       </section>
 
-      {/* Infographics Section (Restored) */}
+      {/* Infographics Section (Restored & Upgraded) */}
       <section className="py-24 bg-white max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-[#00513b] mb-4 break-keep">상세 학술 데이터</h3>
-          <p className="text-slate-500 text-lg font-medium">원장님의 정확한 처방을 돕는 심층 자료입니다.</p>
+          <h3 className="text-3xl md:text-4xl font-extrabold text-[#00513b] mb-4 break-keep">상세 학술 데이터 및 상담 시나리오</h3>
+          <p className="text-slate-500 text-lg font-medium">원장님의 정확한 처방과 보호자 상담을 돕는 심층 자료입니다.</p>
         </div>
         <div className="space-y-12">
-          {/* HTML Infographic */}
+          
+          {/* HTML Infographic 1: Main */}
           <div 
             className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative transition-all duration-300 w-full"
-            style={{ height: iframeHeight ? `${iframeHeight}px` : '1800px' }}
+            style={{ height: iframeHeights.james ? `${iframeHeights.james}px` : '1800px' }}
           >
             <iframe 
-              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=2.0`} 
+              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=2.1`} 
               className="absolute top-0 left-0 w-full h-full border-0" 
               title="몬스멕타 인포그래픽" 
               scrolling="no"
             />
           </div>
+
+          {/* HTML Infographic 2: Dashboard */}
+          <div 
+            className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative transition-all duration-300 w-full"
+            style={{ height: iframeHeights.dashboard ? `${iframeHeights.dashboard}px` : '1800px' }}
+          >
+            <iframe 
+              src={`${import.meta.env.BASE_URL}assets/monsmecta_dashboard.html?v=1.0`} 
+              className="absolute top-0 left-0 w-full h-full border-0" 
+              title="몬스멕타 전략 대시보드" 
+              scrolling="no"
+            />
+          </div>
+
+          {/* HTML Infographic 3: Scenario */}
+          <div 
+            className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative transition-all duration-300 w-full"
+            style={{ height: iframeHeights.scenario ? `${iframeHeights.scenario}px` : '1800px' }}
+          >
+            <iframe 
+              src={`${import.meta.env.BASE_URL}assets/monsmecta_scenario.html?v=1.0`} 
+              className="absolute top-0 left-0 w-full h-full border-0" 
+              title="몬스멕타 상담 시나리오" 
+              scrolling="no"
+            />
+          </div>
+
           {/* Image Infographic */}
           <div className="bg-slate-50 p-4 rounded-3xl shadow-xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-shadow duration-500">
             <img src={`${import.meta.env.BASE_URL}assets/infographic_2.png`} alt="몬스멕타 임상 증례" className="w-full h-auto object-contain rounded-2xl mix-blend-multiply" />
           </div>
+
         </div>
       </section>
 
