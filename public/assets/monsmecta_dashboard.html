@@ -20,7 +20,7 @@
         .css-villus { width: 35px; height: 80px; background: linear-gradient(to top, #fecdd3, #fff1f2); border-radius: 20px 20px 0 0; border: 3px solid #fb7185; border-bottom: none; display: inline-block; margin: 0 4px; position: relative; }
         .css-virus { width: 18px; height: 18px; background-color: #ef4444; border-radius: 50%; border: 2px dashed #991b1b; position: absolute; }
         .css-adsorbent { width: 28px; height: 28px; background-color: #fbbf24; border-radius: 50%; opacity: 0.85; position: absolute; box-shadow: 0 0 12px #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #78350f; }
-        .css-protective-film { position: absolute; bottom: 0; left: 0; width: 100%; height: 90px; background: linear-gradient(to top, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.4)); border-top: 4px dashed #3b82f6; border-radius: 15px 15px 0 0; pointer-events: none; }
+        .css-protective-film { position: absolute; bottom: 0; left: 0; width: 100%; height: 90px; background: linear-gradient(to top, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.4)); border-top: 4px dashed #14b8a6; border-radius: 15px 15px 0 0; pointer-events: none; }
         
         .timeline-container { display: flex; align-items: center; justify-content: space-between; position: relative; width: 100%; padding: 2rem 0; flex-wrap: wrap; gap: 1rem; }
         .timeline-line { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background-color: #e2e8f0; z-index: 0; transform: translateY(-50%); display: none; }
@@ -34,7 +34,7 @@
 
     <div class="max-w-6xl mx-auto space-y-10">
 
-        <header class="bg-slate-900 rounded-3xl p-8 shadow-2xl text-white relative overflow-hidden">
+        <header class="bg-[#00513b] rounded-3xl p-8 shadow-2xl text-white relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400"></div>
             <div class="flex flex-col md:flex-row justify-between items-center z-10 relative">
                 <div class="text-center md:text-left mb-6 md:mb-0">
@@ -62,14 +62,14 @@
         <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
                 <div class="mb-6 border-b border-slate-100 pb-4">
-                    <span class="text-xs font-bold tracking-widest text-indigo-600 uppercase">Part 1. Strategy</span>
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">Part 1. Strategy</span>
                     <h2 class="text-2xl font-bold text-slate-900 mt-1">임상 피드백 및 효능 비교</h2>
                     <p class="text-sm text-slate-500 mt-2">김동준 원장님의 피드백에 따른 일반 스멕타 대비 몬스멕타의 핵심 임상 우위 지표입니다.</p>
                 </div>
                 <div class="chart-container">
                     <canvas id="efficacyRadarChart"></canvas>
                 </div>
-                <div class="mt-6 p-4 bg-indigo-50 rounded-xl border border-indigo-100 text-sm text-indigo-900">
+                <div class="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
                     <strong class="font-bold block mb-1">현장 수의사 피드백 요약:</strong>
                     "기존 제제는 단순 설사 억제에 그치나, 몬스멕타는 위내 산도 조절(pH 완충) 기능으로 복통을 즉각 완화하며 겔 타입의 뛰어난 기호성으로 강제 급여 스트레스와 구토를 방지합니다."
                 </div>
@@ -120,19 +120,19 @@
                 <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center gap-2 mb-2">
-                            <span class="bg-blue-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
+                            <span class="bg-teal-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
                             <h3 class="text-lg font-bold text-slate-900">손상된 위장관 점막 쉴드 보호</h3>
                         </div>
                         <p class="text-xs text-slate-500 mb-6">헐어버린 점막을 부드럽게 코팅하여 통증을 완화하고 바실러스 균주로 장내 환경을 재건합니다.</p>
                     </div>
-                    <div class="relative w-full h-48 bg-blue-50 border-b-4 border-blue-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
-                        <div class="css-villus" style="background: linear-gradient(to top, #bfdbfe, #eff6ff); border-color: #93c5fd;"></div>
-                        <div class="css-villus" style="background: linear-gradient(to top, #bfdbfe, #eff6ff); border-color: #93c5fd;"></div>
-                        <div class="css-villus" style="background: linear-gradient(to top, #bfdbfe, #eff6ff); border-color: #93c5fd;"></div>
-                        <div class="css-villus" style="background: linear-gradient(to top, #bfdbfe, #eff6ff); border-color: #93c5fd;"></div>
-                        <div class="css-villus" style="background: linear-gradient(to top, #bfdbfe, #eff6ff); border-color: #93c5fd;"></div>
+                    <div class="relative w-full h-48 bg-teal-50 border-b-4 border-teal-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
                         <div class="css-protective-film"></div>
-                        <div class="absolute bottom-4 bg-blue-600 text-white text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-md">장 점막 보호 코팅막</div>
+                        <div class="absolute bottom-4 bg-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-md">장 점막 보호 코팅막</div>
                     </div>
                 </div>
             </div>
@@ -223,9 +223,9 @@
                     {
                         label: '몬스멕타',
                         data: [95, 98, 90, 95, 85],
-                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                        borderColor: 'rgba(37, 99, 235, 1)',
-                        pointBackgroundColor: 'rgba(37, 99, 235, 1)',
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: 'rgba(5, 150, 105, 1)',
+                        pointBackgroundColor: 'rgba(5, 150, 105, 1)',
                         borderWidth: 2,
                         pointRadius: 4
                     },
