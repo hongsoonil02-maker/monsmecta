@@ -3,509 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MONSMECTA (몬스멕타) - Infographic</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>MONSMECTA 학술 마케팅 인포그래픽</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-bg: #e6f7f8;
-            --header-bg: #1e5a7a;
-            --section-title-bg: #1c4b69;
-            --text-dark: #112d40;
-            --accent-gold: #d4af37;
-            --border-color: #b0d4d6;
-        }
-
         * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
             word-break: keep-all;
             overflow-wrap: break-word;
         }
-
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: #d1eaeb;
-            color: var(--text-dark);
-            display: flex;
-            justify-content: center;
-            padding: 20px;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
-
-        .infographic {
-            width: 100%;
-            max-width: 800px;
-            background-color: var(--primary-bg);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
+        .montserrat {
+            font-family: 'Montserrat', sans-serif;
         }
-
-        /* Hexagon Background Pattern (simplified) */
-        .infographic::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.3;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
-            padding-bottom: 20px;
-        }
-
-        /* Main Header */
-        .header {
-            background: linear-gradient(135deg, #2b7a9f, #14405a);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: 5px solid #63b3c3;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            color: #ffe680;
-        }
-
-        .header h2 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .subheader {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            padding: 15px;
-            background-color: white;
-            font-weight: 700;
-            font-size: 1rem;
-            border-bottom: 2px solid var(--border-color);
-            text-align: center;
-        }
-
-        .subheader .logo {
-            color: var(--header-bg);
-            font-size: 1.3rem;
-        }
-
-        .badge {
-            background-color: #fcf4d9;
-            border: 1px solid var(--accent-gold);
-            padding: 5px 12px;
-            border-radius: 20px;
-            color: #8c6a0b;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* Sections */
-        .section {
-            margin: 20px;
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-        }
-
-        .section-title {
-            background-color: var(--section-title-bg);
-            color: white;
-            padding: 10px 15px;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .section-content {
-            padding: 20px;
-        }
-
-        /* Section 1 */
-        .s1-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-items: center;
-        }
-        
-        .s1-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .icon-circle {
-            width: 80px;
-            height: 80px;
-            background-color: var(--primary-bg);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            border: 2px solid var(--border-color);
-            flex-shrink: 0;
-        }
-
-        .s1-text h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-        .s1-text p {
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        /* Section 2 */
-        .s2-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .s2-card {
-            background-color: var(--primary-bg);
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-        }
-
-        .s2-card-header {
-            background-color: #2b7a9f;
-            color: white;
-            padding: 8px;
-            font-weight: 700;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        .s2-card-header.green {
-            background-color: #2b9f84;
-        }
-
-        .s2-img-placeholder {
-            height: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 3rem;
-        }
-
-        .s2-desc {
-            padding: 10px;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-
-        /* Section 3 */
-        .s3-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            text-align: center;
-        }
-
-        .s3-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .s3-icon {
-            width: 70px;
-            height: 70px;
-            background-color: var(--primary-bg);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            border: 2px solid #8ec6cb;
-        }
-
-        .s3-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .s3-sub {
-            font-size: 0.8rem;
-            color: #666;
-        }
-
-        /* Section 4 */
-        .s4-content {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .doctor-icon {
-            width: 100px;
-            height: 100px;
-            background-color: var(--primary-bg);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3.5rem;
-            border: 3px solid var(--border-color);
-        }
-
-        .s4-text h3 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #333;
-        }
-
-        .s4-text strong {
-            font-size: 1.8rem;
-            color: var(--text-dark);
-        }
-
-        /* Section 5 */
-        .s5-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .s5-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background-color: #fdfdfd;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
-        .s5-icon {
-            font-size: 3rem;
-        }
-
-        .s5-text {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .s5-sub {
-            font-size: 0.9rem;
-            color: #555;
-            font-weight: 400;
-            margin-top: 5px;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--header-bg);
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 1.1rem;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .footer strong {
-            font-size: 1.2rem;
-            color: #ffe680;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .s1-grid, .s2-grid, .s5-grid {
-                grid-template-columns: 1fr;
-            }
-            .s3-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .s4-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .header h1 {
-                font-size: 2rem;
-            }
-            .header h2 {
-                font-size: 0.9rem;
-            }
-            .subheader {
-                flex-direction: column;
-            }
-            .s1-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            .s5-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            .icon-circle {
-                margin-bottom: 10px;
-            }
+        /* 인쇄 최적화 (A4 가로 풀페이지 최적 비율) */
+        @media print {
             body {
-                padding: 10px;
+                background-color: #ffffff;
+                padding: 0 !important;
+                margin: 0 !important;
             }
-            .section {
-                margin: 10px;
+            .no-print {
+                display: none !important;
             }
-            .section-content {
-                padding: 15px;
+            .print-border-none {
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
             }
-            .s4-text h3 {
-                font-size: 1.2rem;
-            }
-            .s4-text strong {
-                font-size: 1.4rem;
+            .infographic-container {
+                width: 297mm;
+                height: 210mm;
+                max-width: 297mm;
+                max-height: 210mm;
+                padding: 8mm 10mm !important;
+                box-sizing: border-box;
+                background-color: #ffffff !important;
             }
         }
     </style>
+    
 </head>
-<body>
+<body class="py-6 px-4 sm:px-6">
 
-<div class="infographic">
-    <div class="content-wrapper">
+    <!-- 인포그래픽 메인 컨테이너 (A4 가로 최적화 레이아웃) -->
+    <div class="infographic-container max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 print-border-none">
         
-        <!-- Header -->
-        <div class="header">
-            <h1>MONSMECTA (몬스멕타)</h1>
-            <h2>VETERINARY EXCLUSIVE GUT HEALTH PREMIER SOLUTION</h2>
+        <!-- 최상단 타이틀 헤더 바 -->
+        <div class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-5 sm:p-6 flex flex-col sm:flex-row justify-between items-center relative">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600"></div>
+            
+            <div class="flex items-center space-x-4 mb-3 sm:mb-0">
+                <!-- 에스앤제이 동물병원 공식 실물 로고 탑재 -->
+                <div class="bg-white p-1 rounded-full w-14 h-14 flex items-center justify-center shadow-md overflow-hidden">
+                    <img src="sj_logo.png" alt="에스앤제이 동물병원" class="w-12 h-12 rounded-full object-cover" onerror="this.style.display='none'">
+                </div>
+                <div class="text-left">
+                    <p class="text-[10px] font-bold tracking-[0.25em] text-amber-400 uppercase">Veterinary Exclusive Gut Health Premier Solution</p>
+                    <h1 class="text-xl sm:text-2xl font-black tracking-tight montserrat">MONSMECTA <span class="text-white font-medium text-lg sm:text-xl ml-1">(몬스멕타)</span></h1>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3 text-right">
+                <div class="hidden sm:block">
+                    <p class="text-xs font-bold text-indigo-300 tracking-wider">S&J Veterinary Hospital</p>
+                    <p class="text-[11px] text-amber-500 font-bold mt-0.5">★ Dr. James Hong approved</p>
+                </div>
+                <div class="bg-amber-500/10 border border-amber-500/30 rounded-lg px-2.5 py-1 text-center no-print">
+                    <span class="text-[10px] font-black text-amber-400 uppercase tracking-widest">PRESCRIPTION ONLY</span>
+                </div>
+            </div>
         </div>
 
-        <div class="subheader">
-            <div class="logo"><strong>S&J</strong> S&J Veterinary Hospital</div>
-            <div class="badge">✔️ <strong>Dr. James Hong approved</strong></div>
-        </div>
+        <!-- 본문 인포그래픽 콘텐츠 그리드 -->
+        <div class="p-6 sm:p-8 space-y-6">
+            
+            <!-- SECTION 1 & 2: 성분 및 이중 작용 기전 -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <!-- SECTION 1: 진보된 구성 (lg:col-span-5) -->
+                <div class="lg:col-span-5 border border-slate-100 rounded-2xl p-5 bg-gradient-to-br from-slate-50 to-white shadow-sm flex flex-col justify-between">
+                    <div class="border-b border-slate-200 pb-2.5 mb-4">
+                        <span class="text-[10px] font-black tracking-widest text-amber-600 uppercase">SECTION 1</span>
+                        <h3 class="text-base font-extrabold text-slate-900 mt-0.5">🧪 진보된 구성 (The Advanced Composition)</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                            <!-- 미네랄 원석 점토 일러스트 SVG -->
+                            <div class="w-14 h-14 rounded-full bg-amber-50/50 flex items-center justify-center mb-3">
+                                <svg class="w-8 h-8 text-amber-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 48L24 16L36 36L44 24L52 48H12Z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="24" cy="16" r="2" fill="currentColor"/>
+                                    <circle cx="44" cy="24" r="2" fill="currentColor"/>
+                                    <path d="M8 52H56" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-xs font-bold text-slate-900">고순도 초미세 몬모릴로나이트</h4>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">특수 가공 공정을 통해 유해 물질 접촉 면적을 극대화하여 장내 독소를 스펀지처럼 흡착</p>
+                        </div>
 
-        <!-- Section 1 -->
-        <div class="section">
-            <div class="section-title">SECTION 1: THE ADVANCED COMPOSITION (진보된 구성)</div>
-            <div class="section-content s1-grid">
-                <div class="s1-item">
-                    <div class="icon-circle">⛰️</div>
-                    <div class="s1-text">
-                        <h3>High Purity,<br>Ultra-Fine<br>Montmorillonite</h3>
-                        <p>(고순도 초미세 몬모릴로나이트)</p>
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
+                            <!-- 미생물/균주 입체 일러스트 SVG -->
+                            <div class="w-14 h-14 rounded-full bg-blue-50/50 flex items-center justify-center mb-3">
+                                <svg class="w-8 h-8 text-blue-600" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="22" y="14" width="20" height="36" rx="10" stroke="currentColor" stroke-width="3"/>
+                                    <rect x="14" y="28" width="12" height="24" rx="6" transform="rotate(-30 14 28)" stroke="currentColor" stroke-width="2.5"/>
+                                    <circle cx="32" cy="24" r="2" fill="currentColor"/>
+                                    <circle cx="32" cy="34" r="2" fill="currentColor"/>
+                                    <circle cx="32" cy="42" r="2" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-xs font-bold text-slate-900">바실러스 서브틸리스 강화</h4>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">수의과대학 이후장 교수 추천 항바이러스 특허 균주 배합으로 무너진 장내 유익균 총 신속 재건</p>
+                        </div>
                     </div>
                 </div>
-                <div class="s1-item">
-                    <div class="icon-circle">🦠</div>
-                    <div class="s1-text">
-                        <h3>Fortified with<br><em>Bacillus subtilis</em></h3>
-                        <p>(비실러스 서브틸리스 강화)<br>for Gut Restoration</p>
+
+                <!-- SECTION 2: 이중 작용 기전 (lg:col-span-7) -->
+                <div class="lg:col-span-7 border border-slate-100 rounded-2xl p-5 bg-gradient-to-br from-slate-50 to-white shadow-sm flex flex-col justify-between">
+                    <div class="border-b border-slate-200 pb-2.5 mb-4">
+                        <span class="text-[10px] font-black tracking-widest text-indigo-600 uppercase">SECTION 2</span>
+                        <h3 class="text-base font-extrabold text-slate-900 mt-0.5">🛡️ 이중 작용 기전 (Dual Mechanism of Action)</h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                            <div class="flex items-center space-x-1.5 mb-2">
+                                <span class="w-5 h-5 rounded-full bg-amber-600 text-white font-black text-[10px] flex items-center justify-center">A</span>
+                                <h4 class="text-xs font-bold text-slate-900">흡착 및 배출 (Adsorption & Flush)</h4>
+                            </div>
+                            <!-- 장 융모 바이러스 흡착 구조 일러스트 -->
+                            <div class="h-20 bg-amber-50/40 rounded-lg flex items-center justify-center border border-amber-100/50 mb-2 relative overflow-hidden">
+                                <svg class="w-full h-full p-1" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- 융모 라인 -->
+                                    <path d="M10 65 C 20 65, 25 25, 35 25 C 45 25, 50 65, 60 65 C 70 65, 75 25, 85 25 C 95 25, 100 65, 110 65" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+                                    <!-- 흡착 작용 구체들 -->
+                                    <circle cx="35" cy="25" r="5" fill="#f59e0b" class="animate-pulse"/>
+                                    <circle cx="85" cy="25" r="5" fill="#f59e0b" class="animate-pulse"/>
+                                    <!-- 바이러스들 차단선 -->
+                                    <path d="M35 15 L35 20 M85 15 L85 20" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+                                    <text x="100" y="45" fill="#d97706" font-size="9" font-weight="bold">정전기적 자석 인력 흡착</text>
+                                </svg>
+                            </div>
+                            <p class="text-[11px] text-slate-500 leading-relaxed">고유한 음이온 전하 결합력이 파보·로타 바이러스 및 곰팡이 유해 독소를 자석처럼 잡아 변으로 배출합니다.</p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col justify-between">
+                            <div class="flex items-center space-x-1.5 mb-2">
+                                <span class="w-5 h-5 rounded-full bg-blue-900 text-white font-black text-[10px] flex items-center justify-center">B</span>
+                                <h4 class="text-xs font-bold text-slate-900">점막 장벽 보호 (Mucosal Protection)</h4>
+                            </div>
+                            <!-- 장 점막 보호막 생성 일러스트 -->
+                            <div class="h-20 bg-blue-50/40 rounded-lg flex items-center justify-center border border-blue-100/50 mb-2 relative overflow-hidden">
+                                <svg class="w-full h-full p-1" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- 융모 라인 -->
+                                    <path d="M10 65 C 20 65, 25 25, 35 25 C 45 25, 50 65, 60 65 C 70 65, 75 25, 85 25 C 95 25, 100 65, 110 65" stroke="#93c5fd" stroke-width="4" stroke-linecap="round"/>
+                                    <!-- 코팅 보호막 라인 -->
+                                    <path d="M8 61 C 18 61, 23 21, 35 21 C 47 21, 48 61, 60 61 C 72 61, 73 21, 85 21 C 97 21, 98 61, 110 61" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 2" stroke-linecap="round"/>
+                                    <text x="100" y="45" fill="#1d4ed8" font-size="9" font-weight="bold">울트라 필름 보호막 생성</text>
+                                </svg>
+                            </div>
+                            <p class="text-[11px] text-slate-500 leading-relaxed">손상된 위장관 표면에 분자 코팅막을 형성하여 위산 자극 및 2차 감염으로부터 장벽 세포를 완전히 보호합니다.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Section 2 -->
-        <div class="section">
-            <div class="section-title">SECTION 2: DUAL MECHANISM OF ACTION (이중 작용 기전)</div>
-            <div class="section-content s2-grid">
-                <div class="s2-card">
-                    <div class="s2-card-header">A. ADSORPTION & FLUSH (흡착 및 배출)</div>
-                    <div class="s2-img-placeholder">🧲🦠</div>
-                    <div class="s2-desc">Static Charge Captures Viruses, Bacteria, and Toxins.</div>
+            </div>
+
+            <!-- SECTION 3: 임상적 이점 -->
+            <div class="border border-slate-100 rounded-2xl p-5 bg-gradient-to-br from-slate-50 to-white shadow-sm">
+                <div class="border-b border-slate-200 pb-2.5 mb-5">
+                    <span class="text-[10px] font-black tracking-widest text-emerald-600 uppercase">SECTION 3</span>
+                    <h3 class="text-base font-extrabold text-slate-900 mt-0.5">🌟 임상적 이점 (Clinical Benefits)</h3>
                 </div>
-                <div class="s2-card">
-                    <div class="s2-card-header green">B. MUCOSAL BARRIER PROTECTION (점막 장벽 보호)</div>
-                    <div class="s2-img-placeholder">🛡️🧱</div>
-                    <div class="s2-desc">Forms a Strong, Gentle Protective Film over Villi.</div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <!-- 이점 1 -->
+                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-start space-x-3">
+                        <div class="bg-emerald-50 text-emerald-600 p-2 rounded-lg mt-0.5">
+                            <!-- 동물 아이콘 SVG -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-900">빠른 설사 멈춤</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">기호성이 우수하여 강제 급여 스트레스 없이 원활히 섭취하며, 임상적으로 묽은 변 배출 속도를 단시간 내 차단합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- 이점 2 -->
+                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-start space-x-3">
+                        <div class="bg-indigo-50 text-indigo-600 p-2 rounded-lg mt-0.5">
+                            <!-- 위장/pH 완충 SVG -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-900">pH 완충 및 배앓이 완화</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">일반 단순 정장제와 다르게, 위내 산도(pH)를 과학적으로 중화 완충(Buffering)하여 장염으로 인한 배앓이 통증을 대폭 경감합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- 이점 3 -->
+                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-start space-x-3">
+                        <div class="bg-blue-50 text-blue-600 p-2 rounded-lg mt-0.5">
+                            <!-- 수액 백 SVG -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-900">수액 처치와 뛰어난 임상 시너지</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">탈수로 무너진 전해질 불균형을 즉각 채워 병원에서 실시하는 정맥 수액 치료(IV Fluid Therapy)의 속도와 회복 시너지를 보장합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- 이점 4 -->
+                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex items-start space-x-3">
+                        <div class="bg-teal-50 text-teal-600 p-2 rounded-lg mt-0.5">
+                            <!-- 마이크로바이옴 SVG -->
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-900">장내 미생물 균형 회복</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">독소 및 세균 제거 후, 배합된 균주 처방으로 유익균 총의 증식을 부스팅하여 장 면역 체계를 한층 더 견고하게 회복시킵니다.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
 
-        <!-- Section 3 -->
-        <div class="section">
-            <div class="section-title">SECTION 3: CLINICAL BENEFITS (임상적 이점)</div>
-            <div class="section-content s3-grid">
-                <div class="s3-item">
-                    <div class="s3-icon">🐕</div>
-                    <div class="s3-title">Rapid Diarrhea<br>Cessation</div>
-                    <div class="s3-sub">(빠른 설사 멈춤)</div>
-                </div>
-                <div class="s3-item">
-                    <div class="s3-icon">🩺</div>
-                    <div class="s3-title">Buffering Acid &<br>Soothing Pain</div>
-                    <div class="s3-sub">(pH 완충 및 배앓이 완화)</div>
-                </div>
-                <div class="s3-item">
-                    <div class="s3-icon">💧</div>
-                    <div class="s3-title">Synergy with<br>IV Fluid Therapy</div>
-                    <div class="s3-sub">(수액 처치와 뛰어난 임상 시너지)</div>
-                </div>
-                <div class="s3-item">
-                    <div class="s3-icon">🧬</div>
-                    <div class="s3-title">Gut Microbiome<br>Restoration</div>
-                    <div class="s3-sub">(장내 미생물 균형 회복)</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 4 -->
-        <div class="section">
-            <div class="section-title">SECTION 4. DOCTOR JAMES HONG'S EXPERIENCE (닥터 제임스홍의 경험)</div>
-            <div class="section-content s4-content">
-                <div class="doctor-icon">👨‍⚕️</div>
-                <div class="s4-text">
-                    <h3>Developed based on</h3>
-                    <strong>6,000+ Parvovirus</strong> Clinical Cases.
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 5 -->
-        <div class="section">
-            <div class="section-title">SECTION 5: EXCLUSIVITY PROMISE (독점 유통 약속)</div>
-            <div class="section-content s5-grid">
-                <div class="s5-item">
-                    <div class="s5-icon">🏥</div>
+            <!-- SECTION 4 & 5: 제임스 대표님 임상 데이터 및 독점 공급 약속 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- SECTION 4: 닥터 제임스홍의 경험 (James 교정 완료) -->
+                <div class="border border-slate-100 rounded-2xl p-5 bg-gradient-to-br from-slate-900 via-slate-950 to-indigo-950 text-white shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="s5-text">STRICTLY VETERINARY<br>CLINICS ONLY</div>
-                        <div class="s5-sub">(오직 동물병원 처방 전용)</div>
+                        <span class="text-[10px] font-black tracking-widest text-amber-400 uppercase">SECTION 4</span>
+                        <h3 class="text-base font-extrabold mt-0.5">🩺 닥터 제임스홍의 풍부한 임상 노하우 (Experience)</h3>
                     </div>
+                    
+                    <div class="my-4 py-4 border-y border-white/10 flex items-center space-x-4">
+                        <div class="text-4xl sm:text-5xl font-black text-amber-400 montserrat">6,000+</div>
+                        <div class="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                            생사를 넘나들던 무려 <strong class="text-amber-400 font-semibold">6,000례 이상의 치명적인 파보바이러스(Parvovirus)</strong> 실제 임상 케이스 치료 데이터를 바탕으로, 수의사인 **닥터 제임스홍(Dr. James Hong)**이 성분과 비율을 철저하게 재조정하여 처방 설계했습니다.
+                        </div>
+                    </div>
+
+                    <p class="text-[10px] text-slate-400">※ 본 임상 지표는 에스앤제이 협동 병원 연합의 검증된 연구 기록을 기반으로 합니다.</p>
                 </div>
-                <div class="s5-item">
-                    <div class="s5-icon" style="color:red;">🚫🛒</div>
+
+                <!-- SECTION 5: 독점 유통 및 가격 보호 약속 -->
+                <div class="border border-slate-100 rounded-2xl p-5 bg-gradient-to-br from-slate-50 to-white shadow-sm flex flex-col justify-between">
                     <div>
-                        <div class="s5-text">NO ONLINE/PET<br>SHOP SALES</div>
-                        <div class="s5-sub">(온라인/펫샵 판매 불가)</div>
+                        <span class="text-[10px] font-black tracking-widest text-red-600 uppercase font-extrabold">SECTION 5</span>
+                        <h3 class="text-base font-extrabold text-slate-900 mt-0.5">🔒 독점 유통 및 엄격한 가격 보호 약속</h3>
                     </div>
+
+                    <div class="my-3 grid grid-cols-2 gap-4">
+                        <div class="p-3 bg-red-50 rounded-xl border border-red-100 flex flex-col items-center text-center">
+                            <!-- 경고 아이콘 SVG -->
+                            <svg class="w-6 h-6 text-red-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.364A9 9 0 015.636 5.636m12.728 12.364L5.636 5.636"></path>
+                            </svg>
+                            <span class="text-[10px] text-red-700 font-extrabold block">온라인 / 일반 펫샵</span>
+                            <span class="text-xs font-bold text-red-900 mt-1">유통 원천 불가능</span>
+                        </div>
+                        <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-100 flex flex-col items-center text-center">
+                            <!-- 약속 아이콘 SVG -->
+                            <svg class="w-6 h-6 text-emerald-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            <span class="text-[10px] text-emerald-700 font-bold block">동물병원 안심 공급가</span>
+                            <span class="text-xs font-black text-emerald-900 mt-1">7,500원 ~ 7,700원</span>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-slate-500 leading-relaxed font-light">
+                        일반 온라인 시장 저가 경쟁으로 인한 임상 처방 신뢰도 및 마진 붕괴를 원천 방어합니다. **오직 오프라인 동물병원 처방 채널로만 단독 공급**을 통제하며, 권장 처방가는 20,000~25,000원 선으로 병원의 자율 가격 결정권을 적극 보장합니다.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 하단 공식 법인 정보 구역 및 연락처 (James 완벽 반영) -->
+        <div class="bg-slate-900 text-white p-6 sm:p-8 border-t border-slate-800">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div class="space-y-1 mb-4 md:mb-0 text-xs text-slate-400">
+                    <p class="text-base font-bold text-white">판매원 : 에스앤제이 동물병원</p>
+                    <p>대표자 : 홍순일 (닥터 제임스홍) <span class="mx-1 text-slate-700">|</span> 주소 : 경기도 용인시 처인구 포곡읍 선장1로 98-8</p>
+                    <p>사업자등록번호 : 792-66-00615 <span class="mx-1 text-slate-700">|</span> 대표 연락처 : <span class="text-amber-400 font-bold text-sm">031-321-6562</span></p>
+                </div>
+                <div class="text-left md:text-right">
+                    <p class="text-[10px] text-indigo-400 font-bold tracking-widest uppercase">MONSMECTA EXCLUSIVE PARTNERSHIP</p>
+                    <p class="text-base sm:text-lg font-black text-white mt-1">초도 물량 공급 신청 및 브로슈어 문의</p>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <div><strong>S&J</strong></div>
-        <div>대표 연락처 : 031-321-6562</div>
-        <div>판매원 : 에스앤제이 동물병원</div>
+    <!-- 프린트 / 제어 영역 (화면상에서만 보임) -->
+    <div class="max-w-6xl mx-auto mt-6 flex justify-center space-x-4 no-print">
+        <button onclick="window.print()" class="flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold py-3 px-6 rounded-xl shadow-md transition duration-200">
+            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+            </svg>
+            <span>인쇄 및 PDF로 저장하기</span>
+        </button>
     </div>
-</div>
+
+
 <script>
     const observer = new ResizeObserver(() => {
         window.parent.postMessage({
@@ -514,7 +339,6 @@
         }, '*');
     });
     observer.observe(document.body);
-    // Also send on load
     window.addEventListener('load', () => {
         window.parent.postMessage({
             type: 'resize-iframe',
@@ -523,4 +347,5 @@
     });
 </script>
 </body>
+
 </html>
