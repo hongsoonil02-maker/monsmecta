@@ -5,6 +5,7 @@ const MonsmectaSNJLanding = () => {
   const [hospitalName, setHospitalName] = useState('');
   const [bizNumber, setBizNumber] = useState('');
   const [address, setAddress] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pricePerBottle = 7700;
 
   const handleCheckout = (e) => {
@@ -38,10 +39,37 @@ const MonsmectaSNJLanding = () => {
             <a href="#clinical" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">임상데이터</a>
             <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">3대 가치</a>
           </div>
-          <a href="#order" className="bg-[#00513b] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-[#003d2b] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
-            빠른 발주하기
-          </a>
+          <div className="flex items-center gap-4">
+            <a href="#order" className="hidden md:inline-block bg-[#00513b] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-[#003d2b] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
+              빠른 발주하기
+            </a>
+            {/* Mobile menu button */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-slate-600 hover:text-[#00513b] focus:outline-none"
+            >
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
+        
+        {/* Mobile Menu Panel */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-4">
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">제품소개</a>
+            <a href="#clinical" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">임상데이터</a>
+            <a href="#values" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">3대 가치</a>
+            <a href="#order" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#00513b] text-white px-6 py-3 rounded-xl text-sm font-bold shadow-md hover:bg-[#003d2b] transition-all duration-200 mt-4">
+              빠른 발주하기
+            </a>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -55,7 +83,7 @@ const MonsmectaSNJLanding = () => {
               <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]"></span>
               전국 동물병원 전용 B2B 공급망
             </div>
-            <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight drop-shadow-xl">
+            <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight drop-shadow-xl break-keep">
               임상 수의사의 해답,<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 drop-shadow-sm">MONSMECTA</span>
             </h1>
@@ -99,7 +127,7 @@ const MonsmectaSNJLanding = () => {
       <section id="values" className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b]">몬스멕타의 3대 가치 약속</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">몬스멕타의 3대 가치 약속</h2>
             <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
             <p className="text-slate-500 text-lg mt-6 font-medium">수의사 원장님들의 진료 및 경영적 신뢰를 지켜드리는 확실한 기준이 되겠습니다.</p>
           </div>
@@ -136,15 +164,15 @@ const MonsmectaSNJLanding = () => {
       <section id="clinical" className="py-24 bg-slate-100 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b]">수의사가 수의사에게 제안하는 근거</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">수의사가 수의사에게 제안하는 근거</h2>
             <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-10">
             <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <h3 className="text-2xl font-black text-slate-800 mb-4 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">1</span>
-                신속한 장 점막 회복 임상
+              <h3 className="text-2xl font-black text-slate-800 mb-4 flex items-start sm:items-center gap-3 break-keep">
+                <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">1</span>
+                <span>신속한 장 점막 회복 임상</span>
               </h3>
               <p className="text-slate-600 mb-8 leading-relaxed text-lg">
                 에스앤제이 동물병원의 실제 처방 케이스를 통해 입증된 유해 물질 차단력과 점막 보호막 형성 속도를 확인하세요.
@@ -162,9 +190,9 @@ const MonsmectaSNJLanding = () => {
 
             <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between">
               <div>
-                <h3 className="text-2xl font-black text-slate-800 mb-4 flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-full bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">2</span>
-                  완벽한 기호성과 투약 편의성
+                <h3 className="text-2xl font-black text-slate-800 mb-4 flex items-start sm:items-center gap-3 break-keep">
+                  <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">2</span>
+                  <span>완벽한 기호성과 투약 편의성</span>
                 </h3>
                 <p className="text-slate-600 mb-8 leading-relaxed text-lg">
                   바쁜 진료 환경과 예민한 환축을 고려하여, 스트레스 없이 자발적인 섭취를 유도하도록 설계되었습니다.
@@ -194,14 +222,14 @@ const MonsmectaSNJLanding = () => {
       {/* Infographics Section (Restored) */}
       <section className="py-24 bg-white max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h3 className="text-3xl md:text-4xl font-extrabold text-[#00513b] mb-4">상세 학술 데이터</h3>
+          <h3 className="text-3xl md:text-4xl font-extrabold text-[#00513b] mb-4 break-keep">상세 학술 데이터</h3>
           <p className="text-slate-500 text-lg font-medium">원장님의 정확한 처방을 돕는 심층 자료입니다.</p>
         </div>
         <div className="space-y-12">
           {/* HTML Infographic */}
-          <div className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative" style={{ height: '1700px' }}>
+          <div className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative h-[2500px] sm:h-[1800px] md:h-[1700px]">
             <iframe 
-              src={`${import.meta.env.BASE_URL}assets/james_infographic.html`} 
+              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=1.1`} 
               className="absolute top-0 left-0 w-full h-full border-0" 
               title="몬스멕타 인포그래픽" 
               scrolling="no"
@@ -239,7 +267,7 @@ const MonsmectaSNJLanding = () => {
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 transform transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,81,59,0.1)]">
             <div className="bg-gradient-to-r from-[#00513b] to-[#003d2b] p-8 md:p-10 text-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
-              <h2 className="text-3xl font-black text-white drop-shadow-md">동물병원 원장님 전용 퀵 발주서</h2>
+              <h2 className="text-3xl font-black text-white drop-shadow-md break-keep">동물병원 원장님 전용 퀵 발주서</h2>
               <p className="text-emerald-100/80 font-medium mt-3">입력하신 정보는 병원 인증 및 세금계산서 발행에 엄격하게 사용됩니다.</p>
             </div>
             

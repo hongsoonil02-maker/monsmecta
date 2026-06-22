@@ -81,17 +81,18 @@
             letter-spacing: 1px;
         }
 
-        /* Subheader S&J */
         .subheader {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
             padding: 15px;
             background-color: white;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             border-bottom: 2px solid var(--border-color);
+            text-align: center;
         }
 
         .subheader .logo {
@@ -341,6 +342,22 @@
             .s4-content {
                 flex-direction: column;
                 text-align: center;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header h2 {
+                font-size: 0.9rem;
+            }
+            .subheader {
+                flex-direction: column;
+            }
+            .s1-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            .icon-circle {
+                margin-bottom: 10px;
             }
         }
     </style>
