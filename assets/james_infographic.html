@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONSMECTA (몬스멕타) - Infographic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #e6f7f8;
+            --header-bg: #1e5a7a;
+            --section-title-bg: #1c4b69;
+            --text-dark: #112d40;
+            --accent-gold: #d4af37;
+            --border-color: #b0d4d6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #d1eaeb;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .infographic {
+            width: 100%;
+            max-width: 800px;
+            background-color: var(--primary-bg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Hexagon Background Pattern (simplified) */
+        .infographic::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            padding-bottom: 20px;
+        }
+
+        /* Main Header */
+        .header {
+            background: linear-gradient(135deg, #2b7a9f, #14405a);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 5px solid #63b3c3;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #ffe680;
+        }
+
+        .header h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Subheader S&J */
+        .subheader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background-color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .subheader .logo {
+            color: var(--header-bg);
+            font-size: 1.3rem;
+        }
+
+        .badge {
+            background-color: #fcf4d9;
+            border: 1px solid var(--accent-gold);
+            padding: 5px 12px;
+            border-radius: 20px;
+            color: #8c6a0b;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Sections */
+        .section {
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            background-color: var(--section-title-bg);
+            color: white;
+            padding: 10px 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .section-content {
+            padding: 20px;
+        }
+
+        /* Section 1 */
+        .s1-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .s1-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            border: 2px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .s1-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .s1-text p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Section 2 */
+        .s2-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .s2-card {
+            background-color: var(--primary-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .s2-card-header {
+            background-color: #2b7a9f;
+            color: white;
+            padding: 8px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .s2-card-header.green {
+            background-color: #2b9f84;
+        }
+
+        .s2-img-placeholder {
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 3rem;
+        }
+
+        .s2-desc {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        /* Section 3 */
+        .s3-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .s3-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .s3-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            border: 2px solid #8ec6cb;
+        }
+
+        .s3-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .s3-sub {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        /* Section 4 */
+        .s4-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .doctor-icon {
+            width: 100px;
+            height: 100px;
+            background-color: var(--primary-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.5rem;
+            border: 3px solid var(--border-color);
+        }
+
+        .s4-text h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .s4-text strong {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+        }
+
+        /* Section 5 */
+        .s5-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .s5-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #fdfdfd;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .s5-icon {
+            font-size: 3rem;
+        }
+
+        .s5-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .s5-sub {
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 400;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--header-bg);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer strong {
+            font-size: 1.2rem;
+            color: #ffe680;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .s1-grid, .s2-grid, .s5-grid {
+                grid-template-columns: 1fr;
+            }
+            .s3-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .s4-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="infographic">
+    <div class="content-wrapper">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>MONSMECTA (몬스멕타)</h1>
+            <h2>VETERINARY EXCLUSIVE GUT HEALTH PREMIER SOLUTION</h2>
+        </div>
+
+        <div class="subheader">
+            <div class="logo"><strong>S&J</strong> S&J Veterinary Hospital</div>
+            <div class="badge">✔️ <strong>Dr. James Hong approved</strong></div>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="section">
+            <div class="section-title">SECTION 1: THE ADVANCED COMPOSITION (진보된 구성)</div>
+            <div class="section-content s1-grid">
+                <div class="s1-item">
+                    <div class="icon-circle">⛰️</div>
+                    <div class="s1-text">
+                        <h3>High Purity,<br>Ultra-Fine<br>Montmorillonite</h3>
+                        <p>(고순도 초미세 몬모릴로나이트)</p>
+                    </div>
+                </div>
+                <div class="s1-item">
+                    <div class="icon-circle">🦠</div>
+                    <div class="s1-text">
+                        <h3>Fortified with<br><em>Bacillus subtilis</em></h3>
+                        <p>(비실러스 서브틸리스 강화)<br>for Gut Restoration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="section">
+            <div class="section-title">SECTION 2: DUAL MECHANISM OF ACTION (이중 작용 기전)</div>
+            <div class="section-content s2-grid">
+                <div class="s2-card">
+                    <div class="s2-card-header">A. ADSORPTION & FLUSH (흡착 및 배출)</div>
+                    <div class="s2-img-placeholder">🧲🦠</div>
+                    <div class="s2-desc">Static Charge Captures Viruses, Bacteria, and Toxins.</div>
+                </div>
+                <div class="s2-card">
+                    <div class="s2-card-header green">B. MUCOSAL BARRIER PROTECTION (점막 장벽 보호)</div>
+                    <div class="s2-img-placeholder">🛡️🧱</div>
+                    <div class="s2-desc">Forms a Strong, Gentle Protective Film over Villi.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="section">
+            <div class="section-title">SECTION 3: CLINICAL BENEFITS (임상적 이점)</div>
+            <div class="section-content s3-grid">
+                <div class="s3-item">
+                    <div class="s3-icon">🐕</div>
+                    <div class="s3-title">Rapid Diarrhea<br>Cessation</div>
+                    <div class="s3-sub">(빠른 설사 멈춤)</div>
+                </div>
+                <div class="s3-item">
+                    <div class="s3-icon">🩺</div>
+                    <div class="s3-title">Buffering Acid &<br>Soothing Pain</div>
+                    <div class="s3-sub">(pH 완충 및 배앓이 완화)</div>
+                </div>
+                <div class="s3-item">
+                    <div class="s3-icon">💧</div>
+                    <div class="s3-title">Synergy with<br>IV Fluid Therapy</div>
+                    <div class="s3-sub">(수액 처치와 뛰어난 임상 시너지)</div>
+                </div>
+                <div class="s3-item">
+                    <div class="s3-icon">🧬</div>
+                    <div class="s3-title">Gut Microbiome<br>Restoration</div>
+                    <div class="s3-sub">(장내 미생물 균형 회복)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="section">
+            <div class="section-title">SECTION 4. DOCTOR JAMES HONG'S EXPERIENCE (닥터 제임스홍의 경험)</div>
+            <div class="section-content s4-content">
+                <div class="doctor-icon">👨‍⚕️</div>
+                <div class="s4-text">
+                    <h3>Developed based on</h3>
+                    <strong>6,000+ Parvovirus</strong> Clinical Cases.
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="section">
+            <div class="section-title">SECTION 5: EXCLUSIVITY PROMISE (독점 유통 약속)</div>
+            <div class="section-content s5-grid">
+                <div class="s5-item">
+                    <div class="s5-icon">🏥</div>
+                    <div>
+                        <div class="s5-text">STRICTLY VETERINARY<br>CLINICS ONLY</div>
+                        <div class="s5-sub">(오직 동물병원 처방 전용)</div>
+                    </div>
+                </div>
+                <div class="s5-item">
+                    <div class="s5-icon" style="color:red;">🚫🛒</div>
+                    <div>
+                        <div class="s5-text">NO ONLINE/PET<br>SHOP SALES</div>
+                        <div class="s5-sub">(온라인/펫샵 판매 불가)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div><strong>S&J</strong></div>
+        <div>대표 연락처 : 031-321-6562</div>
+        <div>판매원 : 에스앤제이 동물병원</div>
+    </div>
+</div>
+
+</body>
+</html>
