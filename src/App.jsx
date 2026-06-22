@@ -22,6 +22,7 @@ const MonsmectaSNJLanding = () => {
   const [address, setAddress] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLabelModalOpen, setIsLabelModalOpen] = useState(false);
+  const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
   const pricePerBottle = 7700;
 
   const handleCheckout = (e) => {
@@ -548,9 +549,32 @@ const MonsmectaSNJLanding = () => {
                   <span className="text-amber-600">TEL</span> 031-458-1240 / www.mobio.co.kr
                 </div>
               </div>
-              <button onClick={() => window.open(`${import.meta.env.BASE_URL}assets/monsmecta_label_print.html`, '_blank')} className="shrink-0 bg-white border border-slate-300 hover:border-[#00513b] text-slate-700 hover:text-[#00513b] font-bold py-3 px-5 rounded-xl shadow-sm transition-colors flex items-center gap-2 w-full sm:w-auto justify-center">
+              <button onClick={() => setIsPrintModalOpen(true)} className="shrink-0 bg-white border border-slate-300 hover:border-[#00513b] text-slate-700 hover:text-[#00513b] font-bold py-3 px-5 rounded-xl shadow-sm transition-colors flex items-center gap-2 w-full sm:w-auto justify-center">
                 🖨️ 인쇄용 원본 라벨 보기
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Digital Print Label Modal */}
+      {isPrintModalOpen && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity">
+          <div className="bg-slate-100 rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300 flex flex-col">
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-white border-b border-slate-200 p-4 md:p-6 flex justify-between items-center z-10 rounded-t-3xl shadow-sm">
+              <h3 className="text-xl md:text-2xl font-black text-[#00513b] flex items-center gap-2">
+                🖨️ 인쇄용 라벨 (고해상도)
+              </h3>
+              <button onClick={() => setIsPrintModalOpen(false)} className="text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-full p-2 transition-colors focus:outline-none">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* Modal Body / Image Content */}
+            <div className="p-4 md:p-8 flex justify-center items-center bg-gray-200/50">
+              <img src={`${import.meta.env.BASE_URL}assets/label_screenshot.png`} alt="인쇄용 몬스멕타 라벨" className="max-w-full h-auto rounded-xl shadow-lg border border-slate-300" />
             </div>
           </div>
         </div>
