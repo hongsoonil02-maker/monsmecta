@@ -227,9 +227,9 @@ const MonsmectaSNJLanding = () => {
         </div>
         <div className="space-y-12">
           {/* HTML Infographic */}
-          <div className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative h-[2500px] sm:h-[1800px] md:h-[1700px]">
+          <div className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative h-[3800px] sm:h-[2200px] md:h-[1800px]">
             <iframe 
-              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=1.1`} 
+              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=1.2`} 
               className="absolute top-0 left-0 w-full h-full border-0" 
               title="몬스멕타 인포그래픽" 
               scrolling="no"
