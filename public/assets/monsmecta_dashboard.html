@@ -302,7 +302,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'dashboard',
-            height: document.documentElement.scrollHeight
+            height: document.body.offsetHeight + 50
         }, '*');
     });
     observer.observe(document.body);
@@ -310,7 +310,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'dashboard',
-            height: document.documentElement.scrollHeight
+            height: document.body.offsetHeight + 50
         }, '*');
     });
 </script>

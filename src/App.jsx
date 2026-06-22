@@ -141,7 +141,7 @@ const MonsmectaSNJLanding = () => {
       {/* 3대 가치 약속 Section (Restored from App.jsx & Upgraded) */}
       <section id="values" className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">몬스멕타의 3대 가치 약속</h2>
             <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
             <p className="text-slate-500 text-lg mt-6 font-medium">수의사 원장님들의 진료 및 경영적 신뢰를 지켜드리는 확실한 기준이 되겠습니다.</p>
@@ -178,7 +178,7 @@ const MonsmectaSNJLanding = () => {
       {/* Clinical Evidence Section */}
       <section id="clinical" className="py-24 bg-slate-100 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">수의사가 수의사에게 제안하는 근거</h2>
             <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
           </div>
@@ -235,8 +235,8 @@ const MonsmectaSNJLanding = () => {
       </section>
 
       {/* Infographics Section (Restored & Upgraded) */}
-      <section className="py-24 bg-white max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
+      <section className="py-12 bg-white max-w-6xl mx-auto px-4">
+        <div className="text-center mb-8">
           <h3 className="text-3xl md:text-4xl font-extrabold text-[#00513b] mb-4 break-keep">상세 학술 데이터 및 상담 시나리오</h3>
           <p className="text-slate-500 text-lg font-medium">원장님의 정확한 처방과 보호자 상담을 돕는 심층 자료입니다.</p>
         </div>
@@ -382,7 +382,7 @@ const MonsmectaSNJLanding = () => {
                 </div>
               </div>
 
-              <div className="bg-slate-900 p-8 md:p-10 rounded-2xl text-white shadow-2xl relative overflow-hidden">
+              <div className="bg-[#003d2b] p-8 md:p-10 rounded-2xl text-white shadow-2xl relative overflow-hidden">
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-yellow-400 opacity-10 rounded-full blur-3xl"></div>
                 <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 relative z-10">
                   <span className="text-xl font-bold text-slate-300">총 결제 예정 금액</span>
@@ -400,16 +400,16 @@ const MonsmectaSNJLanding = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
+      <footer className="bg-[#00281d] text-emerald-400/80 py-16 border-t border-[#003d2b]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h4 className="text-white font-black text-xl mb-6 tracking-wide">에스앤제이 동물병원</h4>
           <div className="space-y-3 mb-8 font-medium">
             <p>대표자: 홍순일 (닥터 젬스홍) | 사업자등록번호: 792-66-00615</p>
             <p>주소: 경기도 용인시 처인구 포곡읍 선장1로 98-8</p>
             <p>대표 연락처: 031-321-6562 | 이메일: contact@snjvet.com</p>
-            <p className="text-slate-500 mt-4">결제계좌: 카카오뱅크 3333-26-3248376 (예금주: 홍순일)</p>
+            <p className="text-emerald-500 mt-4">결제계좌: 카카오뱅크 3333-26-3248376 (예금주: 홍순일)</p>
           </div>
-          <div className="pt-8 border-t border-slate-800/50 text-sm font-semibold tracking-wider text-slate-600">
+          <div className="pt-8 border-t border-[#003d2b]/50 text-sm font-semibold tracking-wider text-emerald-600/80">
             © {new Date().getFullYear()} S&J Animal Hospital. All rights reserved.
             <br />
             <span className="text-xs font-normal mt-2 inline-block">※ 본 사이트는 대외비 문서로 전국 수의사 원장님들께 한정하여 발송됩니다.</span>
