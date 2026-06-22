@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 const MonsmectaSNJLanding = () => {
-  const [iframeHeight, setIframeHeight] = useState(1800); // Default fallback
+  const [iframeHeights, setIframeHeights] = useState({ james: 1800, scenario: 1800, dashboard: 1800 }); // Default fallback
 
   useEffect(() => {
     const handleMessage = (event) => {
       if (event.data && event.data.type === 'resize-iframe') {
-        setIframeHeight(event.data.height);
+        const source = event.data.source || 'james';
+        setIframeHeights(prev => ({
+          ...prev,
+          [source]: event.data.height
+        }));
       }
     };
     window.addEventListener('message', handleMessage);
