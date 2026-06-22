@@ -243,7 +243,7 @@ const MonsmectaSNJLanding = () => {
             style={{ height: iframeHeight ? `${iframeHeight}px` : '1800px' }}
           >
             <iframe 
-              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=1.3`} 
+              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=1.4`} 
               className="absolute top-0 left-0 w-full h-full border-0" 
               title="몬스멕타 인포그래픽" 
               scrolling="no"
