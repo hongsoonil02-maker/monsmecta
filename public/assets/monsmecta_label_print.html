@@ -17,10 +17,6 @@
                 background: white !important;
                 margin: 0;
                 padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
             }
             .no-print { display: none !important; }
             
@@ -101,7 +97,7 @@
 
                 <!-- Right Column (Specs & Details) -->
                 <div class="w-7/12 flex flex-col justify-between">
-                    <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+                    <div class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl h-full flex flex-col justify-between">
                         
                         <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-[12px] leading-relaxed">
                             
@@ -155,7 +151,7 @@
                                 </ul>
                             </div>
 
-                            <div class="flex justify-between items-center border-t border-slate-200 pt-4 mt-2 font-bold text-sm">
+                            <div class="col-span-full flex justify-between items-center border-t border-slate-200 pt-4 mt-2 font-bold text-sm">
                                 <div class="text-slate-900">실제중량 <span class="text-emerald-700 ml-2">100ml</span></div>
                                 <div class="text-slate-900">제조일자 <span class="text-slate-400 font-normal ml-2">별도표기</span></div>
                             </div>
