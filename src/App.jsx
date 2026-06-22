@@ -480,42 +480,75 @@ const MonsmectaSNJLanding = () => {
                     </ul>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4 text-sm bg-slate-50 p-5 rounded-2xl border border-slate-200">
-                    <div>
-                      <span className="block text-xs font-bold text-slate-400 uppercase">사료의 형태 / 용도</span>
-                      <strong className="text-slate-800">액상 / 반려동물용</strong>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <div className="col-span-full border-b border-slate-200 pb-2 mb-2 flex justify-between items-end">
+                      <span className="block text-xs font-bold text-slate-400 uppercase">사료 성분등록번호</span>
+                      <strong className="text-slate-800">제XX9UY0145호</strong>
                     </div>
-                    <div>
-                      <span className="block text-xs font-bold text-slate-400 uppercase">등록성분량</span>
-                      <strong className="text-slate-800">바실러스 서브틸리스 1.0 x 10^7 cfu/g 이상</strong>
+                    
+                    <div className="col-span-full">
+                      <span className="block text-xs font-bold text-slate-400 uppercase mb-1">사료의 종류 및 명칭 / 형태 / 용도</span>
+                      <strong className="text-slate-800">보조사료 / 미생물제 / 바실러스 서브틸리스 | 액상 | 반려동물용</strong>
                     </div>
-                    <div className="col-span-2">
-                      <span className="block text-xs font-bold text-slate-400 uppercase">효과</span>
-                      <ul className="text-slate-800 font-medium list-disc pl-4 mt-1">
-                        <li>장 관련 질병에 대한 저항력 향상에 도움</li>
+                    
+                    <div className="col-span-full">
+                      <span className="block text-xs font-bold text-slate-400 uppercase mb-1">등록성분량</span>
+                      <strong className="text-slate-800">바실러스 서브틸리스 1.0 x 10^7 cfu/g 이상, 부형제(정제수)</strong>
+                    </div>
+
+                    <div className="col-span-full">
+                      <span className="block text-xs font-bold text-slate-400 uppercase mb-1">사용한 원료의 명칭</span>
+                      <strong className="text-slate-800">바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수</strong>
+                    </div>
+                    
+                    <div className="col-span-full mt-2">
+                      <span className="block text-xs font-bold text-[#00513b] uppercase mb-1">▶ 효과</span>
+                      <ul className="text-slate-800 font-medium list-disc pl-4 mt-1 space-y-1">
+                        <li>장 관련 질병(파보, 로타, 코로나 등)에 대한 저항력 향상에 도움</li>
                         <li>면역 기능 및 건강 상태 유지에 도움</li>
+                        <li>장 기능 개선 및 정장 작용에 도움</li>
                       </ul>
+                    </div>
+                    
+                    <div className="flex justify-between items-center border-t border-slate-200 pt-3 mt-2 col-span-full">
+                        <div><span className="text-xs font-bold text-slate-400 uppercase">실제중량</span> <strong className="text-slate-800 ml-1">100ml</strong></div>
+                        <div><span className="text-xs font-bold text-slate-400 uppercase">제조일자</span> <span className="text-slate-600 ml-1">별도표기</span></div>
+                    </div>
+                    <div className="col-span-full">
+                        <span className="text-xs font-bold text-slate-400 uppercase">유통기한</span> <span className="text-slate-600 ml-1">제조일로부터 18개월</span>
                     </div>
                   </div>
 
                   <div className="bg-rose-50 text-rose-800 p-4 rounded-xl text-xs font-medium border border-rose-100">
                     <span className="font-bold block mb-1">⚠️ 주의사항</span>
-                    직사광선을 피하여 건조하고 서늘한 곳에 보관하십시오. 제품 특성 상 성분들이 가라앉을 수 있으니 <strong className="text-rose-900">반드시 흔들어서 사용</strong>해주시기 바랍니다.
+                    <ul className="list-decimal pl-4 space-y-1">
+                      <li>직사광선을 피하여 건조하고 서늘한 곳에 보관하십시오.</li>
+                      <li>제품 특성 상 가라앉는 성분들이 있어서 <strong className="text-rose-900 font-bold">흔들어서 사용</strong>하십시오.</li>
+                      <li>제품에 대하여 문의하실 경우 제조원 또는 판매원으로 연락하여 주시기 바랍니다.</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Modal Footer */}
-            <div className="bg-slate-50 p-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 rounded-b-3xl gap-4">
-              <div className="flex items-center gap-3">
-                <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt="S&J" className="w-8 h-8 rounded-full border border-slate-200" />
-                <div>
-                  <strong className="block text-slate-700">판매원 : 에스앤제이 동물병원</strong>
-                  TEL : 031-321-6562
+            <div className="bg-slate-50 p-6 border-t border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center text-xs text-slate-500 rounded-b-3xl gap-4">
+              <div className="flex flex-col sm:flex-row gap-6 w-full md:w-auto">
+                <div className="flex items-center gap-3">
+                  <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt="S&J" className="w-8 h-8 rounded-full border border-slate-200 bg-white" />
+                  <div>
+                    <strong className="block text-slate-700">판매원 : 에스앤제이 동물병원</strong>
+                    경기도 용인시 처인구 포곡읍 선장1로 98-8<br/>
+                    <span className="text-amber-600">TEL</span> 031-321-6562
+                  </div>
+                </div>
+                <div className="border-l-0 sm:border-l border-slate-200 pl-0 sm:pl-6">
+                  <strong className="block text-slate-700">제조원 : ㈜ 엠오 바이오</strong>
+                  경기도 화성시 팔탄면 석포로 74번길 10-25(공장)<br/>
+                  <span className="text-amber-600">TEL</span> 031-458-1240 / www.mobio.co.kr
                 </div>
               </div>
-              <button onClick={() => window.open(`${import.meta.env.BASE_URL}assets/monsmecta_label_print.html`, '_blank')} className="bg-white border border-slate-300 hover:border-[#00513b] text-slate-700 hover:text-[#00513b] font-bold py-2 px-4 rounded-lg shadow-sm transition-colors flex items-center gap-2">
+              <button onClick={() => window.open(`${import.meta.env.BASE_URL}assets/monsmecta_label_print.html`, '_blank')} className="shrink-0 bg-white border border-slate-300 hover:border-[#00513b] text-slate-700 hover:text-[#00513b] font-bold py-3 px-5 rounded-xl shadow-sm transition-colors flex items-center gap-2 w-full sm:w-auto justify-center">
                 🖨️ 인쇄용 원본 라벨 보기
               </button>
             </div>
