@@ -21,6 +21,7 @@ const MonsmectaSNJLanding = () => {
   const [bizNumber, setBizNumber] = useState('');
   const [address, setAddress] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLabelModalOpen, setIsLabelModalOpen] = useState(false);
   const pricePerBottle = 7700;
 
   const handleCheckout = (e) => {
@@ -105,10 +106,13 @@ const MonsmectaSNJLanding = () => {
             <p className="text-lg md:text-xl text-emerald-50/90 leading-relaxed max-w-xl mx-auto md:mx-0 font-light">
               현장 진료의 까다로운 기준을 통과한 위장관 솔루션. 에스앤제이 동물병원 홍순일 원장이 직접 검증하고 처방합니다.
             </p>
-            <div className="pt-6">
-              <a href="#order" className="inline-block bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-lg font-black px-10 py-5 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+            <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a href="#order" className="inline-block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-lg font-black px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
                 원장님 전용 발주서 작성하기
               </a>
+              <button onClick={() => setIsLabelModalOpen(true)} className="inline-block text-center bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-full hover:bg-white/20 transform hover:-translate-y-1 transition-all duration-300">
+                📋 제품 스펙/라벨 보기
+              </button>
             </div>
           </div>
           <div className="md:w-1/2 flex justify-center w-full relative group perspective">
@@ -124,14 +128,12 @@ const MonsmectaSNJLanding = () => {
                   className="w-full h-auto object-cover"
                 >
                   <source src={`${import.meta.env.BASE_URL}assets/video.mp4`} type="video/mp4" />
-                  <div className="w-full h-80 bg-slate-100 flex items-center justify-center p-8">
-                    <div className="text-center">
-                      <div className="text-[#00513b] font-black text-3xl mb-2">MONSMECTA</div>
-                      <div className="w-16 h-1 bg-yellow-400 mx-auto mb-4"></div>
-                      <p className="text-slate-500 font-medium">Video Placeholder</p>
-                    </div>
-                  </div>
                 </video>
+              </div>
+              
+              {/* 3D Bottle Mockup Overlaid on corner */}
+              <div className="absolute -bottom-10 -right-10 w-48 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30 hidden sm:block">
+                <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="MONSMECTA 3D Bottle Mockup" className="w-full h-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]" />
               </div>
             </div>
           </div>
@@ -427,6 +429,99 @@ const MonsmectaSNJLanding = () => {
           animation: bounce-x 1s infinite;
         }
       `}} />
+
+      {/* Digital E-Label Modal */}
+      {isLabelModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
+          <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300">
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-gradient-to-r from-[#00513b] via-[#003d2b] to-[#00281d] text-white p-6 flex justify-between items-center z-10">
+              <div>
+                <p className="text-xs text-emerald-300 font-bold tracking-widest uppercase mb-1">E-Label Specification</p>
+                <h3 className="text-2xl font-black">몬스멕타 상세 스펙 및 라벨 정보</h3>
+              </div>
+              <button onClick={() => setIsLabelModalOpen(false)} className="text-emerald-100 hover:text-white bg-emerald-800/50 hover:bg-emerald-700/50 rounded-full p-2 transition-colors">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* Modal Body / E-Label Content */}
+            <div className="p-8">
+              <div className="flex flex-col md:flex-row gap-8">
+                
+                {/* 3D Bottle Image & Key Points */}
+                <div className="md:w-1/3 flex flex-col items-center border-r border-slate-100 pr-0 md:pr-8">
+                  <div className="bg-slate-50 w-full rounded-2xl p-6 flex justify-center items-center mb-6 border border-slate-100">
+                    <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="Monsmecta Bottle" className="w-3/4 max-w-[200px] drop-shadow-xl hover:scale-105 transition-transform" />
+                  </div>
+                  <div className="w-full text-center">
+                    <h4 className="text-xl font-black text-[#00513b] mb-2">MONSMECTA</h4>
+                    <p className="text-sm font-bold text-amber-500 mb-4">연변 시 장 기능 개선 및 정장 작용</p>
+                    <div className="space-y-2 text-left bg-emerald-50 p-4 rounded-xl">
+                      <p className="text-xs font-bold text-emerald-800">✅ 1일 두당 2~4ml 급여</p>
+                      <p className="text-xs font-bold text-emerald-800">✅ 5~7일간 경구 급여</p>
+                      <p className="text-xs font-bold text-emerald-800">✅ 개, 고양이 전축종 적용</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Detailed Specs */}
+                <div className="md:w-2/3 space-y-6">
+                  <div>
+                    <h5 className="text-lg font-bold text-slate-800 border-b-2 border-amber-400 pb-2 mb-4 inline-block">핵심 5가지 복합체 성분</h5>
+                    <ul className="space-y-3 text-sm text-slate-600">
+                      <li><strong className="text-emerald-700">1) 고초균 (Bacillus subtilis):</strong> 항균·항바이러스 작용 <br/><span className="text-xs text-slate-400 pl-4">*경상대 수의대 항바이러스 효과 확인</span></li>
+                      <li><strong className="text-emerald-700">2) 포도당:</strong> 장 기능 개선 및 정장 작용</li>
+                      <li><strong className="text-emerald-700">3) 비타민 A:</strong> 상피세포의 회복</li>
+                      <li><strong className="text-emerald-700">4) 전해질제:</strong> Sodium acetate, Sodium propionate</li>
+                      <li><strong className="text-emerald-700">5) 몬모릴로나이트:</strong> 연변 및 설사 개선, 독소 제거, 장 환경 개선</li>
+                    </ul>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4 text-sm bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                    <div>
+                      <span className="block text-xs font-bold text-slate-400 uppercase">사료의 형태 / 용도</span>
+                      <strong className="text-slate-800">액상 / 반려동물용</strong>
+                    </div>
+                    <div>
+                      <span className="block text-xs font-bold text-slate-400 uppercase">등록성분량</span>
+                      <strong className="text-slate-800">바실러스 서브틸리스 1.0 x 10^7 cfu/g 이상</strong>
+                    </div>
+                    <div className="col-span-2">
+                      <span className="block text-xs font-bold text-slate-400 uppercase">효과</span>
+                      <ul className="text-slate-800 font-medium list-disc pl-4 mt-1">
+                        <li>장 관련 질병에 대한 저항력 향상에 도움</li>
+                        <li>면역 기능 및 건강 상태 유지에 도움</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-rose-50 text-rose-800 p-4 rounded-xl text-xs font-medium border border-rose-100">
+                    <span className="font-bold block mb-1">⚠️ 주의사항</span>
+                    직사광선을 피하여 건조하고 서늘한 곳에 보관하십시오. 제품 특성 상 성분들이 가라앉을 수 있으니 <strong className="text-rose-900">반드시 흔들어서 사용</strong>해주시기 바랍니다.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Modal Footer */}
+            <div className="bg-slate-50 p-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 rounded-b-3xl gap-4">
+              <div className="flex items-center gap-3">
+                <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt="S&J" className="w-8 h-8 rounded-full border border-slate-200" />
+                <div>
+                  <strong className="block text-slate-700">판매원 : 에스앤제이 동물병원</strong>
+                  TEL : 031-321-6562
+                </div>
+              </div>
+              <button onClick={() => window.open(`${import.meta.env.BASE_URL}assets/monsmecta_label_print.html`, '_blank')} className="bg-white border border-slate-300 hover:border-[#00513b] text-slate-700 hover:text-[#00513b] font-bold py-2 px-4 rounded-lg shadow-sm transition-colors flex items-center gap-2">
+                🖨️ 인쇄용 원본 라벨 보기
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
