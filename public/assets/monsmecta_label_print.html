@@ -19,14 +19,19 @@
                 padding: 0;
                 display: flex;
                 justify-content: center;
-                align-items: flex-start;
+                align-items: center;
+                height: 100vh;
+                overflow: hidden;
             }
             .no-print { display: none !important; }
             
             #label-container {
-                transform: scale(0.9);
-                transform-origin: top center;
-                margin-top: 5mm;
+                width: 270mm !important;
+                height: auto !important;
+                max-height: 190mm !important;
+                transform: scale(0.7);
+                transform-origin: center center;
+                margin: 0;
                 border: none !important;
                 box-shadow: none !important;
             }
