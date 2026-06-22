@@ -132,8 +132,8 @@ const MonsmectaSNJLanding = () => {
               </div>
               
               {/* Real Bottle Photo Overlaid on corner */}
-              <div className="absolute -bottom-10 -right-10 w-48 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30 hidden sm:block">
-                <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="MONSMECTA Real Bottle" className="w-full h-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)] rounded-[20px]" style={{ mixBlendMode: 'multiply' }} />
+              <div className="absolute -bottom-10 -right-10 w-40 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30 hidden sm:block">
+                <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="MONSMECTA Real Bottle" className="w-full h-auto object-contain rounded-2xl border-4 border-white shadow-xl bg-white" />
               </div>
             </div>
           </div>
