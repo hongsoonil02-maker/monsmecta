@@ -52,9 +52,6 @@
             }
         }
     </style>
-    <!-- PDF 생성을 위한 최신 라이브러리 (CSS oklch 지원) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body class="py-6 px-2 sm:px-6">
 
@@ -323,108 +320,12 @@
 
     </div>
 
-    <!-- 프린트 / 제어 영역 (화면상에서만 보임) -->
-    <div class="max-w-6xl mx-auto mt-6 flex justify-center space-x-4 no-print">
-        <button onclick="downloadPDF()" id="download-btn" class="flex items-center justify-center space-x-2 bg-[#00513b] hover:bg-[#003d2b] text-white text-sm font-semibold py-3 px-6 rounded-xl shadow-md transition duration-200">
-            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
-            </svg>
-            <span>고화질 PDF 다운로드</span>
-        </button>
-    </div>
-
-
 <script>
-    function downloadPDF() {
-        // PDF가 생성되는 동안 버튼 상태를 로딩으로 변경
-        const btn = document.getElementById('download-btn');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-amber-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> <span>PDF 생성 중... (약 5초 소요)</span>`;
-        btn.disabled = true;
-
-        // 캡처할 대상 컨테이너 요소
-        const element = document.querySelector('.infographic-container');
-        
-        // 모바일 앱과 같은 소박스 비율(1단 세로 정렬)을 완벽하게 유지하기 위해 width를 760px로 강제 지정
-        const originalWidth = element.style.width;
-        const originalMaxWidth = element.style.maxWidth;
-        element.style.width = '760px';
-        element.style.maxWidth = '760px';
-
-        // 캡처 전에 페이지를 나눌 기준점(Section 4 & 5)의 Y좌표를 계산해 둠
-        const section45 = document.getElementById('section45');
-        const containerRect = element.getBoundingClientRect();
-        const sec45Rect = section45.getBoundingClientRect();
-        const splitY_px = sec45Rect.top - containerRect.top; // 상단에서부터 Section 45가 시작되는 픽셀 위치
-
-        // html-to-image 캡처
-        htmlToImage.toJpeg(element, { 
-            quality: 1.0,
-            pixelRatio: 2 
-        })
-        .then(function (dataUrl) {
-            // 강제 할당한 width 원래대로 복구
-            element.style.width = originalWidth;
-            element.style.maxWidth = originalMaxWidth;
-
-            const { jsPDF } = window.jspdf;
-            // A4 세로 (Portrait)
-            const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
-            
-            const imgProps = pdf.getImageProperties(dataUrl);
-            const pdfWidth = pdf.internal.pageSize.getWidth(); // 210mm
-            const pageHeight = pdf.internal.pageSize.getHeight(); // 297mm
-            
-            // 좌우 여백 15mm씩 부여하여 중앙에 예쁘게 배치
-            const margin = 15;
-            const printableWidth = pdfWidth - (margin * 2);
-            
-            // 비율 유지하며 스케일링
-            const ratio = printableWidth / imgProps.width;
-            const w = printableWidth;
-            const h = imgProps.height * ratio;
-            
-            // PDF 상에서의 분할 기준점 계산 (상단 margin 값 고려)
-            // 5mm 정도 위쪽에서 자르도록 보정하여 여유 공간 확보
-            const splitY_pdf = splitY_px * ratio;
-            
-            // --- 1페이지 (Section 1, 2, 3) ---
-            pdf.addImage(dataUrl, 'JPEG', margin, margin, w, h);
-            
-            // splitY_pdf 이후 영역은 하얀색 네모로 덮어서 가림
-            pdf.setFillColor(255, 255, 255);
-            pdf.rect(0, margin + splitY_pdf - 5, pdfWidth, pageHeight, 'F');
-            
-            // --- 2페이지 (Section 4, 5 및 Footer) ---
-            pdf.addPage();
-            
-            // 이미지를 끌어올려서(마이너스 Y좌표) Section 45가 페이지 상단(margin)에 오도록 함
-            const positionPage2 = margin - splitY_pdf + 5;
-            pdf.addImage(dataUrl, 'JPEG', margin, positionPage2, w, h);
-
-            pdf.save('monsmecta_clinical_infographic.pdf');
-
-            // 버튼 상태 원상복구
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        })
-        .catch(function (error) {
-            // 강제 할당한 width 원래대로 복구
-            element.style.width = originalWidth;
-            element.style.maxWidth = originalMaxWidth;
-            
-            console.error("PDF 생성 에러:", error);
-            alert("PDF 생성 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-        });
-    }
-
     const observer = new ResizeObserver(() => {
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'james',
-            height: document.body.offsetHeight + 50
+            height: document.body.offsetHeight + 10
         }, '*');
     });
     observer.observe(document.body);
@@ -432,7 +333,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'james',
-            height: document.body.offsetHeight + 50
+            height: document.body.offsetHeight + 10
         }, '*');
     });
 </script>
