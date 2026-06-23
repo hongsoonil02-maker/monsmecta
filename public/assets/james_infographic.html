@@ -252,7 +252,7 @@
             </div>
 
             <!-- SECTION 4 & 5: 제임스 대표님 임상 데이터 및 독점 공급 약속 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <div id="section45" class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 
                 <!-- SECTION 4: 닥터 제임스홍의 경험 (James 교정 완료) -->
                 <div class="border border-slate-100 rounded-2xl p-3 sm:p-5 bg-gradient-to-br from-[#00513b] via-[#004230] to-[#00281d] text-white shadow-sm flex flex-col justify-between">
@@ -345,16 +345,22 @@
         // 캡처할 대상 컨테이너 요소
         const element = document.querySelector('.infographic-container');
         
-        // 모바일에서도 레이아웃이 깨지지 않도록 임시로 강제 width 할당
+        // 모바일 앱과 같은 소박스 비율(1단 세로 정렬)을 완벽하게 유지하기 위해 width를 760px로 강제 지정
         const originalWidth = element.style.width;
         const originalMaxWidth = element.style.maxWidth;
-        element.style.width = '1200px';
-        element.style.maxWidth = '1200px';
+        element.style.width = '760px';
+        element.style.maxWidth = '760px';
 
-        // html-to-image (브라우저 네이티브 렌더링 엔진 사용, 최신 CSS oklch 완벽 지원)
+        // 캡처 전에 페이지를 나눌 기준점(Section 4 & 5)의 Y좌표를 계산해 둠
+        const section45 = document.getElementById('section45');
+        const containerRect = element.getBoundingClientRect();
+        const sec45Rect = section45.getBoundingClientRect();
+        const splitY_px = sec45Rect.top - containerRect.top; // 상단에서부터 Section 45가 시작되는 픽셀 위치
+
+        // html-to-image 캡처
         htmlToImage.toJpeg(element, { 
             quality: 1.0,
-            pixelRatio: 2 // 고해상도 화질 지원
+            pixelRatio: 2 
         })
         .then(function (dataUrl) {
             // 강제 할당한 width 원래대로 복구
@@ -363,35 +369,38 @@
 
             const { jsPDF } = window.jspdf;
             // A4 세로 (Portrait)
-            const pdf = new jsPDF({
-                orientation: 'portrait',
-                unit: 'mm',
-                format: 'a4'
-            });
+            const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
             
             const imgProps = pdf.getImageProperties(dataUrl);
             const pdfWidth = pdf.internal.pageSize.getWidth(); // 210mm
             const pageHeight = pdf.internal.pageSize.getHeight(); // 297mm
             
-            // 가로 폭에 꽉 차게 비율 계산
-            const ratio = pdfWidth / imgProps.width;
-            const w = pdfWidth;
+            // 좌우 여백 15mm씩 부여하여 중앙에 예쁘게 배치
+            const margin = 15;
+            const printableWidth = pdfWidth - (margin * 2);
+            
+            // 비율 유지하며 스케일링
+            const ratio = printableWidth / imgProps.width;
+            const w = printableWidth;
             const h = imgProps.height * ratio;
             
-            let heightLeft = h;
-            let position = 0; // 시작 y 위치
-
-            // 첫 번째 페이지 이미지 렌더링
-            pdf.addImage(dataUrl, 'JPEG', 0, position, w, h);
-            heightLeft -= pageHeight;
-
-            // 이미지가 1장을 초과하는 경우 다음 페이지 추가
-            while (heightLeft >= 0) {
-                position = position - pageHeight; // 이미지를 위로 끌어올림
-                pdf.addPage();
-                pdf.addImage(dataUrl, 'JPEG', 0, position, w, h);
-                heightLeft -= pageHeight;
-            }
+            // PDF 상에서의 분할 기준점 계산 (상단 margin 값 고려)
+            // 5mm 정도 위쪽에서 자르도록 보정하여 여유 공간 확보
+            const splitY_pdf = splitY_px * ratio;
+            
+            // --- 1페이지 (Section 1, 2, 3) ---
+            pdf.addImage(dataUrl, 'JPEG', margin, margin, w, h);
+            
+            // splitY_pdf 이후 영역은 하얀색 네모로 덮어서 가림
+            pdf.setFillColor(255, 255, 255);
+            pdf.rect(0, margin + splitY_pdf - 5, pdfWidth, pageHeight, 'F');
+            
+            // --- 2페이지 (Section 4, 5 및 Footer) ---
+            pdf.addPage();
+            
+            // 이미지를 끌어올려서(마이너스 Y좌표) Section 45가 페이지 상단(margin)에 오도록 함
+            const positionPage2 = margin - splitY_pdf + 5;
+            pdf.addImage(dataUrl, 'JPEG', margin, positionPage2, w, h);
 
             pdf.save('monsmecta_clinical_infographic.pdf');
 
