@@ -369,20 +369,30 @@
                 format: 'a4'
             });
             
-            // 비율 유지하며 A4에 딱 맞게 스케일링
             const imgProps = pdf.getImageProperties(dataUrl);
             const pdfWidth = pdf.internal.pageSize.getWidth(); // 210mm
-            const pdfHeight = pdf.internal.pageSize.getHeight(); // 297mm
+            const pageHeight = pdf.internal.pageSize.getHeight(); // 297mm
             
-            const ratio = Math.min(pdfWidth / imgProps.width, pdfHeight / imgProps.height);
-            const w = imgProps.width * ratio;
+            // 가로 폭에 꽉 차게 비율 계산
+            const ratio = pdfWidth / imgProps.width;
+            const w = pdfWidth;
             const h = imgProps.height * ratio;
             
-            // 중앙 정렬
-            const x = (pdfWidth - w) / 2;
-            const y = (pdfHeight - h) / 2;
+            let heightLeft = h;
+            let position = 0; // 시작 y 위치
 
-            pdf.addImage(dataUrl, 'JPEG', x, y, w, h);
+            // 첫 번째 페이지 이미지 렌더링
+            pdf.addImage(dataUrl, 'JPEG', 0, position, w, h);
+            heightLeft -= pageHeight;
+
+            // 이미지가 1장을 초과하는 경우 다음 페이지 추가
+            while (heightLeft >= 0) {
+                position = position - pageHeight; // 이미지를 위로 끌어올림
+                pdf.addPage();
+                pdf.addImage(dataUrl, 'JPEG', 0, position, w, h);
+                heightLeft -= pageHeight;
+            }
+
             pdf.save('monsmecta_clinical_infographic.pdf');
 
             // 버튼 상태 원상복구
