@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import Chatbot from './components/Chatbot';
 
 const MonsmectaSNJLanding = () => {
   const [iframeHeights, setIframeHeights] = useState({ james: 1800, scenario: 1800, dashboard: 1800 }); // Default fallback
@@ -595,7 +596,8 @@ const MonsmectaSNJLanding = () => {
             </div>
           </div>
         )
-      }
+      {/* 모달 등 끝 */}
+      <Chatbot />
     </div >
   );
 };
