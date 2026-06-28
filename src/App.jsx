@@ -52,8 +52,8 @@ const MonsmectaSNJLanding = () => {
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt="에스앤제이 동물병원 로고" className="h-8 w-auto drop-shadow-sm" onError={(e) => e.target.style.display = 'none'} />
-            <span className="font-extrabold text-xl text-[#00513b] tracking-tight">에스앤제이 동물병원</span>
+            <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt={t('footer.title')} className="h-8 w-auto drop-shadow-sm" onError={(e) => e.target.style.display = 'none'} />
+            <span className="font-extrabold text-xl text-[#00513b] tracking-tight">{t('footer.title')}</span>
           </div>
           <div className="hidden md:flex space-x-8">
             <a href="#about" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.products')}</a>
@@ -298,9 +298,11 @@ const MonsmectaSNJLanding = () => {
           </div>
 
           {/* Image Infographic */}
-          <div className="bg-slate-50 p-4 rounded-3xl shadow-xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-shadow duration-500">
-            <img src={`${import.meta.env.BASE_URL}assets/infographic_2.png`} alt="{t('clinical.chart_monsmecta')} 임상 증례" className="w-full h-auto object-contain rounded-2xl mix-blend-multiply" />
-          </div>
+          {i18n.language === 'ko' && (
+            <div className="bg-slate-50 p-4 rounded-3xl shadow-xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-shadow duration-500">
+              <img src={`${import.meta.env.BASE_URL}assets/infographic_2.png`} alt="{t('clinical.chart_monsmecta')} 임상 증례" className="w-full h-auto object-contain rounded-2xl mix-blend-multiply" />
+            </div>
+          )}
 
         </div>
       </section >
@@ -312,7 +314,7 @@ const MonsmectaSNJLanding = () => {
           <blockquote className="relative">
             <span className="text-8xl text-emerald-400/20 absolute -top-8 -left-8 md:-left-12 font-serif">"</span>
             <p className="text-xl md:text-2xl leading-loose italic font-light drop-shadow-md">
-              원장님, {t('clinical.chart_monsmecta')}는 단순한 일회성 정장 제품 공급을 넘어,<br className="hidden md:block" />
+              {t('letter.message1')}<br className="hidden md:block" />
               {t('letter.message2')}<br className="hidden md:block" />
               {t('letter.message3')}
             </p>
