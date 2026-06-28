@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monsmecta Comprehensive Dashboard</title>
+    <link rel="stylesheet" href="iframe.css">
+    
+    <script src="https://unpkg.com/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .montserrat { font-family: 'Montserrat', sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        
+        .css-villus { width: 35px; height: 80px; background: linear-gradient(to top, #fecdd3, #fff1f2); border-radius: 20px 20px 0 0; border: 3px solid #fb7185; border-bottom: none; display: inline-block; margin: 0 4px; position: relative; }
+        .css-virus { width: 18px; height: 18px; background-color: #ef4444; border-radius: 50%; border: 2px dashed #991b1b; position: absolute; }
+        .css-adsorbent { width: 28px; height: 28px; background-color: #fbbf24; border-radius: 50%; opacity: 0.85; position: absolute; box-shadow: 0 0 12px #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #78350f; }
+        .css-protective-film { position: absolute; bottom: 0; left: 0; width: 100%; height: 90px; background: linear-gradient(to top, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.4)); border-top: 4px dashed #14b8a6; border-radius: 15px 15px 0 0; pointer-events: none; }
+        
+        .timeline-container { display: flex; align-items: center; justify-content: space-between; position: relative; width: 100%; padding: 2rem 0; flex-wrap: wrap; gap: 1rem; }
+        .timeline-line { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background-color: #e2e8f0; z-index: 0; transform: translateY(-50%); display: none; }
+        @media (min-width: 768px) { .timeline-line { display: block; } }
+        .timeline-node { z-index: 10; display: flex; flex-direction: column; items: center; text-align: center; background: white; padding: 1rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 2px solid #e2e8f0; width: 100%; }
+        @media (min-width: 768px) { .timeline-node { width: 28%; } }
+        .timeline-icon { width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: bold; margin: 0 auto 0.5rem auto; }
+    </style>
+</head>
+<body class="antialiased p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto space-y-10">
+
+        <header class="bg-[#00513b] rounded-3xl p-8 shadow-2xl text-white relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center z-10 relative">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <span class="text-amber-400 font-bold tracking-widest text-xs uppercase mb-2 block">Clinical & Strategic Dashboard</span>
+                    <h1 class="text-3xl md:text-5xl font-black montserrat tracking-tight mb-2">MONSMECTA</h1>
+                    <p class="text-slate-300 font-medium text-base md:text-lg">Utilization Strategy and Clinical Medication Comprehensive Guide</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-center bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <p class="text-[10px] text-slate-300 font-bold uppercase tracking-widest mb-1">Developed By</p>
+                        <p class="text-xl font-black text-white montserrat">Dr. James Hong</p>
+                    </div>
+                    <div class="text-center bg-amber-500/10 p-4 rounded-2xl backdrop-blur-sm border border-amber-500/30">
+                        <p class="text-[10px] text-amber-200 font-bold uppercase tracking-widest mb-1">Clinical Cases</p>
+                        <p class="text-xl font-black text-amber-400 montserrat">6,000+</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 mb-4">
+            <p class="text-lg text-slate-700 font-light leading-relaxed">This dashboard integrates <strong class="font-bold text-slate-900">'Utilization Strategy Report'</strong> reflecting clinical feedback from Dr. Kim Dong-jun and <strong class="font-bold text-slate-900">'Smecta Dosage and Precautions'</strong> for safe prescriptions, providing intuitive insights for both veterinarians and guardians.</p>
+        </div>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">Part 1. Strategy</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">Clinical Feedback and Efficacy Comparison</h2>
+                    <p class="text-sm text-slate-500 mt-2">Key clinical superiority indicators of Monsmecta compared to general Smecta based on feedback from Dr. Kim Dong-jun.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="efficacyRadarChart"></canvas>
+                </div>
+                <div class="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold block mb-1">Summary of Field Veterinarian Feedback:</strong>
+                    "Existing formulations merely suppress diarrhea, but Monsmecta immediately alleviates abdominal pain with its gastric acid buffering (pH buffering) function and prevents forced feeding stress and vomiting with its excellent palatability in gel form."
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">Part 2. Market Value</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">Animal Hospital Profitability Indicators</h2>
+                    <p class="text-sm text-slate-500 mt-2">Structure of hospital margin rate compared to recommended consumer price due to blocking online distribution and exclusive supply.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="marginBarChart"></canvas>
+                </div>
+                <div class="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold block mb-1">Competitiveness Summary:</strong>
+                    "Forms a recommended consumer price acceptable to guardians of 15,000 to 25,000 won, and guarantees a stable margin of at least 150% to a maximum of 220% for animal hospitals through fundamental offline exclusive distribution."
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+            <div class="mb-8 text-center max-w-3xl mx-auto">
+                <span class="text-amber-500 font-bold tracking-widest text-xs uppercase mb-1 block">Part 3. Mechanism</span>
+                <h2 class="text-3xl font-black text-slate-900">Key Dual Action Mechanism</h2>
+                <p class="text-sm text-slate-600 mt-3">Visualizes the process of intestinal harmful substance adsorption and mucosal protection created by ultrafine montmorillonite and Bacillus subtilis strains.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-amber-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
+                            <h3 class="text-lg font-bold text-slate-900">Precise Adsorption of Toxins and Viruses</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-6">Natural smectite particles electrostatically adsorb and excrete harmful bacteria, viruses, and abnormal fermentation gases.</p>
+                    </div>
+                    <div class="relative w-full h-48 bg-rose-50 border-b-4 border-rose-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
+                        <div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div>
+                        <div class="css-virus" style="bottom: 120px; left: 20%;"></div>
+                        <div class="css-adsorbent" style="bottom: 110px; left: 15%;">Ion</div>
+                        <div class="css-virus" style="bottom: 90px; left: 60%;"></div>
+                        <div class="css-adsorbent" style="bottom: 85px; left: 55%;">Ion</div>
+                        <div class="css-virus" style="bottom: 130px; left: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-teal-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
+                            <h3 class="text-lg font-bold text-slate-900">Shield Protection for Damaged Gastrointestinal Mucosa</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-6">Gently coats the eroded mucosa to relieve pain and rebuilds the intestinal environment with Bacillus strains.</p>
+                    </div>
+                    <div class="relative w-full h-48 bg-teal-50 border-b-4 border-teal-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-protective-film"></div>
+                        <div class="absolute bottom-4 bg-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-md">Intestinal Mucosal Protective Coating</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+            <div class="mb-6 border-b border-slate-100 pb-4">
+                <span class="text-xs font-bold tracking-widest text-rose-600 uppercase">Part 4. Administration</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">Proper Dosage and Timing Timeline</h2>
+                <p class="text-sm text-slate-500 mt-2">Due to the nature of adsorbent formulations, mixing with other drugs or food can interfere with the absorption of active ingredients. Emphasize the following timeline to guardians.</p>
+            </div>
+
+            <div class="timeline-container bg-slate-50 rounded-2xl p-6 border border-slate-200 mt-8">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-node">
+                    <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">1</div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">Meal Time</h3>
+                    <p class="text-xs text-slate-500">Regular feed</p>
+                </div>
+                
+                <div class="timeline-node border-amber-400 bg-amber-50">
+                    <div class="timeline-icon bg-amber-500 text-white shadow-md">2</div>
+                    <h3 class="font-bold text-amber-900 text-sm mb-1">Monsmecta Solo Dosage</h3>
+                    <div class="bg-white rounded-lg p-2 border border-amber-200 mt-2">
+                        <p class="text-[11px] font-bold text-amber-700">✓ 1 hour before or 2 hours after meals</p>
+                        <p class="text-[10px] text-amber-600 mt-1">Maintain a completely empty stomach</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-node">
+                    <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">3</div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">Other Medication Intake</h3>
+                    <div class="bg-white rounded-lg p-2 border border-slate-200 mt-2">
+                        <p class="text-[11px] font-bold text-rose-600">✓ Maintain at least 1-2 hour interval</p>
+                        <p class="text-[10px] text-slate-500 mt-1">Prevent interference with absorption of other treatments</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function wrapLabel(label) {
+            if (label.length <= 16) return label;
+            let words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        }
+
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const ctxRadar = document.getElementById('efficacyRadarChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: [
+                    'Simple Diarrhea Suppression',
+                    'Gastric Acid Buffering (Pain Reduction)',
+                    'Voluntary Palatability (Prevents Vomiting)',
+                    'Intestinal Mucosal Shield Coating',
+                    'Bacillus Antiviral Action'
+                ].map(l => wrapLabel(l)),
+                datasets: [
+                    {
+                        label: 'Monsmecta',
+                        data: [95, 98, 90, 95, 85],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: 'rgba(5, 150, 105, 1)',
+                        pointBackgroundColor: 'rgba(5, 150, 105, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    },
+                    {
+                        label: 'General Smecta (Control Group)',
+                        data: [90, 30, 40, 60, 10],
+                        backgroundColor: 'rgba(203, 213, 225, 0.2)',
+                        borderColor: 'rgba(148, 163, 184, 1)',
+                        pointBackgroundColor: 'rgba(148, 163, 184, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 100,
+                        ticks: { display: false },
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        angleLines: { color: 'rgba(0, 0, 0, 0.05)' },
+                        pointLabels: { font: { family: "'Noto Sans KR', sans-serif", size: 11 }, color: '#475569' }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        const ctxBar = document.getElementById('marginBarChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['General Online Antidiarrheal', 'Monsmecta (Hospital Recommended Price A)', 'Monsmecta (Hospital Recommended Price B)'].map(l => wrapLabel(l)),
+                datasets: [{
+                    label: 'Estimated Margin Rate (%)',
+                    data: [15, 150, 220],
+                    backgroundColor: [
+                        'rgba(244, 63, 94, 0.7)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(5, 150, 105, 0.9)'
+                    ],
+                    borderWidth: 0,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Margin Rate (%)', font: { family: "'Noto Sans KR', sans-serif" } },
+                        grid: { borderDash: [4, 4] }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: "'Noto Sans KR', sans-serif" } }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+    </script>
+
+<script>
+    const observer = new ResizeObserver(() => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'dashboard',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+    observer.observe(document.body);
+    window.addEventListener('load', () => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'dashboard',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+</script>
+</body>
+
+</html>

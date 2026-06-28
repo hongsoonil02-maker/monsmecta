@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONSMECTA Clinical Dashboard</title>
+    <link rel="stylesheet" href="iframe.css">
+    
+    <script src="https://unpkg.com/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; }
+        .montserrat { font-family: 'Montserrat', sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 380px; } }
+        .css-villi { width: 30px; height: 60px; background: linear-gradient(to top, #fda4af, #ffe4e6); border-radius: 15px 15px 0 0; border: 2px solid #fb7185; border-bottom: none; }
+        .css-toxin { width: 16px; height: 16px; background-color: #ef4444; border-radius: 50%; border: 2px dashed #7f1d1d; position: absolute; }
+        .css-particle { width: 24px; height: 24px; background-color: #fbbf24; border-radius: 50%; opacity: 0.8; position: absolute; box-shadow: 0 0 10px #f59e0b; }
+        .css-film { position: absolute; bottom: 0; left: 0; width: 100%; height: 65px; background: linear-gradient(to top, transparent, rgba(20, 184, 166, 0.4)); border-top: 3px solid #14b8a6; border-radius: 10px 10px 0 0; z-index: 10; pointer-events: none; }
+    </style>
+    <!-- Palette: Brilliant Blue & Vibrant Amber -->
+    <!-- Narrative Plan: 1. Header & Hook (Dr. James branding & 6000+ cases). 2. Comparative Efficacy (Radar Chart showing 6-axis performance). 3. Clinical Recovery Time (Grouped Bar Chart showing days reduced). 4. Mechanism of Action (CSS diagram of Adsorption & Coating). 5. Prescription & Dosing Timeline (CSS Timeline). 6. Overcoming Objections (Q&A Cards). -->
+    <!-- Visualization Choices: 
+    1. Radar Chart (Chart.js) -> Goal: Compare -> Justification: Ideal for multi-variable clinical efficacy comparison against baseline (NO SVG).
+    2. Grouped Bar Chart (Chart.js) -> Goal: Change/Compare -> Justification: Clearly illustrates treatment duration reduction across 3 diseases (NO SVG).
+    3. CSS Structural Diagram -> Goal: Process -> Justification: Visually explains physiological mechanism strictly using HTML/CSS shapes (NO SVG).
+    4. CSS Timeline -> Goal: Organize -> Justification: Displays temporal dosing gaps linearly (NO SVG).
+    -->
+    <!-- Confirmation: I explicitly confirm that NEITHER Mermaid JS NOR SVG were used anywhere in this HTML output. -->
+</head>
+<body class="text-slate-800 antialiased leading-relaxed p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto space-y-8">
+        
+        <header class="bg-gradient-to-r from-[#00513b] to-[#003d2b] rounded-3xl p-8 shadow-xl text-white relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 to-amber-600"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center z-10 relative">
+                <div>
+                    <span class="text-amber-400 font-bold tracking-widest text-xs uppercase mb-2 block">臨床ダッシュボードと処方ガイド</span>
+                    <h1 class="text-4xl md:text-5xl font-black montserrat tracking-tight mb-2">MONSMECTA</h1>
+                    <p class="text-emerald-200 font-medium text-lg">獣医師処方および保護者相談専門シナリオ</p>
+                </div>
+                <div class="mt-6 md:mt-0 text-center md:text-right bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+                    <p class="text-xs text-emerald-300 font-bold uppercase tracking-widest mb-1">臨床の遺産</p>
+                    <p class="text-3xl font-black text-white montserrat">6,000+ <span class="text-sm font-medium text-emerald-200">症例</span></p>
+                    <p class="text-xs text-emerald-100 mt-1">Dr. James Hongのパルボウイルスデータ</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <h2 class="text-2xl font-bold text-slate-900 flex items-center">📉 多面的な臨床効果の比較</h2>
+                    <p class="text-sm text-slate-500 mt-2">特許バチルス・サブチリスおよび電解質配合によるモンスメクタの6角臨床プロファイルです。保護者に一般薬局用止瀉剤との顕著な違いを説明する際に活用してください。</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <div class="mt-4 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold">相談ポイント:</strong> "保護者様、人体用薬局製品は単純な下痢のみを抑制します。モンスメクタは腸粘膜再生、免疫増強、食欲回復バランスを同時に引き上げる次元の異なる処方です。"
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <h2 class="text-2xl font-bold text-slate-900 flex items-center">⏳ 治療所要期間(日)短縮効果</h2>
+                    <p class="text-sm text-slate-500 mt-2">静脈輸液(IV)処置時にモンスメクタを併用投与した場合、主要腸炎(パルボ、ロタ、コロナ)の臨床症状回復までの所要期間短縮データです。</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="mt-4 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold">相談ポイント:</strong> "院内で輸液を受ける間にこの薬を一緒に処方します。腸内外で電解質吸収を助け、入院および回復期間が半分近く短縮されます。"
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+            <div class="mb-8 text-center max-w-3xl mx-auto">
+                <span class="text-amber-500 font-bold tracking-widest text-xs uppercase mb-1 block">デュアルメカニズム</span>
+                <h2 class="text-3xl font-black text-slate-900">精巧な二重作用機序</h2>
+                <p class="text-sm text-slate-600 mt-3">腹痛(疝痛)に苦しむ患者の胃腸内でモンスメクタがどのように毒素を排出し、損傷した腸壁を修復するかを視覚的に説明します。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">A. 有害毒素およびウイルス磁石吸着</h3>
+                    <p class="text-xs text-slate-500 mb-6">ナノ微細粒子が有害物質のみを静電気的引力で強力に結合し、糞便として排出します。</p>
+                    
+                    <div class="relative w-full h-40 bg-rose-50 border-b-4 border-rose-300 rounded-lg overflow-hidden flex items-end justify-center space-x-2 px-4 pb-2">
+                        <div class="css-villi h-16"></div>
+                        <div class="css-villi h-24"></div>
+                        <div class="css-villi h-20"></div>
+                        <div class="css-villi h-28"></div>
+                        <div class="css-villi h-16"></div>
+                        
+                        <div class="css-toxin" style="bottom: 80px; left: 30%;"></div>
+                        <div class="css-particle" style="bottom: 76px; left: 28%;"></div>
+                        
+                        <div class="css-toxin" style="bottom: 110px; left: 60%;"></div>
+                        <div class="css-particle" style="bottom: 106px; left: 58%;"></div>
+                        
+                        <div class="css-toxin" style="bottom: 50px; left: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">B. 上皮粘膜薄膜コーティング</h3>
+                    <p class="text-xs text-slate-500 mb-6">胃酸刺激で痛む腸壁表面にゲル状の保護膜を覆い、pH緩衝および腹痛を軽減します。</p>
+                    
+                    <div class="relative w-full h-40 bg-teal-50 border-b-4 border-teal-300 rounded-lg overflow-hidden flex items-end justify-center space-x-2 px-4 pb-2">
+                        <div class="css-villi h-20 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        <div class="css-villi h-28 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        <div class="css-villi h-24 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        <div class="css-villi h-16 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        <div class="css-villi h-24 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        
+                        <div class="css-film"></div>
+                        <div class="absolute top-10 text-teal-800 font-bold text-xs bg-white/80 px-2 py-1 rounded">ウルトラコーティング保護膜形成</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+            <div class="mb-6 border-b border-slate-100 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900">🕒 投薬タイムラインガイド (保護者案内用)</h2>
+                <p class="text-sm text-slate-500 mt-2">吸着性製剤の特性上、空腹および他の薬物との間隔維持が治療成功の鍵です。</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between w-full bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                <div class="hidden md:block absolute top-1/2 left-10 right-10 h-1 bg-slate-300 -translate-y-1/2"></div>
+                
+                <div class="flex flex-col items-center z-10 mb-6 md:mb-0">
+                    <div class="w-16 h-16 bg-white border-4 border-slate-300 rounded-full flex items-center justify-center text-2xl shadow-md">🥣</div>
+                    <p class="mt-3 font-bold text-slate-800 text-sm">食事</p>
+                </div>
+
+                <div class="flex flex-col items-center z-10 mb-6 md:mb-0 px-4">
+                    <div class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full border border-amber-200 mb-2">食後少なくとも2時間</div>
+                    <div class="w-4 h-4 bg-amber-400 rounded-full shadow-md"></div>
+                    <div class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full border border-amber-200 mt-2">または食前1時間</div>
+                </div>
+
+                <div class="flex flex-col items-center z-10 mb-6 md:mb-0">
+                    <div class="w-20 h-20 bg-emerald-600 border-4 border-emerald-200 rounded-full flex items-center justify-center text-3xl shadow-lg text-white">🛡️</div>
+                    <p class="mt-3 font-bold text-emerald-900">モンスメクタ服用</p>
+                    <p class="text-[10px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded mt-1">完全な空腹状態推奨</p>
+                </div>
+
+                <div class="flex flex-col items-center z-10 mb-6 md:mb-0 px-4">
+                    <div class="bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full border border-rose-200 mb-2">少なくとも1〜2時間間隔</div>
+                    <div class="w-4 h-4 bg-rose-400 rounded-full shadow-md"></div>
+                </div>
+
+                <div class="flex flex-col items-center z-10">
+                    <div class="w-16 h-16 bg-white border-4 border-slate-300 rounded-full flex items-center justify-center text-2xl shadow-md">💊</div>
+                    <p class="mt-3 font-bold text-slate-800 text-sm">他の薬物服用</p>
+                </div>
+            </div>
+            
+            <div class="mt-4 p-4 bg-rose-50 rounded-xl border border-rose-100 text-sm text-rose-900">
+                <strong class="font-bold">相談ポイント:</strong> "この薬の毒素吸着成分が非常に優れているため、他の処方薬と同時に服用すると治療薬の良い成分まで吸収してしまいます。必ず時間間隔を守ってください。"
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex flex-col h-full">
+                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-xl mb-4">🏥</div>
+                <h3 class="font-bold text-slate-900 mb-2">Q. 人体用止瀉剤と同じではないですか？</h3>
+                <p class="text-xs text-slate-600 flex-grow">"薬局製品は動物の敏感な胃腸に給与すると電解質不均衡を引き起こします。モンスメクタはドクター・ジェームスホンの特許レシピで「ビタミンA」と腸内有害菌を遮断する「特許バチルス・サブチリス」が強化された動物専用処方です。"</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex flex-col h-full">
+                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-xl mb-4">👅</div>
+                <h3 class="font-bold text-slate-900 mb-2">Q. 無理に食べさせるのが大変です。</h3>
+                <p class="text-xs text-slate-600 flex-grow">"病気の時に無理に薬を食べさせると嘔吐を引き起こします。この製品は病気の動物たちの厳しい嗅覚を考慮して自発的に舐めるように嗜好性が設計された柔らかいゲルタイプです。口元に少しだけ絞ってください。"</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex flex-col h-full">
+                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-xl mb-4">🩺</div>
+                <h3 class="font-bold text-slate-900 mb-2">Q. 下痢が止まったら中断してもいいですか？</h3>
+                <p class="text-xs text-slate-600 flex-grow">"いいえ。見た目に下痢が止まっても炎症で損傷した腸粘膜が完全に再生されるには少なくとも3〜5日が必要です。上皮細胞がしっかりとコーティングされるように処方された5〜7日分は最後まで給与してください。"</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (label.length <= limit) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        }
+
+        const radarTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    return Array.isArray(label) ? label.join(' ') : label;
+                }
+            }
+        };
+
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: [
+                    '바이러스 억제 (Virus Suppression)', 
+                    '식욕 회복 (Appetite Recovery)', 
+                    '설사 개선 (Diarrhea Improvement)', 
+                    '면역력 증강 (Immunity Boost)', 
+                    '탈수 방지 (Dehydration Prevention)', 
+                    '장 점막 재생 (Mucosal Regeneration)'
+                ].map(l => wrapLabel(l)),
+                datasets: [
+                    {
+                        label: '몬스멕타 (Monsmecta)',
+                        data: [95, 90, 95, 85, 90, 92],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    },
+                    {
+                        label: '일반 지사제 (General Antidiarrheal)',
+                        data: [40, 50, 60, 40, 45, 30],
+                        backgroundColor: 'rgba(244, 63, 94, 0.2)',
+                        borderColor: 'rgba(244, 63, 94, 1)',
+                        pointBackgroundColor: 'rgba(244, 63, 94, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: { font: { size: 11, family: "'Noto Sans KR', sans-serif" }, color: '#475569' },
+                        ticks: { display: false, min: 0, max: 100 }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    tooltip: radarTooltipConfig
+                }
+            }
+        });
+
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l)),
+                datasets: [
+                    {
+                        label: '일반 요법 단독 (General Therapy)',
+                        data: [7.5, 6.0, 5.5],
+                        backgroundColor: 'rgba(203, 213, 225, 0.8)',
+                        borderColor: 'rgba(148, 163, 184, 1)',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    },
+                    {
+                        label: '몬스멕타 병행 (Monsmecta Synergy)',
+                        data: [4.0, 3.0, 2.5],
+                        backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                        borderColor: 'rgba(5, 150, 105, 1)',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: '회복 소요 기간 (Days)', font: { family: "'Noto Sans KR', sans-serif", size: 12 } },
+                        grid: { borderDash: [4, 4] }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: "'Noto Sans KR', sans-serif" } }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    tooltip: radarTooltipConfig
+                }
+            }
+        });
+    </script>
+
+<script>
+    const observer = new ResizeObserver(() => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'scenario',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+    observer.observe(document.body);
+    window.addEventListener('load', () => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'scenario',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+</script>
+</body>
+
+</html>

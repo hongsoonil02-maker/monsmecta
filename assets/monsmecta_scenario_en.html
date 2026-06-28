@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONSMECTA Clinical Dashboard</title>
+    <link rel="stylesheet" href="iframe.css">
+    
+    <script src="https://unpkg.com/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; }
+        .montserrat { font-family: 'Montserrat', sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 380px; } }
+        .css-villi { width: 30px; height: 60px; background: linear-gradient(to top, #fda4af, #ffe4e6); border-radius: 15px 15px 0 0; border: 2px solid #fb7185; border-bottom: none; }
+        .css-toxin { width: 16px; height: 16px; background-color: #ef4444; border-radius: 50%; border: 2px dashed #7f1d1d; position: absolute; }
+        .css-particle { width: 24px; height: 24px; background-color: #fbbf24; border-radius: 50%; opacity: 0.8; position: absolute; box-shadow: 0 0 10px #f59e0b; }
+        .css-film { position: absolute; bottom: 0; left: 0; width: 100%; height: 65px; background: linear-gradient(to top, transparent, rgba(20, 184, 166, 0.4)); border-top: 3px solid #14b8a6; border-radius: 10px 10px 0 0; z-index: 10; pointer-events: none; }
+    </style>
+    <!-- Palette: Brilliant Blue & Vibrant Amber -->
+    <!-- Narrative Plan: 1. Header & Hook (Dr. James branding & 6000+ cases). 2. Comparative Efficacy (Radar Chart showing 6-axis performance). 3. Clinical Recovery Time (Grouped Bar Chart showing days reduced). 4. Mechanism of Action (CSS diagram of Adsorption & Coating). 5. Prescription & Dosing Timeline (CSS Timeline). 6. Overcoming Objections (Q&A Cards). -->
+    <!-- Visualization Choices: 
+    1. Radar Chart (Chart.js) -> Goal: Compare -> Justification: Ideal for multi-variable clinical efficacy comparison against baseline (NO SVG).
+    2. Grouped Bar Chart (Chart.js) -> Goal: Change/Compare -> Justification: Clearly illustrates treatment duration reduction across 3 diseases (NO SVG).
+    3. CSS Structural Diagram -> Goal: Process -> Justification: Visually explains physiological mechanism strictly using HTML/CSS shapes (NO SVG).
+    4. CSS Timeline -> Goal: Organize -> Justification: Displays temporal dosing gaps linearly (NO SVG).
+    -->
+    <!-- Confirmation: I explicitly confirm that NEITHER Mermaid JS NOR SVG were used anywhere in this HTML output. -->
+</head>
+<body class="text-slate-800 antialiased leading-relaxed p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto space-y-8">
+        
+        <header class="bg-gradient-to-r from-[#00513b] to-[#003d2b] rounded-3xl p-8 shadow-xl text-white relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 to-amber-600"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center z-10 relative">
+                <div>
+                    <span class="text-amber-400 font-bold tracking-widest text-xs uppercase mb-2 block">Clinical Dashboard & Prescription Guide</span>
+                    <h1 class="text-4xl md:text-5xl font-black montserrat tracking-tight mb-2">MONSMECTA</h1>
+                    <p class="text-emerald-200 font-medium text-lg">Veterinarian Prescription and Guardian Consultation Professional Scenario</p>
+                </div>
+                <div class="mt-6 md:mt-0 text-center md:text-right bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+                    <p class="text-xs text-emerald-300 font-bold uppercase tracking-widest mb-1">Clinical Heritage</p>
+                    <p class="text-3xl font-black text-white montserrat">6,000+ <span class="text-sm font-medium text-emerald-200">Cases</span></p>
+                    <p class="text-xs text-emerald-100 mt-1">Dr. James Hong's Parvovirus Data</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <h2 class="text-2xl font-bold text-slate-900 flex items-center">📉 Comparative Clinical Efficacy</h2>
+                    <p class="text-sm text-slate-500 mt-2">Monsmecta's hexagonal clinical profile through patented Bacillus subtilis and electrolyte combination. Use this to explain the stark difference from general pharmacy antidiarrheals to guardians.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <div class="mt-4 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold">Consultation Point:</strong> "Guardian, human pharmacy products only suppress simple diarrhea. Monsmecta is a different level of prescription that simultaneously enhances intestinal mucosal regeneration, immunity boost, and appetite recovery balance."
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <h2 class="text-2xl font-bold text-slate-900 flex items-center">⏳ Treatment Duration (Days) Reduction Effect</h2>
+                    <p class="text-sm text-slate-500 mt-2">Data on the expected period reduction until clinical symptom recovery of major enteritis (parvo, rota, corona) when Monsmecta is co-administered during intravenous fluid (IV) treatment.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="mt-4 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold">Consultation Point:</strong> "While receiving fluids in the clinic, this medicine will be prescribed together. It helps absorb electrolytes inside and outside the intestines, reducing hospitalization and recovery time by nearly half."
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+            <div class="mb-8 text-center max-w-3xl mx-auto">
+                <span class="text-amber-500 font-bold tracking-widest text-xs uppercase mb-1 block">Dual Mechanism</span>
+                <h2 class="text-3xl font-black text-slate-900">Sophisticated Dual Mechanism of Action</h2>
+                <p class="text-sm text-slate-600 mt-3">Visually explains how Monsmecta expels toxins and repairs the eroded intestinal barrier in the stomach of patients suffering from abdominal pain (colic).</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">A. Harmful Toxin and Virus Magnet Adsorption</h3>
+                    <p class="text-xs text-slate-500 mb-6">Nano fine particles strongly bind only harmful substances with electrostatic attraction and excrete them through feces.</p>
+                    
+                    <div class="relative w-full h-40 bg-rose-50 border-b-4 border-rose-300 rounded-lg overflow-hidden flex items-end justify-center space-x-2 px-4 pb-2">
+                        <div class="css-villi h-16"></div>
+                        <div class="css-villi h-24"></div>
+                        <div class="css-villi h-20"></div>
+                        <div class="css-villi h-28"></div>
+                        <div class="css-villi h-16"></div>
+                        
+                        <div class="css-toxin" style="bottom: 80px; left: 30%;"></div>
+                        <div class="css-particle" style="bottom: 76px; left: 28%;"></div>
+                        
+                        <div class="css-toxin" style="bottom: 110px; left: 60%;"></div>
+                        <div class="css-particle" style="bottom: 106px; left: 58%;"></div>
+                        
+                        <div class="css-toxin" style="bottom: 50px; left: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">B. Epithelial Mucosal Thin Film Coating</h3>
+                    <p class="text-xs text-slate-500 mb-6">Covers the painful intestinal barrier surface with a gel-like protective film to buffer pH and alleviate abdominal pain caused by gastric acid stimulation.</p>
+                    
+                    <div class="relative w-full h-40 bg-teal-50 border-b-4 border-teal-300 rounded-lg overflow-hidden flex items-end justify-center space-x-2 px-4 pb-2">
+                        <div class="css-villi h-20 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        <div class="css-villi h-28 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        <div class="css-villi h-24 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        <div class="css-villi h-16 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        <div class="css-villi h-24 border-teal-300" style="background: linear-gradient(to top, #99f6e4, #f0fdfa);"></div>
+                        
+                        <div class="css-film"></div>
+                        <div class="absolute top-10 text-teal-800 font-bold text-xs bg-white/80 px-2 py-1 rounded">Ultra Coating Protective Film Formation</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+            <div class="mb-6 border-b border-slate-100 pb-4">
+                <h2 class="text-2xl font-bold text-slate-900">🕒 Dosing Timeline Guide (For Guardian)</h2>
+                <p class="text-sm text-slate-500 mt-2">Maintaining intervals with other medications and fasting is key to treatment success due to the nature of adsorptive agents.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between w-full bg-slate-50 p-6 rounded-2xl border border-slate-200 relative">
+                <div class="hidden md:block absolute top-1/2 left-10 right-10 h-1 bg-slate-300 -translate-y-1/2"></div>
+                
+                <div class="flex flex-col items-center z-10 mb-6 md:mb-0">
+                    <div class="w-16 h-16 bg-white border-4 border-slate-300 rounded-full flex items-center justify-center text-2xl shadow-md">🥣</div>
+                    <p class="mt-3 font-bold text-slate-800 text-sm">Meal</p>
+                </div>
+
+                <div class="flex flex-col items-center z-10 mb-6 md:mb-0 px-4">
+                    <div class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full border border-amber-200 mb-2">At least 2 hours after meal</div>
+                    <div class="w-4 h-4 bg-amber-400 rounded-full shadow-md"></div>
+                    <div class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full border border-amber-200 mt-2">Or 1 hour before meal</div>
+                </div>
+
+                <div class="flex flex-col items-center z-10 mb-6 md:mb-0">
+                    <div class="w-20 h-20 bg-emerald-600 border-4 border-emerald-200 rounded-full flex items-center justify-center text-3xl shadow-lg text-white">🛡️</div>
+                    <p class="mt-3 font-bold text-emerald-900">Take Monsmecta</p>
+                    <p class="text-[10px] text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded mt-1">Recommended on an empty stomach</p>
+                </div>
+
+                <div class="flex flex-col items-center z-10 mb-6 md:mb-0 px-4">
+                    <div class="bg-rose-100 text-rose-800 text-xs font-bold px-3 py-1 rounded-full border border-rose-200 mb-2">At least 1-2 hours interval</div>
+                    <div class="w-4 h-4 bg-rose-400 rounded-full shadow-md"></div>
+                </div>
+
+                <div class="flex flex-col items-center z-10">
+                    <div class="w-16 h-16 bg-white border-4 border-slate-300 rounded-full flex items-center justify-center text-2xl shadow-md">💊</div>
+                    <p class="mt-3 font-bold text-slate-800 text-sm">Take Other Medications</p>
+                </div>
+            </div>
+            
+            <div class="mt-4 p-4 bg-rose-50 rounded-xl border border-rose-100 text-sm text-rose-900">
+                <strong class="font-bold">Consultation Point:</strong> "The toxin adsorption component of this medicine is so excellent that if taken simultaneously with other prescribed drugs, it will absorb even the good components of the treatment drugs. Please be sure to keep the time interval."
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex flex-col h-full">
+                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-xl mb-4">🏥</div>
+                <h3 class="font-bold text-slate-900 mb-2">Q. Isn't it the same as human antidiarrheals?</h3>
+                <p class="text-xs text-slate-600 flex-grow">"Pharmacy products cause electrolyte imbalance when administered to animals' sensitive stomachs. Monsmecta is an animal-specific prescription enhanced with 'Vitamin A' and 'patented Bacillus subtilis' that blocks harmful intestinal bacteria, based on Dr. James Hong's patented recipe."</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex flex-col h-full">
+                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-xl mb-4">👅</div>
+                <h3 class="font-bold text-slate-900 mb-2">Q. It's hard to force-feed.</h3>
+                <p class="text-xs text-slate-600 flex-grow">"Forcing medication when sick can cause vomiting. This product is designed with palatability to encourage voluntary licking, considering the picky olfactory senses of sick animals. You can just gently squeeze it near the mouth."</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-100 flex flex-col h-full">
+                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-xl mb-4">🩺</div>
+                <h3 class="font-bold text-slate-900 mb-2">Q. Can I stop once the diarrhea stops?</h3>
+                <p class="text-xs text-slate-600 flex-grow">"No. Even if diarrhea seems to have stopped, it takes at least 3-5 more days for the inflamed and eroded intestinal mucosa to fully regenerate. Please continue to administer the prescribed 5-7 day supply until the epithelial cells are firmly coated."</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function wrapLabel(label, limit = 16) {
+            if (label.length <= limit) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > limit) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        }
+
+        const radarTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    return Array.isArray(label) ? label.join(' ') : label;
+                }
+            }
+        };
+
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: [
+                    '바이러스 억제 (Virus Suppression)', 
+                    '식욕 회복 (Appetite Recovery)', 
+                    '설사 개선 (Diarrhea Improvement)', 
+                    '면역력 증강 (Immunity Boost)', 
+                    '탈수 방지 (Dehydration Prevention)', 
+                    '장 점막 재생 (Mucosal Regeneration)'
+                ].map(l => wrapLabel(l)),
+                datasets: [
+                    {
+                        label: '몬스멕타 (Monsmecta)',
+                        data: [95, 90, 95, 85, 90, 92],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    },
+                    {
+                        label: '일반 지사제 (General Antidiarrheal)',
+                        data: [40, 50, 60, 40, 45, 30],
+                        backgroundColor: 'rgba(244, 63, 94, 0.2)',
+                        borderColor: 'rgba(244, 63, 94, 1)',
+                        pointBackgroundColor: 'rgba(244, 63, 94, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: { font: { size: 11, family: "'Noto Sans KR', sans-serif" }, color: '#475569' },
+                        ticks: { display: false, min: 0, max: 100 }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    tooltip: radarTooltipConfig
+                }
+            }
+        });
+
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l)),
+                datasets: [
+                    {
+                        label: '일반 요법 단독 (General Therapy)',
+                        data: [7.5, 6.0, 5.5],
+                        backgroundColor: 'rgba(203, 213, 225, 0.8)',
+                        borderColor: 'rgba(148, 163, 184, 1)',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    },
+                    {
+                        label: '몬스멕타 병행 (Monsmecta Synergy)',
+                        data: [4.0, 3.0, 2.5],
+                        backgroundColor: 'rgba(16, 185, 129, 0.8)',
+                        borderColor: 'rgba(5, 150, 105, 1)',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Recovery Duration (Days)', font: { family: "'Noto Sans KR', sans-serif", size: 12 } },
+                        grid: { borderDash: [4, 4] }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: "'Noto Sans KR', sans-serif" } }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    tooltip: radarTooltipConfig
+                }
+            }
+        });
+    </script>
+
+<script>
+    const observer = new ResizeObserver(() => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'scenario',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+    observer.observe(document.body);
+    window.addEventListener('load', () => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'scenario',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+</script>
+</body>
+
+</html>

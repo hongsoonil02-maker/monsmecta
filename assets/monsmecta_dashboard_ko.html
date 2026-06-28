@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monsmecta Comprehensive Dashboard</title>
+    <link rel="stylesheet" href="iframe.css">
+    
+    <script src="https://unpkg.com/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .montserrat { font-family: 'Montserrat', sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        
+        .css-villus { width: 35px; height: 80px; background: linear-gradient(to top, #fecdd3, #fff1f2); border-radius: 20px 20px 0 0; border: 3px solid #fb7185; border-bottom: none; display: inline-block; margin: 0 4px; position: relative; }
+        .css-virus { width: 18px; height: 18px; background-color: #ef4444; border-radius: 50%; border: 2px dashed #991b1b; position: absolute; }
+        .css-adsorbent { width: 28px; height: 28px; background-color: #fbbf24; border-radius: 50%; opacity: 0.85; position: absolute; box-shadow: 0 0 12px #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #78350f; }
+        .css-protective-film { position: absolute; bottom: 0; left: 0; width: 100%; height: 90px; background: linear-gradient(to top, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.4)); border-top: 4px dashed #14b8a6; border-radius: 15px 15px 0 0; pointer-events: none; }
+        
+        .timeline-container { display: flex; align-items: center; justify-content: space-between; position: relative; width: 100%; padding: 2rem 0; flex-wrap: wrap; gap: 1rem; }
+        .timeline-line { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background-color: #e2e8f0; z-index: 0; transform: translateY(-50%); display: none; }
+        @media (min-width: 768px) { .timeline-line { display: block; } }
+        .timeline-node { z-index: 10; display: flex; flex-direction: column; items: center; text-align: center; background: white; padding: 1rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 2px solid #e2e8f0; width: 100%; }
+        @media (min-width: 768px) { .timeline-node { width: 28%; } }
+        .timeline-icon { width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: bold; margin: 0 auto 0.5rem auto; }
+    </style>
+</head>
+<body class="antialiased p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto space-y-10">
+
+        <header class="bg-[#00513b] rounded-3xl p-8 shadow-2xl text-white relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center z-10 relative">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <span class="text-amber-400 font-bold tracking-widest text-xs uppercase mb-2 block">Clinical & Strategic Dashboard</span>
+                    <h1 class="text-3xl md:text-5xl font-black montserrat tracking-tight mb-2">MONSMECTA</h1>
+                    <p class="text-slate-300 font-medium text-base md:text-lg">활용 전략 및 임상 복약 통합 가이드</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-center bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <p class="text-[10px] text-slate-300 font-bold uppercase tracking-widest mb-1">Developed By</p>
+                        <p class="text-xl font-black text-white montserrat">Dr. James Hong</p>
+                    </div>
+                    <div class="text-center bg-amber-500/10 p-4 rounded-2xl backdrop-blur-sm border border-amber-500/30">
+                        <p class="text-[10px] text-amber-200 font-bold uppercase tracking-widest mb-1">Clinical Cases</p>
+                        <p class="text-xl font-black text-amber-400 montserrat">6,000+</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 mb-4">
+            <p class="text-lg text-slate-700 font-light leading-relaxed">본 대시보드는 김동준 원장님의 임상 피드백을 반영한 <strong class="font-bold text-slate-900">'활용 전략 보고'</strong>와 안전한 처방을 위한 <strong class="font-bold text-slate-900">'스멕타 복용법 및 주의사항'</strong>을 통합하여 수의사와 보호자 모두에게 직관적인 인사이트를 제공합니다.</p>
+        </div>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">Part 1. Strategy</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">임상 피드백 및 효능 비교</h2>
+                    <p class="text-sm text-slate-500 mt-2">김동준 원장님의 피드백에 따른 일반 스멕타 대비 몬스멕타의 핵심 임상 우위 지표입니다.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="efficacyRadarChart"></canvas>
+                </div>
+                <div class="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold block mb-1">현장 수의사 피드백 요약:</strong>
+                    "기존 제제는 단순 설사 억제에 그치나, 몬스멕타는 위내 산도 조절(pH 완충) 기능으로 복통을 즉각 완화하며 겔 타입의 뛰어난 기호성으로 강제 급여 스트레스와 구토를 방지합니다."
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">Part 2. Market Value</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">동물병원 수익성 지표</h2>
+                    <p class="text-sm text-slate-500 mt-2">온라인 유통 차단 및 독점 공급에 따른 권장 소비자 가격 대비 병원 마진율 구조입니다.</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="marginBarChart"></canvas>
+                </div>
+                <div class="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold block mb-1">경쟁력 요약:</strong>
+                    "15,000원~25,000원의 보호자 수용 가능한 권장 소비자가를 형성하며, 원천적인 오프라인 독점 유통으로 동물병원에 최소 150%에서 최대 220%의 안정적인 마진을 보장합니다."
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+            <div class="mb-8 text-center max-w-3xl mx-auto">
+                <span class="text-amber-500 font-bold tracking-widest text-xs uppercase mb-1 block">Part 3. Mechanism</span>
+                <h2 class="text-3xl font-black text-slate-900">핵심 이중 작용 기전</h2>
+                <p class="text-sm text-slate-600 mt-3">초미세 몬모릴로나이트와 바실러스 서브틸리스 균주가 만들어내는 장내 유해물질 흡착 및 점막 보호 과정을 시각화합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-amber-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
+                            <h3 class="text-lg font-bold text-slate-900">독소 및 바이러스 정밀 흡착</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-6">천연 스멕타이트 입자가 유해 세균, 바이러스, 이상 발효 가스를 정전기적으로 흡착하여 배출합니다.</p>
+                    </div>
+                    <div class="relative w-full h-48 bg-rose-50 border-b-4 border-rose-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
+                        <div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div>
+                        <div class="css-virus" style="bottom: 120px; left: 20%;"></div>
+                        <div class="css-adsorbent" style="bottom: 110px; left: 15%;">Ion</div>
+                        <div class="css-virus" style="bottom: 90px; left: 60%;"></div>
+                        <div class="css-adsorbent" style="bottom: 85px; left: 55%;">Ion</div>
+                        <div class="css-virus" style="bottom: 130px; left: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-teal-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
+                            <h3 class="text-lg font-bold text-slate-900">손상된 위장관 점막 쉴드 보호</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-6">헐어버린 점막을 부드럽게 코팅하여 통증을 완화하고 바실러스 균주로 장내 환경을 재건합니다.</p>
+                    </div>
+                    <div class="relative w-full h-48 bg-teal-50 border-b-4 border-teal-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-protective-film"></div>
+                        <div class="absolute bottom-4 bg-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-md">장 점막 보호 코팅막</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+            <div class="mb-6 border-b border-slate-100 pb-4">
+                <span class="text-xs font-bold tracking-widest text-rose-600 uppercase">Part 4. Administration</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">올바른 복용법 및 시간 간격 타임라인</h2>
+                <p class="text-sm text-slate-500 mt-2">흡착성 제제의 특성상 다른 약물이나 음식물과 섞일 경우 유효 성분 흡수를 방해할 수 있습니다. 보호자에게 다음의 타임라인을 강조하십시오.</p>
+            </div>
+
+            <div class="timeline-container bg-slate-50 rounded-2xl p-6 border border-slate-200 mt-8">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-node">
+                    <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">1</div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">식사 시간</h3>
+                    <p class="text-xs text-slate-500">일반적인 사료 급여</p>
+                </div>
+                
+                <div class="timeline-node border-amber-400 bg-amber-50">
+                    <div class="timeline-icon bg-amber-500 text-white shadow-md">2</div>
+                    <h3 class="font-bold text-amber-900 text-sm mb-1">몬스멕타 단독 복용</h3>
+                    <div class="bg-white rounded-lg p-2 border border-amber-200 mt-2">
+                        <p class="text-[11px] font-bold text-amber-700">✓ 식전 1시간 또는 식후 2시간</p>
+                        <p class="text-[10px] text-amber-600 mt-1">완벽한 공복 상태 유지 필수</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-node">
+                    <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">3</div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">타 약물 복용</h3>
+                    <div class="bg-white rounded-lg p-2 border border-slate-200 mt-2">
+                        <p class="text-[11px] font-bold text-rose-600">✓ 최소 1~2시간 간격 유지</p>
+                        <p class="text-[10px] text-slate-500 mt-1">타 치료제 흡수 방해 차단</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function wrapLabel(label) {
+            if (label.length <= 16) return label;
+            let words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        }
+
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const ctxRadar = document.getElementById('efficacyRadarChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: [
+                    '단순 설사 억제',
+                    '위내 산도 완충 (복통 감소)',
+                    '자발적 기호성 (구토 방지)',
+                    '장 점막 쉴드 코팅',
+                    '바실러스 항바이러스 작용'
+                ].map(l => wrapLabel(l)),
+                datasets: [
+                    {
+                        label: '몬스멕타',
+                        data: [95, 98, 90, 95, 85],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: 'rgba(5, 150, 105, 1)',
+                        pointBackgroundColor: 'rgba(5, 150, 105, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    },
+                    {
+                        label: '일반 스멕타 (대조군)',
+                        data: [90, 30, 40, 60, 10],
+                        backgroundColor: 'rgba(203, 213, 225, 0.2)',
+                        borderColor: 'rgba(148, 163, 184, 1)',
+                        pointBackgroundColor: 'rgba(148, 163, 184, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 100,
+                        ticks: { display: false },
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        angleLines: { color: 'rgba(0, 0, 0, 0.05)' },
+                        pointLabels: { font: { family: "'Noto Sans KR', sans-serif", size: 11 }, color: '#475569' }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        const ctxBar = document.getElementById('marginBarChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['일반 온라인 지사제', '몬스멕타 (병원 권장가 A)', '몬스멕타 (병원 권장가 B)'].map(l => wrapLabel(l)),
+                datasets: [{
+                    label: '추정 마진율 (%)',
+                    data: [15, 150, 220],
+                    backgroundColor: [
+                        'rgba(244, 63, 94, 0.7)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(5, 150, 105, 0.9)'
+                    ],
+                    borderWidth: 0,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: '마진율 (%)', font: { family: "'Noto Sans KR', sans-serif" } },
+                        grid: { borderDash: [4, 4] }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: "'Noto Sans KR', sans-serif" } }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+    </script>
+
+<script>
+    const observer = new ResizeObserver(() => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'dashboard',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+    observer.observe(document.body);
+    window.addEventListener('load', () => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'dashboard',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+</script>
+</body>
+
+</html>
