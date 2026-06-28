@@ -5,7 +5,7 @@ export default function Chatbot() {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: '안녕하세요! 에스앤제이 동물병원 원장님들을 위한 몬스멕타 전용 AI 상담원입니다. 무엇을 도와드릴까요?' }
+    { role: 'assistant', content: t('chat.greeting') }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +51,7 @@ export default function Chatbot() {
       setMessages(prev => [...prev, { role: 'assistant', content: data.reply }]);
     } catch (error) {
       console.error('Chat error:', error);
-      setMessages(prev => [...prev, { role: 'assistant', content: '죄송합니다. 통신 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.' }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: t('chat.error') }]);
     } finally {
       setIsLoading(false);
     }
@@ -81,8 +81,8 @@ export default function Chatbot() {
               AI
             </div>
             <div>
-              <h3 className="font-bold text-sm">몬스멕타 AI 전문의</h3>
-              <p className="text-xs text-[#a3e6cd]">빠르고 정확한 상담</p>
+              <h3 className="font-bold text-sm">{t('chat.title')}</h3>
+              <p className="text-xs text-[#a3e6cd]">{t('chat.subtitle')}</p>
             </div>
           </div>
           <button onClick={toggleChat} className="text-white hover:text-slate-200 focus:outline-none">
@@ -126,7 +126,7 @@ export default function Chatbot() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="무엇이든 물어보세요..."
+              placeholder={t('chat.placeholder')}
               className="flex-1 bg-transparent px-3 py-2 text-sm focus:outline-none text-slate-800"
               disabled={isLoading}
             />
