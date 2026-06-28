@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function Chatbot() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { role: 'assistant', content: '안녕하세요! 에스앤제이 동물병원 원장님들을 위한 몬스멕타 전용 AI 상담원입니다. 무엇을 도와드릴까요?' }
@@ -39,6 +39,7 @@ export default function Chatbot() {
         },
         body: JSON.stringify({
           messages: [...messages, { role: 'user', content: userMessage }].map(m => ({ role: m.role, content: m.content })),
+          language: i18n.language
         }),
       });
 
