@@ -297,12 +297,6 @@ const MonsmectaSNJLanding = () => {
             />
           </div>
 
-          {/* Image Infographic */}
-          {i18n.language === 'ko' && (
-            <div className="bg-slate-50 p-4 rounded-3xl shadow-xl border border-slate-200 overflow-hidden hover:shadow-2xl transition-shadow duration-500">
-              <img src={`${import.meta.env.BASE_URL}assets/infographic_2.png`} alt="{t('clinical.chart_monsmecta')} 임상 증례" className="w-full h-auto object-contain rounded-2xl mix-blend-multiply" />
-            </div>
-          )}
 
         </div>
       </section >
