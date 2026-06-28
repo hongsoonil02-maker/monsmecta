@@ -1,0 +1,21 @@
+{
+    "nav": {
+        "products": "Products",
+        "clinical": "Clinical Data",
+        "values": "3 Core Values",
+        "order": "Quick Order"
+    },
+    "hero": {
+        "title": "Clinician's Answer, MONSMECTA",
+        "subtitle": "A gut solution that meets the rigorous standards of on‑site veterinary care. Verified and prescribed by Dr. James Hong of S&J Animal Hospital.",
+        "orderBtn": "Create Exclusive Order Form",
+        "specBtn": "📋 View Product Specs / Label"
+    },
+    "values": {
+        "title": "MONSMECTA's 3 Core Value Promises",
+        "desc": "We become a reliable benchmark for veterinary directors' clinical and managerial trust.",
+        "online": "Exclude Online & Pet‑Shop Distribution",
+        "price": "Guarantee Autonomous Pricing & Margin Structure",
+        "formula": "Superior Academic Formula"
+    }
+}
