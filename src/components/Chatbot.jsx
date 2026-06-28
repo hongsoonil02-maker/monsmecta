@@ -11,6 +11,16 @@ export default function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
+  useEffect(() => {
+    setMessages(prev => {
+      const newMsgs = [...prev];
+      if (newMsgs.length > 0 && newMsgs[0].role === 'assistant') {
+        newMsgs[0].content = t('chat.greeting');
+      }
+      return newMsgs;
+    });
+  }, [i18n.language, t]);
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };

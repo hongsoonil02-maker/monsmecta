@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monsmecta Comprehensive Dashboard</title>
+    <link rel="stylesheet" href="iframe.css">
+    
+    <script src="https://unpkg.com/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .montserrat { font-family: 'Montserrat', sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+        
+        .css-villus { width: 35px; height: 80px; background: linear-gradient(to top, #fecdd3, #fff1f2); border-radius: 20px 20px 0 0; border: 3px solid #fb7185; border-bottom: none; display: inline-block; margin: 0 4px; position: relative; }
+        .css-virus { width: 18px; height: 18px; background-color: #ef4444; border-radius: 50%; border: 2px dashed #991b1b; position: absolute; }
+        .css-adsorbent { width: 28px; height: 28px; background-color: #fbbf24; border-radius: 50%; opacity: 0.85; position: absolute; box-shadow: 0 0 12px #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #78350f; }
+        .css-protective-film { position: absolute; bottom: 0; left: 0; width: 100%; height: 90px; background: linear-gradient(to top, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.4)); border-top: 4px dashed #14b8a6; border-radius: 15px 15px 0 0; pointer-events: none; }
+        
+        .timeline-container { display: flex; align-items: center; justify-content: space-between; position: relative; width: 100%; padding: 2rem 0; flex-wrap: wrap; gap: 1rem; }
+        .timeline-line { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background-color: #e2e8f0; z-index: 0; transform: translateY(-50%); display: none; }
+        @media (min-width: 768px) { .timeline-line { display: block; } }
+        .timeline-node { z-index: 10; display: flex; flex-direction: column; items: center; text-align: center; background: white; padding: 1rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 2px solid #e2e8f0; width: 100%; }
+        @media (min-width: 768px) { .timeline-node { width: 28%; } }
+        .timeline-icon { width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: bold; margin: 0 auto 0.5rem auto; }
+    </style>
+</head>
+<body class="antialiased p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto space-y-10">
+
+        <header class="bg-[#00513b] rounded-3xl p-8 shadow-2xl text-white relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center z-10 relative">
+                <div class="text-center md:text-left mb-6 md:mb-0">
+                    <span class="text-amber-400 font-bold tracking-widest text-xs uppercase mb-2 block">臨床および戦略ダッシュボード</span>
+                    <h1 class="text-3xl md:text-5xl font-black montserrat tracking-tight mb-2">MONSMECTA</h1>
+                    <p class="text-slate-300 font-medium text-base md:text-lg">活用戦略および臨床服薬統合ガイド</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="text-center bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <p class="text-[10px] text-slate-300 font-bold uppercase tracking-widest mb-1">開発者</p>
+                        <p class="text-xl font-black text-white montserrat">Dr. James Hong</p>
+                    </div>
+                    <div class="text-center bg-amber-500/10 p-4 rounded-2xl backdrop-blur-sm border border-amber-500/30">
+                        <p class="text-[10px] text-amber-200 font-bold uppercase tracking-widest mb-1">臨床事例</p>
+                        <p class="text-xl font-black text-amber-400 montserrat">6,000+</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 mb-4">
+            <p class="text-lg text-slate-700 font-light leading-relaxed">本ダッシュボードは、キム・ドンジュン院長の臨床フィードバックを反映した<strong class="font-bold text-slate-900">'活用戦略報告'</strong>と安全な処方のための<strong class="font-bold text-slate-900">'スメクタ服用法および注意事項'</strong>を統合し、獣医師と保護者の両方に直感的なインサイトを提供します。</p>
+        </div>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">パート1. 戦略</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">臨床フィードバックおよび効能比較</h2>
+                    <p class="text-sm text-slate-500 mt-2">キム・ドンジュン院長のフィードバックに基づく一般スメクタ対比モンスメクタの主要臨床優位指標です。</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="efficacyRadarChart"></canvas>
+                </div>
+                <div class="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold block mb-1">現場獣医師フィードバック要約:</strong>
+                    "既存製剤は単純な下痢抑制に留まりますが、モンスメクタは胃内酸度調整(pH緩衝)機能で腹痛を即座に緩和し、ゲルタイプの優れた嗜好性で強制給餌ストレスと嘔吐を防ぎます。"
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+                <div class="mb-6 border-b border-slate-100 pb-4">
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">パート2. 市場価値</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">動物病院収益性指標</h2>
+                    <p class="text-sm text-slate-500 mt-2">オンライン流通遮断および独占供給による推奨消費者価格対比病院マージン率構造です。</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="marginBarChart"></canvas>
+                </div>
+                <div class="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
+                    <strong class="font-bold block mb-1">競争力要約:</strong>
+                    "15,000円～25,000円の保護者受容可能な推奨消費者価格を形成し、根本的なオフライン独占流通で動物病院に最低150%から最大220%の安定したマージンを保証します。"
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+            <div class="mb-8 text-center max-w-3xl mx-auto">
+                <span class="text-amber-500 font-bold tracking-widest text-xs uppercase mb-1 block">パート3. メカニズム</span>
+                <h2 class="text-3xl font-black text-slate-900">主要な二重作用メカニズム</h2>
+                <p class="text-sm text-slate-600 mt-3">超微細モンモリロナイトとバシラス・サブチリス菌株が作り出す腸内有害物質吸着および粘膜保護過程を視覚化します。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-amber-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
+                            <h3 class="text-lg font-bold text-slate-900">毒素およびウイルス精密吸着</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-6">天然スメクタイト粒子が有害細菌、ウイルス、異常発酵ガスを静電気的に吸着して排出します。</p>
+                    </div>
+                    <div class="relative w-full h-48 bg-rose-50 border-b-4 border-rose-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
+                        <div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div>
+                        <div class="css-virus" style="bottom: 120px; left: 20%;"></div>
+                        <div class="css-adsorbent" style="bottom: 110px; left: 15%;">Ion</div>
+                        <div class="css-virus" style="bottom: 90px; left: 60%;"></div>
+                        <div class="css-adsorbent" style="bottom: 85px; left: 55%;">Ion</div>
+                        <div class="css-virus" style="bottom: 130px; left: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-teal-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
+                            <h3 class="text-lg font-bold text-slate-900">損傷した胃腸管粘膜シールド保護</h3>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-6">傷ついた粘膜を優しくコーティングして痛みを緩和し、バシラス菌株で腸内環境を再建します。</p>
+                    </div>
+                    <div class="relative w-full h-48 bg-teal-50 border-b-4 border-teal-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
+                        <div class="css-protective-film"></div>
+                        <div class="absolute bottom-4 bg-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-md">腸粘膜保護コーティング膜</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
+            <div class="mb-6 border-b border-slate-100 pb-4">
+                <span class="text-xs font-bold tracking-widest text-rose-600 uppercase">パート4. 投与</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">正しい服用法および時間間隔タイムライン</h2>
+                <p class="text-sm text-slate-500 mt-2">吸着性製剤の特性上、他の薬物や食物と混ざる場合、有効成分の吸収を妨げる可能性があります。保護者に次のタイムラインを強調してください。</p>
+            </div>
+
+            <div class="timeline-container bg-slate-50 rounded-2xl p-6 border border-slate-200 mt-8">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-node">
+                    <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">1</div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">食事時間</h3>
+                    <p class="text-xs text-slate-500">一般的な飼料給餌</p>
+                </div>
+                
+                <div class="timeline-node border-amber-400 bg-amber-50">
+                    <div class="timeline-icon bg-amber-500 text-white shadow-md">2</div>
+                    <h3 class="font-bold text-amber-900 text-sm mb-1">モンスメクタ単独服用</h3>
+                    <div class="bg-white rounded-lg p-2 border border-amber-200 mt-2">
+                        <p class="text-[11px] font-bold text-amber-700">✓ 食前1時間または食後2時間</p>
+                        <p class="text-[10px] text-amber-600 mt-1">完全な空腹状態維持必須</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-node">
+                    <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">3</div>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">他の薬物服用</h3>
+                    <div class="bg-white rounded-lg p-2 border border-slate-200 mt-2">
+                        <p class="text-[11px] font-bold text-rose-600">✓ 最小1～2時間間隔維持</p>
+                        <p class="text-[10px] text-slate-500 mt-1">他の治療剤吸収妨害遮断</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function wrapLabel(label) {
+            if (label.length <= 16) return label;
+            let words = label.split(' ');
+            let lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        }
+
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const ctxRadar = document.getElementById('efficacyRadarChart').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: [
+                    '単純下痢抑制',
+                    '胃内酸度緩衝 (腹痛減少)',
+                    '自発的嗜好性 (嘔吐防止)',
+                    '腸粘膜シールドコーティング',
+                    'バシラス抗ウイルス作用'
+                ].map(l => wrapLabel(l)),
+                datasets: [
+                    {
+                        label: 'モンスメクタ',
+                        data: [95, 98, 90, 95, 85],
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: 'rgba(5, 150, 105, 1)',
+                        pointBackgroundColor: 'rgba(5, 150, 105, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    },
+                    {
+                        label: '一般スメクタ (対照群)',
+                        data: [90, 30, 40, 60, 10],
+                        backgroundColor: 'rgba(203, 213, 225, 0.2)',
+                        borderColor: 'rgba(148, 163, 184, 1)',
+                        pointBackgroundColor: 'rgba(148, 163, 184, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        min: 0,
+                        max: 100,
+                        ticks: { display: false },
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        angleLines: { color: 'rgba(0, 0, 0, 0.05)' },
+                        pointLabels: { font: { family: "'Noto Sans KR', sans-serif", size: 11 }, color: '#475569' }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        const ctxBar = document.getElementById('marginBarChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['一般オンライン止瀉薬', 'モンスメクタ (病院推奨価格A)', 'モンスメクタ (病院推奨価格B)'].map(l => wrapLabel(l)),
+                datasets: [{
+                    label: '推定マージン率 (%)',
+                    data: [15, 150, 220],
+                    backgroundColor: [
+                        'rgba(244, 63, 94, 0.7)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(5, 150, 105, 0.9)'
+                    ],
+                    borderWidth: 0,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'マージン率 (%)', font: { family: "'Noto Sans KR', sans-serif" } },
+                        grid: { borderDash: [4, 4] }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { family: "'Noto Sans KR', sans-serif" } }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+    </script>
+
+<script>
+    const observer = new ResizeObserver(() => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'dashboard',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+    observer.observe(document.body);
+    window.addEventListener('load', () => {
+        window.parent.postMessage({
+            type: 'resize-iframe',
+            source: 'dashboard',
+            height: document.body.offsetHeight + 50
+        }, '*');
+    });
+</script>
+</body>
+
+</html>

@@ -264,7 +264,7 @@ const MonsmectaSNJLanding = () => {
             style={{ height: iframeHeights.james ? `${iframeHeights.james}px` : '1800px' }}
           >
             <iframe
-              src={`${import.meta.env.BASE_URL}assets/james_infographic.html?v=2.1`}
+              src={`${import.meta.env.BASE_URL}assets/james_infographic_${i18n.language}.html?v=2.1`}
               className="absolute top-0 left-0 w-full h-full border-0"
               title="{t('clinical.chart_monsmecta')} 인포그래픽"
               scrolling="no"
@@ -277,7 +277,7 @@ const MonsmectaSNJLanding = () => {
             style={{ height: iframeHeights.dashboard ? `${iframeHeights.dashboard}px` : '1800px' }}
           >
             <iframe
-              src={`${import.meta.env.BASE_URL}assets/monsmecta_dashboard.html?v=1.0`}
+              src={`${import.meta.env.BASE_URL}assets/monsmecta_dashboard_${i18n.language}.html?v=1.0`}
               className="absolute top-0 left-0 w-full h-full border-0"
               title="{t('clinical.chart_monsmecta')} 전략 대시보드"
               scrolling="no"
@@ -290,7 +290,7 @@ const MonsmectaSNJLanding = () => {
             style={{ height: iframeHeights.scenario ? `${iframeHeights.scenario}px` : '1800px' }}
           >
             <iframe
-              src={`${import.meta.env.BASE_URL}assets/monsmecta_scenario.html?v=1.0`}
+              src={`${import.meta.env.BASE_URL}assets/monsmecta_scenario_${i18n.language}.html?v=1.0`}
               className="absolute top-0 left-0 w-full h-full border-0"
               title="{t('clinical.chart_monsmecta')} 상담 시나리오"
               scrolling="no"
