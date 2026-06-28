@@ -1,0 +1,36 @@
+{
+    "nav": {
+        "products": "Productos",
+        "clinical": "Datos Clínicos",
+        "values": "3 Valores",
+        "order": "Pedido Rápido"
+    },
+    "hero": {
+        "title": "La Respuesta Clínica, MONSMECTA",
+        "subtitle": "Una solución gastrointestinal que cumple con los rigurosos estándares veterinarios. Verificada y recetada por el Dr. James Hong.",
+        "orderBtn": "Crear Formulario de Pedido Exclusivo",
+        "specBtn": "📋 Ver Especificaciones"
+    },
+    "values": {
+        "title": "Las 3 Promesas de MONSMECTA",
+        "desc": "Nos convertimos en un estándar confiable para la gestión clínica y empresarial de los directores veterinarios.",
+        "online": "Exclusión de Ventas en Línea",
+        "online_desc": "Prometemos no distribuir nunca a centros comerciales en línea o tiendas de mascotas generales. Mantenemos la autoridad de prescripción exclusivamente a través de clínicas veterinarias.",
+        "price": "Precios Autónomos y Margen Garantizado",
+        "price_desc": "Garantizamos un precio de suministro razonable, permitiendo a los directores establecer el precio minorista de forma autónoma. Los altos márgenes brindan vitalidad a la gestión.",
+        "formula": "Fórmula Académica Superior",
+        "formula_desc": "La mezcla de Montmorillonita ultrafina y Bacillus subtilis restaura rápidamente la barrera de la mucosa intestinal, creando una sinergia explosiva con la terapia IV."
+    },
+    "clinical": {
+        "title": "Evidencia Propuesta por Veterinarios",
+        "card1_title": "Recuperación Rápida de la Mucosa",
+        "card1_desc": "Verifique el poder de bloqueo contra sustancias nocivas y la velocidad de formación del escudo de la mucosa comprobados en casos reales.",
+        "card2_title": "Palatabilidad Perfecta",
+        "card2_desc": "Diseñado para inducir la ingesta voluntaria sin estrés, considerando entornos clínicos ocupados y pacientes sensibles."
+    },
+    "order": {
+        "title": "Formulario de Pedido para Clínicas",
+        "desc": "La información ingresada se usa estrictamente para verificación del hospital y facturación.",
+        "btn": "Proceder con el Pago"
+    }
+}

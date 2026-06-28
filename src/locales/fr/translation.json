@@ -1,0 +1,36 @@
+{
+    "nav": {
+        "products": "Produits",
+        "clinical": "Données Cliniques",
+        "values": "3 Valeurs",
+        "order": "Commande Rapide"
+    },
+    "hero": {
+        "title": "La Réponse Clinique, MONSMECTA",
+        "subtitle": "Une solution gastro-intestinale répondant aux normes vétérinaires rigoureuses. Vérifiée et prescrite par le Dr. James Hong.",
+        "orderBtn": "Créer un Bon de Commande",
+        "specBtn": "📋 Voir les Spécifications"
+    },
+    "values": {
+        "title": "Les 3 Promesses de MONSMECTA",
+        "desc": "Nous devenons une référence fiable pour la confiance clinique et managériale des directeurs vétérinaires.",
+        "online": "Exclusion des Ventes en Ligne",
+        "online_desc": "Nous promettons de ne jamais distribuer via les centres commerciaux en ligne. Vous maintenez l'autorité de prescription exclusivement via les cliniques.",
+        "price": "Tarification Autonome et Marge Élevée",
+        "price_desc": "Nous garantissons un prix d'approvisionnement raisonnable, permettant aux directeurs de fixer le prix de détail. Un taux de marge exceptionnel dynamise la gestion.",
+        "formula": "Formule Académique Supérieure",
+        "formula_desc": "Le mélange à haute teneur en Montmorillonite ultra-fine et en Bacillus subtilis restaure rapidement la barrière muqueuse et crée une synergie explosive avec la thérapie IV."
+    },
+    "clinical": {
+        "title": "Preuves Proposées par les Vétérinaires",
+        "card1_title": "Récupération Rapide de la Muqueuse",
+        "card1_desc": "Vérifiez le pouvoir de blocage contre les substances nocives et la vitesse de formation de la barrière muqueuse prouvés par des cas réels.",
+        "card2_title": "Appétence Parfaite",
+        "card2_desc": "Conçu pour induire une prise volontaire sans stress, en tenant compte des environnements cliniques occupés et des patients sensibles."
+    },
+    "order": {
+        "title": "Bon de Commande (Cliniques)",
+        "desc": "Les informations saisies sont strictement utilisées pour la vérification et la facturation.",
+        "btn": "Procéder au Paiement"
+    }
+}

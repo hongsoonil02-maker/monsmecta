@@ -65,6 +65,9 @@ const MonsmectaSNJLanding = () => {
               <button onClick={() => i18n.changeLanguage('ko')} className="text-sm text-[#00513b] hover:underline">KO</button>
               <button onClick={() => i18n.changeLanguage('en')} className="text-sm text-[#00513b] hover:underline">EN</button>
               <button onClick={() => i18n.changeLanguage('ja')} className="text-sm text-[#00513b] hover:underline">JA</button>
+              <button onClick={() => i18n.changeLanguage('zh')} className="text-sm text-[#00513b] hover:underline">ZH</button>
+              <button onClick={() => i18n.changeLanguage('es')} className="text-sm text-[#00513b] hover:underline">ES</button>
+              <button onClick={() => i18n.changeLanguage('fr')} className="text-sm text-[#00513b] hover:underline">FR</button>
             </div>
             <a href="#order" className="hidden md:inline-block bg-[#00513b] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-[#003d2b] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
               {t('nav.order')}
@@ -164,7 +167,7 @@ const MonsmectaSNJLanding = () => {
               <div className="w-16 h-16 bg-[#00513b] text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">🔒</div>
               <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.online')}</h4>
               <p className="text-slate-600 leading-relaxed">
-                모든 온라인 쇼핑몰, 오픈마켓, 소셜커머스 및 일반 오프라인 펫샵에 절대 유통하지 않을 것임을 약속드립니다. 오직 동물병원을 통해서만 처방 권위를 유지하실 수 있습니다.
+                {t('values.online_desc')}
               </p>
             </div>
 
@@ -172,7 +175,7 @@ const MonsmectaSNJLanding = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">💸</div>
               <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.price')}</h4>
               <p className="text-slate-600 leading-relaxed">
-                합리적 공급가를 보장하며, 실제 판매 가격은 원장님들께서 상황에 맞춰 자율 책정하여 운영하실 수 있습니다. 공급가 대비 압도적 마진율로 병원 경영의 활력이 되어드립니다.
+                {t('values.price_desc')}
               </p>
             </div>
 
@@ -180,7 +183,7 @@ const MonsmectaSNJLanding = () => {
               <div className="w-16 h-16 bg-slate-800 text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">🔬</div>
               <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.formula')}</h4>
               <p className="text-slate-600 leading-relaxed">
-                초미세공정 몬모릴로나이트와 바실러스 서브틸리스 균주를 고함량 배합하여 장 점막 방어막을 빠르게 복구하고, 수액(IV) 치료와 폭발적인 시너지를 일으킵니다.
+                {t('values.formula_desc')}
               </p>
             </div>
           </div>

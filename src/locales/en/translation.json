@@ -7,15 +7,30 @@
     },
     "hero": {
         "title": "Clinician's Answer, MONSMECTA",
-        "subtitle": "A gut solution that meets the rigorous standards of on‑site veterinary care. Verified and prescribed by Dr. James Hong of S&J Animal Hospital.",
+        "subtitle": "A gut solution that meets the rigorous standards of on-site veterinary care. Verified and prescribed by Dr. James Hong.",
         "orderBtn": "Create Exclusive Order Form",
-        "specBtn": "📋 View Product Specs / Label"
+        "specBtn": "📋 View Specs / Label"
     },
     "values": {
-        "title": "MONSMECTA's 3 Core Value Promises",
+        "title": "MONSMECTA's 3 Core Promises",
         "desc": "We become a reliable benchmark for veterinary directors' clinical and managerial trust.",
-        "online": "Exclude Online & Pet‑Shop Distribution",
-        "price": "Guarantee Autonomous Pricing & Margin Structure",
-        "formula": "Superior Academic Formula"
+        "online": "No Online & Pet-Shop Distribution",
+        "online_desc": "We promise never to distribute to online malls, open markets, social commerce, or general offline pet shops. You can maintain prescription authority exclusively through animal hospitals.",
+        "price": "Autonomous Pricing & High Margin",
+        "price_desc": "We guarantee a reasonable supply price, allowing directors to set the actual retail price autonomously. Overwhelming margin rates provide vitality to hospital management.",
+        "formula": "Superior Academic Formula",
+        "formula_desc": "High-content blend of ultra-fine Montmorillonite and Bacillus subtilis quickly restores the intestinal mucosal barrier and creates explosive synergy with IV fluid therapy."
+    },
+    "clinical": {
+        "title": "Evidence Proposed by Vets for Vets",
+        "card1_title": "Rapid Intestinal Mucosa Recovery",
+        "card1_desc": "Verify the blocking power against harmful substances and the speed of mucosal shield formation proven through actual prescription cases at S&J Animal Hospital.",
+        "card2_title": "Perfect Palatability & Convenience",
+        "card2_desc": "Designed to induce voluntary intake without stress, considering busy clinical environments and sensitive patients."
+    },
+    "order": {
+        "title": "Quick Order Form for Vets",
+        "desc": "Entered information is strictly used for hospital verification and tax invoice issuance.",
+        "btn": "Proceed with Prepayment"
     }
 }

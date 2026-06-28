@@ -12,6 +12,15 @@ const resources = {
     ja: {
         translation: require('./locales/ja/translation.json'),
     },
+    zh: {
+        translation: require('./locales/zh/translation.json'),
+    },
+    es: {
+        translation: require('./locales/es/translation.json'),
+    },
+    fr: {
+        translation: require('./locales/fr/translation.json'),
+    },
 };
 
 i18n.use(initReactI18next).init({
