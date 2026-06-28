@@ -55,9 +55,9 @@ const MonsmectaSNJLanding = () => {
             <span className="font-extrabold text-xl text-[#00513b] tracking-tight">에스앤제이 동물병원</span>
           </div>
           <div className="hidden md:flex space-x-8">
-            <a href="#about" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">제품소개</a>
-            <a href="#clinical" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">임상데이터</a>
-            <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">3대 가치</a>
+            <a href="#about" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.products')}</a>
+            <a href="#clinical" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.clinical')}</a>
+            <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
           </div>
           <div className="flex items-center gap-4">
             {/* Language toggle */}
@@ -88,11 +88,11 @@ const MonsmectaSNJLanding = () => {
         {/* Mobile Menu Panel */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-4">
-            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">제품소개</a>
-            <a href="#clinical" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">임상데이터</a>
-            <a href="#values" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">3대 가치</a>
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.products')}</a>
+            <a href="#clinical" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.clinical')}</a>
+            <a href="#values" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
             <a href="#order" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#00513b] text-white px-6 py-3 rounded-xl text-sm font-bold shadow-md hover:bg-[#003d2b] transition-all duration-200 mt-4">
-              빠른 발주하기
+              {t('nav.order')}
             </a>
           </div>
         )}
@@ -110,18 +110,18 @@ const MonsmectaSNJLanding = () => {
               전국 동물병원 전용 B2B 공급망
             </div>
             <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight drop-shadow-xl break-keep">
-              임상 수의사의 해답,<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 drop-shadow-sm">MONSMECTA</span>
+              {t('hero.title').split(',')[0]},<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 drop-shadow-sm">{t('hero.title').split(',').length > 1 ? t('hero.title').split(',')[1].trim() : ''}</span>
             </h1>
             <p className="text-lg md:text-xl text-emerald-50/90 leading-relaxed max-w-xl mx-auto md:mx-0 font-light">
-              현장 진료의 까다로운 기준을 통과한 위장관 솔루션. 에스앤제이 동물병원 홍순일 원장이 직접 검증하고 처방합니다.
+              {t('hero.subtitle')}
             </p>
             <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a href="#order" className="inline-block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-lg font-black px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
-                원장님 전용 발주서 작성하기
+                {t('hero.orderBtn')}
               </a>
               <button onClick={() => setIsLabelModalOpen(true)} className="inline-block text-center bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-full hover:bg-white/20 transform hover:-translate-y-1 transition-all duration-300">
-                📋 제품 스펙/라벨 보기
+                {t('hero.specBtn')}
               </button>
             </div>
           </div>
@@ -154,15 +154,15 @@ const MonsmectaSNJLanding = () => {
       <section id="values" className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">몬스멕타의 3대 가치 약속</h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('values.title')}</h2>
             <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
-            <p className="text-slate-500 text-lg mt-6 font-medium">수의사 원장님들의 진료 및 경영적 신뢰를 지켜드리는 확실한 기준이 되겠습니다.</p>
+            <p className="text-slate-500 text-lg mt-6 font-medium">{t('values.desc')}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="w-16 h-16 bg-[#00513b] text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">🔒</div>
-              <h4 className="text-xl font-bold text-slate-800 mb-4">온라인 및 펫샵 유통 원천 배제</h4>
+              <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.online')}</h4>
               <p className="text-slate-600 leading-relaxed">
                 모든 온라인 쇼핑몰, 오픈마켓, 소셜커머스 및 일반 오프라인 펫샵에 절대 유통하지 않을 것임을 약속드립니다. 오직 동물병원을 통해서만 처방 권위를 유지하실 수 있습니다.
               </p>
@@ -170,7 +170,7 @@ const MonsmectaSNJLanding = () => {
 
             <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">💸</div>
-              <h4 className="text-xl font-bold text-slate-800 mb-4">자율 가격 및 마진 구조 보장</h4>
+              <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.price')}</h4>
               <p className="text-slate-600 leading-relaxed">
                 합리적 공급가를 보장하며, 실제 판매 가격은 원장님들께서 상황에 맞춰 자율 책정하여 운영하실 수 있습니다. 공급가 대비 압도적 마진율로 병원 경영의 활력이 되어드립니다.
               </p>
@@ -178,7 +178,7 @@ const MonsmectaSNJLanding = () => {
 
             <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
               <div className="w-16 h-16 bg-slate-800 text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">🔬</div>
-              <h4 className="text-xl font-bold text-slate-800 mb-4">월등한 학술적 포뮬러</h4>
+              <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.formula')}</h4>
               <p className="text-slate-600 leading-relaxed">
                 초미세공정 몬모릴로나이트와 바실러스 서브틸리스 균주를 고함량 배합하여 장 점막 방어막을 빠르게 복구하고, 수액(IV) 치료와 폭발적인 시너지를 일으킵니다.
               </p>
