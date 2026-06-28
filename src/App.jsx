@@ -111,7 +111,7 @@ const MonsmectaSNJLanding = () => {
           <div className="md:w-1/2 space-y-8 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-sm font-medium border border-white/20 backdrop-blur-sm shadow-xl">
               <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]"></span>
-              Nationwide B2B Supply Chain for Animal Hospitals
+              {t('heroBadge')}
             </div>
             <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight drop-shadow-xl break-keep">
               {t('hero.title').split(',')[0]},<br />
