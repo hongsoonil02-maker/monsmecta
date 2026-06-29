@@ -129,6 +129,9 @@
         "title": "Spécialiste AI Monsmecta",
         "subtitle": "Consultation rapide et précise",
         "placeholder": "Posez votre question...",
-        "send": "Envoyer"
+        "send": "Envoyer",
+        "faq1": "Quelles sont les conditions de l'offre exclusive ?",
+        "faq2": "Quelle est la quantité minimum de commande (MOQ) et le prix ?",
+        "faq3": "Comment fonctionnent le paiement et la livraison ?"
     }
 }

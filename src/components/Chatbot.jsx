@@ -130,9 +130,23 @@ export default function Chatbot() {
         </div>
 
         {/* 입력 영역 */}
-        <form onSubmit={handleSubmit} className="p-3 bg-white border-t border-slate-200">
-          <div className="flex items-center bg-slate-100 rounded-full overflow-hidden px-2 py-1">
-            <input
+        <div className="bg-white border-t border-slate-200">
+          {/* FAQ Quick Replies */}
+          <div className="px-3 pt-2 pb-1 flex space-x-2 overflow-x-auto scrollbar-hide">
+            {['faq1', 'faq2', 'faq3'].map((faqKey) => (
+              <button
+                key={faqKey}
+                onClick={() => setInput(t(`chat.${faqKey}`))}
+                className="whitespace-nowrap px-3 py-1.5 bg-[#f0f9f6] hover:bg-[#e0f2ec] text-[#00513b] text-xs font-medium rounded-full transition-colors border border-[#c2e5d9]"
+                disabled={isLoading}
+              >
+                {t(`chat.${faqKey}`)}
+              </button>
+            ))}
+          </div>
+          <form onSubmit={handleSubmit} className="px-3 pb-3 pt-1">
+            <div className="flex items-center bg-slate-100 rounded-full overflow-hidden px-2 py-1">
+              <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -151,6 +165,7 @@ export default function Chatbot() {
             </button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   );
