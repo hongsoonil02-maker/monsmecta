@@ -331,7 +331,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'dashboard',
-            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 10
+            height: document.body.scrollHeight + 15
         }, '*');
     });
     observer.observe(document.body);
@@ -339,7 +339,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'dashboard',
-            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 10
+            height: document.body.scrollHeight + 15
         }, '*');
     });
 </script>
