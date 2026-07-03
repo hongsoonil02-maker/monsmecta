@@ -308,7 +308,7 @@ const MonsmectaSNJLanding = () => {
       </section >
 
       {/* Infographics Section (Restored & Upgraded) */}
-      < section className="py-6 md:py-12 bg-white max-w-6xl mx-auto px-4" >
+      < section className="py-6 md:py-12 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
         <div className="text-center mb-8">
           <h3 className="text-3xl md:text-4xl font-extrabold text-[#00513b] mb-4 break-keep">{t('infographics.title')}</h3>
           <p className="text-slate-500 text-lg font-medium">{t('infographics.desc')}</p>
@@ -379,7 +379,7 @@ const MonsmectaSNJLanding = () => {
 
       {/* B2B Order Form Section */}
       < section id="order" className="py-10 md:py-20 bg-slate-50" >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 transform transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,81,59,0.1)]">
             <div className="bg-gradient-to-r from-[#00513b] to-[#003d2b] p-8 md:p-10 text-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
