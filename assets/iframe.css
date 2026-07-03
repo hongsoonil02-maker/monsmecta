@@ -2572,3 +2572,9 @@ body {
     }
   }
 }
+
+* {
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+}
+

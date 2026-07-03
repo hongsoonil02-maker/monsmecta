@@ -15,8 +15,8 @@
         }
         body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; }
         .montserrat { font-family: 'Montserrat', sans-serif; }
-        .chart-container { position: relative; width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
-        @media (min-width: 768px) { .chart-container { height: 380px; } }
+        .chart-container { position: relative; width: 100%; max-width: 100%; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; overflow: hidden; }
+        @media (min-width: 768px) { .chart-container { position: relative; width: 100%; max-width: 100%; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; overflow: hidden; } }
         .css-villi { width: 30px; height: 60px; background: linear-gradient(to top, #fda4af, #ffe4e6); border-radius: 15px 15px 0 0; border: 2px solid #fb7185; border-bottom: none; }
         .css-toxin { width: 16px; height: 16px; background-color: #ef4444; border-radius: 50%; border: 2px dashed #7f1d1d; position: absolute; }
         .css-particle { width: 24px; height: 24px; background-color: #fbbf24; border-radius: 50%; opacity: 0.8; position: absolute; box-shadow: 0 0 10px #f59e0b; }
@@ -192,16 +192,24 @@
     </div>
 
     <script>
-        function wrapLabel(label, limit = 16) {
+        function wrapLabel(label, limit = 8) {
+            if (!label) return '';
+            if (typeof label !== 'string') label = String(label);
             if (label.length <= limit) return label;
-            const words = label.split(' ');
-            const lines = [];
+            let words = label.split(' ');
+            let lines = [];
             let currentLine = '';
             words.forEach(word => {
                 if ((currentLine + word).length > limit) {
                     if (currentLine) lines.push(currentLine.trim());
                     currentLine = word + ' ';
                 } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        } else {
                     currentLine += word + ' ';
                 }
             });
@@ -223,7 +231,7 @@
         new Chart(ctxRadar, {
             type: 'radar',
             data: {
-                labels: ['바이러스 억제', '식욕 회복', '설사 개선', '면역력 증강', '탈수 방지', '장 점막 재생'].map(l => wrapLabel(l, 10)),
+                labels: ['바이러스 억제', '식욕 회복', '설사 개선', '면역력 증강', '탈수 방지', '장 점막 재생'].map(l => wrapLabel(l, 8)),
                 datasets: [
                     {
                         label: '몬스멕타 (Monsmecta)',
@@ -247,7 +255,7 @@
             },
             options: {
                 maintainAspectRatio: false,
-                layout: { padding: { top: 30, bottom: 30, left: 45, right: 45 } },
+                layout: { padding: { top: 15, bottom: 15, left: 15, right: 15 } } },
                 scales: {
                     r: {
                         angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
@@ -267,7 +275,7 @@
         new Chart(ctxBar, {
             type: 'bar',
             data: {
-                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l)),
+                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l, 8)),
                 datasets: [
                     {
                         label: '일반 요법 단독 (General Therapy)',
@@ -289,7 +297,7 @@
             },
             options: {
                 maintainAspectRatio: false,
-                layout: { padding: { top: 30, bottom: 30, left: 45, right: 45 } },
+                layout: { padding: { top: 15, bottom: 15, left: 15, right: 15 } } },
                 scales: {
                     y: {
                         beginAtZero: true,
