@@ -223,14 +223,7 @@
         new Chart(ctxRadar, {
             type: 'radar',
             data: {
-                labels: [
-                    '바이러스 억제 (Virus Suppression)', 
-                    '식욕 회복 (Appetite Recovery)', 
-                    '설사 개선 (Diarrhea Improvement)', 
-                    '면역력 증강 (Immunity Boost)', 
-                    '탈수 방지 (Dehydration Prevention)', 
-                    '장 점막 재생 (Mucosal Regeneration)'
-                ].map(l => wrapLabel(l)),
+                labels: ['Virus Suppression', 'Appetite Recovery', 'Diarrhea Improvement', 'Immunity Boost', 'Dehydration Prevention', 'Mucosal Regeneration'].map(l => wrapLabel(l, 10)),
                 datasets: [
                     {
                         label: '몬스멕타 (Monsmecta)',
@@ -254,6 +247,7 @@
             },
             options: {
                 maintainAspectRatio: false,
+                layout: { padding: { top: 30, bottom: 30, left: 45, right: 45 } },
                 scales: {
                     r: {
                         angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
@@ -295,6 +289,7 @@
             },
             options: {
                 maintainAspectRatio: false,
+                layout: { padding: { top: 30, bottom: 30, left: 45, right: 45 } },
                 scales: {
                     y: {
                         beginAtZero: true,

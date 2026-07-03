@@ -179,12 +179,12 @@
 
     <script>
         function wrapLabel(label) {
-            if (label.length <= 16) return label;
+            if (label.length <= 8) return label;
             let words = label.split(' ');
             let lines = [];
             let currentLine = '';
             words.forEach(word => {
-                if ((currentLine + word).length > 16) {
+                if ((currentLine + word).length > 8) {
                     if (currentLine) lines.push(currentLine.trim());
                     currentLine = word + ' ';
                 } else {
@@ -243,6 +243,7 @@
             },
             options: {
                 maintainAspectRatio: false,
+                layout: { padding: { top: 30, bottom: 30, left: 45, right: 45 } },
                 scales: {
                     r: {
                         min: 0,
@@ -279,6 +280,7 @@
             },
             options: {
                 maintainAspectRatio: false,
+                layout: { padding: { top: 30, bottom: 30, left: 45, right: 45 } },
                 scales: {
                     y: {
                         beginAtZero: true,

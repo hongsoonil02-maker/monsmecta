@@ -83,25 +83,50 @@ const MonsmectaSNJLanding = () => {
       {/* Sticky GNB */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt={t('footer.title')} className="h-8 w-auto drop-shadow-sm" onError={(e) => e.target.style.display = 'none'} />
-            <span className="font-extrabold text-xl text-[#00513b] tracking-tight">{t('footer.title')}</span>
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 max-w-[60%] sm:max-w-none">
+            <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt={t('footer.title')} className="h-7 sm:h-8 w-auto shrink-0 drop-shadow-sm" onError={(e) => e.target.style.display = 'none'} />
+            <span className="font-extrabold text-base sm:text-xl text-[#00513b] tracking-tight truncate">{t('footer.title')}</span>
           </div>
           <div className="hidden md:flex space-x-8">
             <a href="#about" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.products')}</a>
             <a href="#clinical" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.clinical')}</a>
             <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
           </div>
-          <div className="flex items-center gap-4">
-            {/* Language toggle */}
-            <div className="flex space-x-2">
-              <button onClick={() => i18n.changeLanguage('ko')} className="text-sm text-[#00513b] hover:underline">KO</button>
-              <button onClick={() => i18n.changeLanguage('en')} className="text-sm text-[#00513b] hover:underline">EN</button>
-              <button onClick={() => i18n.changeLanguage('ja')} className="text-sm text-[#00513b] hover:underline">JA</button>
-              <button onClick={() => i18n.changeLanguage('zh')} className="text-sm text-[#00513b] hover:underline">ZH</button>
-              <button onClick={() => i18n.changeLanguage('es')} className="text-sm text-[#00513b] hover:underline">ES</button>
-              <button onClick={() => i18n.changeLanguage('fr')} className="text-sm text-[#00513b] hover:underline">FR</button>
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+            {/* Language toggle - Desktop */}
+            <div className="hidden md:flex items-center space-x-1 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
+              {['ko', 'en', 'ja', 'zh', 'es', 'fr'].map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => i18n.changeLanguage(lang)}
+                  className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all ${
+                    i18n.language === lang
+                      ? 'bg-[#00513b] text-white shadow-sm'
+                      : 'text-slate-600 hover:text-[#00513b]'
+                  }`}
+                >
+                  {lang.toUpperCase()}
+                </button>
+              ))}
             </div>
+
+            {/* Language toggle - Mobile Dropdown */}
+            <div className="flex md:hidden items-center shrink-0">
+              <select
+                value={i18n.language || 'ko'}
+                onChange={(e) => i18n.changeLanguage(e.target.value)}
+                aria-label="Language Selector"
+                className="bg-slate-100 border border-slate-300 text-[#00513b] text-xs font-bold rounded-full px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer"
+              >
+                <option value="ko">🌐 KO</option>
+                <option value="en">🌐 EN</option>
+                <option value="ja">🌐 JA</option>
+                <option value="zh">🌐 ZH</option>
+                <option value="es">🌐 ES</option>
+                <option value="fr">🌐 FR</option>
+              </select>
+            </div>
+
             <a href="#order" className="hidden md:inline-block bg-[#00513b] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-[#003d2b] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
               {t('nav.order')}
             </a>

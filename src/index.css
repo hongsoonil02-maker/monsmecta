@@ -11,6 +11,11 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 body {
   font-family: 'Pretendard', sans-serif;
   background-color: #f9fafb;
