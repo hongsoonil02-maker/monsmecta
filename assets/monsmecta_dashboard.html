@@ -178,7 +178,7 @@
     </div>
 
     <script>
-        function wrapLabel(label, limit = 8) {
+        function wrapLabel(label, limit = 14) {
             if (!label) return '';
             if (typeof label !== 'string') label = String(label);
             if (label.length <= limit) return label;
@@ -190,6 +190,12 @@
                     if (currentLine) lines.push(currentLine.trim());
                     currentLine = word + ' ';
                 } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        } else {
                     currentLine += word + ' ';
                 }
             });
@@ -227,7 +233,7 @@
                     '자발적 기호성 (구토 방지)',
                     '장 점막 쉴드 코팅',
                     '바실러스 항바이러스 작용'
-                ].map(l => wrapLabel(l, 8)),
+                ].map(l => wrapLabel(l, 14)),
                 datasets: [
                     {
                         label: '몬스멕타',
@@ -251,7 +257,7 @@
             },
             options: {
                 maintainAspectRatio: false,
-                layout: { padding: { top: 15, bottom: 15, left: 15, right: 15 } } },
+                layout: { padding: { top: 20, bottom: 20, left: 25, right: 25 } },
                 scales: {
                     r: {
                         min: 0,
@@ -273,7 +279,7 @@
         new Chart(ctxBar, {
             type: 'bar',
             data: {
-                labels: ['일반 온라인 지사제', '몬스멕타 (병원 권장가 A)', '몬스멕타 (병원 권장가 B)'].map(l => wrapLabel(l, 8)),
+                labels: ['일반 온라인 지사제', '몬스멕타 (병원 권장가 A)', '몬스멕타 (병원 권장가 B)'].map(l => wrapLabel(l, 2,
                 datasets: [{
                     label: '추정 마진율 (%)',
                     data: [15, 150, 220],
@@ -286,18 +292,19 @@
                     borderRadius: 6
                 }]
             },
-            options: {
+                        options: {
+                indexAxis: 'y',
                 maintainAspectRatio: false,
-                layout: { padding: { top: 15, bottom: 15, left: 15, right: 15 } } },
+                layout: { padding: { top: 15, bottom: 15, left: 15, right: 25 } },
                 scales: {
-                    y: {
+                    x: {
                         beginAtZero: true,
                         title: { display: true, text: '마진율 (%)', font: { family: "'Noto Sans KR', sans-serif" } },
                         grid: { borderDash: [4, 4] }
                     },
-                    x: {
+                    y: {
                         grid: { display: false },
-                        ticks: { font: { family: "'Noto Sans KR', sans-serif" } }
+                        ticks: { font: { family: "'Noto Sans KR', sans-serif", weight: '600', size: 12 }, color: '#1e293b' }
                     }
                 },
                 plugins: {
@@ -313,7 +320,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'dashboard',
-            height: document.body.offsetHeight + 50
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
         }, '*');
     });
     observer.observe(document.body);
@@ -321,7 +328,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'dashboard',
-            height: document.body.offsetHeight + 50
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
         }, '*');
     });
 </script>

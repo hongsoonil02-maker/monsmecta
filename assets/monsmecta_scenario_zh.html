@@ -192,7 +192,7 @@
     </div>
 
     <script>
-        function wrapLabel(label, limit = 8) {
+        function wrapLabel(label, limit = 14) {
             if (!label) return '';
             if (typeof label !== 'string') label = String(label);
             if (label.length <= limit) return label;
@@ -204,6 +204,12 @@
                     if (currentLine) lines.push(currentLine.trim());
                     currentLine = word + ' ';
                 } else {
+                    currentLine += word + ' ';
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        } else {
                     currentLine += word + ' ';
                 }
             });
@@ -231,7 +237,7 @@
         new Chart(ctxRadar, {
             type: 'radar',
             data: {
-                labels: ['抑制病毒', '恢复食欲', '改善腹泻', '增强免疫', '预防脱水', '肠粘膜再生'].map(l => wrapLabel(l, 8)),
+                labels: ['抑制病毒', '恢复食欲', '改善腹泻', '增强免疫', '预防脱水', '肠粘膜再生'].map(l => wrapLabel(l, 14)),
                 datasets: [
                     {
                         label: '몬스멕타 (Monsmecta)',
@@ -255,7 +261,7 @@
             },
             options: {
                 maintainAspectRatio: false,
-                layout: { padding: { top: 15, bottom: 15, left: 15, right: 15 } } },
+                layout: { padding: { top: 20, bottom: 20, left: 25, right: 25 } },
                 scales: {
                     r: {
                         angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
@@ -275,7 +281,7 @@
         new Chart(ctxBar, {
             type: 'bar',
             data: {
-                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l, 8)),
+                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l, 2,
                 datasets: [
                     {
                         label: '일반 요법 단독 (General Therapy)',
@@ -295,23 +301,24 @@
                     }
                 ]
             },
-            options: {
+                        options: {
+                indexAxis: 'y',
                 maintainAspectRatio: false,
-                layout: { padding: { top: 15, bottom: 15, left: 15, right: 15 } } },
+                layout: { padding: { top: 15, bottom: 15, left: 15, right: 25 } },
                 scales: {
-                    y: {
+                    x: {
                         beginAtZero: true,
-                        title: { display: true, text: '회복 소요 기간 (Days)', font: { family: "'Noto Sans KR', sans-serif", size: 12 } },
+                        title: { display: true, text: '평균 회복 기간 (일)', font: { family: "'Noto Sans KR', sans-serif" } },
                         grid: { borderDash: [4, 4] }
                     },
-                    x: {
+                    y: {
                         grid: { display: false },
-                        ticks: { font: { family: "'Noto Sans KR', sans-serif" } }
+                        ticks: { font: { family: "'Noto Sans KR', sans-serif", weight: '600', size: 12 }, color: '#1e293b' }
                     }
                 },
                 plugins: {
                     legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
-                    tooltip: radarTooltipConfig
+                    tooltip: tooltipConfig
                 }
             }
         });
@@ -322,7 +329,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'scenario',
-            height: document.body.offsetHeight + 50
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
         }, '*');
     });
     observer.observe(document.body);
@@ -330,7 +337,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'scenario',
-            height: document.body.offsetHeight + 50
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
         }, '*');
     });
 </script>
