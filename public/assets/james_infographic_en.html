@@ -341,7 +341,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'james',
-            height: document.body.offsetHeight + 10
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
         }, '*');
     });
     observer.observe(document.body);
@@ -349,7 +349,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'james',
-            height: document.body.offsetHeight + 10
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
         }, '*');
     });
 </script>

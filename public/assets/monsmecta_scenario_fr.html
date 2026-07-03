@@ -15,8 +15,8 @@
         }
         body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; }
         .montserrat { font-family: 'Montserrat', sans-serif; }
-        .chart-container { position: relative; width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; height: 320px; max-height: 400px; }
-        @media (min-width: 768px) { .chart-container { height: 380px; } }
+        .chart-container { position: relative; width: 100%; max-width: 100%; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; overflow: hidden; }
+        @media (min-width: 768px) { .chart-container { position: relative; width: 100%; max-width: 100%; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; overflow: hidden; } }
         .css-villi { width: 30px; height: 60px; background: linear-gradient(to top, #fda4af, #ffe4e6); border-radius: 15px 15px 0 0; border: 2px solid #fb7185; border-bottom: none; }
         .css-toxin { width: 16px; height: 16px; background-color: #ef4444; border-radius: 50%; border: 2px dashed #7f1d1d; position: absolute; }
         .css-particle { width: 24px; height: 24px; background-color: #fbbf24; border-radius: 50%; opacity: 0.8; position: absolute; box-shadow: 0 0 10px #f59e0b; }
@@ -192,10 +192,12 @@
     </div>
 
     <script>
-        function wrapLabel(label, limit = 16) {
+                        function wrapLabel(label, limit = 14) {
+            if (!label) return '';
+            if (typeof label !== 'string') label = String(label);
             if (label.length <= limit) return label;
-            const words = label.split(' ');
-            const lines = [];
+            let words = label.split(' ');
+            let lines = [];
             let currentLine = '';
             words.forEach(word => {
                 if ((currentLine + word).length > limit) {
@@ -223,10 +225,10 @@
         new Chart(ctxRadar, {
             type: 'radar',
             data: {
-                labels: ['Suppression Virale', "Retour de l'Appétit", 'Amélioration Diarrhée', 'Renfort Immunitaire', 'Prévention Déshydratation', 'Régénération Muqueuse'].map(l => wrapLabel(l, 10)),
+                labels: ['Suppression Virale', "Retour de l'Appétit", 'Amélioration Diarrhée', 'Renfort Immunitaire', 'Prévention Déshydratation', 'Régénération Muqueuse'].map(l => wrapLabel(l, 14)),)),
                 datasets: [
                     {
-                        label: '몬스멕타 (Monsmecta)',
+                        label: '몬스멕타',
                         data: [95, 90, 95, 85, 90, 92],
                         backgroundColor: 'rgba(16, 185, 129, 0.2)',
                         borderColor: 'rgba(59, 130, 246, 1)',
@@ -235,7 +237,7 @@
                         pointRadius: 4
                     },
                     {
-                        label: '일반 지사제 (General Antidiarrheal)',
+                        label: '일반 지사제',
                         data: [40, 50, 60, 40, 45, 30],
                         backgroundColor: 'rgba(244, 63, 94, 0.2)',
                         borderColor: 'rgba(244, 63, 94, 1)',
@@ -247,7 +249,7 @@
             },
             options: {
                 maintainAspectRatio: false,
-                layout: { padding: { top: 30, bottom: 30, left: 45, right: 45 } },
+                layout: { padding: { top: 20, bottom: 20, left: 25, right: 25 } },
                 scales: {
                     r: {
                         angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
@@ -257,7 +259,7 @@
                     }
                 },
                 plugins: {
-                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    legend: { position: 'bottom', align: 'center', labels: { boxWidth: 12, padding: 8, font: { family: "'Noto Sans KR', sans-serif", size: 11 } } },
                     tooltip: radarTooltipConfig
                 }
             }
@@ -267,10 +269,10 @@
         new Chart(ctxBar, {
             type: 'bar',
             data: {
-                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l)),
+                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l, 14)),
                 datasets: [
                     {
-                        label: '일반 요법 단독 (General Therapy)',
+                        label: '일반 요법 단독',
                         data: [7.5, 6.0, 5.5],
                         backgroundColor: 'rgba(203, 213, 225, 0.8)',
                         borderColor: 'rgba(148, 163, 184, 1)',
@@ -278,7 +280,7 @@
                         borderRadius: 4
                     },
                     {
-                        label: '몬스멕타 병행 (Monsmecta Synergy)',
+                        label: '몬스멕타 병행',
                         data: [4.0, 3.0, 2.5],
                         backgroundColor: 'rgba(16, 185, 129, 0.8)',
                         borderColor: 'rgba(5, 150, 105, 1)',
@@ -287,23 +289,24 @@
                     }
                 ]
             },
-            options: {
+                        options: {
+                indexAxis: 'y',
                 maintainAspectRatio: false,
-                layout: { padding: { top: 30, bottom: 30, left: 45, right: 45 } },
+                layout: { padding: { top: 15, bottom: 15, left: 15, right: 25 } },
                 scales: {
-                    y: {
+                    x: {
                         beginAtZero: true,
-                        title: { display: true, text: '회복 소요 기간 (Days)', font: { family: "'Noto Sans KR', sans-serif", size: 12 } },
+                        title: { display: true, text: '평균 회복 기간 (일)', font: { family: "'Noto Sans KR', sans-serif" } },
                         grid: { borderDash: [4, 4] }
                     },
-                    x: {
+                    y: {
                         grid: { display: false },
-                        ticks: { font: { family: "'Noto Sans KR', sans-serif" } }
+                        ticks: { font: { family: "'Noto Sans KR', sans-serif", weight: '600', size: 12 }, color: '#1e293b' }
                     }
                 },
                 plugins: {
-                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
-                    tooltip: radarTooltipConfig
+                    legend: { position: 'bottom', align: 'center', labels: { boxWidth: 12, padding: 8, font: { family: "'Noto Sans KR', sans-serif", size: 11 } } },
+                    tooltip: tooltipConfig
                 }
             }
         });
@@ -314,7 +317,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'scenario',
-            height: document.body.offsetHeight + 50
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
         }, '*');
     });
     observer.observe(document.body);
@@ -322,7 +325,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'scenario',
-            height: document.body.offsetHeight + 50
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
         }, '*');
     });
 </script>
