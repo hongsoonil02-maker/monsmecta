@@ -192,7 +192,7 @@
     </div>
 
     <script>
-        function wrapLabel(label, limit = 14) {
+                        function wrapLabel(label, limit = 14) {
             if (!label) return '';
             if (typeof label !== 'string') label = String(label);
             if (label.length <= limit) return label;
@@ -204,18 +204,6 @@
                     if (currentLine) lines.push(currentLine.trim());
                     currentLine = word + ' ';
                 } else {
-                    currentLine += word + ' ';
-                }
-            });
-            if (currentLine) lines.push(currentLine.trim());
-            return lines.length > 1 ? lines : lines[0];
-        } else {
-                    currentLine += word + ' ';
-                }
-            });
-            if (currentLine) lines.push(currentLine.trim());
-            return lines.length > 1 ? lines : lines[0];
-        } else {
                     currentLine += word + ' ';
                 }
             });
@@ -237,10 +225,10 @@
         new Chart(ctxRadar, {
             type: 'radar',
             data: {
-                labels: ['Supresión Viral', 'Recuperación de Apetito', 'Mejora de Diarrea', 'Refuerzo Inmunológico', 'Prevención de Deshidratación', 'Regeneración Mucosa'].map(l => wrapLabel(l, 14)),
+                labels: ['Supresión Viral', 'Recuperación de Apetito', 'Mejora de Diarrea', 'Refuerzo Inmunológico', 'Prevención de Deshidratación', 'Regeneración Mucosa'].map(l => wrapLabel(l, 14)),)),
                 datasets: [
                     {
-                        label: '몬스멕타 (Monsmecta)',
+                        label: '몬스멕타',
                         data: [95, 90, 95, 85, 90, 92],
                         backgroundColor: 'rgba(16, 185, 129, 0.2)',
                         borderColor: 'rgba(59, 130, 246, 1)',
@@ -249,7 +237,7 @@
                         pointRadius: 4
                     },
                     {
-                        label: '일반 지사제 (General Antidiarrheal)',
+                        label: '일반 지사제',
                         data: [40, 50, 60, 40, 45, 30],
                         backgroundColor: 'rgba(244, 63, 94, 0.2)',
                         borderColor: 'rgba(244, 63, 94, 1)',
@@ -271,7 +259,7 @@
                     }
                 },
                 plugins: {
-                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    legend: { position: 'bottom', align: 'center', labels: { boxWidth: 12, padding: 8, font: { family: "'Noto Sans KR', sans-serif", size: 11 } } },
                     tooltip: radarTooltipConfig
                 }
             }
@@ -281,10 +269,10 @@
         new Chart(ctxBar, {
             type: 'bar',
             data: {
-                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l, 2,
+                labels: ['파보 장염 (Parvovirus)', '로타 장염 (Rotavirus)', '코로나 장염 (Coronavirus)'].map(l => wrapLabel(l, 14)),
                 datasets: [
                     {
-                        label: '일반 요법 단독 (General Therapy)',
+                        label: '일반 요법 단독',
                         data: [7.5, 6.0, 5.5],
                         backgroundColor: 'rgba(203, 213, 225, 0.8)',
                         borderColor: 'rgba(148, 163, 184, 1)',
@@ -292,7 +280,7 @@
                         borderRadius: 4
                     },
                     {
-                        label: '몬스멕타 병행 (Monsmecta Synergy)',
+                        label: '몬스멕타 병행',
                         data: [4.0, 3.0, 2.5],
                         backgroundColor: 'rgba(16, 185, 129, 0.8)',
                         borderColor: 'rgba(5, 150, 105, 1)',
@@ -317,7 +305,7 @@
                     }
                 },
                 plugins: {
-                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    legend: { position: 'bottom', align: 'center', labels: { boxWidth: 12, padding: 8, font: { family: "'Noto Sans KR', sans-serif", size: 11 } } },
                     tooltip: tooltipConfig
                 }
             }

@@ -100,15 +100,15 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-start gap-4">
                     <div>
                         <div class="flex items-center gap-2 mb-2">
                             <span class="bg-amber-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
                             <h3 class="text-lg font-bold text-slate-900">Precise Adsorption of Toxins and Viruses</h3>
                         </div>
-                        <p class="text-xs text-slate-500 mb-6">Natural smectite particles electrostatically adsorb and excrete harmful bacteria, viruses, and abnormal fermentation gases.</p>
+                        <p class="text-xs text-slate-500 mb-1">Natural smectite particles electrostatically adsorb and excrete harmful bacteria, viruses, and abnormal fermentation gases.</p>
                     </div>
-                    <div class="relative w-full h-48 bg-rose-50 border-b-4 border-rose-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
+                    <div class="relative w-full h-48 bg-rose-50 border-b-4 border-rose-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4 mt-2">
                         <div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div>
                         <div class="css-virus" style="bottom: 120px; left: 20%;"></div>
                         <div class="css-adsorbent" style="bottom: 110px; left: 15%;">Ion</div>
@@ -118,15 +118,15 @@
                     </div>
                 </div>
 
-                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-between">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex flex-col justify-start gap-4">
                     <div>
                         <div class="flex items-center gap-2 mb-2">
                             <span class="bg-teal-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
                             <h3 class="text-lg font-bold text-slate-900">Shield Protection for Damaged Gastrointestinal Mucosa</h3>
                         </div>
-                        <p class="text-xs text-slate-500 mb-6">Gently coats the eroded mucosa to relieve pain and rebuilds the intestinal environment with Bacillus strains.</p>
+                        <p class="text-xs text-slate-500 mb-1">Gently coats the eroded mucosa to relieve pain and rebuilds the intestinal environment with Bacillus strains.</p>
                     </div>
-                    <div class="relative w-full h-48 bg-teal-50 border-b-4 border-teal-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4">
+                    <div class="relative w-full h-48 bg-teal-50 border-b-4 border-teal-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4 mt-2">
                         <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
                         <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
                         <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border-color: #5eead4;"></div>
@@ -178,7 +178,7 @@
     </div>
 
     <script>
-        function wrapLabel(label, limit = 14) {
+                        function wrapLabel(label, limit = 14) {
             if (!label) return '';
             if (typeof label !== 'string') label = String(label);
             if (label.length <= limit) return label;
@@ -190,18 +190,6 @@
                     if (currentLine) lines.push(currentLine.trim());
                     currentLine = word + ' ';
                 } else {
-                    currentLine += word + ' ';
-                }
-            });
-            if (currentLine) lines.push(currentLine.trim());
-            return lines.length > 1 ? lines : lines[0];
-        } else {
-                    currentLine += word + ' ';
-                }
-            });
-            if (currentLine) lines.push(currentLine.trim());
-            return lines.length > 1 ? lines : lines[0];
-        } else {
                     currentLine += word + ' ';
                 }
             });
@@ -233,7 +221,7 @@
                     'Voluntary Palatability (Prevents Vomiting)',
                     'Intestinal Mucosal Shield Coating',
                     'Bacillus Antiviral Action'
-                ].map(l => wrapLabel(l, 14)),
+                ].map(l => wrapLabel(l, 14)),)),
                 datasets: [
                     {
                         label: 'Monsmecta',
@@ -269,7 +257,7 @@
                     }
                 },
                 plugins: {
-                    legend: { position: 'bottom', labels: { font: { family: "'Noto Sans KR', sans-serif" } } },
+                    legend: { position: 'bottom', align: 'center', labels: { boxWidth: 12, padding: 8, font: { family: "'Noto Sans KR', sans-serif", size: 11 } } },
                     tooltip: tooltipConfig
                 }
             }
@@ -279,7 +267,7 @@
         new Chart(ctxBar, {
             type: 'bar',
             data: {
-                labels: ['General Online Antidiarrheal', 'Monsmecta (Hospital Recommended Price A)', 'Monsmecta (Hospital Recommended Price B)'].map(l => wrapLabel(l, 14)),
+                labels: ['General Online Antidiarrheal', 'Monsmecta (Hospital Recommended Price A)', 'Monsmecta (Hospital Recommended Price B)'].map(l => wrapLabel(l, 14)),)),
                 datasets: [{
                     label: 'Estimated Margin Rate (%)',
                     data: [15, 150, 220],
@@ -308,7 +296,30 @@
                     }
                 },
                 plugins: {
-                    legend: { display: false },
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        align: 'center',
+                        labels: {
+                            font: { family: "'Noto Sans KR', sans-serif", size: 11 },
+                            boxWidth: 12,
+                            padding: 8,
+                            generateLabels: function(chart) {
+                                const ds = chart.data.datasets[0];
+                                return chart.data.labels.map((label, i) => {
+                                    const textStr = Array.isArray(label) ? label.join(' ') : label;
+                                    const bg = Array.isArray(ds.backgroundColor) ? ds.backgroundColor[i] : ds.backgroundColor;
+                                    return {
+                                        text: textStr,
+                                        fillStyle: bg,
+                                        strokeStyle: 'transparent',
+                                        hidden: false,
+                                        index: i
+                                    };
+                                });
+                            }
+                        }
+                    },
                     tooltip: tooltipConfig
                 }
             }
