@@ -8,8 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "echo 'Deployment is handled automatically by GitHub Actions when pushing to main.'"
   },
   "dependencies": {
     "i18next": "^26.3.3",
