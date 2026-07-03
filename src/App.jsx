@@ -212,7 +212,7 @@ const MonsmectaSNJLanding = () => {
       </section>
 
       {/* 3대 가치 약속 Section (Restored from App.jsx & Upgraded) */}
-      <section id="values" className="py-24 bg-white relative">
+      <section id="values" className="py-10 md:py-20 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('values.title')}</h2>
@@ -249,7 +249,7 @@ const MonsmectaSNJLanding = () => {
       </section >
 
       {/* Clinical Evidence Section */}
-      < section id="clinical" className="py-24 bg-slate-100 border-y border-slate-200" >
+      < section id="clinical" className="py-10 md:py-20 bg-slate-100 border-y border-slate-200" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('clinical.title')}</h2>
@@ -308,12 +308,12 @@ const MonsmectaSNJLanding = () => {
       </section >
 
       {/* Infographics Section (Restored & Upgraded) */}
-      < section className="py-12 bg-white max-w-6xl mx-auto px-4" >
+      < section className="py-6 md:py-12 bg-white max-w-6xl mx-auto px-4" >
         <div className="text-center mb-8">
           <h3 className="text-3xl md:text-4xl font-extrabold text-[#00513b] mb-4 break-keep">{t('infographics.title')}</h3>
           <p className="text-slate-500 text-lg font-medium">{t('infographics.desc')}</p>
         </div>
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
 
           {/* HTML Infographic 1: Main */}
           <div
@@ -321,7 +321,7 @@ const MonsmectaSNJLanding = () => {
             style={{ height: iframeHeights.james ? `${iframeHeights.james}px` : '1800px' }}
           >
             <iframe
-              src={`${import.meta.env.BASE_URL}assets/james_infographic_${i18n.language}.html?v=6.0`}
+              src={`${import.meta.env.BASE_URL}assets/james_infographic_${i18n.language}.html?v=7.0`}
               className="absolute top-0 left-0 w-full h-full border-0"
               title="{t('clinical.chart_monsmecta')} 인포그래픽"
               scrolling="no"
@@ -334,7 +334,7 @@ const MonsmectaSNJLanding = () => {
             style={{ height: iframeHeights.dashboard ? `${iframeHeights.dashboard}px` : '1800px' }}
           >
             <iframe
-              src={`${import.meta.env.BASE_URL}assets/monsmecta_dashboard_${i18n.language}.html?v=6.0`}
+              src={`${import.meta.env.BASE_URL}assets/monsmecta_dashboard_${i18n.language}.html?v=7.0`}
               className="absolute top-0 left-0 w-full h-full border-0"
               title="{t('clinical.chart_monsmecta')} 전략 대시보드"
               scrolling="no"
@@ -347,7 +347,7 @@ const MonsmectaSNJLanding = () => {
             style={{ height: iframeHeights.scenario ? `${iframeHeights.scenario}px` : '1800px' }}
           >
             <iframe
-              src={`${import.meta.env.BASE_URL}assets/monsmecta_scenario_${i18n.language}.html?v=6.0`}
+              src={`${import.meta.env.BASE_URL}assets/monsmecta_scenario_${i18n.language}.html?v=7.0`}
               className="absolute top-0 left-0 w-full h-full border-0"
               title="{t('clinical.chart_monsmecta')} 상담 시나리오"
               scrolling="no"
@@ -359,7 +359,7 @@ const MonsmectaSNJLanding = () => {
       </section >
 
       {/* Letter Message Section (Restored) */}
-      < section className="py-20 bg-emerald-900 text-emerald-50 relative overflow-hidden" >
+      < section className="py-10 md:py-16 bg-emerald-900 text-emerald-50 relative overflow-hidden" >
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
         <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
           <blockquote className="relative">
@@ -378,7 +378,7 @@ const MonsmectaSNJLanding = () => {
       </section >
 
       {/* B2B Order Form Section */}
-      < section id="order" className="py-24 bg-slate-50" >
+      < section id="order" className="py-10 md:py-20 bg-slate-50" >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 transform transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,81,59,0.1)]">
             <div className="bg-gradient-to-r from-[#00513b] to-[#003d2b] p-8 md:p-10 text-center relative overflow-hidden">
@@ -417,7 +417,7 @@ const MonsmectaSNJLanding = () => {
                 <p className="text-sm text-slate-500 break-keep">입금 확인 후, 입력해주신 사업자번호로 <span className="font-bold text-slate-700">전자세금계산서가 자동 발행</span>됩니다.<br/>관련 문의는 우측 하단 챗봇을 이용해 주세요.</p>
               </div>
             ) : (
-            <form onSubmit={handleCheckout} className="p-8 md:p-12 space-y-10">
+            <form onSubmit={handleCheckout} className="p-6 md:p-12 space-y-6">
               <div className="space-y-6">
                 <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
                   <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
@@ -500,7 +500,7 @@ const MonsmectaSNJLanding = () => {
       </section >
 
       {/* Footer */}
-      < footer className="bg-[#00281d] text-emerald-400/80 py-16 border-t border-[#003d2b]" >
+      < footer className="bg-[#00281d] text-emerald-400/80 py-8 md:py-16 border-t border-[#003d2b]" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h4 className="text-white font-black text-xl mb-6 tracking-wide">{t('footer.title')}</h4>
           <div className="space-y-3 mb-8 font-medium">
