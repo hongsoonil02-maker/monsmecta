@@ -23,7 +23,7 @@
         .css-adsorbent { width: 28px; height: 28px; background-color: #fbbf24; border-radius: 50%; opacity: 0.85; position: absolute; box-shadow: 0 0 12px #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: #78350f; }
         .css-protective-film { position: absolute; bottom: 0; left: 0; width: 100%; height: 90px; background: linear-gradient(to top, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.4)); border-top: 4px dashed #14b8a6; border-radius: 15px 15px 0 0; pointer-events: none; }
         
-        .timeline-container { display: flex; align-items: center; justify-content: space-between; position: relative; width: 100%; padding: 2rem 0; flex-wrap: wrap; gap: 1rem; }
+        .timeline-container { display: flex; align-items: center; justify-content: space-between; position: relative; width: 100%; padding: 0.5rem 0; flex-wrap: wrap; gap: 1rem; }
         .timeline-line { position: absolute; top: 50%; left: 0; right: 0; height: 4px; background-color: #e2e8f0; z-index: 0; transform: translateY(-50%); display: none; }
         @media (min-width: 768px) { .timeline-line { display: block; } }
         .timeline-node { z-index: 10; display: flex; flex-direction: column; items: center; text-align: center; background: white; padding: 1rem; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 2px solid #e2e8f0; width: 100%; }
@@ -33,7 +33,7 @@
 </head>
 <body class="antialiased p-4 md:p-8">
 
-    <div class="max-w-6xl mx-auto space-y-10">
+    <div class="max-w-6xl mx-auto space-y-6">
 
         <header class="bg-[#00513b] rounded-3xl p-8 shadow-2xl text-white relative overflow-hidden">
             <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400"></div>
@@ -146,7 +146,7 @@
                 <p class="text-sm text-slate-500 mt-2">由于吸附性制剂的特性，与其他药物或食物混合时可能会阻碍有效成分的吸收。请向保护者强调以下时间线。</p>
             </div>
 
-            <div class="timeline-container bg-slate-50 rounded-2xl p-6 border border-slate-200 mt-8">
+            <div class="timeline-container bg-slate-50 rounded-2xl p-6 border border-slate-200 mt-4">
                 <div class="timeline-line"></div>
                 
                 <div class="timeline-node">
@@ -331,7 +331,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'dashboard',
-            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 10
         }, '*');
     });
     observer.observe(document.body);
@@ -339,7 +339,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'dashboard',
-            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 10
         }, '*');
     });
 </script>

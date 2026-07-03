@@ -306,7 +306,7 @@
                 },
                 plugins: {
                     legend: { position: 'bottom', align: 'center', labels: { boxWidth: 12, padding: 8, font: { family: "'Noto Sans KR', sans-serif", size: 11 } } },
-                    tooltip: tooltipConfig
+                    tooltip: radarTooltipConfig
                 }
             }
         });
@@ -317,7 +317,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'scenario',
-            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 10
         }, '*');
     });
     observer.observe(document.body);
@@ -325,7 +325,7 @@
         window.parent.postMessage({
             type: 'resize-iframe',
             source: 'scenario',
-            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 100
+            height: Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight) + 10
         }, '*');
     });
 </script>
