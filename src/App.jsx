@@ -46,10 +46,10 @@ const MonsmectaSNJLanding = () => {
     }
 
     setIsSubmitting(true);
-    
+
     try {
       // 원장님이 제공하신 Google Web App URL 연결 완료
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbw73OoZUIAj8FtbhNLC4ZbUUhTZzVf15lycASc9f9fBD84LooCIJFYZR5QQEG4DZg0KqA/exec'; 
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbw73OoZUIAj8FtbhNLC4ZbUUhTZzVf15lycASc9f9fBD84LooCIJFYZR5QQEG4DZg0KqA/exec';
       const formData = new FormData();
       formData.append('hospitalName', hospitalName);
       formData.append('bizNumber', bizNumber);
@@ -62,7 +62,7 @@ const MonsmectaSNJLanding = () => {
         method: 'POST',
         body: formData
       });
-      
+
       if (response.ok) {
         setIsOrderComplete(true);
       } else {
@@ -99,11 +99,10 @@ const MonsmectaSNJLanding = () => {
                 <button
                   key={lang}
                   onClick={() => i18n.changeLanguage(lang)}
-                  className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all ${
-                    i18n.language === lang
+                  className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all ${i18n.language === lang
                       ? 'bg-[#00513b] text-white shadow-sm'
                       : 'text-slate-600 hover:text-[#00513b]'
-                  }`}
+                    }`}
                 >
                   {lang.toUpperCase()}
                 </button>
@@ -248,8 +247,8 @@ const MonsmectaSNJLanding = () => {
         </div>
       </section >
 
-      {/* Clinical Evidence Section */}
-      < section id="clinical" className="py-10 md:py-20 bg-slate-100 border-y border-slate-200" >
+      {/* Clinical Evidence Section - Upgraded with Data Tables */}
+      <section id="clinical" className="py-10 md:py-20 bg-slate-100 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('clinical.title')}</h2>
@@ -257,55 +256,179 @@ const MonsmectaSNJLanding = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-10">
-            <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <h3 className="text-2xl font-black text-slate-800 mb-4 flex items-start sm:items-center gap-3 break-keep">
+
+            {/* Card 1: LIQI Technology Comparison Table */}
+            <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep">
                 <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">1</span>
                 <span>{t('clinical.card1_title')}</span>
               </h3>
-              <p className="text-slate-600 mb-8 leading-relaxed text-lg">
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
                 {t('clinical.card1_desc')}
               </p>
-              <div className="h-48 bg-slate-50 border border-slate-200 rounded-2xl flex items-end p-6 gap-6 overflow-hidden relative">
-                <div className="absolute top-4 left-6 text-xs font-bold text-slate-400">{t('clinical.chart_speed')}</div>
-                <div className="w-1/2 bg-slate-300 h-[40%] rounded-t-lg relative group transition-all duration-500 hover:bg-slate-400">
-                  <span className="absolute -top-8 w-full text-center text-sm font-semibold text-slate-500">{t('clinical.chart_control')}</span>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-[#00513b] text-white">
+                      <th className="px-3 py-2.5 text-left font-bold text-xs">{t('clinical.table1_col1')}</th>
+                      <th className="px-3 py-2.5 text-center font-bold text-xs">{t('clinical.table1_col2')}</th>
+                      <th className="px-3 py-2.5 text-center font-bold text-xs bg-[#003d2b]">{t('clinical.table1_col3')}</th>
+                      <th className="px-3 py-2.5 text-center font-bold text-xs hidden sm:table-cell">차이</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+                      <td className="px-3 py-2.5 font-bold text-slate-700 text-xs">{t('clinical.table1_row1_label')}</td>
+                      <td className="px-3 py-2.5 text-center text-slate-500 text-xs">{t('clinical.table1_row1_val1')}</td>
+                      <td className="px-3 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50">{t('clinical.table1_row1_val2')}</td>
+                      <td className="px-3 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row1_diff')}</td>
+                    </tr>
+                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+                      <td className="px-3 py-2.5 font-bold text-slate-700 text-xs">{t('clinical.table1_row2_label')}</td>
+                      <td className="px-3 py-2.5 text-center text-slate-500 text-xs">{t('clinical.table1_row2_val1')}</td>
+                      <td className="px-3 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50">{t('clinical.table1_row2_val2')}</td>
+                      <td className="px-3 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row2_diff')}</td>
+                    </tr>
+                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+                      <td className="px-3 py-2.5 font-bold text-slate-700 text-xs">{t('clinical.table1_row3_label')}</td>
+                      <td className="px-3 py-2.5 text-center text-slate-500 text-xs">{t('clinical.table1_row3_val1')}</td>
+                      <td className="px-3 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50">{t('clinical.table1_row3_val2')}</td>
+                      <td className="px-3 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row3_diff')}</td>
+                    </tr>
+                    <tr className="hover:bg-emerald-50/50 transition-colors">
+                      <td className="px-3 py-2.5 font-bold text-slate-700 text-xs">{t('clinical.table1_row4_label')}</td>
+                      <td className="px-3 py-2.5 text-center text-slate-500 text-xs">{t('clinical.table1_row4_val1')}</td>
+                      <td className="px-3 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50">{t('clinical.table1_row4_val2')}</td>
+                      <td className="px-3 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row4_diff')}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Card 2: Clinical Efficacy Test Data */}
+            <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep">
+                <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">2</span>
+                <span>{t('clinical.card2_title')}</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+                {t('clinical.card2_desc')}
+              </p>
+              <div className="space-y-3">
+                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-bold text-slate-700 text-sm">{t('clinical.table2_row1_label')}</span>
+                    <span className="text-[#00513b] font-black text-lg">98.5%</span>
+                  </div>
+                  <p className="text-xs text-slate-500">{t('clinical.table2_row1_cond')}</p>
+                  <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row1_result')}</p>
                 </div>
-                <div className="w-1/2 bg-gradient-to-t from-[#003d2b] to-[#006e50] h-[90%] rounded-t-lg relative group transition-all duration-500 hover:brightness-110 shadow-[0_-5px_15px_rgba(0,81,59,0.3)]">
-                  <span className="absolute -top-8 w-full text-center text-sm font-black text-[#00513b]">{t('clinical.chart_monsmecta')}</span>
+                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-bold text-slate-700 text-sm">{t('clinical.table2_row2_label')}</span>
+                    <span className="text-[#00513b] font-black text-lg">pH 4.5~5.5</span>
+                  </div>
+                  <p className="text-xs text-slate-500">{t('clinical.table2_row2_cond')}</p>
+                  <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row2_result')}</p>
+                </div>
+                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-bold text-slate-700 text-sm">{t('clinical.table2_row3_label')}</span>
+                    <span className="text-[#00513b] font-black text-lg">30% 단축</span>
+                  </div>
+                  <p className="text-xs text-slate-500">{t('clinical.table2_row3_cond')}</p>
+                  <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row3_result')}</p>
+                </div>
+                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+                  <div className="flex justify-between items-start mb-1">
+                    <span className="font-bold text-slate-700 text-sm">{t('clinical.table2_row4_label')}</span>
+                    <span className="text-[#00513b] font-black text-lg">증식 억제</span>
+                  </div>
+                  <p className="text-xs text-slate-500">{t('clinical.table2_row4_cond')}</p>
+                  <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row4_result')}</p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between">
-              <div>
-                <h3 className="text-2xl font-black text-slate-800 mb-4 flex items-start sm:items-center gap-3 break-keep">
-                  <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">2</span>
-                  <span>{t('clinical.card2_title')}</span>
-                </h3>
-                <p className="text-slate-600 mb-8 leading-relaxed text-lg">
-                  {t('clinical.card2_desc')}
-                </p>
+            {/* Card 3: Antiviral Effects Table */}
+            <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep">
+                <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">3</span>
+                <span>{t('clinical.card3_title')}</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+                {t('clinical.card3_desc')}
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-[#00513b] text-white">
+                      <th className="px-3 py-2.5 text-left font-bold text-xs">바이러스 계통</th>
+                      <th className="px-3 py-2.5 text-left font-bold text-xs">{t('clinical.table3_header')}</th>
+                      <th className="px-3 py-2.5 text-center font-bold text-xs">효과</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+                      <td className="px-3 py-2.5 text-xs text-slate-500">Arteriviruses</td>
+                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row1')}</td>
+                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
+                    </tr>
+                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+                      <td className="px-3 py-2.5 text-xs text-slate-500">Orthomyxoviridae</td>
+                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row2')}</td>
+                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
+                    </tr>
+                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+                      <td className="px-3 py-2.5 text-xs text-slate-500">Pestiviruses</td>
+                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row3')}</td>
+                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
+                    </tr>
+                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+                      <td className="px-3 py-2.5 text-xs text-slate-500">Bunyaviridae</td>
+                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row4')}</td>
+                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
+                    </tr>
+                    <tr className="hover:bg-emerald-50/50 transition-colors">
+                      <td className="px-3 py-2.5 text-xs text-slate-500">Rhabdoviridae</td>
+                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row5')}</td>
+                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <ul className="space-y-4">
-                <li className="flex justify-between items-center bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-emerald-300 transition-colors">
-                  <span className="font-bold text-slate-700 text-lg">{t('clinical.intake_rate')}</span>
-                  <div className="flex items-center gap-3">
-                    <div className="w-32 h-2 bg-slate-200 rounded-full overflow-hidden hidden sm:block"><div className="h-full bg-emerald-500 w-[94%]"></div></div>
-                    <span className="text-[#00513b] font-black text-2xl">94%</span>
-                  </div>
-                </li>
-                <li className="flex justify-between items-center bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-emerald-300 transition-colors">
-                  <span className="font-bold text-slate-700 text-lg">{t('clinical.satisfaction')}</span>
-                  <div className="flex items-center gap-3">
-                    <div className="flex gap-1 text-yellow-400 text-lg">★★★★★</div>
-                    <span className="text-[#00513b] font-black text-2xl">4.8</span>
-                  </div>
-                </li>
-              </ul>
             </div>
+
+            {/* Card 4: Expert Review Meeting Feedback */}
+            <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between">
+              <div>
+                <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep">
+                  <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">4</span>
+                  <span>{t('clinical.card4_title')}</span>
+                </h3>
+                <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+                  {t('clinical.card4_desc')}
+                </p>
+                <div className="space-y-5">
+                  <div className="bg-gradient-to-r from-emerald-50 to-slate-50 p-5 rounded-xl border-l-4 border-[#00513b]">
+                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote1')}</p>
+                    <p className="text-xs font-bold text-[#00513b]">— {t('clinical.card4_quote1_author')}</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-emerald-50 to-slate-50 p-5 rounded-xl border-l-4 border-[#00513b]">
+                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote2')}</p>
+                    <p className="text-xs font-bold text-[#00513b]">— {t('clinical.card4_quote2_author')}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
+                <p className="text-xs font-medium text-amber-800">📌 {t('clinical.card4_note')}</p>
+              </div>
+            </div>
+
           </div>
         </div>
-      </section >
+      </section>
 
       {/* Infographics Section (Restored & Upgraded) */}
       < section className="py-6 md:py-12 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
@@ -394,7 +517,7 @@ const MonsmectaSNJLanding = () => {
                 </div>
                 <h3 className="text-2xl font-black text-slate-800 break-keep">주문 정보가 접수되었습니다!</h3>
                 <p className="text-slate-600 font-medium break-keep">아래 계좌로 입금을 완료해 주시면 배송이 시작됩니다.</p>
-                
+
                 <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 my-8 inline-block text-left w-full max-w-md">
                   <div className="flex justify-between items-center mb-3">
                     <span className="text-sm font-bold text-slate-500">입금 은행</span>
@@ -413,87 +536,87 @@ const MonsmectaSNJLanding = () => {
                     <strong className="text-2xl font-black text-rose-600">{(quantity * pricePerBottle).toLocaleString()}원</strong>
                   </div>
                 </div>
-                
-                <p className="text-sm text-slate-500 break-keep">입금 확인 후, 입력해주신 사업자번호로 <span className="font-bold text-slate-700">전자세금계산서가 자동 발행</span>됩니다.<br/>관련 문의는 우측 하단 챗봇을 이용해 주세요.</p>
+
+                <p className="text-sm text-slate-500 break-keep">입금 확인 후, 입력해주신 사업자번호로 <span className="font-bold text-slate-700">전자세금계산서가 자동 발행</span>됩니다.<br />관련 문의는 우측 하단 챗봇을 이용해 주세요.</p>
               </div>
             ) : (
-            <form onSubmit={handleCheckout} className="p-6 md:p-12 space-y-6">
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
-                  <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
-                  {t('order.hospital_info')}
-                </h3>
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleCheckout} className="p-6 md:p-12 space-y-6">
+                <div className="space-y-6">
+                  <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
+                    <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
+                    {t('order.hospital_info')}
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.hospital_name')} <span className="text-red-500">*</span></label>
+                      <input
+                        type="text"
+                        value={hospitalName}
+                        onChange={(e) => setHospitalName(e.target.value)}
+                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                        placeholder={t('order.hospital_name_placeholder')}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_number')} <span className="text-red-500">*</span></label>
+                      <input
+                        type="text"
+                        value={bizNumber}
+                        onChange={(e) => setBizNumber(e.target.value)}
+                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide"
+                        placeholder={t('order.biz_number_placeholder')}
+                        required
+                        maxLength="12"
+                      />
+                    </div>
+                  </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.hospital_name')} <span className="text-red-500">*</span></label>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.address')} <span className="text-red-500">*</span></label>
                     <input
                       type="text"
-                      value={hospitalName}
-                      onChange={(e) => setHospitalName(e.target.value)}
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
                       className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
-                      placeholder={t('order.hospital_name_placeholder')}
+                      placeholder={t('order.address_placeholder')}
                       required
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_number')} <span className="text-red-500">*</span></label>
-                    <input
-                      type="text"
-                      value={bizNumber}
-                      onChange={(e) => setBizNumber(e.target.value)}
-                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide"
-                      placeholder={t('order.biz_number_placeholder')}
-                      required
-                      maxLength="12"
-                    />
+                </div>
+
+                <div className="space-y-6">
+                  <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
+                    <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
+                    {t('order.quantity_select')}
+                  </h3>
+                  <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-colors shadow-inner">
+                    <div className="mb-6 md:mb-0 text-center md:text-left">
+                      <div className="font-black text-2xl text-slate-800 tracking-tight">{t('clinical.chart_monsmecta')} <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
+                      <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}원</span> <span className="text-xs">{t('order.vat_included')}</span></div>
+                      <p className="text-xs text-[#00513b] mt-1 font-semibold">{t('order.min_order')}</p>
+                    </div>
+
+                    <div className="flex items-center bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-sm">
+                      <button type="button" onClick={() => setQuantity(Math.max(5, quantity - 1))} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">-</button>
+                      <div className="w-20 h-14 flex items-center justify-center font-black text-2xl text-slate-800 border-x-2 border-slate-200">{quantity}</div>
+                      <button type="button" onClick={() => setQuantity(quantity + 1)} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">+</button>
+                    </div>
                   </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.address')} <span className="text-red-500">*</span></label>
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
-                    placeholder={t('order.address_placeholder')}
-                    required
-                  />
-                </div>
-              </div>
 
-              <div className="space-y-6">
-                <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
-                  <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
-                  {t('order.quantity_select')}
-                </h3>
-                <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-colors shadow-inner">
-                  <div className="mb-6 md:mb-0 text-center md:text-left">
-                    <div className="font-black text-2xl text-slate-800 tracking-tight">{t('clinical.chart_monsmecta')} <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
-                    <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}원</span> <span className="text-xs">{t('order.vat_included')}</span></div>
-                    <p className="text-xs text-[#00513b] mt-1 font-semibold">{t('order.min_order')}</p>
+                <div className="bg-[#003d2b] p-8 md:p-10 rounded-2xl text-white shadow-2xl relative overflow-hidden">
+                  <div className="absolute -right-10 -top-10 w-40 h-40 bg-yellow-400 opacity-10 rounded-full blur-3xl"></div>
+                  <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 relative z-10">
+                    <span className="text-xl font-bold text-slate-300">{t('order.total_price')}</span>
+                    <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{(quantity * pricePerBottle).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
                   </div>
-
-                  <div className="flex items-center bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                    <button type="button" onClick={() => setQuantity(Math.max(5, quantity - 1))} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">-</button>
-                    <div className="w-20 h-14 flex items-center justify-center font-black text-2xl text-slate-800 border-x-2 border-slate-200">{quantity}</div>
-                    <button type="button" onClick={() => setQuantity(quantity + 1)} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">+</button>
-                  </div>
+                  <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 text-2xl font-black py-5 rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition duration-300 shadow-[0_0_20px_rgba(250,204,21,0.3)] transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+                    <span>{isSubmitting ? '처리 중...' : t('order.btn')}</span>
+                    {!isSubmitting && <svg className="w-7 h-7 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
+                  </button>
+                  <p className="text-center text-slate-400 text-sm mt-6 font-medium">{t('order.bank_info')}</p>
                 </div>
-              </div>
-
-              <div className="bg-[#003d2b] p-8 md:p-10 rounded-2xl text-white shadow-2xl relative overflow-hidden">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-yellow-400 opacity-10 rounded-full blur-3xl"></div>
-                <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 relative z-10">
-                  <span className="text-xl font-bold text-slate-300">{t('order.total_price')}</span>
-                  <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{(quantity * pricePerBottle).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
-                </div>
-                <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 text-2xl font-black py-5 rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition duration-300 shadow-[0_0_20px_rgba(250,204,21,0.3)] transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
-                  <span>{isSubmitting ? '처리 중...' : t('order.btn')}</span>
-                  {!isSubmitting && <svg className="w-7 h-7 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
-                </button>
-                <p className="text-center text-slate-400 text-sm mt-6 font-medium">{t('order.bank_info')}</p>
-              </div>
-            </form>
+              </form>
             )}
           </div>
         </div>
