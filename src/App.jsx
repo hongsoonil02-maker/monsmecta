@@ -259,7 +259,7 @@ const MonsmectaSNJLanding = () => {
 
             {/* Card 1: LIQI Technology Comparison Table */}
             <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep">
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
                 <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">1</span>
                 <span>{t('clinical.card1_title')}</span>
               </h3>
@@ -267,7 +267,7 @@ const MonsmectaSNJLanding = () => {
                 {t('clinical.card1_desc')}
               </p>
               <div className="overflow-x-auto">
-                <table className="w-full text-sm border-collapse">
+                <table className="w-full min-w-max text-sm border-collapse">
                   <thead>
                     <tr className="bg-[#00513b] text-white">
                       <th className="px-3 py-2.5 text-left font-bold text-xs">{t('clinical.table1_col1')}</th>
@@ -308,7 +308,7 @@ const MonsmectaSNJLanding = () => {
 
             {/* Card 2: Clinical Efficacy Test Data */}
             <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep">
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
                 <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">2</span>
                 <span>{t('clinical.card2_title')}</span>
               </h3>
@@ -353,7 +353,7 @@ const MonsmectaSNJLanding = () => {
 
             {/* Card 3: Antiviral Effects Table */}
             <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep">
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
                 <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">3</span>
                 <span>{t('clinical.card3_title')}</span>
               </h3>
@@ -361,7 +361,7 @@ const MonsmectaSNJLanding = () => {
                 {t('clinical.card3_desc')}
               </p>
               <div className="overflow-x-auto">
-                <table className="w-full text-sm border-collapse">
+                <table className="w-full min-w-max text-sm border-collapse">
                   <thead>
                     <tr className="bg-[#00513b] text-white">
                       <th className="px-3 py-2.5 text-left font-bold text-xs">바이러스 계통</th>
@@ -403,7 +403,7 @@ const MonsmectaSNJLanding = () => {
             {/* Card 4: Expert Review Meeting Feedback */}
             <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between">
               <div>
-                <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep">
+                <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
                   <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">4</span>
                   <span>{t('clinical.card4_title')}</span>
                 </h3>
