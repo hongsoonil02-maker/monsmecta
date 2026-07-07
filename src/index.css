@@ -1,70 +1,22 @@
 @import url("https://fastly.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 @import "tailwindcss";
 
-/* Global box-sizing */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* Base font and smooth scrolling */
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
-
-/* Body styling */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-sans);
-  background-color: #f9fafb;
-  color: #111827;
-}
-
-/* Root container responsive layout */
-#root {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Images and media responsive */
-img, video, svg {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Responsive typography */
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  line-height: 1.2;
-}
-
-/* Adjust layout for larger screens */
-@media (min-width: 640px) {
-  #root {
-    max-width: 960px;
-  }
-}
-
-/* Touch-friendly interactive elements */
-button, a {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Preserve existing custom variables */
 @theme {
   --color-brand-green: #00513b;
   --color-brand-dark: #003d2b;
   --font-sans: 'Pretendard', 'Noto Sans KR', sans-serif;
 }
 
-/* Ensure overflow handling */
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   word-break: keep-all;
   overflow-wrap: break-word;
+}
+
+body {
+  font-family: 'Pretendard', sans-serif;
+  background-color: #f9fafb;
 }
