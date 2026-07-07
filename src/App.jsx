@@ -100,8 +100,8 @@ const MonsmectaSNJLanding = () => {
                   key={lang}
                   onClick={() => i18n.changeLanguage(lang)}
                   className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all ${i18n.language === lang
-                      ? 'bg-[#00513b] text-white shadow-sm'
-                      : 'text-slate-600 hover:text-[#00513b]'
+                    ? 'bg-[#00513b] text-white shadow-sm'
+                    : 'text-slate-600 hover:text-[#00513b]'
                     }`}
                 >
                   {lang.toUpperCase()}
