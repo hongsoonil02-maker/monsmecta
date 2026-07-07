@@ -415,6 +415,10 @@ const MonsmectaSNJLanding = () => {
                     <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote1')}</p>
                     <p className="text-xs font-bold text-[#00513b]">— {t('clinical.card4_quote1_author')}</p>
                   </div>
+                  <div className="bg-gradient-to-r from-amber-50 to-slate-50 p-5 rounded-xl border-l-4 border-amber-500">
+                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote3')}</p>
+                    <p className="text-xs font-bold text-amber-700">— {t('clinical.card4_quote3_author')}</p>
+                  </div>
                   <div className="bg-gradient-to-r from-emerald-50 to-slate-50 p-5 rounded-xl border-l-4 border-[#00513b]">
                     <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote2')}</p>
                     <p className="text-xs font-bold text-[#00513b]">— {t('clinical.card4_quote2_author')}</p>
