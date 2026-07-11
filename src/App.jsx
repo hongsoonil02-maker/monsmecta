@@ -80,6 +80,11 @@ const MonsmectaSNJLanding = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 scroll-smooth">
+      {/* Accessibility Skip Link */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#00513b] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none">
+        본문 바로가기
+      </a>
+
       {/* Sticky GNB */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -93,36 +98,29 @@ const MonsmectaSNJLanding = () => {
             <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
           </div>
           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-            {/* Language toggle - Desktop */}
-            <div className="hidden md:flex items-center space-x-1 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
-              {['ko', 'en', 'ja', 'zh', 'es', 'fr'].map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => i18n.changeLanguage(lang)}
-                  className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all ${i18n.language === lang
-                      ? 'bg-[#00513b] text-white shadow-sm'
-                      : 'text-slate-600 hover:text-[#00513b]'
-                    }`}
-                >
-                  {lang.toUpperCase()}
-                </button>
-              ))}
-            </div>
-
-            {/* Language toggle - Mobile Dropdown */}
-            <div className="flex md:hidden items-center shrink-0">
+            {/* Language toggle - Dropdown */}
+            <div className="flex items-center shrink-0">
               <select
                 value={i18n.language || 'ko'}
                 onChange={(e) => i18n.changeLanguage(e.target.value)}
                 aria-label="Language Selector"
-                className="bg-slate-100 border border-slate-300 text-[#00513b] text-xs font-bold rounded-full px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer"
+                className="bg-slate-100 border border-slate-200 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-slate-200 transition-colors shadow-sm"
               >
-                <option value="ko">🌐 KO</option>
-                <option value="en">🌐 EN</option>
-                <option value="ja">🌐 JA</option>
-                <option value="zh">🌐 ZH</option>
-                <option value="es">🌐 ES</option>
-                <option value="fr">🌐 FR</option>
+                <option value="ko">🌐 KO (한국어)</option>
+                <option value="en">🌐 EN (English)</option>
+                <option value="ja">🌐 JA (日本語)</option>
+                <option value="zh">🌐 ZH (中文)</option>
+                <option value="es">🌐 ES (Español)</option>
+                <option value="fr">🌐 FR (Français)</option>
+                <option value="de">🌐 DE (Deutsch)</option>
+                <option value="vi">🌐 VI (Tiếng Việt)</option>
+                <option value="th">🌐 TH (ไทย)</option>
+                <option value="ru">🌐 RU (Русский)</option>
+                <option value="pt">🌐 PT (Português)</option>
+                <option value="ar">🌐 AR (العربية)</option>
+                <option value="id">🌐 ID (Bahasa Indonesia)</option>
+                <option value="ms">🌐 MS (Bahasa Melayu)</option>
+                <option value="tr">🌐 TR (Türkçe)</option>
               </select>
             </div>
 
@@ -133,6 +131,7 @@ const MonsmectaSNJLanding = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden text-slate-600 hover:text-[#00513b] focus:outline-none"
+              aria-label="Toggle mobile menu"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMobileMenuOpen ? (
@@ -279,7 +278,7 @@ const MonsmectaSNJLanding = () => {
                       <th className="px-2 py-2.5 text-left font-bold text-xs break-keep">{t('clinical.table1_col1')}</th>
                       <th className="px-2 py-2.5 text-center font-bold text-xs break-keep">{t('clinical.table1_col2')}</th>
                       <th className="px-2 py-2.5 text-center font-bold text-xs bg-[#003d2b] break-keep">{t('clinical.table1_col3')}</th>
-                      <th className="px-2 py-2.5 text-center font-bold text-xs hidden sm:table-cell">차이</th>
+                      <th className="px-2 py-2.5 text-center font-bold text-xs hidden sm:table-cell">{t('clinical.table1_col_diff')}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -341,7 +340,7 @@ const MonsmectaSNJLanding = () => {
                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
                   <div className="flex items-start gap-2 mb-1">
                     <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row3_label')}</span>
-                    <span className="text-[#00513b] font-black text-lg shrink-0">30% 단축</span>
+                    <span className="text-[#00513b] font-black text-lg shrink-0">{t('clinical.table2_row3_value')}</span>
                   </div>
                   <p className="text-xs text-slate-500">{t('clinical.table2_row3_cond')}</p>
                   <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row3_result')}</p>
@@ -349,7 +348,7 @@ const MonsmectaSNJLanding = () => {
                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
                   <div className="flex items-start gap-2 mb-1">
                     <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row4_label')}</span>
-                    <span className="text-[#00513b] font-black text-lg shrink-0">증식 억제</span>
+                    <span className="text-[#00513b] font-black text-lg shrink-0">{t('clinical.table2_row4_value')}</span>
                   </div>
                   <p className="text-xs text-slate-500">{t('clinical.table2_row4_cond')}</p>
                   <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row4_result')}</p>
@@ -427,12 +426,16 @@ const MonsmectaSNJLanding = () => {
                     <p className="text-xs font-bold text-[#00513b]">— {t('clinical.card4_quote1_author')}</p>
                   </div>
                   <div className="bg-gradient-to-r from-amber-50 to-slate-50 p-5 rounded-xl border-l-4 border-amber-500">
-                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote3')}</p>
-                    <p className="text-xs font-bold text-amber-700">— {t('clinical.card4_quote3_author')}</p>
+                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote4')}</p>
+                    <p className="text-xs font-bold text-amber-700">— {t('clinical.card4_quote4_author')}</p>
                   </div>
                   <div className="bg-gradient-to-r from-emerald-50 to-slate-50 p-5 rounded-xl border-l-4 border-[#00513b]">
                     <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote2')}</p>
                     <p className="text-xs font-bold text-[#00513b]">— {t('clinical.card4_quote2_author')}</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-amber-50 to-slate-50 p-5 rounded-xl border-l-4 border-amber-500">
+                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote3')}</p>
+                    <p className="text-xs font-bold text-amber-700">— {t('clinical.card4_quote3_author')}</p>
                   </div>
                 </div>
               </div>

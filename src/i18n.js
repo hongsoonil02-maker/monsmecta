@@ -1,31 +1,53 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
+import translationKo from './locales/ko/translation.json';
+import translationEn from './locales/en/translation.json';
+import translationJa from './locales/ja/translation.json';
+import translationZh from './locales/zh/translation.json';
+import translationEs from './locales/es/translation.json';
+import translationFr from './locales/fr/translation.json';
+import translationDe from './locales/de/translation.json';
+import translationTh from './locales/th/translation.json';
+import translationVi from './locales/vi/translation.json';
+import translationRu from './locales/ru/translation.json';
+import translationPt from './locales/pt/translation.json';
+import translationAr from './locales/ar/translation.json';
+import translationId from './locales/id/translation.json';
+import translationMs from './locales/ms/translation.json';
+import translationTr from './locales/tr/translation.json';
+
 // Load translation resources
 const resources = {
-    ko: {
-        translation: require('./locales/ko/translation.json'),
-    },
-    en: {
-        translation: require('./locales/en/translation.json'),
-    },
-    ja: {
-        translation: require('./locales/ja/translation.json'),
-    },
-    zh: {
-        translation: require('./locales/zh/translation.json'),
-    },
-    es: {
-        translation: require('./locales/es/translation.json'),
-    },
-    fr: {
-        translation: require('./locales/fr/translation.json'),
-    },
+    ko: { translation: translationKo },
+    en: { translation: translationEn },
+    ja: { translation: translationJa },
+    zh: { translation: translationZh },
+    es: { translation: translationEs },
+    fr: { translation: translationFr },
+    de: { translation: translationDe },
+    th: { translation: translationTh },
+    vi: { translation: translationVi },
+    ru: { translation: translationRu },
+    pt: { translation: translationPt },
+    ar: { translation: translationAr },
+    id: { translation: translationId },
+    ms: { translation: translationMs },
+    tr: { translation: translationTr },
+};
+
+const getBrowserLanguage = () => {
+    if (typeof navigator === 'undefined') return 'ko';
+    const browserLng = navigator.language || navigator.userLanguage;
+    if (!browserLng) return 'ko';
+    const langCode = browserLng.split('-')[0].toLowerCase();
+    const supported = ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de', 'th', 'vi', 'ru', 'pt', 'ar', 'id', 'ms', 'tr'];
+    return supported.includes(langCode) ? langCode : 'en';
 };
 
 i18n.use(initReactI18next).init({
     resources,
-    lng: 'ko', // default language
+    lng: getBrowserLanguage(), // automatically detected language
     fallbackLng: 'en',
     interpolation: {
         escapeValue: false, // React already escapes
