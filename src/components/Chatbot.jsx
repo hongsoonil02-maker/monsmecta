@@ -42,7 +42,8 @@ export default function Chatbot() {
 
     try {
       // 100_bagger_saas API proxy 호출
-      const response = await fetch('https://100baggersaas.vercel.app/api/monsmecta-chat', {
+      const chatbotApiUrl = import.meta.env.VITE_CHATBOT_API_URL || 'https://100baggersaas.vercel.app/api/monsmecta-chat';
+      const response = await fetch(chatbotApiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
