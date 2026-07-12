@@ -69,7 +69,7 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-3 z-50 sm:bottom-6 sm:right-6">
       {/* 챗봇 토글 버튼 */}
       <button
         onClick={toggleChat}
@@ -83,7 +83,7 @@ export default function Chatbot() {
 
       {/* 챗봇 창 */}
       <div
-        className={`${isOpen ? 'flex' : 'hidden'} flex-col w-[350px] sm:w-[400px] h-[550px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300 origin-bottom-right`}
+        className={`${isOpen ? 'flex' : 'hidden'} flex-col w-[min(350px,calc(100vw-1.5rem))] max-w-[calc(100vw-1.5rem)] sm:w-[400px] sm:max-w-[400px] h-[550px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300 origin-bottom-right`}
       >
         {/* 헤더 */}
         <div className="flex items-center justify-between px-4 py-3 bg-[#00513b] text-white">
@@ -108,11 +108,10 @@ export default function Chatbot() {
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div
-                className={`max-w-[80%] rounded-2xl px-4 py-2 text-sm leading-relaxed ${
-                  msg.role === 'user'
+                className={`max-w-[80%] rounded-2xl px-4 py-2 text-sm leading-relaxed ${msg.role === 'user'
                     ? 'bg-[#00513b] text-white rounded-br-none'
                     : 'bg-white text-slate-800 border border-slate-200 shadow-sm rounded-bl-none whitespace-pre-wrap'
-                }`}
+                  }`}
               >
                 {msg.content}
               </div>
@@ -148,24 +147,24 @@ export default function Chatbot() {
           <form onSubmit={handleSubmit} className="px-3 pb-3 pt-1">
             <div className="flex items-center bg-slate-100 rounded-full overflow-hidden px-2 py-1">
               <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder={t('chat.placeholder')}
-              className="flex-1 bg-transparent px-3 py-2 text-sm focus:outline-none text-slate-800"
-              disabled={isLoading}
-            />
-            <button
-              type="submit"
-              disabled={!input.trim() || isLoading}
-              className="w-8 h-8 flex items-center justify-center bg-[#00513b] text-white rounded-full disabled:opacity-50 hover:bg-[#003d2b] transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform rotate-90" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-              </svg>
-            </button>
-          </div>
-        </form>
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                placeholder={t('chat.placeholder')}
+                className="flex-1 bg-transparent px-3 py-2 text-sm focus:outline-none text-slate-800"
+                disabled={isLoading}
+              />
+              <button
+                type="submit"
+                disabled={!input.trim() || isLoading}
+                className="w-8 h-8 flex items-center justify-center bg-[#00513b] text-white rounded-full disabled:opacity-50 hover:bg-[#003d2b] transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 transform rotate-90" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                </svg>
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
