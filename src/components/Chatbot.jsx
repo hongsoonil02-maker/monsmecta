@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 
 export default function Chatbot() {
@@ -68,7 +69,9 @@ export default function Chatbot() {
     }
   };
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal((
     <div className="fixed bottom-4 right-3 z-50 sm:bottom-6 sm:right-6">
       {/* 챗봇 토글 버튼 */}
       <button
@@ -168,5 +171,5 @@ export default function Chatbot() {
         </div>
       </div>
     </div>
-  );
+  ), document.body);
 }
