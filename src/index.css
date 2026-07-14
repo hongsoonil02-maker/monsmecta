@@ -7,7 +7,9 @@
   --font-sans: 'Pretendard', 'Noto Sans KR', sans-serif;
 }
 
-html {
+html,
+body {
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 

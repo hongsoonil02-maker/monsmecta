@@ -86,7 +86,7 @@ export default function Chatbot() {
 
       {/* 챗봇 창 */}
       <div
-        className={`${isOpen ? 'flex' : 'hidden'} flex-col w-[min(350px,calc(100vw-1.5rem))] max-w-[calc(100vw-1.5rem)] sm:w-[400px] sm:max-w-[400px] h-[550px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300 origin-bottom-right`}
+        className={`${isOpen ? 'flex' : 'hidden'} flex-col w-[min(350px,calc(100%-1.5rem))] max-w-[calc(100%-1.5rem)] sm:w-[400px] sm:max-w-[400px] h-[550px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300 origin-bottom-right`}
       >
         {/* 헤더 */}
         <div className="flex items-center justify-between px-4 py-3 bg-[#00513b] text-white">

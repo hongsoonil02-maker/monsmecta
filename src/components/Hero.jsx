@@ -31,7 +31,7 @@ const Hero = ({ setIsLabelModalOpen }) => {
             </button>
           </div>
         </div>
-        <div className="md:w-1/2 flex justify-center w-full relative group perspective">
+        <div className="md:w-1/2 flex justify-center w-full relative group perspective overflow-hidden">
           {/* 3D Mockup & Video Container */}
           <div className="relative w-full max-w-md transform transition-all duration-700 hover:scale-105 z-20">
             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-emerald-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
