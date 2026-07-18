@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Chatbot from './components/Chatbot';
 import Navbar from './components/Navbar';
@@ -11,24 +11,12 @@ import OrderForm from './components/OrderForm';
 import Footer from './components/Footer';
 import LabelModal from './components/LabelModal';
 import PrintModal from './components/PrintModal';
+import useIframeHeight from './hooks/useIframeHeight';
+
+const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
 
 const MonsmectaSNJLanding = () => {
-  const [iframeHeights, setIframeHeights] = useState({ james: 1160, scenario: 2100, dashboard: 1960 }); // Default fallback
-
-  useEffect(() => {
-    const handleMessage = (event) => {
-      if (event.data && event.data.type === 'resize-iframe') {
-        const source = event.data.source || 'james';
-        setIframeHeights(prev => ({
-          ...prev,
-          [source]: event.data.height
-        }));
-      }
-    };
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
-
+  const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
   const { t } = useTranslation();
   const [quantity, setQuantity] = useState(5);
   const [hospitalName, setHospitalName] = useState('');
@@ -39,16 +27,18 @@ const MonsmectaSNJLanding = () => {
   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOrderComplete, setIsOrderComplete] = useState(false);
+  const [orderError, setOrderError] = useState('');
   const pricePerBottle = 7700;
 
   const handleCheckout = async (e) => {
     e.preventDefault();
+    setOrderError('');
+
     if (!hospitalName || !bizNumber || !address) {
       alert('모든 필수 정보를 입력해주세요.');
       return;
     }
 
-    // 사업자등록번호 유효성 검사 (간단한 숫자 확인)
     const sanitizedBizNum = bizNumber.replace(/[^0-9]/g, '');
     if (sanitizedBizNum.length < 10) {
       alert('올바른 사업자등록번호(10자리)를 입력해주세요.');
@@ -58,7 +48,6 @@ const MonsmectaSNJLanding = () => {
     setIsSubmitting(true);
 
     try {
-      // 원장님이 제공하신 Google Web App URL 연결 완료
       const scriptURL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
       if (!scriptURL) {
         throw new Error('Google Apps Script URL is not configured');
@@ -83,8 +72,7 @@ const MonsmectaSNJLanding = () => {
       }
     } catch (error) {
       console.error('Error!', error.message);
-      alert('현재 구글 시트가 연결되지 않아 주문 완료 화면으로 모의 전환합니다.');
-      setIsOrderComplete(true);
+      setOrderError('주문이 정상 접수되지 않았습니다. 네트워크 상태를 확인한 뒤 다시 시도해 주세요.');
     } finally {
       setIsSubmitting(false);
     }
@@ -92,7 +80,6 @@ const MonsmectaSNJLanding = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 scroll-smooth">
-      {/* Accessibility Skip Link */}
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#00513b] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none">
         본문 바로가기
       </a>
@@ -115,11 +102,11 @@ const MonsmectaSNJLanding = () => {
         address={address}
         setAddress={setAddress}
         isSubmitting={isSubmitting}
+        orderError={orderError}
         handleCheckout={handleCheckout}
       />
       <Footer />
 
-      {/* Global Style for custom animations */}
       <style dangerouslySetInnerHTML={{
         __html: `
         @keyframes bounce-x {

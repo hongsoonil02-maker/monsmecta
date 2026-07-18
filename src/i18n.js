@@ -45,6 +45,11 @@ const getBrowserLanguage = () => {
     return supported.includes(langCode) ? langCode : 'en';
 };
 
+const syncDocumentLanguage = (language) => {
+    if (typeof document === 'undefined') return;
+    document.documentElement.lang = language;
+};
+
 i18n.use(initReactI18next).init({
     resources,
     lng: getBrowserLanguage(), // automatically detected language
@@ -53,5 +58,9 @@ i18n.use(initReactI18next).init({
         escapeValue: false, // React already escapes
     },
 });
+
+syncDocumentLanguage(i18n.language || getBrowserLanguage());
+
+i18n.on('languageChanged', syncDocumentLanguage);
 
 export default i18n;

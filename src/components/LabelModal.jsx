@@ -9,11 +9,10 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300">
-        {/* Modal Header */}
         <div className="sticky top-0 bg-gradient-to-r from-[#00513b] via-[#003d2b] to-[#00281d] text-white p-6 flex justify-between items-center z-10">
           <div>
-            <p className="text-xs text-emerald-300 font-bold tracking-widest uppercase mb-1">E-Label Specification</p>
-            <h3 className="text-2xl font-black">{t('clinical.chart_monsmecta')} 상세 스펙 및 라벨 정보</h3>
+            <p className="text-xs text-emerald-300 font-bold tracking-widest uppercase mb-1">{t('label.header_eyebrow')}</p>
+            <h3 className="text-2xl font-black">{t('label.header_title')}</h3>
           </div>
           <button onClick={() => setIsLabelModalOpen(false)} className="text-emerald-100 hover:text-white bg-emerald-800/50 hover:bg-emerald-700/50 rounded-full p-2 transition-colors">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -22,17 +21,14 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen
           </button>
         </div>
 
-        {/* Modal Body / E-Label Content */}
         <div className="p-8">
           <div className="flex flex-col md:flex-row gap-8">
-
-            {/* 3D Bottle Image & Key Points */}
             <div className="md:w-1/3 flex flex-col items-center border-r border-slate-100 pr-0 md:pr-8">
               <div className="bg-slate-50 w-full rounded-2xl p-6 flex justify-center items-center mb-6 border border-slate-100">
-                <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="Monsmecta Bottle" className="w-3/4 max-w-[200px] drop-shadow-xl hover:scale-105 transition-transform" />
+                <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt={t('label.product_name')} className="w-3/4 max-w-[200px] drop-shadow-xl hover:scale-105 transition-transform" />
               </div>
               <div className="w-full text-center">
-                <h4 className="text-xl font-black text-[#00513b] mb-2">MONSMECTA</h4>
+                <h4 className="text-xl font-black text-[#00513b] mb-2">{t('label.product_name')}</h4>
                 <p className="text-sm font-bold text-amber-500 mb-4">{t('label.desc')}</p>
                 <div className="space-y-2 text-left bg-emerald-50 p-4 rounded-xl">
                   <p className="text-xs font-bold text-emerald-800">{t('label.feed1')}</p>
@@ -42,7 +38,6 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen
               </div>
             </div>
 
-            {/* Detailed Specs */}
             <div className="md:w-2/3 space-y-6">
               <div>
                 <h5 className="text-lg font-bold text-slate-800 border-b-2 border-amber-400 pb-2 mb-4 inline-block">{t('label.ingredients_title')}</h5>
@@ -114,13 +109,13 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen
               <div>
                 <strong className="block text-slate-700">{t('label.seller_name')}</strong>
                 {t('label.seller_addr')}<br />
-                <span className="text-amber-600">TEL</span> 031-321-6562
+                <span className="text-amber-600">TEL</span> {t('label.seller_tel')}
               </div>
             </div>
             <div className="border-l-0 sm:border-l border-slate-200 pl-0 sm:pl-6">
               <strong className="block text-slate-700">{t('label.maker_name')}</strong>
               {t('label.maker_addr')}<br />
-              <span className="text-amber-600">TEL</span> 031-458-1240 / www.mobio.co.kr
+              <span className="text-amber-600">TEL</span> {t('label.maker_tel')}
             </div>
           </div>
           <button onClick={() => setIsPrintModalOpen(true)} className="shrink-0 bg-white border border-slate-300 hover:border-[#00513b] text-slate-700 hover:text-[#00513b] font-bold py-3 px-5 rounded-xl shadow-sm transition-colors flex items-center gap-2 w-full sm:w-auto justify-center">

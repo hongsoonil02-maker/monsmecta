@@ -13,6 +13,7 @@ const OrderForm = ({
   address,
   setAddress,
   isSubmitting,
+  orderError,
   handleCheckout
 }) => {
   const { t } = useTranslation();
@@ -33,32 +34,38 @@ const OrderForm = ({
               <div className="w-20 h-20 bg-emerald-100 text-[#00513b] rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
               </div>
-              <h3 className="text-2xl font-black text-slate-800 break-keep">주문 정보가 접수되었습니다!</h3>
-              <p className="text-slate-600 font-medium break-keep">아래 계좌로 입금을 완료해 주시면 배송이 시작됩니다.</p>
+              <h3 className="text-2xl font-black text-slate-800 break-keep">{t('order.success_title')}</h3>
+              <p className="text-slate-600 font-medium break-keep">{t('order.success_desc')}</p>
 
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 my-8 inline-block text-left w-full max-w-md">
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-sm font-bold text-slate-500">입금 은행</span>
-                  <strong className="text-slate-800">카카오뱅크</strong>
+                  <span className="text-sm font-bold text-slate-500">{t('order.deposit_bank_label')}</span>
+                  <strong className="text-slate-800">{t('order.deposit_bank_value')}</strong>
                 </div>
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-sm font-bold text-slate-500">계좌 번호</span>
-                  <strong className="text-xl font-black text-[#00513b]">3333-26-3248376</strong>
+                  <span className="text-sm font-bold text-slate-500">{t('order.deposit_account_label')}</span>
+                  <strong className="text-xl font-black text-[#00513b]">{t('order.deposit_account_value')}</strong>
                 </div>
                 <div className="flex justify-between items-center mb-3">
-                  <span className="text-sm font-bold text-slate-500">예금주</span>
-                  <strong className="text-slate-800">홍순일</strong>
+                  <span className="text-sm font-bold text-slate-500">{t('order.deposit_holder_label')}</span>
+                  <strong className="text-slate-800">{t('order.deposit_holder_value')}</strong>
                 </div>
                 <div className="flex justify-between items-center pt-3 border-t border-slate-200">
-                  <span className="text-sm font-bold text-slate-500">입금하실 금액</span>
-                  <strong className="text-2xl font-black text-rose-600">{(quantity * pricePerBottle).toLocaleString()}원</strong>
+                  <span className="text-sm font-bold text-slate-500">{t('order.deposit_amount_label')}</span>
+                  <strong className="text-2xl font-black text-rose-600">{(quantity * pricePerBottle).toLocaleString()}{t('order.won')}</strong>
                 </div>
               </div>
 
-              <p className="text-sm text-slate-500 break-keep">입금 확인 후, 입력해주신 사업자번호로 <span className="font-bold text-slate-700">전자세금계산서가 자동 발행</span>됩니다.<br />관련 문의는 우측 하단 챗봇을 이용해 주세요.</p>
+              <p className="text-sm text-slate-500 break-keep">{t('order.success_notice_prefix')}<span className="font-bold text-slate-700">{t('order.success_notice_highlight')}</span>{t('order.success_notice_suffix')}<br />{t('order.success_notice_help')}</p>
             </div>
           ) : (
             <form onSubmit={handleCheckout} className="p-6 md:p-12 space-y-6">
+              {orderError && (
+                <div className="rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-medium text-rose-700">
+                  {orderError}
+                </div>
+              )}
+
               <div className="space-y-6">
                 <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
                   <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
@@ -110,7 +117,7 @@ const OrderForm = ({
                 <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-colors shadow-inner">
                   <div className="mb-6 md:mb-0 text-center md:text-left">
                     <div className="font-black text-2xl text-slate-800 tracking-tight">{t('clinical.chart_monsmecta')} <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
-                    <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}원</span> <span className="text-xs">{t('order.vat_included')}</span></div>
+                    <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}{t('order.won')}</span> <span className="text-xs">{t('order.vat_included')}</span></div>
                     <p className="text-xs text-[#00513b] mt-1 font-semibold">{t('order.min_order')}</p>
                   </div>
 
@@ -129,7 +136,7 @@ const OrderForm = ({
                   <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{(quantity * pricePerBottle).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
                 </div>
                 <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 text-2xl font-black py-5 rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition duration-300 shadow-[0_0_20px_rgba(250,204,21,0.3)] transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
-                  <span>{isSubmitting ? '처리 중...' : t('order.btn')}</span>
+                  <span>{isSubmitting ? t('order.submitting') : t('order.btn')}</span>
                   {!isSubmitting && <svg className="w-7 h-7 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
                 </button>
                 <p className="text-center text-slate-400 text-sm mt-6 font-medium">{t('order.bank_info')}</p>
@@ -138,7 +145,7 @@ const OrderForm = ({
           )}
         </div>
       </div>
-    </section >
+    </section>
   );
 };
 
