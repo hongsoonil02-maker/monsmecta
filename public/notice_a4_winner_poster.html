@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>에스앤제이 동물병원 몬스멕타 A4 알림판 - 챔피언 단독 포스터</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0F172A;
+      --card-bg: #1E293B;
+      --primary: #0A2540;
+      --secondary: #1D4ED8;
+      --accent: #E11D48;
+      --highlight: #FFB800;
+      --label-green: #00281d;
+      --label-border: #00513b;
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      word-break: keep-all;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: #334155;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    /* 상단 웹 제어 바 */
+    .web-control-bar {
+      width: 100%;
+      max-width: 800px;
+      background: #1E293B;
+      color: #F8FAFC;
+      border-radius: 14px;
+      padding: 16px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .web-control-bar .title-box {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .web-control-bar .title-box h1 {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .web-control-bar .title-box .badge {
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      color: #0F172A;
+      font-size: 0.75rem;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    .web-control-bar .btn-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-dash {
+      background: #334155;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn-dash:hover {
+      background: #475569;
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, #E11D48, #BE123C);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
+    }
+
+    .btn-print:hover {
+      background: linear-gradient(135deg, #F43F5E, #E11D48);
+      transform: translateY(-1px);
+    }
+
+    /* A4 실물 캔버스 (210mm x 297mm 정확한 비율 800x1131px) */
+    .a4-sheet {
+      width: 800px;
+      height: 1131px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      padding: 34px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      border-top: 8px solid var(--primary);
+    }
+
+    /* 1. 헤더 영역 */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 14px;
+    }
+
+    .header .hospital-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .header .hospital-brand img {
+      height: 46px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .header .hospital-brand .hospital-text .name-en {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--secondary);
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .header .hospital-brand .hospital-text .name-ko {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.6px;
+      line-height: 1.15;
+    }
+
+    .header .header-right {
+      text-align: right;
+    }
+
+    .header .header-right .badge-vet {
+      background: #EFF6FF;
+      color: var(--secondary);
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid #BFDBFE;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+
+    .header .header-right .contact-num {
+      font-size: 1rem;
+      font-weight: 850;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+    }
+
+    /* 2. 긴급 프로모션 헤드라인 & 시선 강탈 가격 박스 */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-headline {
+      flex: 1;
+    }
+
+    .urgency-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #FFE4E6, #FECDD3);
+      color: #9F1239;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 900;
+      margin-bottom: 16px; /* 여백 확대: 할인행사 안내 소박스와 메인 카피 사이 답답함 해소 */
+      border: 1px solid #FDA4AF;
+    }
+
+    .main-headline {
+      font-size: 2.15rem;
+      font-weight: 950;
+      color: var(--primary);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+    }
+
+    .main-headline span.highlight-red {
+      color: var(--accent);
+    }
+
+    /* 가격 중심부 박스 - 몬스멕타 공식 브랜드 딥그린 테마 동기화 및 여백 최적화 */
+    .price-box-wrapper {
+      background: linear-gradient(145deg, #00281d 0%, #004D34 100%);
+      border-radius: 18px;
+      padding: 20px 28px;
+      color: #ffffff;
+      box-shadow: 0 14px 28px -6px rgba(0, 40, 29, 0.45);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 2.5px solid #10B981;
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .price-box-wrapper::before {
+      content: '출시기념 단 하루 특가!';
+      position: absolute;
+      top: -14px;
+      left: 24px;
+      background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+      color: #0F172A;
+      font-weight: 950;
+      font-size: 0.82rem;
+      padding: 3px 14px;
+      border-radius: 999px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      border: 1.5px solid #FFFBEB;
+    }
+
+    .price-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .price-left .target-product {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #6EE7B7;
+      margin-bottom: 5px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .price-left .original-price {
+      font-size: 1.35rem;
+      color: rgba(167, 243, 208, 0.75);
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+
+    .price-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 18px;
+    }
+
+    /* 한글 가운데 줄 맞춤 (50% D/C 및 특별 파격가 중심 정렬) */
+    .price-right .discount-rate {
+      background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+      color: #ffffff;
+      font-size: 1.35rem;
+      font-weight: 950;
+      padding: 10px 18px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(225, 29, 72, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.2;
+      border: 1px solid #FFE4E6;
+    }
+
+    .price-right .discount-rate span {
+      display: block;
+    }
+
+    .price-right .sale-price {
+      font-size: 3.5rem;
+      font-weight: 950;
+      color: #ffffff;
+      line-height: 1;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -1.5px;
+      display: flex;
+      align-items: center;
+      text-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
+    }
+
+    .price-right .sale-price .unit {
+      font-size: 1.9rem;
+      font-weight: 800;
+      margin-left: 2px;
+    }
+
+    /* 3. 공식 몬스멕타 라벨 섹션 (박스 및 내용 각각 20% 추가 정밀 축소) */
+    .official-label-section {
+      background: var(--label-green);
+      color: #ECFDF5;
+      border-radius: 16px;
+      border: 3px solid var(--label-border);
+      box-shadow: 0 12px 24px -8px rgba(0, 40, 29, 0.45);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin: 2px 0;
+    }
+
+    /* 골드 상단 바 */
+    .gold-bar {
+      height: 6px;
+      background: linear-gradient(90deg, #D97706 0%, #FBBF24 50%, #D97706 100%);
+      width: 100%;
+    }
+
+    .label-body {
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: 46% 54%;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    /* 라벨 좌측 (20% 추가 축소) */
+    .label-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .veterinary-badge {
+      display: inline-block;
+      background: rgba(6, 78, 59, 0.6);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin-bottom: 4px;
+    }
+
+    .veterinary-badge span {
+      font-size: 0.45rem;
+      font-weight: 800;
+      color: #6EE7B7;
+      letter-spacing: 0.5px;
+    }
+
+    .label-left .sub-title {
+      font-size: 0.54rem;
+      font-weight: 700;
+      color: #F59E0B;
+      margin-bottom: 2px;
+      letter-spacing: -0.2px;
+    }
+
+    .label-left .brand-ko {
+      font-size: 1.88rem;
+      font-weight: 950;
+      color: #ffffff;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .label-left .brand-en {
+      font-size: 0.76rem;
+      font-weight: 800;
+      font-family: 'Montserrat', sans-serif;
+      color: rgba(209, 250, 229, 0.6);
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    /* 5가지 성분 복합체 박스 (20% 추가 축소) */
+    .formula-box {
+      background: rgba(0, 61, 43, 0.85);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 10px;
+      padding: 8px 10px;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .formula-box h3 {
+      font-size: 0.65rem;
+      font-weight: 850;
+      color: #FBBF24;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+
+    .formula-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+      font-size: 0.52rem;
+    }
+
+    .formula-list li .f-title {
+      color: #D1FAE5;
+      font-weight: 800;
+      margin-bottom: 0px;
+    }
+
+    .formula-list li .f-desc {
+      color: #6EE7B7;
+      padding-left: 6px;
+      font-weight: 600;
+    }
+
+    .formula-list li .f-univ {
+      color: #F59E0B;
+      font-size: 0.46rem;
+      padding-left: 6px;
+      font-weight: 700;
+    }
+
+    .formula-list li .f-sub {
+      color: #34D399;
+      font-size: 0.46rem;
+      padding-left: 6px;
+    }
+
+    /* 라벨 우측 사양서(Specs) 흰색 카드 (20% 추가 축소) */
+    .label-right {
+      background: #ffffff;
+      color: #1E293B;
+      border-radius: 12px;
+      padding: 9px 11px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 0.50rem;
+      line-height: 1.28;
+    }
+
+    .spec-row {
+      border-bottom: 1px solid #F1F5F9;
+      padding-bottom: 2px;
+      margin-bottom: 2px;
+    }
+
+    .spec-row.no-border {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 2px;
+    }
+
+    .spec-row .spec-label {
+      font-weight: 850;
+      color: #0F172A;
+      display: block;
+    }
+
+    .spec-row .spec-val {
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .spec-row-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .effects-box {
+      margin: 2px 0;
+    }
+
+    .effects-box .effect-title {
+      font-weight: 900;
+      color: #00513b;
+      font-size: 0.53rem;
+      margin-bottom: 1px;
+    }
+
+    .effects-box ol {
+      padding-left: 12px;
+      color: #334155;
+      font-weight: 700;
+    }
+
+    .caution-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 6px;
+      padding: 4px 6px;
+      margin-top: 2px;
+    }
+
+    .caution-box .c-title {
+      color: #BE123C;
+      font-weight: 900;
+      font-size: 0.50rem;
+      margin-bottom: 1px;
+    }
+
+    .caution-box ul {
+      padding-left: 10px;
+      color: #475569;
+      font-size: 0.46rem;
+      font-weight: 600;
+    }
+
+    .spec-footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1.5px solid #E2E8F0;
+      padding-top: 3px;
+      margin-top: 2px;
+      font-size: 0.50rem;
+      font-weight: 800;
+    }
+
+    /* 4. 하단 제조원/판매원 및 데스크 안내 (2줄 좌측 끝 맞춤 반영) */
+    .footer-area {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FEF2F2;
+      border: 2px solid #FECACA;
+      border-radius: 16px;
+      padding: 14px 20px;
+    }
+
+    .footer-area .cta-text {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .footer-area .cta-text h3 {
+      font-size: 1.12rem;
+      font-weight: 950;
+      color: #9F1239;
+      margin: 0;
+      line-height: 1.35;
+      text-align: left;
+    }
+
+    .footer-area .cta-text p {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #881337;
+      margin: 0;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .footer-area .desk-btn {
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 900;
+      padding: 10px 20px;
+      border-radius: 10px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+      margin-left: 16px;
+    }
+
+    /* 5. 바텀 서명 (푸터 2줄 좌측 끝단 맞춤 및 '오늘' 변경 반영) */
+    .bottom-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-align: left;
+      width: 100%;
+    }
+
+    .bottom-bar div {
+      text-align: left;
+      width: 100%;
+    }
+
+    /* 인쇄 전용 스타일 (@media print) */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        background: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .web-control-bar {
+        display: none !important;
+      }
+
+      .a4-sheet {
+        width: 100vw;
+        height: 100vh;
+        max-width: 210mm;
+        max-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        border-top: 8px solid var(--primary);
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .price-box-wrapper,
+      .official-label-section,
+      .gold-bar,
+      .formula-box,
+      .label-right,
+      .caution-box,
+      .footer-area,
+      .desk-btn,
+      .veterinary-badge {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 웹 제어 바 -->
+  <div class="web-control-bar">
+    <div class="title-box">
+      <span class="badge">🏆 공식 라벨 적용판 (OptD Hermes V2)</span>
+      <h1>에스앤제이 동물병원 몬스멕타 A4 알림판 (수의사 전용 공식 라벨)</h1>
+    </div>
+    <div class="btn-group">
+      <a href="notice_a4_tournament_dashboard.html" class="btn btn-dash">📊 토너먼트 4대 시안 대시보드</a>
+      <button onclick="window.print()" class="btn btn-print">🖨️ A4 포스터 바로 인쇄하기</button>
+    </div>
+  </div>
+
+  <!-- A4 포스터 실물 시트 (210mm x 297mm 대응 800x1131px) -->
+  <div class="a4-sheet">
+    
+    <!-- 1. 병원 헤더 -->
+    <header class="header">
+      <div class="hospital-brand">
+        <img src="assets/sj_logo.png" alt="S&J 동물병원 로고" onerror="this.src='assets/로고2_에스앤제이 동물병원.png'">
+        <div class="hospital-text">
+          <span class="name-en">Dr. S & J Animal Hospital</span>
+          <span class="name-ko">에스앤제이 동물병원</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="badge-vet">🐾 수의사 추천 장 건강 솔루션</div>
+        <div class="contact-num">TEL: 010-5407-5708</div>
+      </div>
+    </header>
+
+    <!-- 2. 프로모션 헤드라인 & 시선 강탈 가격 박스 -->
+    <section class="promo-section">
+      <div class="hero-top">
+        <div class="hero-headline">
+          <div class="urgency-tag">
+            <span>⚡ 오늘 단 하루! 출시기념 특별 할인행사</span>
+          </div>
+          <h1 class="main-headline">
+            우리 아이 잦은 설사와 장염,<br>
+            <span class="highlight-red">몬스멕타 공식 처방</span>으로 잡으세요!
+          </h1>
+        </div>
+      </div>
+
+      <div class="price-box-wrapper">
+        <div class="price-left">
+          <div class="target-product">수의사 임상 처방 프리미엄 지사제 몬스멕타 (100ml 액상)</div>
+          <div class="original-price">정상 판매가 : 18,000원</div>
+        </div>
+        <div class="price-right">
+          <div class="discount-rate">
+            <span>50% D/C</span>
+            <span>특별 파격가</span>
+          </div>
+          <div class="sale-price">9,000<span class="unit">원</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 공식 몬스멕타 수의사 전용 라벨 (20% 축소 박스 & 30% 축소 텍스트) -->
+    <section class="official-label-section">
+      <div class="gold-bar"></div>
+      
+      <div class="label-body">
+        <!-- 좌측 컬럼: 브랜드 & 5가지 복합체 성분 -->
+        <div class="label-left">
+          <div>
+            <div class="veterinary-badge">
+              <span>Veterinary Exclusive Gut Health Premier Solution</span>
+            </div>
+            <div class="sub-title">연변 시 장 기능 개선 및 정장 작용에 뛰어난</div>
+            <div class="brand-ko">몬스멕타</div>
+            <div class="brand-en">MONSMECTA</div>
+          </div>
+
+          <div class="formula-box">
+            <h3>성분 (5가지 복합체)</h3>
+            <ul class="formula-list">
+              <li>
+                <div class="f-title">1) 항균·항바이러스 작용</div>
+                <div class="f-desc">- 고초균 (Bacillus subtilis)</div>
+                <div class="f-univ">* 경상국립대학교 수의과대학 항바이러스 효과 확인</div>
+              </li>
+              <li>
+                <div class="f-title">2) 장 기능 개선 및 정장 작용</div>
+                <div class="f-desc">- 포도당</div>
+              </li>
+              <li>
+                <div class="f-title">3) 상피세포의 회복</div>
+                <div class="f-desc">- 비타민 A</div>
+              </li>
+              <li>
+                <div class="f-title">4) 전해질제</div>
+                <div class="f-desc">- Sodium acetate, Sodium propionate</div>
+              </li>
+              <li>
+                <div class="f-title">5) 연변 및 설사 개선, 독소 제거</div>
+                <div class="f-desc">- 몬모릴로나이트</div>
+                <div class="f-sub">(곰팡이 독소 제거, 면역 증강 및 장 환경 개선에 도움)</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 우측 컬럼: 공식 사양서(Specs) 흰색 카드 -->
+        <div class="label-right">
+          <div>
+            <div class="spec-row spec-row-flex">
+              <span class="spec-label">사료 성분등록번호</span>
+              <span class="spec-val font-bold">제XX9UY0145호</span>
+            </div>
+
+            <div class="spec-row">
+              <span class="spec-label">사료의 종류 및 명칭 / 형태 / 용도</span>
+              <span class="spec-val">보조사료 / 미생물제 / 바실러스 서브틸리스 | 액상 | 반려동물용</span>
+            </div>
+
+            <div class="spec-row">
+              <span class="spec-label">등록성분량</span>
+              <span class="spec-val">바실러스 서브틸리스 1.0 x 10^7 cfu/g 이상, 부형제(정제수)</span>
+            </div>
+
+            <div class="spec-row">
+              <span class="spec-label">사용한 원료의 명칭</span>
+              <span class="spec-val">바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수</span>
+            </div>
+
+            <div class="effects-box">
+              <div class="effect-title">▶ 효과</div>
+              <ol>
+                <li>장 관련 질병(파보, 로타, 코로나 등)에 대한 저항력 향상에 도움</li>
+                <li>면역 기능 및 건강 상태 유지에 도움</li>
+                <li>장 기능 개선 및 정장 작용에 도움</li>
+              </ol>
+            </div>
+
+            <div class="spec-row no-border" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <div>
+                <span class="spec-label">대상축종</span>
+                <span class="spec-val">개, 고양이, 전축종</span>
+              </div>
+              <div>
+                <span class="spec-label">용법 및 용량</span>
+                <span class="spec-val">1일 두당 2~4ml, 5~7일간 경구 급여</span>
+              </div>
+            </div>
+
+            <div class="caution-box">
+              <div class="c-title">⚠️ 주의사항</div>
+              <ul>
+                <li>직사광선을 피하여 건조하고 서늘한 곳에 보관하십시오.</li>
+                <li>제품 특성 상 가라앉는 성분들이 있어서 <strong>흔들어서 사용</strong>하십시오.</li>
+                <li>제품에 대하여 문의하실 경우 제조원 또는 판매원으로 연락 바랍니다.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="spec-footer-grid">
+            <div>실제중량 <span style="color: #047857; margin-left: 4px;">100ml</span></div>
+            <div>제조일자 <span style="color: #94A3B8; font-weight: normal; margin-left: 4px;">별도표기</span></div>
+            <div>유통기한 <span style="color: #475569; font-weight: normal; margin-left: 4px;">제조일로부터 18개월</span></div>
+            <div style="text-align: right; font-size: 0.72rem; color: #64748B;">제조원: ㈜ 엠오바이오</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 데스크 상담 안내 (2줄 좌측 끝 맞춤 반영) -->
+    <section class="footer-area">
+      <div class="cta-text">
+        <h3>💡 투약 용량 및 구매 안내는 안내 데스크에 문의하세요!</h3>
+        <p>우리 아이 체중(kg)에 따른 1일 2~4ml 맞춤 급여법을 수의사 선생님께서 직접 친절히 상담해 드립니다.</p>
+      </div>
+      <div class="desk-btn">지금 데스크 문의 ➔</div>
+    </section>
+
+    <!-- 5. 하단 바 (푸터 2줄 좌측 끝단 맞춤 & '오늘' 반영) -->
+    <footer class="bottom-bar">
+      <div>✔ 판매원: 에스앤제이 동물병원 (경기도 용인시 처인구 포곡읍 선장1로 98-8) | TEL: 031-321-6562</div>
+      <div>✔ 행사 기간: 오늘 단 하루 특별 이벤트</div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

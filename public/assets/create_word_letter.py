@@ -59,15 +59,15 @@ p_title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 p_title.paragraph_format.space_after = Pt(8)
 p_title.paragraph_format.line_spacing = 1.15
 add_run(p_title, "에스앤제이(S&J) 동물병원 학술마케팅부 공식 초청 서신\n", size_pt=14.5, bold=True, color_rgb=(15, 23, 42))
-add_run(p_title, "“서울대 수의학 자문단과 6,000례 파보 임상으로 검증된\n수의전용 고미립 흡착·제균 솔루션 MONSMECTA 공식 런칭”", size_pt=12, bold=True, color_rgb=(0, 81, 59))
+add_run(p_title, "“(전)서울대학교 수의과대학 출신 자문단과 약 6,000례 임상 경험을 기반으로 설계된\n수의전용 고미립 장내 유해물질 흡착·제거 보조 솔루션 MONSMECTA 공식 런칭”", size_pt=12, bold=True, color_rgb=(0, 81, 59))
 
 # 4. 본문 편지글 (1페이지 오버를 막기 위해 줄간격 1.15, 문단 뒤 여백 6pt 최적화)
 p_body1 = doc.add_paragraph()
 p_body1.paragraph_format.space_after = Pt(6)
 p_body1.paragraph_format.line_spacing = 1.15
 add_run(p_body1, "존경하는 원장님, 안녕하십니까.\n", size_pt=10, bold=True, color_rgb=(15, 23, 42))
-add_run(p_body1, "진료 현장에서 파보·로타·코로나 등 중증 바이러스성 장염 및 설사 환축을 치료하시며, 단순히 분변의 수분만 흡수하여 변을 굳히는 기존 인체약 지사제의 한계를 느끼지 않으셨습니까?\n이에 에스앤제이(S&J) 동물병원은 서울대학교 수의과대학 교수진 자문단과 함께, ", size_pt=10, color_rgb=(30, 41, 59))
-add_run(p_body1, "6,000례 이상의 임상 검증을 거친 소동물 전용 천연 고미립 흡착·제균제 『몬스멕타(MONSMECTA)』", size_pt=10, bold=True, color_rgb=(0, 81, 59))
+add_run(p_body1, "진료 현장에서 파보·로타·코로나 등 중증 바이러스성 장염 및 설사 환축을 치료하시며, 단순히 분변의 수분만 흡수하여 변을 굳히는 기존 인체약 지사제의 한계를 느끼지 않으셨습니까?\n이에 에스앤제이(S&J) 동물병원은 (전)서울대학교 수의과대학 출신 자문단과 함께, ", size_pt=10, color_rgb=(30, 41, 59))
+add_run(p_body1, "약 6,000례의 임상 경험을 기반으로 설계된 소동물 전용 천연 고미립 장내 유해물질 흡착·제거 보조제 『몬스멕타(MONSMECTA)』", size_pt=10, bold=True, color_rgb=(0, 81, 59))
 add_run(p_body1, "를 공식 런칭하고 전국 5,000개 동물병원 원장님들께 특별 우선 배포를 제안드립니다.", size_pt=10, color_rgb=(30, 41, 59))
 
 # 5. 자문단 검증 요약 박스 (콤팩트 규격 최적화)
@@ -80,12 +80,12 @@ set_cell_margins(cell_adv, top=100, bottom=100, left=140, right=140)
 
 p_adv_header = cell_adv.paragraphs[0]
 p_adv_header.paragraph_format.space_after = Pt(4)
-add_run(p_adv_header, "■ 수의학 최고 권위자 자문단 사전 검증 코멘트", size_pt=9.5, bold=True, color_rgb=(0, 81, 59))
+add_run(p_adv_header, "■ 바이러스학 분야 권위자 및 임상 자문단 검증 코멘트", size_pt=9.5, bold=True, color_rgb=(0, 81, 59))
 
 adv_items = [
-    ("[바이러스학] 박봉균 교수 (전 농림축산검역본부장): ", "“일반 지사제와 달리 '바이러스 흡착 및 배출' 기전을 명시할 수 있는 차별화된 흡착력은 임상 진료에서 매우 강력한 강점입니다.”"),
+    ("[바이러스학] 박봉균 교수 (전 농림축산검역본부장, 바이러스학 분야 권위자): ", "“일반 지사제와 달리 1-Deoxynojirimycin(DNJ)의 여러 바이러스 억제 효과와 차별화된 장내 유해물질 흡착력은 임상 진료에서 매우 강력한 강점입니다.”"),
     ("[임상검증] 정성대 원장 (동진동물병원 원장): ", "“입자도, 수분 흡수율, 비표면적... 수의사가 진료실에서 처방할 때 가장 알고 싶어 하는 정확한 물성 데이터가 완벽하게 규명되었습니다.”"),
-    ("[회복단축] 김동준 원장 (사랑동물병원 원장): ", "“정맥 수액(IV) 처치와 병행 투여 시, 장점막을 이중 보호하고 전해질 밸런스를 맞춰 파보 장염 환축의 증상 회복 기간을 최대 50% 단축시킵니다.”")
+    ("[회복단축] 김동준 원장 (사랑동물병원 원장): ", "“정맥 수액(IV) 처치와 병행 투여 시, 장점막을 이중 보호하고 전해질 밸런스를 맞춰 파보 장염 환축의 증상 회복 기간 단축에 큰 도움을 줍니다.”")
 ]
 
 for title, content in adv_items:
@@ -154,7 +154,7 @@ p_txt2.paragraph_format.space_after = Pt(0)
 p_txt2.paragraph_format.line_spacing = 1.12
 add_run(p_txt2, "[QR CODE 02]\n", size_pt=8, bold=True, color_rgb=(217, 119, 6))
 add_run(p_txt2, "📊 자문단 학술 데이터 및 시나리오 QR\n", size_pt=9, bold=True, color_rgb=(15, 23, 42))
-add_run(p_txt2, "서울대 검증 데이터 및 상담 시나리오 열람", size_pt=8, color_rgb=(100, 116, 139))
+add_run(p_txt2, "(전)서울대 출신 자문단 데이터 및 상담 시나리오 열람", size_pt=8, color_rgb=(100, 116, 139))
 
 # 7. 하단 푸터 (1페이지 내 안전하게 쏙 들어오는 간격)
 p_footer = doc.add_paragraph()
@@ -166,6 +166,5 @@ add_run(p_footer, "―" * 48 + "\n", size_pt=8.5, color_rgb=(203, 213, 225))
 add_run(p_footer, "에스앤제이(S&J) 동물병원 | 대표: 홍순일 (닥터 젬스홍) | 사업자번호: 792-66-00615\n", size_pt=8.5, bold=True, color_rgb=(51, 65, 85))
 add_run(p_footer, "주소: 경기도 용인시 처인구 포곡읍 선장1로 98-8 | 대표 연락처: 031-321-6562 | 공식 이메일: soonilhong@naver.com\n", size_pt=8.5, bold=True, color_rgb=(0, 81, 59))
 add_run(p_footer, "※ 본 안내문은 전국 소동물병원 수의사 원장님께 한정하여 발송되는 수의학 전용 학술·처방 안내 문서입니다.", size_pt=7.5, color_rgb=(148, 163, 184))
-
-doc.save("monsmecta_wave1_dm_letter_a4.docx")
-print("Word 문서 수정 생성 완료: monsmecta_wave1_dm_letter_a4.docx")
+doc.save("monsmecta_wave1-1_dm_letter_a4.docx")
+print("Word 문서 수정 생성 완료: monsmecta_wave1-1_dm_letter_a4.docx")

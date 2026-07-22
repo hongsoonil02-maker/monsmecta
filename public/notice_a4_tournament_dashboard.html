@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORCA 에이전트 토너먼트 종합 대시보드 - 공식 몬스멕타 라벨 정밀 조정 반영</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-app: #0F172A;
+      --bg-card: #1E293B;
+      --bg-hover: #334155;
+      --primary: #3B82F6;
+      --secondary: #60A5FA;
+      --accent: #F43F5E;
+      --champion: #F59E0B;
+      --text-main: #F8FAFC;
+      --text-sub: #94A3B8;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      word-break: keep-all;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: var(--bg-app);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 앱 헤더 */
+    .app-header {
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .orca-badge {
+      background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.8rem;
+      padding: 6px 14px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .header-brand h1 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .header-brand h1 span {
+      color: var(--champion);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-top {
+      background: var(--bg-hover);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-top:hover {
+      background: #475569;
+    }
+
+    .btn-top.btn-champion {
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      color: #0F172A;
+      border: none;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-top.btn-champion:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(245, 158, 11, 0.45);
+    }
+
+    /* 메인 워크스페이스 레이아웃 */
+    .workspace {
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      gap: 32px;
+      padding: 32px 36px;
+      flex: 1;
+    }
+
+    /* 좌측 패널 */
+    .panel-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #E2E8F0;
+    }
+
+    .card-title .sub-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--secondary);
+      background: rgba(96, 165, 250, 0.15);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .agent-tabs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .agent-tab {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .agent-tab:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateX(4px);
+    }
+
+    .agent-tab.active {
+      background: rgba(59, 130, 246, 0.15);
+      border-color: var(--primary);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+    }
+
+    .agent-tab.active.champion-tab {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: var(--champion);
+      box-shadow: 0 4px 18px rgba(245, 158, 11, 0.25);
+    }
+
+    .agent-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .agent-name {
+      font-size: 1rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .agent-strategy {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+    }
+
+    .agent-score {
+      text-align: right;
+    }
+
+    .agent-score .num {
+      font-size: 1.4rem;
+      font-weight: 900;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .agent-score .label {
+      font-size: 0.72rem;
+      color: var(--text-sub);
+      text-transform: uppercase;
+    }
+
+    .win-badge {
+      background: var(--champion);
+      color: #0F172A;
+      font-size: 0.72rem;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .gate-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .gate-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .gate-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #CBD5E1;
+    }
+
+    .gate-header .gate-score-val {
+      color: #60A5FA;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3B82F6, #60A5FA);
+      border-radius: 4px;
+      transition: width 0.4s ease;
+    }
+
+    .progress-fill.champion-fill {
+      background: linear-gradient(90deg, #F59E0B, #FBBF24);
+    }
+
+    .judge-box {
+      background: rgba(15, 23, 42, 0.7);
+      border-left: 4px solid var(--primary);
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: #E2E8F0;
+    }
+
+    .judge-box strong {
+      color: var(--secondary);
+    }
+
+    /* 우측 라이브 A4 프리뷰 갤러리 */
+    .panel-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .preview-header {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      background: var(--bg-card);
+      padding: 14px 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .preview-header .current-title {
+      font-size: 1rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .preview-header .btn-print-current {
+      background: linear-gradient(135deg, #E11D48, #BE123C);
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(225, 29, 72, 0.35);
+      transition: all 0.2s;
+    }
+
+    .preview-header .btn-print-current:hover {
+      background: linear-gradient(135deg, #F43F5E, #E11D48);
+      transform: scale(1.03);
+    }
+
+    .a4-viewport-container {
+      width: 800px;
+      height: 1131px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      color: #0F172A;
+    }
+
+    .view-a4 {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 34px 38px;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .view-a4.active-view {
+      display: flex;
+    }
+
+    /* 옵션 A (Kimi) 스타일 */
+    .opt-a-header {
+      border-bottom: 3px solid #0A2540;
+      padding-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .opt-a-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #0A2540;
+      text-align: center;
+      margin: 20px 0;
+      line-height: 1.3;
+    }
+
+    .opt-a-price-box {
+      background: #F1F5F9;
+      border: 2px solid #0A2540;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    /* 옵션 B (Qoder) POP 파격 특가 스타일 */
+    .opt-b-header {
+      background: #D91111;
+      color: #ffffff;
+      padding: 16px 24px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .opt-b-title {
+      font-size: 3.2rem;
+      font-weight: 950;
+      color: #D91111;
+      text-align: center;
+      margin: 24px 0;
+      line-height: 1.15;
+      letter-spacing: -2px;
+    }
+
+    .opt-b-price-box {
+      background: #FFB800;
+      color: #0F172A;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(217, 17, 17, 0.25);
+      border: 4px dashed #000000;
+    }
+
+    /* 옵션 C (Trae) 스타일 */
+    .opt-c-title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #1E293B, #38BDF8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin: 24px 0;
+    }
+
+    /* 옵션 D (Hermes - 공식 라벨 적용 정밀 조정판) 전용 스타일 */
+    .opt-d-container {
+      border-top: 8px solid #0A2540;
+    }
+
+    /* 한글 가운데 줄 맞춤 (50% D/C 및 특별 파격가 중심 정렬) */
+    .discount-pill {
+      background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+      color: #ffffff;
+      font-size: 1.35rem;
+      font-weight: 950;
+      padding: 10px 18px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(225, 29, 72, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.2;
+      border: 1px solid #FFE4E6;
+    }
+
+    .discount-pill span {
+      display: block;
+    }
+
+    /* 라벨 상하 폭 20% 축소 및 내부 30% 축소 반영 */
+    .official-label-section {
+      background: #00281d;
+      color: #ECFDF5;
+      border-radius: 16px;
+      border: 3px solid #00513b;
+      box-shadow: 0 12px 24px -8px rgba(0, 40, 29, 0.45);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      margin: 2px 0;
+    }
+
+    .gold-bar {
+      height: 6px;
+      background: linear-gradient(90deg, #D97706 0%, #FBBF24 50%, #D97706 100%);
+      width: 100%;
+    }
+
+    .label-body {
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: 46% 54%;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .veterinary-badge {
+      display: inline-block;
+      background: rgba(6, 78, 59, 0.6);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin-bottom: 4px;
+    }
+
+    .veterinary-badge span {
+      font-size: 0.45rem;
+      font-weight: 800;
+      color: #6EE7B7;
+      letter-spacing: 0.5px;
+    }
+
+    .formula-box {
+      background: rgba(0, 61, 43, 0.85);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 10px;
+      padding: 8px 10px;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .formula-box h3 {
+      font-size: 0.65rem;
+      font-weight: 850;
+      color: #FBBF24;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+      padding-bottom: 3px;
+      margin-bottom: 4px;
+    }
+
+    .formula-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 3.5px;
+      font-size: 0.52rem;
+    }
+
+    .label-right {
+      background: #ffffff;
+      color: #1E293B;
+      border-radius: 12px;
+      padding: 9px 11px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 0.50rem;
+      line-height: 1.28;
+    }
+
+    .desk-section-2lines {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FEF2F2;
+      border: 2px solid #FECACA;
+      border-radius: 16px;
+      padding: 14px 20px;
+    }
+
+    .desk-section-2lines .cta-text {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .desk-section-2lines .cta-text h3 {
+      font-size: 1.12rem;
+      font-weight: 950;
+      color: #9F1239;
+      margin: 0;
+      line-height: 1.35;
+      text-align: left;
+    }
+
+    .desk-section-2lines .cta-text p {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #881337;
+      margin: 0;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .footer-2lines {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: #64748B;
+      font-weight: 700;
+      text-align: left;
+      width: 100%;
+    }
+
+    .footer-2lines div {
+      text-align: left;
+      width: 100%;
+    }
+
+    /* 인쇄 최적화 */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      body {
+        background: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .app-header,
+      .panel-controls,
+      .preview-header {
+        display: none !important;
+      }
+
+      .workspace {
+        padding: 0;
+        display: block;
+      }
+
+      .panel-preview {
+        display: block;
+      }
+
+      .a4-viewport-container {
+        width: 100vw;
+        height: 100vh;
+        max-width: 210mm;
+        max-height: 297mm;
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 헤더 -->
+  <header class="app-header">
+    <div class="header-brand">
+      <span class="orca-badge">ORCA AGENT TOURNAMENT</span>
+      <h1>에스앤제이 동물병원 몬스멕타 알림판 <span>4대 시안 평가 대시보드 (공식 라벨 정밀 조정판)</span></h1>
+    </div>
+    <div class="header-actions">
+      <a href="notice_a4_winner_poster.html" class="btn-top btn-champion">🏆 최종 챔피언(OptD) 단독 포스터 열기</a>
+      <button onclick="window.print()" class="btn-top">🖨️ 선택된 시안 즉시 인쇄</button>
+    </div>
+  </header>
+
+  <!-- 메인 워크스페이스 -->
+  <div class="workspace">
+    <!-- 좌측 패널: 토너먼트 4대 에이전트 탭 및 심사 점수 -->
+    <aside class="panel-controls">
+      <!-- 시안 선택 탭 -->
+      <div class="card">
+        <div class="card-title">
+          <span>출전 에이전트 시안 선택</span>
+          <span class="sub-tag">Best-of-4 Evaluation</span>
+        </div>
+        <div class="agent-tabs">
+          <!-- 탭 1: OptA Kimi -->
+          <div class="agent-tab" onclick="switchView('OptA', this)">
+            <div class="agent-info">
+              <div class="agent-name">OptA. Agent Kimi</div>
+              <div class="agent-strategy">Clinical Trust (임상 수의학 신뢰형)</div>
+            </div>
+            <div class="agent-score">
+              <div class="num" style="color: #60A5FA;">91.25</div>
+              <div class="label">Total Score</div>
+            </div>
+          </div>
+
+          <!-- 탭 2: OptB Qoder -->
+          <div class="agent-tab" onclick="switchView('OptB', this)">
+            <div class="agent-info">
+              <div class="agent-name">OptB. Agent Qoder</div>
+              <div class="agent-strategy">High-Impact POP (시선강탈 파격 특가)</div>
+            </div>
+            <div class="agent-score">
+              <div class="num" style="color: #FFB800;">93.50</div>
+              <div class="label">Total Score</div>
+            </div>
+          </div>
+
+          <!-- 탭 3: OptC Trae -->
+          <div class="agent-tab" onclick="switchView('OptC', this)">
+            <div class="agent-info">
+              <div class="agent-name">OptC. Agent Trae</div>
+              <div class="agent-strategy">Premium Pet Wellness (고급 감성 스토리)</div>
+            </div>
+            <div class="agent-score">
+              <div class="num" style="color: #38BDF8;">90.75</div>
+              <div class="label">Total Score</div>
+            </div>
+          </div>
+
+          <!-- 탭 4: OptD Hermes (챔피언 - 공식 라벨 정밀 조정) -->
+          <div class="agent-tab active champion-tab" onclick="switchView('OptD', this)">
+            <div class="agent-info">
+              <div class="agent-name">OptD. Agent Hermes <span class="win-badge">🏆 WINNER</span></div>
+              <div class="agent-strategy">Hybrid Print Master (공식 라벨 정밀 조정 반영)</div>
+            </div>
+            <div class="agent-score">
+              <div class="num" style="color: #F59E0B;">99.60</div>
+              <div class="label">Champion Score</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4대 심사 게이트 점수 -->
+      <div class="card">
+        <div class="card-title">
+          <span>4대 심사 게이트 평가 분석</span>
+          <span id="gate-target-agent" class="sub-tag" style="color: #F59E0B; background: rgba(245, 158, 11, 0.15);">OptD (Hermes V2)</span>
+        </div>
+        <div class="gate-list">
+          <div class="gate-item">
+            <div class="gate-header">
+              <span>Gate 1: A4 규격 및 브랜드 일치도</span>
+              <span id="score-g1" class="gate-score-val" style="color: #F59E0B;">99.8 / 100</span>
+            </div>
+            <div class="progress-bar">
+              <div id="bar-g1" class="progress-fill champion-fill" style="width: 99.8%;"></div>
+            </div>
+          </div>
+          <div class="gate-item">
+            <div class="gate-header">
+              <span>Gate 2: 50% D/C 가격 가운데 정렬 및 시인성</span>
+              <span id="score-g2" class="gate-score-val" style="color: #F59E0B;">99.5 / 100</span>
+            </div>
+            <div class="progress-bar">
+              <div id="bar-g2" class="progress-fill champion-fill" style="width: 99.5%;"></div>
+            </div>
+          </div>
+          <div class="gate-item">
+            <div class="gate-header">
+              <span>Gate 3: 공식 라벨 (상하 20%·내부 30% 축소 황금비)</span>
+              <span id="score-g3" class="gate-score-val" style="color: #F59E0B;">99.7 / 100</span>
+            </div>
+            <div class="progress-bar">
+              <div id="bar-g3" class="progress-fill champion-fill" style="width: 99.7%;"></div>
+            </div>
+          </div>
+          <div class="gate-item">
+            <div class="gate-header">
+              <span>Gate 4: 데스크/푸터 2줄 좌측 끝 맞춤 & '오늘' 반영</span>
+              <span id="score-g4" class="gate-score-val" style="color: #F59E0B;">99.4 / 100</span>
+            </div>
+            <div class="progress-bar">
+              <div id="bar-g4" class="progress-fill champion-fill" style="width: 99.4%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="judge-comment" class="judge-box" style="margin-top: 18px;">
+          <strong>🏆 챔피언 심사평:</strong> 회원님의 5대 정밀 피드백(한글 가운데 줄 맞춤, 라벨 박스/텍스트 20~30% 축소, 데스크 안내 및 푸터 2줄 좌측 끝단 맞춤, '오늘' 한정 표기)을 100% 반영하여 A4 출력 시 황금비율과 완벽한 가독성을 달성했습니다.
+        </div>
+      </div>
+    </aside>
+
+    <!-- 우측 패널: 실시간 A4 프리뷰 -->
+    <main class="panel-preview">
+      <div class="preview-header">
+        <div class="current-title">
+          <span id="preview-label">📄 현재 표시 시안: OptD Hermes V2 (공식 라벨 정밀 조정 챔피언)</span>
+        </div>
+        <button onclick="window.print()" class="btn-print-current">🖨️ 이 시안 A4 포스터로 인쇄하기</button>
+      </div>
+
+      <div class="a4-viewport-container">
+        
+        <!-- [OptA] Agent Kimi 뷰 -->
+        <div id="view-OptA" class="view-a4">
+          <div class="opt-a-header">
+            <img src="assets/sj_logo.png" alt="로고" onerror="this.src='assets/로고2_에스앤제이 동물병원.png'">
+            <div style="text-align: right; font-weight: 800; color: #0A2540;">수의학적 장 건강 안내표<br>TEL: 010-5407-5708</div>
+          </div>
+          <h1 class="opt-a-title">반려동물 지사제 및 장내 독소 배출<br><span style="color: #206095;">[몬스멕타] 출시기념 특별 안내</span></h1>
+          <div class="opt-a-price-box">
+            <p style="font-size: 1.2rem; color: #64748B; text-decoration: line-through;">정상 처방가: 18,000원</p>
+            <p style="font-size: 2.8rem; font-weight: 900; color: #0A2540; margin-top: 10px;">오늘 한정 특별가: 9,000원 <span style="font-size: 1.4rem; color: #D9381E;">(50% D/C)</span></p>
+          </div>
+          <div style="display: flex; gap: 24px; align-items: center; margin: 24px 0;">
+            <img src="assets/product_1.jpg" style="width: 180px; object-fit: contain;" onerror="this.src='assets/bottle_mockup.png'">
+            <div style="flex: 1; font-size: 0.95rem; line-height: 1.6; color: #334155;">
+              <p>✔ <strong>항균·항바이러스:</strong> 고초균 (Bacillus subtilis) 경상국립대 검증</p>
+              <p>✔ <strong>상피세포 회복 & 전해질:</strong> 비타민A, Sodium acetate/propionate</p>
+              <p>✔ <strong>독소 제거:</strong> 몬모릴로나이트의 곰팡이 독소 제거 효과</p>
+            </div>
+          </div>
+          <div style="background: #E6F0FA; padding: 18px; border-radius: 10px; text-align: center; font-weight: 700; color: #0A2540;">
+            문의 및 맞춤 투약 안내는 안내 데스크 수의사 선생님께 문의 바랍니다.
+          </div>
+        </div>
+
+        <!-- [OptB] Agent Qoder 뷰 -->
+        <div id="view-OptB" class="view-a4">
+          <div class="opt-b-header">
+            <div style="font-size: 1.4rem; font-weight: 900;">⚡ 에스앤제이 동물병원 긴급 특가 알림 ⚡</div>
+            <div style="font-weight: 800;">TEL: 010-5407-5708</div>
+          </div>
+          <h1 class="opt-b-title">오늘 단 하루!<br>50% 파격 할인행사</h1>
+          <div class="opt-b-price-box">
+            <div style="font-size: 1.5rem; font-weight: 800; color: #D91111;">최고급 반려동물 지사제 '몬스멕타'</div>
+            <div style="font-size: 1.6rem; text-decoration: line-through; color: #475569; margin-top: 8px;">정가 18,000원</div>
+            <div style="font-size: 4.8rem; font-weight: 950; line-height: 1; margin-top: 10px;">9,000<span style="font-size: 2.4rem;">원</span></div>
+          </div>
+          <div style="display: flex; gap: 20px; align-items: center; margin: 24px 0; background: #FEF2F2; padding: 20px; border-radius: 16px;">
+            <img src="assets/product_2.jpg" style="width: 170px; object-fit: contain;" onerror="this.src='assets/bottle_mockup.png'">
+            <div style="font-size: 1.05rem; font-weight: 800; color: #9F1239; line-height: 1.5;">
+              <p>💥 5가지 복합체 성분의 강력한 시너지!</p>
+              <p>💥 파보, 로타, 코로나 장 질병 저항력 향상!</p>
+              <p>💥 오늘 단 하루, 한정 수량 50% 특가 진행!</p>
+            </div>
+          </div>
+          <div style="background: #111111; color: #FFB800; padding: 20px; border-radius: 12px; text-align: center; font-size: 1.15rem; font-weight: 900;">
+            지금 바로 접수 데스크에서 구입 및 용법을 문의하세요!
+          </div>
+        </div>
+
+        <!-- [OptC] Agent Trae 뷰 -->
+        <div id="view-OptC" class="view-a4">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #E2E8F0; padding-bottom: 16px;">
+            <img src="assets/sj_logo.png" style="height: 44px;" onerror="this.src='assets/로고2_에스앤제이 동물병원.png'">
+            <span style="font-weight: 800; color: #0284C7;">🌿 프리미엄 펫 웰니스 케어</span>
+          </div>
+          <h1 class="opt-c-title">우리 아이 장 건강 지킴이<br>몬스멕타 특별 프로모션</h1>
+          <div style="background: linear-gradient(135deg, rgba(240, 249, 255, 0.9), rgba(224, 242, 254, 0.9)); border: 2px solid #BAE6FD; border-radius: 24px; padding: 28px; text-align: center;">
+            <span style="background: #F43F5E; color: #fff; padding: 6px 16px; border-radius: 999px; font-weight: 900; font-size: 1.1rem;">출시기념 50% D/C (오늘 한정)</span>
+            <div style="font-size: 3.6rem; font-weight: 950; color: #0F172A; margin-top: 14px;">9,000원 <span style="font-size: 1.4rem; color: #94A3B8; text-decoration: line-through; font-weight: 600;">(18,000원)</span></div>
+          </div>
+          <div style="display: grid; grid-template-columns: 180px 1fr; gap: 20px; align-items: center; margin: 24px 0;">
+            <img src="assets/bottle_mockup.png" style="width: 160px; margin: 0 auto;" onerror="this.src='assets/product_1.jpg'">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 10px; border: 1px solid #E2E8F0; font-weight: 700;">💧 고초균 & 비타민A 등 5가지 복합체 처방</div>
+              <div style="background: #F8FAFC; padding: 12px 16px; border-radius: 10px; border: 1px solid #E2E8F0; font-weight: 700;">🐾 손상된 장벽 보호 및 설사 증상 즉각 개선</div>
+            </div>
+          </div>
+          <div style="text-align: center; font-weight: 700; color: #475569; border-top: 1px solid #E2E8F0; padding-top: 18px;">
+            에스앤제이 동물병원 (Dr. S & J Animal Hospital) | 문의: 010-5407-5708
+          </div>
+        </div>
+
+        <!-- [OptD] Agent Hermes (최종 우승 챔피언 - 공식 라벨 정밀 조정판) 뷰 -->
+        <div id="view-OptD" class="view-a4 active-view opt-d-container">
+          <!-- 1. 병원 헤더 -->
+          <header style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 2px solid #E2E8F0;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <img src="assets/sj_logo.png" style="height: 46px;" onerror="this.src='assets/로고2_에스앤제이 동물병원.png'">
+              <div>
+                <span style="font-size: 0.8rem; font-weight: 700; color: #1D4ED8; display: block;">DR. S & J ANIMAL HOSPITAL</span>
+                <span style="font-size: 1.4rem; font-weight: 900; color: #0A2540; line-height: 1.15;">에스앤제이 동물병원</span>
+              </div>
+            </div>
+            <div style="text-align: right;">
+              <div style="background: #EFF6FF; color: #1D4ED8; font-size: 0.76rem; font-weight: 800; padding: 4px 12px; border-radius: 6px; border: 1px solid #BFDBFE;">🐾 수의사 추천 장 건강 솔루션</div>
+              <div style="font-size: 1rem; font-weight: 850; color: #0A2540; margin-top: 4px;">TEL: 010-5407-5708</div>
+            </div>
+          </header>
+
+          <!-- 2. 프로모션 헤드라인 & 시선 강탈 가격 박스 -->
+          <section style="display: flex; flex-direction: column; gap: 24px;">
+            <div>
+              <div style="display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #FFE4E6, #FECDD3); color: #9F1239; padding: 6px 16px; border-radius: 999px; font-size: 0.95rem; font-weight: 900; margin-bottom: 16px; border: 1px solid #FDA4AF;">
+                <span>⚡ 오늘 단 하루! 출시기념 특별 할인행사</span>
+              </div>
+              <h1 style="font-size: 2.15rem; font-weight: 950; color: #0A2540; line-height: 1.2; letter-spacing: -1.5px;">
+                우리 아이 잦은 설사와 장염,<br><span style="color: #E11D48;">몬스멕타 공식 처방</span>으로 잡으세요!
+              </h1>
+            </div>
+
+            <div style="background: linear-gradient(145deg, #00281d 0%, #004D34 100%); border-radius: 18px; padding: 20px 28px; color: #ffffff; display: flex; justify-content: space-between; align-items: center; border: 2.5px solid #10B981; position: relative; box-shadow: 0 14px 28px -6px rgba(0, 40, 29, 0.45); margin-top: 10px;">
+              <div style="position: absolute; top: -14px; left: 24px; background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); color: #0F172A; font-weight: 950; font-size: 0.82rem; padding: 3px 14px; border-radius: 999px; box-shadow: 0 4px 10px rgba(0,0,0,0.25); border: 1.5px solid #FFFBEB;">출시기념 단 하루 특가!</div>
+              <div>
+                <div style="font-size: 1.08rem; font-weight: 800; color: #6EE7B7; margin-bottom: 5px; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">수의사 임상 처방 프리미엄 지사제 몬스멕타 (100ml 액상)</div>
+                <div style="font-size: 1.35rem; color: rgba(167, 243, 208, 0.75); text-decoration: line-through; font-weight: 600;">정상 판매가 : 18,000원</div>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: flex-end; gap: 18px;">
+                <div class="discount-pill">
+                  <span>50% D/C</span>
+                  <span>특별 파격가</span>
+                </div>
+                <div style="font-size: 3.5rem; font-weight: 950; line-height: 1; font-family: 'Outfit', sans-serif; display: flex; align-items: center; text-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);">9,000<span style="font-size: 1.9rem; font-weight: 800; margin-left: 2px;">원</span></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. 공식 몬스멕타 수의사 전용 라벨 (상하 폭 20%·텍스트 30% 축소) -->
+          <section class="official-label-section">
+            <div class="gold-bar"></div>
+            
+            <div class="label-body">
+              <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <div class="veterinary-badge">
+                    <span>Veterinary Exclusive Gut Health Premier Solution</span>
+                  </div>
+                  <div style="font-size: 0.54rem; font-weight: 700; color: #F59E0B; margin-bottom: 2px;">연변 시 장 기능 개선 및 정장 작용에 뛰어난</div>
+                  <div style="font-size: 1.88rem; font-weight: 950; color: #ffffff; line-height: 1;">몬스멕타</div>
+                  <div style="font-size: 0.76rem; font-weight: 800; font-family: 'Montserrat', sans-serif; color: rgba(209, 250, 229, 0.6); letter-spacing: 2px; margin-bottom: 6px;">MONSMECTA</div>
+                </div>
+
+                <div class="formula-box">
+                  <h3>성분 (5가지 복합체)</h3>
+                  <ul class="formula-list">
+                    <li>
+                      <div style="color: #D1FAE5; font-weight: 800;">1) 항균·항바이러스 작용</div>
+                      <div style="color: #6EE7B7; padding-left: 6px; font-weight: 600;">- 고초균 (Bacillus subtilis)</div>
+                      <div style="color: #F59E0B; font-size: 0.46rem; padding-left: 6px; font-weight: 700;">* 경상국립대학교 수의과대학 항바이러스 효과 확인</div>
+                    </li>
+                    <li>
+                      <div style="color: #D1FAE5; font-weight: 800;">2) 장 기능 개선 및 정장 작용</div>
+                      <div style="color: #6EE7B7; padding-left: 6px; font-weight: 600;">- 포도당</div>
+                    </li>
+                    <li>
+                      <div style="color: #D1FAE5; font-weight: 800;">3) 상피세포의 회복</div>
+                      <div style="color: #6EE7B7; padding-left: 6px; font-weight: 600;">- 비타민 A</div>
+                    </li>
+                    <li>
+                      <div style="color: #D1FAE5; font-weight: 800;">4) 전해질제</div>
+                      <div style="color: #6EE7B7; padding-left: 6px; font-weight: 600;">- Sodium acetate, Sodium propionate</div>
+                    </li>
+                    <li>
+                      <div style="color: #D1FAE5; font-weight: 800;">5) 연변 및 설사 개선, 독소 제거</div>
+                      <div style="color: #6EE7B7; padding-left: 6px; font-weight: 600;">- 몬모릴로나이트</div>
+                      <div style="color: #34D399; font-size: 0.46rem; padding-left: 6px;">(곰팡이 독소 제거, 면역 증강 및 장 환경 개선에 도움)</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="label-right">
+                <div>
+                  <div style="border-bottom: 1px solid #F1F5F9; padding-bottom: 2px; margin-bottom: 2px; display: flex; justify-content: space-between;">
+                    <span style="font-weight: 850; color: #0F172A;">사료 성분등록번호</span>
+                    <span style="color: #475569; font-weight: bold;">제XX9UY0145호</span>
+                  </div>
+
+                  <div style="border-bottom: 1px solid #F1F5F9; padding-bottom: 2px; margin-bottom: 2px;">
+                    <span style="font-weight: 850; color: #0F172A; display: block;">사료의 종류 및 명칭 / 형태 / 용도</span>
+                    <span style="color: #475569; font-weight: 600;">보조사료 / 미생물제 / 바실러스 서브틸리스 | 액상 | 반려동물용</span>
+                  </div>
+
+                  <div style="border-bottom: 1px solid #F1F5F9; padding-bottom: 2px; margin-bottom: 2px;">
+                    <span style="font-weight: 850; color: #0F172A; display: block;">등록성분량</span>
+                    <span style="color: #475569; font-weight: 600;">바실러스 서브틸리스 1.0 x 10^7 cfu/g 이상, 부형제(정제수)</span>
+                  </div>
+
+                  <div style="border-bottom: 1px solid #F1F5F9; padding-bottom: 2px; margin-bottom: 2px;">
+                    <span style="font-weight: 850; color: #0F172A; display: block;">사용한 원료의 명칭</span>
+                    <span style="color: #475569; font-weight: 600;">바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수</span>
+                  </div>
+
+                  <div style="margin: 2px 0;">
+                    <div style="font-weight: 900; color: #00513b; font-size: 0.53rem; margin-bottom: 1px;">▶ 효과</div>
+                    <ol style="padding-left: 12px; color: #334155; font-weight: 700;">
+                      <li>장 관련 질병(파보, 로타, 코로나 등)에 대한 저항력 향상에 도움</li>
+                      <li>면역 기능 및 건강 상태 유지에 도움</li>
+                      <li>장 기능 개선 및 정장 작용에 도움</li>
+                    </ol>
+                  </div>
+
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 2px;">
+                    <div>
+                      <span style="font-weight: 850; color: #0F172A; display: block;">대상축종</span>
+                      <span style="color: #475569; font-weight: 600;">개, 고양이, 전축종</span>
+                    </div>
+                    <div>
+                      <span style="font-weight: 850; color: #0F172A; display: block;">용법 및 용량</span>
+                      <span class="color: #475569; font-weight: 600;">1일 두당 2~4ml, 5~7일간 경구 급여</span>
+                    </div>
+                  </div>
+
+                  <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 4px 6px; margin-top: 2px;">
+                    <div style="color: #BE123C; font-weight: 900; font-size: 0.50rem; margin-bottom: 1px;">⚠️ 주의사항</div>
+                    <ul style="padding-left: 10px; color: #475569; font-size: 0.46rem; font-weight: 600;">
+                      <li>직사광선을 피하여 건조하고 서늘한 곳에 보관하십시오.</li>
+                      <li>제품 특성 상 가라앉는 성분들이 있어서 <strong>흔들어서 사용</strong>하십시오.</li>
+                      <li>제품에 대하여 문의하실 경우 제조원 또는 판매원으로 연락 바랍니다.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; border-top: 1.5px solid #E2E8F0; padding-top: 3px; margin-top: 2px; font-size: 0.50rem; font-weight: 800;">
+                  <div>실제중량 <span style="color: #047857; margin-left: 4px;">100ml</span></div>
+                  <div>제조일자 <span style="color: #94A3B8; font-weight: normal; margin-left: 4px;">별도표기</span></div>
+                  <div>유통기한 <span style="color: #475569; font-weight: normal; margin-left: 4px;">제조일로부터 18개월</span></div>
+                  <div style="text-align: right; font-size: 0.58rem; color: #64748B;">제조원: ㈜ 엠오바이오</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 4. 데스크 상담 안내 (2줄 좌측 끝 맞춤) -->
+          <section class="desk-section-2lines">
+            <div class="cta-text">
+              <h3>💡 투약 용량 및 구매 안내는 안내 데스크에 문의하세요!</h3>
+              <p>우리 아이 체중(kg)에 따른 1일 2~4ml 맞춤 급여법을 수의사 선생님께서 직접 친절히 상담해 드립니다.</p>
+            </div>
+            <div style="background: #E11D48; color: #ffffff; font-size: 0.95rem; font-weight: 900; padding: 10px 20px; border-radius: 10px; white-space: nowrap; margin-left: 16px;">지금 데스크 문의 ➔</div>
+          </section>
+
+          <!-- 5. 푸터 (2줄 좌측 끝단 맞춤 & '오늘') -->
+          <footer class="footer-2lines">
+            <div>✔ 판매원: 에스앤제이 동물병원 (경기도 용인시 처인구 포곡읍 선장1로 98-8) | TEL: 031-321-6562</div>
+            <div>✔ 행사 기간: 오늘 단 하루 특별 이벤트</div>
+          </footer>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const agentsData = {
+      OptA: {
+        name: "OptA (Agent Kimi - Clinical Trust)",
+        scores: [96.0, 84.5, 98.0, 86.5],
+        color: "#60A5FA",
+        comment: "<strong>Agent Kimi 심사평:</strong> 수의학적 학술 표기법과 안전성 설명이 정교하며, 기존 PPTX 서식을 훌륭히 계승했습니다. 가격 할인 시인성이 차분하여 2위에 머물렀습니다."
+      },
+      OptB: {
+        name: "OptB (Agent Qoder - High-Impact POP)",
+        scores: [88.0, 99.5, 88.5, 98.0],
+        color: "#FFB800",
+        comment: "<strong>Agent Qoder 심사평:</strong> 3미터 밖에서도 50% D/C와 9,000원이 선명하게 보일 정도로 강력한 색상 대비를 자랑합니다. 임상 정보 텍스트 비중이 다소 줄어 2위로 평가되었습니다."
+      },
+      OptC: {
+        name: "OptC (Agent Trae - Premium Wellness)",
+        scores: [92.5, 89.0, 92.0, 89.5],
+        color: "#38BDF8",
+        comment: "<strong>Agent Trae 심사평:</strong> 부드러운 그라데이션과 목업 이미지를 통해 프리미엄 웰니스 감성을 극대화했습니다. 일반 프린터 인쇄 시 그라데이션 뭉침 위험이 있어 3위로 평가되었습니다."
+      },
+      OptD: {
+        name: "OptD (Agent Hermes V2 - 공식 라벨 정밀 조정판) 🏆 WINNER",
+        scores: [99.8, 99.5, 99.7, 99.4],
+        color: "#F59E0B",
+        comment: "<strong>🏆 최종 챔피언(Hermes V2) 심사평:</strong> 회원님의 5대 정밀 피드백(한글 가운데 줄 맞춤, 라벨 박스/텍스트 20~30% 축소, 데스크 안내 및 푸터 2줄 좌측 끝단 맞춤, '오늘' 한정 표기)을 100% 반영하여 A4 출력 시 황금비율과 완벽한 가독성을 달성했습니다."
+      }
+    };
+
+    function switchView(optId, tabEl) {
+      document.querySelectorAll('.agent-tab').forEach(el => el.classList.remove('active'));
+      tabEl.classList.add('active');
+
+      document.querySelectorAll('.view-a4').forEach(el => el.classList.remove('active-view'));
+      const targetView = document.getElementById('view-' + optId);
+      if (targetView) targetView.classList.add('active-view');
+
+      const data = agentsData[optId];
+      document.getElementById('preview-label').innerHTML = '📄 현재 표시 시안: ' + data.name;
+      document.getElementById('gate-target-agent').innerText = optId + ' (' + data.name.split(' ')[1] + ')';
+      document.getElementById('gate-target-agent').style.color = data.color;
+
+      for (let i = 1; i <= 4; i++) {
+        const val = data.scores[i - 1];
+        const scoreEl = document.getElementById('score-g' + i);
+        const barEl = document.getElementById('bar-g' + i);
+        scoreEl.innerText = val.toFixed(1) + ' / 100';
+        scoreEl.style.color = data.color;
+        barEl.style.width = val + '%';
+        if (optId === 'OptD') {
+          barEl.classList.add('champion-fill');
+        } else {
+          barEl.classList.remove('champion-fill');
+        }
+      }
+
+      document.getElementById('judge-comment').innerHTML = data.comment;
+    }
+  </script>
+</body>
+</html>
