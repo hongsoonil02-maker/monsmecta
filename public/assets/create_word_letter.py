@@ -66,7 +66,7 @@ p_body1 = doc.add_paragraph()
 p_body1.paragraph_format.space_after = Pt(6)
 p_body1.paragraph_format.line_spacing = 1.15
 add_run(p_body1, "존경하는 원장님, 안녕하십니까.\n", size_pt=10, bold=True, color_rgb=(15, 23, 42))
-add_run(p_body1, "진료 현장에서 파보·로타·코로나 등 중증 바이러스성 장염 및 설사 환축을 치료하시며, 단순히 분변의 수분만 흡수하여 변을 굳히는 기존 인체약 지사제의 한계를 느끼지 않으셨습니까?\n이에 에스앤제이(S&J) 동물병원은 (전)서울대학교 수의과대학 출신 자문단과 함께, ", size_pt=10, color_rgb=(30, 41, 59))
+add_run(p_body1, "진료 현장에서 파보·로타·코로나 등 중증 바이러스성 장염 및 설사 환축 치료 시, 장내 수분·독소·바이러스를 강력히 흡착해 설사를 멎게 하고 손상된 위장 점막을 효과적으로 보호하는 천연 점토(스멕타이트/몬모릴로나이트) 성분 흡착성 지사제 솔루션의 필요성을 잘 알고 계실 것입니다.\n이에 에스앤제이(S&J) 동물병원은 (전)서울대학교 수의과대학 출신 자문단과 함께, ", size_pt=10, color_rgb=(30, 41, 59))
 add_run(p_body1, "약 6,000례의 임상 경험을 기반으로 설계된 소동물 전용 천연 고미립 장내 유해물질 흡착·제거 보조제 『몬스멕타(MONSMECTA)』", size_pt=10, bold=True, color_rgb=(0, 81, 59))
 add_run(p_body1, "를 공식 런칭하고 전국 5,000개 동물병원 원장님들께 특별 우선 배포를 제안드립니다.", size_pt=10, color_rgb=(30, 41, 59))
 
