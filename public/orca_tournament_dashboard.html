@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Orca IDE 16 Agent Tournament Dashboard - MONSMECTA DM Letter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;900&display=swap');
+    body { font-family: 'Pretendard', sans-serif; background-color: #0f172a; color: #f8fafc; }
+  </style>
+</head>
+<body class="p-6 min-h-screen">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex items-center justify-between border-b border-slate-800 pb-6 mb-8">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Orca IDE Agent Tournament</span>
+          <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-bold px-3 py-1 rounded-full">16개 디자인 에이전트 경합</span>
+        </div>
+        <h1 class="text-3xl font-black text-white tracking-tight">몬스멕타(MONSMECTA) 소동물병원 초청 서신 Word/PDF 디자인 토너먼트</h1>
+        <p class="text-slate-400 text-sm mt-1">스멕타이트/몬모릴로나이트의 직접적 임상 기전 반영 및 Word ↔ PDF 가독성 극대화 챔피언십 대시보드</p>
+      </div>
+      <div class="text-right bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+        <span class="text-xs text-slate-400 block font-semibold">최종 승리 챔피언</span>
+        <span class="text-lg font-extrabold text-emerald-400">Agent 16: Orca Emerald Supreme</span>
+      </div>
+    </div>
+
+    <!-- Winner Banner -->
+    <div class="bg-gradient-to-r from-emerald-950 via-[#00513b]/40 to-slate-900 border-2 border-emerald-500/50 rounded-2xl p-6 mb-10 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">🏆</div>
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+        <div>
+          <span class="bg-amber-400 text-slate-950 font-black text-xs px-3 py-1 rounded-full uppercase mb-2 inline-block shadow">🏆 1등 당선작 (공식 반영완료)</span>
+          <h2 class="text-2xl font-black text-white mb-2">Agent 16: Orca Emerald Supreme (에스앤제이 에메랄드 리갈)</h2>
+          <p class="text-slate-300 text-sm max-w-3xl leading-relaxed">
+            수의전용 브랜드 아이덴티티인 Deep Emerald (#00513B)와 골드 앰버 엑센트를 조화롭게 배치하여, Word 원본과 PDF 변환 시 모두 여백과 표 분선이 흐트러짐 없이 완벽한 정갈함을 유지합니다.
+          </p>
+        </div>
+        <div class="flex gap-3 shrink-0">
+          <a href="/assets/monsmecta_wave1-1_dm_letter_a4.docx" download class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-xl text-sm transition shadow flex items-center gap-2">
+            📄 Word (.docx) 다운로드
+          </a>
+          <a href="/assets/monsmecta_wave1-1_dm_letter_a4.pdf" target="_blank" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-4 py-2.5 rounded-xl text-sm transition shadow flex items-center gap-2">
+            📕 PDF (.pdf) 열람하기
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16 Tournament Grid -->
+    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+      <span>⚔️ 16개 에이전트 디자인 대항전 후보군</span>
+      <span class="text-xs font-normal text-slate-400">(각 아이콘 클릭 시 Word/PDF 원본을 즉시 확인하실 수 있습니다)</span>
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+      <!-- 1 -->
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 01</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Forest Heritage</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">딥 그린 & 앰버 클래식</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_1.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_1.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 02</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Midnight Executive</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">다크 슬레이트 & 골드</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_2.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_2.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 03</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Clinical Navy</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">메디컬 블루 & 로열 시안</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_3.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_3.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 04</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Bio Emerald</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">바이오 에메랄드 라이트</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_4.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_4.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <!-- 5~15 Loop representation -->
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 05</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Rose Luxury</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">버건디 럭셔리 포인트</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_5.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_5.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 06</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Royal Violet</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">바이올렛 프레스티지</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_6.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_6.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 07</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Warm Terracotta</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">테라코타 웜 앰버</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_7.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_7.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 08</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Monochrome Modern</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">모노크롬 미니멀</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_8.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_8.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <!-- 9~16 -->
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 09</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Forest Emerald</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">포레스트 그린 & 에메랄드</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_9.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_9.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 10</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Deep Indigo</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">딥 인디고 & 골드</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_10.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_10.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 11</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Sapphire Professional</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">사파이어 프로페셔널</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_11.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_11.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 12</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Mint Fresh</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">민트 프레시 린</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_12.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_12.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 13</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Magenta Prestige</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">마젠타 프레스티지</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_13.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_13.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 14</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Crimson Executive</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">크림슨 이그제큐티브</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_14.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_14.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/60 rounded-xl p-4 border border-slate-700 hover:border-slate-500 transition">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-slate-400">Agent 15</span>
+          <span class="text-[10px] bg-slate-700 px-2 py-0.5 rounded text-slate-300">Teal Professional</span>
+        </div>
+        <h4 class="font-bold text-sm text-slate-200 mb-3">틸 블루 프로페셔널</h4>
+        <div class="flex gap-2 text-xs">
+          <a href="/assets/tournament_variant_15.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_15.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+      <!-- Winner Card in Grid -->
+      <div class="bg-emerald-950/80 border-2 border-emerald-500 rounded-xl p-4 relative shadow-lg">
+        <span class="absolute -top-2.5 right-3 bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">1위 챔피언</span>
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-xs font-bold text-emerald-400">Agent 16</span>
+          <span class="text-[10px] bg-emerald-800/50 px-2 py-0.5 rounded text-emerald-200">Orca Emerald Supreme</span>
+        </div>
+        <h4 class="font-bold text-sm text-white mb-3">에스앤제이 에메랄드 리갈</h4>
+        <div class="flex gap-2 text-xs font-bold">
+          <a href="/assets/tournament_variant_16.docx" class="text-emerald-400 hover:underline">Word (.docx)</a>
+          <span class="text-slate-600">|</span>
+          <a href="/assets/tournament_variant_16.pdf" target="_blank" class="text-amber-400 hover:underline">PDF (.pdf)</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
