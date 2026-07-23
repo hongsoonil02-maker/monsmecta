@@ -37,7 +37,7 @@
                 box-shadow: none !important;
                 border: none !important;
                 margin: 0 !important;
-                padding: 18mm 15mm 12mm 15mm !important; /* @page 여백 대신 컨테이너 패딩으로 골디락스 여백 설정 */
+                padding: 12mm 15mm 12mm 15mm !important; /* @page 여백 대신 컨테이너 패딩으로 골디락스 여백 설정 */
                 width: 210mm !important;
                 min-height: 297mm !important;
                 max-height: 297mm !important;
@@ -55,7 +55,7 @@
             min-height: 297mm;
             margin: 15px auto;
             background: white;
-            padding: 18mm 15mm 12mm 15mm;
+            padding: 12mm 15mm 12mm 15mm;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             box-sizing: border-box;
             position: relative;
@@ -100,22 +100,27 @@
                 </div>
             </div>
 
-            <!-- 본문 헤드라인 타이틀 (줄간격 1.3배 및 상하 간격 정밀 조정) -->
-            <div class="text-center my-4">
-                <h2 class="text-lg sm:text-xl font-black text-[#00513b] leading-snug">
-                    "(전)서울대학교 수의과대학 출신 자문단과 약 6,000례 임상 경험을 기반으로 설계된<br>
-                    수의전용 고미립 장내 유해물질 흡착·제거 보조 솔루션 <span class="underline decoration-amber-400 decoration-4">MONSMECTA</span> 공식 런칭"
+            <!-- 본문 헤드라인 타이틀 (메인 타이틀 & 서브 타이틀 분리) -->
+            <div class="text-center my-3.5">
+                <h2 class="text-[20px] sm:text-[22px] font-black text-[#00513b] leading-[1.3] tracking-tight mb-1">
+                    "MONSMECTA 공식 런칭"
                 </h2>
+                <p class="text-[14px] sm:text-[15px] font-extrabold text-amber-700 leading-[1.4] mb-1">
+                    수의전용 천연 고미립 장내 흡착 제거, 항바이러스 솔루션
+                </p>
+                <p class="text-[12px] sm:text-[13px] font-bold text-slate-600 leading-[1.4]">
+                    (전)서울대학교 수의과대학 출신 자문단의 임상 경험을 바탕으로 설계된 정장 지사 보조제
+                </p>
             </div>
 
             <!-- 편지 본문 (글자 크기 13.5px & 줄간격 1.7배로 하단 여백을 자연스럽고 고급스럽게 채움) -->
             <div class="text-[13.5px] text-slate-800 leading-[1.7] space-y-3 font-normal mb-4">
                 <p>
                     <strong>존경하는 원장님, 안녕하십니까.</strong><br>
-                    진료 현장에서 파보·로타·코로나 등 중증 바이러스성 장염 및 설사 환축 치료 시, 장내 수분·독소·바이러스를 강력히 흡착해 설사를 멎게 하고 손상된 위장 점막을 효과적으로 보호하는 천연 점토(스멕타이트/몬모릴로나이트) 성분 흡착성 지사제 솔루션의 필요성을 잘 알고 계실 것입니다.
+                    진료 현장에서 파보·로타·코로나 등 중증 바이러스성 장염 및 설사 환축 치료 시, 장내 수분·독소·바이러스를 선택적으로 흡착해 장 건강 관리에 도움을 주고 손상된 위장 점막을 효과적으로 보호하는 천연 점토(스멕타이트/몬모릴로나이트) 성분 흡착성 보조 솔루션의 필요성을 잘 알고 계실 것입니다.
                 </p>
                 <p>
-                    이에 에스앤제이(S&J) 동물병원은 (전)서울대학교 수의과대학 출신 자문단과 함께, <strong>약 6,000례의 임상 경험을 기반으로 설계된 소동물 전용 천연 고미립 장내 유해물질 흡착·제거 보조제 『몬스멕타(MONSMECTA)』</strong>를 공식 런칭하고 전국 5,000개 동물병원 원장님들께 특별 우선 배포를 제안드립니다.
+                    이에 에스앤제이(S&J) 동물병원은 (전)서울대학교 수의과대학 출신 자문단의 임상 경험을 바탕으로 설계된 <strong>소동물 전용 천연 고미립 장내 유해물질 흡착·제거 보조제 『몬스멕타(MONSMECTA)』</strong>를 공식 런칭하고 전국 5,000개 동물병원 원장님들께 특별 우선 배포를 제안드립니다.
                 </p>
             </div>
 
@@ -129,22 +134,22 @@
                     <div class="bg-white p-2.5 rounded-lg border border-slate-100 shadow-sm flex items-start gap-2.5">
                         <span class="bg-emerald-100 text-[#00513b] font-black px-1.5 py-0.5 rounded text-[10px] shrink-0">바이러스학</span>
                         <div>
-                            <strong class="text-slate-900 block font-bold leading-normal">박봉균 교수 (전 농림축산검역본부장, 바이러스학 분야 권위자)</strong>
-                            <p class="text-slate-600 mt-0.5 leading-relaxed">"일반 지사제와 달리 1-Deoxynojirimycin(DNJ)의 여러 바이러스 억제 효과와 차별화된 장내 유해물질 흡착력은 임상 진료에서 매우 강력한 강점입니다."</p>
+                            <strong class="text-slate-900 block font-black text-[12.5px] leading-normal">박봉균 교수 <span class="text-[11px] font-bold text-slate-600">(전 농림축산검역본부장, 바이러스학 분야 권위자)</span></strong>
+                            <p class="text-slate-600 mt-1 leading-relaxed text-[10.5px]">"일반 지사제와 달리 특허 받은 바실러스 서브틸리스(Bacillus subtilis MORI) 발효 추출 DNJ 성분의 바이러스 억제 작용과 스멕타이트의 장내 유해물질 흡착력이 결합된 것은 임상 진료 현장에서 매우 차별화된 강점입니다."</p>
                         </div>
                     </div>
                     <div class="bg-white p-2.5 rounded-lg border border-slate-100 shadow-sm flex items-start gap-2.5">
                         <span class="bg-blue-100 text-blue-800 font-black px-1.5 py-0.5 rounded text-[10px] shrink-0">임상검증</span>
                         <div>
-                            <strong class="text-slate-900 block font-bold leading-normal">정성대 원장 (동진동물병원 원장)</strong>
-                            <p class="text-slate-600 mt-0.5 leading-relaxed">"입자도, 수분 흡수율, 비표면적... 수의사가 진료실에서 처방할 때 가장 알고 싶어 하는 정확한 물성 데이터가 완벽하게 규명되었습니다."</p>
+                            <strong class="text-slate-900 block font-black text-[12.5px] leading-normal">정성대 원장 <span class="text-[11px] font-bold text-slate-600">(동진동물병원 원장)</span></strong>
+                            <p class="text-slate-600 mt-1 leading-relaxed text-[10.5px]">"입자도, 수분 흡수율, 비표면적... 수의사가 진료실에서 처방할 때 가장 알고 싶어 하는 정확한 물성 데이터가 완벽하게 규명되었습니다."</p>
                         </div>
                     </div>
                     <div class="bg-white p-2.5 rounded-lg border border-slate-100 shadow-sm flex items-start gap-2.5">
                         <span class="bg-amber-100 text-amber-800 font-black px-1.5 py-0.5 rounded text-[10px] shrink-0">회복단축</span>
                         <div>
-                            <strong class="text-slate-900 block font-bold leading-normal">김동준 원장 (사랑동물병원 원장)</strong>
-                            <p class="text-slate-600 mt-0.5 leading-relaxed">"정맥 수액(IV) 처치와 병행 투여 시, 장점막을 이중 보호하고 전해질 밸런스를 맞춰 파보 장염 환축의 증상 회복 기간 단축에 큰 도움을 줍니다."</p>
+                            <strong class="text-slate-900 block font-black text-[12.5px] leading-normal">김동준 원장 <span class="text-[11px] font-bold text-slate-600">(사랑동물병원 원장)</span></strong>
+                            <p class="text-slate-600 mt-1 leading-relaxed text-[10.5px]">"정맥 수액(IV) 처치와 병행 투여 시, 장점막을 이중 보호하고 전해질 밸런스를 맞춰 파보 장염 환축의 증상 회복 기간 단축에 큰 도움을 줍니다."</p>
                         </div>
                     </div>
                 </div>
@@ -153,11 +158,11 @@
             <!-- Wave 1 초도 물량 170세트 특별 안내 & QR코드 존 (w-16 h-16 = 64px 골디락스 규격) -->
             <div class="bg-amber-50 border-2 border-amber-300 rounded-xl p-3.5 text-center shadow-sm">
                 <div class="flex items-center justify-center gap-2 mb-1.5">
-                    <span class="bg-amber-500 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <span class="bg-[#00513b] text-emerald-100 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                         Wave 1 초도 양산 한정 선착순 우선 공급
                     </span>
                     <h3 class="text-sm font-black text-slate-900">
-                        전국 소동물병원 5,000처 중 단 <span class="text-rose-600 underline">170개 병원 선착순</span> 배포
+                        전국 소동물병원 5,000여개 중 단 <span class="text-[#00513b] font-black underline decoration-emerald-600">170개 병원 선착순</span> 배포
                     </h3>
                 </div>
                 <p class="text-xs text-slate-700 font-medium mb-3 leading-tight">
@@ -202,16 +207,16 @@
 
         </div>
 
-        <!-- 하단 공식 서명 및 연락처 (페이지 하단에 빈 공간 없이 딱 떨어지게 안착) -->
+        <!-- 하단 공식 서명 및 연락처 (가독성 향상 1~2pt 확대) -->
         <div class="border-t border-slate-300 pt-3 mt-4 text-center shrink-0">
-            <p class="font-black text-sm text-slate-900 tracking-tight mb-0.5">에스앤제이(S&J) 동물병원</p>
-            <p class="text-[11px] text-slate-700 font-bold leading-relaxed">
+            <p class="font-black text-base text-slate-900 tracking-tight mb-0.5">에스앤제이(S&J) 동물병원</p>
+            <p class="text-[12.5px] text-slate-800 font-bold leading-relaxed">
                 대표: 홍순일 (닥터 젬스홍) | 사업자번호: 792-66-00615 | 주소: 경기도 용인시 처인구 포곡읍 선장1로 98-8
             </p>
-            <p class="text-[11px] font-extrabold text-[#00513b] mt-0.5 leading-relaxed">
+            <p class="text-[13px] font-black text-[#00513b] mt-0.5 leading-relaxed">
                 대표 연락처: 031-321-6562 | 공식 이메일: soonilhong@naver.com
             </p>
-            <p class="text-[9.5px] text-slate-400 mt-1">
+            <p class="text-[10.5px] text-slate-500 mt-1 font-medium">
                 ※ 본 안내문은 전국 소동물병원 수의사 원장님께 한정하여 발송되는 수의학 전용 학술·처방 안내 문서입니다.
             </p>
         </div>

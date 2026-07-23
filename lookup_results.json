@@ -1,0 +1,2414 @@
+{
+  "전국_소동물병원_DM발송_주소록_417": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 417,
+    "name": "나루동물병원",
+    "address": "경기도 남양주시 경춘로 404 (도농동)",
+    "chosen": "12259",
+    "findby": [],
+    "bodyZips": [
+      "12259",
+      "12034",
+      "12261"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_422": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 422,
+    "name": "호평동물병원",
+    "address": "경기도 남양주시 늘을1로16번길 29 (호평동)",
+    "chosen": "12149",
+    "findby": [
+      "12149"
+    ],
+    "bodyZips": [
+      "12149"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_457": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 457,
+    "name": "로하스 동물병원",
+    "address": "경기도 남양주시 와부읍 월문천로 33 (롯데마트내 3층)",
+    "chosen": "12211",
+    "findby": [
+      "12211",
+      "12206"
+    ],
+    "bodyZips": [
+      "12211",
+      "12206"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_464": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 464,
+    "name": "진접동물병원",
+    "address": "경기도 남양주시 진접읍 해밀예당1로 171, 108호",
+    "chosen": "12055",
+    "findby": [
+      "12055",
+      "12063"
+    ],
+    "bodyZips": [
+      "12055",
+      "12063"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_466": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 466,
+    "name": "해밀동물병원",
+    "address": "경기도 남양주시 진접읍 해밀예당3로 122",
+    "chosen": "12055",
+    "findby": [
+      "12055",
+      "12066"
+    ],
+    "bodyZips": [
+      "12055",
+      "12066",
+      "12008"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_472": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 472,
+    "name": "동인동물병원",
+    "address": "경기도 남양주시 호평로 63 (호평동)",
+    "chosen": "12150",
+    "findby": [
+      "12150"
+    ],
+    "bodyZips": [
+      "12147",
+      "12150"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_477": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 477,
+    "name": "마이펫동물병원",
+    "address": "경기도 남양주시 화도읍 경춘로 1992 (롯데마트 내)",
+    "chosen": "12181",
+    "findby": [
+      "12181"
+    ],
+    "bodyZips": [
+      "12181",
+      "12163"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_482": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 482,
+    "name": "이규로동물병원",
+    "address": "경기도 남양주시 화도읍 창현로 47",
+    "chosen": "12183",
+    "findby": [
+      "12183",
+      "12182"
+    ],
+    "bodyZips": [
+      "12183",
+      "12182",
+      "12162"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_610": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 610,
+    "name": "정원 양한방동물병원",
+    "address": "경기도 성남시 분당구 운중로 233, 201호 (판교동,한솔플라자)",
+    "chosen": "13477",
+    "findby": [
+      "13477"
+    ],
+    "bodyZips": [
+      "13477"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_702": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 702,
+    "name": "두리동물병원",
+    "address": "경기도 수원시 권선구 정조로 596 (세류동)",
+    "chosen": "16577",
+    "findby": [
+      "16577"
+    ],
+    "bodyZips": [
+      "16577",
+      "16666",
+      "16459"
+    ]
+  },
+  "전국_소동물병원_DM발송_주소록_773": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 773,
+    "name": "WE 동물병원",
+    "address": "경기도 수원시 장안구 파장로 109 (정자동)",
+    "chosen": "16205",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_777": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 777,
+    "name": "마음반려 동물의료원",
+    "address": "경기도 수원시 팔달구 경수대로 461 (인계동)",
+    "chosen": "16480",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_789": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 789,
+    "name": "동물사랑동물병원",
+    "address": "경기도 수원시 팔달구 일월로22번길 15 (화서동)",
+    "chosen": "16424",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_813": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 813,
+    "name": "이지 동물병원",
+    "address": "경기도 시흥시 비둘기공원로 21 (대야동)",
+    "chosen": "14912",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_814": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 814,
+    "name": "청안동물병원",
+    "address": "경기도 시흥시 삼미시장1길 19 (신천동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_833": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 833,
+    "name": "시화종합동물병원",
+    "address": "경기도 시흥시 정왕대로 64 (정왕동,메가쇼핑몰(108,109호))",
+    "chosen": "15040",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_837": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 837,
+    "name": "신천동물병원",
+    "address": "경기도 시흥시 호현로22번길 27 (신천동)",
+    "chosen": "14904",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_844": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 844,
+    "name": "쥬쥬동물병원",
+    "address": "경기도 안산시 단원구 광덕대로 206, 103,104호 (고잔동,골든빌)",
+    "chosen": "15462",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_862": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 862,
+    "name": "안산동물병원",
+    "address": "경기도 안산시 단원구 화랑로 47 (원곡동)",
+    "chosen": "15374",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_869": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 869,
+    "name": "고대영동물병원",
+    "address": "경기도 안산시 상록구 예술광장1로 94, 1층동 102호 (성포동,정인프라자)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_870": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 870,
+    "name": "공원애견동물병원",
+    "address": "경기도 안산시 상록구 오목로 78 (본오동,1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_874": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 874,
+    "name": "김동물병원",
+    "address": "경기도 안산시 상록구 화랑로 501, 1층동 103호 (성포동,예술프라자)",
+    "chosen": "15296",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_888": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 888,
+    "name": "일죽종합동물병원",
+    "address": "경기도 안성시 일죽면 금일로 428",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_925": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 925,
+    "name": "서울종합동물병원",
+    "address": "경기도 안양시 동안구 흥안대로 492 (관양동,1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_927": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 927,
+    "name": "정수동물병원",
+    "address": "경기도 안양시 동안구 흥안대로456번길 11, 102호 (평촌동,본프라자)",
+    "chosen": "14061",
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_935": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 935,
+    "name": "경기중앙동물병원",
+    "address": "경기도 안양시 만안구 안양로 150 (안양동,신강빌딩 지상1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_940": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 940,
+    "name": "중앙동물병원",
+    "address": "경기도 안양시 만안구 안양로 258 (안양동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1009": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1009,
+    "name": "오산동물병원",
+    "address": "경기도 오산시 성호대로 108 (원동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1065": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1065,
+    "name": "웰 동물병원",
+    "address": "경기도 용인시 수지구 광교중앙로 302, 1층 101호 (상현동, 광교지구 블루스퀘어)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1071": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1071,
+    "name": "참누리동물병원",
+    "address": "경기도 용인시 수지구 만현로 110 (상현동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1075": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1075,
+    "name": "대학동물병원",
+    "address": "경기도 용인시 수지구 문인로39번길 3-1 (풍덕천동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1085": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1085,
+    "name": "로얄벳 동물병원",
+    "address": "경기도 용인시 수지구 수지로 203 (신봉동,이마트수지점 3층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1094": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1094,
+    "name": "펫스토리 동물병원",
+    "address": "경기도 용인시 수지구 신봉2로 19, 102호 (신봉동,신엘지프라자)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1111": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1111,
+    "name": "애견종합병원",
+    "address": "경기도 용인시 처인구 금령로 26 (김량장동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1119": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1119,
+    "name": "백암동물병원",
+    "address": "경기도 용인시 처인구 백암면 근창로 45",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1121": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1121,
+    "name": "마리동물의료센터",
+    "address": "경기도 용인시 처인구 백암면 백암로185번길 46",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1152": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1152,
+    "name": "호원종합동물병원",
+    "address": "경기도 의정부시  평화로  374 (호원동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1155": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1155,
+    "name": "녹양동물병원",
+    "address": "경기도 의정부시 녹양로 66 (녹양동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1162": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1162,
+    "name": "의정부종합동물병원",
+    "address": "경기도 의정부시 시민로 154 (의정부동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1163": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1163,
+    "name": "로얄펫동물병원",
+    "address": "경기도 의정부시 신흥로 171 (의정부동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1164": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1164,
+    "name": "신촌동물병원",
+    "address": "경기도 의정부시 신흥로 357-1 (가능동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1171": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1171,
+    "name": "금오동물병원",
+    "address": "경기도 의정부시 청사로 37 (금오동,신세계프라자 112호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1189": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1189,
+    "name": "홍익동물병원",
+    "address": "경기도 이천시 단월로 17-13 (단월동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1192": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1192,
+    "name": "유수의과병원",
+    "address": "경기도 이천시 모가면 대월로63번길 70",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1194": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1194,
+    "name": "나라동물병원",
+    "address": "경기도 이천시 설봉로 46 (관고동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1273": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1273,
+    "name": "오암동물병원",
+    "address": "경기도 평택시 안중읍 안중로99번길 13-1",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1274": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1274,
+    "name": "현화동물병원",
+    "address": "경기도 평택시 안중읍 안현로서6길 38",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1281": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1281,
+    "name": "코리아동물병원",
+    "address": "경기도 평택시 중앙로 141 (비전동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1287": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1287,
+    "name": "안창선동물병원",
+    "address": "경기도 평택시 탄현로 276 (지산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1294": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1294,
+    "name": "튼튼동물병원",
+    "address": "경기도 평택시 평남로 655 (비전동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1296": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1296,
+    "name": "펫필드동물병원",
+    "address": "경기도 평택시 평택5로114번길 54 (비전동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1298": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1298,
+    "name": "PET25시동물병원",
+    "address": "경기도 평택시 평택로 69 (평택동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1484": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1484,
+    "name": "한마음동물병원",
+    "address": "경상남도 김해시 가락로 280 (구산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1485": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1485,
+    "name": "고려동물병원",
+    "address": "경상남도 김해시 가락로63번길 13 (서상동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1486": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1486,
+    "name": "김해동물병원",
+    "address": "경상남도 김해시 가야로 183 (삼계동,위너스타운 107호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1492": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1492,
+    "name": "세계로종합동물병원",
+    "address": "경상남도 김해시 내외중앙로 75, 109호 (내동,내외빌딩)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1514": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1514,
+    "name": "한빛동물병원",
+    "address": "경상남도 김해시 인제로 159 (어방동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1523": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1523,
+    "name": "진영동물병원",
+    "address": "경상남도 김해시 진영읍 여래로 33",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1525": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1525,
+    "name": "녹원동물병원",
+    "address": "경상남도 김해시 한림면 장방로222번길 46-63",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1541": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1541,
+    "name": "노산동물병원",
+    "address": "경상남도 사천시 동금동 141-3",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1547": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1547,
+    "name": "동원동물병원",
+    "address": "경상남도 사천시 사천읍 진삼로 1527",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1596": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1596,
+    "name": "강동물병원",
+    "address": "경상남도 진주시 도동로 231 (하대동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1606": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1606,
+    "name": "늘조은동물병원",
+    "address": "경상남도 진주시 진양호로 236 (평거동,라비안 빌딩 1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1610": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1610,
+    "name": "펫동물병원",
+    "address": "경상남도 진주시 진양호로467번길 7-2 (인사동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1634": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1634,
+    "name": "새마산동물병원",
+    "address": "경상남도 창원시 마산합포구 북성로 89 (상남동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1654": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1654,
+    "name": "호박동물병원",
+    "address": "경상남도 창원시 마산회원구 합성동 121-11",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1674": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1674,
+    "name": "경상동물병원",
+    "address": "경상남도 창원시 성산구 원이대로 656, 104호 (상남동,대한상가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1675": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1675,
+    "name": "온누리 동물의료센터",
+    "address": "경상남도 창원시 성산구 원이대로 676 (상남동,금탑빌딩 1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1676": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1676,
+    "name": "미래펫 동물병원",
+    "address": "경상남도 창원시 성산구 원이대로473번길 28, 103호 (반림동,반송빌딩)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1695": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1695,
+    "name": "한솔동물병원",
+    "address": "경상남도 창원시 진해구 냉천로 65 (석동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1702": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1702,
+    "name": "용원동물병원",
+    "address": "경상남도 창원시 진해구 용원로 36-1 (용원동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1704": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1704,
+    "name": "쿨펫동물병원",
+    "address": "경상남도 창원시 진해구 진해대로 762 (석동,롯데마트 2층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1811": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1811,
+    "name": "사랑동물병원",
+    "address": "경상북도 고령군 고령읍 대가야로 1533",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1812": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1812,
+    "name": "진흥동물병원",
+    "address": "경상북도 고령군 고령읍 왕릉로 75",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1858": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1858,
+    "name": "지수동물병원",
+    "address": "경상북도 김천시 부곡맛고을1길 87 (부곡동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1862": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1862,
+    "name": "백두동물병원",
+    "address": "경상북도 김천시 양금로 195 (황금동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1889": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1889,
+    "name": "모서동물병원",
+    "address": "경상북도 상주시 모서면 중화로 870",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1894": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1894,
+    "name": "한빛동물병원",
+    "address": "경상북도 상주시 영남제일로 1368 (외답동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1921": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1921,
+    "name": "서울종합동물병원",
+    "address": "경상북도 안동시 제비원로 118 (옥야동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1922": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1922,
+    "name": "보우종합동물병원",
+    "address": "경상북도 안동시 제비원로 289-1 (안기동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_1925": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 1925,
+    "name": "신세계동물병원",
+    "address": "경상북도 안동시 퇴계로 127 (명륜동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2002": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2002,
+    "name": "임프로동물병원",
+    "address": "경상북도 칠곡군 가산면 경북대로 1775-5",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2070": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2070,
+    "name": "첨단우리동물병원",
+    "address": "광주광역시 광산구 첨단내촌로70번길 108-9 (월계동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2082": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2082,
+    "name": "노아동물병원",
+    "address": "광주광역시 남구 대남대로 407 (월산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2086": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2086,
+    "name": "늘푸른 동물병원",
+    "address": "광주광역시 남구 봉선로 115, B동 103호 (봉선동,남양휴튼)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2097": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2097,
+    "name": "서현동물병원",
+    "address": "광주광역시 남구 천변좌로 370 (구동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2098": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2098,
+    "name": "희망동물병원",
+    "address": "광주광역시 남구 천변좌로 394 (사동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2104": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2104,
+    "name": "황제 동물병원",
+    "address": "광주광역시 동구 의재로 27 (학동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2114": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2114,
+    "name": "나래동물병원",
+    "address": "광주광역시 북구 북문대로 113 (운암동,영일빌딩 106호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2115": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2115,
+    "name": "종로동물병원",
+    "address": "광주광역시 북구 북문대로 154 (운암동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2117": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2117,
+    "name": "무등동물병원",
+    "address": "광주광역시 북구 서림로 116 (임동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2118": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2118,
+    "name": "유동물병원",
+    "address": "광주광역시 북구 서암대로 167 (신안동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2125": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2125,
+    "name": "방주동물병원",
+    "address": "광주광역시 북구 설죽로 326 (오치동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2135": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2135,
+    "name": "주주동물병원",
+    "address": "광주광역시 북구 필문대로 75 (풍향동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2260": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2260,
+    "name": "21세기종합동물병원",
+    "address": "대구광역시 동구 아양로 216 (효목동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2261": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2261,
+    "name": "박순복동물병원",
+    "address": "대구광역시 동구 아양로 246 (효목동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2265": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2265,
+    "name": "쿨펫동물병원",
+    "address": "대구광역시 동구 안심로 80 (율하동,롯데마트 4층 동물병원)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2274": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2274,
+    "name": "굿모닝동물병원",
+    "address": "대구광역시 북구 대천로 72-1 (동천동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2276": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2276,
+    "name": "북부동물병원",
+    "address": "대구광역시 북구 대현로 27 (대현동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2282": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2282,
+    "name": "가나동물병원",
+    "address": "대구광역시 북구 산격로 109 (산격동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2288": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2288,
+    "name": "칠곡종합동물병원",
+    "address": "대구광역시 북구 칠곡중앙대로 301, 102호 (태전동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2290": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2290,
+    "name": "늘푸른종합동물병원",
+    "address": "대구광역시 북구 칠곡중앙대로 471 (관음동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2291": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2291,
+    "name": "강동물병원",
+    "address": "대구광역시 북구 칠곡중앙대로 483 (관음동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2295": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2295,
+    "name": "아프리카 동물병원",
+    "address": "대구광역시 북구 침산로 116 (침산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2306": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2306,
+    "name": "보경동물병원",
+    "address": "대구광역시 서구 달서로 165 (비산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2307": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2307,
+    "name": "페츠업 동물병원",
+    "address": "대구광역시 서구 서대구로 136 (평리동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2312": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2312,
+    "name": "아이펫동물병원",
+    "address": "대구광역시 서구 서대구로 64 (평리동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2314": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2314,
+    "name": "수성 메트로 동물병원",
+    "address": "대구광역시 수성구 국채보상로 1006 (만촌동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2315": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2315,
+    "name": "사랑동물병원",
+    "address": "대구광역시 수성구 달구벌대로 2259 (수성동4가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2318": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2318,
+    "name": "제니스동물병원",
+    "address": "대구광역시 수성구 달구벌대로 2475 (범어동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2329": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2329,
+    "name": "두산메디펫동물병원",
+    "address": "대구광역시 수성구 동대구로 24 (지산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2334": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2334,
+    "name": "대구동물메디컬센터",
+    "address": "대구광역시 수성구 동대구로 36 (지산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2342": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2342,
+    "name": "허동물병원",
+    "address": "대구광역시 수성구 명덕로 421, 4호 (수성동2가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2345": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2345,
+    "name": "수성동물병원",
+    "address": "대구광역시 수성구 수성로 151 (중동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2347": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2347,
+    "name": "올펫 동물병원",
+    "address": "대구광역시 수성구 수성로 85 (상동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2352": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2352,
+    "name": "지산동물병원",
+    "address": "대구광역시 수성구 지범로 89 (지산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2360": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2360,
+    "name": "선동물병원",
+    "address": "대구광역시 수성구 화랑로 102 (만촌동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2402": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2402,
+    "name": "미래동물병원",
+    "address": "대전광역시 동구 용운로 117 (용운동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2474": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2474,
+    "name": "국군의학연구소 동물병원",
+    "address": "대전광역시 유성구 추목동 사서함 78-503호",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2508": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2508,
+    "name": "명지종합동물병원",
+    "address": "부산광역시 강서구 명지오션시티11로 74 (명지동,명지오션타워 204)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2533": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2533,
+    "name": "기장동물병원",
+    "address": "부산광역시 기장군 기장읍 차성로288번길 61",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2543": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2543,
+    "name": "우암동물병원",
+    "address": "부산광역시 남구 감만동 46-1    자유4차아파트 상가동  109호",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2544": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2544,
+    "name": "조양래동물병원",
+    "address": "부산광역시 남구 대연동 1744-4",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2563": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2563,
+    "name": "동구종합동물병원",
+    "address": "부산광역시 동구 망양로 835-1 (수정동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2615": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2615,
+    "name": "서면동물병원",
+    "address": "부산광역시 부산진구 부전로 87 (부전동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2633": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2633,
+    "name": "차동물병원",
+    "address": "부산광역시 북구 금곡대로 304 (화명동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2634": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2634,
+    "name": "행복한동물병원",
+    "address": "부산광역시 북구 금곡대로 344 (화명동,화명빌딩202호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2658": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2658,
+    "name": "대성동물병원",
+    "address": "부산광역시 사상구 주례로10번길 125 (주례동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_2723": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 2723,
+    "name": "양지동물병원",
+    "address": "부산광역시 연제구 월드컵대로114번길 1 (연산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3217": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3217,
+    "name": "사당동물병원",
+    "address": "서울특별시 동작구 남부순환로 2051 (사당동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3218": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3218,
+    "name": "세인트필립 동물병원",
+    "address": "서울특별시 동작구 남부순환로267길 5 (사당동,102호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3223": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3223,
+    "name": "동물은내친구",
+    "address": "서울특별시 동작구 사당로 252 (사당동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3226": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3226,
+    "name": "이수동물병원",
+    "address": "서울특별시 동작구 사당로23나길 30 (사당동,1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3324": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3324,
+    "name": "한 동물병원",
+    "address": "서울특별시 서초구 동산로 66 (양재동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3332": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3332,
+    "name": "우면동물병원",
+    "address": "서울특별시 서초구 바우뫼로7길 8, 201호 (우면동,우면세신상가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3338": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3338,
+    "name": "방배한강동물병원",
+    "address": "서울특별시 서초구 방배로 204 (방배동,지상1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3366": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3366,
+    "name": "24시예스동물병원",
+    "address": "서울특별시 서초구 잠원로 24 (반포동,반포자이프라자 133호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3375": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3375,
+    "name": "메디펫 동물병원",
+    "address": "서울특별시 서초구 효령로 384 (서초동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3384": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3384,
+    "name": "아지동물병원",
+    "address": "서울특별시 성동구 독서당로 289 (금호동4가,지상1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3403": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3403,
+    "name": "오렌지동물병원",
+    "address": "서울특별시 성동구 행당로8길 41-2 (행당동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3522": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3522,
+    "name": "준동물병원",
+    "address": "서울특별시 송파구 위례성대로 178 (오금동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3688": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3688,
+    "name": "누리봄동물병원",
+    "address": "서울특별시 종로구 사직로12길 2 (내자동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3691": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3691,
+    "name": "올리브동물병원",
+    "address": "서울특별시 종로구 자하문로 305 (홍지동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3694": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3694,
+    "name": "해동물병원",
+    "address": "서울특별시 종로구 지봉로 53-1 (창신동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3695": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3695,
+    "name": "우리동물병원",
+    "address": "서울특별시 종로구 지봉로 96-3 (숭인동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3732": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3732,
+    "name": "주연동물병원",
+    "address": "서울특별시 중랑구 면목로 273 (면목동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3747": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3747,
+    "name": "서울우유협동조합유우진료소",
+    "address": "서울특별시 중랑구 중랑천로 71 (상봉동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3782": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3782,
+    "name": "펫하우스 동물병원",
+    "address": "울산광역시 남구 남중로 48 (삼산동,이마트울산점 3층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3784": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3784,
+    "name": "스마일동물병원",
+    "address": "울산광역시 남구 대학로 112 (무거동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3792": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3792,
+    "name": "메디펫우리동물병원",
+    "address": "울산광역시 남구 번영로 147-1 (달동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3795": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3795,
+    "name": "남산동물병원",
+    "address": "울산광역시 남구 북부순환도로 40 (무거동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3801": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3801,
+    "name": "울산 사랑동물병원",
+    "address": "울산광역시 남구 중앙로 165-1 (신정동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3802": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3802,
+    "name": "미래펫 동물병원",
+    "address": "울산광역시 남구 중앙로 218-1 (신정동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3818": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3818,
+    "name": "배박사 동물병원",
+    "address": "울산광역시 북구 신답로 40 (상안동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3831": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3831,
+    "name": "제일동물병원",
+    "address": "울산광역시 울주군 삼남면 중평로 79",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3917": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3917,
+    "name": "젬마동물병원",
+    "address": "인천광역시 남동구 구월로 364 (만수동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3919": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3919,
+    "name": "소망동물병원",
+    "address": "인천광역시 남동구 남동대로 737 (구월동,1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3926": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3926,
+    "name": "필종합동물병원",
+    "address": "인천광역시 남동구 남촌동로25번길 11 (남촌동,1층)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3932": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3932,
+    "name": "하태흥반려동물의료센터",
+    "address": "인천광역시 남동구 만수로 10 (만수동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3933": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3933,
+    "name": "좋은 친구들 동물병원",
+    "address": "인천광역시 남동구 만수로 25 (만수동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3935": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3935,
+    "name": "동물의왕국 동물병원",
+    "address": "인천광역시 남동구 문화로 65 (구월동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3940": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3940,
+    "name": "마이펫 동물병원",
+    "address": "인천광역시 남동구 백범로 400 (간석동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3963": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3963,
+    "name": "아나파동물병원",
+    "address": "인천광역시 미추홀구 경인로354번길 6 (주안동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3964": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3964,
+    "name": "한국동물병원",
+    "address": "인천광역시 미추홀구 낙섬중로 25 (용현동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3973": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3973,
+    "name": "주안동물병원",
+    "address": "인천광역시 미추홀구 석정로 400 (주안동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3974": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3974,
+    "name": "지오동물병원",
+    "address": "인천광역시 미추홀구 소성로 121 (학익동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_3980": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 3980,
+    "name": "삼성동물종합병원",
+    "address": "인천광역시 미추홀구 인주대로 277 (주안동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4157": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4157,
+    "name": "하늘동물병원",
+    "address": "인천광역시 영종구 영종대로 90 (운서동,시에로빌 103호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4174": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4174,
+    "name": "하늘동물병원",
+    "address": "인천광역시 중구 영종대로 90 (운서동,시에로빌 103호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4226": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4226,
+    "name": "첨단우리동물병원",
+    "address": "전남광주통합특별시 광산구 첨단내촌로70번길 108-9 (월계동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4251": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4251,
+    "name": "이영기수의과병원",
+    "address": "전남광주통합특별시 나주시 과원동 121-1",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4254": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4254,
+    "name": "부자동물병원",
+    "address": "전남광주통합특별시 나주시 금영로 21 (이창동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4265": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4265,
+    "name": "선경동물병원",
+    "address": "전남광주통합특별시 나주시 예향로 3778-1 (이창동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4267": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4267,
+    "name": "효진동물병원",
+    "address": "전남광주통합특별시 나주시 왕곡면 나주서부로 4",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4272": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4272,
+    "name": "코리아동물병원",
+    "address": "전남광주통합특별시 나주시 풍물시장2길 35-8 (이창동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4277": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4277,
+    "name": "노아동물병원",
+    "address": "전남광주통합특별시 남구 대남대로 407 (월산동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4281": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4281,
+    "name": "늘푸른 동물병원",
+    "address": "전남광주통합특별시 남구 봉선로 115, B동 103호 (봉선동,남양휴튼)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4292": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4292,
+    "name": "서현동물병원",
+    "address": "전남광주통합특별시 남구 천변좌로 370 (구동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4293": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4293,
+    "name": "희망동물병원",
+    "address": "전남광주통합특별시 남구 천변좌로 394 (사동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4302": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4302,
+    "name": "황제 동물병원",
+    "address": "전남광주통합특별시 동구 의재로 27 (학동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4306": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4306,
+    "name": "한빛 동물병원",
+    "address": "전남광주통합특별시 목포시 부흥로 49 (상동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4307": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4307,
+    "name": "도야동물병원",
+    "address": "전남광주통합특별시 목포시 산정로150번길 35 (용당동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4312": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4312,
+    "name": "서울",
+    "address": "전남광주통합특별시 목포시 원산중앙로 10 (산정동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4313": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4313,
+    "name": "한사랑동물의료센타 동물병원",
+    "address": "전남광주통합특별시 목포시 통일대로 83 (옥암동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4344": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4344,
+    "name": "나래동물병원",
+    "address": "전남광주통합특별시 북구 북문대로 113 (운암동,영일빌딩 106호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4345": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4345,
+    "name": "종로동물병원",
+    "address": "전남광주통합특별시 북구 북문대로 154 (운암동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4347": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4347,
+    "name": "무등동물병원",
+    "address": "전남광주통합특별시 북구 서림로 116 (임동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4348": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4348,
+    "name": "유동물병원",
+    "address": "전남광주통합특별시 북구 서암대로 167 (신안동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4355": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4355,
+    "name": "방주동물병원",
+    "address": "전남광주통합특별시 북구 설죽로 326 (오치동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4366": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4366,
+    "name": "주주동물병원",
+    "address": "전남광주통합특별시 북구 필문대로 75 (풍향동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4479": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4479,
+    "name": "서광동물병원",
+    "address": "전남광주통합특별시 장성군 장성읍 영천로 96-1",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4480": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4480,
+    "name": "우남동물병원",
+    "address": "전남광주통합특별시 장성군 장성읍 청운길 19-1",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4557": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4557,
+    "name": "이영기수의과병원",
+    "address": "전라남도 나주시 과원동 121-1",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4560": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4560,
+    "name": "부자동물병원",
+    "address": "전라남도 나주시 금영로 21 (이창동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4571": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4571,
+    "name": "선경동물병원",
+    "address": "전라남도 나주시 예향로 3778-1 (이창동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4573": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4573,
+    "name": "효진동물병원",
+    "address": "전라남도 나주시 왕곡면 나주서부로 4",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4578": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4578,
+    "name": "코리아동물병원",
+    "address": "전라남도 나주시 풍물시장2길 35-8 (이창동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4583": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4583,
+    "name": "한빛 동물병원",
+    "address": "전라남도 목포시 부흥로 49 (상동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4584": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4584,
+    "name": "도야동물병원",
+    "address": "전라남도 목포시 산정로150번길 35 (용당동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4589": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4589,
+    "name": "서울",
+    "address": "전라남도 목포시 원산중앙로 10 (산정동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4590": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4590,
+    "name": "한사랑동물의료센타 동물병원",
+    "address": "전라남도 목포시 통일대로 83 (옥암동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4689": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4689,
+    "name": "서광동물병원",
+    "address": "전라남도 장성군 장성읍 영천로 96-1",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4690": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4690,
+    "name": "우남동물병원",
+    "address": "전라남도 장성군 장성읍 청운길 19-1",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4762": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4762,
+    "name": "성진동물병원",
+    "address": "전북특별자치도 김제시 검산동 488-10",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4764": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4764,
+    "name": "원평동물병원",
+    "address": "전북특별자치도 김제시 금산면 쌍용리 468",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4769": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4769,
+    "name": "진동물병원",
+    "address": "전북특별자치도 김제시 서낭당길 6 (요촌동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4780": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4780,
+    "name": "박동물병원",
+    "address": "전북특별자치도 무주군 무주읍 한풍루로 291",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4785": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4785,
+    "name": "부안동물병원",
+    "address": "전북특별자치도 부안군 부안읍 번영로 161",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4786": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4786,
+    "name": "연합동물병원",
+    "address": "전북특별자치도 부안군 부안읍 번영로 185",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4795": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4795,
+    "name": "박동물병원",
+    "address": "전북특별자치도 순창군 순창읍 남계리 210-3 27통1반",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4823": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4823,
+    "name": "퍼피존동물병원",
+    "address": "전북특별자치도 익산시 익산대로 190 (창인동1가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4834": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4834,
+    "name": "서울동물병원",
+    "address": "전북특별자치도 익산시 함열읍 함열로 78-1",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4842": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4842,
+    "name": "제일동물병원 ",
+    "address": "전북특별자치도 장수군 계남면 호덕리 593-4",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4849": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4849,
+    "name": "행복한 동물병원",
+    "address": "전북특별자치도 전주시 덕진구 건산로 243 (인후동1가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4851": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4851,
+    "name": "송 동물의료센터",
+    "address": "전북특별자치도 전주시 덕진구 견훤로 247 (인후동1가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4852": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4852,
+    "name": "바우동물병원",
+    "address": "전북특별자치도 전주시 덕진구 견훤로 491 (우아동3가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4855": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4855,
+    "name": "대영동물병원",
+    "address": "전북특별자치도 전주시 덕진구 동부대로 582 (산정동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4867": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4867,
+    "name": "모래내동물병원",
+    "address": "전북특별자치도 전주시 덕진구 안덕원로 165 (인후동2가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4879": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4879,
+    "name": "효자 동물병원",
+    "address": "전북특별자치도 전주시 완산구 백제대로 121 (효자동1가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_4990": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 4990,
+    "name": "영인동물병원",
+    "address": "제주특별자치도 제주시 이도이동 1060-14",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5029": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5029,
+    "name": "충남",
+    "address": "충청남도 공주시  웅진로  98-3 (중학동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5064": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5064,
+    "name": "우리생명과학동물병원",
+    "address": "충청남도 논산시 성동면 원봉길 7",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5069": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5069,
+    "name": "호크종합동물병원",
+    "address": "충청남도 논산시 중앙로398번길 2 (취암동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5089": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5089,
+    "name": "충남 동물병원",
+    "address": "충청남도 당진시 운학길 26 (채운동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5134": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5134,
+    "name": "이동물병원",
+    "address": "충청남도 아산시 둔포면 둔포면로  12-8",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5140": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5140,
+    "name": "배방동물병원",
+    "address": "충청남도 아산시 배방읍 북수서로 32",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5144": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5144,
+    "name": "온양동물병원",
+    "address": "충청남도 아산시 번영로 133 (온천동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5146": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5146,
+    "name": "정강동물병원",
+    "address": "충청남도 아산시 번영로216번길 36 (모종동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5150": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5150,
+    "name": "가나동물병원",
+    "address": "충청남도 아산시 온천대로 1525 (온천동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5161": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5161,
+    "name": "강이동물병원",
+    "address": "충청남도 예산군 광시면 예당로 190 (104호)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5165": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5165,
+    "name": "충남야생동물구조센터",
+    "address": "충청남도 예산군 예산읍 대학로 54 (공주대학교 산업과학대학 내)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5171": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5171,
+    "name": "한일동물병원",
+    "address": "충청남도 예산군 예산읍 역전로 70",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5178": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5178,
+    "name": "그림동물병원",
+    "address": "충청남도 천안시 동남구 대흥로 320 (성황동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5186": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5186,
+    "name": "중앙동물병원",
+    "address": "충청남도 천안시 동남구 원거리7길 2 (원성동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5202": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5202,
+    "name": "펫프렌즈동물병원",
+    "address": "충청남도 천안시 서북구 두정로 203 (두정동,주차빌딩101)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5204": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5204,
+    "name": "백석동물병원",
+    "address": "충청남도 천안시 서북구 백석3로 134, 108호 (백석동,대건플라자)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5216": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5216,
+    "name": "페트로 동물병원",
+    "address": "충청남도 천안시 서북구 성정중4길 3 (성정동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5218": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5218,
+    "name": "태성동물병원",
+    "address": "충청남도 천안시 서북구 성환읍 성환1로 275",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5221": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5221,
+    "name": "늘푸른동물병원두정의료센터",
+    "address": "충청남도 천안시 서북구 쌍용대로 317 (성정동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5235": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5235,
+    "name": "종합동물병원",
+    "address": "충청남도 청양군 청양읍 칠갑산로 256",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5244": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5244,
+    "name": "임창일동물병원",
+    "address": "충청남도 홍성군 광천읍 광천로 295",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5245": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5245,
+    "name": "신흥동물병원",
+    "address": "충청남도 홍성군 광천읍 홍남로 664",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5254": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5254,
+    "name": "신베트",
+    "address": "충청남도 홍성군 홍성읍 법원1길 12, 203호",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5258": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5258,
+    "name": "세종동물병원",
+    "address": "충청남도 홍성군 홍성읍 조양로 196",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5266": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5266,
+    "name": "김종하 동물병원",
+    "address": "충청북도 괴산군 괴산읍 동부리 672-4",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5291": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5291,
+    "name": "금왕동물병원",
+    "address": "충청북도 음성군 금왕읍 대금로 1498",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5330": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5330,
+    "name": "한국동물병원",
+    "address": "충청북도 청주시 상당구 상당로 15-1 (남문로1가)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5332": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5332,
+    "name": "이즈동물병원",
+    "address": "충청북도 청주시 상당구 용암북로 154 (용암동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5333": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5333,
+    "name": "도도동물병원",
+    "address": "충청북도 청주시 상당구 월평로 151-1 (용암동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5350": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5350,
+    "name": "그린동물병원",
+    "address": "충청북도 청주시 서원구 사직대로 255 (사직동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5352": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5352,
+    "name": "산남동물병원",
+    "address": "충청북도 청주시 서원구 산남로 64, 104호 (산남동,앤젤변호사빌딩)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5359": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5359,
+    "name": "주주종합동물병원",
+    "address": "충청북도 청주시 청원구 공항로 102 (율량동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5364": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5364,
+    "name": "하나동물병원 앤 컨설팅",
+    "address": "충청북도 청주시 청원구 새터로 22-1 (내덕동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5378": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5378,
+    "name": "새론동물병원",
+    "address": "충청북도 청주시 흥덕구 1순환로 539 (봉명동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5382": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5382,
+    "name": "서원동물병원",
+    "address": "충청북도 청주시 흥덕구 가로수로 1358 (복대동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5406": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5406,
+    "name": "캣앤독동물병원",
+    "address": "충청북도 청주시 흥덕구 풍산로 59 (가경동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_소동물병원_DM발송_주소록_5407": {
+    "sheetName": "전국_소동물병원_DM발송_주소록",
+    "rowIndex": 5407,
+    "name": "블루동물종합병원",
+    "address": "충청북도 청주시 흥덕구 풍산로33번길 4 (가경동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_출장진료동물병원송_DM발송_주소록_8": {
+    "sheetName": "전국_출장진료동물병원송_DM발송_주소록",
+    "rowIndex": 8,
+    "name": "대한동물병원(출장전문)",
+    "address": "경기도 안성시 죽산면 죽주로 300",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_출장진료동물병원송_DM발송_주소록_21": {
+    "sheetName": "전국_출장진료동물병원송_DM발송_주소록",
+    "rowIndex": 21,
+    "name": "굿모닝동물병원(출장전문 진료)",
+    "address": "경기도 평택시 현덕면 인광2길 58",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_출장진료동물병원송_DM발송_주소록_22": {
+    "sheetName": "전국_출장진료동물병원송_DM발송_주소록",
+    "rowIndex": 22,
+    "name": "믿음동물병원(출장진료 전문)",
+    "address": "경기도 평택시 문화촌로11번길 51-11 (비전동)",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_출장진료동물병원송_DM발송_주소록_44": {
+    "sheetName": "전국_출장진료동물병원송_DM발송_주소록",
+    "rowIndex": 44,
+    "name": "금오산낙협동물병원",
+    "address": "경상북도 김천시 부곡동 395-3",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  },
+  "전국_출장진료동물병원송_DM발송_주소록_80": {
+    "sheetName": "전국_출장진료동물병원송_DM발송_주소록",
+    "rowIndex": 80,
+    "name": "한동물병원(출장진료동물병원)",
+    "address": "전북특별자치도 김제시 용지면 콩쥐팥쥐로 868",
+    "chosen": null,
+    "findby": [],
+    "bodyZips": []
+  }
+}
