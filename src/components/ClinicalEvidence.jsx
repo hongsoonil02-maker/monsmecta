@@ -59,9 +59,23 @@ const ClinicalEvidence = () => {
             </div>
             
             {/* 하단 균형용 핵심 요약 박스 */}
-            <div className="bg-emerald-50/90 border border-emerald-200 rounded-2xl p-4 text-xs font-medium text-[#00513b] leading-relaxed shadow-sm">
-              <span className="font-bold text-sm block mb-1">💡 초미세공정 핵심 기술</span>
-              일반 몬모릴로나이트 대비 표면적 8배 이상(≥800 m²/g), 입자도 50배 이상 초미세화(≤6.5 µm)를 통해 장내 독소 및 유해 바이러스의 물리적 흡착 배출 성능을 극대화하였습니다.
+            <div className="bg-emerald-50/90 border border-emerald-200 rounded-2xl p-4 text-xs font-medium text-[#00513b] leading-relaxed shadow-sm flex flex-col gap-3">
+              <div>
+                <span className="font-bold text-sm block mb-1">💡 초미세공정 핵심 기술</span>
+                일반 몬모릴로나이트 대비 표면적 8배 이상(≥800 m²/g), 입자도 50배 이상 초미세화(≤6.5 µm)를 통해 장내 독소 및 유해 바이러스의 물리적 흡착 배출 성능을 극대화하였습니다.
+              </div>
+              <div className="pt-2.5 border-t border-emerald-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <span className="text-[11px] text-emerald-900 font-semibold">📚 Montmorillonite(몬모릴로나이트) 독소 흡착·지사 글로벌 연구 자료</span>
+                <a
+                  href="https://www.google.com/search?q=montmorillonite+toxin+adsorption"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 shrink-0 bg-[#00513b] hover:bg-[#003d2b] text-white text-[11px] font-bold px-3 py-1.5 rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                >
+                  <span>🔍 Google 학술 논문 검색</span>
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                </a>
+              </div>
             </div>
           </div>
 
