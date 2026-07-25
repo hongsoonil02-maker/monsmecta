@@ -19,7 +19,7 @@ const Hero = ({ setIsLabelModalOpen }) => {
             {t('hero.title').split(',')[0]}<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 drop-shadow-sm">{t('hero.title').split(',').length > 1 ? t('hero.title').split(',')[1].trim() : ''}</span>
           </h1>
-          <p className="text-lg md:text-xl text-emerald-50/90 leading-relaxed max-w-xl mx-auto md:mx-0 font-light">
+          <p className="text-lg md:text-xl text-emerald-50/90 leading-relaxed max-w-xl mx-auto md:mx-0 font-light whitespace-pre-line break-keep">
             {t('hero.subtitle')}
           </p>
           <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
