@@ -1,5 +1,5 @@
 {
-    "heroBadge": "Hayvan Hastaneleri için Ülke Çapında B2B Tedarik Zinciri",
+    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
     "nav": {
         "products": "Ürünler",
         "clinical": "Klinik Veriler",
@@ -7,8 +7,8 @@
         "order": "Hızlı Sipariş"
     },
     "hero": {
-        "title": "Klinisyenin Cevabı, MONSMECTA",
-        "subtitle": "Yerinde veteriner bakımının katı standartlarını karşılayan bir bağırsak çözümü. Dr. James Hong tarafından doğrulanmış ve reçete edilmiştir.",
+        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
+        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
         "orderBtn": "Özel Sipariş Formu Oluşturun",
         "specBtn": "📋 Özellikleri Görüntüleyin / Etiketleyin"
     },
@@ -20,7 +20,7 @@
         "price": "Özerk Fiyatlandırma ve Yüksek Marj",
         "price_desc": "Yöneticilerin fiili perakende fiyatını bağımsız olarak belirlemelerine olanak tanıyarak makul bir tedarik fiyatını garanti ediyoruz. Ezici marj oranları hastane yönetimine canlılık sağlıyor.",
         "formula": "Üstün Akademik Formül",
-        "formula_desc": "Ultra ince Montmorillonite ve Bacillus subtilis'in yüksek içerikli karışımı, bağırsak mukozal bariyerini hızlı bir şekilde onarır ve IV sıvı tedavisi ile patlayıcı bir sinerji yaratır."
+        "formula_desc": "High-purity ultra-fine nano montmorillonite and Bacillus subtilis strain are formulated in high concentrations to buffer gastric acid (pH 4.5~5.5), relieve pain, and adsorb 98.5% of harmful substances, toxins, and viruses upon administration."
     },
     "clinical": {
         "title": "Veteriner Hekimler Tarafından Veteriner Hekimler İçin Önerilen Kanıtlar",
@@ -77,8 +77,8 @@
         "card4_quote1_author": "Prof. Dr. Park Bong-kyun (Eski Hayvan ve Bitki Karantina Ajansı Müdürü, Viroloji Otoritesi)",
         "card4_quote2": "\"Parçacık boyutu, nem emilimi, spesifik yüzey alanı... veteriner hekimlerin istediği tüm verilere sahip.\"",
         "card4_quote2_author": "Dr. Jung Sung-dae (Dongjin Hayvan Hastanesi)",
-        "card4_quote3": "\"Parvovirüs ile enfekte olmuş yavru köpeklerde karın ağrısını hafifletmek için mükemmeldir. Sık sık kusma ve ishalden şikayetçi olan hastaların iyileşmesinde gerçek bir yardım sağlar.\"",
-        "card4_quote3_author": "Dr. Kim Dong-jun (Sarang Hayvan Hastanesi)",
+        "card4_quote3": "\"Beyond simple diarrhea treatment, it provides exceptional palatability even for vomiting pets and instant pain relief. Essential as a 1st-line first-aid care for all digestive issues.\"",
+        "card4_quote3_author": "Dr. Kim Dong-jun (Director of Sarang Animal Hospital)",
         "card4_quote4": "\"Bunun insanlar için de iyi olacağını düşünüyorum...\"",
         "card4_quote4_author": "Prof. Hwa-young Youn (İç Hastalıkları Eski Profesörü, SNU Veteriner Fakültesi Koleji · SNU Hayvan Hastanesi Dahiliye Eski Başkanı)",
         "card4_note": "Monsmecta'nın akademik ve danışma kurulu, Seul Ulusal Üniversitesi Veteriner Fakültesi eski mezunları dahil olmak üzere veteriner hekimliği uzmanlarından oluşmakta ve klinik verileri ile reçete kriterlerini kapsamlı bir şekilde doğrulamaktadır.",
@@ -133,7 +133,7 @@
         "desc": "Bağırsak fonksiyonunun ve probiyotik etkisinin iyileştirilmesi",
         "feed1": "✅ Kişi başına günde 2~4 ml",
         "feed2": "✅ 5~7 gün boyunca oral uygulama",
-        "feed3": "✅ Tüm köpek ve kedi türlerine uygulanabilir",
+        "feed3": "✅ Applicable to all animal species including dogs, cats, birds, small mammals, and reptiles",
         "ingredients_title": "Anahtar 5 Bileşik İçerikler",
         "ing1_title": "1) Bacillus subtilis:",
         "ing1_desc": "Antibakteriyel ve antiviral etki",
@@ -155,9 +155,9 @@
         "ingredients_list_title": "Kullanılan Malzemelerin İsimleri",
         "ingredients_list_val": "Bacillus subtilis, A Vitamini, Sodyum Asetat, Sodyum Propiyonat, Glikoz, Saf Su",
         "effect_title": "▶ Etkiler",
-        "effect1": "Bağırsak hastalıklarına (Parvo, Rota, Corona, vb.)",
-        "effect2": "Bağışıklık fonksiyonunu ve sağlık durumunu korumaya yardımcı olur",
-        "effect3": "Bağırsak fonksiyonunu ve probiyotik etkisini iyileştirmeye yardımcı olur",
+        "effect1": "First-line care for vomiting, abdominal pain, diarrhea, indigestion, loss of appetite",
+        "effect2": "Physical adsorption and removal of mycotoxins (AFB1 98.5%), pathogens & viruses",
+        "effect3": "Instant gastric acid buffering (pH 4.5~5.5), pain/gas relief, micro-coating mucosal protection",
         "weight_title": "Net Ağırlık",
         "weight_val": "100ml",
         "mfg_title": "Üretim Tarihi",

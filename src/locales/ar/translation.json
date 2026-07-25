@@ -1,5 +1,5 @@
 {
-    "heroBadge": "سلسلة توريد B2B على المستوى الوطني لمستشفيات الحيوانات",
+    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
     "nav": {
         "products": "المنتجات",
         "clinical": "البيانات السريرية",
@@ -7,8 +7,8 @@
         "order": "طلب سريع"
     },
     "hero": {
-        "title": "إجابة الطبيب، MONSMECTA",
-        "subtitle": "حل أمعاء يلبي المعايير الصارمة للرعاية البيطرية في الموقع. تم التحقق منه ووصفه من قبل الدكتور جيمس هونغ.",
+        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
+        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
         "orderBtn": "إنشاء نموذج طلب حصري",
         "specBtn": "📋 عرض المواصفات / الملصق"
     },
@@ -20,7 +20,7 @@
         "price": "التسعير المستقل والهامش المرتفع",
         "price_desc": "نحن نضمن سعر عرض معقول، مما يسمح للمديرين بتحديد سعر التجزئة الفعلي بشكل مستقل. توفر معدلات الهامش الساحقة حيوية لإدارة المستشفى.",
         "formula": "تركيبة أكاديمية فائقة",
-        "formula_desc": "مزيج عالي المحتوى من المونتموريلونيت فائق النعومة والعصيات الرقيقة يعيد بسرعة حاجز الغشاء المخاطي المعوي ويخلق تآزرًا متفجرًا مع العلاج بالسوائل الوريدية."
+        "formula_desc": "High-purity ultra-fine nano montmorillonite and Bacillus subtilis strain are formulated in high concentrations to buffer gastric acid (pH 4.5~5.5), relieve pain, and adsorb 98.5% of harmful substances, toxins, and viruses upon administration."
     },
     "clinical": {
         "title": "الأدلة التي يقترحها الأطباء البيطريون للأطباء البيطريين",
@@ -77,8 +77,8 @@
         "card4_quote1_author": "البروفيسور بارك بونج كيون (المدير السابق لوكالة الحجر الصحي للحيوان والنبات، مرجعية في علم الفيروسات)",
         "card4_quote2": "\"حجم الجسيمات، وامتصاص الرطوبة، ومساحة السطح المحددة... يحتوي على جميع البيانات التي يريدها الأطباء البيطريون.\"",
         "card4_quote2_author": "دكتور جونغ سونغ داي (مستشفى دونغ جين للحيوانات)",
-        "card4_quote3": "\"إنه ممتاز لتخفيف آلام البطن لدى الجراء المصابة بفيروس البارفو. إنه يوفر مساعدة حقيقية في شفاء المرضى الذين يعانون من القيء والإسهال المتكرر.\"",
-        "card4_quote3_author": "دكتور كيم دونج جون (مستشفى سارانج للحيوانات)",
+        "card4_quote3": "\"Beyond simple diarrhea treatment, it provides exceptional palatability even for vomiting pets and instant pain relief. Essential as a 1st-line first-aid care for all digestive issues.\"",
+        "card4_quote3_author": "Dr. Kim Dong-jun (Director of Sarang Animal Hospital)",
         "card4_quote4": "\"أعتقد أن هذا سيكون جيدًا للبشر أيضًا...\"",
         "card4_quote4_author": "البروفيسور هوا يونج يون (أستاذ سابق في الطب الباطني، كلية الطب البيطري في جامعة سنغافورة الوطنية · الرئيس السابق لمستشفى الطب الباطني في مستشفى جامعة سول الوطنية للحيوانات)",
         "card4_note": "يتكون المجلس الأكاديمي والاستشاري لشركة Monsmecta من خبراء الطب البيطري بما في ذلك خريجي كلية الطب البيطري بجامعة سيول الوطنية السابقين، ويقومون بالتحقق الدقيق من البيانات السريرية ومعايير الوصفات الطبية.",
@@ -133,7 +133,7 @@
         "desc": "تحسين وظيفة الأمعاء وعمل البروبيوتيك",
         "feed1": "✅ 2 ~ 4 مل لكل رأس يوميًا",
         "feed2": "✅ تناوله عن طريق الفم لمدة 5 إلى 7 أيام",
-        "feed3": "✅ ينطبق على جميع سلالات الكلاب والقطط",
+        "feed3": "✅ Applicable to all animal species including dogs, cats, birds, small mammals, and reptiles",
         "ingredients_title": "المكونات المركبة الرئيسية 5",
         "ing1_title": "1) Bacillus subtilis:",
         "ing1_desc": "عمل مضاد للبكتيريا ومضاد للفيروسات",
@@ -155,9 +155,9 @@
         "ingredients_list_title": "أسماء المكونات المستخدمة",
         "ingredients_list_val": "Bacillus subtilis، فيتامين أ، أسيتات الصوديوم، بروبيونات الصوديوم، الجلوكوز، الماء النقي",
         "effect_title": "◀ التأثيرات",
-        "effect1": "يساعد على تحسين مقاومة الأمراض المعوية (بارفو، روتا، كورونا، إلخ.)",
-        "effect2": "يساعد في الحفاظ على وظيفة المناعة والحالة الصحية",
-        "effect3": "يساعد على تحسين وظيفة الأمعاء وعمل البروبيوتيك",
+        "effect1": "First-line care for vomiting, abdominal pain, diarrhea, indigestion, loss of appetite",
+        "effect2": "Physical adsorption and removal of mycotoxins (AFB1 98.5%), pathogens & viruses",
+        "effect3": "Instant gastric acid buffering (pH 4.5~5.5), pain/gas relief, micro-coating mucosal protection",
         "weight_title": "الوزن الصافي",
         "weight_val": "100 مل",
         "mfg_title": "تاريخ التصنيع",

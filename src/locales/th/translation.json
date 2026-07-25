@@ -1,5 +1,5 @@
 {
-    "heroBadge": "ห่วงโซ่อุปทาน B2B ทั่วประเทศสำหรับโรงพยาบาลสัตว์",
+    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
     "nav": {
         "products": "ผลิตภัณฑ์",
         "clinical": "ข้อมูลทางคลินิก",
@@ -7,8 +7,8 @@
         "order": "การสั่งซื้อด่วน"
     },
     "hero": {
-        "title": "คำตอบของแพทย์ MONSMECTA",
-        "subtitle": "โซลูชันระบบลำไส้ที่ตรงตามมาตรฐานอันเข้มงวดของการดูแลสัตวแพทย์นอกสถานที่ ตรวจสอบและกำหนดโดย ดร. เจมส์ ฮอง",
+        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
+        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
         "orderBtn": "สร้างแบบฟอร์มคำสั่งซื้อพิเศษ",
         "specBtn": "📋 ดูข้อมูลจำเพาะ / ฉลาก"
     },
@@ -20,7 +20,7 @@
         "price": "การกำหนดราคาอัตโนมัติและอัตรากำไรขั้นต้นสูง",
         "price_desc": "เรารับประกันราคาอุปทานที่สมเหตุสมผล ช่วยให้กรรมการสามารถกำหนดราคาขายปลีกตามจริงได้ด้วยตนเอง อัตรากำไรขั้นต้นที่มากเกินไปทำให้การบริหารจัดการโรงพยาบาลมีชีวิตชีวา",
         "formula": "สูตรวิชาการที่เหนือกว่า",
-        "formula_desc": "การผสมผสานที่มีเนื้อหาสูงของมอนต์มอริลโลไนต์และ Bacillus subtilis ที่ละเอียดเป็นพิเศษ ช่วยฟื้นฟูสิ่งกีดขวางของเยื่อเมือกในลำไส้อย่างรวดเร็ว และสร้างการทำงานร่วมกันที่ระเบิดได้ด้วยการบำบัดด้วยของเหลวทางหลอดเลือดดำ"
+        "formula_desc": "High-purity ultra-fine nano montmorillonite and Bacillus subtilis strain are formulated in high concentrations to buffer gastric acid (pH 4.5~5.5), relieve pain, and adsorb 98.5% of harmful substances, toxins, and viruses upon administration."
     },
     "clinical": {
         "title": "หลักฐานที่เสนอโดยสัตวแพทย์สำหรับสัตวแพทย์",
@@ -77,8 +77,8 @@
         "card4_quote1_author": "ศาสตราจารย์ Park Bong-kyun (อดีตผู้อำนวยการสำนักงานกักกันสัตว์และพืช ผู้ทรงคุณวุฒิด้านไวรัสวิทยา)",
         "card4_quote2": "\"ขนาดอนุภาค การดูดซับความชื้น พื้นที่ผิวจำเพาะ... มีข้อมูลทั้งหมดที่สัตวแพทย์ต้องการ\"",
         "card4_quote2_author": "ดร. จุง ซุง-แด (โรงพยาบาลสัตว์ดงจิน)",
-        "card4_quote3": "\"มันช่วยลดอาการปวดท้องในลูกสุนัขที่ติดเชื้อไวรัสพาร์โวไวรัสได้ดีเยี่ยม ช่วยได้อย่างแท้จริงในการฟื้นตัวของผู้ป่วยที่อาเจียนและท้องร่วงบ่อยครั้ง\"",
-        "card4_quote3_author": "ดร. คิมดงจุน (โรงพยาบาลสัตว์ซารัง)",
+        "card4_quote3": "\"Beyond simple diarrhea treatment, it provides exceptional palatability even for vomiting pets and instant pain relief. Essential as a 1st-line first-aid care for all digestive issues.\"",
+        "card4_quote3_author": "Dr. Kim Dong-jun (Director of Sarang Animal Hospital)",
         "card4_quote4": "\"ฉันคิดว่านี่คงจะดีสำหรับมนุษย์เช่นกัน...\"",
         "card4_quote4_author": "ศาสตราจารย์ฮวายัง ยอน (อดีตศาสตราจารย์สาขาอายุรศาสตร์ วิทยาลัยสัตวแพทยศาสตร์ SNU · อดีตหัวหน้าแผนกอายุรศาสตร์โรงพยาบาลสัตว์ SNU)",
         "card4_note": "คณะกรรมการวิชาการและที่ปรึกษาของ Monsmecta ประกอบด้วยผู้เชี่ยวชาญด้านสัตวแพทยศาสตร์ รวมถึงอดีตผู้สำเร็จการศึกษาจากวิทยาลัยสัตวแพทยศาสตร์ มหาวิทยาลัยแห่งชาติโซล ทำหน้าที่ตรวจสอบข้อมูลทางคลินิกและเกณฑ์การใช้ยาอย่างละเอียด",
@@ -133,7 +133,7 @@
         "desc": "การปรับปรุงการทำงานของลำไส้และการทำงานของโปรไบโอติก",
         "feed1": "✅ 2~4 มล. ต่อหัวต่อวัน",
         "feed2": "✅ การบริหารช่องปากเป็นเวลา 5~7 วัน",
-        "feed3": "✅ ใช้ได้กับสุนัขและแมวทุกสายพันธุ์",
+        "feed3": "✅ Applicable to all animal species including dogs, cats, birds, small mammals, and reptiles",
         "ingredients_title": "ส่วนผสมหลัก 5 อย่าง",
         "ing1_title": "1) บาซิลลัส ซับติลิส:",
         "ing1_desc": "ฤทธิ์ต้านเชื้อแบคทีเรียและไวรัส",
@@ -155,9 +155,9 @@
         "ingredients_list_title": "ชื่อของส่วนผสมที่ใช้",
         "ingredients_list_val": "Bacillus subtilis, วิตามิน A, โซเดียมอะซิเตต, โซเดียมโพรพิโอเนต, กลูโคส, น้ำบริสุทธิ์",
         "effect_title": "▶ ผลกระทบ",
-        "effect1": "ช่วยเพิ่มความต้านทานต่อโรคในลำไส้ (พาร์โว, โรตา, โคโรนา ฯลฯ )",
-        "effect2": "ช่วยรักษาการทำงานของระบบภูมิคุ้มกันและสถานะสุขภาพ",
-        "effect3": "ช่วยปรับปรุงการทำงานของลำไส้และการทำงานของโปรไบโอติก",
+        "effect1": "First-line care for vomiting, abdominal pain, diarrhea, indigestion, loss of appetite",
+        "effect2": "Physical adsorption and removal of mycotoxins (AFB1 98.5%), pathogens & viruses",
+        "effect3": "Instant gastric acid buffering (pH 4.5~5.5), pain/gas relief, micro-coating mucosal protection",
         "weight_title": "น้ำหนักสุทธิ",
         "weight_val": "100 มล.",
         "mfg_title": "วันที่ผลิต",

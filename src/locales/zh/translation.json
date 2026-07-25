@@ -1,5 +1,5 @@
 {
-    "heroBadge": "全国动物医院专用B2B供应链",
+    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
     "nav": {
         "products": "产品介绍",
         "clinical": "临床数据",
@@ -7,8 +7,8 @@
         "order": "快速订购"
     },
     "hero": {
-        "title": "临床兽医的解答, MONSMECTA",
-        "subtitle": "通过现场严苛标准的胃肠道解决方案。由S&J动物医院的洪院长亲自验证并处方。",
+        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
+        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
         "orderBtn": "创建院长专用订购单",
         "specBtn": "📋 查看产品规格/标签"
     },
@@ -20,7 +20,7 @@
         "price": "保障自主定价和高利润结构",
         "price_desc": "我们保证合理的供应价格，实际销售价格由院长根据实际情况自主设定。以压倒性的利润率为医院经营注入活力。",
         "formula": "卓越的学术配方",
-        "formula_desc": "高含量复配超细蒙脱石和枯草芽孢杆菌，快速修复肠黏膜屏障，并与静脉(IV)输液治疗产生爆发性的协同效应。"
+        "formula_desc": "High-purity ultra-fine nano montmorillonite and Bacillus subtilis strain are formulated in high concentrations to buffer gastric acid (pH 4.5~5.5), relieve pain, and adsorb 98.5% of harmful substances, toxins, and viruses upon administration."
     },
     "clinical": {
         "title": "兽医向兽医提供的临床依据",
@@ -77,8 +77,8 @@
         "card4_quote1_author": "朴奉均教授（前农林畜产检疫本部长，病毒学领域权威）",
         "card4_quote2": "「粒径、水分吸收率、比表面积……具备了兽医所需的全部数据。」",
         "card4_quote2_author": "郑成大院长（东进动物医院）",
-        "card4_quote3": "「对细小病毒感染幼犬的腹痛症状缓解效果卓越。为频繁呕吐和腹泻痛苦的患畜恢复提供实质性帮助。」",
-        "card4_quote3_author": "Sarang动物医院 院长 金东准",
+        "card4_quote3": "\"Beyond simple diarrhea treatment, it provides exceptional palatability even for vomiting pets and instant pain relief. Essential as a 1st-line first-aid care for all digestive issues.\"",
+        "card4_quote3_author": "Dr. Kim Dong-jun (Director of Sarang Animal Hospital)",
         "card4_quote4": "「感觉对人体也应该挺好的……」",
         "card4_quote4_author": "尹华荣教授（前首尔大学兽医学院内科学教授 · 前首尔大学动物医院内科主任）",
         "card4_note": "蒙斯美达的学术与顾问团由前首尔大学兽医学院出身等兽医学专家组成，严格验证临床数据与处方标准。",
@@ -133,7 +133,7 @@
         "desc": "改善肠功能及整肠作用",
         "feed1": "✅ 每日每头2~4ml喂给",
         "feed2": "✅ 5~7天口服喂给",
-        "feed3": "✅ 适用于犬、猫全品种",
+        "feed3": "✅ Applicable to all animal species including dogs, cats, birds, small mammals, and reptiles",
         "ingredients_title": "核心5种复合成分",
         "ing1_title": "1) 枯草芽孢杆菌（Bacillus subtilis）：",
         "ing1_desc": "抗菌·抗病毒作用",
@@ -155,9 +155,9 @@
         "ingredients_list_title": "使用的原料名称",
         "ingredients_list_val": "枯草芽孢杆菌，维生素A，醋酸钠，丙酸钠，葡萄糖，纯净水",
         "effect_title": "▶ 效果",
-        "effect1": "帮助提高对肠相关疾病（细小病毒，轮状病毒，冠状病毒等）的抵抗力",
-        "effect2": "帮助维持免疫功能及健康状态",
-        "effect3": "帮助改善肠功能及整肠作用",
+        "effect1": "First-line care for vomiting, abdominal pain, diarrhea, indigestion, loss of appetite",
+        "effect2": "Physical adsorption and removal of mycotoxins (AFB1 98.5%), pathogens & viruses",
+        "effect3": "Instant gastric acid buffering (pH 4.5~5.5), pain/gas relief, micro-coating mucosal protection",
         "weight_title": "实际重量",
         "weight_val": "100ml",
         "mfg_title": "制造日期",

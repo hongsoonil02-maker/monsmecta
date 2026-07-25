@@ -1,5 +1,5 @@
 {
-    "heroBadge": "Rantai Pasokan B2B Nasional untuk Rumah Sakit Hewan",
+    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
     "nav": {
         "products": "Produk",
         "clinical": "Data Klinis",
@@ -7,8 +7,8 @@
         "order": "Pemesanan Cepat"
     },
     "hero": {
-        "title": "Jawaban Dokter, MONSMECTA",
-        "subtitle": "Solusi usus yang memenuhi standar ketat perawatan hewan di tempat. Diverifikasi dan diresepkan oleh Dr. James Hong.",
+        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
+        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
         "orderBtn": "Buat Formulir Pemesanan Eksklusif",
         "specBtn": "📋 Lihat Spesifikasi / Label"
     },
@@ -20,7 +20,7 @@
         "price": "Penetapan Harga Otonom & Margin Tinggi",
         "price_desc": "Kami menjamin harga pasokan yang wajar, sehingga direktur dapat menetapkan harga eceran sebenarnya secara mandiri. Tingkat margin yang luar biasa memberikan vitalitas bagi manajemen rumah sakit.",
         "formula": "Formula Akademik Unggul",
-        "formula_desc": "Campuran kandungan tinggi dari Montmorillonite ultra-halus dan Bacillus subtilis dengan cepat memulihkan penghalang mukosa usus dan menciptakan sinergi eksplosif dengan terapi cairan IV."
+        "formula_desc": "High-purity ultra-fine nano montmorillonite and Bacillus subtilis strain are formulated in high concentrations to buffer gastric acid (pH 4.5~5.5), relieve pain, and adsorb 98.5% of harmful substances, toxins, and viruses upon administration."
     },
     "clinical": {
         "title": "Bukti yang Diusulkan oleh Dokter Hewan untuk Dokter Hewan",
@@ -77,8 +77,8 @@
         "card4_quote1_author": "Prof. Park Bong-kyun (Mantan Direktur Badan Karantina Hewan dan Tumbuhan, Otoritas Virologi)",
         "card4_quote2": "\"Ukuran partikel, penyerapan air, luas permukaan spesifik... ia memiliki semua data yang diinginkan dokter hewan.\"",
         "card4_quote2_author": "Dr. Jung Sung-dae (Rumah Sakit Hewan Dongjin)",
-        "card4_quote3": "\"Sangat baik untuk meredakan sakit perut pada anak anjing yang terinfeksi parvovirus. Ini memberikan bantuan nyata dalam pemulihan pasien yang sering muntah dan diare.\"",
-        "card4_quote3_author": "Dr. Kim Dong-jun (Rumah Sakit Hewan Sarang)",
+        "card4_quote3": "\"Beyond simple diarrhea treatment, it provides exceptional palatability even for vomiting pets and instant pain relief. Essential as a 1st-line first-aid care for all digestive issues.\"",
+        "card4_quote3_author": "Dr. Kim Dong-jun (Director of Sarang Animal Hospital)",
         "card4_quote4": "\"Saya pikir ini juga baik untuk manusia...\"",
         "card4_quote4_author": "Prof. Hwa-young Youn (Mantan Prof. Penyakit Dalam, Fakultas Kedokteran Hewan SNU · Mantan Kepala Penyakit Dalam Rumah Sakit Hewan SNU)",
         "card4_note": "Dewan akademik dan penasihat Monsmecta terdiri dari para ahli kedokteran hewan termasuk mantan lulusan Fakultas Kedokteran Hewan Universitas Nasional Seoul, yang secara menyeluruh memverifikasi data klinis dan kriteria resep.",
@@ -133,7 +133,7 @@
         "desc": "Peningkatan fungsi usus dan tindakan probiotik",
         "feed1": "✅ 2~4ml per ekor per hari",
         "feed2": "✅ Pemberian oral selama 5~7 hari",
-        "feed3": "✅ Berlaku untuk semua ras anjing dan kucing",
+        "feed3": "✅ Applicable to all animal species including dogs, cats, birds, small mammals, and reptiles",
         "ingredients_title": "Kunci 5 Bahan Senyawa",
         "ing1_title": "1) Bacillus subtilis:",
         "ing1_desc": "Tindakan antibakteri dan antivirus",
@@ -155,9 +155,9 @@
         "ingredients_list_title": "Nama Bahan yang Digunakan",
         "ingredients_list_val": "Bacillus subtilis, Vitamin A, Natrium Asetat, Natrium Propionat, Glukosa, Air Murni",
         "effect_title": "▶ Efek",
-        "effect1": "Membantu meningkatkan ketahanan terhadap penyakit usus (Parvo, Rota, Corona, dll.)",
-        "effect2": "Membantu menjaga fungsi kekebalan tubuh dan status kesehatan",
-        "effect3": "Membantu meningkatkan fungsi usus dan tindakan probiotik",
+        "effect1": "First-line care for vomiting, abdominal pain, diarrhea, indigestion, loss of appetite",
+        "effect2": "Physical adsorption and removal of mycotoxins (AFB1 98.5%), pathogens & viruses",
+        "effect3": "Instant gastric acid buffering (pH 4.5~5.5), pain/gas relief, micro-coating mucosal protection",
         "weight_title": "Berat Bersih",
         "weight_val": "100ml",
         "mfg_title": "Tanggal Pembuatan",

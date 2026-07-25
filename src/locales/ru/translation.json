@@ -1,5 +1,5 @@
 {
-    "heroBadge": "Национальная цепочка поставок B2B для больниц для животных",
+    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
     "nav": {
         "products": "Продукция",
         "clinical": "Клинические данные",
@@ -7,8 +7,8 @@
         "order": "Быстрый заказ"
     },
     "hero": {
-        "title": "Ответ врача, МОНСМЕКТА",
-        "subtitle": "Решение для кишечника, соответствующее строгим стандартам ветеринарной помощи на месте. Проверено и предписано доктором Джеймсом Хонгом.",
+        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
+        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
         "orderBtn": "Создайте эксклюзивную форму заказа",
         "specBtn": "📋 Просмотрите характеристики/этикетку"
     },
@@ -20,7 +20,7 @@
         "price": "Автономное ценообразование и высокая прибыль",
         "price_desc": "Мы гарантируем разумную цену поставки, что позволяет директорам самостоятельно устанавливать фактическую розничную цену. Невероятно высокие процентные ставки придают жизнеспособность управлению больницей.",
         "formula": "Превосходная академическая формула",
-        "formula_desc": "Смесь с высоким содержанием ультратонкого монтмориллонита и Bacillus subtilis быстро восстанавливает барьер слизистой оболочки кишечника и создает взрывной синергизм с внутривенной инфузионной терапией."
+        "formula_desc": "High-purity ultra-fine nano montmorillonite and Bacillus subtilis strain are formulated in high concentrations to buffer gastric acid (pH 4.5~5.5), relieve pain, and adsorb 98.5% of harmful substances, toxins, and viruses upon administration."
     },
     "clinical": {
         "title": "Доказательства, предложенные ветеринарами для ветеринаров.",
@@ -77,8 +77,8 @@
         "card4_quote1_author": "Проф. Пак Бон Гюн (бывший директор Агентства по карантину животных и растений, авторитет в вирусологии)",
         "card4_quote2": "«Размер частиц, влагопоглощение, удельная поверхность… здесь есть все данные, которые нужны ветеринарам».",
         "card4_quote2_author": "Доктор Юнг Сунг-дэ (Больница для животных Тонджин)",
-        "card4_quote3": "«Он превосходно облегчает боли в животе у щенков, инфицированных парвовирусом. Он оказывает реальную помощь в выздоровлении пациентов, страдающих от частой рвоты и диареи».",
-        "card4_quote3_author": "Доктор Ким Дон Чжун (Больница для животных Саранг)",
+        "card4_quote3": "\"Beyond simple diarrhea treatment, it provides exceptional palatability even for vomiting pets and instant pain relief. Essential as a 1st-line first-aid care for all digestive issues.\"",
+        "card4_quote3_author": "Dr. Kim Dong-jun (Director of Sarang Animal Hospital)",
         "card4_quote4": "«Я думаю, что это будет полезно и для людей...»",
         "card4_quote4_author": "Профессор Хва Ён Юн (бывший профессор кафедры внутренней медицины Колледжа ветеринарной медицины СНУ · Бывший руководитель внутренней медицины больницы для животных СНУ)",
         "card4_note": "Академический и консультативный совет Monsmecta состоит из экспертов в области ветеринарии, включая бывших выпускников Колледжа ветеринарной медицины Сеульского национального университета, которые тщательно проверяют клинические данные и критерии назначения.",
@@ -133,7 +133,7 @@
         "desc": "Улучшение функции кишечника и пробиотическое действие",
         "feed1": "✅ 2~4 мл на голову в день",
         "feed2": "✅ Пероральный прием в течение 5-7 дней",
-        "feed3": "✅ Применимо для всех пород собак и кошек",
+        "feed3": "✅ Applicable to all animal species including dogs, cats, birds, small mammals, and reptiles",
         "ingredients_title": "Ключевые 5 ингредиентов соединения",
         "ing1_title": "1) Bacillus subtilis:",
         "ing1_desc": "Антибактериальное и противовирусное действие",
@@ -155,9 +155,9 @@
         "ingredients_list_title": "Названия используемых ингредиентов",
         "ingredients_list_val": "Bacillus subtilis, витамин А, ацетат натрия, пропионат натрия, глюкоза, очищенная вода",
         "effect_title": "▶ Эффекты",
-        "effect1": "Повышает устойчивость к кишечным заболеваниям (парво, Rota, Corona и т. д.)",
-        "effect2": "Помогает поддерживать иммунную функцию и состояние здоровья",
-        "effect3": "Помогает улучшить функцию кишечника и пробиотическое действие",
+        "effect1": "First-line care for vomiting, abdominal pain, diarrhea, indigestion, loss of appetite",
+        "effect2": "Physical adsorption and removal of mycotoxins (AFB1 98.5%), pathogens & viruses",
+        "effect3": "Instant gastric acid buffering (pH 4.5~5.5), pain/gas relief, micro-coating mucosal protection",
         "weight_title": "Вес нетто",
         "weight_val": "100 мл",
         "mfg_title": "Дата изготовления",

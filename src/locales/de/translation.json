@@ -1,5 +1,5 @@
 {
-    "heroBadge": "Landesweite B2B-Lieferkette für Tierkliniken",
+    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
     "nav": {
         "products": "Produkte",
         "clinical": "Klinische Daten",
@@ -7,8 +7,8 @@
         "order": "Schnellbestellung"
     },
     "hero": {
-        "title": "Antwort des Klinikers, MONSMECTA",
-        "subtitle": "Eine Darmlösung, die den strengen Standards der tierärztlichen Versorgung vor Ort entspricht. Verifiziert und verschrieben von Dr. James Hong.",
+        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
+        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
         "orderBtn": "Exklusives Bestellformular erstellen",
         "specBtn": "📋 Spezifikationen/Etikett anzeigen"
     },
@@ -20,7 +20,7 @@
         "price": "Autonome Preisgestaltung und hohe Marge",
         "price_desc": "Wir garantieren einen angemessenen Lieferpreis, sodass die Direktoren den tatsächlichen Einzelhandelspreis autonom festlegen können. Überwältigende Margen verleihen dem Krankenhausmanagement Vitalität.",
         "formula": "Überlegene akademische Formel",
-        "formula_desc": "Eine Mischung mit hohem Gehalt an ultrafeinem Montmorillonit und Bacillus subtilis stellt die Darmschleimhautbarriere schnell wieder her und schafft explosive Synergien mit der intravenösen Flüssigkeitstherapie."
+        "formula_desc": "High-purity ultra-fine nano montmorillonite and Bacillus subtilis strain are formulated in high concentrations to buffer gastric acid (pH 4.5~5.5), relieve pain, and adsorb 98.5% of harmful substances, toxins, and viruses upon administration."
     },
     "clinical": {
         "title": "Von Tierärzten für Tierärzte vorgeschlagene Beweise",
@@ -77,8 +77,8 @@
         "card4_quote1_author": "Prof. Park Bong-kyun (Ehemaliger Direktor der Tier- und Pflanzenquarantänebehörde, Autorität in Virologie)",
         "card4_quote2": "„Partikelgröße, Feuchtigkeitsaufnahme, spezifische Oberfläche … es hat alle Daten, die Tierärzte wollen.“",
         "card4_quote2_author": "Dr. Jung Sung-dae (Dongjin Animal Hospital)",
-        "card4_quote3": "„Es eignet sich hervorragend zur Linderung von Bauchschmerzen bei Welpen, die mit Parvovirus infiziert sind. Es ist eine echte Hilfe bei der Genesung von Patienten, die unter häufigem Erbrechen und Durchfall leiden.“",
-        "card4_quote3_author": "Dr. Kim Dong-jun (Sarang Animal Hospital)",
+        "card4_quote3": "\"Beyond simple diarrhea treatment, it provides exceptional palatability even for vomiting pets and instant pain relief. Essential as a 1st-line first-aid care for all digestive issues.\"",
+        "card4_quote3_author": "Dr. Kim Dong-jun (Director of Sarang Animal Hospital)",
         "card4_quote4": "„Ich denke, das wäre auch gut für Menschen …“",
         "card4_quote4_author": "Prof. Hwa-young Youn (ehemaliger Professor für Innere Medizin, SNU College of Vet Medicine · ehemaliger Leiter der SNU Animal Hospital Internal Medicine)",
         "card4_note": "Der akademische und beratende Vorstand von Monsmecta besteht aus Veterinärmedizinexperten, darunter ehemalige Absolventen des Seoul National University College of Veterinary Medicine, die klinische Daten und Verschreibungskriterien gründlich überprüfen.",
@@ -133,7 +133,7 @@
         "desc": "Verbesserung der Darmfunktion und probiotische Wirkung",
         "feed1": "✅ 2–4 ml pro Kopf und Tag",
         "feed2": "✅ Orale Verabreichung für 5–7 Tage",
-        "feed3": "✅ Anwendbar auf alle Hunde- und Katzenrassen",
+        "feed3": "✅ Applicable to all animal species including dogs, cats, birds, small mammals, and reptiles",
         "ingredients_title": "Die wichtigsten 5 zusammengesetzten Inhaltsstoffe",
         "ing1_title": "1) Bacillus subtilis:",
         "ing1_desc": "Antibakterielle und antivirale Wirkung",
@@ -155,9 +155,9 @@
         "ingredients_list_title": "Namen der verwendeten Zutaten",
         "ingredients_list_val": "Bacillus subtilis, Vitamin A, Natriumacetat, Natriumpropionat, Glucose, gereinigtes Wasser",
         "effect_title": "▶ Effekte",
-        "effect1": "Trägt zur Verbesserung der Widerstandsfähigkeit gegen Darmkrankheiten (Parvo, Rota, Corona usw.) bei.",
-        "effect2": "Trägt zur Aufrechterhaltung der Immunfunktion und des Gesundheitszustands bei",
-        "effect3": "Trägt zur Verbesserung der Darmfunktion und der probiotischen Wirkung bei",
+        "effect1": "First-line care for vomiting, abdominal pain, diarrhea, indigestion, loss of appetite",
+        "effect2": "Physical adsorption and removal of mycotoxins (AFB1 98.5%), pathogens & viruses",
+        "effect3": "Instant gastric acid buffering (pH 4.5~5.5), pain/gas relief, micro-coating mucosal protection",
         "weight_title": "Nettogewicht",
         "weight_val": "100 ml",
         "mfg_title": "Herstellungsdatum",

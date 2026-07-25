@@ -1,5 +1,5 @@
 {
-    "heroBadge": "Chuỗi cung ứng B2B toàn quốc cho các bệnh viện thú y",
+    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
     "nav": {
         "products": "Sản phẩm",
         "clinical": "Dữ liệu lâm sàng",
@@ -7,8 +7,8 @@
         "order": "Đặt hàng nhanh"
     },
     "hero": {
-        "title": "Câu trả lời của bác sĩ lâm sàng, MONSMECTA",
-        "subtitle": "Một giải pháp đường ruột đáp ứng các tiêu chuẩn khắt khe về chăm sóc thú y tại chỗ. Được kiểm chứng và kê đơn bởi bác sĩ James Hong.",
+        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
+        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
         "orderBtn": "Tạo Mẫu đơn đặt hàng độc quyền",
         "specBtn": "📋 Xem thông số kỹ thuật / Nhãn"
     },
@@ -20,7 +20,7 @@
         "price": "Định giá tự chủ và tỷ suất lợi nhuận cao",
         "price_desc": "Chúng tôi đảm bảo giá cung cấp hợp lý, cho phép các giám đốc tự chủ định giá bán lẻ thực tế. Tỷ lệ ký quỹ cao mang lại sức sống cho việc quản lý bệnh viện.",
         "formula": "Công thức học thuật ưu việt",
-        "formula_desc": "Hỗn hợp hàm lượng cao Montmorillonite siêu mịn và Bacillus subtilis nhanh chóng phục hồi hàng rào niêm mạc ruột và tạo ra sức mạnh tổng hợp bùng nổ với liệu pháp truyền dịch qua đường tĩnh mạch."
+        "formula_desc": "High-purity ultra-fine nano montmorillonite and Bacillus subtilis strain are formulated in high concentrations to buffer gastric acid (pH 4.5~5.5), relieve pain, and adsorb 98.5% of harmful substances, toxins, and viruses upon administration."
     },
     "clinical": {
         "title": "Bằng chứng được đề xuất bởi bác sĩ thú y dành cho thú y",
@@ -77,8 +77,8 @@
         "card4_quote1_author": "Giáo sư Park Bong-kyun (Cựu Giám đốc Cơ quan Kiểm dịch Động Thực vật, Chuyên gia đầu ngành Virus học)",
         "card4_quote2": "\"Kích thước hạt, khả năng hấp thụ độ ẩm, diện tích bề mặt cụ thể... nó có tất cả dữ liệu mà các bác sĩ thú y mong muốn.\"",
         "card4_quote2_author": "Bác sĩ Jung Sung-dae (Bệnh viện thú y Dongjin)",
-        "card4_quote3": "\"Nó rất tuyệt vời để giảm đau bụng ở chó con bị nhiễm parvovirus. Nó thực sự giúp ích trong việc phục hồi những bệnh nhân bị nôn mửa và tiêu chảy thường xuyên.\"",
-        "card4_quote3_author": "Bác sĩ Kim Dong-jun (Bệnh viện thú y Sarang)",
+        "card4_quote3": "\"Beyond simple diarrhea treatment, it provides exceptional palatability even for vomiting pets and instant pain relief. Essential as a 1st-line first-aid care for all digestive issues.\"",
+        "card4_quote3_author": "Dr. Kim Dong-jun (Director of Sarang Animal Hospital)",
         "card4_quote4": "\"Tôi nghĩ điều này cũng tốt cho con người...\"",
         "card4_quote4_author": "Giáo sư Hwa-young Youn (Cựu Giáo sư Nội khoa, Đại học Thú y SNU · Nguyên Trưởng khoa Nội Bệnh viện Động vật SNU)",
         "card4_note": "Hội đồng học thuật và cố vấn của Monsmecta gồm các chuyên gia thú y, bao gồm cựu sinh viên Trường Cao đẳng Thú y Đại học Quốc gia Seoul, xác minh kỹ lưỡng dữ liệu lâm sàng và tiêu chí kê đơn.",
@@ -133,7 +133,7 @@
         "desc": "Cải thiện chức năng đường ruột và hoạt động của men vi sinh",
         "feed1": "✅ 2 ~ 4ml mỗi đầu mỗi ngày",
         "feed2": "✅ Uống trong 5 ~ 7 ngày",
-        "feed3": "✅ Áp dụng cho tất cả các giống chó và mèo",
+        "feed3": "✅ Applicable to all animal species including dogs, cats, birds, small mammals, and reptiles",
         "ingredients_title": "5 thành phần hợp chất chính",
         "ing1_title": "1) Bacillus subtilis:",
         "ing1_desc": "Tác dụng kháng khuẩn và kháng vi-rút",
@@ -155,9 +155,9 @@
         "ingredients_list_title": "Tên thành phần được sử dụng",
         "ingredients_list_val": "Bacillus subtilis, Vitamin A, Natri Acetate, Natri Propionate, Glucose, Nước tinh khiết",
         "effect_title": "► Tác dụng",
-        "effect1": "Giúp cải thiện khả năng chống lại các bệnh đường ruột (Parvo, Rota, Corona, v.v.)",
-        "effect2": "Giúp duy trì chức năng miễn dịch và tình trạng sức khỏe",
-        "effect3": "Giúp cải thiện chức năng đường ruột và hoạt động của men vi sinh",
+        "effect1": "First-line care for vomiting, abdominal pain, diarrhea, indigestion, loss of appetite",
+        "effect2": "Physical adsorption and removal of mycotoxins (AFB1 98.5%), pathogens & viruses",
+        "effect3": "Instant gastric acid buffering (pH 4.5~5.5), pain/gas relief, micro-coating mucosal protection",
         "weight_title": "Trọng lượng tịnh",
         "weight_val": "100ml",
         "mfg_title": "Ngày sản xuất",

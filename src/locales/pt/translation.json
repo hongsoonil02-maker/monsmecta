@@ -1,5 +1,5 @@
 {
-    "heroBadge": "Cadeia de suprimentos B2B nacional para hospitais de animais",
+    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
     "nav": {
         "products": "Produtos",
         "clinical": "Dados clínicos",
@@ -7,8 +7,8 @@
         "order": "Pedido rápido"
     },
     "hero": {
-        "title": "Resposta do médico, MONSMECTA",
-        "subtitle": "Uma solução intestinal que atende aos rigorosos padrões de atendimento veterinário no local. Verificado e prescrito pelo Dr. James Hong.",
+        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
+        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
         "orderBtn": "Crie um formulário de pedido exclusivo",
         "specBtn": "📋 Ver especificações / etiqueta"
     },
@@ -20,7 +20,7 @@
         "price": "Preços Autônomos e Alta Margem",
         "price_desc": "Garantimos um preço de fornecimento razoável, permitindo que os diretores definam o preço real de varejo de forma autônoma. Taxas de margem esmagadoras proporcionam vitalidade à gestão hospitalar.",
         "formula": "Fórmula Acadêmica Superior",
-        "formula_desc": "A mistura de alto teor de Montmorilonita ultrafina e Bacillus subtilis restaura rapidamente a barreira da mucosa intestinal e cria uma sinergia explosiva com a fluidoterapia intravenosa."
+        "formula_desc": "High-purity ultra-fine nano montmorillonite and Bacillus subtilis strain are formulated in high concentrations to buffer gastric acid (pH 4.5~5.5), relieve pain, and adsorb 98.5% of harmful substances, toxins, and viruses upon administration."
     },
     "clinical": {
         "title": "Evidência proposta por veterinários para veterinários",
@@ -77,8 +77,8 @@
         "card4_quote1_author": "Prof. Park Bong-kyun (Ex-Diretor da Agência de Quarentena Animal e Vegetal, Autoridade em Virologia)",
         "card4_quote2": "\"Tamanho de partícula, absorção de umidade, área de superfície específica... contém todos os dados que os veterinários desejam.\"",
         "card4_quote2_author": "Dr. Jung Sung-dae (Dongjin Animal Hospital)",
-        "card4_quote3": "\"É excelente para aliviar dores abdominais em cachorros infectados com parvovírus. Fornece uma ajuda real na recuperação de pacientes que sofrem de vômitos e diarreia frequentes.\"",
-        "card4_quote3_author": "Dr. Kim Dong-jun (Sarang Animal Hospital)",
+        "card4_quote3": "\"Beyond simple diarrhea treatment, it provides exceptional palatability even for vomiting pets and instant pain relief. Essential as a 1st-line first-aid care for all digestive issues.\"",
+        "card4_quote3_author": "Dr. Kim Dong-jun (Director of Sarang Animal Hospital)",
         "card4_quote4": "\"Acho que isso seria bom para os humanos também...\"",
         "card4_quote4_author": "Prof.",
         "card4_note": "O conselho acadêmico e consultivo da Monsmecta é composto por especialistas em medicina veterinaria, incluindo ex-graduados da Faculdade de Medicina Veterinária da Universidade Nacional de Seul, verificando rigorosamente os dados clínicos e os critérios de prescrição.",
@@ -133,7 +133,7 @@
         "desc": "Melhoria da função intestinal e ação probiótica",
         "feed1": "✅ 2 ~ 4ml por cabeça por dia",
         "feed2": "✅ Administração oral por 5 ~ 7 dias",
-        "feed3": "✅ Aplicável a todas as raças de cães e gatos",
+        "feed3": "✅ Applicable to all animal species including dogs, cats, birds, small mammals, and reptiles",
         "ingredients_title": "Ingredientes compostos chave 5",
         "ing1_title": "1) Bacillus subtilis:",
         "ing1_desc": "Ação antibacteriana e antiviral",
@@ -155,9 +155,9 @@
         "ingredients_list_title": "Nomes dos ingredientes usados",
         "ingredients_list_val": "Bacillus subtilis, vitamina A, acetato de sódio, propionato de sódio, glicose, água purificada",
         "effect_title": "▶ Efeitos",
-        "effect1": "Ajuda a melhorar a resistência a doenças intestinais (Parvo, Rota, Corona, etc.)",
-        "effect2": "Ajuda a manter a função imunológica e o estado de saúde",
-        "effect3": "Ajuda a melhorar a função intestinal e a ação probiótica",
+        "effect1": "First-line care for vomiting, abdominal pain, diarrhea, indigestion, loss of appetite",
+        "effect2": "Physical adsorption and removal of mycotoxins (AFB1 98.5%), pathogens & viruses",
+        "effect3": "Instant gastric acid buffering (pH 4.5~5.5), pain/gas relief, micro-coating mucosal protection",
         "weight_title": "Peso Líquido",
         "weight_val": "100ml",
         "mfg_title": "Data de Fabricação",
