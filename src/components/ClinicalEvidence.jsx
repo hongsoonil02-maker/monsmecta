@@ -65,9 +65,9 @@ const ClinicalEvidence = () => {
                 일반 몬모릴로나이트 대비 표면적 8배 이상(≥800 m²/g), 입자도 50배 이상 초미세화(≤6.5 µm)를 통해 장내 독소 및 유해 바이러스의 물리적 흡착 배출 성능을 극대화하였습니다.
               </div>
               <div className="pt-2.5 border-t border-emerald-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                <span className="text-[11px] text-emerald-900 font-semibold">📚 Montmorillonite(몬모릴로나이트) 독소 흡착·지사 글로벌 연구 자료</span>
+                <span className="text-[11px] text-emerald-900 font-semibold">📚 Smectite & Montmorillonite(스멕타이트·몬모릴로나이트) 독소 흡착·지사 글로벌 연구 자료</span>
                 <a
-                  href="https://www.google.com/search?q=montmorillonite+toxin+adsorption"
+                  href="https://www.google.com/search?q=smectite+and+montmorillonite+adsorption"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-1.5 shrink-0 bg-[#00513b] hover:bg-[#003d2b] text-white text-[11px] font-bold px-3 py-1.5 rounded-xl transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
