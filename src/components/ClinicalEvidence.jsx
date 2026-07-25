@@ -26,43 +26,31 @@ const ClinicalEvidence = () => {
             <div className="w-full overflow-hidden">
               <table className="w-full text-sm border-collapse table-fixed">
                 <colgroup>
-                  <col style={{width: '30%'}} />
-                  <col style={{width: '30%'}} />
-                  <col style={{width: '30%'}} />
-                  <col className="hidden sm:table-column" style={{width: '10%'}} />
+                  <col style={{width: '25%'}} />
+                  <col style={{width: '25%'}} />
+                  <col style={{width: '25%'}} />
+                  <col style={{width: '25%'}} />
                 </colgroup>
                 <thead>
                   <tr className="bg-[#00513b] text-white">
-                    <th className="px-2 py-2.5 text-left font-bold text-xs break-keep">{t('clinical.table1_col1')}</th>
-                    <th className="px-2 py-2.5 text-center font-bold text-xs break-keep">{t('clinical.table1_col2')}</th>
-                    <th className="px-2 py-2.5 text-center font-bold text-xs bg-[#003d2b] break-keep">{t('clinical.table1_col3')}</th>
-                    <th className="px-2 py-2.5 text-center font-bold text-xs hidden sm:table-cell">{t('clinical.table1_col_diff')}</th>
+                    <th className="px-1 py-2.5 text-center font-bold text-xs break-keep">{t('clinical.table1_col1')}</th>
+                    <th className="px-1 py-2.5 text-center font-bold text-xs bg-[#003d2b] break-keep">{t('clinical.table1_col2')}</th>
+                    <th className="px-1 py-2.5 text-center font-bold text-xs break-keep">{t('clinical.table1_col3')}</th>
+                    <th className="px-1 py-2.5 text-center font-bold text-xs break-keep">{t('clinical.table1_col4')}</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                    <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row1_label')}</td>
-                    <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row1_val1')}</td>
-                    <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row1_val2')}</td>
-                    <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row1_diff')}</td>
+                    <td className="px-1 py-2.5 text-center font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row1_label')}</td>
+                    <td className="px-1 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row1_val1')}</td>
+                    <td className="px-1 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row1_val2')}</td>
+                    <td className="px-1 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row1_val3')}</td>
                   </tr>
                   <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                    <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row2_label')}</td>
-                    <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row2_val1')}</td>
-                    <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row2_val2')}</td>
-                    <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row2_diff')}</td>
-                  </tr>
-                  <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                    <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row3_label')}</td>
-                    <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row3_val1')}</td>
-                    <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row3_val2')}</td>
-                    <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row3_diff')}</td>
-                  </tr>
-                  <tr className="hover:bg-emerald-50/50 transition-colors">
-                    <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row4_label')}</td>
-                    <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row4_val1')}</td>
-                    <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row4_val2')}</td>
-                    <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row4_diff')}</td>
+                    <td className="px-1 py-2.5 text-center font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row2_label')}</td>
+                    <td className="px-1 py-2.5 text-center font-black text-red-600 text-xs bg-emerald-50 break-all">{t('clinical.table1_row2_val1')}</td>
+                    <td className="px-1 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row2_val2')}</td>
+                    <td className="px-1 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row2_val3')}</td>
                   </tr>
                 </tbody>
               </table>
