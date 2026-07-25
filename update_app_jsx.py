@@ -77,7 +77,7 @@ replacements = {
     "상피세포의 회복": "{t('label.ing3_desc')}",
     "4) 전해질제:": "{t('label.ing4_title')}",
     "Sodium acetate, Sodium propionate": "{t('label.ing4_desc')}",
-    "5) 몬모릴로나이트:": "{t('label.ing5_title')}",
+    "5) 고순도 초미세 나노 몬모릴로나이트:": "{t('label.ing5_title')}",
     "연변 및 설사 개선, 독소 제거, 장 환경 개선": "{t('label.ing5_desc')}",
     "사료 성분등록번호": "{t('label.reg_no_title')}",
     "제XX9UY0145호": "{t('label.reg_no')}",
