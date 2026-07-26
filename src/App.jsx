@@ -11,6 +11,8 @@ import OrderForm from './components/OrderForm';
 import Footer from './components/Footer';
 import LabelModal from './components/LabelModal';
 import PrintModal from './components/PrintModal';
+import VetSampleModal from './components/VetSampleModal';
+import StickyBottomCTA from './components/StickyBottomCTA';
 import useIframeHeight from './hooks/useIframeHeight';
 
 const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
@@ -18,7 +20,9 @@ const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
 const MonsmectaSNJLanding = () => {
   const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
   const { t } = useTranslation();
+  const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
   const [quantity, setQuantity] = useState(5);
+
   const [hospitalName, setHospitalName] = useState('');
   const [bizNumber, setBizNumber] = useState('');
   const [address, setAddress] = useState('');
@@ -120,9 +124,12 @@ const MonsmectaSNJLanding = () => {
 
       <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
       <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
+      <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
+      <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} />
       <Chatbot />
     </div>
   );
 };
+
 
 export default MonsmectaSNJLanding;
