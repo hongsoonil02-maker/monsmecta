@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import LabelModal from './components/LabelModal';
 import PrintModal from './components/PrintModal';
 import VetSampleModal from './components/VetSampleModal';
+import LegalModal from './components/LegalModal';
 import StickyBottomCTA from './components/StickyBottomCTA';
 import useIframeHeight from './hooks/useIframeHeight';
 
@@ -21,6 +22,7 @@ const MonsmectaSNJLanding = () => {
   const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
   const { t } = useTranslation();
   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
+  const [legalType, setLegalType] = useState(null);
   const [quantity, setQuantity] = useState(5);
 
   const [hospitalName, setHospitalName] = useState('');
@@ -109,7 +111,7 @@ const MonsmectaSNJLanding = () => {
         orderError={orderError}
         handleCheckout={handleCheckout}
       />
-      <Footer />
+      <Footer setLegalType={setLegalType} />
 
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -125,6 +127,7 @@ const MonsmectaSNJLanding = () => {
       <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
       <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
       <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
+      <LegalModal legalType={legalType} setLegalType={setLegalType} />
       <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} />
       <Chatbot />
     </div>
