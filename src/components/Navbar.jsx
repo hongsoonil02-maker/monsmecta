@@ -20,7 +20,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
           {/* Language toggle - Dropdown */}
           <div className="flex items-center shrink-0">
             <select
-              value={i18n.language || 'ko'}
+              value={i18n.language ? i18n.language.split('-')[0] : 'ko'}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
               aria-label="Language Selector"
               className="bg-slate-100 border border-slate-200 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-slate-200 transition-colors shadow-sm"

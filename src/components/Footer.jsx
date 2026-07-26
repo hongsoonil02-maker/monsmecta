@@ -15,7 +15,7 @@ const Footer = () => {
           <p className="text-emerald-500 mt-4">{t('footer.bank')}</p>
         </div>
         <div className="pt-8 border-t border-[#003d2b]/50 text-sm font-semibold tracking-wider text-emerald-600/80">
-          © {new Date().getFullYear()} S&J Animal Hospital. All rights reserved.
+          {t('footer.copyright', `© ${new Date().getFullYear()} S&J Animal Hospital. All rights reserved.`)}
           <br />
           <span className="text-xs font-normal mt-2 inline-block">{t('footer.notice')}</span>
         </div>

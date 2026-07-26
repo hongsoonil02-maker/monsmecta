@@ -15,9 +15,8 @@ const Hero = ({ setIsLabelModalOpen }) => {
             <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]"></span>
             {t('heroBadge')}
           </div>
-          <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight drop-shadow-xl break-keep">
-            {t('hero.title').split(',')[0]}<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 drop-shadow-sm">{t('hero.title').split(',').length > 1 ? t('hero.title').split(',')[1].trim() : ''}</span>
+          <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tight drop-shadow-xl break-keep">
+            {t('hero.title')}
           </h1>
           <p className="text-lg md:text-xl text-emerald-50/90 leading-relaxed max-w-xl mx-auto md:mx-0 font-light whitespace-pre-line break-keep">
             {t('hero.subtitle')}
