@@ -188,6 +188,12 @@
         "faq2": "Minimum sipariş miktarı (MOQ) ve fiyatı nedir?",
         "faq3": "Ödeme ve gönderim nasıl çalışır?"
     },
+    "stickyCta": {
+        "title": "MONSMECTA Veteriner Reçete Çözümü",
+        "sub": "Yüksek Saflıkta Nano Montmorillonit Bağırsak Mukoza Koruyucu",
+        "sampleBtn": "📦 Ücretsiz Veteriner Numunesi İsteyin",
+        "consultBtn": "📞 Münhasır Tedarik Sorgulama"
+    },
     "clinical": {
         "title": "Akademik Doğrulama & Klinik Test Verileri",
         "card1_title": "Ultra-İnce İşlem Teknolojisi Farkı",

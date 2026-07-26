@@ -188,6 +188,12 @@
         "faq2": "Qual é a quantidade mínima de pedido (MOQ) e o preço?",
         "faq3": "Como funcionam o pagamento e o envio?"
     },
+    "stickyCta": {
+        "title": "Solução de Prescrição Veterinária MONSMECTA",
+        "sub": "Protetor da Mucosa Intestinal de Nano Montmorillonite de Alta Pureza",
+        "sampleBtn": "📦 Solicitar Amostra Grátis para Veterinário",
+        "consultBtn": "📞 Consulta de Fornecimento Exclusivo"
+    },
     "clinical": {
         "title": "Dados de Validação Académica e Ensaios Clínicos",
         "card1_title": "Diferenciação da Tecnologia Ultra-Fina",

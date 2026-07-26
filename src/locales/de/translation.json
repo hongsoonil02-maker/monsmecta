@@ -188,6 +188,12 @@
         "faq2": "Was ist die Mindestbestellmenge (MOQ) und der Mindestpreis?",
         "faq3": "Wie funktionieren Zahlung und Versand?"
     },
+    "stickyCta": {
+        "title": "MONSMECTA Tierärztliche Verschreibungslösung",
+        "sub": "Hochreiner Nano-Montmorillonit Darmschleimhautschutz",
+        "sampleBtn": "📦 Kostenloses Tierarzt-Muster Anfordern",
+        "consultBtn": "📞 Exklusive Lieferanfrage"
+    },
     "clinical": {
         "title": "Akademische Nachweise & Klinische Studiendaten",
         "card1_title": "Differenzierung der Ultra-Fein-Technologie",
