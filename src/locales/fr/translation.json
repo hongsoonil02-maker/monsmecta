@@ -1,16 +1,16 @@
 {
-    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
+    "heroBadge": "Solution B2B Exclusive pour Cliniques Vétérinaires · Soins Digestifs pour Tous Animaux",
     "nav": {
-        "products": "Produits",
+        "products": "Présentation",
         "clinical": "Données Cliniques",
-        "values": "3 Valeurs",
+        "values": "3 Valeurs Clés",
         "order": "Commande Rapide"
     },
     "hero": {
-        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
-        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
-        "orderBtn": "Créer un Bon de Commande",
-        "specBtn": "📋 Voir les Spécifications"
+        "title": "Monsmecta sur Prescription Vétérinaire Exclusive aux Hôpitaux Vétérinaires",
+        "subtitle": "Vomissements, douleurs abdominales, diarrhée, indigestion, perte d'appétit : soins digestifs de première intention pour tous les animaux ! Nano-montmorillonite ultra-pure prescrite en toute sécurité pour chiens, chats, oiseaux, petits mammifères et reptiles.",
+        "orderBtn": "Créer un Bon de Commande Exclusif Directeur",
+        "specBtn": "📋 Voir les Spécifications et l'Étiquette du Produit"
     },
     "values": {
         "title": "Les 3 Promesses de MONSMECTA",

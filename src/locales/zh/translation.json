@@ -1,5 +1,5 @@
 {
-    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
+    "heroBadge": "全国兽医院专用B2B · 全畜种消化道常备处方 AAP",
     "nav": {
         "products": "产品介绍",
         "clinical": "临床数据",
@@ -7,9 +7,9 @@
         "order": "快速订购"
     },
     "hero": {
-        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
-        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
-        "orderBtn": "创建院长专用订购单",
+        "title": "兽医师专用处方蒙斯美达，动物医院独家供应",
+        "subtitle": "呕吐、腹痛、腹泻、消化不良、食欲不振——全畜种适用的消化道常备处方！高纯度超细纳米蒙脱石，让犬、猫、鸟类、小型哺乳动物（兔子/仓鼠）及爬行动物都能安全处方。",
+        "orderBtn": "填写院长专用订购单",
         "specBtn": "📋 查看产品规格/标签"
     },
     "values": {

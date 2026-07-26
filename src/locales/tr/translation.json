@@ -1,5 +1,5 @@
 {
-    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
+    "heroBadge": "Veteriner Klinikleri İçin Özel B2B Reçete Çözümü · Tüm Hayvanlar İçin Sindirim Bakımı",
     "nav": {
         "products": "Ürünler",
         "clinical": "Klinik Veriler",
@@ -7,10 +7,10 @@
         "order": "Hızlı Sipariş"
     },
     "hero": {
-        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
-        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
-        "orderBtn": "Özel Sipariş Formu Oluşturun",
-        "specBtn": "📋 Özellikleri Görüntüleyin / Etiketleyin"
+        "title": "Monsmecta Veteriner Hekimlere Özel Reçeteli Hayvan Hastanesi Tedariği",
+        "subtitle": "Kusma, karın ağrısı, ishal, hazımsızlık, iştahsızlık—tüm hayvanlar için ilk basamak sindirim bakımı! Köpekler, kediler, kuşlar, küçük memeliler ve sürüngenler için güvenle reçete edilen yüksek saflıkta nano montmorillonit.",
+        "orderBtn": "Yöneticiye Özel Sipariş Formu Oluşturun",
+        "specBtn": "📋 Ürün Özellikleri ve Etiketini Görüntüleyin"
     },
     "values": {
         "title": "MONSMCTA'nın 3 Temel Vaadi",

@@ -1,5 +1,5 @@
 {
-    "heroBadge": "Exclusive B2B Supply Chain for Veterinary Clinics · All-Animal Digestive Care",
+    "heroBadge": "全国動物病院専用B2B · 全畜種消化器常備処方ソリューション",
     "nav": {
         "products": "製品紹介",
         "clinical": "臨床データ",
@@ -7,8 +7,8 @@
         "order": "クイック注文"
     },
     "hero": {
-        "title": "Gastrointestinal Care Solution First to Reach For: MONSMECTA",
-        "subtitle": "Vomiting, Abdominal Pain, Diarrhea, Indigestion, Loss of Appetite, Refusal to Eat—Gastrointestinal Care for All Animals! High-purity ultra-fine nano montmorillonite first-line solution prescribed safely for dogs, cats, birds, small mammals (rabbits, hamsters), and reptiles.",
+        "title": "獣医師専用処方モンスメクタ、動物病院独占供給",
+        "subtitle": "嘔吐・腹痛・下痢・消化不良・食欲不振——全畜種OKの消化器常備処方！高純度超微粒子ナノモンモリロナイトで、犬・猫・鳥類・エキゾチックアニマル（ウサギ・ハムスター）・爬虫類まで安全に処方可能。",
         "orderBtn": "院長専用の注文書を作成する",
         "specBtn": "📋 製品スペック/ラベルを見る"
     },
