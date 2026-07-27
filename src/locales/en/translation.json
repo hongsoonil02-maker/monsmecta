@@ -98,9 +98,9 @@
         "deposit_bank_label": "Bank",
         "deposit_bank_value": "Kakao Bank",
         "deposit_account_label": "Account Number",
-        "deposit_account_value": "3333-26-3248376",
+        "deposit_account_value": "3333-37-2664149",
         "deposit_holder_label": "Account Holder",
-        "deposit_holder_value": "Soonil Hong",
+        "deposit_holder_value": "Soonil Hong (S&J Animal Hospital)",
         "deposit_amount_label": "Transfer Amount",
         "success_notice_prefix": "After your payment is confirmed, a ",
         "success_notice_highlight": "tax invoice is automatically issued",
@@ -121,7 +121,7 @@
         "min_order": "* Minimum Order Quantity: 5 Bottles",
         "total_price": "Total Payment Amount",
         "won": "KRW",
-        "bank_info": "Bank Transfer: Kakao Bank 3333-26-3248376 (Account Holder: Soonil Hong)"
+        "bank_info": "Bank Transfer: Kakao Bank 3333-37-2664149 (Account Holder: Soonil Hong (S&J Animal Hospital))"
     },
     "infographics": {
         "title": "Detailed Academic Data and Consultation Scenario",
@@ -139,7 +139,7 @@
         "info1": "Representative: Soonil Hong (Dr. James Hong) | Business Registration Number: 792-66-00615",
         "info2": "Address: 98-8, Seonjang 1-ro, Pogok-eup, Cheoin-gu, Yongin-si, Gyeonggi-do",
         "info3": "Contact: 031-321-6562 | Email: soonilhong@naver.com",
-        "bank": "Payment Account: Kakao Bank 3333-26-3248376 (Account Holder: Soonil Hong)",
+        "bank": "Payment Account: Kakao Bank 3333-37-2664149 (Account Holder: Soonil Hong (S&J Animal Hospital))",
         "notice": "※ This site is a confidential document sent exclusively to veterinary directors nationwide.",
         "copyright": "© 2026 S&J Animal Hospital. All rights reserved."
     },
