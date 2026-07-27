@@ -116,7 +116,7 @@ const OrderForm = ({
                 </h3>
                 <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-colors shadow-inner">
                   <div className="mb-6 md:mb-0 text-center md:text-left">
-                    <div className="font-black text-2xl text-slate-800 tracking-tight">{t('clinical.chart_monsmecta')} <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
+                    <div className="font-black text-2xl text-slate-800 tracking-tight">{t('order.product_name')} <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
                     <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}{t('order.won')}</span> <span className="text-xs">{t('order.vat_included')}</span></div>
                     <p className="text-xs text-[#00513b] mt-1 font-semibold">{t('order.min_order')}</p>
                   </div>
