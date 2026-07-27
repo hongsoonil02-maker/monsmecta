@@ -11,7 +11,7 @@ export default function StickyBottomCTA({ onOpenModal }) {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
         <div className="hidden md:flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#00513b] border border-emerald-400/30 text-white flex items-center justify-center font-black text-lg shadow-inner">
+          <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-xl shadow-md border border-slate-200">
             🩺
           </div>
           <div>
