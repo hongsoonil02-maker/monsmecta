@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024, initial-scale=1.0">
+    <title>MONSMECTA Bird Amber Label Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background: white !important;
+                margin: 0;
+                padding: 0;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            #label-container {
+                width: 900px !important;
+                height: auto !important;
+                zoom: 0.8;
+                transform-origin: top center;
+                margin: 0;
+                border: none !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Label Container -->
+    <!-- 20x20cm approx ratio, scaleable -->
+    <div id="label-container"
+        class="bg-[#78350f] text-amber-50 w-[900px] shrink-0 rounded-[30px] shadow-2xl overflow-hidden border-8 border-[#92400e] relative">
+
+        <!-- Top Gold/Orange Accent -->
+        <div class="h-4 bg-gradient-to-r from-lime-600 via-lime-400 to-lime-600"></div>
+
+        <div class="p-8 sm:p-12 relative">
+
+            <!-- Background Texture -->
+            <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+            </div>
+
+            <div class="relative z-10 flex flex-row gap-12">
+
+                <!-- Left Column (Brand & Key Selling Points) -->
+                <div class="w-[44%] flex flex-col justify-between">
+                    <div>
+                        <div class="w-full flex justify-center">
+                            <div class="inline-block text-center bg-amber-900/50 border border-amber-500/30 rounded-full px-4 py-1.5 mb-6">
+                                <span class="text-xs font-bold text-amber-300 tracking-wider">Veterinary Exclusive Gut Health<br>Premier Solution</span>
+                            </div>
+                        </div>
+
+                        <div class="w-full text-center flex flex-col items-center">
+                            <p class="text-sm font-semibold text-lime-400 mb-2 tracking-wide text-center">연변 시 장 기능 개선 및 정장 작용에 뛰어난</p>
+                            <h1 class="text-6xl font-black text-white tracking-tight leading-none mb-2 text-center">몬스멕타</h1>
+                            <h2 class="text-2xl font-bold montserrat text-amber-200/80 tracking-[0.2em] mb-10 text-center">MONSMECTA</h2>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="bg-[#92400e]/80 p-5 rounded-2xl border border-amber-600/20 shadow-inner">
+                                <h3 class="text-xl font-bold text-lime-400 mb-4 border-b border-amber-600/30 pb-2">성분 (5가지 복합체)</h3>
+                                <ul class="space-y-4 text-sm font-medium">
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">1) 항균·항바이러스 작용</div>
+                                        <div class="text-amber-300 pl-4 mb-1">- 1-deoxynojirimycin (DNJ) 천연성분 함유</div>
+                                        <div class="text-lime-400/90 text-[11px] pl-4">&bull; 특허균주 Bacillus subtilis MORI 균주<br>&bull; Patent No. 201180042602.8</div>
+                                    </li>
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">2) 장 기능 개선 및 정장 작용</div>
+                                        <div class="text-amber-300 pl-4">- 포도당</div>
+                                    </li>
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">3) 상피세포의 회복</div>
+                                        <div class="text-amber-300 pl-4">- 비타민 A</div>
+                                    </li>
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">4) 전해질제</div>
+                                        <div class="text-amber-300 pl-4">- Sodium acetate, Sodium propionate</div>
+                                    </li>
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">5) 연변 및 설사 개선, 독소 제거</div>
+                                        <div class="text-amber-300 pl-4 leading-relaxed">- 몬모릴로나이트<br /><span
+                                                class="text-[11px] text-amber-300/80">(곰팡이 독소 제거, 면역 증강 및 장 환경 개선에 도움)</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Specs & Details) -->
+                <div class="w-[56%] flex flex-col justify-between">
+                    <div
+                        class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl h-full flex flex-col justify-between">
+
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-[12px] leading-relaxed">
+
+                            <div class="col-span-full border-b border-slate-200 pb-2 mb-2">
+                                <div class="flex justify-between items-end">
+                                    <span class="font-bold text-slate-900 text-sm">사료 성분등록번호</span>
+                                    <span class="text-slate-600 font-bold">제XX9UY0145호</span>
+                                </div>
+                            </div>
+
+                            <div class="col-span-full">
+                                <span class="font-bold text-slate-900 block mb-1">사료의 종류 및 명칭 / 형태 / 용도</span>
+                                <span class="text-slate-800 font-medium">보조사료 / 미생물제 / 바실러스 서브틸리스 | 액상 | 반려동물용</span>
+                            </div>
+
+                            <div class="col-span-full">
+                                <span class="font-bold text-slate-900 block mb-1">등록성분량</span>
+                                <span class="text-slate-800 font-medium">바실러스 서브틸리스 1.0 x 10^7 cfu/g 이상, 부형제(정제수)</span>
+                            </div>
+
+                            <div class="col-span-full">
+                                <span class="font-bold text-slate-900 block mb-1">사용한 원료의 명칭</span>
+                                <span class="text-slate-800 font-medium">바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수</span>
+                            </div>
+
+                            <div class="col-span-full mt-2">
+                                <span class="font-bold text-[#92400e] text-sm block mb-1">▶ 효과</span>
+                                <ol class="text-slate-800 font-medium space-y-1 list-decimal pl-4">
+                                    <li>장 관련 질병(파보, 로타, 코로나 등)에 대한 저항력 향상에 도움</li>
+                                    <li>면역 기능 및 건강 상태 유지에 도움</li>
+                                    <li>장 기능 개선 및 정장 작용에 도움</li>
+                                </ol>
+                            </div>
+
+                            <div class="mt-2">
+                                <span class="font-bold text-slate-900 block mb-1">대상축종</span>
+                                <span class="text-slate-800 font-medium">송아지 , 갓난 돼지, 새끼 염소, 새끼 양, 망아지, 강아지, 고양이, 모든 동물(조류,파충류,어류,등등)</span>
+                            </div>
+
+                            <div class="mt-2">
+                                <span class="font-bold text-slate-900 block mb-1">용법 및 용량</span>
+                                <span class="text-slate-800 font-medium">1일 투당 2~4ml, 5~7일간 경구 급여</span>
+                            </div>
+
+                            <div class="col-span-full bg-slate-100 p-3 rounded-lg border border-slate-200 mt-2">
+                                <span class="font-bold text-lime-600 block mb-1">⚠️ 주의사항</span>
+                                <ul class="text-slate-700 font-medium text-[11px] space-y-1 list-decimal pl-4">
+                                    <li>직사광선을 피하여 건조하고 서늘한 곳에 보관하십시오.</li>
+                                    <li>제품 특성 상 가라앉는 성분들이 있어서 <strong class="text-slate-900">흔들어서 사용</strong>하십시오.</li>
+                                    <li>제품에 대하여 문의하실 경우 제조원 또는 판매원으로 연락하여 주시기 바랍니다.</li>
+                                </ul>
+                            </div>
+
+                            <div
+                                class="col-span-full flex justify-between items-center border-t border-slate-200 pt-4 mt-2 font-bold text-sm">
+                                <div class="text-slate-900">포장단위 <span class="text-slate-600 font-normal ml-2">100ml</span></div>
+                                <div class="text-slate-900">제조일자 <span
+                                        class="text-slate-600 font-normal ml-2">별도표기</span></div>
+                            </div>
+                            <div class="col-span-full font-bold text-sm">
+                                <div class="text-slate-900">유통기한 <span class="text-slate-600 font-normal ml-2">제조일로부터 18개월</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer (Manufacturer Details) -->
+            <div
+                class="mt-10 pt-6 border-t border-amber-800/50 flex flex-row justify-between items-center text-xs text-amber-100/70 gap-4">
+                <div class="flex items-center gap-4">
+                    <div>
+                        <div class="font-bold text-white text-sm mb-0.5">판매원 : (주)한국아그로</div>
+                        <div class="mb-0.5">서울특별시 마포구 큰우물로 75, 1506호(도화동, 성지빌딩)</div>
+                        <div><span class="font-bold">TEL</span> 02-6949-5708</div>
+                    </div>
+                </div>
+                <div class="text-right border-l border-amber-800/50 pl-6 flex-grow">
+                    <div class="font-bold text-white text-sm mb-0.5 text-left">제조원 : 엠오바이오</div>
+                    <div class="mb-0.5 text-left">경기도 화성시 팔탄면 석포로 74번길 10-25</div>
+                    <div class="text-left"><span class="font-bold">TEL</span> 031-458-1240</div>
+                </div>
+                <div class="text-center bg-white/10 p-2 rounded-lg ml-auto border border-amber-500/30">
+                    <div
+                        class="w-8 h-8 border-2 border-amber-300 mx-auto rotate-45 flex items-center justify-center mb-1">
+                        <span class="text-[8px] -rotate-45 font-bold text-amber-300">플라스틱</span>
+                    </div>
+                    <div class="text-[8px] text-amber-300 font-bold uppercase tracking-wider">OTHER</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

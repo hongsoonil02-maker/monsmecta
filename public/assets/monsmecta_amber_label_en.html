@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024, initial-scale=1.0">
+    <title>MONSMECTA Bird Amber Label Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background: white !important;
+                margin: 0;
+                padding: 0;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            #label-container {
+                width: 900px !important;
+                height: auto !important;
+                zoom: 0.8;
+                transform-origin: top center;
+                margin: 0;
+                border: none !important;
+                box-shadow: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Label Container -->
+    <!-- 20x20cm approx ratio, scaleable -->
+    <div id="label-container"
+        class="bg-[#78350f] text-amber-50 w-[900px] shrink-0 rounded-[30px] shadow-2xl overflow-hidden border-8 border-[#92400e] relative">
+
+        <!-- Top Gold/Orange Accent -->
+        <div class="h-4 bg-gradient-to-r from-lime-600 via-lime-400 to-lime-600"></div>
+
+        <div class="p-8 sm:p-12 relative">
+
+            <!-- Background Texture -->
+            <div class="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+            </div>
+
+            <div class="relative z-10 flex flex-row gap-12">
+
+                <!-- Left Column (Brand & Key Selling Points) -->
+                <div class="w-[44%] flex flex-col justify-between">
+                    <div>
+                        <div class="w-full flex justify-center">
+                            <div class="inline-block text-center bg-amber-900/50 border border-amber-500/30 rounded-full px-4 py-1.5 mb-6">
+                                <span class="text-xs font-bold text-amber-300 tracking-wider">Veterinary Exclusive Gut Health<br>Premier Solution</span>
+                            </div>
+                        </div>
+
+                        <div class="w-full text-center flex flex-col items-center">
+                            <p class="text-sm font-semibold text-lime-400 mb-2 tracking-wide text-center">Excellent for improving bowel function & intestinal health</p>
+                            <h1 class="text-6xl font-black text-white tracking-tight leading-none mb-2 text-center">MONSMECTA</h1>
+                            <h2 class="text-2xl font-bold montserrat text-amber-200/80 tracking-[0.2em] mb-10 text-center">FOR BIRDS</h2>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="bg-[#92400e]/80 p-5 rounded-2xl border border-amber-600/20 shadow-inner">
+                                <h3 class="text-xl font-bold text-lime-400 mb-4 border-b border-amber-600/30 pb-2">Ingredients (5 Complex Formula)</h3>
+                                <ul class="space-y-4 text-sm font-medium">
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">1) Antibacterial & Antiviral Effects</div>
+                                        <div class="text-amber-300 pl-4 mb-1">- Contains natural 1-deoxynojirimycin (DNJ)</div>
+                                        <div class="text-lime-400/90 text-[11px] pl-4">&bull; Patented Strain Bacillus subtilis MORI<br>&bull; Patent No. 201180042602.8</div>
+                                    </li>
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">2) Improves Bowel Function & Intestinal Health</div>
+                                        <div class="text-amber-300 pl-4">- Glucose</div>
+                                    </li>
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">3) Epithelial Cell Recovery</div>
+                                        <div class="text-amber-300 pl-4">- Vitamin A</div>
+                                    </li>
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">4) Electrolytes</div>
+                                        <div class="text-amber-300 pl-4">- Sodium acetate, Sodium propionate</div>
+                                    </li>
+                                    <li>
+                                        <div class="text-amber-100 font-bold mb-1">5) Relieves Soft Stools & Diarrhea, Removes Toxins</div>
+                                        <div class="text-amber-300 pl-4 leading-relaxed">- Montmorillonite<br /><span
+                                                class="text-[11px] text-amber-300/80">(Helps remove fungal toxins, boost immunity, and improve intestinal environment)</span></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Specs & Details) -->
+                <div class="w-[56%] flex flex-col justify-between">
+                    <div
+                        class="bg-white text-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl h-full flex flex-col justify-between">
+
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 text-[12px] leading-relaxed">
+
+                            <div class="col-span-full border-b border-slate-200 pb-2 mb-2">
+                                <div class="flex justify-between items-end">
+                                    <span class="font-bold text-slate-900 text-sm">Feed Registration No.</span>
+                                    <span class="text-slate-600 font-bold">No. XX9UY0145</span>
+                                </div>
+                            </div>
+
+                            <div class="col-span-full">
+                                <span class="font-bold text-slate-900 block mb-1">Type & Name / Form / Purpose</span>
+                                <span class="text-slate-800 font-medium">Supplementary Feed / Microbial Agent / Bacillus subtilis | Liquid | For Pets</span>
+                            </div>
+
+                            <div class="col-span-full">
+                                <span class="font-bold text-slate-900 block mb-1">Registered Ingredients Content</span>
+                                <span class="text-slate-800 font-medium">Bacillus subtilis ≥ 1.0 x 10^7 cfu/g, Excipient (Purified Water)</span>
+                            </div>
+
+                            <div class="col-span-full">
+                                <span class="font-bold text-slate-900 block mb-1">Raw Materials Used</span>
+                                <span class="text-slate-800 font-medium">Bacillus subtilis, Vitamin A, Sodium Acetate, Sodium Propionate, Glucose, Purified Water</span>
+                            </div>
+
+                            <div class="col-span-full mt-2">
+                                <span class="font-bold text-[#92400e] text-sm block mb-1">▶ Benefits</span>
+                                <ol class="text-slate-800 font-medium space-y-1 list-decimal pl-4">
+                                    <li>Helps improve resistance to intestinal diseases (Parvo, Rota, Corona, etc.)</li>
+                                    <li>Helps maintain immune function and overall health</li>
+                                    <li>Helps improve bowel function and intestinal health</li>
+                                </ol>
+                            </div>
+
+                            <div class="mt-2">
+                                <span class="font-bold text-slate-900 block mb-1">Target Animals</span>
+                                <span class="text-slate-800 font-medium">Calves, Piglets, Kids (Goats), Lambs, Foals, Dogs, Cats, All Animals (Birds, Reptiles, Fish, etc.)</span>
+                            </div>
+
+                            <div class="mt-2">
+                                <span class="font-bold text-slate-900 block mb-1">Dosage & Administration</span>
+                                <span class="text-slate-800 font-medium">Orally administer 2~4ml per head daily for 5~7 days</span>
+                            </div>
+
+                            <div class="col-span-full bg-slate-100 p-3 rounded-lg border border-slate-200 mt-2">
+                                <span class="font-bold text-lime-600 block mb-1">⚠️ Cautions</span>
+                                <ul class="text-slate-700 font-medium text-[11px] space-y-1 list-decimal pl-4">
+                                    <li>Store in a cool, dry place away from direct sunlight.</li>
+                                    <li>Due to the nature of the product, there may be sedimentation. Please <strong class="text-slate-900">shake well</strong>before use.</li>
+                                    <li>For inquiries about the product, please contact the manufacturer or distributor.</li>
+                                </ul>
+                            </div>
+
+                            <div
+                                class="col-span-full flex justify-between items-center border-t border-slate-200 pt-4 mt-2 font-bold text-sm">
+                                <div class="text-slate-900">Packaging Unit <span class="text-slate-600 font-normal ml-2">100ml</span></div>
+                                <div class="text-slate-900">Mfg Date <span
+                                        class="text-slate-600 font-normal ml-2">Marked Separately</span></div>
+                            </div>
+                            <div class="col-span-full font-bold text-sm">
+                                <div class="text-slate-900">Expiration Date <span class="text-slate-600 font-normal ml-2">18 months from manufacturing date</span></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer (Manufacturer Details) -->
+            <div
+                class="mt-10 pt-6 border-t border-amber-800/50 flex flex-row justify-between items-center text-xs text-amber-100/70 gap-4">
+                <div class="flex items-center gap-4">
+                    <div>
+                        <div class="font-bold text-white text-sm mb-0.5">Distributor : KOREA AGRO Co., Ltd.</div>
+                        <div class="mb-0.5">#1506, Seongji Bldg, 75 Keunu-mul-ro, Mapo-gu, Seoul, Republic of Korea</div>
+                        <div><span class="font-bold">TEL</span> 02-6949-5708</div>
+                    </div>
+                </div>
+                <div class="text-right border-l border-amber-800/50 pl-6 flex-grow">
+                    <div class="font-bold text-white text-sm mb-0.5 text-left">Manufacturer : MO BIO</div>
+                    <div class="mb-0.5 text-left">10-25, Seokpo-ro 74beon-gil, Paltan-myeon, Hwaseong-si, Gyeonggi-do, Republic of Korea</div>
+                    <div class="text-left"><span class="font-bold">TEL</span> 031-458-1240</div>
+                </div>
+                <div class="text-center bg-white/10 p-2 rounded-lg ml-auto border border-amber-500/30">
+                    <div
+                        class="w-8 h-8 border-2 border-amber-300 mx-auto rotate-45 flex items-center justify-center mb-1">
+                        <span class="text-[8px] -rotate-45 font-bold text-amber-300">PLASTIC</span>
+                    </div>
+                    <div class="text-[8px] text-amber-300 font-bold uppercase tracking-wider">OTHER</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
