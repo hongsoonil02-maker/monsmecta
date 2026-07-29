@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 export default function VetSampleModal({ isOpen, onClose }) {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     hospitalName: '',
     vetName: '',
@@ -25,9 +26,41 @@ export default function VetSampleModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+    
+    try {
+      const scriptURL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
+      if (!scriptURL) {
+        throw new Error('Google Apps Script URL is not configured');
+      }
+      
+      const formData = new FormData();
+      formData.append('type', 'sample_request');
+      formData.append('hospitalName', form.hospitalName);
+      formData.append('vetName', form.vetName);
+      formData.append('phone', form.phone);
+      formData.append('address', form.address);
+      formData.append('requestType', form.requestType);
+      formData.append('timestamp', new Date().toLocaleString('ko-KR'));
+
+      const response = await fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert(t('sampleModal.error', '신청 처리 중 서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'));
+      }
+    } catch (error) {
+      console.error('Error!', error.message);
+      alert(t('sampleModal.networkError', '신청이 정상 접수되지 않았습니다. 네트워크 상태를 확인한 뒤 다시 시도해 주세요.'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -152,9 +185,20 @@ export default function VetSampleModal({ isOpen, onClose }) {
 
             <button
               type="submit"
-              className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg hover:shadow-blue-600/30 transition-all text-sm mt-2 focus:ring-2 focus:ring-blue-500"
+              disabled={isSubmitting}
+              className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg hover:shadow-blue-600/30 transition-all text-sm mt-2 focus:ring-2 focus:ring-blue-500 flex justify-center items-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {t('sampleModal.submitBtn', '샘플 키트 무료 신청하기')}
+              {isSubmitting ? (
+                <>
+                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  {t('sampleModal.submitting', '처리 중...')}
+                </>
+              ) : (
+                t('sampleModal.submitBtn', '샘플 키트 무료 신청하기')
+              )}
             </button>
           </form>
         )}
