@@ -85,7 +85,7 @@ const MonsmectaSNJLanding = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-800 scroll-smooth">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-800 scroll-smooth overflow-x-hidden">
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#00513b] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none">
         본문 바로가기
       </a>
