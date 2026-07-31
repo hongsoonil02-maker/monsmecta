@@ -145,36 +145,36 @@ const ClinicalEvidence = () => {
                   </colgroup>
                   <thead>
                     <tr className="bg-[#00513b] text-white">
-                      <th className="px-3 py-3 text-left font-bold text-xs">{t('clinical.table3_col1', '바이러스 계통')}</th>
-                      <th className="px-3 py-3 text-left font-bold text-xs">{t('clinical.table3_header', '대상 바이러스')}</th>
-                      <th className="px-3 py-3 text-center font-bold text-xs">{t('clinical.table3_col3', '효과')}</th>
+                      <th className="px-1 py-3 text-center font-bold text-xs">{t('clinical.table3_col1', '바이러스 계통')}</th>
+                      <th className="px-1 py-3 text-center font-bold text-xs">{t('clinical.table3_header', '대상 바이러스')}</th>
+                      <th className="px-1 py-3 text-center font-bold text-xs">{t('clinical.table3_col3', '효과')}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                      <td className="px-3 py-3 text-xs text-slate-500 break-words font-medium">Arteriviruses</td>
-                      <td className="px-3 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row1', 'PRRSV (돼지생식기호흡기증후군)')}</td>
-                      <td className="px-3 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
+                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Arteriviruses</td>
+                      <td className="px-1 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row1', 'PRRSV (돼지생식기호흡기증후군)')}</td>
+                      <td className="px-1 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
                     </tr>
                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                      <td className="px-3 py-3 text-xs text-slate-500 break-words font-medium">Orthomyxoviridae</td>
-                      <td className="px-3 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row2', '조류독감 A (AIV)')}</td>
-                      <td className="px-3 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
+                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Orthomyxoviridae</td>
+                      <td className="px-1 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row2', '조류독감 A (AIV)')}</td>
+                      <td className="px-1 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
                     </tr>
                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                      <td className="px-3 py-3 text-xs text-slate-500 break-words font-medium">Pestiviruses</td>
-                      <td className="px-3 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row3', '소 바이러스성 설사병 (BVDV)')}</td>
-                      <td className="px-3 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
+                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Pestiviruses</td>
+                      <td className="px-1 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row3', '소 바이러스성 설사병 (BVDV)')}</td>
+                      <td className="px-1 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
                     </tr>
                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                      <td className="px-3 py-3 text-xs text-slate-500 break-words font-medium">Bunyaviridae</td>
-                      <td className="px-3 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row4', '아카바네, 아이노 바이러스')}</td>
-                      <td className="px-3 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
+                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Bunyaviridae</td>
+                      <td className="px-1 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row4', '아카바네, 아이노 바이러스')}</td>
+                      <td className="px-1 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
                     </tr>
                     <tr className="hover:bg-emerald-50/50 transition-colors">
-                      <td className="px-3 py-3 text-xs text-slate-500 break-words font-medium">Rhabdoviridae</td>
-                      <td className="px-3 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row5', '소유행열 바이러스 (BEF)')}</td>
-                      <td className="px-3 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
+                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Rhabdoviridae</td>
+                      <td className="px-1 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row5', '소유행열 바이러스 (BEF)')}</td>
+                      <td className="px-1 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
                     </tr>
                   </tbody>
                 </table>
