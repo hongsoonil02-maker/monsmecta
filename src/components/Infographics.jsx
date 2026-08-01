@@ -11,7 +11,7 @@ const Infographics = ({ iframeHeights }) => {
     <section className="py-6 md:py-12 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-8">
         <h3 className="text-3xl md:text-4xl font-extrabold text-[#00513b] mb-4 break-keep">{t('infographics.title')}</h3>
-        <p className="text-slate-500 text-lg font-medium">{t('infographics.desc')}</p>
+        <p className="text-slate-500 text-lg font-medium break-keep">{t('infographics.desc')}</p>
       </div>
       <div className="space-y-4 md:space-y-6">
 

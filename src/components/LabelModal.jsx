@@ -31,70 +31,70 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen
                 <h4 className="text-xl font-black text-[#00513b] mb-2">{t('label.product_name')}</h4>
                 <p className="text-sm font-bold text-amber-500 mb-4">{t('label.desc')}</p>
                 <div className="space-y-2 text-left bg-emerald-50 p-4 rounded-xl">
-                  <p className="text-xs font-bold text-emerald-800">{t('label.feed1')}</p>
-                  <p className="text-xs font-bold text-emerald-800">{t('label.feed2')}</p>
-                  <p className="text-xs font-bold text-emerald-800">{t('label.feed3')}</p>
+                  <p className="text-xs font-bold text-emerald-800 break-keep">{t('label.feed1')}</p>
+                  <p className="text-xs font-bold text-emerald-800 break-keep">{t('label.feed2')}</p>
+                  <p className="text-xs font-bold text-emerald-800 break-keep">{t('label.feed3')}</p>
                 </div>
               </div>
             </div>
 
             <div className="md:w-2/3 space-y-6">
               <div>
-                <h5 className="text-lg font-bold text-slate-800 border-b-2 border-amber-400 pb-2 mb-4 inline-block">{t('label.ingredients_title')}</h5>
+                <h5 className="text-lg font-bold text-slate-800 border-b-2 border-amber-400 pb-2 mb-4 inline-block break-keep">{t('label.ingredients_title')}</h5>
                 <ul className="space-y-3 text-sm text-slate-600">
-                  <li><strong className="text-emerald-700">{t('label.ing1_title')}</strong> {t('label.ing1_desc')} <br /><span className="text-xs text-slate-400 pl-4">{t('label.ing1_note')}</span></li>
-                  <li><strong className="text-emerald-700">{t('label.ing2_title')}</strong> {t('label.ing2_desc')}</li>
-                  <li><strong className="text-emerald-700">{t('label.ing3_title')}</strong> {t('label.ing3_desc')}</li>
-                  <li><strong className="text-emerald-700">{t('label.ing4_title')}</strong> {t('label.ing4_desc')}</li>
-                  <li><strong className="text-emerald-700">{t('label.ing5_title')}</strong> {t('label.ing5_desc')}</li>
+                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing1_title')}</strong> {t('label.ing1_desc')} <br /><span className="text-xs text-slate-400 pl-4">{t('label.ing1_note')}</span></li>
+                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing2_title')}</strong> {t('label.ing2_desc')}</li>
+                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing3_title')}</strong> {t('label.ing3_desc')}</li>
+                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing4_title')}</strong> {t('label.ing4_desc')}</li>
+                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing5_title')}</strong> {t('label.ing5_desc')}</li>
                 </ul>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm bg-slate-50 p-5 rounded-2xl border border-slate-200">
                 <div className="col-span-full border-b border-slate-200 pb-2 mb-2 flex justify-between items-end">
-                  <span className="block text-xs font-bold text-slate-400 uppercase">{t('label.reg_no_title')}</span>
-                  <strong className="text-slate-800">{t('label.reg_no')}</strong>
+                  <span className="block text-xs font-bold text-slate-400 uppercase break-keep">{t('label.reg_no_title')}</span>
+                  <strong className="text-slate-800 break-keep">{t('label.reg_no')}</strong>
                 </div>
 
                 <div className="col-span-full">
-                  <span className="block text-xs font-bold text-slate-400 uppercase mb-1">{t('label.type_title')}</span>
-                  <strong className="text-slate-800">{t('label.type_val')}</strong>
+                  <span className="block text-xs font-bold text-slate-400 uppercase mb-1 break-keep">{t('label.type_title')}</span>
+                  <strong className="text-slate-800 break-keep">{t('label.type_val')}</strong>
                 </div>
 
                 <div className="col-span-full">
-                  <span className="block text-xs font-bold text-slate-400 uppercase mb-1">{t('label.amount_title')}</span>
-                  <strong className="text-slate-800">{t('label.amount_val')}</strong>
+                  <span className="block text-xs font-bold text-slate-400 uppercase mb-1 break-keep">{t('label.amount_title')}</span>
+                  <strong className="text-slate-800 break-keep">{t('label.amount_val')}</strong>
                 </div>
 
                 <div className="col-span-full">
-                  <span className="block text-xs font-bold text-slate-400 uppercase mb-1">{t('label.ingredients_list_title')}</span>
-                  <strong className="text-slate-800">{t('label.ingredients_list_val')}</strong>
+                  <span className="block text-xs font-bold text-slate-400 uppercase mb-1 break-keep">{t('label.ingredients_list_title')}</span>
+                  <strong className="text-slate-800 break-keep">{t('label.ingredients_list_val')}</strong>
                 </div>
 
                 <div className="col-span-full mt-2">
-                  <span className="block text-xs font-bold text-[#00513b] uppercase mb-1">{t('label.effect_title')}</span>
+                  <span className="block text-xs font-bold text-[#00513b] uppercase mb-1 break-keep">{t('label.effect_title')}</span>
                   <ul className="text-slate-800 font-medium list-disc pl-4 mt-1 space-y-1">
-                    <li>{t('label.effect1')}</li>
-                    <li>{t('label.effect2')}</li>
-                    <li>{t('label.ing2_desc')}에 도움</li>
+                    <li className="break-keep">{t('label.effect1')}</li>
+                    <li className="break-keep">{t('label.effect2')}</li>
+                    <li className="break-keep">{t('label.ing2_desc')}에 도움</li>
                   </ul>
                 </div>
 
                 <div className="flex justify-between items-center border-t border-slate-200 pt-3 mt-2 col-span-full">
-                  <div><span className="text-xs font-bold text-slate-400 uppercase">{t('label.weight_title')}</span> <strong className="text-slate-800 ml-1">{t('label.weight_val')}</strong></div>
-                  <div><span className="text-xs font-bold text-slate-400 uppercase">{t('label.mfg_title')}</span> <span className="text-slate-600 ml-1">{t('label.mfg_val')}</span></div>
+                  <div><span className="text-xs font-bold text-slate-400 uppercase break-keep">{t('label.weight_title')}</span> <strong className="text-slate-800 ml-1 break-keep">{t('label.weight_val')}</strong></div>
+                  <div><span className="text-xs font-bold text-slate-400 uppercase break-keep">{t('label.mfg_title')}</span> <span className="text-slate-600 ml-1 break-keep">{t('label.mfg_val')}</span></div>
                 </div>
                 <div className="col-span-full">
-                  <span className="text-xs font-bold text-slate-400 uppercase">{t('label.exp_title')}</span> <span className="text-slate-600 ml-1">{t('label.exp_val')}</span>
+                  <span className="text-xs font-bold text-slate-400 uppercase break-keep">{t('label.exp_title')}</span> <span className="text-slate-600 ml-1 break-keep">{t('label.exp_val')}</span>
                 </div>
               </div>
 
               <div className="bg-rose-50 text-rose-800 p-4 rounded-xl text-xs font-medium border border-rose-100">
-                <span className="font-bold block mb-1">{t('label.warning_title')}</span>
+                <span className="font-bold block mb-1 break-keep">{t('label.warning_title')}</span>
                 <ul className="list-decimal pl-4 space-y-1">
-                  <li>{t('label.warning1')}</li>
-                  <li>{t('label.warning2_part1')} <strong className="text-rose-900 font-bold">{t('label.warning2_part2')}</strong>{t('label.warning2_part3')}</li>
-                  <li>{t('label.warning3')}</li>
+                  <li className="break-keep">{t('label.warning1')}</li>
+                  <li className="break-keep">{t('label.warning2_part1')} <strong className="text-rose-900 font-bold">{t('label.warning2_part2')}</strong>{t('label.warning2_part3')}</li>
+                  <li className="break-keep">{t('label.warning3')}</li>
                 </ul>
               </div>
             </div>

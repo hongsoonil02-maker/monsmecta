@@ -16,24 +16,24 @@ const Values = () => {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
             <div className="w-16 h-16 bg-[#00513b] text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">🔒</div>
-            <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.online')}</h4>
-            <p className="text-slate-600 leading-relaxed">
+            <h4 className="text-xl font-bold text-slate-800 mb-4 break-keep">{t('values.online')}</h4>
+            <p className="text-slate-600 leading-relaxed break-keep">
               {t('values.online_desc')}
             </p>
           </div>
 
           <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
             <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">💸</div>
-            <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.price')}</h4>
-            <p className="text-slate-600 leading-relaxed">
+            <h4 className="text-xl font-bold text-slate-800 mb-4 break-keep">{t('values.price')}</h4>
+            <p className="text-slate-600 leading-relaxed break-keep">
               {t('values.price_desc')}
             </p>
           </div>
 
           <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
             <div className="w-16 h-16 bg-slate-800 text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">🔬</div>
-            <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.formula')}</h4>
-            <p className="text-slate-600 leading-relaxed">
+            <h4 className="text-xl font-bold text-slate-800 mb-4 break-keep">{t('values.formula')}</h4>
+            <p className="text-slate-600 leading-relaxed break-keep">
               {t('values.formula_desc')}
             </p>
           </div>
