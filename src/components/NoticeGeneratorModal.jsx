@@ -105,7 +105,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
             <div className="w-full h-full max-w-[794px] max-h-[1123px] aspect-[1/1.414] bg-white shadow-2xl overflow-hidden border border-slate-300 mx-auto relative">
               <iframe 
                 ref={iframeRef}
-                src={`${import.meta.env.BASE_URL}assets/notice_a4_winner_poster.html`}
+                src={`${import.meta.env.BASE_URL}notice_a4_winner_poster.html`}
                 className="w-full h-full border-0 absolute top-0 left-0"
                 title="Notice Board Preview"
               />
