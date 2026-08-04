@@ -54,7 +54,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
             <div className="mb-6">
               <p className="text-slate-600 mb-4">병원명, 주소, 연락처를 입력하시면 알림판 하단에 자동으로 적용됩니다.</p>
               
-              <div className="space-y-4">
+              <div className="space-y-4" translate="no">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-1">동물병원명</label>
                   <input 
@@ -66,7 +66,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">주소 (선택)</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">병원주소(선택)</label>
                   <input 
                     type="text" 
                     value={address}
@@ -76,7 +76,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">병원 전화번호 (선택)</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">병원전화번호(선택)</label>
                   <input 
                     type="text" 
                     value={tel}
@@ -86,7 +86,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">원장님 전화번호 (선택)</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">원장님전화번호(선택)</label>
                   <input 
                     type="text" 
                     value={vetTel}
