@@ -8,6 +8,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
   const [hospitalName, setHospitalName] = useState('');
   const [address, setAddress] = useState('');
   const [tel, setTel] = useState('');
+  const [vetTel, setVetTel] = useState('');
 
   // Update iframe when inputs change
   useEffect(() => {
@@ -16,10 +17,11 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
         type: 'UPDATE_POSTER',
         name: hospitalName,
         address,
-        tel
+        tel,
+        vetTel
       }, '*');
     }
-  }, [hospitalName, address, tel]);
+  }, [hospitalName, address, tel, vetTel]);
 
   const handlePrint = () => {
     if (iframeRef.current && iframeRef.current.contentWindow) {
@@ -74,12 +76,22 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">전화번호 (선택)</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">병원 전화번호 (선택)</label>
                   <input 
                     type="text" 
                     value={tel}
                     onChange={(e) => setTel(e.target.value)}
                     placeholder="예) 031-321-6562" 
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">원장님 전화번호 (선택)</label>
+                  <input 
+                    type="text" 
+                    value={vetTel}
+                    onChange={(e) => setVetTel(e.target.value)}
+                    placeholder="예) 010-1234-5678" 
                     className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white"
                   />
                 </div>

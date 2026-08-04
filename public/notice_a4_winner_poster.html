@@ -671,15 +671,13 @@
     <!-- 1. 병원 헤더 -->
     <header class="header">
       <div class="hospital-brand">
-        <img src="assets/sj_logo.png" alt="S&J 동물병원 로고" onerror="this.src='assets/로고2_에스앤제이 동물병원.png'">
         <div class="hospital-text">
-          <span class="name-en">Dr. S & J Animal Hospital</span>
-          <span class="name-ko">에스앤제이 동물병원</span>
+          <span class="name-ko" id="dynamic-header-name">동물병원 상호가 여기에 표시됩니다</span>
         </div>
       </div>
       <div class="header-right">
         <div class="badge-vet">🐾 수의사 추천 장 건강 솔루션</div>
-        <div class="contact-num">TEL: 010-5407-5708</div>
+        <div class="contact-num" id="dynamic-header-tel">TEL: 010-0000-0000</div>
       </div>
     </header>
 
@@ -850,11 +848,14 @@
 
       window.addEventListener('message', (event) => {
         if (event.data && event.data.type === 'UPDATE_POSTER') {
-          const { name, address, tel } = event.data;
-          let footerText = `✔ 구매처: ${name}`;
+          const { name, address, tel, vetTel } = event.data;
+          let footerText = `✔ 구매처: ${name || '동물병원'}`;
           if (address) footerText += ` (${address})`;
           if (tel) footerText += ` | TEL: ${tel}`;
           document.getElementById('dynamic-footer-text').innerText = footerText;
+
+          document.getElementById('dynamic-header-name').innerText = name || '동물병원 상호가 여기에 표시됩니다';
+          document.getElementById('dynamic-header-tel').innerText = vetTel ? `TEL: ${vetTel}` : 'TEL: 010-0000-0000';
         } else if (event.data && event.data.type === 'PRINT_POSTER') {
           window.print();
         }
