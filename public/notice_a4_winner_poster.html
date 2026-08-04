@@ -217,17 +217,7 @@
     }
 
     .urgency-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, #FFE4E6, #FECDD3);
-      color: #9F1239;
-      padding: 6px 16px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 900;
-      margin-bottom: 16px; /* 여백 확대: 할인행사 안내 소박스와 메인 카피 사이 답답함 해소 */
-      border: 1px solid #FDA4AF;
+      display: none;
     }
 
     .main-headline {
@@ -258,25 +248,11 @@
       margin-top: 10px;
     }
 
-    .price-box-wrapper::before {
-      content: '출시기념 단 하루 특가!';
-      position: absolute;
-      top: -14px;
-      left: 24px;
-      background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
-      color: #0F172A;
-      font-weight: 950;
-      font-size: 0.82rem;
-      padding: 3px 14px;
-      border-radius: 999px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-      border: 1.5px solid #FFFBEB;
-    }
-
     .price-left {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      text-align: left;
     }
 
     .price-left .target-product {
@@ -711,9 +687,7 @@
     <section class="promo-section">
       <div class="hero-top">
         <div class="hero-headline">
-          <div class="urgency-tag">
-            <span>⚡ 오늘 단 하루! 출시기념 특별 할인행사</span>
-          </div>
+
           <h1 class="main-headline">
             <span class="highlight-red">가장 먼저 꺼내는 동물용 활기명수, 몬스멕타</span><br>
             구토·복통·설사·소화불량·식욕부진·섭취거부-<br>
@@ -723,16 +697,15 @@
       </div>
 
       <div class="price-box-wrapper">
-        <div class="price-left">
-          <div class="target-product">수의사 임상 처방 프리미엄 지사제 몬스멕타 (100ml 액상)</div>
-          <div class="original-price">정상 판매가 : 18,000원</div>
+        <div class="price-left" style="text-align: left;">
+          <div class="target-product" style="margin-bottom: 3px;">수의사 임상 처방 프리미엄 정장 지사제</div>
+          <div style="display: flex; align-items: baseline; gap: 8px;">
+            <div class="target-product" style="margin-bottom: 0;">몬스멕타 (100ml 액상)</div>
+            <div class="original-price" style="text-decoration: none; font-size: 1.1rem; color: #a7f3d0;">정상 판매가</div>
+          </div>
         </div>
         <div class="price-right">
-          <div class="discount-rate">
-            <span>50% D/C</span>
-            <span>특별 파격가</span>
-          </div>
-          <div class="sale-price">9,000<span class="unit">원</span></div>
+          <div class="sale-price">18,000<span class="unit">원</span></div>
         </div>
       </div>
     </section>
@@ -856,11 +829,37 @@
 
     <!-- 5. 하단 바 (푸터 2줄 좌측 끝단 맞춤 & '오늘' 반영) -->
     <footer class="bottom-bar">
-      <div>✔ 판매원: 에스앤제이 동물병원 (경기도 용인시 처인구 포곡읍 선장1로 98-8) | TEL: 031-321-6562</div>
-      <div>✔ 행사 기간: 오늘 단 하루 특별 이벤트</div>
+      <div id="dynamic-footer-text">✔ 판매원: 에스앤제이 동물병원 (경기도 용인시 처인구 포곡읍 선장1로 98-8) | TEL: 031-321-6562</div>
     </footer>
 
   </div>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      const address = params.get('address');
+      const tel = params.get('tel');
+      
+      if (name) {
+        let footerText = `✔ 구매처: ${name}`;
+        if (address) footerText += ` (${address})`;
+        if (tel) footerText += ` | TEL: ${tel}`;
+        document.getElementById('dynamic-footer-text').innerText = footerText;
+      }
+
+      window.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'UPDATE_POSTER') {
+          const { name, address, tel } = event.data;
+          let footerText = `✔ 구매처: ${name}`;
+          if (address) footerText += ` (${address})`;
+          if (tel) footerText += ` | TEL: ${tel}`;
+          document.getElementById('dynamic-footer-text').innerText = footerText;
+        } else if (event.data && event.data.type === 'PRINT_POSTER') {
+          window.print();
+        }
+      });
+    });
+  </script>
 </body>
 </html>

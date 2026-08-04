@@ -14,6 +14,7 @@ import PrintModal from './components/PrintModal';
 import VetSampleModal from './components/VetSampleModal';
 import LegalModal from './components/LegalModal';
 import StickyBottomCTA from './components/StickyBottomCTA';
+import NoticeGeneratorModal from './components/NoticeGeneratorModal';
 import useIframeHeight from './hooks/useIframeHeight';
 
 const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
@@ -22,6 +23,7 @@ const MonsmectaSNJLanding = () => {
   const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
   const { t } = useTranslation();
   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
+  const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
   const [legalType, setLegalType] = useState(null);
   const [quantity, setQuantity] = useState(5);
 
@@ -90,7 +92,7 @@ const MonsmectaSNJLanding = () => {
         본문 바로가기
       </a>
 
-      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
+      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />
       <Hero setIsLabelModalOpen={setIsLabelModalOpen} />
       <Values />
       <ClinicalEvidence />
@@ -128,6 +130,7 @@ const MonsmectaSNJLanding = () => {
       <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
       <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
       <LegalModal legalType={legalType} setLegalType={setLegalType} />
+      <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
       <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} />
       <Chatbot />
     </div>

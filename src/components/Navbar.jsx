@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
+const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal }) => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -43,6 +43,9 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
             </select>
           </div>
 
+          <button onClick={onOpenNoticeModal} className="hidden md:inline-block bg-teal-50 text-[#00513b] border border-[#00513b] px-4 py-2.5 rounded-full text-sm font-bold shadow-sm hover:bg-teal-100 transition-all duration-200">
+            알림판 만들기
+          </button>
           <a href="#order" className="hidden md:inline-block bg-[#00513b] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-[#003d2b] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
             {t('nav.order')}
           </a>
@@ -72,6 +75,9 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
           <a href="#order" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#00513b] text-white px-6 py-3 rounded-xl text-sm font-bold shadow-md hover:bg-[#003d2b] transition-all duration-200 mt-4">
             {t('nav.order')}
           </a>
+          <button onClick={() => { setIsMobileMenuOpen(false); onOpenNoticeModal(); }} className="block w-full text-center bg-teal-50 text-[#00513b] border border-[#00513b] px-6 py-3 rounded-xl text-sm font-bold shadow-sm hover:bg-teal-100 transition-all duration-200 mt-2">
+            알림판 만들기
+          </button>
         </div>
       )}
     </nav>
