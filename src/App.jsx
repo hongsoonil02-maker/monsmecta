@@ -131,7 +131,7 @@ const MonsmectaSNJLanding = () => {
       <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
       <LegalModal legalType={legalType} setLegalType={setLegalType} />
       <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
-      <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} />
+      <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />
       <Chatbot />
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-export default function StickyBottomCTA({ onOpenModal }) {
+export default function StickyBottomCTA({ onOpenModal, onOpenNoticeModal }) {
   const { t } = useTranslation();
 
   return (
@@ -26,19 +26,26 @@ export default function StickyBottomCTA({ onOpenModal }) {
 
         <div className="flex items-center gap-2 w-full md:w-auto">
           <button
+            onClick={onOpenNoticeModal}
+            aria-label="알림판 커스텀 출력"
+            className="flex-1 md:flex-initial px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          >
+            <span>🖨️ 알림판 만들기</span>
+          </button>
+          <button
             onClick={onOpenModal}
             aria-label={t('stickyCta.sampleBtn', '수의사 무료 샘플 신청')}
             className="flex-1 md:flex-initial px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 focus:ring-2 focus:ring-emerald-400 focus:outline-none"
           >
-            <span>{t('stickyCta.sampleBtn', '📦 수의사 무료 샘플 신청')}</span>
+            <span>{t('stickyCta.sampleBtn', '📦 무료 샘플 신청')}</span>
           </button>
           
           <a
             href="tel:02-1234-5678"
             aria-label={t('stickyCta.consultBtn', '독점 공급 문의')}
-            className="flex-1 md:flex-initial px-4 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-slate-900 border border-yellow-500/40 font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+            className="flex-1 md:flex-initial px-4 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-slate-900 border border-yellow-500/40 font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 focus:ring-2 focus:ring-yellow-400 focus:outline-none hidden sm:flex"
           >
-            <span>{t('stickyCta.consultBtn', '📞 독점 공급 문의')}</span>
+            <span>{t('stickyCta.consultBtn', '📞 독점 문의')}</span>
           </a>
         </div>
       </div>
