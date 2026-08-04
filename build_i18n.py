@@ -190,6 +190,73 @@ locales = {
   }
 }
 
+locales['ko']['notice'] = {
+    "title": "동물병원 알림판 커스텀 출력",
+    "desc": "병원명, 주소, 연락처를 입력하시면 알림판 하단에 자동으로 적용됩니다.",
+    "printBtn": "A4 사이즈로 인쇄하기",
+    "printHelp": "인쇄 창이 뜨면 '머리글 및 바닥글' 옵션을 해제해주세요.",
+    "hospitalName": "동물병원명",
+    "hospitalAddress": "병원주소(선택)",
+    "hospitalTel": "병원전화번호(선택)",
+    "vetTel": "원장님전화번호(선택)",
+    "stickyBtn": "A4 포스터 바로 인쇄하기"
+}
+locales['en']['notice'] = {
+    "title": "Custom Notice Board Printing",
+    "desc": "Enter hospital name, address, and contact to automatically apply to the bottom of the notice board.",
+    "printBtn": "Print in A4 Size",
+    "printHelp": "Please uncheck 'Headers and footers' in the print dialog.",
+    "hospitalName": "HospitalName",
+    "hospitalAddress": "Address(Optional)",
+    "hospitalTel": "HospitalTel(Optional)",
+    "vetTel": "DirectorTel(Optional)",
+    "stickyBtn": "Print A4 Poster Now"
+}
+locales['ja']['notice'] = {
+    "title": "動物病院お知らせボードのカスタム印刷",
+    "desc": "病院名、住所、連絡先を入力すると、お知らせボードの下部に自動的に適用されます。",
+    "printBtn": "A4サイズで印刷",
+    "printHelp": "印刷ウィンドウが表示されたら、「ヘッダーとフッター」のオプションをオフにしてください。",
+    "hospitalName": "動物病院名",
+    "hospitalAddress": "病院の住所(選択)",
+    "hospitalTel": "病院の電話番号(選択)",
+    "vetTel": "院長の電話番号(選択)",
+    "stickyBtn": "A4ポスターを今すぐ印刷"
+}
+locales['zh']['notice'] = {
+    "title": "动物医院公告板定制打印",
+    "desc": "输入医院名称、地址和联系方式，将自动应用到公告板底部。",
+    "printBtn": "打印 A4 尺寸",
+    "printHelp": "出现打印窗口时，请取消选中“页眉和页脚”选项。",
+    "hospitalName": "动物医院名称",
+    "hospitalAddress": "医院地址(选填)",
+    "hospitalTel": "医院电话(选填)",
+    "vetTel": "院长电话(选填)",
+    "stickyBtn": "立即打印 A4 海报"
+}
+locales['es']['notice'] = {
+    "title": "Impresión Personalizada de Avisos",
+    "desc": "Ingrese el nombre del hospital, la dirección y el contacto para aplicarlo automáticamente en la parte inferior del aviso.",
+    "printBtn": "Imprimir en tamaño A4",
+    "printHelp": "Desmarque la opción 'Encabezados y pies de página' en la ventana de impresión.",
+    "hospitalName": "NombreDelHospital",
+    "hospitalAddress": "Dirección(Opcional)",
+    "hospitalTel": "TeléfonoDelHospital(Opcional)",
+    "vetTel": "TeléfonoDelDirector(Opcional)",
+    "stickyBtn": "Imprimir Póster A4 Ahora"
+}
+locales['fr']['notice'] = {
+    "title": "Impression Personnalisée d'Avis",
+    "desc": "Entrez le nom de l'hôpital, l'adresse et le contact pour les appliquer automatiquement au bas de l'avis.",
+    "printBtn": "Imprimer au format A4",
+    "printHelp": "Veuillez décocher l'option 'En-têtes et pieds de page' dans la fenêtre d'impression.",
+    "hospitalName": "NomDeL'Hôpital",
+    "hospitalAddress": "Adresse(Optionnel)",
+    "hospitalTel": "TéléphoneDeL'Hôpital(Optionnel)",
+    "vetTel": "TéléphoneDuDirecteur(Optionnel)",
+    "stickyBtn": "Imprimer le Poster A4 Maintenant"
+}
+
 for lang, data in locales.items():
     os.makedirs(f"src/locales/{lang}", exist_ok=True)
     with open(f"src/locales/{lang}/translation.json", "w", encoding="utf-8") as f:

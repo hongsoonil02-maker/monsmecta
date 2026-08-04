@@ -38,7 +38,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
         {/* Modal Header */}
         <div className="bg-white border-b border-slate-200 p-4 md:p-6 flex justify-between items-center shrink-0">
           <h3 className="text-xl md:text-2xl font-black text-[#00513b] flex items-center gap-2">
-            동물병원 알림판 커스텀 출력
+            {t('notice.title')}
           </h3>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-full p-2 transition-colors focus:outline-none">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,11 +52,11 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
           {/* Left: Input Form */}
           <div className="w-full lg:w-1/3 bg-white p-6 overflow-y-auto border-r border-slate-200 shrink-0">
             <div className="mb-6">
-              <p className="text-slate-600 mb-4">병원명, 주소, 연락처를 입력하시면 알림판 하단에 자동으로 적용됩니다.</p>
+              <p className="text-slate-600 mb-4">{t('notice.desc')}</p>
               
               <div className="space-y-4" translate="no">
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">동물병원명</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">{t('notice.hospitalName')}</label>
                   <input 
                     type="text" 
                     value={hospitalName}
@@ -66,7 +66,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">병원주소(선택)</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">{t('notice.hospitalAddress')}</label>
                   <input 
                     type="text" 
                     value={address}
@@ -76,7 +76,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">병원전화번호(선택)</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">{t('notice.hospitalTel')}</label>
                   <input 
                     type="text" 
                     value={tel}
@@ -86,7 +86,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-1">원장님전화번호(선택)</label>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">{t('notice.vetTel')}</label>
                   <input 
                     type="text" 
                     value={vetTel}
@@ -105,10 +105,10 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
               </svg>
-              A4 사이즈로 인쇄하기
+              {t('notice.printBtn')}
             </button>
             <p className="text-xs text-slate-400 text-center mt-3">
-              인쇄 창이 뜨면 <strong>'머리글 및 바닥글'</strong> 옵션을 해제해주세요.
+              {t('notice.printHelp')}
             </p>
           </div>
 
