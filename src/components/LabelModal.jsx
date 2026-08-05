@@ -7,14 +7,14 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen
   if (!isLabelModalOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity" role="dialog" aria-modal="true" aria-labelledby="label-modal-title">
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300">
         <div className="sticky top-0 bg-gradient-to-r from-[#00513b] via-[#003d2b] to-[#00281d] text-white p-6 flex justify-between items-center z-10">
           <div>
             <p className="text-xs text-emerald-300 font-bold tracking-widest uppercase mb-1">{t('label.header_eyebrow')}</p>
-            <h3 className="text-2xl font-black">{t('label.header_title')}</h3>
+            <h3 id="label-modal-title" className="text-2xl font-black">{t('label.header_title')}</h3>
           </div>
-          <button onClick={() => setIsLabelModalOpen(false)} className="text-emerald-100 hover:text-white bg-emerald-800/50 hover:bg-emerald-700/50 rounded-full p-2 transition-colors">
+          <button onClick={() => setIsLabelModalOpen(false)} aria-label={t('common.close')} className="text-emerald-100 hover:text-white bg-emerald-800/50 hover:bg-emerald-700/50 rounded-full p-2 transition-colors">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -76,7 +76,7 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen
                   <ul className="text-slate-800 font-medium list-disc pl-4 mt-1 space-y-1">
                     <li className="break-keep">{t('label.effect1')}</li>
                     <li className="break-keep">{t('label.effect2')}</li>
-                    <li className="break-keep">{t('label.ing2_desc')}에 도움</li>
+                    <li className="break-keep">{t('label.effect3')}</li>
                   </ul>
                 </div>
 

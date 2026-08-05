@@ -77,7 +77,7 @@ export default function Chatbot() {
       <button
         onClick={toggleChat}
         className={`${isOpen ? 'hidden' : 'flex'} items-center justify-center w-16 h-16 bg-[#00513b] text-white rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 focus:outline-none`}
-        aria-label="Open AI Chat"
+        aria-label={t('chat.openLabel')}
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
@@ -99,7 +99,7 @@ export default function Chatbot() {
               <p className="text-xs text-[#a3e6cd]">{t('chat.subtitle')}</p>
             </div>
           </div>
-          <button onClick={toggleChat} className="text-white hover:text-slate-200 focus:outline-none">
+          <button onClick={toggleChat} aria-label={t('chat.closeLabel')} className="text-white hover:text-slate-200 focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>

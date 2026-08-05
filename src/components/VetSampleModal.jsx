@@ -1,10 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+
+const SUBMISSION_KEY = 'monsmecta_sample_done_v1';
+const LAST_KEY = 'monsmecta_sample_last_v1';
+const DONE_TTL = 30 * 24 * 60 * 60 * 1000;
+const LAST_TTL = 5 * 60 * 1000;
+const FETCH_TIMEOUT = 30000;
+
+const genId = () =>
+  (typeof crypto !== 'undefined' && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
 
 export default function VetSampleModal({ isOpen, onClose }) {
   const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
+  const [alreadySubmitted, setAlreadySubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const submittingRef = useRef(false);
+  const requestIdRef = useRef(null);
   const [form, setForm] = useState({
     hospitalName: '',
     vetName: '',
@@ -24,41 +38,100 @@ export default function VetSampleModal({ isOpen, onClose }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
+  // 모달이 열릴 때마다 완료 기록을 확인 (같은 브라우저 중복 신청 방지)
+  useEffect(() => {
+    if (!isOpen) return;
+    requestIdRef.current = genId();
+    let done = null;
+    try {
+      done = JSON.parse(localStorage.getItem(SUBMISSION_KEY));
+    } catch (e) { /* ignore */ }
+    if (done && done.ts && Date.now() - done.ts < DONE_TTL) {
+      setAlreadySubmitted(true);
+    } else {
+      setAlreadySubmitted(false);
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (submittingRef.current || isSubmitting) return;
+    submittingRef.current = true;
     setIsSubmitting(true);
-    
+
+    const normPhone = form.phone.replace(/[^0-9]/g, '');
+    let last = null;
+    try {
+      last = JSON.parse(localStorage.getItem(LAST_KEY));
+    } catch (err) { /* ignore */ }
+    if (last && last.phone && last.phone === normPhone && Date.now() - last.ts < LAST_TTL) {
+      submittingRef.current = false;
+      setIsSubmitting(false);
+      alert(t('sampleModal.recentSubmit'));
+      return;
+    }
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
+
     try {
       const scriptURL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
       if (!scriptURL) {
         throw new Error('Google Apps Script URL is not configured');
       }
-      
-      const formData = new FormData();
+
+      const formData = new URLSearchParams();
       formData.append('type', 'sample_request');
+      formData.append('requestId', requestIdRef.current);
       formData.append('hospitalName', form.hospitalName);
       formData.append('vetName', form.vetName);
       formData.append('phone', form.phone);
       formData.append('address', form.address);
       formData.append('requestType', form.requestType);
-      formData.append('timestamp', new Date().toLocaleString('ko-KR'));
+      formData.append('timestamp', new Date().toISOString());
 
       const response = await fetch(scriptURL, {
         method: 'POST',
-        body: formData
+        body: formData,
+        signal: controller.signal
       });
 
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
+      let json = null;
+      try {
+        json = await response.json();
+      } catch (err) { /* ignore */ }
+
+      if (!response.ok) {
         alert(t('sampleModal.error', '신청 처리 중 서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'));
+        return;
       }
+      if (json && json.status === 'duplicate') {
+        alert(t('sampleModal.duplicateError'));
+        return;
+      }
+      if (json && json.status === 'error') {
+        alert(t('sampleModal.error', '신청 처리 중 서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'));
+        return;
+      }
+
+      try {
+        localStorage.setItem(SUBMISSION_KEY, JSON.stringify({ hospital: form.hospitalName, phone: normPhone, ts: Date.now() }));
+        localStorage.setItem(LAST_KEY, JSON.stringify({ phone: normPhone, ts: Date.now() }));
+      } catch (err) { /* ignore */ }
+      setAlreadySubmitted(true);
+      setSubmitted(true);
     } catch (error) {
       console.error('Error!', error.message);
-      alert(t('sampleModal.networkError', '신청이 정상 접수되지 않았습니다. 네트워크 상태를 확인한 뒤 다시 시도해 주세요.'));
+      if (error.name === 'AbortError') {
+        alert(t('sampleModal.timeoutError'));
+      } else {
+        alert(t('sampleModal.networkError', '신청이 정상 접수되지 않았습니다. 네트워크 상태를 확인한 뒤 다시 시도해 주세요.'));
+      }
     } finally {
+      clearTimeout(timer);
+      submittingRef.current = false;
       setIsSubmitting(false);
     }
   };
@@ -73,7 +146,7 @@ export default function VetSampleModal({ isOpen, onClose }) {
       <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative border border-blue-100">
         <button
           onClick={onClose}
-          aria-label="Close modal"
+          aria-label={t('common.close')}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none"
         >
           &times;
@@ -110,6 +183,35 @@ export default function VetSampleModal({ isOpen, onClose }) {
               className="mt-4 px-6 py-2 bg-blue-600 text-white font-bold text-sm rounded-xl hover:bg-blue-700 transition-colors focus:ring-2 focus:ring-blue-500"
             >
               {t('sampleModal.confirmBtn', '확인')}
+            </button>
+          </div>
+        ) : alreadySubmitted ? (
+          <div className="py-8 text-center space-y-3" aria-live="polite">
+            <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+              ✓
+            </div>
+            <h4 className="text-lg font-bold text-gray-900">
+              {t('sampleModal.alreadyTitle')}
+            </h4>
+            <p className="text-xs text-gray-600 leading-relaxed max-w-xs mx-auto">
+              {t('sampleModal.alreadyDesc')}
+            </p>
+            <button
+              onClick={onClose}
+              className="mt-4 px-6 py-2 bg-blue-600 text-white font-bold text-sm rounded-xl hover:bg-blue-700 transition-colors focus:ring-2 focus:ring-blue-500"
+            >
+              {t('sampleModal.confirmBtn', '확인')}
+            </button>
+            <button
+              onClick={() => {
+                try {
+                  localStorage.removeItem(SUBMISSION_KEY);
+                } catch (err) { /* ignore */ }
+                setAlreadySubmitted(false);
+              }}
+              className="block mx-auto mt-2 text-xs text-blue-600 underline hover:text-blue-800"
+            >
+              {t('sampleModal.resubmit')}
             </button>
           </div>
         ) : (

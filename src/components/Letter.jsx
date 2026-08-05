@@ -6,7 +6,7 @@ const Letter = () => {
 
   return (
     <section className="py-10 md:py-16 bg-emerald-900 text-emerald-50 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.3),transparent_50%)]"></div>
       <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
         <blockquote className="relative">
           <span className="text-8xl text-emerald-400/20 absolute -top-8 -left-8 md:-left-12 font-serif">"</span>

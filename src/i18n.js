@@ -46,9 +46,10 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        fallbackLng: 'en',
+        fallbackLng: 'ko',
         supportedLngs: ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de', 'th', 'vi', 'ru', 'pt', 'ar', 'id', 'ms', 'tr'],
         interpolation: { escapeValue: false },
+        returnNull: false,
         detection: {
             order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
             caches: ['localStorage', 'cookie'],

@@ -6,14 +6,14 @@ const Hero = ({ setIsLabelModalOpen }) => {
 
   return (
     <section id="about" className="relative bg-gradient-to-br from-[#00513b] via-[#004230] to-[#00281d] text-white overflow-hidden py-24 md:py-32">
-      <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.25),transparent_45%)]"></div>
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-400 via-transparent to-transparent mix-blend-overlay"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-1/2 space-y-8 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-sm font-medium border border-white/20 backdrop-blur-sm shadow-xl">
             <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]"></span>
-            {t('heroBadge')}
+            {t('heroBadge', '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어')}
           </div>
           <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tight drop-shadow-xl break-keep">
             {t('hero.title')}
@@ -40,6 +40,8 @@ const Hero = ({ setIsLabelModalOpen }) => {
                 loop
                 muted
                 playsInline
+                preload="metadata"
+                poster={`${import.meta.env.BASE_URL}assets/bottle_mockup_2.png`}
                 className="w-full h-auto object-cover"
               >
                 <source src={`${import.meta.env.BASE_URL}assets/video.mp4`} type="video/mp4" />

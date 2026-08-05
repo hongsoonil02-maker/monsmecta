@@ -22,7 +22,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal }) =>
             <select
               value={i18n.language ? i18n.language.split('-')[0] : 'ko'}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
-              aria-label="Language Selector"
+              aria-label={t('nav.lang')}
               className="bg-slate-100 border border-slate-200 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-slate-200 transition-colors shadow-sm"
             >
               <option value="ko">🌐 KO (한국어)</option>
@@ -44,7 +44,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal }) =>
           </div>
 
           <button onClick={onOpenNoticeModal} className="hidden md:inline-block bg-teal-50 text-[#00513b] border border-[#00513b] px-4 py-2.5 rounded-full text-sm font-bold shadow-sm hover:bg-teal-100 transition-all duration-200">
-            알림판 만들기
+            {t('nav.noticeBtn')}
           </button>
           <a href="#order" className="hidden md:inline-block bg-[#00513b] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-[#003d2b] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
             {t('nav.order')}
@@ -53,7 +53,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal }) =>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden text-slate-600 hover:text-[#00513b] focus:outline-none"
-            aria-label="Toggle mobile menu"
+            aria-label={t('nav.menuToggle')}
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {isMobileMenuOpen ? (
@@ -76,7 +76,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal }) =>
             {t('nav.order')}
           </a>
           <button onClick={() => { setIsMobileMenuOpen(false); onOpenNoticeModal(); }} className="block w-full text-center bg-teal-50 text-[#00513b] border border-[#00513b] px-6 py-3 rounded-xl text-sm font-bold shadow-sm hover:bg-teal-100 transition-all duration-200 mt-2">
-            알림판 만들기
+            {t('nav.noticeBtn')}
           </button>
         </div>
       )}

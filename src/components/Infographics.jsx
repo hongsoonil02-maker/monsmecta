@@ -5,7 +5,7 @@ const Infographics = ({ iframeHeights }) => {
   const { t, i18n } = useTranslation();
   const rawLang = (i18n.language || 'ko').split('-')[0];
   const supportedLangs = ['ko', 'en', 'es', 'fr', 'ja', 'zh', 'ar', 'de', 'ru', 'vi', 'th', 'pt', 'id', 'ms', 'tr'];
-  const lang = supportedLangs.includes(rawLang) ? rawLang : 'en';
+  const lang = supportedLangs.includes(rawLang) ? rawLang : 'ko';
 
   return (
     <section className="py-6 md:py-12 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,7 +23,7 @@ const Infographics = ({ iframeHeights }) => {
           <iframe
             src={`${import.meta.env.BASE_URL}assets/james_infographic_${lang}.html?v=8.2`}
             className="absolute top-0 left-0 w-full h-full border-0"
-            title={`${t('clinical.chart_monsmecta')} 인포그래픽`}
+            title={t('infographics.iframe1')}
             scrolling="no"
           />
         </div>
@@ -36,7 +36,7 @@ const Infographics = ({ iframeHeights }) => {
           <iframe
             src={`${import.meta.env.BASE_URL}assets/monsmecta_dashboard_${lang}.html?v=8.2`}
             className="absolute top-0 left-0 w-full h-full border-0"
-            title={`${t('clinical.chart_monsmecta')} 전략 대시보드`}
+            title={t('infographics.iframe2')}
             scrolling="no"
           />
         </div>
@@ -49,7 +49,7 @@ const Infographics = ({ iframeHeights }) => {
           <iframe
             src={`${import.meta.env.BASE_URL}assets/monsmecta_scenario_${lang}.html?v=8.2`}
             className="absolute top-0 left-0 w-full h-full border-0"
-            title={`${t('clinical.chart_monsmecta')} 상담 시나리오`}
+            title={t('infographics.iframe3')}
             scrolling="no"
           />
         </div>

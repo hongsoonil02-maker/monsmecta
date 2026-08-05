@@ -6,7 +6,7 @@ export default function StickyBottomCTA({ onOpenModal, onOpenNoticeModal }) {
 
   return (
     <nav 
-      aria-label="Quick Action Footer Bar"
+      aria-label={t('stickyCta.navLabel')}
       className="fixed bottom-0 left-0 right-0 z-40 bg-[#003d2b]/95 backdrop-blur-md border-t border-emerald-500/30 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] px-4 py-3 sm:px-6 text-white"
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
@@ -41,7 +41,7 @@ export default function StickyBottomCTA({ onOpenModal, onOpenNoticeModal }) {
           </button>
           
           <a
-            href="tel:02-1234-5678"
+            href="tel:031-321-6562"
             aria-label={t('stickyCta.consultBtn', '독점 공급 문의')}
             className="flex-1 md:flex-initial px-4 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-slate-900 border border-yellow-500/40 font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 focus:ring-2 focus:ring-yellow-400 focus:outline-none hidden sm:flex"
           >

@@ -14,10 +14,13 @@ const OrderForm = ({
   setAddress,
   isSubmitting,
   orderError,
+  pricePerBottle,
+  honeypot,
+  setHoneypot,
+  onResetOrder,
   handleCheckout
 }) => {
   const { t } = useTranslation();
-  const pricePerBottle = 7700;
 
   return (
     <section id="order" className="py-10 md:py-20 bg-slate-50">
@@ -57,9 +60,21 @@ const OrderForm = ({
               </div>
 
               <p className="text-sm text-slate-500 break-keep">{t('order.success_notice_prefix')}<span className="font-bold text-slate-700">{t('order.success_notice_highlight')}</span>{t('order.success_notice_suffix')}<br />{t('order.success_notice_help')}</p>
+              <button
+                type="button"
+                onClick={onResetOrder}
+                className="text-xs text-[#00513b] underline hover:text-[#003d2b]"
+              >
+                {t('order.resubmit')}
+              </button>
             </div>
           ) : (
             <form onSubmit={handleCheckout} className="p-6 md:p-12 space-y-6">
+              <div className="hidden" aria-hidden="true">
+                <label>Website
+                  <input type="text" name="website" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} tabIndex={-1} autoComplete="off" />
+                </label>
+              </div>
               {orderError && (
                 <div className="rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-medium text-rose-700">
                   {orderError}
