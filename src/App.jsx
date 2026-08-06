@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Chatbot from './components/Chatbot';
 import Navbar from './components/Navbar';
@@ -21,6 +21,7 @@ const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
 
 const ORDER_DONE_KEY = 'monsmecta_order_done_v1';
 const ORDER_LAST_KEY = 'monsmecta_order_last_v1';
+const ORDER_AUTOFILL_KEY = 'monsmecta_order_autofill_v1';
 const ORDER_DONE_TTL = 30 * 24 * 60 * 60 * 1000;
 const ORDER_LAST_TTL = 5 * 60 * 1000;
 const ORDER_FETCH_TIMEOUT = 60000;
@@ -73,6 +74,22 @@ const MonsmectaSNJLanding = () => {
   const submittingRef = useRef(false);
   const orderRequestIdRef = useRef(null);
   const pricePerBottle = 7700;
+
+  useEffect(() => {
+    if (hospitalName && hospitalName.length > 1) {
+      try {
+        const saved = JSON.parse(localStorage.getItem(ORDER_AUTOFILL_KEY));
+        if (saved && saved.hospitalName === hospitalName) {
+          if (!vetName && saved.vetName) setVetName(saved.vetName);
+          if (!bizNumber && saved.bizNumber) setBizNumber(saved.bizNumber);
+          if (!bizCategory && saved.bizCategory) setBizCategory(saved.bizCategory);
+          if (!bizType && saved.bizType) setBizType(saved.bizType);
+          if (!email && saved.email) setEmail(saved.email);
+          if (!address && saved.address) setAddress(saved.address);
+        }
+      } catch (err) { /* ignore */ }
+    }
+  }, [hospitalName]);
 
   const handleCheckout = async (e) => {
     e.preventDefault();
@@ -162,6 +179,9 @@ const MonsmectaSNJLanding = () => {
       try {
         localStorage.setItem(ORDER_DONE_KEY, JSON.stringify({ biz: normBiz, ts: Date.now() }));
         localStorage.setItem(ORDER_LAST_KEY, JSON.stringify({ biz: normBiz, ts: Date.now() }));
+        localStorage.setItem(ORDER_AUTOFILL_KEY, JSON.stringify({
+          hospitalName, vetName, bizNumber, bizCategory, bizType, email, address
+        }));
       } catch (err) { /* ignore */ }
       setIsOrderComplete(true);
     } catch (error) {

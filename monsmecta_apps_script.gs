@@ -29,7 +29,8 @@ function doPost(e) {
     var now = new Date();
     var data = sheet.getDataRange().getValues();
     var headers = data[0] || [];
-    var idx = function (name) { return headers.indexOf(name); };
+    var trimmedHeaders = headers.map(function(h) { return String(h || '').trim(); });
+    var idx = function (name) { return trimmedHeaders.indexOf(String(name || '').trim()); };
 
     // ① requestId 멱등성: 같은 요청 ID가 이미 있으면 그대로 성공 응답(중복 적재 안 함)
     var rid = String(body.requestId || '').trim();
@@ -63,16 +64,23 @@ function doPost(e) {
     // ③ 헤더에 없는 새 필드 자동 추가
     var extraFields = [];
     for (var k in body) {
-      if (headers.indexOf(k) === -1) extraFields.push(k);
+      if (trimmedHeaders.indexOf(String(k).trim()) === -1) {
+        extraFields.push(k);
+        trimmedHeaders.push(String(k).trim()); // prevent duplicate addition
+        headers.push(k); // keep headers and trimmedHeaders in sync
+      }
     }
-    for (var i = 0; i < extraFields.length; i++) {
-      sheet.getRange(1, headers.length + i + 1).setValue(extraFields[i]);
+    // Update headers in the sheet if there are new ones
+    if (extraFields.length > 0) {
+      sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
     }
 
     // ④ 행 적재
     var row = [];
-    for (var h = 0; h < headers.length; h++) row.push(body[headers[h]] !== undefined ? body[headers[h]] : '');
-    for (var j = 0; j < extraFields.length; j++) row.push(body[extraFields[j]] || '');
+    for (var h = 0; h < headers.length; h++) {
+      var headerKey = String(headers[h] || '').trim();
+      row.push(body[headerKey] !== undefined ? body[headerKey] : '');
+    }
     sheet.appendRow(row);
 
     return respond({ status: 'ok', requestId: rid });

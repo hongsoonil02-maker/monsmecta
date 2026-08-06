@@ -94,6 +94,13 @@ const OrderForm = ({
                   <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
                   {t('order.hospital_info')}
                 </h3>
+                <div className="bg-emerald-50 text-[#00513b] px-4 py-3 rounded-xl text-sm font-medium flex items-start gap-2 border border-emerald-100">
+                  <svg className="w-5 h-5 flex-shrink-0 mt-0.5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <span className="leading-snug break-keep">
+                    <strong>재발주</strong> 시에는 <strong>동물병원명과 주문수량만 입력</strong>하시면 됩니다.<br/>
+                    <span className="opacity-80 text-xs">(동물병원명을 입력하시면 기존 정보가 자동으로 채워집니다.)</span>
+                  </span>
+                </div>
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.hospital_name')} <span className="text-red-500">*</span></label>
