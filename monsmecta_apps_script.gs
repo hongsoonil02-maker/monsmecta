@@ -4,7 +4,7 @@
  * - 중복 차단: ① requestId 멱등성 ② 전화번호(또는 사업자번호) 최근 30일 중복
  * - 응답: { status: 'ok' } / { status: 'duplicate', reason } / { status: 'error' }
  */
-var SHEET_NAME = ''; // 비워두면 첫 번째 시트 사용. 예: '응답'
+var SHEET_NAME = ''; // 비워두면 자동 분기 ('order' -> '프로나오', 'sample_request' -> '샘플신청')
 var DUP_DAYS = 30;   // 동일 전화번호/사업자번호 재신청 차단 기간(일)
 var PHONE_FIELD = 'phone';      // 샘플 폼 전화번호 컬럼명
 var ORDER_FIELD = 'bizNumber';  // 발주 폼 사업자번호 컬럼명
@@ -15,7 +15,14 @@ function doPost(e) {
   try {
     var body = parseBody(e);
     var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = SHEET_NAME ? ss.getSheetByName(SHEET_NAME) : ss.getSheets()[0];
+    
+    var targetSheetName = SHEET_NAME;
+    if (!targetSheetName) {
+      if (body.type === 'order') targetSheetName = '프로나오';
+      else if (body.type === 'sample_request') targetSheetName = '샘플신청';
+    }
+    
+    var sheet = targetSheetName ? ss.getSheetByName(targetSheetName) : ss.getSheets()[0];
     if (!sheet) return respond({ status: 'error', message: 'sheet not found' });
 
     var now = new Date();

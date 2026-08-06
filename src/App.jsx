@@ -52,6 +52,8 @@ const MonsmectaSNJLanding = () => {
   const [hospitalName, setHospitalName] = useState('');
   const [vetName, setVetName] = useState('');
   const [bizNumber, setBizNumber] = useState('');
+  const [bizCategory, setBizCategory] = useState('');
+  const [bizType, setBizType] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -87,7 +89,7 @@ const MonsmectaSNJLanding = () => {
     }
     lastSubmitRef.current = Date.now();
 
-    if (!hospitalName || !vetName || !bizNumber || !email || !address) {
+    if (!hospitalName || !vetName || !bizNumber || !bizCategory || !bizType || !email || !address) {
       alert(t('order.validationRequired'));
       return;
     }
@@ -125,6 +127,8 @@ const MonsmectaSNJLanding = () => {
       formData.append('hospitalName', hospitalName);
       formData.append('vetName', vetName);
       formData.append('bizNumber', normBiz);
+      formData.append('bizCategory', bizCategory);
+      formData.append('bizType', bizType);
       formData.append('email', email);
       formData.append('address', address);
       formData.append('quantity', quantity);
@@ -205,6 +209,10 @@ const MonsmectaSNJLanding = () => {
           setVetName={setVetName}
           bizNumber={bizNumber}
           setBizNumber={setBizNumber}
+          bizCategory={bizCategory}
+          setBizCategory={setBizCategory}
+          bizType={bizType}
+          setBizType={setBizType}
           email={email}
           setEmail={setEmail}
           address={address}

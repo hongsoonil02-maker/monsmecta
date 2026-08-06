@@ -12,6 +12,10 @@ const OrderForm = ({
   setVetName,
   bizNumber,
   setBizNumber,
+  bizCategory,
+  setBizCategory,
+  bizType,
+  setBizType,
   email,
   setEmail,
   address,
@@ -114,7 +118,7 @@ const OrderForm = ({
                     />
                   </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_number')} <span className="text-red-500">*</span></label>
                     <input
@@ -135,6 +139,30 @@ const OrderForm = ({
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
                       placeholder={t('order.email_placeholder')}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_category')} <span className="text-red-500">*</span></label>
+                    <input
+                      type="text"
+                      value={bizCategory}
+                      onChange={(e) => setBizCategory(e.target.value)}
+                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                      placeholder={t('order.biz_category_placeholder')}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_type')} <span className="text-red-500">*</span></label>
+                    <input
+                      type="text"
+                      value={bizType}
+                      onChange={(e) => setBizType(e.target.value)}
+                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                      placeholder={t('order.biz_type_placeholder')}
                       required
                     />
                   </div>
