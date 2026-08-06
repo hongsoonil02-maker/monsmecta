@@ -40,13 +40,7 @@ export default function StickyBottomCTA({ onOpenModal, onOpenNoticeModal }) {
             <span>{t('stickyCta.sampleBtn', '📦 무료 샘플 신청')}</span>
           </button>
           
-          <a
-            href="tel:031-321-6562"
-            aria-label={t('stickyCta.consultBtn', '독점 공급 문의')}
-            className="flex-1 md:flex-initial px-4 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-slate-900 border border-yellow-500/40 font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 focus:ring-2 focus:ring-yellow-400 focus:outline-none hidden sm:flex"
-          >
-            <span>{t('stickyCta.consultBtn', '📞 독점 문의')}</span>
-          </a>
+
         </div>
       </div>
     </nav>
