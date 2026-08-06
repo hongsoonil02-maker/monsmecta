@@ -90,7 +90,7 @@ export default function VetSampleModal({ isOpen, onClose }) {
       formData.append('phone', form.phone);
       formData.append('address', form.address);
       formData.append('requestType', form.requestType);
-      formData.append('timestamp', new Date().toISOString());
+      formData.append('timestamp', new Date().toLocaleString('ko-KR'));
 
       const response = await fetch(scriptURL, {
         method: 'POST',

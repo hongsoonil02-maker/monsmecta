@@ -133,7 +133,7 @@ const MonsmectaSNJLanding = () => {
       formData.append('address', address);
       formData.append('quantity', quantity);
       formData.append('totalPrice', quantity * pricePerBottle);
-      formData.append('timestamp', new Date().toISOString());
+      formData.append('timestamp', new Date().toLocaleString('ko-KR'));
 
       const response = await fetch(scriptURL, {
         method: 'POST',
