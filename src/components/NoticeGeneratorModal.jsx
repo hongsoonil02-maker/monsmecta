@@ -113,14 +113,16 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
           </div>
 
           {/* Right: Iframe Preview */}
-          <div className="w-full lg:w-2/3 bg-gray-200/50 p-4 md:p-8 flex justify-center items-center overflow-y-auto min-h-[500px]">
-            <div className="w-full h-full max-w-[794px] max-h-[1123px] aspect-[1/1.414] bg-white shadow-2xl overflow-hidden border border-slate-300 mx-auto relative">
-              <iframe 
-                ref={iframeRef}
-                src={`${import.meta.env.BASE_URL}notice_a4_winner_poster.html`}
-                className="w-full h-full border-0 absolute top-0 left-0"
-                title={t('notice.previewTitle')}
-              />
+          <div className="w-full lg:w-2/3 bg-gray-200/50 p-4 md:p-8 flex justify-center items-center overflow-hidden min-h-[500px] relative">
+            <div className="transform scale-[0.4] sm:scale-[0.5] md:scale-[0.6] lg:scale-[0.45] xl:scale-[0.6] origin-center">
+              <div className="w-[794px] h-[1123px] bg-white shadow-2xl overflow-hidden border border-slate-300 relative">
+                <iframe 
+                  ref={iframeRef}
+                  src={`${import.meta.env.BASE_URL}notice_a4_winner_poster.html`}
+                  className="w-[794px] h-[1123px] border-0 absolute top-0 left-0"
+                  title={t('notice.previewTitle')}
+                />
+              </div>
             </div>
           </div>
         </div>
