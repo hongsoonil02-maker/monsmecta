@@ -133,7 +133,7 @@ const MonsmectaSNJLanding = () => {
       formData.append('배송지 주소', address);
       formData.append('주문수량(병)', quantity);
       formData.append('총 결제금액', quantity * pricePerBottle);
-      formData.append('timestamp', new Date().toLocaleString('ko-KR'));
+      formData.append('접수일시', new Date().toLocaleString('ko-KR'));
 
       const response = await fetch(scriptURL, {
         method: 'POST',

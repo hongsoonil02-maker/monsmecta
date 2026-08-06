@@ -85,12 +85,12 @@ export default function VetSampleModal({ isOpen, onClose }) {
       const formData = new URLSearchParams();
       formData.append('type', 'sample_request');
       formData.append('requestId', requestIdRef.current);
-      formData.append('hospitalName', form.hospitalName);
-      formData.append('vetName', form.vetName);
-      formData.append('phone', form.phone);
-      formData.append('address', form.address);
-      formData.append('requestType', form.requestType);
-      formData.append('timestamp', new Date().toLocaleString('ko-KR'));
+      formData.append('동물병원명', form.hospitalName);
+      formData.append('원장님 성함', form.vetName);
+      formData.append('연락처', form.phone);
+      formData.append('배송지 주소', form.address);
+      formData.append('신청 구분', form.requestType);
+      formData.append('접수일시', new Date().toLocaleString('ko-KR'));
 
       const response = await fetch(scriptURL, {
         method: 'POST',

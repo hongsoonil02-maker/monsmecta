@@ -6,8 +6,9 @@
  */
 var SHEET_NAME = ''; // 비워두면 자동 분기 ('order' -> '프로나오', 'sample_request' -> '샘플신청')
 var DUP_DAYS = 30;   // 동일 전화번호/사업자번호 재신청 차단 기간(일)
-var PHONE_FIELD = 'phone';      // 샘플 폼 전화번호 컬럼명
-var ORDER_FIELD = 'bizNumber';  // 발주 폼 사업자번호 컬럼명
+var PHONE_FIELD = '연락처';      // 샘플 폼 전화번호 컬럼명
+var ORDER_FIELD = '사업자등록번호';  // 발주 폼 사업자번호 컬럼명
+var TIME_FIELD = '접수일시'; // 시간 필드명
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
@@ -44,7 +45,7 @@ function doPost(e) {
     // ② 최근 중복: 같은 전화번호(샘플) 또는 사업자번호(발주)가 DUP_DAYS 이내면 차단
     var keyVal = String(body[PHONE_FIELD] || body[ORDER_FIELD] || '').replace(/[^0-9]/g, '');
     var keyIdx = idx(PHONE_FIELD) > -1 ? idx(PHONE_FIELD) : (idx(ORDER_FIELD) > -1 ? idx(ORDER_FIELD) : -1);
-    var tsIdx = idx('timestamp');
+    var tsIdx = idx(TIME_FIELD);
     if (keyVal && keyIdx > -1) {
       for (var r2 = 1; r2 < data.length; r2++) {
         var existing = String(data[r2][keyIdx] || '').replace(/[^0-9]/g, '');
