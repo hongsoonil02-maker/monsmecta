@@ -8,8 +8,12 @@ const OrderForm = ({
   setQuantity,
   hospitalName,
   setHospitalName,
+  vetName,
+  setVetName,
   bizNumber,
   setBizNumber,
+  email,
+  setEmail,
   address,
   setAddress,
   isSubmitting,
@@ -86,7 +90,7 @@ const OrderForm = ({
                   <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
                   {t('order.hospital_info')}
                 </h3>
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.hospital_name')} <span className="text-red-500">*</span></label>
                     <input
@@ -99,6 +103,19 @@ const OrderForm = ({
                     />
                   </div>
                   <div>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.vet_name')} <span className="text-red-500">*</span></label>
+                    <input
+                      type="text"
+                      value={vetName}
+                      onChange={(e) => setVetName(e.target.value)}
+                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                      placeholder={t('order.vet_name_placeholder')}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
                     <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_number')} <span className="text-red-500">*</span></label>
                     <input
                       type="text"
@@ -108,6 +125,17 @@ const OrderForm = ({
                       placeholder={t('order.biz_number_placeholder')}
                       required
                       maxLength="12"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.email')} <span className="text-red-500">*</span></label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                      placeholder={t('order.email_placeholder')}
+                      required
                     />
                   </div>
                 </div>

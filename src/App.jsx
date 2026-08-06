@@ -50,7 +50,9 @@ const MonsmectaSNJLanding = () => {
   const [quantity, setQuantity] = useState(5);
 
   const [hospitalName, setHospitalName] = useState('');
+  const [vetName, setVetName] = useState('');
   const [bizNumber, setBizNumber] = useState('');
+  const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLabelModalOpen, setIsLabelModalOpen] = useState(false);
@@ -85,7 +87,7 @@ const MonsmectaSNJLanding = () => {
     }
     lastSubmitRef.current = Date.now();
 
-    if (!hospitalName || !bizNumber || !address) {
+    if (!hospitalName || !vetName || !bizNumber || !email || !address) {
       alert(t('order.validationRequired'));
       return;
     }
@@ -121,7 +123,9 @@ const MonsmectaSNJLanding = () => {
       formData.append('type', 'order');
       formData.append('requestId', orderRequestIdRef.current);
       formData.append('hospitalName', hospitalName);
+      formData.append('vetName', vetName);
       formData.append('bizNumber', normBiz);
+      formData.append('email', email);
       formData.append('address', address);
       formData.append('quantity', quantity);
       formData.append('totalPrice', quantity * pricePerBottle);
@@ -197,8 +201,12 @@ const MonsmectaSNJLanding = () => {
           setQuantity={setQuantity}
           hospitalName={hospitalName}
           setHospitalName={setHospitalName}
+          vetName={vetName}
+          setVetName={setVetName}
           bizNumber={bizNumber}
           setBizNumber={setBizNumber}
+          email={email}
+          setEmail={setEmail}
           address={address}
           setAddress={setAddress}
           isSubmitting={isSubmitting}
