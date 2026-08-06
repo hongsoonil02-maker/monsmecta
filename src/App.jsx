@@ -124,15 +124,15 @@ const MonsmectaSNJLanding = () => {
       const formData = new URLSearchParams();
       formData.append('type', 'order');
       formData.append('requestId', orderRequestIdRef.current);
-      formData.append('hospitalName', hospitalName);
-      formData.append('vetName', vetName);
-      formData.append('bizNumber', normBiz);
-      formData.append('bizCategory', bizCategory);
-      formData.append('bizType', bizType);
-      formData.append('email', email);
-      formData.append('address', address);
-      formData.append('quantity', quantity);
-      formData.append('totalPrice', quantity * pricePerBottle);
+      formData.append('동물병원명', hospitalName);
+      formData.append('원장님 성함', vetName);
+      formData.append('사업자등록번호', normBiz);
+      formData.append('업태', bizCategory);
+      formData.append('종목', bizType);
+      formData.append('이메일', email);
+      formData.append('배송지 주소', address);
+      formData.append('주문수량(병)', quantity);
+      formData.append('총 결제금액', quantity * pricePerBottle);
       formData.append('timestamp', new Date().toLocaleString('ko-KR'));
 
       const response = await fetch(scriptURL, {
