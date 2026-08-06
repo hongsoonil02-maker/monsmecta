@@ -5,7 +5,7 @@ const SUBMISSION_KEY = 'monsmecta_sample_done_v1';
 const LAST_KEY = 'monsmecta_sample_last_v1';
 const DONE_TTL = 30 * 24 * 60 * 60 * 1000;
 const LAST_TTL = 5 * 60 * 1000;
-const FETCH_TIMEOUT = 30000;
+const FETCH_TIMEOUT = 60000;
 
 const genId = () =>
   (typeof crypto !== 'undefined' && crypto.randomUUID)

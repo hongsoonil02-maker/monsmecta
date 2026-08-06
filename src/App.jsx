@@ -23,7 +23,7 @@ const ORDER_DONE_KEY = 'monsmecta_order_done_v1';
 const ORDER_LAST_KEY = 'monsmecta_order_last_v1';
 const ORDER_DONE_TTL = 30 * 24 * 60 * 60 * 1000;
 const ORDER_LAST_TTL = 5 * 60 * 1000;
-const ORDER_FETCH_TIMEOUT = 30000;
+const ORDER_FETCH_TIMEOUT = 60000;
 
 const genId = () =>
   (typeof crypto !== 'undefined' && crypto.randomUUID)
