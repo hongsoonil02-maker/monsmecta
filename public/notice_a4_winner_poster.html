@@ -703,7 +703,7 @@
           </div>
         </div>
         <div class="price-right">
-          <div class="sale-price">18,000<span class="unit">원</span></div>
+          <div class="sale-price" id="dynamic-sale-price">18,000<span class="unit">원</span></div>
         </div>
       </div>
     </section>
@@ -838,6 +838,7 @@
       const name = params.get('name');
       const address = params.get('address');
       const tel = params.get('tel');
+      const price = params.get('price');
       
       if (name) {
         let footerText = `✔ 구매처: ${name}`;
@@ -845,10 +846,14 @@
         if (tel) footerText += ` | TEL: ${tel}`;
         document.getElementById('dynamic-footer-text').innerText = footerText;
       }
+      
+      if (price) {
+        document.getElementById('dynamic-sale-price').innerHTML = price + '<span class="unit">원</span>';
+      }
 
       window.addEventListener('message', (event) => {
         if (event.data && event.data.type === 'UPDATE_POSTER') {
-          const { name, address, tel, vetTel } = event.data;
+          const { name, address, tel, vetTel, price } = event.data;
           let footerText = `✔ 구매처: ${name || '동물병원'}`;
           if (address) footerText += ` (${address})`;
           if (tel) footerText += ` | TEL: ${tel}`;
@@ -856,6 +861,10 @@
 
           document.getElementById('dynamic-header-name').innerText = name || '동물병원 상호가 여기에 표시됩니다';
           document.getElementById('dynamic-header-tel').innerText = vetTel ? `TEL: ${vetTel}` : 'TEL: 010-0000-0000';
+          
+          if (price !== undefined) {
+             document.getElementById('dynamic-sale-price').innerHTML = (price || '18,000') + '<span class="unit">원</span>';
+          }
         } else if (event.data && event.data.type === 'PRINT_POSTER') {
           window.print();
         }

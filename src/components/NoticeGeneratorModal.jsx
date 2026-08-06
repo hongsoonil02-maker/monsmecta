@@ -9,6 +9,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
   const [address, setAddress] = useState('');
   const [tel, setTel] = useState('');
   const [vetTel, setVetTel] = useState('');
+  const [price, setPrice] = useState('');
 
   // Update iframe when inputs change
   useEffect(() => {
@@ -18,10 +19,11 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
         name: hospitalName,
         address,
         tel,
-        vetTel
+        vetTel,
+        price
       }, '*');
     }
-  }, [hospitalName, address, tel, vetTel]);
+  }, [hospitalName, address, tel, vetTel, price]);
 
   const handlePrint = () => {
     if (iframeRef.current && iframeRef.current.contentWindow) {
@@ -92,6 +94,16 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
                     value={vetTel}
                     onChange={(e) => setVetTel(e.target.value)}
                     placeholder={t('notice.vetTelPlaceholder')} 
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-1">{t('notice.price', '판매가(선택)')}</label>
+                  <input 
+                    type="text" 
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    placeholder={t('notice.pricePlaceholder', '예) 18,000')} 
                     className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white"
                   />
                 </div>
