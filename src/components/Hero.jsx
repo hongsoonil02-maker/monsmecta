@@ -57,7 +57,7 @@ const Hero = ({ setIsLabelModalOpen }) => {
             {/* Hepamax Bottle Photo Overlaid on left corner */}
             <div className="absolute -bottom-6 -left-2 w-24 sm:-bottom-10 sm:-left-6 sm:w-36 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30">
               <div className="bg-amber-700 text-white text-[10px] sm:text-xs font-bold px-2 py-1 rounded-t-lg text-center shadow-lg">간 건강</div>
-              <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="HEPAMAX Real Bottle" className="w-full h-auto object-contain rounded-b-2xl border-4 border-amber-100 shadow-xl bg-amber-50" style={{ filter: 'hue-rotate(-120deg) saturate(1.8)' }} />
+              <img src={`${import.meta.env.BASE_URL}assets/hepamax_mockup.png`} alt="HEPAMAX Real Bottle" className="w-full h-auto object-contain rounded-b-2xl border-4 border-amber-100 shadow-xl bg-amber-50" />
             </div>
           </div>
         </div>

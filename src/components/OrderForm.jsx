@@ -32,6 +32,12 @@ const OrderForm = ({
   handleCheckout
 }) => {
   const { t } = useTranslation();
+  const [selectedProduct, setSelectedProduct] = React.useState('monsmecta');
+
+  const handleAddProduct = () => {
+    if (selectedProduct === 'monsmecta' && quantity === 0) setQuantity(5);
+    if (selectedProduct === 'hepamax' && quantityHepamax === 0) setQuantityHepamax(5);
+  };
 
   return (
     <section id="order" className="py-10 md:py-20 bg-slate-50">
@@ -193,37 +199,71 @@ const OrderForm = ({
               <div className="space-y-6">
                 <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
                   <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
-                  {t('order.quantity_select', '발주 품목 및 수량 선택 (최소 수량: 통합 5병 이상)')}
+                  {t('order.quantity_select', '발주 품목 및 수량 선택')}
                 </h3>
                 
-                {/* Monsmecta Item */}
-                <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-colors shadow-inner mb-4">
-                  <div className="mb-6 md:mb-0 text-center md:text-left">
-                    <div className="font-black text-2xl text-slate-800 tracking-tight">몬스멕타 <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
-                    <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}{t('order.won')}</span> <span className="text-xs">{t('order.vat_included')}</span></div>
-                    <p className="text-xs text-emerald-600 mt-1 font-semibold">장 점막 방어막 복구 및 지사제</p>
-                  </div>
-
-                  <div className="flex items-center bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                    <button type="button" onClick={() => setQuantity(Math.max(0, quantity - 1))} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">-</button>
-                    <div className="w-20 h-14 flex items-center justify-center font-black text-2xl text-slate-800 border-x-2 border-slate-200">{quantity}</div>
-                    <button type="button" onClick={() => setQuantity(quantity + 1)} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">+</button>
-                  </div>
+                {/* Product Selector for Scalability */}
+                <div className="flex flex-col sm:flex-row gap-3 mb-6 bg-slate-100 p-4 rounded-xl border border-slate-200">
+                  <select 
+                    value={selectedProduct} 
+                    onChange={(e) => setSelectedProduct(e.target.value)}
+                    className="flex-1 px-4 py-3 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none font-medium bg-white"
+                  >
+                    <option value="monsmecta">몬스멕타 (장 건강 개선)</option>
+                    <option value="hepamax">몬스멕타 헤파맥스 (간 건강 개선)</option>
+                    {/* 확장성을 위한 향후 라인업 드롭다운 옵션 추가 가능 */}
+                  </select>
+                  <button 
+                    type="button" 
+                    onClick={handleAddProduct}
+                    className="bg-slate-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-700 transition-colors shrink-0"
+                  >
+                    추가하기
+                  </button>
                 </div>
 
-                {/* Hepamax Item */}
-                <div className="flex flex-col md:flex-row items-center justify-between bg-amber-50/30 p-8 rounded-2xl border border-amber-200 hover:border-amber-300 transition-colors shadow-inner">
-                  <div className="mb-6 md:mb-0 text-center md:text-left">
-                    <div className="font-black text-2xl text-slate-800 tracking-tight">몬스멕타 헤파맥스 <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
-                    <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-amber-700 ml-1">{priceHepamax === 0 ? '단가 미정' : `${priceHepamax.toLocaleString()}${t('order.won')}`}</span> <span className="text-xs">{t('order.vat_included')}</span></div>
-                    <p className="text-xs text-amber-600 mt-1 font-semibold">간 건강, 지방간 개선 및 항병력 증진</p>
-                  </div>
+                <div className="space-y-4">
+                  {quantity === 0 && quantityHepamax === 0 && (
+                    <div className="text-center py-8 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
+                      <p className="text-slate-500 font-medium">위에서 발주할 품목을 선택 후 '추가하기'를 눌러주세요.</p>
+                    </div>
+                  )}
 
-                  <div className="flex items-center bg-white border-2 border-amber-200 rounded-xl overflow-hidden shadow-sm">
-                    <button type="button" onClick={() => setQuantityHepamax(Math.max(0, quantityHepamax - 1))} className="w-14 h-14 flex items-center justify-center bg-amber-50 text-slate-600 hover:bg-amber-100 hover:text-amber-800 text-2xl font-black transition-colors">-</button>
-                    <div className="w-20 h-14 flex items-center justify-center font-black text-2xl text-slate-800 border-x-2 border-amber-200">{quantityHepamax}</div>
-                    <button type="button" onClick={() => setQuantityHepamax(quantityHepamax + 1)} className="w-14 h-14 flex items-center justify-center bg-amber-50 text-slate-600 hover:bg-amber-100 hover:text-amber-800 text-2xl font-black transition-colors">+</button>
-                  </div>
+                  {/* Monsmecta Item (Cart Entry) */}
+                  {quantity > 0 && (
+                    <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm relative">
+                      <button type="button" onClick={() => setQuantity(0)} className="absolute top-4 right-4 text-slate-400 hover:text-red-500 transition-colors">
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                      </button>
+                      <div className="mb-4 md:mb-0 text-center md:text-left pr-8">
+                        <div className="font-black text-xl text-slate-800 tracking-tight">몬스멕타 <span className="text-sm font-bold text-slate-500">{t('order.unit')}</span></div>
+                        <div className="text-sm font-medium text-slate-500 mt-1">{t('order.supply_price')} <span className="font-bold text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}{t('order.won')}</span> <span className="text-[10px]">{t('order.vat_included')}</span></div>
+                      </div>
+                      <div className="flex items-center bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm shrink-0">
+                        <button type="button" onClick={() => setQuantity(Math.max(1, quantity - 1))} className="w-12 h-12 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-xl font-black transition-colors">-</button>
+                        <div className="w-16 h-12 flex items-center justify-center font-black text-xl text-slate-800 border-x border-slate-200">{quantity}</div>
+                        <button type="button" onClick={() => setQuantity(quantity + 1)} className="w-12 h-12 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-xl font-black transition-colors">+</button>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Hepamax Item (Cart Entry) */}
+                  {quantityHepamax > 0 && (
+                    <div className="flex flex-col md:flex-row items-center justify-between bg-amber-50/30 p-6 rounded-2xl border border-amber-200 shadow-sm relative">
+                      <button type="button" onClick={() => setQuantityHepamax(0)} className="absolute top-4 right-4 text-slate-400 hover:text-red-500 transition-colors">
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                      </button>
+                      <div className="mb-4 md:mb-0 text-center md:text-left pr-8">
+                        <div className="font-black text-xl text-slate-800 tracking-tight">몬스멕타 헤파맥스 <span className="text-sm font-bold text-slate-500">{t('order.unit')}</span></div>
+                        <div className="text-sm font-medium text-slate-500 mt-1">{t('order.supply_price')} <span className="font-bold text-amber-700 ml-1">{priceHepamax === 0 ? '단가 미정' : `${priceHepamax.toLocaleString()}${t('order.won')}`}</span> <span className="text-[10px]">{t('order.vat_included')}</span></div>
+                      </div>
+                      <div className="flex items-center bg-white border border-amber-200 rounded-xl overflow-hidden shadow-sm shrink-0">
+                        <button type="button" onClick={() => setQuantityHepamax(Math.max(1, quantityHepamax - 1))} className="w-12 h-12 flex items-center justify-center bg-amber-50 text-slate-600 hover:bg-amber-100 hover:text-amber-800 text-xl font-black transition-colors">-</button>
+                        <div className="w-16 h-12 flex items-center justify-center font-black text-xl text-slate-800 border-x border-amber-200">{quantityHepamax}</div>
+                        <button type="button" onClick={() => setQuantityHepamax(quantityHepamax + 1)} className="w-12 h-12 flex items-center justify-center bg-amber-50 text-slate-600 hover:bg-amber-100 hover:text-amber-800 text-xl font-black transition-colors">+</button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
