@@ -264,32 +264,32 @@ const ClinicalEvidence = ({ activeProduct }) => {
                 헤파맥스는 반려동물의 간 건강 개선 및 항병력 증진에 특화된 프리미엄 처방 솔루션입니다.
               </p>
               <div className="space-y-3.5">
-                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-center gap-4">
-                  <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl shrink-0">🩺</div>
+                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🩺</div>
                   <div>
-                    <h4 className="font-bold text-slate-800">간 건강 개선</h4>
-                    <p className="text-xs text-slate-500 mt-1">간 수치 안정화 및 회복에 도움을 줍니다.</p>
+                    <h4 className="font-bold text-slate-800">간·담도계 질환 보조 치료</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">지방간(Hepatic lipidosis), 담관간염(Cholangiohepatitis) 등 간 기능 저하 개선 및 회복을 지원합니다.</p>
                   </div>
                 </div>
-                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-center gap-4">
-                  <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl shrink-0">🥩</div>
+                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🛡️</div>
                   <div>
-                    <h4 className="font-bold text-slate-800">지방간 개선</h4>
-                    <p className="text-xs text-slate-500 mt-1">지방 대사를 촉진하여 간의 부담을 줄여줍니다.</p>
+                    <h4 className="font-bold text-slate-800">해독 작용 및 세포 재생</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">약물 장기 투약 후의 간 독성을 완화하고, 손상된 간세포의 빠른 재생을 촉진합니다.</p>
                   </div>
                 </div>
-                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-center gap-4">
-                  <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl shrink-0">🛡️</div>
+                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">⚡</div>
                   <div>
-                    <h4 className="font-bold text-slate-800">항병력 증진</h4>
-                    <p className="text-xs text-slate-500 mt-1">기본적인 면역 체계와 저항력을 강화합니다.</p>
+                    <h4 className="font-bold text-slate-800">활력 및 식욕 증진</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">간 기능 저하로 인한 식욕 부진을 완화하고 전반적인 활력(Vitality)을 강하게 끌어올립니다.</p>
                   </div>
                 </div>
-                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-center gap-4">
-                  <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl shrink-0">⚡</div>
+                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">💧</div>
                   <div>
-                    <h4 className="font-bold text-slate-800">질병 회복 촉진</h4>
-                    <p className="text-xs text-slate-500 mt-1">질환 치료 후 빠른 기력 회복을 보조합니다.</p>
+                    <h4 className="font-bold text-slate-800">소화 흡수 촉진</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">담즙 분비 정상화를 유도하여 지방 소화력 및 필수 영양분 흡수율을 대폭 향상시킵니다.</p>
                   </div>
                 </div>
               </div>
@@ -301,16 +301,62 @@ const ClinicalEvidence = ({ activeProduct }) => {
             <div>
               <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
                 <span className="w-9 h-9 rounded-full shrink-0 bg-amber-700 text-white flex items-center justify-center text-sm font-bold shadow-md">2</span>
-                <span>주요 성분 및 학술적 배경</span>
+                <span>핵심 성분 및 약리기전</span>
               </h3>
               <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
-                헤파맥스만의 독자적인 포뮬러는 강력한 시너지 효과를 통해 최적의 결과를 이끌어냅니다. (자세한 논문 및 임상 데이터는 원장님들께 별도 제공됩니다.)
+                헤파맥스만의 5대 핵심 성분 독자 포뮬러는 강력한 시너지 효과를 통해 최적의 결과를 이끌어냅니다.
               </p>
               
-              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-inner mb-6">
-                <p className="text-center text-slate-500 text-sm italic py-8">
-                  * 상세 성분 및 논문 데이터 업데이트 예정입니다.<br/>(자세한 내용은 담당 자문위원에게 문의해주세요.)
-                </p>
+              <div className="space-y-3">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-amber-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-1/3">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">D-Sorbitol <span className="text-amber-700 block text-xs">(D-소르비톨) 45g</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    담즙 분비 촉진(Choleretic)을 통해 간/담도계 울체 해소 및 체내 독성 물질 배출을 지원합니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-amber-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-1/3">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Taurine <span className="text-amber-700 block text-xs">(타우린) 2,000mg</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    담즙산 포합(Bile acid conjugation)의 필수 요소로, 간세포막 안정화 및 강력한 항산화·세포 보호 작용을 합니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-amber-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-1/3">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">L-methionine <span className="text-amber-700 block text-xs">(L-메티오닌) 300mg</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    대표적 항지방간(Lipotropic) 물질이자, 강력한 간 해독 물질인 글루타치온(Glutathione)의 생합성 전구체입니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-amber-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-1/3">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">L-lysine HCl <span className="text-amber-700 block text-xs">(L-라이신) 300mg</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    간내 단백질 합성을 보조하고 면역 체계를 강하게 지원하는 필수 아미노산입니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-amber-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-1/3">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Vitamin B12 <span className="text-amber-700 block text-xs">(비타민 B12) 1,000μg</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    간 손상 및 만성 소화기 질환 시 고갈되는 조효소로, 간세포 재생 및 에너지 대사를 촉진합니다.
+                  </p>
+                </div>
               </div>
             </div>
             
