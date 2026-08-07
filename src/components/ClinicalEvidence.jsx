@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const ClinicalEvidence = () => {
   const { t } = useTranslation();
+  const [activeTab, setActiveTab] = useState('monsmecta');
 
   return (
     <section id="clinical" className="py-12 md:py-24 bg-slate-100 border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('clinical.title', '학술 검증 및 임상 시험 데이터')}</h2>
-          <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
+          <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full mb-8"></div>
+          
+          <div className="inline-flex bg-slate-200 rounded-full p-1 shadow-inner max-w-full overflow-x-auto">
+            <button 
+              onClick={() => setActiveTab('monsmecta')}
+              className={`px-6 py-2.5 rounded-full font-bold text-sm md:text-base transition-all whitespace-nowrap ${activeTab === 'monsmecta' ? 'bg-[#00513b] text-white shadow-md' : 'text-slate-600 hover:text-slate-800'}`}
+            >
+              몬스멕타 (장 건강)
+            </button>
+            <button 
+              onClick={() => setActiveTab('hepamax')}
+              className={`px-6 py-2.5 rounded-full font-bold text-sm md:text-base transition-all whitespace-nowrap ${activeTab === 'hepamax' ? 'bg-amber-700 text-white shadow-md' : 'text-slate-600 hover:text-slate-800'}`}
+            >
+              헤파맥스 (간 건강)
+            </button>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-10">
+        {activeTab === 'monsmecta' ? (
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
 
           {/* Card 1: LIQI Technology Comparison Table */}
           <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
@@ -250,6 +267,76 @@ const ClinicalEvidence = () => {
           </div>
 
         </div>
+        ) : (
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
+          {/* Hepamax Card 1: Key Benefits */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-amber-700 text-white flex items-center justify-center text-sm font-bold shadow-md">1</span>
+                <span>간 건강 핵심 효능</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                헤파맥스는 반려동물의 간 건강 개선 및 항병력 증진에 특화된 프리미엄 처방 솔루션입니다.
+              </p>
+              <div className="space-y-3.5">
+                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-center gap-4">
+                  <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl shrink-0">🩺</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">간 건강 개선</h4>
+                    <p className="text-xs text-slate-500 mt-1">간 수치 안정화 및 회복에 도움을 줍니다.</p>
+                  </div>
+                </div>
+                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-center gap-4">
+                  <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl shrink-0">🥩</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">지방간 개선</h4>
+                    <p className="text-xs text-slate-500 mt-1">지방 대사를 촉진하여 간의 부담을 줄여줍니다.</p>
+                  </div>
+                </div>
+                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-center gap-4">
+                  <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl shrink-0">🛡️</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">항병력 증진</h4>
+                    <p className="text-xs text-slate-500 mt-1">기본적인 면역 체계와 저항력을 강화합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-amber-50 rounded-2xl p-4 border border-amber-200 hover:border-amber-400 transition-colors shadow-sm flex items-center gap-4">
+                  <div className="w-12 h-12 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xl shrink-0">⚡</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">질병 회복 촉진</h4>
+                    <p className="text-xs text-slate-500 mt-1">질환 치료 후 빠른 기력 회복을 보조합니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Hepamax Card 2: Ingredients */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-amber-700 text-white flex items-center justify-center text-sm font-bold shadow-md">2</span>
+                <span>주요 성분 및 학술적 배경</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                헤파맥스만의 독자적인 포뮬러는 강력한 시너지 효과를 통해 최적의 결과를 이끌어냅니다. (자세한 논문 및 임상 데이터는 원장님들께 별도 제공됩니다.)
+              </p>
+              
+              <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-inner mb-6">
+                <p className="text-center text-slate-500 text-sm italic py-8">
+                  * 상세 성분 및 논문 데이터 업데이트 예정입니다.<br/>(자세한 내용은 담당 자문위원에게 문의해주세요.)
+                </p>
+              </div>
+            </div>
+            
+            <div className="mt-5 bg-amber-50/90 border border-amber-200 rounded-2xl p-4 text-xs font-medium text-amber-900 leading-relaxed shadow-sm">
+              <p className="font-bold mb-1">📌 S&J 동물병원 자문단 코멘트:</p>
+              <p>"간 수치 저하와 기력 회복에 확실한 포커스를 둔 배합입니다. 처방과 함께 병행 시 눈에 띄는 활력 개선을 확인하실 수 있습니다."</p>
+            </div>
+          </div>
+        </div>
+        )}
       </div>
     </section>
   );

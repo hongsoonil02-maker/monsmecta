@@ -13,7 +13,7 @@ const Hero = ({ setIsLabelModalOpen }) => {
         <div className="md:w-1/2 space-y-8 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-sm font-medium border border-white/20 backdrop-blur-sm shadow-xl">
             <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]"></span>
-            {t('heroBadge', '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어')}
+            {t('heroBadge', '동물병원 전용 B2B 처방 솔루션 · 장 건강 & 간 건강 프리미엄 케어')}
           </div>
           <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tight drop-shadow-xl break-keep">
             {t('hero.title')}
@@ -48,9 +48,16 @@ const Hero = ({ setIsLabelModalOpen }) => {
               </video>
             </div>
 
-            {/* Real Bottle Photo Overlaid on corner */}
-            <div className="absolute -bottom-6 -right-2 w-28 sm:-bottom-10 sm:-right-6 sm:w-40 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30">
-              <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="MONSMECTA Real Bottle" className="w-full h-auto object-contain rounded-2xl border-4 border-white shadow-xl bg-white" />
+            {/* Real Bottle Photo Overlaid on right corner */}
+            <div className="absolute -bottom-6 -right-2 w-24 sm:-bottom-10 sm:-right-6 sm:w-36 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30">
+              <div className="bg-emerald-600 text-white text-[10px] sm:text-xs font-bold px-2 py-1 rounded-t-lg text-center shadow-lg">장 건강</div>
+              <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="MONSMECTA Real Bottle" className="w-full h-auto object-contain rounded-b-2xl border-4 border-white shadow-xl bg-white" />
+            </div>
+
+            {/* Hepamax Bottle Photo Overlaid on left corner */}
+            <div className="absolute -bottom-6 -left-2 w-24 sm:-bottom-10 sm:-left-6 sm:w-36 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30">
+              <div className="bg-amber-700 text-white text-[10px] sm:text-xs font-bold px-2 py-1 rounded-t-lg text-center shadow-lg">간 건강</div>
+              <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="HEPAMAX Real Bottle" className="w-full h-auto object-contain rounded-b-2xl border-4 border-amber-100 shadow-xl bg-amber-50" style={{ filter: 'hue-rotate(-120deg) saturate(1.8)' }} />
             </div>
           </div>
         </div>

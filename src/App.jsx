@@ -48,7 +48,8 @@ const MonsmectaSNJLanding = () => {
   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
   const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
   const [legalType, setLegalType] = useState(null);
-  const [quantity, setQuantity] = useState(5);
+  const [quantity, setQuantity] = useState(0); // Monsmecta quantity
+  const [quantityHepamax, setQuantityHepamax] = useState(0); // Hepamax quantity
 
   const [hospitalName, setHospitalName] = useState('');
   const [vetName, setVetName] = useState('');
@@ -74,6 +75,7 @@ const MonsmectaSNJLanding = () => {
   const submittingRef = useRef(false);
   const orderRequestIdRef = useRef(null);
   const pricePerBottle = 7700;
+  const priceHepamax = 0; // TBD
 
   useEffect(() => {
     if (hospitalName && hospitalName.length > 1) {
@@ -108,6 +110,11 @@ const MonsmectaSNJLanding = () => {
 
     if (!hospitalName || !vetName || !bizNumber || !bizCategory || !bizType || !email || !address) {
       alert(t('order.validationRequired'));
+      return;
+    }
+
+    if (quantity === 0 && quantityHepamax === 0) {
+      alert(t('order.validationQuantity', '발주할 제품의 수량을 1개 이상 선택해주세요.'));
       return;
     }
 
@@ -149,7 +156,8 @@ const MonsmectaSNJLanding = () => {
       formData.append('이메일', email);
       formData.append('배송지 주소', address);
       formData.append('주문수량(병)', quantity);
-      formData.append('총 결제금액', quantity * pricePerBottle);
+      formData.append('헤파맥스 수량(병)', quantityHepamax);
+      formData.append('총 결제금액', (quantity * pricePerBottle) + (quantityHepamax * priceHepamax));
       formData.append('접수일시', new Date().toLocaleString('ko-KR'));
 
       const response = await fetch(scriptURL, {
@@ -223,6 +231,8 @@ const MonsmectaSNJLanding = () => {
           setIsOrderComplete={setIsOrderComplete}
           quantity={quantity}
           setQuantity={setQuantity}
+          quantityHepamax={quantityHepamax}
+          setQuantityHepamax={setQuantityHepamax}
           hospitalName={hospitalName}
           setHospitalName={setHospitalName}
           vetName={vetName}
@@ -240,6 +250,7 @@ const MonsmectaSNJLanding = () => {
           isSubmitting={isSubmitting}
           orderError={orderError}
           pricePerBottle={pricePerBottle}
+          priceHepamax={priceHepamax}
           honeypot={honeypot}
           setHoneypot={setHoneypot}
           onResetOrder={handleResetOrder}

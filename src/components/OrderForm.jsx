@@ -6,6 +6,8 @@ const OrderForm = ({
   setIsOrderComplete,
   quantity,
   setQuantity,
+  quantityHepamax,
+  setQuantityHepamax,
   hospitalName,
   setHospitalName,
   vetName,
@@ -23,6 +25,7 @@ const OrderForm = ({
   isSubmitting,
   orderError,
   pricePerBottle,
+  priceHepamax,
   honeypot,
   setHoneypot,
   onResetOrder,
@@ -63,7 +66,7 @@ const OrderForm = ({
                 </div>
                 <div className="flex justify-between items-center pt-3 border-t border-slate-200">
                   <span className="text-sm font-bold text-slate-500">{t('order.deposit_amount_label')}</span>
-                  <strong className="text-2xl font-black text-rose-600">{(quantity * pricePerBottle).toLocaleString()}{t('order.won')}</strong>
+                  <strong className="text-2xl font-black text-rose-600">{((quantity * pricePerBottle) + (quantityHepamax * priceHepamax)).toLocaleString()}{t('order.won')}</strong>
                 </div>
               </div>
 
@@ -190,19 +193,36 @@ const OrderForm = ({
               <div className="space-y-6">
                 <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
                   <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
-                  {t('order.quantity_select')}
+                  {t('order.quantity_select', '발주 품목 및 수량 선택 (최소 수량: 통합 5병 이상)')}
                 </h3>
-                <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-colors shadow-inner">
+                
+                {/* Monsmecta Item */}
+                <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-colors shadow-inner mb-4">
                   <div className="mb-6 md:mb-0 text-center md:text-left">
-                    <div className="font-black text-2xl text-slate-800 tracking-tight">{t('order.product_name')} <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
+                    <div className="font-black text-2xl text-slate-800 tracking-tight">몬스멕타 <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
                     <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}{t('order.won')}</span> <span className="text-xs">{t('order.vat_included')}</span></div>
-                    <p className="text-xs text-[#00513b] mt-1 font-semibold">{t('order.min_order')}</p>
+                    <p className="text-xs text-emerald-600 mt-1 font-semibold">장 점막 방어막 복구 및 지사제</p>
                   </div>
 
                   <div className="flex items-center bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                    <button type="button" onClick={() => setQuantity(Math.max(5, quantity - 1))} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">-</button>
+                    <button type="button" onClick={() => setQuantity(Math.max(0, quantity - 1))} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">-</button>
                     <div className="w-20 h-14 flex items-center justify-center font-black text-2xl text-slate-800 border-x-2 border-slate-200">{quantity}</div>
                     <button type="button" onClick={() => setQuantity(quantity + 1)} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">+</button>
+                  </div>
+                </div>
+
+                {/* Hepamax Item */}
+                <div className="flex flex-col md:flex-row items-center justify-between bg-amber-50/30 p-8 rounded-2xl border border-amber-200 hover:border-amber-300 transition-colors shadow-inner">
+                  <div className="mb-6 md:mb-0 text-center md:text-left">
+                    <div className="font-black text-2xl text-slate-800 tracking-tight">몬스멕타 헤파맥스 <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
+                    <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-amber-700 ml-1">{priceHepamax === 0 ? '단가 미정' : `${priceHepamax.toLocaleString()}${t('order.won')}`}</span> <span className="text-xs">{t('order.vat_included')}</span></div>
+                    <p className="text-xs text-amber-600 mt-1 font-semibold">간 건강, 지방간 개선 및 항병력 증진</p>
+                  </div>
+
+                  <div className="flex items-center bg-white border-2 border-amber-200 rounded-xl overflow-hidden shadow-sm">
+                    <button type="button" onClick={() => setQuantityHepamax(Math.max(0, quantityHepamax - 1))} className="w-14 h-14 flex items-center justify-center bg-amber-50 text-slate-600 hover:bg-amber-100 hover:text-amber-800 text-2xl font-black transition-colors">-</button>
+                    <div className="w-20 h-14 flex items-center justify-center font-black text-2xl text-slate-800 border-x-2 border-amber-200">{quantityHepamax}</div>
+                    <button type="button" onClick={() => setQuantityHepamax(quantityHepamax + 1)} className="w-14 h-14 flex items-center justify-center bg-amber-50 text-slate-600 hover:bg-amber-100 hover:text-amber-800 text-2xl font-black transition-colors">+</button>
                   </div>
                 </div>
               </div>
@@ -211,7 +231,7 @@ const OrderForm = ({
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-yellow-400 opacity-10 rounded-full blur-3xl"></div>
                 <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 relative z-10">
                   <span className="text-xl font-bold text-slate-300">{t('order.total_price')}</span>
-                  <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{(quantity * pricePerBottle).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
+                  <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{((quantity * pricePerBottle) + (quantityHepamax * priceHepamax)).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
                 </div>
                 <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 text-2xl font-black py-5 rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition duration-300 shadow-[0_0_20px_rgba(250,204,21,0.3)] transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
                   <span>{isSubmitting ? t('order.submitting') : t('order.btn')}</span>
