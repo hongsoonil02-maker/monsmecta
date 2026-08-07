@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal }) => {
+const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, activeProduct, setActiveProduct }) => {
   const { t, i18n } = useTranslation();
 
   return (
@@ -17,8 +17,21 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal }) =>
           <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
         </div>
         <div className="flex items-center gap-2 sm:gap-4 shrink-0">
-          {/* Language toggle - Dropdown */}
+          {/* Product selector - Dropdown */}
           <div className="flex items-center shrink-0">
+            <select
+              value={activeProduct}
+              onChange={(e) => setActiveProduct(e.target.value)}
+              aria-label="제품 선택"
+              className="bg-emerald-50 border border-emerald-200 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-emerald-100 transition-colors shadow-sm"
+            >
+              <option value="monsmecta">🧪 몬스멕타 (장 건강)</option>
+              <option value="hepamax">🧪 헤파맥스 (간 건강)</option>
+            </select>
+          </div>
+
+          {/* Language toggle - Dropdown */}
+          <div className="flex items-center shrink-0 hidden sm:flex">
             <select
               value={i18n.language ? i18n.language.split('-')[0] : 'ko'}
               onChange={(e) => i18n.changeLanguage(e.target.value)}

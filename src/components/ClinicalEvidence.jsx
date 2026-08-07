@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const ClinicalEvidence = () => {
+const ClinicalEvidence = ({ activeProduct }) => {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState('monsmecta');
 
   return (
     <section id="clinical" className="py-12 md:py-24 bg-slate-100 border-y border-slate-200">
@@ -11,24 +10,9 @@ const ClinicalEvidence = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('clinical.title', '학술 검증 및 임상 시험 데이터')}</h2>
           <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full mb-8"></div>
-          
-          <div className="inline-flex bg-slate-200 rounded-full p-1 shadow-inner max-w-full overflow-x-auto">
-            <button 
-              onClick={() => setActiveTab('monsmecta')}
-              className={`px-6 py-2.5 rounded-full font-bold text-sm md:text-base transition-all whitespace-nowrap ${activeTab === 'monsmecta' ? 'bg-[#00513b] text-white shadow-md' : 'text-slate-600 hover:text-slate-800'}`}
-            >
-              몬스멕타 (장 건강)
-            </button>
-            <button 
-              onClick={() => setActiveTab('hepamax')}
-              className={`px-6 py-2.5 rounded-full font-bold text-sm md:text-base transition-all whitespace-nowrap ${activeTab === 'hepamax' ? 'bg-amber-700 text-white shadow-md' : 'text-slate-600 hover:text-slate-800'}`}
-            >
-              헤파맥스 (간 건강)
-            </button>
-          </div>
         </div>
 
-        {activeTab === 'monsmecta' ? (
+        {activeProduct === 'monsmecta' ? (
         <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
 
           {/* Card 1: LIQI Technology Comparison Table */}

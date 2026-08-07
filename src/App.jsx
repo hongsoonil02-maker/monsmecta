@@ -48,6 +48,7 @@ const MonsmectaSNJLanding = () => {
   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
   const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
   const [legalType, setLegalType] = useState(null);
+  const [activeProduct, setActiveProduct] = useState('monsmecta');
   const [quantity, setQuantity] = useState(0); // Monsmecta quantity
   const [quantityHepamax, setQuantityHepamax] = useState(0); // Hepamax quantity
 
@@ -219,11 +220,11 @@ const MonsmectaSNJLanding = () => {
         {t('nav.skipToContent')}
       </a>
 
-      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />
+      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
       <main id="main-content">
-        <Hero setIsLabelModalOpen={setIsLabelModalOpen} />
-        <Values />
-        <ClinicalEvidence />
+        <Hero setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
+        <Values activeProduct={activeProduct} />
+        <ClinicalEvidence activeProduct={activeProduct} />
         <Infographics iframeHeights={iframeHeights} />
         <Letter />
         <OrderForm

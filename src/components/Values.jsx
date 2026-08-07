@@ -1,14 +1,16 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const Values = () => {
+const Values = ({ activeProduct }) => {
   const { t } = useTranslation();
 
   return (
     <section id="values" className="py-10 md:py-20 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('values.title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">
+            {activeProduct === 'monsmecta' ? t('values.title') : '에스앤제이의 3대 가치 약속'}
+          </h2>
           <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
           <p className="text-slate-500 text-lg mt-6 font-medium">{t('values.desc')}</p>
         </div>
@@ -32,9 +34,11 @@ const Values = () => {
 
           <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
             <div className="w-16 h-16 bg-slate-800 text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">🔬</div>
-            <h4 className="text-xl font-bold text-slate-800 mb-4 break-keep">{t('values.formula')}</h4>
+            <h4 className="text-xl font-bold text-slate-800 mb-4 break-keep">
+              {activeProduct === 'monsmecta' ? t('values.formula') : '독보적인 배합 비율'}
+            </h4>
             <p className="text-slate-600 leading-relaxed break-keep">
-              {t('values.formula_desc')}
+              {activeProduct === 'monsmecta' ? t('values.formula_desc') : '임상 현장에서 검증된 강력한 원료 배합으로 확실한 효과를 이끌어냅니다.'}
             </p>
           </div>
         </div>

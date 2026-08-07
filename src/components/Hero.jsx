@@ -1,8 +1,45 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const Hero = ({ setIsLabelModalOpen }) => {
+const Hero = ({ setIsLabelModalOpen, activeProduct, setActiveProduct }) => {
   const { t } = useTranslation();
+
+  const productData = {
+    monsmecta: {
+      title: t('hero.title'),
+      subtitle: t('hero.subtitle'),
+      badge: t('heroBadge', '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어'),
+      imgSrc: `${import.meta.env.BASE_URL}assets/bottle_mockup.png`,
+      badgeColor: 'bg-emerald-600',
+      badgeText: '장 건강',
+      borderColor: 'border-white',
+      bgColor: 'bg-white',
+      poster: `${import.meta.env.BASE_URL}assets/bottle_mockup_2.png`,
+      video: `${import.meta.env.BASE_URL}assets/video.mp4`
+    },
+    hepamax: {
+      title: '임상 수의사의 해답, HEPAMAX',
+      subtitle: '현장 진료의 까다로운 기준을 통과한 간 건강 솔루션. 에스앤제이 동물병원 홍순일 원장이 직접 검증하고 처방합니다.',
+      badge: '동물병원 전용 B2B 처방 솔루션 · 간 건강 프리미엄 케어',
+      imgSrc: `${import.meta.env.BASE_URL}assets/hepamax_mockup.png`,
+      badgeColor: 'bg-amber-700',
+      badgeText: '간 건강',
+      borderColor: 'border-amber-100',
+      bgColor: 'bg-amber-50',
+      poster: `${import.meta.env.BASE_URL}assets/hepamax_mockup.png`,
+      video: null
+    }
+  };
+
+  const current = productData[activeProduct];
+
+  const handleOrderClick = (e) => {
+    e.preventDefault();
+    const orderSection = document.getElementById('order');
+    if (orderSection) {
+      orderSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="about" className="relative bg-gradient-to-br from-[#00513b] via-[#004230] to-[#00281d] text-white overflow-hidden py-24 md:py-32">
@@ -13,51 +50,53 @@ const Hero = ({ setIsLabelModalOpen }) => {
         <div className="md:w-1/2 space-y-8 text-center md:text-left">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-sm font-medium border border-white/20 backdrop-blur-sm shadow-xl">
             <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]"></span>
-            {t('heroBadge', '동물병원 전용 B2B 처방 솔루션 · 장 건강 & 간 건강 프리미엄 케어')}
+            {current.badge}
           </div>
           <h1 className="text-4xl md:text-6xl font-black leading-tight tracking-tight drop-shadow-xl break-keep">
-            {t('hero.title')}
+            {current.title}
           </h1>
           <p className="text-lg md:text-xl text-emerald-50/90 leading-relaxed max-w-xl mx-auto md:mx-0 font-light whitespace-pre-line break-keep">
-            {t('hero.subtitle')}
+            {current.subtitle}
           </p>
           <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <a href="#order" className="inline-block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-lg font-black px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+            <button onClick={handleOrderClick} className="inline-block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-lg font-black px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
               {t('hero.orderBtn')}
-            </a>
+            </button>
             <button onClick={() => setIsLabelModalOpen(true)} className="inline-block text-center bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-full hover:bg-white/20 transform hover:-translate-y-1 transition-all duration-300">
               {t('hero.specBtn')}
             </button>
           </div>
         </div>
         <div className="md:w-1/2 flex justify-center w-full relative group perspective">
-          {/* 3D Mockup & Video Container */}
+          {/* Mockup Container */}
           <div className="relative w-full max-w-md transform transition-all duration-700 hover:scale-105 z-20">
             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-emerald-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
             <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/40">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                poster={`${import.meta.env.BASE_URL}assets/bottle_mockup_2.png`}
-                className="w-full h-auto object-cover"
-              >
-                <source src={`${import.meta.env.BASE_URL}assets/video.mp4`} type="video/mp4" />
-              </video>
+              {current.video ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  poster={current.poster}
+                  className="w-full h-auto object-cover"
+                >
+                  <source src={current.video} type="video/mp4" />
+                </video>
+              ) : (
+                <img
+                  src={current.poster}
+                  alt={current.title}
+                  className="w-full h-auto object-cover"
+                />
+              )}
             </div>
 
-            {/* Real Bottle Photo Overlaid on right corner */}
+            {/* Overlaid Product Badge/Thumbnail */}
             <div className="absolute -bottom-6 -right-2 w-24 sm:-bottom-10 sm:-right-6 sm:w-36 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30">
-              <div className="bg-emerald-600 text-white text-[10px] sm:text-xs font-bold px-2 py-1 rounded-t-lg text-center shadow-lg">장 건강</div>
-              <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="MONSMECTA Real Bottle" className="w-full h-auto object-contain rounded-b-2xl border-4 border-white shadow-xl bg-white" />
-            </div>
-
-            {/* Hepamax Bottle Photo Overlaid on left corner */}
-            <div className="absolute -bottom-6 -left-2 w-24 sm:-bottom-10 sm:-left-6 sm:w-36 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30">
-              <div className="bg-amber-700 text-white text-[10px] sm:text-xs font-bold px-2 py-1 rounded-t-lg text-center shadow-lg">간 건강</div>
-              <img src={`${import.meta.env.BASE_URL}assets/hepamax_mockup.png`} alt="HEPAMAX Real Bottle" className="w-full h-auto object-contain rounded-b-2xl border-4 border-amber-100 shadow-xl bg-amber-50" />
+              <div className={`${current.badgeColor} text-white text-[10px] sm:text-xs font-bold px-2 py-1 rounded-t-lg text-center shadow-lg`}>{current.badgeText}</div>
+              <img src={current.imgSrc} alt="Product Thumbnail" className={`w-full h-auto object-contain rounded-b-2xl border-4 ${current.borderColor} shadow-xl ${current.bgColor}`} />
             </div>
           </div>
         </div>
