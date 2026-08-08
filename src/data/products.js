@@ -255,9 +255,9 @@ export const PRODUCTS = {
     isComingSoon: true,
     hero: {
       title: '임상 수의사의 해답, URINARY',
-      subtitle: '현장 진료의 까다로운 기준을 통과한 비뇨기 및 신장 건강 보조제입니다.',
-      badge: '동물병원 전용 B2B 처방 솔루션 · 비뇨/신장 프리미엄 케어',
-      badgeText: '비뇨기 건강',
+      subtitle: '몬모릴로나이트의 강력한 요독 흡착력과 세계적인 아디세오(Adisseo)의 프리미엄 비타민을 결합한 비뇨기 및 신장 건강 보조제입니다.',
+      badge: '동물병원 전용 B2B 처방 솔루션 · 요독 흡착 및 비뇨기 프리미엄 케어',
+      badgeText: '비뇨/신장 케어',
       badgeColor: 'bg-indigo-700',
       borderColor: 'border-indigo-100',
       bgColor: 'bg-indigo-50'

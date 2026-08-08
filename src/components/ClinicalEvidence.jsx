@@ -251,7 +251,7 @@ const ClinicalEvidence = ({ activeProduct }) => {
           </div>
 
         </div>
-        ) : (
+        ) : activeProduct === 'hepamax' ? (
         <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
           {/* Hepamax Card 1: Key Benefits */}
           <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
@@ -366,6 +366,111 @@ const ClinicalEvidence = ({ activeProduct }) => {
             </div>
           </div>
         </div>
+        ) : activeProduct === 'urinary' ? (
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
+          {/* Urinary Card 1: Key Benefits */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-indigo-700 text-white flex items-center justify-center text-sm font-bold shadow-md">1</span>
+                <span>요독 흡착 및 비뇨기 핵심 효능</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                유리너리는 요독증 완화와 활력 증진을 위해 설계된 비뇨기/신장 특화 처방 솔루션입니다.
+              </p>
+              <div className="space-y-3.5">
+                <div className="bg-indigo-50 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🧲</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">강력한 요독 흡착 배출</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">몬모릴로나이트의 양이온 교환 능력으로 요소(Urea)와 인독실설페이트(Indoxyl Sulfate)를 강력하게 흡착하여 배출합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-indigo-50 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🩺</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">신장 기능 저하 보조</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">요독의 장내 배출을 통해 신장 수치를 안정화하고 만성 신부전 환축의 요독증 완화에 기여합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-indigo-50 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">⚡</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">활력 증진 및 영양 공급</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">아디세오 비고비솔의 비타민 A, D3, E, B군 등이 신장 질환 시 부족해지기 쉬운 에너지를 대사하고 항산화 효과를 제공합니다.</p>
+                  </div>
+                </div>
+                
+                {/* Google Reference Button in Card 1 */}
+                <div className="mt-4 p-4 bg-indigo-100/50 rounded-2xl border border-indigo-200">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <p className="text-xs font-bold text-indigo-900 break-keep">💡 몬모릴로나이트 요독 흡착 학술 검증 (Urea & Indoxyl Sulfate)</p>
+                    <a
+                      href="https://scholar.google.com/scholar?q=Montmorillonite+Urea+Indoxyl+Sulfate+adsorption"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 shrink-0 bg-indigo-700 hover:bg-indigo-900 text-white text-[11px] font-bold px-3 py-1.5 rounded-xl transition-all shadow-sm"
+                    >
+                      <span className="shrink-0">🔍</span>
+                      <span className="break-keep">구글 학술 논문 검색</span>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          {/* Urinary Card 2: Ingredients */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-indigo-700 text-white flex items-center justify-center text-sm font-bold shadow-md">2</span>
+                <span>핵심 성분 및 약리기전</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                몬모릴로나이트와 아디세오 비고비솔의 독자적인 시너지 포뮬러입니다.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-indigo-300 transition-colors">
+                  <div className="shrink-0 flex flex-col gap-1 sm:w-1/3">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
+                      <h5 className="font-bold text-slate-800 text-sm">Montmorillonite</h5>
+                    </div>
+                    <span className="text-indigo-700 text-xs font-bold">(몬모릴로나이트 흡착제)</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    비표면적 800m²/g 이상의 나노 몬모릴로나이트가 장내에서 요소(Urea) 및 단백질 결합성 요독인 인독실설페이트(Indoxyl Sulfate)를 수소 결합과 정전기적 척력 변형으로 강력하게 트랩(Trap)하여 체외 배설을 돕습니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-indigo-300 transition-colors">
+                  <div className="shrink-0 flex flex-col gap-1 sm:w-1/3">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
+                      <h5 className="font-bold text-slate-800 text-sm">Adisseo Vigovisol</h5>
+                    </div>
+                    <span className="text-indigo-700 text-xs font-bold">(글로벌 아디세오 프리미엄 비타민)</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    세계적인 사료첨가제 기업 아디세오(Adisseo)의 액상 종합 비타민으로, 활력 증진 및 에너지 대사에 필수적인 영양을 공급합니다. (Vit A 400만IU, D3 80만IU, E 2천IU, B군, C, K3 복합 배합)
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-5 bg-indigo-50/90 border border-indigo-200 rounded-2xl p-4 text-xs font-medium text-indigo-900 leading-relaxed shadow-sm">
+              <p className="font-bold mb-1">📌 S&J 동물병원 자문단 코멘트:</p>
+              <p>"요독 흡착과 신장 질환 시 떨어지기 쉬운 활력을 돕는 비타민 복합체 배합으로 만성 신부전 환축의 삶의 질 향상에 탁월한 보조제가 될 것입니다."</p>
+            </div>
+          </div>
+        </div>
+        ) : (
+          <div className="text-center py-20 text-slate-500 font-medium animate-in fade-in zoom-in-95 duration-300">
+            해당 제품의 임상 데이터 및 학술 검증 자료는 준비 중입니다.
+          </div>
         )}
       </div>
     </section>

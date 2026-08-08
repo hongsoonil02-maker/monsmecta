@@ -150,12 +150,17 @@ products = [
         "desc": "비뇨기 및 신장 건강 보조제",
         "color1": "#120A2B", "color2": "#0B1515",
         "neon": "#6366f1", # indigo-500
-        "effects": ["요로 결석 생성 억제", "신장 수치 안정화 보조", "배뇨 곤란 및 통증 완화", "방광 내벽 보호 및 재생"],
+        "effects": ["요소(Urea) 및 요독 배출 촉진", "인독실설페이트 흡착 제거", "신장 수치 안정화 보조", "활력 증진 및 에너지 대사"],
+        "unit_desc": "1L 기준 (괄호 안은 1ml 당 함량)",
         "ingredients": [
-            ("Cranberry Extract", "8,000mg"),
-            ("D-Mannose (D-마노스)", "10,000mg"),
-            ("Potassium Citrate", "5,000mg"),
-            ("N-Acetyl Glucosamine", "3,000mg")
+            ("Montmorillonite (요독 흡착 핵심성분)", "80~90% (고함량)"),
+            ("Adisseo Vigovisol (프리미엄 비타민 복합체)", "10~20% (보조)"),
+            ("└ 비타민 A (Vitamin A)", "4,000,000 IU (4,000 IU)"),
+            ("└ 비타민 D3 (Vitamin D3)", "800,000 IU (800 IU)"),
+            ("└ 비타민 E (Vitamin E)", "2,000 IU (2 IU)"),
+            ("└ 비타민 B1, B2, C", "각 1,000mg (1mg)"),
+            ("└ 니코틴산아미드", "3,000mg (3mg)"),
+            ("└ 판토텐산 칼슘", "1,000mg (1mg)")
         ]
     },
     {
@@ -363,10 +368,16 @@ template = """<!DOCTYPE html>
                                     <div class="mt-0.5"><span class="text-[{neon}] font-bold">TEL</span> <span class="font-bold">031-458-1240 / www.mobio.co.kr</span></div>
                                 </div>
                                 
-                                <div class="w-[1px] h-20 bg-white/20 mx-2"></div>
-                                
                                 <div class="flex flex-col items-center justify-center shrink-0 gap-1 text-[{neon}]">
-                                    <div class="relative w-16 h-16">
+                                    <div class="logo-area flex flex-col items-center">
+                                        <svg width="45" height="15" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20 20 L30 10 L40 20 L30 30 Z" fill="{neon}"/>
+                                            <path d="M35 20 L45 10 L55 20 L45 30 Z" fill="white" opacity="0.7"/>
+                                            <text x="65" y="26" fill="white" font-family="Arial" font-weight="900" font-size="20" letter-spacing="1">S&J</text>
+                                        </svg>
+                                        {logo_html}
+                                    </div>
+                                    <div class="relative w-16 h-16 mt-2">
                                         <svg viewBox="0 0 100 100" class="w-full h-full fill-none stroke-current stroke-[6px]" stroke-linejoin="round" stroke-linecap="round">
                                             <path d="M50 15 L85 75 L15 75 Z"/>
                                             <path d="M50 15 L60 25 M85 75 L70 75 M15 75 L25 60" />
@@ -376,6 +387,7 @@ template = """<!DOCTYPE html>
                                         </div>
                                     </div>
                                     <span class="text-[14px] font-black tracking-widest text-white">OTHER</span>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -449,6 +461,12 @@ for p in products:
         <div class="text-gray-500 orbitron tracking-wide">적량</div>
     </li>'''
             
+    logo_html = ""
+    if p['id'] == 'probiotics':
+        logo_html = '<div class="mt-2 text-center text-white/90 bg-white/10 px-2 py-1 rounded"><span class="text-[9px]">Formulated with</span><br><strong class="text-[11px]">DuPont Danisco®</strong></div>'
+    elif p['id'] == 'urinary':
+        logo_html = '<div class="mt-2 text-center text-white/90 bg-white/10 px-2 py-1 rounded"><span class="text-[9px]">Formulated with</span><br><strong class="text-[11px]">Adisseo Vigovisol®</strong></div>'
+
     html = template.format(
         name_ko=p['name_ko'],
         name_en=p['name_en'],
@@ -459,7 +477,8 @@ for p in products:
         effects_html=effects_html.format(neon=p['neon']),
         ingredients_html=ingredients_html.format(neon=p['neon']),
         registered_ingredients=p.get('registered_ingredients', '별도 고시 (제품 설명서 참조)'),
-        unit_desc="1L 기준" if p['id'] == 'probiotics' else "1L 기준 (괄호 안은 1ml 당 함량)"
+        logo_html=logo_html,
+        unit_desc="1L 기준" if p['id'] == 'probiotics' or p['id'] == 'urinary' else "1L 기준 (괄호 안은 1ml 당 함량)"
     )
     
     with open(os.path.join(out_dir, f"{p['id']}_label_print.html"), "w", encoding="utf-8") as f:
