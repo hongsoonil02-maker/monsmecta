@@ -28,11 +28,13 @@ products = [
         "neon": "#D4AF37", # Gold
         "effects": ["간 건강 개선", "장 건강 개선", "지방간 개선", "항병력 증진", "질병 회복 촉진"],
         "ingredients": [
-            ("Taurine (타우린)", "2,000mg"),
-            ("D-Sorbitol (D-소르비톨)", "45g"),
-            ("L-lysine HCl", "300mg"),
-            ("L-methionine", "300mg"),
-            ("Vitamin B12", "1,000μg")
+            ("Smectite (스멕타이트)", "200g"),
+            ("L-glutamine & Zinc & Probiotics", "베이스 배합"),
+            ("Taurine (타우린)", "200mg"),
+            ("D-Sorbitol (D-소르비톨)", "4.5g"),
+            ("L-lysine HCl", "30mg"),
+            ("L-methionine", "30mg"),
+            ("Vitamin B12", "100μg")
         ]
     },
     {
@@ -45,12 +47,12 @@ products = [
         "effects": ["강력한 면역 세포 활성화", "종양 억제 보조 기전", "항암 치료 시 부작용 완화", "염증 반응 감소"],
         "ingredients": [
             ("Montmorillonite (요독 흡착 핵심성분)", "고함량"),
-            ("Beta-glucan (베타글루칸)", "15% (30,000mg)"),
-            ("Allicin (알리신)", "10% (20,000mg)"),
-            ("Sulforaphane (설포라판)", "10% (20,000mg)"),
-            ("Curcumin (커큐민)", "5% (10,000mg)"),
-            ("Catechin (카테킨)", "5% (10,000mg)"),
-            ("AFNC (천연복합추출물)", "5% (10,000mg)")
+            ("Beta-glucan (베타글루칸)", "30,000mg"),
+            ("Allicin (알리신)", "20,000mg"),
+            ("Sulforaphane (설포라판)", "20,000mg"),
+            ("Curcumin (커큐민)", "10,000mg"),
+            ("Catechin (카테킨)", "10,000mg"),
+            ("AFNC (천연복합추출물)", "10,000mg")
         ]
     },
     {
@@ -63,10 +65,10 @@ products = [
         "effects": ["쌍화 복합 추출물로 기력 회복 및 초기 감기 완화", "호흡기 점막 면역 강화 및 기관지 윤활", "비염, 마른 기침, 호흡 곤란 증상 완화", "천연 항염증제로 호흡기 알레르기 억제"],
         "ingredients": [
             ("Montmorillonite (요독 흡착 핵심성분)", "고함량"),
-            ("Ssanghwa Extract (쌍화 복합 추출물)", "50% (100,000mg)"),
-            ("Quercetin (퀘르세틴)", "20% (40,000mg)"),
-            ("Liriope (맥문동)", "15% (30,000mg)"),
-            ("Ulmus (유근피)", "15% (30,000mg)")
+            ("Ssanghwa Extract (쌍화 복합 추출물)", "100,000mg"),
+            ("Quercetin (퀘르세틴)", "40,000mg"),
+            ("Liriope (맥문동)", "30,000mg"),
+            ("Ulmus (유근피)", "30,000mg")
         ]
     },
     {
@@ -157,14 +159,14 @@ products = [
         "effects": ["요소(Urea) 및 요독 배출 촉진", "인독실설페이트 흡착 제거", "신장 수치 안정화 보조", "활력 증진 및 에너지 대사"],
         "unit_desc": "1L 기준 (괄호 안은 1ml 당 함량)",
         "ingredients": [
-            ("Montmorillonite (요독 흡착 핵심성분)", "고함량"),
-            ("Adisseo Vigovisol (프리미엄 비타민 복합체)", "보조제"),
-            ("└ 비타민 A (Vitamin A)", "4,000,000 IU (4,000 IU)"),
-            ("└ 비타민 D3 (Vitamin D3)", "800,000 IU (800 IU)"),
-            ("└ 비타민 E (Vitamin E)", "2,000 IU (2 IU)"),
-            ("└ 비타민 B1, B2, C", "각 1,000mg (1mg)"),
-            ("└ 니코틴산아미드", "3,000mg (3mg)"),
-            ("└ 판토텐산 칼슘", "1,000mg (1mg)")
+            ("Smectite (스멕타이트)", "200g"),
+            ("L-glutamine & Zinc & Probiotics", "베이스 배합"),
+            ("└ 비타민 A (Vitamin A)", "400,000 IU (400 IU)"),
+            ("└ 비타민 D3 (Vitamin D3)", "80,000 IU (80 IU)"),
+            ("└ 비타민 E (Vitamin E)", "200 IU (0.2 IU)"),
+            ("└ 비타민 B1, B2, C", "각 100mg (0.1mg)"),
+            ("└ 니코틴산아미드", "300mg (0.3mg)"),
+            ("└ 판토텐산 칼슘", "100mg (0.1mg)")
         ]
     },
     {
@@ -176,11 +178,13 @@ products = [
         "neon": "#eab308", # yellow-500
         "effects": ["필수 비타민 12종 공급", "미량 미네랄 균형 유지", "피로 회복 및 항산화", "뼈 및 치아 건강 유지"],
         "ingredients": [
-            ("Vitamin A", "1,000,000 IU"),
-            ("Vitamin D3", "100,000 IU"),
-            ("Vitamin E", "5,000 IU"),
-            ("Calcium (칼슘)", "15,000mg"),
-            ("Phosphorus (인)", "10,000mg")
+            ("Smectite (스멕타이트)", "200g"),
+            ("L-glutamine & Zinc & Probiotics", "베이스 배합"),
+            ("Vitamin A", "100,000 IU"),
+            ("Vitamin D3", "10,000 IU"),
+            ("Vitamin E", "500 IU"),
+            ("Calcium (칼슘)", "1,500mg"),
+            ("Phosphorus (인)", "1,000mg")
         ]
     }
 ]

@@ -137,12 +137,12 @@ export const LABEL_DATA = {
     ingredients_title: "핵심 7가지 복합 성분",
     ingredients: [
       { title: "1) 몬모릴로나이트", desc: "체내 독소 및 염증 물질 흡착 배출" },
-      { title: "2) 베타글루칸(Beta-glucan) 15%", desc: "면역 세포(NK세포 등) 활성화 및 암 세포 증식 억제" },
-      { title: "3) 알리신(Allicin) 10%", desc: "암 세포 자살 유도 및 발암 물질 활성화 방지" },
-      { title: "4) 설포라판(Sulforaphane) 10%", desc: "체내 해독 효소 활성화 및 암 줄기세포 표적 공격" },
-      { title: "5) 커큐민(Curcumin) 5%", desc: "강력한 항염증 작용으로 암 세포 전이 억제" },
-      { title: "6) 카테킨(Catechin) 5%", desc: "암 세포 증식 차단 및 활성산소 제거" },
-      { title: "7) AFNC(천연복합추출물) 5%", desc: "천연물 항암 영양소로 세포 자멸 유도 보조" }
+      { title: "2) 베타글루칸(Beta-glucan) (30,000mg/L)", desc: "면역 세포(NK세포 등) 활성화 및 암 세포 증식 억제" },
+      { title: "3) 알리신(Allicin) (20,000mg/L)", desc: "암 세포 자살 유도 및 발암 물질 활성화 방지" },
+      { title: "4) 설포라판(Sulforaphane) (20,000mg/L)", desc: "체내 해독 효소 활성화 및 암 줄기세포 표적 공격" },
+      { title: "5) 커큐민(Curcumin) (10,000mg/L)", desc: "강력한 항염증 작용으로 암 세포 전이 억제" },
+      { title: "6) 카테킨(Catechin) (10,000mg/L)", desc: "암 세포 증식 차단 및 활성산소 제거" },
+      { title: "7) AFNC(천연복합추출물) (10,000mg/L)", desc: "천연물 항암 영양소로 세포 자멸 유도 보조" }
     ],
     reg_no: "제XX9UY0145호",
     type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
@@ -171,10 +171,10 @@ export const LABEL_DATA = {
     ingredients_title: "콜드제로 전용 복합 성분",
     ingredients: [
       { title: "1) 몬모릴로나이트", desc: "요독 흡착 베이스 (고함량)" },
-      { title: "2) 쌍화 복합 추출물 50%", desc: "백작약, 황기, 당귀 등 함유로 기력 회복 및 초기 감기 완화" },
-      { title: "3) 퀘르세틴(Quercetin) 20%", desc: "천연 항염증제로 호흡기 알레르기 및 염증 억제" },
-      { title: "4) 맥문동(Liriope) 15%", desc: "호흡기 점막을 촉촉하게 하고 마른 기침 완화" },
-      { title: "5) 유근피(Ulmus) 15%", desc: "비강 및 기관지 염증 완화를 돕는 천연 소염제" }
+      { title: "2) 쌍화 복합 추출물 (100,000mg/L)", desc: "백작약, 황기, 당귀 등 함유로 기력 회복 및 초기 감기 완화" },
+      { title: "3) 퀘르세틴(Quercetin) (40,000mg/L)", desc: "천연 항염증제로 호흡기 알레르기 및 염증 억제" },
+      { title: "4) 맥문동(Liriope) (30,000mg/L)", desc: "호흡기 점막을 촉촉하게 하고 마른 기침 완화" },
+      { title: "5) 유근피(Ulmus) (30,000mg/L)", desc: "비강 및 기관지 염증 완화를 돕는 천연 소염제" }
     ],
     reg_no: "제XX9UY0145호",
     type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
