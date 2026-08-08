@@ -179,15 +179,26 @@ products = [
         "desc": "종합 비타민 및 미네랄 보조제",
         "color1": "#2B2A0A", "color2": "#0B1515",
         "neon": "#eab308", # yellow-500
-        "effects": ["필수 비타민 12종 공급", "미량 미네랄 균형 유지", "피로 회복 및 항산화", "뼈 및 치아 건강 유지"],
+        "effects": ["필수 비타민 고함량 복합 배합", "필수 아미노산 및 보조 성분 배합", "피로 회복 및 항산화 작용", "뼈·치아 건강 및 대사 활성화"],
+        "ing_list_class": "space-y-1 text-[15px]",
+        "raw_materials": "비타민A, 비타민C, 비타민D3, 비타민E, 비타민K3, 비타민B1, 비타민B6, 비타민B12, 니코틴아미드, 판토텐산칼슘, L-메티오닌, L-아르기닌, 염산라이신, 베타인, 트레오닌, 염화콜린, 정제수",
         "ingredients": [
-            ("Smectite (스멕타이트)", "200g"),
-            ("L-glutamine & Zinc & Probiotics", "베이스 배합"),
-            ("Vitamin A", "100,000 IU"),
-            ("Vitamin D3", "10,000 IU"),
-            ("Vitamin E", "500 IU"),
-            ("Calcium (칼슘)", "1,500mg"),
-            ("Phosphorus (인)", "1,000mg")
+            ("Vit A (비타민A)", "750,000 IU"),
+            ("Vit C (비타민C)", "299.9 mg"),
+            ("Vit D3 (비타민D3·콜레칼시페롤)", "150,000 IU"),
+            ("Vit E 50% (비타민E)", "300 IU"),
+            ("Vit K3 (비타민K3·메나디온) 50%", "200 mg"),
+            ("Vit B1 HCl (비타민B1) 99%", "203 mg"),
+            ("Vit B6 (비타민B6·피리독신)", "98 mg"),
+            ("Vit B12 (비타민B12·코발라민)", "1 mg"),
+            ("L-Methionine (L-메티오닌)", "300 mg"),
+            ("L-Arginine (L-아르기닌)", "80 mg"),
+            ("Lysine HCl (라이신)", "500 mg"),
+            ("Nicotinamide (니코틴아미드)", "500 mg"),
+            ("Calcium Pantothenate (판토텐산칼슘)", "300 mg"),
+            ("Betaine (베타인)", "300 mg"),
+            ("Threonine (트레오닌)", "100 mg"),
+            ("Choline Chloride (콜린 클로라이드)", "500 mg")
         ]
     }
 ]
@@ -263,7 +274,7 @@ template = """<!DOCTYPE html>
                                 </h3>
                                 <div class="bg-white/10 backdrop-blur-md px-3 py-1 rounded border border-white/20 text-[15px] text-[{neon}]">{unit_desc}</div>
                             </div>
-                            <ul class="space-y-2 text-[22px] font-medium">
+                            <ul class="{ing_list_class} font-medium">
                                 {ingredients_html}
                             </ul>
                         </div>
@@ -302,7 +313,7 @@ template = """<!DOCTYPE html>
                             
                             <div>
                                 <div class="text-[18px] text-[{neon}] font-bold mb-2">사용한 원료의 명칭</div>
-                                <div class="text-[18px] text-gray-300 leading-relaxed font-medium">바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수</div>
+                                <div class="text-[18px] text-gray-300 leading-relaxed font-medium">{raw_materials}</div>
                             </div>
                             
                             <div>
@@ -457,7 +468,9 @@ for p in products:
         ingredients_html=ingredients_html.format(neon=p['neon']),
         weight_str=weight_str,
         logo_html=logo_html,
-        unit_desc="총량 기준" if p['id'] == 'powerase' else ("1L 기준" if p['id'] == 'probiotics' or p['id'] == 'urinary' else "1L 기준 (권장량 1ml 당 성분량)")
+        ing_list_class=p.get('ing_list_class', "space-y-2 text-[22px]"),
+        raw_materials=p.get('raw_materials', "바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수"),
+        unit_desc="총량 기준" if p['id'] == 'powerase' else ("1L 기준 (액상원료 10% 첨가 함량 환산)" if p['id'] == 'vitaplus' else ("1L 기준" if p['id'] == 'probiotics' or p['id'] == 'urinary' else "1L 기준 (권장량 1ml 당 성분량)"))
     )
     
     with open(os.path.join(out_dir, f"{p['id']}_label_print.html"), "w", encoding="utf-8") as f:

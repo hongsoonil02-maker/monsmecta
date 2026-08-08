@@ -112,6 +112,17 @@ const THEME_MAP = {
     accentText: 'text-orange-300',
     buttonBorder: 'border-orange-500/30 hover:border-orange-400',
     buttonText: 'text-orange-300 hover:text-orange-200'
+  },
+  vitaplus: {
+    bg: 'bg-[#2b2a0a]',
+    bodyBg: 'bg-[#111005]',
+    text: 'text-yellow-400',
+    border: 'border-[#514d00]',
+    headerGradient: 'from-[#514d00] via-[#3d3a00] to-[#282600]',
+    accentBg: 'bg-yellow-900/30',
+    accentText: 'text-yellow-300',
+    buttonBorder: 'border-yellow-500/30 hover:border-yellow-400',
+    buttonText: 'text-yellow-300 hover:text-yellow-200'
   }
 };
 

@@ -280,10 +280,10 @@ export const PRODUCTS = {
     border: 'hover:border-yellow-500',
     text: 'text-yellow-400',
     shadow: 'hover:shadow-yellow-500/20',
-    isComingSoon: true,
+    isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, VITAPLUS',
-      subtitle: '현장 진료의 까다로운 기준을 통과한 종합 비타민 및 미네랄 보조제입니다.',
+      subtitle: '비타민 A·C·D3·E·K3·B군 10종과 필수 아미노산을 액상원료 10% 기준으로 정량 배합해 피로 회복·항산화·뼈 건강을 돕는 종합 비타민 프리미엄 케어 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 비타민/미네랄 프리미엄 케어',
       badgeText: '종합 비타민',
       badgeColor: 'bg-yellow-700',
@@ -292,8 +292,8 @@ export const PRODUCTS = {
     },
     values: {
       title: '에스앤제이의 3대 가치 약속',
-      formulaTitle: '독보적인 배합 비율',
-      formulaDesc: '임상 현장에서 검증된 강력한 원료 배합으로 확실한 효과를 이끌어냅니다.'
+      formulaTitle: '종합 비타민 16종 고함량 배합',
+      formulaDesc: '비타민 10종·아미노산 6종을 액상원료 10% 첨가 기준으로 1L 당 함량을 환산해, 피로 회복·항산화·면역·뼈 건강을 종합적으로 돕습니다.'
     }
   }
 };

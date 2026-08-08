@@ -870,6 +870,86 @@ const ClinicalEvidence = ({ activeProduct }) => {
             </div>
           </div>
         </div>
+        ) : activeProduct === 'vitaplus' ? (
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
+          {/* Vitaplus Card 1: Key Benefits */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-yellow-700 text-white flex items-center justify-center text-sm font-bold shadow-md">1</span>
+                <span>종합 비타민 핵심 효능</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                비타플러스는 비타민 10종과 필수 아미노산 6종을 액상원료 10% 첨가 기준으로 배합한 종합 비타민 특화 솔루션입니다.
+              </p>
+              <div className="space-y-3.5">
+                <div className="bg-yellow-50 rounded-2xl p-4 border border-yellow-200 hover:border-yellow-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">💊</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">필수 비타민 고함량 복합 배합</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">지용성 비타민(A·D3·E·K3)과 수용성 비타민(C·B1·B6·B12·니코틴아미드·판토텐산칼슘) 10종을 고함량으로 복합 배합했습니다.</p>
+                  </div>
+                </div>
+                <div className="bg-yellow-50 rounded-2xl p-4 border border-yellow-200 hover:border-yellow-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🧬</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">필수 아미노산 및 대사 보조 성분 배합</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">L-메티오닌·라이신·아르기닌·트레오닌 등 아미노산과 베타인·콜린을 배합해 단백질 합성과 간·신경 대사를 돕습니다.</p>
+                  </div>
+                </div>
+                <div className="bg-yellow-50 rounded-2xl p-4 border border-yellow-200 hover:border-yellow-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">⚡</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">피로 회복 및 항산화 작용</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">비타민 C·E와 B군의 에너지 대사 지원으로 피로를 완화하고 활성산소를 제거해 세포를 보호합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-yellow-50 rounded-2xl p-4 border border-yellow-200 hover:border-yellow-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🦴</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">뼈·치아 건강 및 대사 활성화</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">비타민 D3·K3가 칼슘 흡수와 골 대사를 조절해 성장기·노령 반려동물의 뼈와 치아 건강을 유지합니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Vitaplus Card 2: Ingredients */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-yellow-700 text-white flex items-center justify-center text-sm font-bold shadow-md">2</span>
+                <span>핵심 성분 및 함량 (1L 환산)</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                액상원료 10% 첨가 기준으로 1L 당 함량을 환산한 비타플러스 독자 포뮬러입니다.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3">
+                  <h5 className="font-bold text-slate-800 text-sm mb-2 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-yellow-500"></span>지용성 비타민</h5>
+                  <p className="text-xs text-slate-600 leading-relaxed">비타민 A 750,000 IU · 비타민 D3 150,000 IU · 비타민 E 300 IU · 비타민 K3 200 mg</p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3">
+                  <h5 className="font-bold text-slate-800 text-sm mb-2 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-yellow-500"></span>수용성 비타민·B군</h5>
+                  <p className="text-xs text-slate-600 leading-relaxed">비타민 C 299.9 mg · 비타민 B1 203 mg · 비타민 B6 98 mg · 비타민 B12 1 mg · 니코틴아미드 500 mg · 판토텐산칼슘 300 mg</p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3">
+                  <h5 className="font-bold text-slate-800 text-sm mb-2 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-yellow-500"></span>아미노산·보조 성분</h5>
+                  <p className="text-xs text-slate-600 leading-relaxed">L-메티오닌 300 mg · L-아르기닌 80 mg · 라이신 500 mg · 트레오닌 100 mg · 베타인 300 mg · 콜린 클로라이드 500 mg</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-5 bg-yellow-50/90 border border-yellow-200 rounded-2xl p-4 text-xs font-medium text-yellow-900 leading-relaxed shadow-sm">
+              <p className="font-bold mb-1">📌 S&J 동물병원 자문단 코멘트:</p>
+              <p>"비타민 10종+아미노산 6종을 한 번에 보충하는 종합 포뮬러로, 식이 부족·만성질환·회복기 환축의 필수 영양 공급에 권장합니다. 액상원료 10% 첨가 기준으로 함량을 환산해 표기했습니다."</p>
+            </div>
+          </div>
+        </div>
         ) : (
           <div className="text-center py-20 text-slate-500 font-medium animate-in fade-in zoom-in-95 duration-300">
             해당 제품의 임상 데이터 및 학술 검증 자료는 준비 중입니다.
