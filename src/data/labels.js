@@ -7,16 +7,16 @@ export const LABEL_DATA = {
     feed3: "개, 고양이, 조류, 소형 포유류, 파충류 등 모든 동물에 적용 가능",
     ingredients_title: "핵심 5가지 복합 성분",
     ingredients: [
-      { title: "1) 바실러스 서브틸리스", desc: "항균·항바이러스 작용", note: "*항바이러스 작용은 경상국립대 수의과대학에서 검증 완료" },
-      { title: "2) 포도당", desc: "장 기능 개선 및 정장 작용" },
-      { title: "3) 비타민 A", desc: "상피세포의 회복" },
-      { title: "4) 전해질", desc: "아세트산나트륨, 프로피온산나트륨" },
-      { title: "5) 몬모릴로나이트", desc: "연변 및 설사 개선, 독소 제거, 장 환경 개선" }
+      { title: "1) 스멕타이트(Smectite)", desc: "장내 유해물질 흡착 배출 및 연변 개선", note: "200g/L" },
+      { title: "2) L-글루타민(L-glutamine)", desc: "장 점막 보호 및 회복 촉진", note: "5,000mg/L" },
+      { title: "3) 아연(Zinc)", desc: "장내 면역력 강화 및 세포 분열 필수 미네랄", note: "500mg/L" },
+      { title: "4) 프로바이오틱스(Probiotics)", desc: "장내 미생물 균형 유지 및 유익균 증식", note: "1x10^9 CFU/L" },
+      { title: "5) 전해질 보충제", desc: "설사로 손실된 수분과 전해질 회복" }
     ],
     reg_no: "제XX9UY0145호",
     type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
     amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
-    ingredients_list_val: "바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수",
+    ingredients_list_val: "스멕타이트, L-글루타민, 아연, 바실러스 서브틸리스, 포도당, 비타민A, 전해질, 정제수",
     effects: [
       "구토·복통·설사·소화불량·식욕부진의 1차 대응 케어",
       "곰팡이 독소(AFB1 98.5%)·병원체·바이러스의 물리적 흡착 제거",
@@ -48,7 +48,7 @@ export const LABEL_DATA = {
     reg_no: "제XX9UY0145호",
     type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
     amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
-    ingredients_list_val: "바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수",
+    ingredients_list_val: "바실러스 서브틸리스, 스멕타이트, 타우린, D-소르비톨, L-라이신, L-메티오닌, 비타민B12, 정제수",
     effects: [
       "간 해독 기능 강화 및 간세포 재생 촉진",
       "장-간 축(Gut-Liver Axis)을 통한 장내 유해물질 차단",
@@ -71,16 +71,16 @@ export const LABEL_DATA = {
     feed3: "개, 고양이 등 반려동물 적용",
     ingredients_title: "핵심 5가지 복합 성분",
     ingredients: [
-      { title: "1) 다니스코 프리미엄 유산균", desc: "세계 3대 유산균 균주 적용", note: "*듀퐁 다니스코 특화 생물학적 보호 기술" },
-      { title: "2) 바실러스 서브틸리스", desc: "항균 및 항바이러스 작용" },
-      { title: "3) 프리바이오틱스", desc: "유익균의 먹이가 되어 증식 촉진" },
-      { title: "4) 몬모릴로나이트", desc: "독소 배출 및 장 점막 보호" },
-      { title: "5) 아미노산 복합체", desc: "장내 환경 개선 및 소화 촉진" }
+      { title: "1) 바실러스 서브틸리스", desc: "항균 및 항바이러스 작용", note: "1.0x10^10 CFU" },
+      { title: "2) 듀퐁 다니스코 프리미엄", desc: "세계 3대 유산균 균주 적용", note: "1.0x10^10 CFU" },
+      { title: "3) 생물학적 보호 기술", desc: "위산 및 담즙산 통과 생존력 우수", note: "핵심 균주" },
+      { title: "4) L. plantarum 등", desc: "18종 복합 배합", note: "핵심 균주" },
+      { title: "5) 우수한 장내 정착", desc: "증식 작용 및 장벽 방어력 강화", note: "핵심 균주" }
     ],
     reg_no: "제XX9UY0145호",
     type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
-    amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
-    ingredients_list_val: "바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수",
+    amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 듀퐁 다니스코 특화 유산균 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
+    ingredients_list_val: "바실러스 서브틸리스, 듀퐁 다니스코 특화 유산균(L. plantarum 등 18종), 스멕타이트, 프락토올리고당, 정제수",
     effects: [
       "항생제 연관 설사 예방 및 장염 완화",
       "유해균 억제 및 장벽 방어력(Gut Barrier) 강화",
@@ -96,23 +96,23 @@ export const LABEL_DATA = {
     ]
   },
   urinary: {
-    product_name: "몬스멕타 유리나리(URINARY)",
+    product_name: "몬스멕타 유리너리(URINARY)",
     desc: "비뇨기계 및 신장 건강 보조제",
     feed1: "1일 두당 2~4ml",
     feed2: "음수량을 늘려주며 함께 급여 권장",
     feed3: "개, 고양이 등 반려동물 적용",
-    ingredients_title: "핵심 5가지 복합 성분",
+    ingredients_title: "아디세오 프리미엄 비타민 복합체",
     ingredients: [
-      { title: "1) 몬모릴로나이트", desc: "요독(요소, 인독실설페이트) 흡착 배출" },
-      { title: "2) 크랜베리 추출물", desc: "비뇨기계 감염 예방 및 방광벽 보호" },
-      { title: "3) 디만노스(D-Mannose)", desc: "유해균의 요도 점막 부착 방지" },
-      { title: "4) 칼륨/나트륨 전해질", desc: "수분 섭취 유도 및 소변 희석" },
-      { title: "5) 오메가3 지방산", desc: "신장 염증 수치 완화 및 혈류 개선" }
+      { title: "1) 비타민 A (Vitamin A)", desc: "점막 보호 및 상피세포 회복", note: "400,000 IU/L" },
+      { title: "2) 비타민 D3 (Vitamin D3)", desc: "칼슘 대사 조절 및 면역 강화", note: "80,000 IU/L" },
+      { title: "3) 비타민 E (Vitamin E)", desc: "강력한 항산화 및 신장 세포 보호", note: "200 IU/L" },
+      { title: "4) 비타민 B1, B2, C", desc: "에너지 대사 촉진 및 피로 회복", note: "각 100mg/L" },
+      { title: "5) 니코틴산아미드 & 판토텐산 칼슘", desc: "신경계 보호 및 스트레스 완화", note: "300mg/L & 100mg/L" }
     ],
     reg_no: "제XX9UY0145호",
     type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
     amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
-    ingredients_list_val: "바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수",
+    ingredients_list_val: "바실러스 서브틸리스, 비타민A, 비타민D3, 비타민E, 비타민B1, 비타민B2, 비타민C, 니코틴산아미드, 판토텐산 칼슘, 스멕타이트, 정제수",
     effects: [
       "방광염 예방 및 비뇨기계 염증 완화",
       "신장 수치 개선 및 요독 물질(BUN) 흡착 제거",
@@ -339,7 +339,7 @@ export const LABEL_DATA = {
     reg_no: "제XX9UY0145호",
     type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
     amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
-    ingredients_list_val: "비타민A, 비타민C, 비타민D3, 비타민E, 비타민K3, 비타민B1, 비타민B6, 비타민B12, 니코틴아미드, 판토텐산칼슘, 정제수",
+    ingredients_list_val: "바실러스 서브틸리스, 비타민A, 비타민D3, 비타민E, L-메티오닌, L-아르기닌, 스멕타이트, 정제수",
     effects: [
       "필수 비타민 고함량 복합 배합",
       "필수 비타민 10종 종합 공급",
