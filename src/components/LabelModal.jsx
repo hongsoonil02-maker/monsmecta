@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { LABEL_DATA } from '../data/labels';
 
-const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen }) => {
+const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen, activeProduct }) => {
   const { t } = useTranslation();
+  const labelData = LABEL_DATA[activeProduct] || LABEL_DATA['monsmecta'];
 
   if (!isLabelModalOpen) return null;
 
@@ -25,76 +27,77 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/3 flex flex-col items-center border-r border-slate-100 pr-0 md:pr-8">
               <div className="bg-slate-50 w-full rounded-2xl p-6 flex justify-center items-center mb-6 border border-slate-100">
-                <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt={t('label.product_name')} className="w-3/4 max-w-[200px] drop-shadow-xl hover:scale-105 transition-transform" />
+                <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt={labelData.product_name} className="w-3/4 max-w-[200px] drop-shadow-xl hover:scale-105 transition-transform" />
               </div>
               <div className="w-full text-center">
-                <h4 className="text-xl font-black text-[#00513b] mb-2">{t('label.product_name')}</h4>
-                <p className="text-sm font-bold text-amber-500 mb-4">{t('label.desc')}</p>
+                <h4 className="text-xl font-black text-[#00513b] mb-2">{labelData.product_name}</h4>
+                <p className="text-sm font-bold text-amber-500 mb-4">{labelData.desc}</p>
                 <div className="space-y-2 text-left bg-emerald-50 p-4 rounded-xl">
-                  <p className="text-xs font-bold text-emerald-800 break-keep">{t('label.feed1')}</p>
-                  <p className="text-xs font-bold text-emerald-800 break-keep">{t('label.feed2')}</p>
-                  <p className="text-xs font-bold text-emerald-800 break-keep">{t('label.feed3')}</p>
+                  <p className="text-xs font-bold text-emerald-800 break-keep">{labelData.feed1}</p>
+                  <p className="text-xs font-bold text-emerald-800 break-keep">{labelData.feed2}</p>
+                  <p className="text-xs font-bold text-emerald-800 break-keep">{labelData.feed3}</p>
                 </div>
               </div>
             </div>
 
             <div className="md:w-2/3 space-y-6">
               <div>
-                <h5 className="text-lg font-bold text-slate-800 border-b-2 border-amber-400 pb-2 mb-4 inline-block break-keep">{t('label.ingredients_title')}</h5>
+                <h5 className="text-lg font-bold text-slate-800 border-b-2 border-amber-400 pb-2 mb-4 inline-block break-keep">{labelData.ingredients_title}</h5>
                 <ul className="space-y-3 text-sm text-slate-600">
-                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing1_title')}</strong> {t('label.ing1_desc')} <br /><span className="text-xs text-slate-400 pl-4">{t('label.ing1_note')}</span></li>
-                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing2_title')}</strong> {t('label.ing2_desc')}</li>
-                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing3_title')}</strong> {t('label.ing3_desc')}</li>
-                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing4_title')}</strong> {t('label.ing4_desc')}</li>
-                  <li className="break-keep"><strong className="text-emerald-700">{t('label.ing5_title')}</strong> {t('label.ing5_desc')}</li>
+                  {labelData.ingredients.map((ing, i) => (
+                    <li key={i} className="break-keep">
+                      <strong className="text-emerald-700">{ing.title}</strong> {ing.desc} 
+                      {ing.note && <><br /><span className="text-xs text-slate-400 pl-4">{ing.note}</span></>}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm bg-slate-50 p-5 rounded-2xl border border-slate-200">
                 <div className="col-span-full border-b border-slate-200 pb-2 mb-2 flex justify-between items-end">
                   <span className="block text-xs font-bold text-slate-400 uppercase break-keep">{t('label.reg_no_title')}</span>
-                  <strong className="text-slate-800 break-keep">{t('label.reg_no')}</strong>
+                  <strong className="text-slate-800 break-keep">{labelData.reg_no}</strong>
                 </div>
 
                 <div className="col-span-full">
                   <span className="block text-xs font-bold text-slate-400 uppercase mb-1 break-keep">{t('label.type_title')}</span>
-                  <strong className="text-slate-800 break-keep">{t('label.type_val')}</strong>
+                  <strong className="text-slate-800 break-keep">{labelData.type_val}</strong>
                 </div>
 
                 <div className="col-span-full">
                   <span className="block text-xs font-bold text-slate-400 uppercase mb-1 break-keep">{t('label.amount_title')}</span>
-                  <strong className="text-slate-800 break-keep">{t('label.amount_val')}</strong>
+                  <strong className="text-slate-800 break-keep">{labelData.amount_val}</strong>
                 </div>
 
                 <div className="col-span-full">
                   <span className="block text-xs font-bold text-slate-400 uppercase mb-1 break-keep">{t('label.ingredients_list_title')}</span>
-                  <strong className="text-slate-800 break-keep">{t('label.ingredients_list_val')}</strong>
+                  <strong className="text-slate-800 break-keep">{labelData.ingredients_list_val}</strong>
                 </div>
 
                 <div className="col-span-full mt-2">
                   <span className="block text-xs font-bold text-[#00513b] uppercase mb-1 break-keep">{t('label.effect_title')}</span>
                   <ul className="text-slate-800 font-medium list-disc pl-4 mt-1 space-y-1">
-                    <li className="break-keep">{t('label.effect1')}</li>
-                    <li className="break-keep">{t('label.effect2')}</li>
-                    <li className="break-keep">{t('label.effect3')}</li>
+                    {labelData.effects.map((eff, i) => (
+                      <li key={i} className="break-keep">{eff}</li>
+                    ))}
                   </ul>
                 </div>
 
                 <div className="flex justify-between items-center border-t border-slate-200 pt-3 mt-2 col-span-full">
-                  <div><span className="text-xs font-bold text-slate-400 uppercase break-keep">{t('label.weight_title')}</span> <strong className="text-slate-800 ml-1 break-keep">{t('label.weight_val')}</strong></div>
-                  <div><span className="text-xs font-bold text-slate-400 uppercase break-keep">{t('label.mfg_title')}</span> <span className="text-slate-600 ml-1 break-keep">{t('label.mfg_val')}</span></div>
+                  <div><span className="text-xs font-bold text-slate-400 uppercase break-keep">{t('label.weight_title')}</span> <strong className="text-slate-800 ml-1 break-keep">{labelData.weight_val}</strong></div>
+                  <div><span className="text-xs font-bold text-slate-400 uppercase break-keep">{t('label.mfg_title')}</span> <span className="text-slate-600 ml-1 break-keep">{labelData.mfg_val}</span></div>
                 </div>
                 <div className="col-span-full">
-                  <span className="text-xs font-bold text-slate-400 uppercase break-keep">{t('label.exp_title')}</span> <span className="text-slate-600 ml-1 break-keep">{t('label.exp_val')}</span>
+                  <span className="text-xs font-bold text-slate-400 uppercase break-keep">{t('label.exp_title')}</span> <span className="text-slate-600 ml-1 break-keep">{labelData.exp_val}</span>
                 </div>
               </div>
 
               <div className="bg-rose-50 text-rose-800 p-4 rounded-xl text-xs font-medium border border-rose-100">
                 <span className="font-bold block mb-1 break-keep">{t('label.warning_title')}</span>
                 <ul className="list-decimal pl-4 space-y-1">
-                  <li className="break-keep">{t('label.warning1')}</li>
-                  <li className="break-keep">{t('label.warning2_part1')} <strong className="text-rose-900 font-bold">{t('label.warning2_part2')}</strong>{t('label.warning2_part3')}</li>
-                  <li className="break-keep">{t('label.warning3')}</li>
+                  {labelData.warnings.map((warn, i) => (
+                    <li key={i} className="break-keep">{warn}</li>
+                  ))}
                 </ul>
               </div>
             </div>

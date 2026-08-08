@@ -234,7 +234,7 @@ const MonsmectaSNJLanding = () => {
       <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
       <main id="main-content">
         <Hero setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
-        <Lineup setIsLabelModalOpen={setIsLabelModalOpen} />
+        <Lineup setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <Values activeProduct={activeProduct} />
         <ClinicalEvidence activeProduct={activeProduct} />
         <Infographics iframeHeights={iframeHeights} />
@@ -279,8 +279,8 @@ const MonsmectaSNJLanding = () => {
         }
       `}} />
 
-      <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
-      <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
+      <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} activeProduct={activeProduct} />
+      <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} activeProduct={activeProduct} />
       <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
       <LegalModal legalType={legalType} setLegalType={setLegalType} />
       <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
