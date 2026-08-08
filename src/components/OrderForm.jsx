@@ -8,6 +8,8 @@ const OrderForm = ({
   setQuantity,
   quantityHepamax,
   setQuantityHepamax,
+  quantityProbiotics,
+  setQuantityProbiotics,
   hospitalName,
   setHospitalName,
   vetName,
@@ -26,6 +28,7 @@ const OrderForm = ({
   orderError,
   pricePerBottle,
   priceHepamax,
+  priceProbiotics,
   honeypot,
   setHoneypot,
   onResetOrder,
@@ -37,6 +40,7 @@ const OrderForm = ({
   const handleAddProduct = () => {
     if (selectedProduct === 'monsmecta' && quantity === 0) setQuantity(5);
     if (selectedProduct === 'hepamax' && quantityHepamax === 0) setQuantityHepamax(5);
+    if (selectedProduct === 'probiotics' && quantityProbiotics === 0) setQuantityProbiotics(5);
   };
 
   return (
@@ -72,7 +76,7 @@ const OrderForm = ({
                 </div>
                 <div className="flex justify-between items-center pt-3 border-t border-slate-200">
                   <span className="text-sm font-bold text-slate-500">{t('order.deposit_amount_label')}</span>
-                  <strong className="text-2xl font-black text-rose-600">{((quantity * pricePerBottle) + (quantityHepamax * priceHepamax)).toLocaleString()}{t('order.won')}</strong>
+                  <strong className="text-2xl font-black text-rose-600">{((quantity * pricePerBottle) + (quantityHepamax * priceHepamax) + (quantityProbiotics * priceProbiotics)).toLocaleString()}{t('order.won')}</strong>
                 </div>
               </div>
 
@@ -211,6 +215,7 @@ const OrderForm = ({
                   >
                     <option value="monsmecta">몬스멕타 (장 건강 개선)</option>
                     <option value="hepamax">몬스멕타 헤파맥스 (간 건강 개선)</option>
+                    <option value="probiotics">몬스멕타 프로바이오틱스 (장 건강 특화)</option>
                     {/* 확장성을 위한 향후 라인업 드롭다운 옵션 추가 가능 */}
                   </select>
                   <button 
@@ -223,7 +228,7 @@ const OrderForm = ({
                 </div>
 
                 <div className="space-y-4">
-                  {quantity === 0 && quantityHepamax === 0 && (
+                  {quantity === 0 && quantityHepamax === 0 && quantityProbiotics === 0 && (
                     <div className="text-center py-8 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
                       <p className="text-slate-500 font-medium">위에서 발주할 품목을 선택 후 '추가하기'를 눌러주세요.</p>
                     </div>
@@ -264,6 +269,24 @@ const OrderForm = ({
                       </div>
                     </div>
                   )}
+
+                  {/* Probiotics Item (Cart Entry) */}
+                  {quantityProbiotics > 0 && (
+                    <div className="flex flex-col md:flex-row items-center justify-between bg-emerald-50/30 p-6 rounded-2xl border border-emerald-200 shadow-sm relative">
+                      <button type="button" onClick={() => setQuantityProbiotics(0)} className="absolute top-4 right-4 text-slate-400 hover:text-red-500 transition-colors">
+                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                      </button>
+                      <div className="mb-4 md:mb-0 text-center md:text-left pr-8">
+                        <div className="font-black text-xl text-slate-800 tracking-tight">몬스멕타 프로바이오틱스 <span className="text-sm font-bold text-slate-500">{t('order.unit')}</span></div>
+                        <div className="text-sm font-medium text-slate-500 mt-1">{t('order.supply_price')} <span className="font-bold text-emerald-700 ml-1">{priceProbiotics === 0 ? '단가 미정' : `${priceProbiotics.toLocaleString()}${t('order.won')}`}</span> <span className="text-[10px]">{t('order.vat_included')}</span></div>
+                      </div>
+                      <div className="flex items-center bg-white border border-emerald-200 rounded-xl overflow-hidden shadow-sm shrink-0">
+                        <button type="button" onClick={() => setQuantityProbiotics(Math.max(1, quantityProbiotics - 1))} className="w-12 h-12 flex items-center justify-center bg-emerald-50 text-slate-600 hover:bg-emerald-100 hover:text-emerald-800 text-xl font-black transition-colors">-</button>
+                        <div className="w-16 h-12 flex items-center justify-center font-black text-xl text-slate-800 border-x border-emerald-200">{quantityProbiotics}</div>
+                        <button type="button" onClick={() => setQuantityProbiotics(quantityProbiotics + 1)} className="w-12 h-12 flex items-center justify-center bg-emerald-50 text-slate-600 hover:bg-emerald-100 hover:text-emerald-800 text-xl font-black transition-colors">+</button>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -271,7 +294,7 @@ const OrderForm = ({
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-yellow-400 opacity-10 rounded-full blur-3xl"></div>
                 <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 relative z-10">
                   <span className="text-xl font-bold text-slate-300">{t('order.total_price')}</span>
-                  <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{((quantity * pricePerBottle) + (quantityHepamax * priceHepamax)).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
+                  <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{((quantity * pricePerBottle) + (quantityHepamax * priceHepamax) + (quantityProbiotics * priceProbiotics)).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
                 </div>
                 <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 text-2xl font-black py-5 rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition duration-300 shadow-[0_0_20px_rgba(250,204,21,0.3)] transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
                   <span>{isSubmitting ? t('order.submitting') : t('order.btn')}</span>

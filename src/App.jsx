@@ -51,6 +51,7 @@ const MonsmectaSNJLanding = () => {
   const [activeProduct, setActiveProduct] = useState('monsmecta');
   const [quantity, setQuantity] = useState(0); // Monsmecta quantity
   const [quantityHepamax, setQuantityHepamax] = useState(0); // Hepamax quantity
+  const [quantityProbiotics, setQuantityProbiotics] = useState(0); // Probiotics quantity
 
   const [hospitalName, setHospitalName] = useState('');
   const [vetName, setVetName] = useState('');
@@ -75,8 +76,9 @@ const MonsmectaSNJLanding = () => {
   const lastSubmitRef = useRef(0);
   const submittingRef = useRef(false);
   const orderRequestIdRef = useRef(null);
-  const pricePerBottle = 7700;
-  const priceHepamax = 0; // TBD
+  const pricePerBottle = 4400;
+  const priceHepamax = 4400;
+  const priceProbiotics = 4400;
 
   useEffect(() => {
     if (hospitalName && hospitalName.length > 1) {
@@ -114,7 +116,7 @@ const MonsmectaSNJLanding = () => {
       return;
     }
 
-    if (quantity === 0 && quantityHepamax === 0) {
+    if (quantity === 0 && quantityHepamax === 0 && quantityProbiotics === 0) {
       alert(t('order.validationQuantity', '발주할 제품의 수량을 1개 이상 선택해주세요.'));
       return;
     }
@@ -158,7 +160,8 @@ const MonsmectaSNJLanding = () => {
       formData.append('배송지 주소', address);
       formData.append('주문수량(병)', quantity);
       formData.append('헤파맥스 수량(병)', quantityHepamax);
-      formData.append('총 결제금액', (quantity * pricePerBottle) + (quantityHepamax * priceHepamax));
+      formData.append('프로바이오틱스 수량(병)', quantityProbiotics);
+      formData.append('총 결제금액', (quantity * pricePerBottle) + (quantityHepamax * priceHepamax) + (quantityProbiotics * priceProbiotics));
       formData.append('접수일시', new Date().toLocaleString('ko-KR'));
 
       const response = await fetch(scriptURL, {
@@ -234,6 +237,8 @@ const MonsmectaSNJLanding = () => {
           setQuantity={setQuantity}
           quantityHepamax={quantityHepamax}
           setQuantityHepamax={setQuantityHepamax}
+          quantityProbiotics={quantityProbiotics}
+          setQuantityProbiotics={setQuantityProbiotics}
           hospitalName={hospitalName}
           setHospitalName={setHospitalName}
           vetName={vetName}
@@ -252,6 +257,7 @@ const MonsmectaSNJLanding = () => {
           orderError={orderError}
           pricePerBottle={pricePerBottle}
           priceHepamax={priceHepamax}
+          priceProbiotics={priceProbiotics}
           honeypot={honeypot}
           setHoneypot={setHoneypot}
           onResetOrder={handleResetOrder}

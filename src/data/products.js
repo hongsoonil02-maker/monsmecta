@@ -219,27 +219,26 @@ export const PRODUCTS = {
     id: 'probiotics',
     name_ko: '몬스멕타 프로바이오틱스',
     name_en: 'MONSMECTA PROBIOTICS',
-    desc: '장 건강 특화 보조제',
+    desc: '세계 3대 유산균 듀퐁 다니스코 프리미엄 보조제',
     icon: '🦠',
     color: 'green',
     bg: 'hover:bg-green-900',
     border: 'hover:border-green-500',
     text: 'text-green-400',
     shadow: 'hover:shadow-green-500/20',
-    isComingSoon: true,
     hero: {
-      title: '임상 수의사의 해답, PROBIOTICS',
-      subtitle: '현장 진료의 까다로운 기준을 통과한 장 건강 특화 보조제입니다.',
-      badge: '동물병원 전용 B2B 처방 솔루션 · 장 유익균 프리미엄 케어',
-      badgeText: '장 유익균',
+      title: '세계적 유산균 명가의 선택, PROBIOTICS',
+      subtitle: '글로벌 유산균 선도기업 듀퐁 다니스코(DuPont Danisco)의 프리미엄 균주로 완성된 장 건강 특화 보조제입니다.',
+      badge: '동물병원 전용 B2B 처방 솔루션 · 듀퐁 다니스코 프리미엄 균주 적용',
+      badgeText: '듀퐁 다니스코 유산균',
       badgeColor: 'bg-green-700',
       borderColor: 'border-green-100',
       bgColor: 'bg-green-50'
     },
     values: {
       title: '에스앤제이의 3대 가치 약속',
-      formulaTitle: '독보적인 배합 비율',
-      formulaDesc: '임상 현장에서 검증된 강력한 원료 배합으로 확실한 효과를 이끌어냅니다.'
+      formulaTitle: '세계 최고 수준의 검증된 균주 배합',
+      formulaDesc: '우수한 생존력과 장내 정착력을 자랑하는 듀퐁 다니스코의 임상 검증 원료를 독보적인 비율로 배합했습니다.'
     }
   },
   urinary: {

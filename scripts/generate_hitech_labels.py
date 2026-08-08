@@ -129,15 +129,18 @@ products = [
         "id": "probiotics",
         "name_ko": "몬스멕타 프로바이오틱스",
         "name_en": "MONSMECTA PROBIOTICS",
-        "desc": "장 건강 특화 보조제",
+        "desc": "세계 3대 유산균 듀퐁 다니스코 프리미엄 적용",
         "color1": "#0A2B11", "color2": "#0B1515",
         "neon": "#22c55e", # green-500
-        "effects": ["장내 유익균 대량 공급", "유해균 억제 및 균형", "만성 소화 불량 개선", "면역 세포 활성화"],
+        "effects": ["[Premium] 듀퐁 다니스코 프리미엄 균주 적용", "항생제 연관 설사 및 장염 예방 보조", "염증성 장질환 및 IBS 증상 완화", "유해균 억제 및 장벽 방어력 강화"],
+        "registered_ingredients": "바실러스 서브틸리스 1.0 x 10⁷ CFU/g 이상, 듀퐁 다니스코 특화 유산균 1.0 x 10⁷ CFU/g 이상",
         "ingredients": [
-            ("L. rhamnosus", "5x10^10 CFU"),
-            ("B. bifidum", "5x10^10 CFU"),
-            ("E. faecium", "2x10^10 CFU"),
-            ("FOS (프리바이오틱스)", "20,000mg")
+            ("Bacillus subtilis (바실러스 균)", "1.0x10^10 CFU"),
+            ("세계 3대 유산균 듀퐁 다니스코 프리미엄", "1.0x10^10 CFU"),
+            ("└ 생물학적 보호 기술(안정성 극대화)", "핵심 균주"),
+            ("└ 위산 및 담즙산 통과 생존력 우수", "핵심 균주"),
+            ("└ L. plantarum 등 18종 복합 배합", "핵심 균주"),
+            ("└ 우수한 장내 정착 및 증식 작용", "핵심 균주")
         ]
     },
     {
@@ -252,7 +255,7 @@ template = """<!DOCTYPE html>
                                 <h3 class="text-[26px] font-bold text-white flex items-center gap-3">
                                     주요 성분 데이터
                                 </h3>
-                                <div class="bg-white/10 backdrop-blur-md px-3 py-1 rounded border border-white/20 text-[15px] text-[{neon}]">1L 기준 (괄호 안은 1ml 당 함량)</div>
+                                <div class="bg-white/10 backdrop-blur-md px-3 py-1 rounded border border-white/20 text-[15px] text-[{neon}]">{unit_desc}</div>
                             </div>
                             <ul class="space-y-2 text-[22px] font-medium">
                                 {ingredients_html}
@@ -288,6 +291,11 @@ template = """<!DOCTYPE html>
                                     <div class="text-[16px] text-gray-400 mb-1">사료의 종류 및 명칭 / 형태 / 용도</div>
                                     <div class="text-[22px] font-bold text-white">보조사료/혼합제 | 액상(겔) | 반려견·반려묘</div>
                                 </div>
+                            </div>
+                            
+                            <div>
+                                <div class="text-[18px] text-[{neon}] font-bold mb-2">등록성분량</div>
+                                <div class="text-[18px] font-medium text-white">{registered_ingredients}</div>
                             </div>
                             
                             <div>
@@ -412,22 +420,16 @@ def get_1ml_amount(amt_str):
     return f"{orig_num_str}{unit} / L <span class='text-[18px] text-[{{neon}}]/80 ml-2 font-normal'>(1ml당 {formatted_num}{unit})</span>"
 
 for p in products:
-    effects_html = "\n".join([f'<li class="flex items-center gap-2"><div class="w-2 h-2 rounded-full bg-[{{neon}}] shadow-[0_0_5px_{{neon}}]"></div> {e}</li>' for e in p['effects']])
+    effects_html = "\n".join([f'<li class="flex items-start gap-2"><div class="w-2 h-2 rounded-full bg-[{{neon}}] shadow-[0_0_5px_{{neon}}] shrink-0 mt-1.5"></div> <span class="leading-tight">{e}</span></li>' for e in p['effects']])
     effects_html += "\n" + f'<li class="col-start-3 text-left text-[14px] font-medium text-[{{neon}}]/80 flex items-start mt-1 pl-4">* (등의 개선에 도움)</li>'
     
     ingredients_html = ""
     for ing, amt in p['ingredients']:
-        if "CFU" in amt or amt == "적량":
+        if "CFU" in amt or amt == "적량" or "%" in amt or "핵심" in amt:
             # For probiotics or untrackable
             val = amt
             if "CFU" in amt:
-                # Quick hack for CFU text
-                try:
-                    num_part, pow_part = amt.split("x10^")
-                    pow_num = int(pow_part.replace(" CFU", ""))
-                    val = f"{amt} / L <span class='text-[18px] text-[{{neon}}]/80 ml-2 font-normal'>(1ml당 {num_part}x10^{pow_num-3} CFU)</span>"
-                except:
-                    pass
+                val = f"{amt} / L"
             ingredients_html += f'''
             <li class="flex justify-between items-center border-b border-white/5 pb-1">
                 <div class="text-white font-bold">{ing}</div>
@@ -455,7 +457,9 @@ for p in products:
         color2=p['color2'],
         neon=p['neon'],
         effects_html=effects_html.format(neon=p['neon']),
-        ingredients_html=ingredients_html.format(neon=p['neon'])
+        ingredients_html=ingredients_html.format(neon=p['neon']),
+        registered_ingredients=p.get('registered_ingredients', '별도 고시 (제품 설명서 참조)'),
+        unit_desc="1L 기준" if p['id'] == 'probiotics' else "1L 기준 (괄호 안은 1ml 당 함량)"
     )
     
     with open(os.path.join(out_dir, f"{p['id']}_label_print.html"), "w", encoding="utf-8") as f:
