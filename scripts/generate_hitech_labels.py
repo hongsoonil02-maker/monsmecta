@@ -111,11 +111,13 @@ products = [
         "color1": "#1A1A0A", "color2": "#0B1515",
         "neon": "#84cc16", # lime-500
         "effects": ["관절 연골 영양 공급", "관절 염증 및 통증 완화", "관절 윤활액 증가 보조", "관절염 진행 지연"],
+        "unit_desc": "1L 기준",
         "ingredients": [
-            ("Glucosamine (글루코사민)", "20,000mg"),
-            ("Chondroitin (콘드로이친)", "10,000mg"),
-            ("MSM (식이유황)", "15,000mg"),
-            ("Green Lipped Mussel", "15,000mg")
+            ("MSM (식이유황)", "25,000mg (배합비중 20%)"),
+            ("Green Lipped Mussel Extract (그린립 머슬 추출물)", "25,000mg (배합비중 10%)"),
+            ("Boswellia (보스웰리아)", "25,000mg (배합비중 10%)"),
+            ("Chondroitin (콘드로이친)", "25,000mg (배합비중 5%)"),
+            ("Omega-3 EPA/DHA (오메가3)", "25,000mg (배합비중 5%)")
         ]
     },
     {

@@ -90,6 +90,17 @@ const THEME_MAP = {
     accentText: 'text-red-300',
     buttonBorder: 'border-red-500/30 hover:border-red-400',
     buttonText: 'text-red-300 hover:text-red-200'
+  },
+  jointcare: {
+    bg: 'bg-[#1a1a0a]',
+    bodyBg: 'bg-[#0d0d05]',
+    text: 'text-lime-400',
+    border: 'border-[#3f5100]',
+    headerGradient: 'from-[#3f5100] via-[#2f3d00] to-[#202800]',
+    accentBg: 'bg-lime-900/30',
+    accentText: 'text-lime-300',
+    buttonBorder: 'border-lime-500/30 hover:border-lime-400',
+    buttonText: 'text-lime-300 hover:text-lime-200'
   }
 };
 

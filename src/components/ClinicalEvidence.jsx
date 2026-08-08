@@ -660,6 +660,121 @@ const ClinicalEvidence = ({ activeProduct }) => {
             </div>
           </div>
         </div>
+        ) : activeProduct === 'jointcare' ? (
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
+          {/* Jointcare Card 1: Key Benefits */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-blue-700 text-white flex items-center justify-center text-sm font-bold shadow-md">1</span>
+                <span>관절 및 연골 핵심 효능</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                조인트케어는 MSM·그린립 머슬 추출물·보스웰리아·콘드로이친·오메가3를 배합한 관절/연골 특화 처방 솔루션입니다.
+              </p>
+              <div className="space-y-3.5">
+                <div className="bg-blue-50 rounded-2xl p-4 border border-blue-200 hover:border-blue-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🦴</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">관절 연골 영양 공급</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">MSM(식이유황)이 연골 및 결합조직의 재생에 필요한 황을 공급하여 연골 구조를 유지합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-blue-50 rounded-2xl p-4 border border-blue-200 hover:border-blue-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🌿</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">관절 염증 및 통증 완화</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">보스웰리아가 염증 매개 물질(5-LOX 경로)을 억제하고, 그린립 머슬의 오메가3가 관절 항염을 도와 통증을 경감시킵니다.</p>
+                  </div>
+                </div>
+                <div className="bg-blue-50 rounded-2xl p-4 border border-blue-200 hover:border-blue-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">💧</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">관절 윤활액 증가 보조</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">콘드로이친이 활액과 연골의 수분 보유력을 높여 관절 움직임을 부드럽게 합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-blue-50 rounded-2xl p-4 border border-blue-200 hover:border-blue-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">⏳</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">관절염 진행 지연</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">연골 분해 효소(MMP) 활성을 억제하여 골관절염 환축의 관절 퇴행 속도를 늦춥니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Jointcare Card 2: Ingredients */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-blue-700 text-white flex items-center justify-center text-sm font-bold shadow-md">2</span>
+                <span>핵심 성분 및 약리기전</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                5대 핵심 성분을 배합비중에 따라 정량 배합한 조인트케어 독자 포뮬러입니다. (1L 기준, 각 25,000mg)
+              </p>
+              
+              <div className="space-y-3">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-blue-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">MSM <span className="text-blue-700 block text-xs">(식이유황) 20%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    관절·연골·결합조직 구성에 필수적인 유기 황을 공급하여 연골 재생을 돕고 관절 경직과 통증을 완화합니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-blue-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Green Lipped Mussel Extract <span className="text-blue-700 block text-xs">(그린립 머슬 추출물) 10%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    뉴질랜드 청색홍합의 오메가3·글루코사민·연골보호 글리코아미노글리칸이 관절 윤활 및 항염 작용을 돕습니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-blue-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Boswellia <span className="text-blue-700 block text-xs">(보스웰리아) 10%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    보스웰릭산이 류코트리엔 합성을 억제하여 관절 염증과 통증을 천연 방식으로 완화합니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-blue-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Chondroitin <span className="text-blue-700 block text-xs">(콘드로이친) 5%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    연골 기질의 핵심 구성 성분으로 윤활액 생성을 늘리고 연골 분해 효소를 억제합니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-blue-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Omega-3 EPA/DHA <span className="text-blue-700 block text-xs">(오메가3) 5%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    전신 항염 작용으로 관절의 만성 염증 상태를 완화하고 연골 보호를 돕습니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-5 bg-blue-50/90 border border-blue-200 rounded-2xl p-4 text-xs font-medium text-blue-900 leading-relaxed shadow-sm">
+              <p className="font-bold mb-1">📌 S&J 동물병원 자문단 코멘트:</p>
+              <p>"연골 재생(MSM·콘드로이친), 관절 항염(보스웰리아·오메가3), 윤활(그린립 머슬)을 한 병에 담은 종합 관절 솔루션입니다. 노령견 퇴행성 관절염 관리에 추천하는 배합입니다."</p>
+            </div>
+          </div>
+        </div>
         ) : (
           <div className="text-center py-20 text-slate-500 font-medium animate-in fade-in zoom-in-95 duration-300">
             해당 제품의 임상 데이터 및 학술 검증 자료는 준비 중입니다.
