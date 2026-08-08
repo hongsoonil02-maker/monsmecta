@@ -181,7 +181,7 @@ products = [
         "neon": "#eab308", # yellow-500
         "effects": ["필수 비타민 고함량 복합 배합", "필수 아미노산 및 보조 성분 배합", "피로 회복 및 항산화 작용", "뼈·치아 건강 및 대사 활성화"],
         "ing_list_class": "space-y-1 text-[15px]",
-        "raw_materials": "비타민A, 비타민C, 비타민D3, 비타민E, 비타민K3, 비타민B1, 비타민B6, 비타민B12, 니코틴아미드, 판토텐산칼슘, L-메티오닌, L-아르기닌, 염산라이신, 베타인, 트레오닌, 염화콜린, 정제수",
+        "raw_materials": "비타민A, 비타민C, 비타민D3, 비타민E, 비타민K3, 비타민B1, 비타민B6, 비타민B12, 니코틴아미드, 판토텐산칼슘, L-메티오닌, 염산라이신, 정제수",
         "ingredients": [
             ("Vit A (비타민A)", "750,000 IU"),
             ("Vit C (비타민C)", "299.9 mg"),
@@ -191,14 +191,10 @@ products = [
             ("Vit B1 HCl (비타민B1) 99%", "203 mg"),
             ("Vit B6 (비타민B6·피리독신)", "98 mg"),
             ("Vit B12 (비타민B12·코발라민)", "1 mg"),
-            ("L-Methionine (L-메티오닌)", "300 mg"),
-            ("L-Arginine (L-아르기닌)", "80 mg"),
-            ("Lysine HCl (라이신)", "500 mg"),
             ("Nicotinamide (니코틴아미드)", "500 mg"),
             ("Calcium Pantothenate (판토텐산칼슘)", "300 mg"),
-            ("Betaine (베타인)", "300 mg"),
-            ("Threonine (트레오닌)", "100 mg"),
-            ("Choline Chloride (콜린 클로라이드)", "500 mg")
+            ("L-Methionine (L-메티오닌)", "300 mg"),
+            ("Lysine HCl (라이신)", "500 mg")
         ]
     }
 ]
