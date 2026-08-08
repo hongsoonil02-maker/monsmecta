@@ -145,10 +145,10 @@ export const PRODUCTS = {
     border: 'hover:border-red-500',
     text: 'text-red-400',
     shadow: 'hover:shadow-red-500/20',
-    isComingSoon: true,
+    isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, HEARTCARE',
-      subtitle: '현장 진료의 까다로운 기준을 통과한 심장 및 혈행 건강 보조제입니다.',
+      subtitle: '코큐텐(Q10)과 산사나무 열매 추출물, L-카르니틴, 타우린, 오메가3를 배합하여 심근 수축력 강화와 혈행 개선을 돕는 심장 및 혈행 프리미엄 케어 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 심장/혈행 프리미엄 케어',
       badgeText: '심장 건강',
       badgeColor: 'bg-red-700',
@@ -156,9 +156,9 @@ export const PRODUCTS = {
       bgColor: 'bg-red-50'
     },
     values: {
-      title: '에스앤제이의 3대 가치 약속',
-      formulaTitle: '독보적인 배합 비율',
-      formulaDesc: '임상 현장에서 검증된 강력한 원료 배합으로 확실한 효과를 이끌어냅니다.'
+      title: '심장/혈행 집중 케어',
+      formulaTitle: '심장 특화 5중 복합 배합',
+      formulaDesc: '코큐텐(Q10) 20%, 산사나무 열매 추출물·L-카르니틴 각 10%, 타우린·오메가3 각 5%의 배합비중으로 심장 근육 에너지 생성, 혈류·혈압 개선, 항염 작용을 돕습니다.'
     }
   },
   jointcare: {

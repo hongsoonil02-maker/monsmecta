@@ -545,6 +545,121 @@ const ClinicalEvidence = ({ activeProduct }) => {
             </div>
           </div>
         </div>
+        ) : activeProduct === 'heartcare' ? (
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
+          {/* Heartcare Card 1: Key Benefits */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-red-700 text-white flex items-center justify-center text-sm font-bold shadow-md">1</span>
+                <span>심장 및 혈행 핵심 효능</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                하트케어는 코큐텐(Q10)·산사나무 열매 추출물·L-카르니틴·타우린·오메가3를 배합한 심장/혈행 특화 처방 솔루션입니다.
+              </p>
+              <div className="space-y-3.5">
+                <div className="bg-red-50 rounded-2xl p-4 border border-red-200 hover:border-red-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-red-100 text-red-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">❤️</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">심장 근육 수축력 강화</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">코큐텐(Q10)이 심근세포의 에너지(ATP) 생성을 촉진하여 심박출량 및 수축력을 강화합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-red-50 rounded-2xl p-4 border border-red-200 hover:border-red-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-red-100 text-red-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🩸</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">혈전 예방 및 혈류 개선</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">오메가3가 혈중 중성지방을 낮추고 혈소판 응집을 억제하여 혈행을 원활하게 개선합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-red-50 rounded-2xl p-4 border border-red-200 hover:border-red-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-red-100 text-red-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">📉</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">혈압 정상화 보조</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">산사나무 열매 추출물이 관상동맥을 확장하여 혈압을 안정화하고 심장 부담을 덜어줍니다.</p>
+                  </div>
+                </div>
+                <div className="bg-red-50 rounded-2xl p-4 border border-red-200 hover:border-red-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-red-100 text-red-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">⚡</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">심부전 진행 지연 보조</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">타우린의 심근 보호 작용과 L-카르니틴의 에너지 대사 지원으로 만성 심부전 환축의 삶의 질 유지를 돕습니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Heartcare Card 2: Ingredients */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-red-700 text-white flex items-center justify-center text-sm font-bold shadow-md">2</span>
+                <span>핵심 성분 및 약리기전</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                5대 핵심 성분을 배합비중에 따라 정량 배합한 하트케어 독자 포뮬러입니다. (1L 기준, 각 25,000mg)
+              </p>
+              
+              <div className="space-y-3">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-red-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Coenzyme Q10 <span className="text-red-700 block text-xs">(코큐텐) 20%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    심근세포 미토콘드리아의 에너지(ATP) 생성을 돕고, 노화·심부전 시 급감하는 Q10을 보충하여 심장 수축력을 강화합니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-red-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Hawthorn Extract <span className="text-red-700 block text-xs">(산사나무 열매 추출물) 10%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    관상동맥을 확장하여 심장 혈류를 늘리고, 혈압을 안정화하여 심장 부담을 경감시킵니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-red-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">L-Carnitine <span className="text-red-700 block text-xs">(L-카르니틴) 10%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    지방산을 미토콘드리아로 운반해 심장의 핵심 에너지원을 공급하고 심근 대사를 활성화합니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-red-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Taurine <span className="text-red-700 block text-xs">(타우린) 5%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    심근 세포막을 안정화하고 칼슘 항상성을 유지하여 확장성 심근병증(DCM) 진행을 지연시킵니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-red-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-red-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Omega-3 EPA/DHA <span className="text-red-700 block text-xs">(오메가3) 5%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    혈중 중성지방을 낮추고 항염 작용으로 혈관 건강과 혈행 개선을 돕습니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-5 bg-red-50/90 border border-red-200 rounded-2xl p-4 text-xs font-medium text-red-900 leading-relaxed shadow-sm">
+              <p className="font-bold mb-1">📌 S&J 동물병원 자문단 코멘트:</p>
+              <p>"Q10·타우린·오메가3의 삼각 포뮬러로 심부전 환축의 에너지 공급과 혈행 개선을 동시에 지원합니다. 심초음파 수치 개선에 도움이 되는 배합입니다."</p>
+            </div>
+          </div>
+        </div>
         ) : (
           <div className="text-center py-20 text-slate-500 font-medium animate-in fade-in zoom-in-95 duration-300">
             해당 제품의 임상 데이터 및 학술 검증 자료는 준비 중입니다.

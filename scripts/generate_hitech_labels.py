@@ -94,11 +94,13 @@ products = [
         "color1": "#2B0A0E", "color2": "#0B1515",
         "neon": "#ef4444", # red-500
         "effects": ["심장 근육 수축력 강화", "혈전 예방 및 혈류 개선", "심부전 진행 지연 보조", "혈압 정상화 보조"],
+        "unit_desc": "1L 기준",
         "ingredients": [
-            ("Coenzyme Q10 (코큐텐)", "3,000mg"),
-            ("L-carnitine", "10,000mg"),
-            ("Taurine (타우린)", "25,000mg"),
-            ("Omega-3 EPA/DHA", "10,000mg")
+            ("Coenzyme Q10 (코큐텐)", "25,000mg (배합비중 20%)"),
+            ("Hawthorn Extract (산사나무 열매 추출물)", "25,000mg (배합비중 10%)"),
+            ("L-carnitine (L-카르니틴)", "25,000mg (배합비중 10%)"),
+            ("Taurine (타우린)", "25,000mg (배합비중 5%)"),
+            ("Omega-3 EPA/DHA (오메가3)", "25,000mg (배합비중 5%)")
         ]
     },
     {

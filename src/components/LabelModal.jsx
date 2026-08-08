@@ -79,6 +79,17 @@ const THEME_MAP = {
     accentText: 'text-pink-300',
     buttonBorder: 'border-pink-500/30 hover:border-pink-400',
     buttonText: 'text-pink-300 hover:text-pink-200'
+  },
+  heartcare: {
+    bg: 'bg-[#2b0a0e]',
+    bodyBg: 'bg-[#110005]',
+    text: 'text-red-400',
+    border: 'border-[#51000e]',
+    headerGradient: 'from-[#51000e] via-[#3d000a] to-[#280008]',
+    accentBg: 'bg-red-900/30',
+    accentText: 'text-red-300',
+    buttonBorder: 'border-red-500/30 hover:border-red-400',
+    buttonText: 'text-red-300 hover:text-red-200'
   }
 };
 
