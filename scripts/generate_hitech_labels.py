@@ -212,29 +212,22 @@ template = """<!DOCTYPE html>
 </head>
 <body class="bg-gray-900 flex items-center justify-center min-h-screen p-4">
     <div class="scale-[0.5] origin-center">
-        <!-- Outer border changed back to Gold/Brown (#8B7355) per earlier request -->
         <div id="label-container" class="cyber-bg text-gray-100 w-[2375px] h-[1125px] shrink-0 rounded-[40px] overflow-hidden border-[8px] border-[#8B7355] relative flex flex-col">
             
-            <!-- Tech Grid Overlay -->
             <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient({neon} 1px, transparent 1px), linear-gradient(90deg, {neon} 1px, transparent 1px); background-size: 50px 50px;"></div>
             
-            <!-- Top Cyber Accent -->
             <div class="h-4 shrink-0 bg-[{neon}] shadow-[0_0_15px_{neon}] relative z-10"></div>
             
             <div class="px-14 py-10 relative z-10 h-full flex flex-col justify-between">
                 <div class="flex flex-row gap-16 justify-between h-full">
                     
-                    <!-- Left Column -->
                     <div class="w-[45%] flex flex-col justify-between h-full pr-4 relative">
-                        <!-- Holographic Branding -->
                         <div class="flex flex-col items-center justify-center pt-2">
                             <div class="flex items-center gap-6 mb-6">
-                                <!-- Dog Emoji -->
                                 <span class="text-[72px] drop-shadow-[0_0_15px_{neon}]">🐶</span>
                                 <div class="inline-block bg-black/50 border border-[{neon}] rounded-full px-8 py-3">
                                     <span class="text-[20px] font-bold text-gray-300 tracking-[0.2em] uppercase"><span class="neon-text">S&J</span> ADVANCED VET FORMULA</span>
                                 </div>
-                                <!-- Cat Emoji -->
                                 <span class="text-[72px] drop-shadow-[0_0_15px_{neon}]">🐱</span>
                             </div>
                             
@@ -243,18 +236,15 @@ template = """<!DOCTYPE html>
                             <h2 class="text-[36px] font-bold orbitron neon-text tracking-[0.1em]">{name_en}</h2>
                         </div>
 
-                        <!-- Core Effects UI Panel (bg matched to ingredients box) -->
                         <div class="bg-black/40 border border-white/10 px-8 py-4 rounded-3xl relative">
                             <div class="absolute -top-4 left-6 bg-white/10 backdrop-blur-md px-4 py-1 rounded-lg border border-white/20">
                                 <span class="font-bold text-white tracking-wide">핵심 효능</span>
                             </div>
-                            <!-- Changed to 3 columns grid-cols-3 as requested -->
                             <ul class="grid grid-cols-3 gap-y-2 gap-x-6 text-[18px] font-bold text-gray-200 tracking-tight mt-2">
                                 {effects_html}
                             </ul>
                         </div>
 
-                        <!-- Data Table UI -->
                         <div class="bg-black/40 border border-white/10 px-8 py-5 rounded-3xl relative">
                             <div class="flex justify-between items-end mb-4 border-b border-white/20 pb-3">
                                 <h3 class="text-[26px] font-bold text-white flex items-center gap-3">
@@ -267,24 +257,20 @@ template = """<!DOCTYPE html>
                             </ul>
                         </div>
                         
-                        <!-- Package Unit at Bottom Left (Centered) -->
                         <div class="flex justify-center pb-2">
                             <div class="border border-[{neon}]/50 rounded-full px-8 py-2 bg-black/40">
                                 <span class="text-white text-[22px] font-bold">포장단위 :</span>
-                                <span class="text-[{neon}] text-[24px] font-bold ml-2">30 ml / 병</span>
+                                <span class="text-[{neon}] text-[24px] font-bold ml-2">{weight_str}</span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Vertical Cyber Divider -->
                     <div class="w-[4px] shrink-0 bg-gradient-to-b from-transparent via-[{neon}] to-transparent opacity-50 relative">
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 border-4 border-[{neon}] rotate-45 bg-black"></div>
                     </div>
                     
-                    <!-- Right Column -->
                     <div class="w-[50%] flex flex-col h-full pl-4 relative">
                         
-                        <!-- Specs Box -->
                         <div class="glass-panel p-8 rounded-3xl h-full flex flex-col justify-between relative z-10">
                             
                             <div class="flex justify-between items-start border-b border-white/20 pb-4">
@@ -294,18 +280,18 @@ template = """<!DOCTYPE html>
                                 </div>
                                 <div class="text-right">
                                     <div class="text-[16px] text-gray-400 mb-1">사료의 종류 및 명칭 / 형태 / 용도</div>
-                                    <div class="text-[22px] font-bold text-white">보조사료/혼합제 | 액상(겔) | 반려견·반려묘</div>
+                                    <div class="text-[22px] font-bold text-white">보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용</div>
                                 </div>
                             </div>
                             
                             <div>
                                 <div class="text-[18px] text-[{neon}] font-bold mb-2">등록성분량</div>
-                                <div class="text-[18px] font-medium text-white">{registered_ingredients}</div>
+                                <div class="text-[18px] font-medium text-white">바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)</div>
                             </div>
                             
                             <div>
                                 <div class="text-[18px] text-[{neon}] font-bold mb-2">사용한 원료의 명칭</div>
-                                <div class="text-[18px] text-gray-300 leading-relaxed font-medium">바실러스 서브틸리스, 몬모릴로나이트, 천연 추출물 혼합, 프로피온산나트륨, 포도당, 정제수 등 (제품별 상세 원료는 설명서 참조)</div>
+                                <div class="text-[18px] text-gray-300 leading-relaxed font-medium">바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수</div>
                             </div>
                             
                             <div>
@@ -313,13 +299,11 @@ template = """<!DOCTYPE html>
                                 <div class="text-[20px] font-bold text-white">반려견 · 반려묘</div>
                             </div>
                             
-                            <!-- Dosage Panel -->
                             <div class="bg-[{neon}]/10 border border-[{neon}]/30 p-6 rounded-2xl">
                                 <div class="text-[18px] text-[{neon}] font-bold mb-2">용법 및 용량</div>
                                 <div class="text-[26px] font-bold text-white">체중 5kg 당 1일 1회 2ml 급여 <span class="text-[16px] text-gray-400 font-normal ml-2">(1 펌프/스포이드 = 약 1ml)</span></div>
                             </div>
                             
-                            <!-- Warnings -->
                             <div>
                                 <div class="bg-black/40 border border-red-500/30 p-5 rounded-2xl mb-4">
                                     <div class="text-[18px] font-bold text-red-400 flex items-center gap-2 mb-3">
@@ -333,7 +317,6 @@ template = """<!DOCTYPE html>
                                     </ul>
                                 </div>
                                 
-                                <!-- 물류 정보 (Without 포장단위) -->
                                 <div class="grid grid-cols-2 gap-4 border-t border-white/20 pt-4 font-bold">
                                     <div class="flex items-center gap-4">
                                         <span class="text-[20px]">제조일자</span>
@@ -346,10 +329,8 @@ template = """<!DOCTYPE html>
                                 </div>
                             </div>
                             
-                            <!-- Manufacturer Info -->
                             <div class="border-t border-[{neon}]/50 pt-4 flex items-center justify-between text-[16px] text-gray-300 w-full">
                                 <div class="flex items-center gap-4">
-                                    <!-- S&J Logo -->
                                     <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center shrink-0 border-4 border-[{neon}] shadow-[0_0_10px_{neon}] overflow-hidden">
                                         <img src="../sj_logo.png" alt="S&J" class="w-full h-full object-contain p-1.5">
                                     </div>
@@ -401,23 +382,16 @@ template = """<!DOCTYPE html>
 </html>"""
 
 def get_1ml_amount(amt_str):
-    """ Converts amount per 1L to amount per 1ml based on unit """
     amt_str = amt_str.replace(",", "").strip()
     import re
-    # Extract number and unit
     match = re.match(r"([\d\.]+)(.*)", amt_str)
     if not match: return amt_str
     num = float(match.group(1))
     unit = match.group(2).strip()
-    
-    # 1L = 1000ml, so 1ml is 1/1000th
     per_ml = num / 1000
-    
-    # Format per_ml nicely
     if per_ml.is_integer():
         formatted_num = f"{int(per_ml):,}"
     else:
-        # e.g., 45g -> 0.045g -> 45mg
         if unit == 'g':
             formatted_num = f"{int(per_ml * 1000):,}"
             unit = 'mg'
@@ -425,10 +399,7 @@ def get_1ml_amount(amt_str):
             formatted_num = f"{per_ml:g}"
         else:
             formatted_num = f"{per_ml:g}"
-            
-    # Re-add commas for original string
     orig_num_str = f"{int(num):,}" if num.is_integer() else f"{num:g}"
-    
     return f"{orig_num_str}{unit} / L <span class='text-[18px] text-[{{neon}}]/80 ml-2 font-normal'>(1ml당 {formatted_num}{unit})</span>"
 
 for p in products:
@@ -437,15 +408,11 @@ for p in products:
     
     ingredients_html = ""
     for ing, amt in p['ingredients']:
-        if "CFU" in amt or amt == "적량" or "%" in amt or "핵심" in amt:
-            # For probiotics or untrackable
-            val = amt
-            if "CFU" in amt:
-                val = f"{amt} / L"
+        if "CFU" in amt or amt == "적량" or "%" in amt or "핵심" in amt or "고함량" in amt or "보조제" in amt:
             ingredients_html += f'''
             <li class="flex justify-between items-center border-b border-white/5 pb-1">
                 <div class="text-white font-bold">{ing}</div>
-                <div class="text-gray-300 orbitron tracking-wide text-right">{val}</div>
+                <div class="text-gray-300 orbitron tracking-wide text-right">{amt}</div>
             </li>'''
         else:
             ingredients_html += f'''
@@ -454,7 +421,6 @@ for p in products:
                 <div class="text-gray-300 orbitron tracking-wide text-right">{get_1ml_amount(amt)}</div>
             </li>'''
             
-    # Add filler
     ingredients_html += f'''
     <li class="flex justify-between items-center border-b border-white/5 pb-1">
         <div class="text-gray-400 font-bold text-[16px]">기타 식물추출물 및 부형제</div>
@@ -467,6 +433,8 @@ for p in products:
     elif p['id'] == 'urinary':
         logo_html = '<div class="mt-2 text-center text-white/90 bg-white/10 px-2 py-1 rounded"><span class="text-[9px]">Formulated with</span><br><strong class="text-[11px]">Adisseo Vigovisol®</strong></div>'
 
+    weight_str = "100 ml / 병" if p['id'] == "monsmecta" else "30 ml / 병"
+
     html = template.format(
         name_ko=p['name_ko'],
         name_en=p['name_en'],
@@ -476,9 +444,9 @@ for p in products:
         neon=p['neon'],
         effects_html=effects_html.format(neon=p['neon']),
         ingredients_html=ingredients_html.format(neon=p['neon']),
-        registered_ingredients=p.get('registered_ingredients', '별도 고시 (제품 설명서 참조)'),
+        weight_str=weight_str,
         logo_html=logo_html,
-        unit_desc="1L 기준" if p['id'] == 'probiotics' or p['id'] == 'urinary' else "1L 기준 (괄호 안은 1ml 당 함량)"
+        unit_desc="1L 기준" if p['id'] == 'probiotics' or p['id'] == 'urinary' else "1L 기준 (권장량 1ml 당 성분량)"
     )
     
     with open(os.path.join(out_dir, f"{p['id']}_label_print.html"), "w", encoding="utf-8") as f:

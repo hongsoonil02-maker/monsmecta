@@ -45,16 +45,16 @@ export const LABEL_DATA = {
       { title: "4) L-라이신/메티오닌", desc: "필수 아미노산 및 단백질 합성 촉진" },
       { title: "5) 비타민 B12", desc: "대사 활성화 및 신경계 건강 유지" }
     ],
-    reg_no: "제XX9UY0146호",
-    type_val: "보조사료 / 아미노산제 / 타우린 / 액상 / 반려동물용",
-    amount_val: "타우린 2.0% 이상, 부형제(정제수)",
-    ingredients_list_val: "타우린, D-소르비톨, L-라이신, L-메티오닌, 비타민B12, 정제수",
+    reg_no: "제XX9UY0145호",
+    type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
+    amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
+    ingredients_list_val: "바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수",
     effects: [
       "간 해독 기능 강화 및 간세포 재생 촉진",
       "장-간 축(Gut-Liver Axis)을 통한 장내 유해물질 차단",
       "지방간 개선 및 활력 증진"
     ],
-    weight_val: "100ml",
+    weight_val: "30ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -77,16 +77,16 @@ export const LABEL_DATA = {
       { title: "4) 몬모릴로나이트", desc: "독소 배출 및 장 점막 보호" },
       { title: "5) 아미노산 복합체", desc: "장내 환경 개선 및 소화 촉진" }
     ],
-    reg_no: "제XX9UY0147호",
-    type_val: "보조사료 / 미생물제 / 혼합유산균 / 액상 / 반려동물용",
-    amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 듀퐁 다니스코 특화 유산균 1.0 x 10^7 CFU/g 이상",
-    ingredients_list_val: "바실러스 서브틸리스, 락토바실러스 플란타룸, 비피도박테리움 락티스, 몬모릴로나이트, 정제수",
+    reg_no: "제XX9UY0145호",
+    type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
+    amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
+    ingredients_list_val: "바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수",
     effects: [
       "항생제 연관 설사 예방 및 장염 완화",
       "유해균 억제 및 장벽 방어력(Gut Barrier) 강화",
       "염증성 장질환(IBD) 및 과민성 대장 증후군(IBS) 개선"
     ],
-    weight_val: "100ml",
+    weight_val: "30ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -109,16 +109,16 @@ export const LABEL_DATA = {
       { title: "4) 칼륨/나트륨 전해질", desc: "수분 섭취 유도 및 소변 희석" },
       { title: "5) 오메가3 지방산", desc: "신장 염증 수치 완화 및 혈류 개선" }
     ],
-    reg_no: "제XX9UY0148호",
-    type_val: "보조사료 / 혼합제제 / 크랜베리추출물 / 액상 / 반려동물용",
-    amount_val: "크랜베리추출물 1.5% 이상, D-만노스 1.0% 이상",
-    ingredients_list_val: "크랜베리추출물, D-만노스, 몬모릴로나이트, 정제수",
+    reg_no: "제XX9UY0145호",
+    type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
+    amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
+    ingredients_list_val: "바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수",
     effects: [
       "방광염 예방 및 비뇨기계 염증 완화",
       "신장 수치 개선 및 요독 물질(BUN) 흡착 제거",
       "결석 재발 방지 및 음수량 증가 보조"
     ],
-    weight_val: "100ml",
+    weight_val: "30ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
