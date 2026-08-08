@@ -127,12 +127,11 @@ products = [
         "desc": "기력 및 활력 회복 보조제",
         "color1": "#2B1A0A", "color2": "#0B1515",
         "neon": "#f97316", # orange-500
-        "effects": ["수술 후 빠른 회복 촉진", "노령견/묘 기력 증진", "식욕 촉진 및 영양 공급", "대사 활성화 보조"],
+        "effects": ["단백질·지방·탄수화물 3대 소화 효소 복합 배합", "소화 기능 개선 및 영양 흡수 촉진", "수술 후 빠른 회복 촉진", "노령견/묘 기력 증진 및 대사 활성화"],
         "ingredients": [
-            ("L-arginine (L-아르기닌)", "10,000mg"),
-            ("Vitamin B Complex", "5,000mg"),
-            ("Maca Extract (마카)", "3,000mg"),
-            ("Octacosanol (옥타코사놀)", "1,000mg")
+            ("Endo Protease (엔도 프로테아제)", "506,000 pu/g"),
+            ("Alpha Amylase (알파 아밀라제)", "770 u/g"),
+            ("Lipase (라이페이스)", "3,277 u/g")
         ]
     },
     {
@@ -420,7 +419,7 @@ for p in products:
     
     ingredients_html = ""
     for ing, amt in p['ingredients']:
-        if "CFU" in amt or amt == "적량" or "%" in amt or "핵심" in amt or "고함량" in amt or "보조제" in amt:
+        if "CFU" in amt or amt == "적량" or "%" in amt or "핵심" in amt or "고함량" in amt or "보조제" in amt or "/" in amt:
             ingredients_html += f'''
             <li class="flex justify-between items-center border-b border-white/5 pb-1">
                 <div class="text-white font-bold">{ing}</div>
@@ -458,7 +457,7 @@ for p in products:
         ingredients_html=ingredients_html.format(neon=p['neon']),
         weight_str=weight_str,
         logo_html=logo_html,
-        unit_desc="1L 기준" if p['id'] == 'probiotics' or p['id'] == 'urinary' else "1L 기준 (권장량 1ml 당 성분량)"
+        unit_desc="총량 기준" if p['id'] == 'powerase' else ("1L 기준" if p['id'] == 'probiotics' or p['id'] == 'urinary' else "1L 기준 (권장량 1ml 당 성분량)")
     )
     
     with open(os.path.join(out_dir, f"{p['id']}_label_print.html"), "w", encoding="utf-8") as f:

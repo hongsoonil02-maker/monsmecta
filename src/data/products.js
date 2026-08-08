@@ -199,10 +199,10 @@ export const PRODUCTS = {
     border: 'hover:border-orange-500',
     text: 'text-orange-400',
     shadow: 'hover:shadow-orange-500/20',
-    isComingSoon: true,
+    isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, POWERASE',
-      subtitle: '현장 진료의 까다로운 기준을 통과한 기력 및 활력 회복 보조제입니다.',
+      subtitle: '엔도 프로테아제·알파 아밀라제·라이페이스 3대 소화 효소 배합으로 소화와 영양 흡수를 돕고 기력·활력 회복을 지원하는 프리미엄 케어 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 활력/기력 프리미엄 케어',
       badgeText: '활력 회복',
       badgeColor: 'bg-orange-700',
@@ -211,8 +211,8 @@ export const PRODUCTS = {
     },
     values: {
       title: '에스앤제이의 3대 가치 약속',
-      formulaTitle: '독보적인 배합 비율',
-      formulaDesc: '임상 현장에서 검증된 강력한 원료 배합으로 확실한 효과를 이끌어냅니다.'
+      formulaTitle: '3대 소화 효소 고활성 배합',
+      formulaDesc: '단백질·탄수화물·지방을 분해하는 엔도 프로테아제(506,000 pu/g)·알파 아밀라제(770 u/g)·라이페이스(3,277 u/g) 고활성 효소로 소화·흡수율을 높여 수술 후 회복과 기력 증진을 돕습니다.'
     }
   },
   probiotics: {

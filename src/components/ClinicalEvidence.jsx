@@ -775,6 +775,101 @@ const ClinicalEvidence = ({ activeProduct }) => {
             </div>
           </div>
         </div>
+        ) : activeProduct === 'powerase' ? (
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
+          {/* Powerase Card 1: Key Benefits */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-orange-700 text-white flex items-center justify-center text-sm font-bold shadow-md">1</span>
+                <span>기력·활력 핵심 효능</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                파워라제는 엔도 프로테아제·알파 아밀라제·라이페이스 3대 소화 효소를 배합한 소화/활력 특화 처방 솔루션입니다.
+              </p>
+              <div className="space-y-3.5">
+                <div className="bg-orange-50 rounded-2xl p-4 border border-orange-200 hover:border-orange-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🔬</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">3대 소화 효소 복합 배합</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">단백질(프로테아제)·탄수화물(아밀라제)·지방(라이페이스)을 각각 분해하는 고활성 효소 3종을 복합 배합했습니다.</p>
+                  </div>
+                </div>
+                <div className="bg-orange-50 rounded-2xl p-4 border border-orange-200 hover:border-orange-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🍽️</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">소화 기능 개선 및 영양 흡수 촉진</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">분해된 영양소가 소장에서 흡수되어 체내 이용률을 높여 식욕 부진 환축의 영양 공급을 돕습니다.</p>
+                  </div>
+                </div>
+                <div className="bg-orange-50 rounded-2xl p-4 border border-orange-200 hover:border-orange-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🏥</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">수술 후 빠른 회복 촉진</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">수술·질병 후 저하된 소화력을 보완하여 영양 회복과 체력 재건을 빠르게 돕습니다.</p>
+                  </div>
+                </div>
+                <div className="bg-orange-50 rounded-2xl p-4 border border-orange-200 hover:border-orange-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">⚡</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">노령견/묘 기력 증진 및 대사 활성화</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">활발한 대사를 유지해 노령 반려동물의 기력 저하와 무기력감 완화를 돕습니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Powerase Card 2: Ingredients */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-orange-700 text-white flex items-center justify-center text-sm font-bold shadow-md">2</span>
+                <span>핵심 성분 및 약리기전</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                고활성 소화 효소 3종의 총량 기준 성분 표기를 적용한 파워라제 독자 포뮬러입니다.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-orange-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Endo Protease <span className="text-orange-700 block text-xs">(엔도 프로테아제) 506,000 pu/g</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    단백질 내부의 펩타이드 결합을 절단하여 단백질을 아미노산·펩타이드로 분해하고 흡수율을 높입니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-orange-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Alpha Amylase <span className="text-orange-700 block text-xs">(알파 아밀라제) 770 u/g</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    전분·탄수화물의 α-1,4 결합을 가수분해하여 단당류로 만들고 에너지원으로 빠르게 전환합니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-orange-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-2/5">
+                    <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Lipase <span className="text-orange-700 block text-xs">(라이페이스) 3,277 u/g</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    중성지방을 지방산·글리세롤로 분해하여 지방 소화와 필수 지방산 흡수를 돕습니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-5 bg-orange-50/90 border border-orange-200 rounded-2xl p-4 text-xs font-medium text-orange-900 leading-relaxed shadow-sm">
+              <p className="font-bold mb-1">📌 S&J 동물병원 자문단 코멘트:</p>
+              <p>"단백질·탄수화물·지방을 동시에 분해하는 고활성 효소 3종 구성으로, 식욕 부진·소화불량 환축과 수술 후 회복기 환축의 영양 흡수를 직접 지원합니다."</p>
+            </div>
+          </div>
+        </div>
         ) : (
           <div className="text-center py-20 text-slate-500 font-medium animate-in fade-in zoom-in-95 duration-300">
             해당 제품의 임상 데이터 및 학술 검증 자료는 준비 중입니다.

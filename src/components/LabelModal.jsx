@@ -101,6 +101,17 @@ const THEME_MAP = {
     accentText: 'text-lime-300',
     buttonBorder: 'border-lime-500/30 hover:border-lime-400',
     buttonText: 'text-lime-300 hover:text-lime-200'
+  },
+  powerase: {
+    bg: 'bg-[#2b1a0a]',
+    bodyBg: 'bg-[#110a05]',
+    text: 'text-orange-400',
+    border: 'border-[#512800]',
+    headerGradient: 'from-[#512800] via-[#3d1e00] to-[#281400]',
+    accentBg: 'bg-orange-900/30',
+    accentText: 'text-orange-300',
+    buttonBorder: 'border-orange-500/30 hover:border-orange-400',
+    buttonText: 'text-orange-300 hover:text-orange-200'
   }
 };
 
