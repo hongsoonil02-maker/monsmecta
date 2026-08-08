@@ -37,7 +37,7 @@ export const PRODUCTS = {
     border: 'hover:border-amber-500',
     text: 'text-amber-400',
     shadow: 'hover:shadow-amber-500/20',
-    isComingSoon: true, // As per user context, currently price is 0
+    isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, HEPAMAX',
       subtitle: '현장 진료의 까다로운 기준을 통과한 간 건강 솔루션. 에스앤제이 동물병원 홍순일 원장이 직접 검증하고 처방합니다.',
@@ -226,6 +226,7 @@ export const PRODUCTS = {
     border: 'hover:border-green-500',
     text: 'text-green-400',
     shadow: 'hover:shadow-green-500/20',
+    isComingSoon: false,
     hero: {
       title: '세계적 유산균 명가의 선택, PROBIOTICS',
       subtitle: '글로벌 유산균 선도기업 듀퐁 다니스코(DuPont Danisco)의 프리미엄 균주로 완성된 장 건강 특화 보조제입니다.',
@@ -252,7 +253,7 @@ export const PRODUCTS = {
     border: 'hover:border-indigo-500',
     text: 'text-indigo-400',
     shadow: 'hover:shadow-indigo-500/20',
-    isComingSoon: true,
+    isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, URINARY',
       subtitle: '몬모릴로나이트의 강력한 요독 흡착력과 세계적인 아디세오(Adisseo)의 프리미엄 비타민을 결합한 비뇨기 및 신장 건강 보조제입니다.',
