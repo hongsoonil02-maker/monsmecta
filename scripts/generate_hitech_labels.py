@@ -13,10 +13,12 @@ products = [
         "neon": "#10b981", # emerald-500
         "effects": ["장내 유해물질 흡착 배출", "설사 및 연변 개선", "장 점막 보호 및 회복", "장내 미생물 균형 유지"],
         "ingredients": [
-            ("Smectite (스멕타이트)", "200g"),
-            ("L-glutamine (L-글루타민)", "5,000mg"),
-            ("Zinc (아연)", "500mg"),
-            ("Probiotics (프로바이오틱스)", "1x10^9 CFU")
+            ("Montmorillonite (몬모릴로나이트)", "43.12%"),
+            ("Glucose (포도당)", "5.00%"),
+            ("Vitamin A (비타민 A)", "500,000 IU/kg"),
+            ("Sodium Acetate (초산나트륨)", "0.50%"),
+            ("Sodium Propionate (프로피온산나트륨)", "0.30%"),
+            ("Bacillus Subtilis (바실러스 서브틸리스)", "1.0x10^10 CFU/kg")
         ]
     },
     {
@@ -28,8 +30,8 @@ products = [
         "neon": "#D4AF37", # Gold
         "effects": ["간 건강 개선", "장 건강 개선", "지방간 개선", "항병력 증진", "질병 회복 촉진"],
         "ingredients": [
-            ("Smectite (스멕타이트)", "200g"),
-            ("L-glutamine & Zinc & Probiotics", "베이스 배합"),
+            ("Montmorillonite (몬모릴로나이트)", "고함량"),
+            ("Monsmecta Original 베이스 배합", "핵심 원료"),
             ("Taurine (타우린)", "200mg"),
             ("D-Sorbitol (D-소르비톨)", "4.5g"),
             ("L-lysine HCl", "30mg"),
@@ -162,8 +164,8 @@ products = [
         "effects": ["요소(Urea) 및 요독 배출 촉진", "인독실설페이트 흡착 제거", "신장 수치 안정화 보조", "활력 증진 및 에너지 대사"],
         "unit_desc": "1L 기준 (괄호 안은 1ml 당 함량)",
         "ingredients": [
-            ("Smectite (스멕타이트)", "200g"),
-            ("L-glutamine & Zinc & Probiotics", "베이스 배합"),
+            ("Montmorillonite (몬모릴로나이트)", "고함량"),
+            ("Monsmecta Original 베이스 배합", "핵심 원료"),
             ("└ 비타민 A (Vitamin A)", "400,000 IU (400 IU)"),
             ("└ 비타민 D3 (Vitamin D3)", "80,000 IU (80 IU)"),
             ("└ 비타민 E (Vitamin E)", "200 IU (0.2 IU)"),
