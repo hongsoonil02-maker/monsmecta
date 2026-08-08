@@ -68,6 +68,17 @@ const THEME_MAP = {
     accentText: 'text-cyan-300',
     buttonBorder: 'border-cyan-500/30 hover:border-cyan-400',
     buttonText: 'text-cyan-300 hover:text-cyan-200'
+  },
+  eczema: {
+    bg: 'bg-[#2b0a1a]',
+    bodyBg: 'bg-[#11000d]',
+    text: 'text-pink-400',
+    border: 'border-[#51001f]',
+    headerGradient: 'from-[#51001f] via-[#3d0018] to-[#280010]',
+    accentBg: 'bg-pink-900/30',
+    accentText: 'text-pink-300',
+    buttonBorder: 'border-pink-500/30 hover:border-pink-400',
+    buttonText: 'text-pink-300 hover:text-pink-200'
   }
 };
 
