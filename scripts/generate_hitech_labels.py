@@ -457,6 +457,9 @@ for p in products:
 
     weight_str = "100 ml / 병" if p['id'] == "monsmecta" else "30 ml / 병"
 
+    if p['id'] == 'monsmecta':
+        continue
+
     html = template.format(
         name_ko=p['name_ko'],
         name_en=p['name_en'],
