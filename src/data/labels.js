@@ -194,8 +194,8 @@ export const LABEL_DATA = {
       "어린이의 손이 닿지 않는 곳에 보관하십시오."
     ]
   },
-  eczema: {
-    product_name: "몬스멕타 익제마(ECZEMA)",
+  skincare: {
+    product_name: "몬스멕타 스킨케어(SKINCARE)",
     desc: "피부 및 아토피 개선 보조제",
     feed1: "체중 5kg 당 1일 1회 2ml 급여",
     feed2: "(1 펌프/스포이드 = 약 1ml)",

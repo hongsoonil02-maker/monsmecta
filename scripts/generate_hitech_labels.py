@@ -72,9 +72,9 @@ products = [
         ]
     },
     {
-        "id": "eczema",
-        "name_ko": "몬스멕타 익제마",
-        "name_en": "MONSMECTA ECZEMA",
+        "id": "skincare",
+        "name_ko": "몬스멕타 스킨케어",
+        "name_en": "MONSMECTA SKINCARE",
         "desc": "피부 및 아토피 개선 보조제",
         "color1": "#2B0A1A", "color2": "#0B1515",
         "neon": "#ec4899", # pink-500

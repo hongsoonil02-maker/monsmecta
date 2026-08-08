@@ -107,10 +107,10 @@ export const PRODUCTS = {
       formulaDesc: '원기 회복에 탁월한 쌍화 복합 추출물과 퀘르세틴, 맥문동, 유근피 등 천연 호흡기 항염증 성분을 배합하여 기관지 윤활 및 기침 완화에 도움을 줍니다.'
     }
   },
-  eczema: {
-    id: 'eczema',
-    name_ko: '몬스멕타 익제마',
-    name_en: 'MONSMECTA ECZEMA',
+  skincare: {
+    id: 'skincare',
+    name_ko: '몬스멕타 스킨케어',
+    name_en: 'MONSMECTA SKINCARE',
     desc: '피부 및 아토피 개선 보조제',
     icon: '✨',
     color: 'pink',
@@ -120,7 +120,7 @@ export const PRODUCTS = {
     shadow: 'hover:shadow-pink-500/20',
     isComingSoon: false,
     hero: {
-      title: '임상 수의사의 해답, ECZEMA',
+      title: '임상 수의사의 해답, SKINCARE',
       subtitle: '피부 장벽 강화 성분으로 가려움·발적·아토피를 잡아주는 피부/아토피 프리미엄 케어 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 피부/아토피 프리미엄 케어',
       badgeText: '피부 건강',

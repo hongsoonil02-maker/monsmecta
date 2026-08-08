@@ -69,7 +69,7 @@ const THEME_MAP = {
     buttonBorder: 'border-cyan-500/30 hover:border-cyan-400',
     buttonText: 'text-cyan-300 hover:text-cyan-200'
   },
-  eczema: {
+  skincare: {
     bg: 'bg-[#2b0a1a]',
     bodyBg: 'bg-[#11000d]',
     text: 'text-pink-400',
