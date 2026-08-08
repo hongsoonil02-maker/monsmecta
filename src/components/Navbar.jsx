@@ -34,30 +34,9 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
             </select>
           </div>
 
-          {/* Language toggle - Dropdown */}
-          <div className="flex items-center shrink-0 hidden sm:flex">
-            <select
-              value={i18n.language ? i18n.language.split('-')[0] : 'ko'}
-              onChange={(e) => i18n.changeLanguage(e.target.value)}
-              aria-label={t('nav.lang')}
-              className="bg-slate-100 border border-slate-200 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-slate-200 transition-colors shadow-sm"
-            >
-              <option value="ko">🌐 KO (한국어)</option>
-              <option value="en">🌐 EN (English)</option>
-              <option value="ja">🌐 JA (日本語)</option>
-              <option value="zh">🌐 ZH (中文)</option>
-              <option value="es">🌐 ES (Español)</option>
-              <option value="fr">🌐 FR (Français)</option>
-              <option value="de">🌐 DE (Deutsch)</option>
-              <option value="vi">🌐 VI (Tiếng Việt)</option>
-              <option value="th">🌐 TH (ไทย)</option>
-              <option value="ru">🌐 RU (Русский)</option>
-              <option value="pt">🌐 PT (Português)</option>
-              <option value="ar">🌐 AR (العربية)</option>
-              <option value="id">🌐 ID (Bahasa Indonesia)</option>
-              <option value="ms">🌐 MS (Bahasa Melayu)</option>
-              <option value="tr">🌐 TR (Türkçe)</option>
-            </select>
+          {/* Language toggle - Google Translate Widget */}
+          <div className="flex items-center shrink-0">
+            <div id="google_translate_element" className="scale-75 sm:scale-90 origin-right"></div>
           </div>
 
           <button onClick={onOpenNoticeModal} className="hidden md:inline-block bg-teal-50 text-[#00513b] border border-[#00513b] px-4 py-2.5 rounded-full text-sm font-bold shadow-sm hover:bg-teal-100 transition-all duration-200">

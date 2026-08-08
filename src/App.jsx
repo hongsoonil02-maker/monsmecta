@@ -18,6 +18,7 @@ import LegalModal from './components/LegalModal';
 import StickyBottomCTA from './components/StickyBottomCTA';
 import NoticeGeneratorModal from './components/NoticeGeneratorModal';
 import useIframeHeight from './hooks/useIframeHeight';
+import A11yToolbar from './components/A11yToolbar';
 
 const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
 
@@ -232,6 +233,7 @@ const MonsmectaSNJLanding = () => {
       </a>
 
       <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
+      <A11yToolbar />
       <main id="main-content">
         <Hero setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <Lineup setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />

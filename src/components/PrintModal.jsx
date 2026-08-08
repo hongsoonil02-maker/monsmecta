@@ -24,10 +24,10 @@ const PrintModal = ({ isPrintModalOpen, setIsPrintModalOpen, activeProduct }) =>
         </div>
 
         {/* Modal Body / Image Content */}
-        <div className={`flex-1 w-full flex justify-center items-center bg-gray-900 rounded-b-3xl overflow-hidden min-h-[500px]`}>
+        <div className={`flex-1 w-full overflow-auto bg-gray-900 rounded-b-3xl min-h-[500px]`}>
           <iframe 
             src={`${import.meta.env.BASE_URL}assets/labels/${activeProduct}_label_print.html?v=${Date.now()}`}
-            className={`w-full h-[600px] scale-100 border-none bg-white origin-top`}
+            className={`min-w-[1200px] w-full h-[600px] scale-100 border-none bg-white origin-top`}
             title="Print Preview"
           />
         </div>

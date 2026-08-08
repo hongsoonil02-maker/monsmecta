@@ -21,4 +21,14 @@ body {
 body {
   font-family: 'Pretendard', sans-serif;
   background-color: #f9fafb;
+}.high-contrast {
+  filter: contrast(150%) saturate(150%) brightness(95%);
+  background-color: #000 !important;
+  color: #fff !important;
 }
+.large-text {
+  font-size: 110% !important;
+}
+.large-text h1 { font-size: 120% !important; }
+.large-text h2 { font-size: 115% !important; }
+.large-text p { font-size: 110% !important; }
