@@ -67,17 +67,17 @@ export const PRODUCTS = {
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, CANCERCARE',
-      subtitle: '현장 진료의 까다로운 기준을 통과한 면역 증진 및 종양 억제 보조제입니다.',
-      badge: '동물병원 전용 B2B 처방 솔루션 · 종양/면역 프리미엄 케어',
-      badgeText: '면역 증진',
+      subtitle: '천연 항암 물질과 몬스멕타의 시너지로 부작용 없이 면역력을 높여주는 종양 억제 보조제입니다.',
+      badge: '수석 B2B 처방 전용 / 천연 항암 보조',
+      badgeText: '항암/면역',
       badgeColor: 'bg-purple-700',
       borderColor: 'border-purple-100',
       bgColor: 'bg-purple-50'
     },
     values: {
-      title: '에스앤제이의 3대 가치 약속',
-      formulaTitle: '독보적인 배합 비율',
-      formulaDesc: '임상 현장에서 검증된 강력한 원료 배합으로 확실한 효과를 이끌어냅니다.'
+      title: '제 3의 보조 치료 옵션',
+      formulaTitle: '천연 항암 복합체 배합',
+      formulaDesc: '베타글루칸, 알리신, 설포라판, 커큐민 등 검증된 천연 추출물을 배합하여 면역 세포(NK세포)를 활성화하고, 표준 항암 치료의 부작용 완화 및 악액질 방지에 도움을 줍니다.'
     }
   },
   coldzero: {
