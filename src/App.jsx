@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { PRODUCTS } from './data/products';
 import Chatbot from './components/Chatbot';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -49,9 +50,9 @@ const MonsmectaSNJLanding = () => {
   const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
   const [legalType, setLegalType] = useState(null);
   const [activeProduct, setActiveProduct] = useState('monsmecta');
-  const [quantity, setQuantity] = useState(0); // Monsmecta quantity
-  const [quantityHepamax, setQuantityHepamax] = useState(0); // Hepamax quantity
-  const [quantityProbiotics, setQuantityProbiotics] = useState(0); // Probiotics quantity
+  const [quantities, setQuantities] = useState(
+    Object.keys(PRODUCTS).reduce((acc, key) => ({ ...acc, [key]: 0 }), {})
+  );
 
   const [hospitalName, setHospitalName] = useState('');
   const [vetName, setVetName] = useState('');
@@ -116,7 +117,8 @@ const MonsmectaSNJLanding = () => {
       return;
     }
 
-    if (quantity === 0 && quantityHepamax === 0 && quantityProbiotics === 0) {
+    const totalQuantity = Object.values(quantities).reduce((sum, q) => sum + q, 0);
+    if (totalQuantity === 0) {
       alert(t('order.validationQuantity', '발주할 제품의 수량을 1개 이상 선택해주세요.'));
       return;
     }
@@ -158,10 +160,15 @@ const MonsmectaSNJLanding = () => {
       formData.append('종목', bizType);
       formData.append('이메일', email);
       formData.append('배송지 주소', address);
-      formData.append('주문수량(병)', quantity);
-      formData.append('헤파맥스 수량(병)', quantityHepamax);
-      formData.append('프로바이오틱스 수량(병)', quantityProbiotics);
-      formData.append('총 결제금액', (quantity * pricePerBottle) + (quantityHepamax * priceHepamax) + (quantityProbiotics * priceProbiotics));
+      let totalPrice = 0;
+      Object.entries(quantities).forEach(([key, q]) => {
+        if (q > 0) {
+          formData.append(`${PRODUCTS[key]?.name_ko || key} 수량(병)`, q);
+          // Assuming 4400 for all products if not defined for now, user can change later
+          totalPrice += q * 4400; 
+        }
+      });
+      formData.append('총 결제금액', totalPrice);
       formData.append('접수일시', new Date().toLocaleString('ko-KR'));
 
       const response = await fetch(scriptURL, {
@@ -233,12 +240,8 @@ const MonsmectaSNJLanding = () => {
         <OrderForm
           isOrderComplete={isOrderComplete}
           setIsOrderComplete={setIsOrderComplete}
-          quantity={quantity}
-          setQuantity={setQuantity}
-          quantityHepamax={quantityHepamax}
-          setQuantityHepamax={setQuantityHepamax}
-          quantityProbiotics={quantityProbiotics}
-          setQuantityProbiotics={setQuantityProbiotics}
+          quantities={quantities}
+          setQuantities={setQuantities}
           hospitalName={hospitalName}
           setHospitalName={setHospitalName}
           vetName={vetName}
@@ -255,9 +258,6 @@ const MonsmectaSNJLanding = () => {
           setAddress={setAddress}
           isSubmitting={isSubmitting}
           orderError={orderError}
-          pricePerBottle={pricePerBottle}
-          priceHepamax={priceHepamax}
-          priceProbiotics={priceProbiotics}
           honeypot={honeypot}
           setHoneypot={setHoneypot}
           onResetOrder={handleResetOrder}

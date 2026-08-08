@@ -467,6 +467,84 @@ const ClinicalEvidence = ({ activeProduct }) => {
             </div>
           </div>
         </div>
+        ) : activeProduct === 'probiotics' ? (
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-10 animate-in fade-in zoom-in-95 duration-300">
+          {/* Probiotics Card 1: Key Benefits */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-blue-700 text-white flex items-center justify-center text-sm font-bold shadow-md">1</span>
+                <span>장 건강 핵심 효능</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                프로바이오틱스는 몬스멕타 고유의 장내 유해물질 흡착 배출 능력에 세계적인 듀퐁(Danisco)사의 100억 생유산균을 더한 장 건강 특화 솔루션입니다.
+              </p>
+              <div className="space-y-3.5">
+                <div className="bg-blue-50 rounded-2xl p-4 border border-blue-200 hover:border-blue-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🛡️</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">장내 유해물질 흡착 배출</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">나노 몬모릴로나이트가 설사 원인균과 독소, 바이러스를 안전하게 흡착하여 배출합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-blue-50 rounded-2xl p-4 border border-blue-200 hover:border-blue-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🦠</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">유익균 증식 및 장내 환경 정상화</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">프리미엄 100억 생유산균이 유해균 억제와 유익균 증식을 도와 붕괴된 장내 환경을 빠르게 정상화합니다.</p>
+                  </div>
+                </div>
+                <div className="bg-blue-50 rounded-2xl p-4 border border-blue-200 hover:border-blue-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">✨</div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">세계 최고 수준의 생존력</h4>
+                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">글로벌 듀퐁(Danisco)사의 검증된 균주 배양 기술로 위산과 담즙산에 강해 장까지 안전하게 도달합니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Probiotics Card 2: Ingredients */}
+          <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
+                <span className="w-9 h-9 rounded-full shrink-0 bg-blue-700 text-white flex items-center justify-center text-sm font-bold shadow-md">2</span>
+                <span>핵심 성분 및 약리기전</span>
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
+                압도적인 흡착제와 글로벌 프리미엄 유산균의 이상적인 배합입니다.
+              </p>
+              
+              <div className="space-y-3">
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-blue-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-1/3">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Montmorillonite <span className="text-blue-700 block text-xs">(나노 몬모릴로나이트) 90%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    비표면적이 극대화된 몬스멕타 고순도 원료가 장내 염증 산물과 독소를 1차적으로 깨끗하게 비워냅니다.
+                  </p>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-blue-300 transition-colors">
+                  <div className="shrink-0 flex items-center gap-2 sm:w-1/3">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    <h5 className="font-bold text-slate-800 text-sm">Danisco Probiotics <span className="text-blue-700 block text-xs">(듀퐁 100억 생유산균) 10%</span></h5>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
+                    세계적으로 유명한 듀퐁(Danisco)사의 검증된 프리미엄 생유산균을 적용하여, 뛰어난 장 정착력과 마이크로바이옴 복원 능력을 발휘합니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-5 bg-blue-50/90 border border-blue-200 rounded-2xl p-4 text-xs font-medium text-blue-900 leading-relaxed shadow-sm">
+              <p className="font-bold mb-1">📌 S&J 동물병원 자문단 코멘트:</p>
+              <p>"비워내고(몬모릴로나이트), 채워주는(듀퐁 생유산균) 가장 이상적인 장 트러블 보조제입니다. 설사 환축에게 따로 유산균을 먹일 필요가 없어 보호자 순응도가 매우 뛰어납니다."</p>
+            </div>
+          </div>
+        </div>
         ) : (
           <div className="text-center py-20 text-slate-500 font-medium animate-in fade-in zoom-in-95 duration-300">
             해당 제품의 임상 데이터 및 학술 검증 자료는 준비 중입니다.

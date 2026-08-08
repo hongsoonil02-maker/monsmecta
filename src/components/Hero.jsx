@@ -1,37 +1,24 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { PRODUCTS } from '../data/products';
 
 const Hero = ({ setIsLabelModalOpen, activeProduct, setActiveProduct }) => {
   const { t } = useTranslation();
 
-  const productData = {
-    monsmecta: {
-      title: t('hero.title'),
-      subtitle: t('hero.subtitle'),
-      badge: t('heroBadge', '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어'),
-      imgSrc: `${import.meta.env.BASE_URL}assets/bottle_mockup.png`,
-      badgeColor: 'bg-emerald-600',
-      badgeText: '장 건강',
-      borderColor: 'border-white',
-      bgColor: 'bg-white',
-      poster: `${import.meta.env.BASE_URL}assets/bottle_mockup_2.png`,
-      video: `${import.meta.env.BASE_URL}assets/video.mp4`
-    },
-    hepamax: {
-      title: '임상 수의사의 해답, HEPAMAX',
-      subtitle: '현장 진료의 까다로운 기준을 통과한 간 건강 솔루션. 에스앤제이 동물병원 홍순일 원장이 직접 검증하고 처방합니다.',
-      badge: '동물병원 전용 B2B 처방 솔루션 · 간 건강 프리미엄 케어',
-      imgSrc: `${import.meta.env.BASE_URL}assets/hepamax_mockup.png`,
-      badgeColor: 'bg-amber-700',
-      badgeText: '간 건강',
-      borderColor: 'border-amber-100',
-      bgColor: 'bg-amber-50',
-      poster: `${import.meta.env.BASE_URL}assets/hepamax_mockup.png`,
-      video: null
-    }
+  const pData = PRODUCTS[activeProduct] || PRODUCTS['monsmecta'];
+  
+  const current = {
+    title: pData.hero?.titleKey ? t(pData.hero.titleKey) : (pData.hero?.title || pData.name_ko),
+    subtitle: pData.hero?.subtitleKey ? t(pData.hero.subtitleKey) : (pData.hero?.subtitle || pData.desc),
+    badge: pData.hero?.badge || t('heroBadge', '동물병원 전용 B2B 처방 솔루션'),
+    imgSrc: activeProduct === 'hepamax' ? `${import.meta.env.BASE_URL}assets/hepamax_mockup.png` : `${import.meta.env.BASE_URL}assets/bottle_mockup.png`,
+    badgeColor: pData.hero?.badgeColor || `bg-${pData.color}-600`,
+    badgeText: pData.hero?.badgeText || '건강 케어',
+    borderColor: pData.hero?.borderColor || `border-${pData.color}-100`,
+    bgColor: pData.hero?.bgColor || `bg-${pData.color}-50`,
+    poster: activeProduct === 'monsmecta' ? `${import.meta.env.BASE_URL}assets/bottle_mockup_2.png` : (activeProduct === 'hepamax' ? `${import.meta.env.BASE_URL}assets/hepamax_mockup.png` : `${import.meta.env.BASE_URL}assets/bottle_mockup.png`),
+    video: activeProduct === 'monsmecta' ? `${import.meta.env.BASE_URL}assets/video.mp4` : null
   };
-
-  const current = productData[activeProduct];
 
   const handleOrderClick = (e) => {
     e.preventDefault();

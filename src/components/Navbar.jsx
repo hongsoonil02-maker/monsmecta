@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { PRODUCTS } from '../data/products';
 
 const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, activeProduct, setActiveProduct }) => {
   const { t, i18n } = useTranslation();
@@ -23,10 +24,13 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
               value={activeProduct}
               onChange={(e) => setActiveProduct(e.target.value)}
               aria-label="제품 선택"
-              className="bg-emerald-50 border border-emerald-200 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-emerald-100 transition-colors shadow-sm"
+              className="bg-emerald-50 border border-emerald-200 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-emerald-100 transition-colors shadow-sm max-w-[200px]"
             >
-              <option value="monsmecta">🧪 몬스멕타 (장 건강)</option>
-              <option value="hepamax">🧪 헤파맥스 (간 건강)</option>
+              {Object.values(PRODUCTS).map(p => (
+                <option key={p.id} value={p.id}>
+                  {p.icon} {p.name_ko}
+                </option>
+              ))}
             </select>
           </div>
 

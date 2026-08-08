@@ -1,0 +1,2136 @@
+﻿commit ee2a9ddc582118a254fbb2b27e10701fccc017d6
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Sat Aug 8 14:28:29 2026 +0900
+
+    feat: apply DuPont Danisco branding to Probiotics and integrate into landing page and order form
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 3d07114..eaebe2d 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -51,6 +51,7 @@ const MonsmectaSNJLanding = () => {
+   const [activeProduct, setActiveProduct] = useState('monsmecta');
+   const [quantity, setQuantity] = useState(0); // Monsmecta quantity
+   const [quantityHepamax, setQuantityHepamax] = useState(0); // Hepamax quantity
++  const [quantityProbiotics, setQuantityProbiotics] = useState(0); // Probiotics quantity
+ 
+   const [hospitalName, setHospitalName] = useState('');
+   const [vetName, setVetName] = useState('');
+@@ -75,8 +76,9 @@ const MonsmectaSNJLanding = () => {
+   const lastSubmitRef = useRef(0);
+   const submittingRef = useRef(false);
+   const orderRequestIdRef = useRef(null);
+-  const pricePerBottle = 7700;
+-  const priceHepamax = 0; // TBD
++  const pricePerBottle = 4400;
++  const priceHepamax = 4400;
++  const priceProbiotics = 4400;
+ 
+   useEffect(() => {
+     if (hospitalName && hospitalName.length > 1) {
+@@ -114,7 +116,7 @@ const MonsmectaSNJLanding = () => {
+       return;
+     }
+ 
+-    if (quantity === 0 && quantityHepamax === 0) {
++    if (quantity === 0 && quantityHepamax === 0 && quantityProbiotics === 0) {
+       alert(t('order.validationQuantity', '諛쒖＜???쒗뭹???섎웾??1媛??댁긽 ?좏깮?댁＜?몄슂.'));
+       return;
+     }
+@@ -158,7 +160,8 @@ const MonsmectaSNJLanding = () => {
+       formData.append('諛곗넚吏 二쇱냼', address);
+       formData.append('二쇰Ц?섎웾(蹂?', quantity);
+       formData.append('?ㅽ뙆留μ뒪 ?섎웾(蹂?', quantityHepamax);
+-      formData.append('珥?寃곗젣湲덉븸', (quantity * pricePerBottle) + (quantityHepamax * priceHepamax));
++      formData.append('?꾨줈諛붿씠?ㅽ떛???섎웾(蹂?', quantityProbiotics);
++      formData.append('珥?寃곗젣湲덉븸', (quantity * pricePerBottle) + (quantityHepamax * priceHepamax) + (quantityProbiotics * priceProbiotics));
+       formData.append('?묒닔?쇱떆', new Date().toLocaleString('ko-KR'));
+ 
+       const response = await fetch(scriptURL, {
+@@ -234,6 +237,8 @@ const MonsmectaSNJLanding = () => {
+           setQuantity={setQuantity}
+           quantityHepamax={quantityHepamax}
+           setQuantityHepamax={setQuantityHepamax}
++          quantityProbiotics={quantityProbiotics}
++          setQuantityProbiotics={setQuantityProbiotics}
+           hospitalName={hospitalName}
+           setHospitalName={setHospitalName}
+           vetName={vetName}
+@@ -252,6 +257,7 @@ const MonsmectaSNJLanding = () => {
+           orderError={orderError}
+           pricePerBottle={pricePerBottle}
+           priceHepamax={priceHepamax}
++          priceProbiotics={priceProbiotics}
+           honeypot={honeypot}
+           setHoneypot={setHoneypot}
+           onResetOrder={handleResetOrder}
+
+commit 1e51bf421ddd71e17475ba5281e2ab942c191185
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Fri Aug 7 10:18:26 2026 +0900
+
+    feat: implement top-level product selector architecture
+
+diff --git a/src/App.jsx b/src/App.jsx
+index f4082d1..3d07114 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -48,6 +48,7 @@ const MonsmectaSNJLanding = () => {
+   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
+   const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
+   const [legalType, setLegalType] = useState(null);
++  const [activeProduct, setActiveProduct] = useState('monsmecta');
+   const [quantity, setQuantity] = useState(0); // Monsmecta quantity
+   const [quantityHepamax, setQuantityHepamax] = useState(0); // Hepamax quantity
+ 
+@@ -219,11 +220,11 @@ const MonsmectaSNJLanding = () => {
+         {t('nav.skipToContent')}
+       </a>
+ 
+-      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />
++      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
+       <main id="main-content">
+-        <Hero setIsLabelModalOpen={setIsLabelModalOpen} />
+-        <Values />
+-        <ClinicalEvidence />
++        <Hero setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
++        <Values activeProduct={activeProduct} />
++        <ClinicalEvidence activeProduct={activeProduct} />
+         <Infographics iframeHeights={iframeHeights} />
+         <Letter />
+         <OrderForm
+
+commit 10978b387d3849757c8284b230261cd772846fde
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Fri Aug 7 09:40:46 2026 +0900
+
+    feat: implement dual product support for Hepamax (Order form and Clinical evidence tabs)
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 300b54d..f4082d1 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -48,7 +48,8 @@ const MonsmectaSNJLanding = () => {
+   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
+   const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
+   const [legalType, setLegalType] = useState(null);
+-  const [quantity, setQuantity] = useState(5);
++  const [quantity, setQuantity] = useState(0); // Monsmecta quantity
++  const [quantityHepamax, setQuantityHepamax] = useState(0); // Hepamax quantity
+ 
+   const [hospitalName, setHospitalName] = useState('');
+   const [vetName, setVetName] = useState('');
+@@ -74,6 +75,7 @@ const MonsmectaSNJLanding = () => {
+   const submittingRef = useRef(false);
+   const orderRequestIdRef = useRef(null);
+   const pricePerBottle = 7700;
++  const priceHepamax = 0; // TBD
+ 
+   useEffect(() => {
+     if (hospitalName && hospitalName.length > 1) {
+@@ -111,6 +113,11 @@ const MonsmectaSNJLanding = () => {
+       return;
+     }
+ 
++    if (quantity === 0 && quantityHepamax === 0) {
++      alert(t('order.validationQuantity', '諛쒖＜???쒗뭹???섎웾??1媛??댁긽 ?좏깮?댁＜?몄슂.'));
++      return;
++    }
++
+     if (!isValidBizNumber(bizNumber)) {
+       alert(t('order.validationBizNumber'));
+       return;
+@@ -149,7 +156,8 @@ const MonsmectaSNJLanding = () => {
+       formData.append('?대찓??, email);
+       formData.append('諛곗넚吏 二쇱냼', address);
+       formData.append('二쇰Ц?섎웾(蹂?', quantity);
+-      formData.append('珥?寃곗젣湲덉븸', quantity * pricePerBottle);
++      formData.append('?ㅽ뙆留μ뒪 ?섎웾(蹂?', quantityHepamax);
++      formData.append('珥?寃곗젣湲덉븸', (quantity * pricePerBottle) + (quantityHepamax * priceHepamax));
+       formData.append('?묒닔?쇱떆', new Date().toLocaleString('ko-KR'));
+ 
+       const response = await fetch(scriptURL, {
+@@ -223,6 +231,8 @@ const MonsmectaSNJLanding = () => {
+           setIsOrderComplete={setIsOrderComplete}
+           quantity={quantity}
+           setQuantity={setQuantity}
++          quantityHepamax={quantityHepamax}
++          setQuantityHepamax={setQuantityHepamax}
+           hospitalName={hospitalName}
+           setHospitalName={setHospitalName}
+           vetName={vetName}
+@@ -240,6 +250,7 @@ const MonsmectaSNJLanding = () => {
+           isSubmitting={isSubmitting}
+           orderError={orderError}
+           pricePerBottle={pricePerBottle}
++          priceHepamax={priceHepamax}
+           honeypot={honeypot}
+           setHoneypot={setHoneypot}
+           onResetOrder={handleResetOrder}
+
+commit 1439599a0eb4ac409002ed01fe2bf9cb50e207d3
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Fri Aug 7 07:37:52 2026 +0900
+
+    feat: Add autofill for returning customers based on hospitalName
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 77d6092..300b54d 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,4 +1,4 @@
+-import React, { useState, useRef } from 'react';
++import React, { useState, useRef, useEffect } from 'react';
+ import { useTranslation } from 'react-i18next';
+ import Chatbot from './components/Chatbot';
+ import Navbar from './components/Navbar';
+@@ -21,6 +21,7 @@ const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
+ 
+ const ORDER_DONE_KEY = 'monsmecta_order_done_v1';
+ const ORDER_LAST_KEY = 'monsmecta_order_last_v1';
++const ORDER_AUTOFILL_KEY = 'monsmecta_order_autofill_v1';
+ const ORDER_DONE_TTL = 30 * 24 * 60 * 60 * 1000;
+ const ORDER_LAST_TTL = 5 * 60 * 1000;
+ const ORDER_FETCH_TIMEOUT = 60000;
+@@ -74,6 +75,22 @@ const MonsmectaSNJLanding = () => {
+   const orderRequestIdRef = useRef(null);
+   const pricePerBottle = 7700;
+ 
++  useEffect(() => {
++    if (hospitalName && hospitalName.length > 1) {
++      try {
++        const saved = JSON.parse(localStorage.getItem(ORDER_AUTOFILL_KEY));
++        if (saved && saved.hospitalName === hospitalName) {
++          if (!vetName && saved.vetName) setVetName(saved.vetName);
++          if (!bizNumber && saved.bizNumber) setBizNumber(saved.bizNumber);
++          if (!bizCategory && saved.bizCategory) setBizCategory(saved.bizCategory);
++          if (!bizType && saved.bizType) setBizType(saved.bizType);
++          if (!email && saved.email) setEmail(saved.email);
++          if (!address && saved.address) setAddress(saved.address);
++        }
++      } catch (err) { /* ignore */ }
++    }
++  }, [hospitalName]);
++
+   const handleCheckout = async (e) => {
+     e.preventDefault();
+     setOrderError('');
+@@ -162,6 +179,9 @@ const MonsmectaSNJLanding = () => {
+       try {
+         localStorage.setItem(ORDER_DONE_KEY, JSON.stringify({ biz: normBiz, ts: Date.now() }));
+         localStorage.setItem(ORDER_LAST_KEY, JSON.stringify({ biz: normBiz, ts: Date.now() }));
++        localStorage.setItem(ORDER_AUTOFILL_KEY, JSON.stringify({
++          hospitalName, vetName, bizNumber, bizCategory, bizType, email, address
++        }));
+       } catch (err) { /* ignore */ }
+       setIsOrderComplete(true);
+     } catch (error) {
+
+commit 72e3af8df69fffe14038d2958752cd3fba3b3b70
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Fri Aug 7 07:18:03 2026 +0900
+
+    chore: increase fetch timeouts to 60s
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 7d62ef6..77d6092 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -23,7 +23,7 @@ const ORDER_DONE_KEY = 'monsmecta_order_done_v1';
+ const ORDER_LAST_KEY = 'monsmecta_order_last_v1';
+ const ORDER_DONE_TTL = 30 * 24 * 60 * 60 * 1000;
+ const ORDER_LAST_TTL = 5 * 60 * 1000;
+-const ORDER_FETCH_TIMEOUT = 30000;
++const ORDER_FETCH_TIMEOUT = 60000;
+ 
+ const genId = () =>
+   (typeof crypto !== 'undefined' && crypto.randomUUID)
+
+commit 78503c0df731cc5511be4d64fbb5f0056a99982e
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Fri Aug 7 06:49:51 2026 +0900
+
+    Update App, VetSampleModal, and apps script to use 100% Korean keys including ?묒닔?쇱떆
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 59fb8dc..7d62ef6 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -133,7 +133,7 @@ const MonsmectaSNJLanding = () => {
+       formData.append('諛곗넚吏 二쇱냼', address);
+       formData.append('二쇰Ц?섎웾(蹂?', quantity);
+       formData.append('珥?寃곗젣湲덉븸', quantity * pricePerBottle);
+-      formData.append('timestamp', new Date().toLocaleString('ko-KR'));
++      formData.append('?묒닔?쇱떆', new Date().toLocaleString('ko-KR'));
+ 
+       const response = await fetch(scriptURL, {
+         method: 'POST',
+
+commit e497fbe4beb04f2f12384d31e838055cf236a040
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Fri Aug 7 06:46:39 2026 +0900
+
+    Revert payload keys back to Korean for Google Sheets compatibility
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 153992f..59fb8dc 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -124,15 +124,15 @@ const MonsmectaSNJLanding = () => {
+       const formData = new URLSearchParams();
+       formData.append('type', 'order');
+       formData.append('requestId', orderRequestIdRef.current);
+-      formData.append('hospitalName', hospitalName);
+-      formData.append('vetName', vetName);
+-      formData.append('bizNumber', normBiz);
+-      formData.append('bizCategory', bizCategory);
+-      formData.append('bizType', bizType);
+-      formData.append('email', email);
+-      formData.append('address', address);
+-      formData.append('quantity', quantity);
+-      formData.append('totalPrice', quantity * pricePerBottle);
++      formData.append('?숇Ъ蹂묒썝紐?, hospitalName);
++      formData.append('?먯옣???깊븿', vetName);
++      formData.append('?ъ뾽?먮벑濡앸쾲??, normBiz);
++      formData.append('?낇깭', bizCategory);
++      formData.append('醫낅ぉ', bizType);
++      formData.append('?대찓??, email);
++      formData.append('諛곗넚吏 二쇱냼', address);
++      formData.append('二쇰Ц?섎웾(蹂?', quantity);
++      formData.append('珥?寃곗젣湲덉븸', quantity * pricePerBottle);
+       formData.append('timestamp', new Date().toLocaleString('ko-KR'));
+ 
+       const response = await fetch(scriptURL, {
+
+commit cbb896a1af0ca381aefdc8968ef28e4014172f5e
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Fri Aug 7 06:40:19 2026 +0900
+
+    Fix timestamp format to ko-KR locale in order submission
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 7176a31..153992f 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -133,7 +133,7 @@ const MonsmectaSNJLanding = () => {
+       formData.append('address', address);
+       formData.append('quantity', quantity);
+       formData.append('totalPrice', quantity * pricePerBottle);
+-      formData.append('timestamp', new Date().toISOString());
++      formData.append('timestamp', new Date().toLocaleString('ko-KR'));
+ 
+       const response = await fetch(scriptURL, {
+         method: 'POST',
+
+commit 79fffb8873e3b8739d0c9059feb0c9c3e912dd73
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Thu Aug 6 21:10:22 2026 +0900
+
+    Update label design, fix layout, adjust spacing and add safety copy
+
+diff --git a/src/App.jsx b/src/App.jsx
+index aa337f6..7176a31 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -52,6 +52,8 @@ const MonsmectaSNJLanding = () => {
+   const [hospitalName, setHospitalName] = useState('');
+   const [vetName, setVetName] = useState('');
+   const [bizNumber, setBizNumber] = useState('');
++  const [bizCategory, setBizCategory] = useState('');
++  const [bizType, setBizType] = useState('');
+   const [email, setEmail] = useState('');
+   const [address, setAddress] = useState('');
+   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+@@ -87,7 +89,7 @@ const MonsmectaSNJLanding = () => {
+     }
+     lastSubmitRef.current = Date.now();
+ 
+-    if (!hospitalName || !vetName || !bizNumber || !email || !address) {
++    if (!hospitalName || !vetName || !bizNumber || !bizCategory || !bizType || !email || !address) {
+       alert(t('order.validationRequired'));
+       return;
+     }
+@@ -125,6 +127,8 @@ const MonsmectaSNJLanding = () => {
+       formData.append('hospitalName', hospitalName);
+       formData.append('vetName', vetName);
+       formData.append('bizNumber', normBiz);
++      formData.append('bizCategory', bizCategory);
++      formData.append('bizType', bizType);
+       formData.append('email', email);
+       formData.append('address', address);
+       formData.append('quantity', quantity);
+@@ -205,6 +209,10 @@ const MonsmectaSNJLanding = () => {
+           setVetName={setVetName}
+           bizNumber={bizNumber}
+           setBizNumber={setBizNumber}
++          bizCategory={bizCategory}
++          setBizCategory={setBizCategory}
++          bizType={bizType}
++          setBizType={setBizType}
+           email={email}
+           setEmail={setEmail}
+           address={address}
+
+commit ab7567bb569dcd5ecf4783616bced3693d3caadc
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Thu Aug 6 10:06:43 2026 +0900
+
+    chore: update App, OrderForm, and ko translations
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 3cffbeb..aa337f6 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -50,7 +50,9 @@ const MonsmectaSNJLanding = () => {
+   const [quantity, setQuantity] = useState(5);
+ 
+   const [hospitalName, setHospitalName] = useState('');
++  const [vetName, setVetName] = useState('');
+   const [bizNumber, setBizNumber] = useState('');
++  const [email, setEmail] = useState('');
+   const [address, setAddress] = useState('');
+   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+   const [isLabelModalOpen, setIsLabelModalOpen] = useState(false);
+@@ -85,7 +87,7 @@ const MonsmectaSNJLanding = () => {
+     }
+     lastSubmitRef.current = Date.now();
+ 
+-    if (!hospitalName || !bizNumber || !address) {
++    if (!hospitalName || !vetName || !bizNumber || !email || !address) {
+       alert(t('order.validationRequired'));
+       return;
+     }
+@@ -121,7 +123,9 @@ const MonsmectaSNJLanding = () => {
+       formData.append('type', 'order');
+       formData.append('requestId', orderRequestIdRef.current);
+       formData.append('hospitalName', hospitalName);
++      formData.append('vetName', vetName);
+       formData.append('bizNumber', normBiz);
++      formData.append('email', email);
+       formData.append('address', address);
+       formData.append('quantity', quantity);
+       formData.append('totalPrice', quantity * pricePerBottle);
+@@ -197,8 +201,12 @@ const MonsmectaSNJLanding = () => {
+           setQuantity={setQuantity}
+           hospitalName={hospitalName}
+           setHospitalName={setHospitalName}
++          vetName={vetName}
++          setVetName={setVetName}
+           bizNumber={bizNumber}
+           setBizNumber={setBizNumber}
++          email={email}
++          setEmail={setEmail}
+           address={address}
+           setAddress={setAddress}
+           isSubmitting={isSubmitting}
+
+commit 182244c0dff8653556c5bdc1b56b32bb2b00c1b0
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Thu Aug 6 00:04:29 2026 +0900
+
+    feat: complete 15-locale translations, i18n/UX/a11y fixes, and order-sample dedup protection
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 490741d..3cffbeb 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,4 +1,4 @@
+-import React, { useState } from 'react';
++import React, { useState, useRef } from 'react';
+ import { useTranslation } from 'react-i18next';
+ import Chatbot from './components/Chatbot';
+ import Navbar from './components/Navbar';
+@@ -19,6 +19,28 @@ import useIframeHeight from './hooks/useIframeHeight';
+ 
+ const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
+ 
++const ORDER_DONE_KEY = 'monsmecta_order_done_v1';
++const ORDER_LAST_KEY = 'monsmecta_order_last_v1';
++const ORDER_DONE_TTL = 30 * 24 * 60 * 60 * 1000;
++const ORDER_LAST_TTL = 5 * 60 * 1000;
++const ORDER_FETCH_TIMEOUT = 30000;
++
++const genId = () =>
++  (typeof crypto !== 'undefined' && crypto.randomUUID)
++    ? crypto.randomUUID()
++    : 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
++
++const isValidBizNumber = (num) => {
++  const v = num.replace(/[^0-9]/g, '');
++  if (!/^\d{10}$/.test(v)) return false;
++  const weights = [1, 3, 7, 1, 3, 7, 1, 3, 5];
++  let sum = 0;
++  for (let i = 0; i < 9; i++) sum += Number(v[i]) * weights[i];
++  sum += Math.floor((Number(v[8]) * 5) / 10);
++  const check = (10 - (sum % 10)) % 10;
++  return check === Number(v[9]);
++};
++
+ const MonsmectaSNJLanding = () => {
+   const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
+   const { t } = useTranslation();
+@@ -34,86 +56,161 @@ const MonsmectaSNJLanding = () => {
+   const [isLabelModalOpen, setIsLabelModalOpen] = useState(false);
+   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
+   const [isSubmitting, setIsSubmitting] = useState(false);
+-  const [isOrderComplete, setIsOrderComplete] = useState(false);
++  const [isOrderComplete, setIsOrderComplete] = useState(() => {
++    try {
++      const done = JSON.parse(localStorage.getItem(ORDER_DONE_KEY));
++      return !!(done && done.ts && Date.now() - done.ts < ORDER_DONE_TTL);
++    } catch (err) { /* ignore */ }
++    return false;
++  });
+   const [orderError, setOrderError] = useState('');
++  const [honeypot, setHoneypot] = useState('');
++  const lastSubmitRef = useRef(0);
++  const submittingRef = useRef(false);
++  const orderRequestIdRef = useRef(null);
+   const pricePerBottle = 7700;
+ 
+   const handleCheckout = async (e) => {
+     e.preventDefault();
+     setOrderError('');
++    if (submittingRef.current || isSubmitting) return;
++
++    if (honeypot) {
++      setIsOrderComplete(true);
++      return;
++    }
++
++    if (Date.now() - lastSubmitRef.current < 5000) {
++      return;
++    }
++    lastSubmitRef.current = Date.now();
+ 
+     if (!hospitalName || !bizNumber || !address) {
+-      alert('紐⑤뱺 ?꾩닔 ?뺣낫瑜??낅젰?댁＜?몄슂.');
++      alert(t('order.validationRequired'));
++      return;
++    }
++
++    if (!isValidBizNumber(bizNumber)) {
++      alert(t('order.validationBizNumber'));
+       return;
+     }
+ 
+-    const sanitizedBizNum = bizNumber.replace(/[^0-9]/g, '');
+-    if (sanitizedBizNum.length < 10) {
+-      alert('?щ컮瑜??ъ뾽?먮벑濡앸쾲??10?먮━)瑜??낅젰?댁＜?몄슂.');
++    const normBiz = bizNumber.replace(/[^0-9]/g, '');
++    let last = null;
++    try {
++      last = JSON.parse(localStorage.getItem(ORDER_LAST_KEY));
++    } catch (err) { /* ignore */ }
++    if (last && last.biz && last.biz === normBiz && Date.now() - last.ts < ORDER_LAST_TTL) {
++      alert(t('order.recentSubmit'));
+       return;
+     }
+ 
++    submittingRef.current = true;
+     setIsSubmitting(true);
++    if (!orderRequestIdRef.current) orderRequestIdRef.current = genId();
++
++    const controller = new AbortController();
++    const timer = setTimeout(() => controller.abort(), ORDER_FETCH_TIMEOUT);
+ 
+     try {
+       const scriptURL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
+       if (!scriptURL) {
+         throw new Error('Google Apps Script URL is not configured');
+       }
+-      const formData = new FormData();
++      const formData = new URLSearchParams();
++      formData.append('type', 'order');
++      formData.append('requestId', orderRequestIdRef.current);
+       formData.append('hospitalName', hospitalName);
+-      formData.append('bizNumber', bizNumber);
++      formData.append('bizNumber', normBiz);
+       formData.append('address', address);
+       formData.append('quantity', quantity);
+       formData.append('totalPrice', quantity * pricePerBottle);
+-      formData.append('timestamp', new Date().toLocaleString('ko-KR'));
++      formData.append('timestamp', new Date().toISOString());
+ 
+       const response = await fetch(scriptURL, {
+         method: 'POST',
+-        body: formData
++        body: formData,
++        signal: controller.signal
+       });
+ 
+-      if (response.ok) {
+-        setIsOrderComplete(true);
+-      } else {
+-        alert('二쇰Ц 泥섎━ 以??쒕쾭 ?ㅻ쪟媛 諛쒖깮?덉뒿?덈떎. ?좎떆 ???ㅼ떆 ?쒕룄??二쇱꽭??');
++      let json = null;
++      try {
++        json = await response.json();
++      } catch (err) { /* ignore */ }
++
++      if (!response.ok) {
++        alert(t('order.errorServer'));
++        return;
++      }
++      if (json && json.status === 'duplicate') {
++        alert(t('order.duplicateError'));
++        return;
++      }
++      if (json && json.status === 'error') {
++        alert(t('order.errorServer'));
++        return;
+       }
++
++      try {
++        localStorage.setItem(ORDER_DONE_KEY, JSON.stringify({ biz: normBiz, ts: Date.now() }));
++        localStorage.setItem(ORDER_LAST_KEY, JSON.stringify({ biz: normBiz, ts: Date.now() }));
++      } catch (err) { /* ignore */ }
++      setIsOrderComplete(true);
+     } catch (error) {
+       console.error('Error!', error.message);
+-      setOrderError('二쇰Ц???뺤긽 ?묒닔?섏? ?딆븯?듬땲?? ?ㅽ듃?뚰겕 ?곹깭瑜??뺤씤?????ㅼ떆 ?쒕룄??二쇱꽭??');
++      if (error.name === 'AbortError') {
++        setOrderError(t('order.timeoutError'));
++      } else {
++        setOrderError(t('order.errorNetwork'));
++      }
+     } finally {
++      clearTimeout(timer);
++      submittingRef.current = false;
+       setIsSubmitting(false);
+     }
+   };
+ 
++  const handleResetOrder = () => {
++    try {
++      localStorage.removeItem(ORDER_DONE_KEY);
++    } catch (err) { /* ignore */ }
++    setIsOrderComplete(false);
++  };
++
+   return (
+     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 scroll-smooth overflow-x-hidden">
+       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#00513b] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none">
+-        蹂몃Ц 諛붾줈媛湲?+        {t('nav.skipToContent')}
+       </a>
+ 
+       <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />
+-      <Hero setIsLabelModalOpen={setIsLabelModalOpen} />
+-      <Values />
+-      <ClinicalEvidence />
+-      <Infographics iframeHeights={iframeHeights} />
+-      <Letter />
+-      <OrderForm
+-        isOrderComplete={isOrderComplete}
+-        setIsOrderComplete={setIsOrderComplete}
+-        quantity={quantity}
+-        setQuantity={setQuantity}
+-        hospitalName={hospitalName}
+-        setHospitalName={setHospitalName}
+-        bizNumber={bizNumber}
+-        setBizNumber={setBizNumber}
+-        address={address}
+-        setAddress={setAddress}
+-        isSubmitting={isSubmitting}
+-        orderError={orderError}
+-        handleCheckout={handleCheckout}
+-      />
+-      <Footer setLegalType={setLegalType} />
++      <main id="main-content">
++        <Hero setIsLabelModalOpen={setIsLabelModalOpen} />
++        <Values />
++        <ClinicalEvidence />
++        <Infographics iframeHeights={iframeHeights} />
++        <Letter />
++        <OrderForm
++          isOrderComplete={isOrderComplete}
++          setIsOrderComplete={setIsOrderComplete}
++          quantity={quantity}
++          setQuantity={setQuantity}
++          hospitalName={hospitalName}
++          setHospitalName={setHospitalName}
++          bizNumber={bizNumber}
++          setBizNumber={setBizNumber}
++          address={address}
++          setAddress={setAddress}
++          isSubmitting={isSubmitting}
++          orderError={orderError}
++          pricePerBottle={pricePerBottle}
++          honeypot={honeypot}
++          setHoneypot={setHoneypot}
++          onResetOrder={handleResetOrder}
++          handleCheckout={handleCheckout}
++        />
++        <Footer setLegalType={setLegalType} />
++      </main>
+ 
+       <style dangerouslySetInnerHTML={{
+         __html: `
+
+commit e1ca7a623bea82f3025a2fa37ae2684b13ff191d
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Wed Aug 5 08:22:40 2026 +0900
+
+    feat: add notice board generator button to StickyBottomCTA for better visibility
+
+diff --git a/src/App.jsx b/src/App.jsx
+index cda3c83..490741d 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -131,7 +131,7 @@ const MonsmectaSNJLanding = () => {
+       <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
+       <LegalModal legalType={legalType} setLegalType={setLegalType} />
+       <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
+-      <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} />
++      <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />
+       <Chatbot />
+     </div>
+   );
+
+commit 77fd4a9baf94d8a0132f79477c66ac780c8d6e8c
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Wed Aug 5 08:19:52 2026 +0900
+
+    feat: add notice board generator modal and update poster template
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 5054301..cda3c83 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -14,6 +14,7 @@ import PrintModal from './components/PrintModal';
+ import VetSampleModal from './components/VetSampleModal';
+ import LegalModal from './components/LegalModal';
+ import StickyBottomCTA from './components/StickyBottomCTA';
++import NoticeGeneratorModal from './components/NoticeGeneratorModal';
+ import useIframeHeight from './hooks/useIframeHeight';
+ 
+ const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
+@@ -22,6 +23,7 @@ const MonsmectaSNJLanding = () => {
+   const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
+   const { t } = useTranslation();
+   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
++  const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
+   const [legalType, setLegalType] = useState(null);
+   const [quantity, setQuantity] = useState(5);
+ 
+@@ -90,7 +92,7 @@ const MonsmectaSNJLanding = () => {
+         蹂몃Ц 諛붾줈媛湲?       </a>
+ 
+-      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
++      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />
+       <Hero setIsLabelModalOpen={setIsLabelModalOpen} />
+       <Values />
+       <ClinicalEvidence />
+@@ -128,6 +130,7 @@ const MonsmectaSNJLanding = () => {
+       <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
+       <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
+       <LegalModal legalType={legalType} setLegalType={setLegalType} />
++      <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
+       <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} />
+       <Chatbot />
+     </div>
+
+commit 93e508b277740e346216bec6c099f10eb20d0b87
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Sat Aug 1 08:43:56 2026 +0900
+
+    Fix mobile UI layout and chatbot positioning
+
+diff --git a/src/App.jsx b/src/App.jsx
+index e680c2c..5054301 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -85,7 +85,7 @@ const MonsmectaSNJLanding = () => {
+   };
+ 
+   return (
+-    <div className="min-h-screen bg-slate-50 font-sans text-slate-800 scroll-smooth">
++    <div className="min-h-screen bg-slate-50 font-sans text-slate-800 scroll-smooth overflow-x-hidden">
+       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#00513b] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none">
+         蹂몃Ц 諛붾줈媛湲?       </a>
+
+commit d8400b915789c7e739042ec7c2d8f4ea4624c22d
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Sun Jul 26 18:38:59 2026 +0900
+
+    feat: Add interactive LegalModal and privacy policy/terms of service/business info links to Footer in monsmecta-landing
+
+diff --git a/src/App.jsx b/src/App.jsx
+index f7fd421..e680c2c 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -12,6 +12,7 @@ import Footer from './components/Footer';
+ import LabelModal from './components/LabelModal';
+ import PrintModal from './components/PrintModal';
+ import VetSampleModal from './components/VetSampleModal';
++import LegalModal from './components/LegalModal';
+ import StickyBottomCTA from './components/StickyBottomCTA';
+ import useIframeHeight from './hooks/useIframeHeight';
+ 
+@@ -21,6 +22,7 @@ const MonsmectaSNJLanding = () => {
+   const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
+   const { t } = useTranslation();
+   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
++  const [legalType, setLegalType] = useState(null);
+   const [quantity, setQuantity] = useState(5);
+ 
+   const [hospitalName, setHospitalName] = useState('');
+@@ -109,7 +111,7 @@ const MonsmectaSNJLanding = () => {
+         orderError={orderError}
+         handleCheckout={handleCheckout}
+       />
+-      <Footer />
++      <Footer setLegalType={setLegalType} />
+ 
+       <style dangerouslySetInnerHTML={{
+         __html: `
+@@ -125,6 +127,7 @@ const MonsmectaSNJLanding = () => {
+       <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
+       <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
+       <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
++      <LegalModal legalType={legalType} setLegalType={setLegalType} />
+       <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} />
+       <Chatbot />
+     </div>
+
+commit 045bae5c3fc86f3fcd1d4b889f274996a103f2f4
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Sun Jul 26 17:08:39 2026 +0900
+
+    feat: Add vet sample modal (100g x 2) and sticky CTA for monsmecta landing
+
+diff --git a/src/App.jsx b/src/App.jsx
+index a8065eb..f7fd421 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -11,6 +11,8 @@ import OrderForm from './components/OrderForm';
+ import Footer from './components/Footer';
+ import LabelModal from './components/LabelModal';
+ import PrintModal from './components/PrintModal';
++import VetSampleModal from './components/VetSampleModal';
++import StickyBottomCTA from './components/StickyBottomCTA';
+ import useIframeHeight from './hooks/useIframeHeight';
+ 
+ const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
+@@ -18,7 +20,9 @@ const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
+ const MonsmectaSNJLanding = () => {
+   const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
+   const { t } = useTranslation();
++  const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
+   const [quantity, setQuantity] = useState(5);
++
+   const [hospitalName, setHospitalName] = useState('');
+   const [bizNumber, setBizNumber] = useState('');
+   const [address, setAddress] = useState('');
+@@ -120,9 +124,12 @@ const MonsmectaSNJLanding = () => {
+ 
+       <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
+       <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
++      <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
++      <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} />
+       <Chatbot />
+     </div>
+   );
+ };
+ 
++
+ export default MonsmectaSNJLanding;
+
+commit 580214ccf16647de291f2a79a5a9ac64fe5dc05b
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Sat Jul 18 20:01:17 2026 +0900
+
+    fix: order failure handling, postMessage security, i18n hardcode cleanup and refactoring
+
+diff --git a/src/App.jsx b/src/App.jsx
+index f77ef96..a8065eb 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,4 +1,4 @@
+-import React, { useState, useEffect } from 'react';
++import React, { useState } from 'react';
+ import { useTranslation } from 'react-i18next';
+ import Chatbot from './components/Chatbot';
+ import Navbar from './components/Navbar';
+@@ -11,24 +11,12 @@ import OrderForm from './components/OrderForm';
+ import Footer from './components/Footer';
+ import LabelModal from './components/LabelModal';
+ import PrintModal from './components/PrintModal';
++import useIframeHeight from './hooks/useIframeHeight';
+ 
+-const MonsmectaSNJLanding = () => {
+-  const [iframeHeights, setIframeHeights] = useState({ james: 1160, scenario: 2100, dashboard: 1960 }); // Default fallback
+-
+-  useEffect(() => {
+-    const handleMessage = (event) => {
+-      if (event.data && event.data.type === 'resize-iframe') {
+-        const source = event.data.source || 'james';
+-        setIframeHeights(prev => ({
+-          ...prev,
+-          [source]: event.data.height
+-        }));
+-      }
+-    };
+-    window.addEventListener('message', handleMessage);
+-    return () => window.removeEventListener('message', handleMessage);
+-  }, []);
++const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
+ 
++const MonsmectaSNJLanding = () => {
++  const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
+   const { t } = useTranslation();
+   const [quantity, setQuantity] = useState(5);
+   const [hospitalName, setHospitalName] = useState('');
+@@ -39,16 +27,18 @@ const MonsmectaSNJLanding = () => {
+   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
+   const [isSubmitting, setIsSubmitting] = useState(false);
+   const [isOrderComplete, setIsOrderComplete] = useState(false);
++  const [orderError, setOrderError] = useState('');
+   const pricePerBottle = 7700;
+ 
+   const handleCheckout = async (e) => {
+     e.preventDefault();
++    setOrderError('');
++
+     if (!hospitalName || !bizNumber || !address) {
+       alert('紐⑤뱺 ?꾩닔 ?뺣낫瑜??낅젰?댁＜?몄슂.');
+       return;
+     }
+ 
+-    // ?ъ뾽?먮벑濡앸쾲???좏슚??寃??(媛꾨떒???レ옄 ?뺤씤)
+     const sanitizedBizNum = bizNumber.replace(/[^0-9]/g, '');
+     if (sanitizedBizNum.length < 10) {
+       alert('?щ컮瑜??ъ뾽?먮벑濡앸쾲??10?먮━)瑜??낅젰?댁＜?몄슂.');
+@@ -58,7 +48,6 @@ const MonsmectaSNJLanding = () => {
+     setIsSubmitting(true);
+ 
+     try {
+-      // ?먯옣?섏씠 ?쒓났?섏떊 Google Web App URL ?곌껐 ?꾨즺
+       const scriptURL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
+       if (!scriptURL) {
+         throw new Error('Google Apps Script URL is not configured');
+@@ -83,8 +72,7 @@ const MonsmectaSNJLanding = () => {
+       }
+     } catch (error) {
+       console.error('Error!', error.message);
+-      alert('?꾩옱 援ш? ?쒗듃媛 ?곌껐?섏? ?딆븘 二쇰Ц ?꾨즺 ?붾㈃?쇰줈 紐⑥쓽 ?꾪솚?⑸땲??');
+-      setIsOrderComplete(true);
++      setOrderError('二쇰Ц???뺤긽 ?묒닔?섏? ?딆븯?듬땲?? ?ㅽ듃?뚰겕 ?곹깭瑜??뺤씤?????ㅼ떆 ?쒕룄??二쇱꽭??');
+     } finally {
+       setIsSubmitting(false);
+     }
+@@ -92,7 +80,6 @@ const MonsmectaSNJLanding = () => {
+ 
+   return (
+     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 scroll-smooth">
+-      {/* Accessibility Skip Link */}
+       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#00513b] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none">
+         蹂몃Ц 諛붾줈媛湲?       </a>
+@@ -115,11 +102,11 @@ const MonsmectaSNJLanding = () => {
+         address={address}
+         setAddress={setAddress}
+         isSubmitting={isSubmitting}
++        orderError={orderError}
+         handleCheckout={handleCheckout}
+       />
+       <Footer />
+ 
+-      {/* Global Style for custom animations */}
+       <style dangerouslySetInnerHTML={{
+         __html: `
+         @keyframes bounce-x {
+
+commit c131c0e6f82447f95a1e61fe0db03febcad1c05e
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Sun Jul 12 17:16:08 2026 +0900
+
+    refactor: split App.jsx into smaller components, use env vars for API URLs
+
+diff --git a/src/App.jsx b/src/App.jsx
+index 45fc4c1..f77ef96 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -1,6 +1,16 @@
+ import React, { useState, useEffect } from 'react';
+ import { useTranslation } from 'react-i18next';
+ import Chatbot from './components/Chatbot';
++import Navbar from './components/Navbar';
++import Hero from './components/Hero';
++import Values from './components/Values';
++import ClinicalEvidence from './components/ClinicalEvidence';
++import Infographics from './components/Infographics';
++import Letter from './components/Letter';
++import OrderForm from './components/OrderForm';
++import Footer from './components/Footer';
++import LabelModal from './components/LabelModal';
++import PrintModal from './components/PrintModal';
+ 
+ const MonsmectaSNJLanding = () => {
+   const [iframeHeights, setIframeHeights] = useState({ james: 1160, scenario: 2100, dashboard: 1960 }); // Default fallback
+@@ -18,13 +28,13 @@ const MonsmectaSNJLanding = () => {
+     window.addEventListener('message', handleMessage);
+     return () => window.removeEventListener('message', handleMessage);
+   }, []);
+-  const { t, i18n } = useTranslation();
++
++  const { t } = useTranslation();
+   const [quantity, setQuantity] = useState(5);
+   const [hospitalName, setHospitalName] = useState('');
+   const [bizNumber, setBizNumber] = useState('');
+   const [address, setAddress] = useState('');
+   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+-  // Additional modals introduced in earlier development
+   const [isLabelModalOpen, setIsLabelModalOpen] = useState(false);
+   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
+   const [isSubmitting, setIsSubmitting] = useState(false);
+@@ -49,7 +59,10 @@ const MonsmectaSNJLanding = () => {
+ 
+     try {
+       // ?먯옣?섏씠 ?쒓났?섏떊 Google Web App URL ?곌껐 ?꾨즺
+-      const scriptURL = 'https://script.google.com/macros/s/AKfycbw73OoZUIAj8FtbhNLC4ZbUUhTZzVf15lycASc9f9fBD84LooCIJFYZR5QQEG4DZg0KqA/exec';
++      const scriptURL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
++      if (!scriptURL) {
++        throw new Error('Google Apps Script URL is not configured');
++      }
+       const formData = new FormData();
+       formData.append('hospitalName', hospitalName);
+       formData.append('bizNumber', bizNumber);
+@@ -70,7 +83,6 @@ const MonsmectaSNJLanding = () => {
+       }
+     } catch (error) {
+       console.error('Error!', error.message);
+-      // alert('?ㅽ듃?뚰겕 ?ㅻ쪟媛 諛쒖깮?덉뒿?덈떎.'); // ?쇰떒 ?ㅻ쪟媛 ?섎뜑?쇰룄 紐⑥쓽?꾨즺 泥섎━ (URL ?놁쓣?뚮? ?鍮?
+       alert('?꾩옱 援ш? ?쒗듃媛 ?곌껐?섏? ?딆븘 二쇰Ц ?꾨즺 ?붾㈃?쇰줈 紐⑥쓽 ?꾪솚?⑸땲??');
+       setIsOrderComplete(true);
+     } finally {
+@@ -85,581 +97,30 @@ const MonsmectaSNJLanding = () => {
+         蹂몃Ц 諛붾줈媛湲?       </a>
+ 
+-      {/* Sticky GNB */}
+-      <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 max-w-[60%] sm:max-w-none">
+-            <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt={t('footer.title')} className="h-7 sm:h-8 w-auto shrink-0 drop-shadow-sm" onError={(e) => e.target.style.display = 'none'} />
+-            <span className="font-extrabold text-base sm:text-xl text-[#00513b] tracking-tight truncate">{t('footer.title')}</span>
+-          </div>
+-          <div className="hidden md:flex space-x-8">
+-            <a href="#about" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.products')}</a>
+-            <a href="#clinical" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.clinical')}</a>
+-            <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
+-          </div>
+-          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+-            {/* Language toggle - Dropdown */}
+-            <div className="flex items-center shrink-0">
+-              <select
+-                value={i18n.language || 'ko'}
+-                onChange={(e) => i18n.changeLanguage(e.target.value)}
+-                aria-label="Language Selector"
+-                className="bg-slate-100 border border-slate-200 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-slate-200 transition-colors shadow-sm"
+-              >
+-                <option value="ko">?뙋 KO (?쒓뎅??</option>
+-                <option value="en">?뙋 EN (English)</option>
+-                <option value="ja">?뙋 JA (?ζ쑍沃?</option>
+-                <option value="zh">?뙋 ZH (訝?뻼)</option>
+-                <option value="es">?뙋 ES (Espa챰ol)</option>
+-                <option value="fr">?뙋 FR (Fran챌ais)</option>
+-                <option value="de">?뙋 DE (Deutsch)</option>
+-                <option value="vi">?뙋 VI (Ti梳퓆g Vi沼뇍)</option>
+-                <option value="th">?뙋 TH (仙꾝툠錫?</option>
+-                <option value="ru">?뙋 RU (????克龜橘)</option>
+-                <option value="pt">?뙋 PT (Portugu챗s)</option>
+-                <option value="ar">?뙋 AR (碼?晩邈磨?馬)</option>
+-                <option value="id">?뙋 ID (Bahasa Indonesia)</option>
+-                <option value="ms">?뙋 MS (Bahasa Melayu)</option>
+-                <option value="tr">?뙋 TR (T체rk챌e)</option>
+-              </select>
+-            </div>
+-
+-            <a href="#order" className="hidden md:inline-block bg-[#00513b] text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-md hover:bg-[#003d2b] hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200">
+-              {t('nav.order')}
+-            </a>
+-            {/* Mobile menu button */}
+-            <button
+-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+-              className="md:hidden text-slate-600 hover:text-[#00513b] focus:outline-none"
+-              aria-label="Toggle mobile menu"
+-            >
+-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+-                {isMobileMenuOpen ? (
+-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+-                ) : (
+-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+-                )}
+-              </svg>
+-            </button>
+-          </div>
+-        </div>
+-
+-        {/* Mobile Menu Panel */}
+-        {isMobileMenuOpen && (
+-          <div className="md:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-4">
+-            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.products')}</a>
+-            <a href="#clinical" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.clinical')}</a>
+-            <a href="#values" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
+-            <a href="#order" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#00513b] text-white px-6 py-3 rounded-xl text-sm font-bold shadow-md hover:bg-[#003d2b] transition-all duration-200 mt-4">
+-              {t('nav.order')}
+-            </a>
+-          </div>
+-        )}
+-      </nav>
+-
+-      {/* Hero Section */}
+-      <section id="about" className="relative bg-gradient-to-br from-[#00513b] via-[#004230] to-[#00281d] text-white overflow-hidden py-24 md:py-32">
+-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-400 via-transparent to-transparent mix-blend-overlay"></div>
+-
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center gap-12">
+-          <div className="md:w-1/2 space-y-8 text-center md:text-left">
+-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-sm font-medium border border-white/20 backdrop-blur-sm shadow-xl">
+-              <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)]"></span>
+-              {t('heroBadge')}
+-            </div>
+-            <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight drop-shadow-xl break-keep">
+-              {t('hero.title').split(',')[0]}<br />
+-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500 drop-shadow-sm">{t('hero.title').split(',').length > 1 ? t('hero.title').split(',')[1].trim() : ''}</span>
+-            </h1>
+-            <p className="text-lg md:text-xl text-emerald-50/90 leading-relaxed max-w-xl mx-auto md:mx-0 font-light">
+-              {t('hero.subtitle')}
+-            </p>
+-            <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+-              <a href="#order" className="inline-block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-lg font-black px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+-                {t('hero.orderBtn')}
+-              </a>
+-              <button onClick={() => setIsLabelModalOpen(true)} className="inline-block text-center bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-bold px-8 py-4 rounded-full hover:bg-white/20 transform hover:-translate-y-1 transition-all duration-300">
+-                {t('hero.specBtn')}
+-              </button>
+-            </div>
+-          </div>
+-          <div className="md:w-1/2 flex justify-center w-full relative group perspective">
+-            {/* 3D Mockup & Video Container */}
+-            <div className="relative w-full max-w-md transform transition-all duration-700 hover:scale-105 z-20">
+-              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-emerald-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+-              <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/40">
+-                <video
+-                  autoPlay
+-                  loop
+-                  muted
+-                  playsInline
+-                  className="w-full h-auto object-cover"
+-                >
+-                  <source src={`${import.meta.env.BASE_URL}assets/video.mp4`} type="video/mp4" />
+-                </video>
+-              </div>
+-
+-              {/* Real Bottle Photo Overlaid on corner */}
+-              <div className="absolute -bottom-6 -right-2 w-28 sm:-bottom-10 sm:-right-6 sm:w-40 h-auto drop-shadow-2xl hover:scale-110 transition-transform duration-500 z-30">
+-                <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="MONSMECTA Real Bottle" className="w-full h-auto object-contain rounded-2xl border-4 border-white shadow-xl bg-white" />
+-              </div>
+-            </div>
+-          </div>
+-        </div>
+-      </section>
+-
+-      {/* 3? 媛移??쎌냽 Section (Restored from App.jsx & Upgraded) */}
+-      <section id="values" className="py-10 md:py-20 bg-white relative">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+-          <div className="text-center mb-8">
+-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('values.title')}</h2>
+-            <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
+-            <p className="text-slate-500 text-lg mt-6 font-medium">{t('values.desc')}</p>
+-          </div>
+-
+-          <div className="grid md:grid-cols-3 gap-8">
+-            <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+-              <div className="w-16 h-16 bg-[#00513b] text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">?뵏</div>
+-              <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.online')}</h4>
+-              <p className="text-slate-600 leading-relaxed">
+-                {t('values.online_desc')}
+-              </p>
+-            </div>
+-
+-            <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+-              <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-500 text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">?뮯</div>
+-              <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.price')}</h4>
+-              <p className="text-slate-600 leading-relaxed">
+-                {t('values.price_desc')}
+-              </p>
+-            </div>
+-
+-            <div className="bg-slate-50 p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+-              <div className="w-16 h-16 bg-slate-800 text-white rounded-2xl flex items-center justify-center mb-6 text-3xl shadow-md group-hover:scale-110 transition-transform">?뵮</div>
+-              <h4 className="text-xl font-bold text-slate-800 mb-4">{t('values.formula')}</h4>
+-              <p className="text-slate-600 leading-relaxed">
+-                {t('values.formula_desc')}
+-              </p>
+-            </div>
+-          </div>
+-        </div>
+-      </section >
+-
+-      {/* Clinical Evidence Section - Upgraded with Data Tables */}
+-      <section id="clinical" className="py-10 md:py-20 bg-slate-100 border-y border-slate-200">
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+-          <div className="text-center mb-8">
+-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('clinical.title')}</h2>
+-            <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full"></div>
+-          </div>
+-
+-          <div className="grid lg:grid-cols-2 gap-10">
+-
+-            {/* Card 1: LIQI Technology Comparison Table */}
+-            <div className="bg-white p-5 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+-              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
+-                <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">1</span>
+-                <span>{t('clinical.card1_title')}</span>
+-              </h3>
+-              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+-                {t('clinical.card1_desc')}
+-              </p>
+-              <div className="w-full overflow-hidden">
+-                <table className="w-full text-sm border-collapse table-fixed">
+-                  <colgroup>
+-                    <col style={{width: '30%'}} />
+-                    <col style={{width: '30%'}} />
+-                    <col style={{width: '30%'}} />
+-                    <col className="hidden sm:table-column" style={{width: '10%'}} />
+-                  </colgroup>
+-                  <thead>
+-                    <tr className="bg-[#00513b] text-white">
+-                      <th className="px-2 py-2.5 text-left font-bold text-xs break-keep">{t('clinical.table1_col1')}</th>
+-                      <th className="px-2 py-2.5 text-center font-bold text-xs break-keep">{t('clinical.table1_col2')}</th>
+-                      <th className="px-2 py-2.5 text-center font-bold text-xs bg-[#003d2b] break-keep">{t('clinical.table1_col3')}</th>
+-                      <th className="px-2 py-2.5 text-center font-bold text-xs hidden sm:table-cell">{t('clinical.table1_col_diff')}</th>
+-                    </tr>
+-                  </thead>
+-                  <tbody>
+-                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row1_label')}</td>
+-                      <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row1_val1')}</td>
+-                      <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row1_val2')}</td>
+-                      <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row1_diff')}</td>
+-                    </tr>
+-                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row2_label')}</td>
+-                      <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row2_val1')}</td>
+-                      <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row2_val2')}</td>
+-                      <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row2_diff')}</td>
+-                    </tr>
+-                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row3_label')}</td>
+-                      <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row3_val1')}</td>
+-                      <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row3_val2')}</td>
+-                      <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row3_diff')}</td>
+-                    </tr>
+-                    <tr className="hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row4_label')}</td>
+-                      <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row4_val1')}</td>
+-                      <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row4_val2')}</td>
+-                      <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row4_diff')}</td>
+-                    </tr>
+-                  </tbody>
+-                </table>
+-              </div>
+-            </div>
+-
+-            {/* Card 2: Clinical Efficacy Test Data */}
+-            <div className="bg-white p-5 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+-              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
+-                <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">2</span>
+-                <span>{t('clinical.card2_title')}</span>
+-              </h3>
+-              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+-                {t('clinical.card2_desc')}
+-              </p>
+-              <div className="space-y-3">
+-                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+-                  <div className="flex items-start gap-2 mb-1">
+-                    <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row1_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg shrink-0">98.5%</span>
+-                  </div>
+-                  <p className="text-xs text-slate-500">{t('clinical.table2_row1_cond')}</p>
+-                  <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row1_result')}</p>
+-                </div>
+-                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+-                  <div className="flex items-start gap-2 mb-1">
+-                    <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row2_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg shrink-0">pH 4.5~5.5</span>
+-                  </div>
+-                  <p className="text-xs text-slate-500">{t('clinical.table2_row2_cond')}</p>
+-                  <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row2_result')}</p>
+-                </div>
+-                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+-                  <div className="flex items-start gap-2 mb-1">
+-                    <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row3_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg shrink-0">{t('clinical.table2_row3_value')}</span>
+-                  </div>
+-                  <p className="text-xs text-slate-500">{t('clinical.table2_row3_cond')}</p>
+-                  <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row3_result')}</p>
+-                </div>
+-                <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+-                  <div className="flex items-start gap-2 mb-1">
+-                    <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row4_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg shrink-0">{t('clinical.table2_row4_value')}</span>
+-                  </div>
+-                  <p className="text-xs text-slate-500">{t('clinical.table2_row4_cond')}</p>
+-                  <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row4_result')}</p>
+-                </div>
+-              </div>
+-            </div>
+-
+-            {/* Card 3: Antiviral Effects Table */}
+-            <div className="bg-white p-5 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+-              <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
+-                <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">3</span>
+-                <span>{t('clinical.card3_title')}</span>
+-              </h3>
+-              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+-                {t('clinical.card3_desc')}
+-              </p>
+-              <div className="w-full overflow-hidden">
+-                <table className="w-full text-sm border-collapse table-fixed">
+-                  <colgroup>
+-                    <col style={{width: '32%'}} />
+-                    <col style={{width: '48%'}} />
+-                    <col style={{width: '20%'}} />
+-                  </colgroup>
+-                  <thead>
+-                    <tr className="bg-[#00513b] text-white">
+-                      <th className="px-2 py-2.5 text-left font-bold text-xs">諛붿씠?ъ뒪 怨꾪넻</th>
+-                      <th className="px-2 py-2.5 text-left font-bold text-xs">{t('clinical.table3_header')}</th>
+-                      <th className="px-2 py-2.5 text-center font-bold text-xs">?④낵</th>
+-                    </tr>
+-                  </thead>
+-                  <tbody>
+-                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Arteriviruses</td>
+-                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row1')}</td>
+-                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+-                    </tr>
+-                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Orthomyxoviridae</td>
+-                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row2')}</td>
+-                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+-                    </tr>
+-                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Pestiviruses</td>
+-                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row3')}</td>
+-                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+-                    </tr>
+-                    <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Bunyaviridae</td>
+-                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row4')}</td>
+-                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+-                    </tr>
+-                    <tr className="hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Rhabdoviridae</td>
+-                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row5')}</td>
+-                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+-                    </tr>
+-                  </tbody>
+-                </table>
+-              </div>
+-            </div>
+-
+-            {/* Card 4: Expert Review Meeting Feedback */}
+-            <div className="bg-white p-5 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between">
+-              <div>
+-                <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
+-                  <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">4</span>
+-                  <span>{t('clinical.card4_title')}</span>
+-                </h3>
+-                <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+-                  {t('clinical.card4_desc')}
+-                </p>
+-                <div className="space-y-5">
+-                  <div className="bg-gradient-to-r from-emerald-50 to-slate-50 p-5 rounded-xl border-l-4 border-[#00513b]">
+-                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote1')}</p>
+-                    <p className="text-xs font-bold text-[#00513b]">??{t('clinical.card4_quote1_author')}</p>
+-                  </div>
+-                  <div className="bg-gradient-to-r from-amber-50 to-slate-50 p-5 rounded-xl border-l-4 border-amber-500">
+-                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote4')}</p>
+-                    <p className="text-xs font-bold text-amber-700">??{t('clinical.card4_quote4_author')}</p>
+-                  </div>
+-                  <div className="bg-gradient-to-r from-emerald-50 to-slate-50 p-5 rounded-xl border-l-4 border-[#00513b]">
+-                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote2')}</p>
+-                    <p className="text-xs font-bold text-[#00513b]">??{t('clinical.card4_quote2_author')}</p>
+-                  </div>
+-                  <div className="bg-gradient-to-r from-amber-50 to-slate-50 p-5 rounded-xl border-l-4 border-amber-500">
+-                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote3')}</p>
+-                    <p className="text-xs font-bold text-amber-700">??{t('clinical.card4_quote3_author')}</p>
+-                  </div>
+-                </div>
+-              </div>
+-              <div className="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
+-                <p className="text-xs font-medium text-amber-800">?뱦 {t('clinical.card4_note')}</p>
+-              </div>
+-            </div>
+-
+-          </div>
+-        </div>
+-      </section>
+-
+-      {/* Infographics Section (Restored & Upgraded) */}
+-      < section className="py-6 md:py-12 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
+-        <div className="text-center mb-8">
+-          <h3 className="text-3xl md:text-4xl font-extrabold text-[#00513b] mb-4 break-keep">{t('infographics.title')}</h3>
+-          <p className="text-slate-500 text-lg font-medium">{t('infographics.desc')}</p>
+-        </div>
+-        <div className="space-y-4 md:space-y-6">
+-
+-          {/* HTML Infographic 1: Main */}
+-          <div
+-            className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative transition-all duration-300 w-full"
+-            style={{ height: iframeHeights.james ? `${iframeHeights.james}px` : '1800px' }}
+-          >
+-            <iframe
+-              src={`${import.meta.env.BASE_URL}assets/james_infographic_${i18n.language}.html?v=8.1`}
+-              className="absolute top-0 left-0 w-full h-full border-0"
+-              title="{t('clinical.chart_monsmecta')} ?명룷洹몃옒??
+-              scrolling="no"
+-            />
+-          </div>
+-
+-          {/* HTML Infographic 2: Dashboard */}
+-          <div
+-            className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative transition-all duration-300 w-full"
+-            style={{ height: iframeHeights.dashboard ? `${iframeHeights.dashboard}px` : '1800px' }}
+-          >
+-            <iframe
+-              src={`${import.meta.env.BASE_URL}assets/monsmecta_dashboard_${i18n.language}.html?v=8.1`}
+-              className="absolute top-0 left-0 w-full h-full border-0"
+-              title="{t('clinical.chart_monsmecta')} ?꾨왂 ??쒕낫??
+-              scrolling="no"
+-            />
+-          </div>
+-
+-          {/* HTML Infographic 3: Scenario */}
+-          <div
+-            className="bg-slate-50 rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative transition-all duration-300 w-full"
+-            style={{ height: iframeHeights.scenario ? `${iframeHeights.scenario}px` : '1800px' }}
+-          >
+-            <iframe
+-              src={`${import.meta.env.BASE_URL}assets/monsmecta_scenario_${i18n.language}.html?v=8.1`}
+-              className="absolute top-0 left-0 w-full h-full border-0"
+-              title="{t('clinical.chart_monsmecta')} ?곷떞 ?쒕굹由ъ삤"
+-              scrolling="no"
+-            />
+-          </div>
+-
+-
+-        </div>
+-      </section >
+-
+-      {/* Letter Message Section (Restored) */}
+-      < section className="py-10 md:py-16 bg-emerald-900 text-emerald-50 relative overflow-hidden" >
+-        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+-          <blockquote className="relative">
+-            <span className="text-8xl text-emerald-400/20 absolute -top-8 -left-8 md:-left-12 font-serif">"</span>
+-            <p className="text-xl md:text-2xl leading-loose italic font-light drop-shadow-md">
+-              {t('letter.message1')}<br className="hidden md:block" />
+-              {t('letter.message2')}<br className="hidden md:block" />
+-              {t('letter.message3')}
+-            </p>
+-            <footer className="mt-10">
+-              <div className="font-bold text-yellow-400 text-xl tracking-wide">{t('letter.signature_title')}</div>
+-              <div className="font-black text-white text-2xl mt-2">{t('letter.signature_name')}</div>
+-            </footer>
+-          </blockquote>
+-        </div>
+-      </section >
+-
+-      {/* B2B Order Form Section */}
+-      < section id="order" className="py-10 md:py-20 bg-slate-50" >
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 transform transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,81,59,0.1)]">
+-            <div className="bg-gradient-to-r from-[#00513b] to-[#003d2b] p-8 md:p-10 text-center relative overflow-hidden">
+-              <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
+-              <h2 className="text-3xl font-black text-white drop-shadow-md break-keep">{t('order.title')}</h2>
+-              <p className="text-emerald-100/80 font-medium mt-3">{t('order.desc')}</p>
+-            </div>
+-
+-            {isOrderComplete ? (
+-              <div className="p-8 md:p-12 text-center space-y-6">
+-                <div className="w-20 h-20 bg-emerald-100 text-[#00513b] rounded-full flex items-center justify-center mx-auto mb-6">
+-                  <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+-                </div>
+-                <h3 className="text-2xl font-black text-slate-800 break-keep">二쇰Ц ?뺣낫媛 ?묒닔?섏뿀?듬땲??</h3>
+-                <p className="text-slate-600 font-medium break-keep">?꾨옒 怨꾩쥖濡??낃툑???꾨즺??二쇱떆硫?諛곗넚???쒖옉?⑸땲??</p>
+-
+-                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 my-8 inline-block text-left w-full max-w-md">
+-                  <div className="flex justify-between items-center mb-3">
+-                    <span className="text-sm font-bold text-slate-500">?낃툑 ???/span>
+-                    <strong className="text-slate-800">移댁뭅?ㅻ콉??/strong>
+-                  </div>
+-                  <div className="flex justify-between items-center mb-3">
+-                    <span className="text-sm font-bold text-slate-500">怨꾩쥖 踰덊샇</span>
+-                    <strong className="text-xl font-black text-[#00513b]">3333-26-3248376</strong>
+-                  </div>
+-                  <div className="flex justify-between items-center mb-3">
+-                    <span className="text-sm font-bold text-slate-500">?덇툑二?/span>
+-                    <strong className="text-slate-800">?띿닚??/strong>
+-                  </div>
+-                  <div className="flex justify-between items-center pt-3 border-t border-slate-200">
+-                    <span className="text-sm font-bold text-slate-500">?낃툑?섏떎 湲덉븸</span>
+-                    <strong className="text-2xl font-black text-rose-600">{(quantity * pricePerBottle).toLocaleString()}??/strong>
+-                  </div>
+-                </div>
+-
+-                <p className="text-sm text-slate-500 break-keep">?낃툑 ?뺤씤 ?? ?낅젰?댁＜???ъ뾽?먮쾲?몃줈 <span className="font-bold text-slate-700">?꾩옄?멸툑怨꾩궛?쒓? ?먮룞 諛쒗뻾</span>?⑸땲??<br />愿??臾몄쓽???곗륫 ?섎떒 梨쀫큸???댁슜??二쇱꽭??</p>
+-              </div>
+-            ) : (
+-              <form onSubmit={handleCheckout} className="p-6 md:p-12 space-y-6">
+-                <div className="space-y-6">
+-                  <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
+-                    <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
+-                    {t('order.hospital_info')}
+-                  </h3>
+-                  <div className="grid md:grid-cols-2 gap-6">
+-                    <div>
+-                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.hospital_name')} <span className="text-red-500">*</span></label>
+-                      <input
+-                        type="text"
+-                        value={hospitalName}
+-                        onChange={(e) => setHospitalName(e.target.value)}
+-                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+-                        placeholder={t('order.hospital_name_placeholder')}
+-                        required
+-                      />
+-                    </div>
+-                    <div>
+-                      <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_number')} <span className="text-red-500">*</span></label>
+-                      <input
+-                        type="text"
+-                        value={bizNumber}
+-                        onChange={(e) => setBizNumber(e.target.value)}
+-                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide"
+-                        placeholder={t('order.biz_number_placeholder')}
+-                        required
+-                        maxLength="12"
+-                      />
+-                    </div>
+-                  </div>
+-                  <div>
+-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.address')} <span className="text-red-500">*</span></label>
+-                    <input
+-                      type="text"
+-                      value={address}
+-                      onChange={(e) => setAddress(e.target.value)}
+-                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+-                      placeholder={t('order.address_placeholder')}
+-                      required
+-                    />
+-                  </div>
+-                </div>
+-
+-                <div className="space-y-6">
+-                  <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
+-                    <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
+-                    {t('order.quantity_select')}
+-                  </h3>
+-                  <div className="flex flex-col md:flex-row items-center justify-between bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-colors shadow-inner">
+-                    <div className="mb-6 md:mb-0 text-center md:text-left">
+-                      <div className="font-black text-2xl text-slate-800 tracking-tight">{t('clinical.chart_monsmecta')} <span className="text-lg font-bold text-slate-500">{t('order.unit')}</span></div>
+-                      <div className="text-sm font-medium text-slate-500 mt-2">{t('order.supply_price')} <span className="font-black text-xl text-[#00513b] ml-1">{pricePerBottle.toLocaleString()}??/span> <span className="text-xs">{t('order.vat_included')}</span></div>
+-                      <p className="text-xs text-[#00513b] mt-1 font-semibold">{t('order.min_order')}</p>
+-                    </div>
+-
+-                    <div className="flex items-center bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-sm">
+-                      <button type="button" onClick={() => setQuantity(Math.max(5, quantity - 1))} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">-</button>
+-                      <div className="w-20 h-14 flex items-center justify-center font-black text-2xl text-slate-800 border-x-2 border-slate-200">{quantity}</div>
+-                      <button type="button" onClick={() => setQuantity(quantity + 1)} className="w-14 h-14 flex items-center justify-center bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b] text-2xl font-black transition-colors">+</button>
+-                    </div>
+-                  </div>
+-                </div>
+-
+-                <div className="bg-[#003d2b] p-8 md:p-10 rounded-2xl text-white shadow-2xl relative overflow-hidden">
+-                  <div className="absolute -right-10 -top-10 w-40 h-40 bg-yellow-400 opacity-10 rounded-full blur-3xl"></div>
+-                  <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 relative z-10">
+-                    <span className="text-xl font-bold text-slate-300">{t('order.total_price')}</span>
+-                    <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{(quantity * pricePerBottle).toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
+-                  </div>
+-                  <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 text-2xl font-black py-5 rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition duration-300 shadow-[0_0_20px_rgba(250,204,21,0.3)] transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+-                    <span>{isSubmitting ? '泥섎━ 以?..' : t('order.btn')}</span>
+-                    {!isSubmitting && <svg className="w-7 h-7 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
+-                  </button>
+-                  <p className="text-center text-slate-400 text-sm mt-6 font-medium">{t('order.bank_info')}</p>
+-                </div>
+-              </form>
+-            )}
+-          </div>
+-        </div>
+-      </section >
+-
+-      {/* Footer */}
+-      < footer className="bg-[#00281d] text-emerald-400/80 py-8 md:py-16 border-t border-[#003d2b]" >
+-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+-          <h4 className="text-white font-black text-xl mb-6 tracking-wide">{t('footer.title')}</h4>
+-          <div className="space-y-3 mb-8 font-medium">
+-            <p>{t('footer.info1')}</p>
+-            <p>{t('footer.info2')}</p>
+-            <p>{t('footer.info3')}</p>
+-            <p className="text-emerald-500 mt-4">{t('footer.bank')}</p>
+-          </div>
+-          <div className="pt-8 border-t border-[#003d2b]/50 text-sm font-semibold tracking-wider text-emerald-600/80">
+-            짤 {new Date().getFullYear()} S&J Animal Hospital. All rights reserved.
+-            <br />
+-            <span className="text-xs font-normal mt-2 inline-block">{t('footer.notice')}</span>
+-          </div>
+-        </div>
+-      </footer >
++      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
++      <Hero setIsLabelModalOpen={setIsLabelModalOpen} />
++      <Values />
++      <ClinicalEvidence />
++      <Infographics iframeHeights={iframeHeights} />
++      <Letter />
++      <OrderForm
++        isOrderComplete={isOrderComplete}
++        setIsOrderComplete={setIsOrderComplete}
++        quantity={quantity}
++        setQuantity={setQuantity}
++        hospitalName={hospitalName}
++        setHospitalName={setHospitalName}
++        bizNumber={bizNumber}
++        setBizNumber={setBizNumber}
++        address={address}
++        setAddress={setAddress}
++        isSubmitting={isSubmitting}
++        handleCheckout={handleCheckout}
++      />
++      <Footer />
+ 
+       {/* Global Style for custom animations */}
+-      < style dangerouslySetInnerHTML={{
++      <style dangerouslySetInnerHTML={{
+         __html: `
+         @keyframes bounce-x {
+           0%, 100% { transform: translateX(0); }
+@@ -670,162 +131,11 @@ const MonsmectaSNJLanding = () => {
+         }
+       `}} />
+ 
+-      {/* Digital E-Label Modal */}
+-      {
+-        isLabelModalOpen && (
+-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity">
+-            <div className="bg-white rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300">
+-              {/* Modal Header */}
+-              <div className="sticky top-0 bg-gradient-to-r from-[#00513b] via-[#003d2b] to-[#00281d] text-white p-6 flex justify-between items-center z-10">
+-                <div>
+-                  <p className="text-xs text-emerald-300 font-bold tracking-widest uppercase mb-1">E-Label Specification</p>
+-                  <h3 className="text-2xl font-black">{t('clinical.chart_monsmecta')} ?곸꽭 ?ㅽ럺 諛??쇰꺼 ?뺣낫</h3>
+-                </div>
+-                <button onClick={() => setIsLabelModalOpen(false)} className="text-emerald-100 hover:text-white bg-emerald-800/50 hover:bg-emerald-700/50 rounded-full p-2 transition-colors">
+-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+-                  </svg>
+-                </button>
+-              </div>
+-
+-              {/* Modal Body / E-Label Content */}
+-              <div className="p-8">
+-                <div className="flex flex-col md:flex-row gap-8">
+-
+-                  {/* 3D Bottle Image & Key Points */}
+-                  <div className="md:w-1/3 flex flex-col items-center border-r border-slate-100 pr-0 md:pr-8">
+-                    <div className="bg-slate-50 w-full rounded-2xl p-6 flex justify-center items-center mb-6 border border-slate-100">
+-                      <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt="Monsmecta Bottle" className="w-3/4 max-w-[200px] drop-shadow-xl hover:scale-105 transition-transform" />
+-                    </div>
+-                    <div className="w-full text-center">
+-                      <h4 className="text-xl font-black text-[#00513b] mb-2">MONSMECTA</h4>
+-                      <p className="text-sm font-bold text-amber-500 mb-4">{t('label.desc')}</p>
+-                      <div className="space-y-2 text-left bg-emerald-50 p-4 rounded-xl">
+-                        <p className="text-xs font-bold text-emerald-800">{t('label.feed1')}</p>
+-                        <p className="text-xs font-bold text-emerald-800">{t('label.feed2')}</p>
+-                        <p className="text-xs font-bold text-emerald-800">{t('label.feed3')}</p>
+-                      </div>
+-                    </div>
+-                  </div>
+-
+-                  {/* Detailed Specs */}
+-                  <div className="md:w-2/3 space-y-6">
+-                    <div>
+-                      <h5 className="text-lg font-bold text-slate-800 border-b-2 border-amber-400 pb-2 mb-4 inline-block">{t('label.ingredients_title')}</h5>
+-                      <ul className="space-y-3 text-sm text-slate-600">
+-                        <li><strong className="text-emerald-700">{t('label.ing1_title')}</strong> {t('label.ing1_desc')} <br /><span className="text-xs text-slate-400 pl-4">{t('label.ing1_note')}</span></li>
+-                        <li><strong className="text-emerald-700">{t('label.ing2_title')}</strong> {t('label.ing2_desc')}</li>
+-                        <li><strong className="text-emerald-700">{t('label.ing3_title')}</strong> {t('label.ing3_desc')}</li>
+-                        <li><strong className="text-emerald-700">{t('label.ing4_title')}</strong> {t('label.ing4_desc')}</li>
+-                        <li><strong className="text-emerald-700">{t('label.ing5_title')}</strong> {t('label.ing5_desc')}</li>
+-                      </ul>
+-                    </div>
+-
+-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm bg-slate-50 p-5 rounded-2xl border border-slate-200">
+-                      <div className="col-span-full border-b border-slate-200 pb-2 mb-2 flex justify-between items-end">
+-                        <span className="block text-xs font-bold text-slate-400 uppercase">{t('label.reg_no_title')}</span>
+-                        <strong className="text-slate-800">{t('label.reg_no')}</strong>
+-                      </div>
+-
+-                      <div className="col-span-full">
+-                        <span className="block text-xs font-bold text-slate-400 uppercase mb-1">{t('label.type_title')}</span>
+-                        <strong className="text-slate-800">{t('label.type_val')}</strong>
+-                      </div>
+-
+-                      <div className="col-span-full">
+-                        <span className="block text-xs font-bold text-slate-400 uppercase mb-1">{t('label.amount_title')}</span>
+-                        <strong className="text-slate-800">{t('label.amount_val')}</strong>
+-                      </div>
+-
+-                      <div className="col-span-full">
+-                        <span className="block text-xs font-bold text-slate-400 uppercase mb-1">{t('label.ingredients_list_title')}</span>
+-                        <strong className="text-slate-800">{t('label.ingredients_list_val')}</strong>
+-                      </div>
+-
+-                      <div className="col-span-full mt-2">
+-                        <span className="block text-xs font-bold text-[#00513b] uppercase mb-1">{t('label.effect_title')}</span>
+-                        <ul className="text-slate-800 font-medium list-disc pl-4 mt-1 space-y-1">
+-                          <li>{t('label.effect1')}</li>
+-                          <li>{t('label.effect2')}</li>
+-                          <li>{t('label.ing2_desc')}???꾩?</li>
+-                        </ul>
+-                      </div>
+-
+-                      <div className="flex justify-between items-center border-t border-slate-200 pt-3 mt-2 col-span-full">
+-                        <div><span className="text-xs font-bold text-slate-400 uppercase">{t('label.weight_title')}</span> <strong className="text-slate-800 ml-1">{t('label.weight_val')}</strong></div>
+-                        <div><span className="text-xs font-bold text-slate-400 uppercase">{t('label.mfg_title')}</span> <span className="text-slate-600 ml-1">{t('label.mfg_val')}</span></div>
+-                      </div>
+-                      <div className="col-span-full">
+-                        <span className="text-xs font-bold text-slate-400 uppercase">{t('label.exp_title')}</span> <span className="text-slate-600 ml-1">{t('label.exp_val')}</span>
+-                      </div>
+-                    </div>
+-
+-                    <div className="bg-rose-50 text-rose-800 p-4 rounded-xl text-xs font-medium border border-rose-100">
+-                      <span className="font-bold block mb-1">{t('label.warning_title')}</span>
+-                      <ul className="list-decimal pl-4 space-y-1">
+-                        <li>{t('label.warning1')}</li>
+-                        <li>{t('label.warning2_part1')} <strong className="text-rose-900 font-bold">{t('label.warning2_part2')}</strong>{t('label.warning2_part3')}</li>
+-                        <li>{t('label.warning3')}</li>
+-                      </ul>
+-                    </div>
+-                  </div>
+-                </div>
+-              </div>
+-
+-              {/* Modal Footer */}
+-              <div className="bg-slate-50 p-6 border-t border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center text-xs text-slate-500 rounded-b-3xl gap-4">
+-                <div className="flex flex-col sm:flex-row gap-6 w-full md:w-auto">
+-                  <div className="flex items-center gap-3">
+-                    <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt="S&J" className="w-8 h-8 rounded-full border border-slate-200 bg-white" />
+-                    <div>
+-                      <strong className="block text-slate-700">{t('label.seller_name')}</strong>
+-                      {t('label.seller_addr')}<br />
+-                      <span className="text-amber-600">TEL</span> 031-321-6562
+-                    </div>
+-                  </div>
+-                  <div className="border-l-0 sm:border-l border-slate-200 pl-0 sm:pl-6">
+-                    <strong className="block text-slate-700">{t('label.maker_name')}</strong>
+-                    {t('label.maker_addr')}<br />
+-                    <span className="text-amber-600">TEL</span> 031-458-1240 / www.mobio.co.kr
+-                  </div>
+-                </div>
+-                <button onClick={() => setIsPrintModalOpen(true)} className="shrink-0 bg-white border border-slate-300 hover:border-[#00513b] text-slate-700 hover:text-[#00513b] font-bold py-3 px-5 rounded-xl shadow-sm transition-colors flex items-center gap-2 w-full sm:w-auto justify-center">
+-                  {t('label.print_btn')}
+-                </button>
+-              </div>
+-            </div>
+-          </div>
+-        )
+-      }
+-      {/* Digital Print Label Modal */}
+-      {
+-        isPrintModalOpen && (
+-          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity">
+-            <div className="bg-slate-100 rounded-3xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300 flex flex-col">
+-              {/* Modal Header */}
+-              <div className="sticky top-0 bg-white border-b border-slate-200 p-4 md:p-6 flex justify-between items-center z-10 rounded-t-3xl shadow-sm">
+-                <h3 className="text-xl md:text-2xl font-black text-[#00513b] flex items-center gap-2">
+-                  {t('label.print_title')}
+-                </h3>
+-                <button onClick={() => setIsPrintModalOpen(false)} className="text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-full p-2 transition-colors focus:outline-none">
+-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+-                  </svg>
+-                </button>
+-              </div>
+-
+-              {/* Modal Body / Image Content */}
+-              <div className="p-4 md:p-8 flex justify-center items-center bg-gray-200/50">
+-                <img src={`${import.meta.env.BASE_URL}assets/label_screenshot.png`} alt="?몄뇙??{t('clinical.chart_monsmecta')} ?쇰꺼" className="max-w-full h-auto rounded-xl shadow-lg border border-slate-300" />
+-              </div>
+-            </div>
+-          </div>
+-        )
+-      }
+-      {/* 紐⑤떖 ????*/}
++      <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
++      <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} />
+       <Chatbot />
+-    </div >
++    </div>
+   );
+ };
+ 
+-export default MonsmectaSNJLanding;
+\ No newline at end of file
++export default MonsmectaSNJLanding;
+
+commit 52f0528f6d165d64858623301560f5db1bad38b0
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Sat Jul 11 17:16:50 2026 +0900
+
+    feat: expand translation support to 15 languages, add Prof. Hwa-young Youn review and correct director name to Kim Dong-jun
+
+diff --git a/src/App.jsx b/src/App.jsx
+index de4be0f..45fc4c1 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -80,6 +80,11 @@ const MonsmectaSNJLanding = () => {
+ 
+   return (
+     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 scroll-smooth">
++      {/* Accessibility Skip Link */}
++      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-[#00513b] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none">
++        蹂몃Ц 諛붾줈媛湲?+      </a>
++
+       {/* Sticky GNB */}
+       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+@@ -93,36 +98,29 @@ const MonsmectaSNJLanding = () => {
+             <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
+           </div>
+           <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+-            {/* Language toggle - Desktop */}
+-            <div className="hidden md:flex items-center space-x-1 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
+-              {['ko', 'en', 'ja', 'zh', 'es', 'fr'].map((lang) => (
+-                <button
+-                  key={lang}
+-                  onClick={() => i18n.changeLanguage(lang)}
+-                  className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all ${i18n.language === lang
+-                      ? 'bg-[#00513b] text-white shadow-sm'
+-                      : 'text-slate-600 hover:text-[#00513b]'
+-                    }`}
+-                >
+-                  {lang.toUpperCase()}
+-                </button>
+-              ))}
+-            </div>
+-
+-            {/* Language toggle - Mobile Dropdown */}
+-            <div className="flex md:hidden items-center shrink-0">
++            {/* Language toggle - Dropdown */}
++            <div className="flex items-center shrink-0">
+               <select
+                 value={i18n.language || 'ko'}
+                 onChange={(e) => i18n.changeLanguage(e.target.value)}
+                 aria-label="Language Selector"
+-                className="bg-slate-100 border border-slate-300 text-[#00513b] text-xs font-bold rounded-full px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer"
++                className="bg-slate-100 border border-slate-200 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-slate-200 transition-colors shadow-sm"
+               >
+-                <option value="ko">?뙋 KO</option>
+-                <option value="en">?뙋 EN</option>
+-                <option value="ja">?뙋 JA</option>
+-                <option value="zh">?뙋 ZH</option>
+-                <option value="es">?뙋 ES</option>
+-                <option value="fr">?뙋 FR</option>
++                <option value="ko">?뙋 KO (?쒓뎅??</option>
++                <option value="en">?뙋 EN (English)</option>
++                <option value="ja">?뙋 JA (?ζ쑍沃?</option>
++                <option value="zh">?뙋 ZH (訝?뻼)</option>
++                <option value="es">?뙋 ES (Espa챰ol)</option>
++                <option value="fr">?뙋 FR (Fran챌ais)</option>
++                <option value="de">?뙋 DE (Deutsch)</option>
++                <option value="vi">?뙋 VI (Ti梳퓆g Vi沼뇍)</option>
++                <option value="th">?뙋 TH (仙꾝툠錫?</option>
++                <option value="ru">?뙋 RU (????克龜橘)</option>
++                <option value="pt">?뙋 PT (Portugu챗s)</option>
++                <option value="ar">?뙋 AR (碼?晩邈磨?馬)</option>
++                <option value="id">?뙋 ID (Bahasa Indonesia)</option>
++                <option value="ms">?뙋 MS (Bahasa Melayu)</option>
++                <option value="tr">?뙋 TR (T체rk챌e)</option>
+               </select>
+             </div>
+ 
+@@ -133,6 +131,7 @@ const MonsmectaSNJLanding = () => {
+             <button
+               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+               className="md:hidden text-slate-600 hover:text-[#00513b] focus:outline-none"
++              aria-label="Toggle mobile menu"
+             >
+               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 {isMobileMenuOpen ? (
+@@ -279,7 +278,7 @@ const MonsmectaSNJLanding = () => {
+                       <th className="px-2 py-2.5 text-left font-bold text-xs break-keep">{t('clinical.table1_col1')}</th>
+                       <th className="px-2 py-2.5 text-center font-bold text-xs break-keep">{t('clinical.table1_col2')}</th>
+                       <th className="px-2 py-2.5 text-center font-bold text-xs bg-[#003d2b] break-keep">{t('clinical.table1_col3')}</th>
+-                      <th className="px-2 py-2.5 text-center font-bold text-xs hidden sm:table-cell">李⑥씠</th>
++                      <th className="px-2 py-2.5 text-center font-bold text-xs hidden sm:table-cell">{t('clinical.table1_col_diff')}</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+@@ -341,7 +340,7 @@ const MonsmectaSNJLanding = () => {
+                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+                   <div className="flex items-start gap-2 mb-1">
+                     <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row3_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg shrink-0">30% ?⑥텞</span>
++                    <span className="text-[#00513b] font-black text-lg shrink-0">{t('clinical.table2_row3_value')}</span>
+                   </div>
+                   <p className="text-xs text-slate-500">{t('clinical.table2_row3_cond')}</p>
+                   <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row3_result')}</p>
+@@ -349,7 +348,7 @@ const MonsmectaSNJLanding = () => {
+                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+                   <div className="flex items-start gap-2 mb-1">
+                     <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row4_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg shrink-0">利앹떇 ?듭젣</span>
++                    <span className="text-[#00513b] font-black text-lg shrink-0">{t('clinical.table2_row4_value')}</span>
+                   </div>
+                   <p className="text-xs text-slate-500">{t('clinical.table2_row4_cond')}</p>
+                   <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row4_result')}</p>
+@@ -427,13 +426,17 @@ const MonsmectaSNJLanding = () => {
+                     <p className="text-xs font-bold text-[#00513b]">??{t('clinical.card4_quote1_author')}</p>
+                   </div>
+                   <div className="bg-gradient-to-r from-amber-50 to-slate-50 p-5 rounded-xl border-l-4 border-amber-500">
+-                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote3')}</p>
+-                    <p className="text-xs font-bold text-amber-700">??{t('clinical.card4_quote3_author')}</p>
++                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote4')}</p>
++                    <p className="text-xs font-bold text-amber-700">??{t('clinical.card4_quote4_author')}</p>
+                   </div>
+                   <div className="bg-gradient-to-r from-emerald-50 to-slate-50 p-5 rounded-xl border-l-4 border-[#00513b]">
+                     <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote2')}</p>
+                     <p className="text-xs font-bold text-[#00513b]">??{t('clinical.card4_quote2_author')}</p>
+                   </div>
++                  <div className="bg-gradient-to-r from-amber-50 to-slate-50 p-5 rounded-xl border-l-4 border-amber-500">
++                    <p className="text-slate-700 italic font-medium text-sm mb-2">{t('clinical.card4_quote3')}</p>
++                    <p className="text-xs font-bold text-amber-700">??{t('clinical.card4_quote3_author')}</p>
++                  </div>
+                 </div>
+               </div>
+               <div className="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
+
+commit d688260e271a36d645adbe4583ce3529241a8bb5
+Author: hongsoonil02-maker <hongsoonil02-maker@example.com>
+Date:   Tue Jul 7 21:31:17 2026 +0900
+
+    fix: clinical section mobile optimization - fix table overflow on mobile
+
+diff --git a/src/App.jsx b/src/App.jsx
+index d209467..de4be0f 100644
+--- a/src/App.jsx
++++ b/src/App.jsx
+@@ -258,7 +258,7 @@ const MonsmectaSNJLanding = () => {
+           <div className="grid lg:grid-cols-2 gap-10">
+ 
+             {/* Card 1: LIQI Technology Comparison Table */}
+-            <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
++            <div className="bg-white p-5 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+               <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
+                 <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">1</span>
+                 <span>{t('clinical.card1_title')}</span>
+@@ -266,40 +266,46 @@ const MonsmectaSNJLanding = () => {
+               <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+                 {t('clinical.card1_desc')}
+               </p>
+-              <div className="overflow-x-auto">
+-                <table className="w-full min-w-max text-sm border-collapse">
++              <div className="w-full overflow-hidden">
++                <table className="w-full text-sm border-collapse table-fixed">
++                  <colgroup>
++                    <col style={{width: '30%'}} />
++                    <col style={{width: '30%'}} />
++                    <col style={{width: '30%'}} />
++                    <col className="hidden sm:table-column" style={{width: '10%'}} />
++                  </colgroup>
+                   <thead>
+                     <tr className="bg-[#00513b] text-white">
+-                      <th className="px-3 py-2.5 text-left font-bold text-xs">{t('clinical.table1_col1')}</th>
+-                      <th className="px-3 py-2.5 text-center font-bold text-xs">{t('clinical.table1_col2')}</th>
+-                      <th className="px-3 py-2.5 text-center font-bold text-xs bg-[#003d2b]">{t('clinical.table1_col3')}</th>
+-                      <th className="px-3 py-2.5 text-center font-bold text-xs hidden sm:table-cell">李⑥씠</th>
++                      <th className="px-2 py-2.5 text-left font-bold text-xs break-keep">{t('clinical.table1_col1')}</th>
++                      <th className="px-2 py-2.5 text-center font-bold text-xs break-keep">{t('clinical.table1_col2')}</th>
++                      <th className="px-2 py-2.5 text-center font-bold text-xs bg-[#003d2b] break-keep">{t('clinical.table1_col3')}</th>
++                      <th className="px-2 py-2.5 text-center font-bold text-xs hidden sm:table-cell">李⑥씠</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-3 py-2.5 font-bold text-slate-700 text-xs">{t('clinical.table1_row1_label')}</td>
+-                      <td className="px-3 py-2.5 text-center text-slate-500 text-xs">{t('clinical.table1_row1_val1')}</td>
+-                      <td className="px-3 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50">{t('clinical.table1_row1_val2')}</td>
+-                      <td className="px-3 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row1_diff')}</td>
++                      <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row1_label')}</td>
++                      <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row1_val1')}</td>
++                      <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row1_val2')}</td>
++                      <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row1_diff')}</td>
+                     </tr>
+                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-3 py-2.5 font-bold text-slate-700 text-xs">{t('clinical.table1_row2_label')}</td>
+-                      <td className="px-3 py-2.5 text-center text-slate-500 text-xs">{t('clinical.table1_row2_val1')}</td>
+-                      <td className="px-3 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50">{t('clinical.table1_row2_val2')}</td>
+-                      <td className="px-3 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row2_diff')}</td>
++                      <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row2_label')}</td>
++                      <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row2_val1')}</td>
++                      <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row2_val2')}</td>
++                      <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row2_diff')}</td>
+                     </tr>
+                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-3 py-2.5 font-bold text-slate-700 text-xs">{t('clinical.table1_row3_label')}</td>
+-                      <td className="px-3 py-2.5 text-center text-slate-500 text-xs">{t('clinical.table1_row3_val1')}</td>
+-                      <td className="px-3 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50">{t('clinical.table1_row3_val2')}</td>
+-                      <td className="px-3 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row3_diff')}</td>
++                      <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row3_label')}</td>
++                      <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row3_val1')}</td>
++                      <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row3_val2')}</td>
++                      <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row3_diff')}</td>
+                     </tr>
+                     <tr className="hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-3 py-2.5 font-bold text-slate-700 text-xs">{t('clinical.table1_row4_label')}</td>
+-                      <td className="px-3 py-2.5 text-center text-slate-500 text-xs">{t('clinical.table1_row4_val1')}</td>
+-                      <td className="px-3 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50">{t('clinical.table1_row4_val2')}</td>
+-                      <td className="px-3 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row4_diff')}</td>
++                      <td className="px-2 py-2.5 font-bold text-slate-700 text-xs break-keep">{t('clinical.table1_row4_label')}</td>
++                      <td className="px-2 py-2.5 text-center text-slate-500 text-xs break-all">{t('clinical.table1_row4_val1')}</td>
++                      <td className="px-2 py-2.5 text-center font-black text-[#00513b] text-xs bg-emerald-50 break-all">{t('clinical.table1_row4_val2')}</td>
++                      <td className="px-2 py-2.5 text-center text-amber-600 font-bold text-xs hidden sm:table-cell">{t('clinical.table1_row4_diff')}</td>
+                     </tr>
+                   </tbody>
+                 </table>
+@@ -307,7 +313,7 @@ const MonsmectaSNJLanding = () => {
+             </div>
+ 
+             {/* Card 2: Clinical Efficacy Test Data */}
+-            <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
++            <div className="bg-white p-5 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+               <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
+                 <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">2</span>
+                 <span>{t('clinical.card2_title')}</span>
+@@ -317,33 +323,33 @@ const MonsmectaSNJLanding = () => {
+               </p>
+               <div className="space-y-3">
+                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+-                  <div className="flex justify-between items-start mb-1">
+-                    <span className="font-bold text-slate-700 text-sm">{t('clinical.table2_row1_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg">98.5%</span>
++                  <div className="flex items-start gap-2 mb-1">
++                    <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row1_label')}</span>
++                    <span className="text-[#00513b] font-black text-lg shrink-0">98.5%</span>
+                   </div>
+                   <p className="text-xs text-slate-500">{t('clinical.table2_row1_cond')}</p>
+                   <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row1_result')}</p>
+                 </div>
+                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+-                  <div className="flex justify-between items-start mb-1">
+-                    <span className="font-bold text-slate-700 text-sm">{t('clinical.table2_row2_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg">pH 4.5~5.5</span>
++                  <div className="flex items-start gap-2 mb-1">
++                    <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row2_label')}</span>
++                    <span className="text-[#00513b] font-black text-lg shrink-0">pH 4.5~5.5</span>
+                   </div>
+                   <p className="text-xs text-slate-500">{t('clinical.table2_row2_cond')}</p>
+                   <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row2_result')}</p>
+                 </div>
+                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+-                  <div className="flex justify-between items-start mb-1">
+-                    <span className="font-bold text-slate-700 text-sm">{t('clinical.table2_row3_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg">30% ?⑥텞</span>
++                  <div className="flex items-start gap-2 mb-1">
++                    <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row3_label')}</span>
++                    <span className="text-[#00513b] font-black text-lg shrink-0">30% ?⑥텞</span>
+                   </div>
+                   <p className="text-xs text-slate-500">{t('clinical.table2_row3_cond')}</p>
+                   <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row3_result')}</p>
+                 </div>
+                 <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 hover:border-emerald-300 transition-colors">
+-                  <div className="flex justify-between items-start mb-1">
+-                    <span className="font-bold text-slate-700 text-sm">{t('clinical.table2_row4_label')}</span>
+-                    <span className="text-[#00513b] font-black text-lg">利앹떇 ?듭젣</span>
++                  <div className="flex items-start gap-2 mb-1">
++                    <span className="font-bold text-slate-700 text-sm flex-1 min-w-0 break-keep">{t('clinical.table2_row4_label')}</span>
++                    <span className="text-[#00513b] font-black text-lg shrink-0">利앹떇 ?듭젣</span>
+                   </div>
+                   <p className="text-xs text-slate-500">{t('clinical.table2_row4_cond')}</p>
+                   <p className="text-xs font-bold text-emerald-700 mt-1">{t('clinical.table2_row4_result')}</p>
+@@ -352,7 +358,7 @@ const MonsmectaSNJLanding = () => {
+             </div>
+ 
+             {/* Card 3: Antiviral Effects Table */}
+-            <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
++            <div className="bg-white p-5 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+               <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
+                 <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">3</span>
+                 <span>{t('clinical.card3_title')}</span>
+@@ -360,40 +366,45 @@ const MonsmectaSNJLanding = () => {
+               <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base">
+                 {t('clinical.card3_desc')}
+               </p>
+-              <div className="overflow-x-auto">
+-                <table className="w-full min-w-max text-sm border-collapse">
++              <div className="w-full overflow-hidden">
++                <table className="w-full text-sm border-collapse table-fixed">
++                  <colgroup>
++                    <col style={{width: '32%'}} />
++                    <col style={{width: '48%'}} />
++                    <col style={{width: '20%'}} />
++                  </colgroup>
+                   <thead>
+                     <tr className="bg-[#00513b] text-white">
+-                      <th className="px-3 py-2.5 text-left font-bold text-xs">諛붿씠?ъ뒪 怨꾪넻</th>
+-                      <th className="px-3 py-2.5 text-left font-bold text-xs">{t('clinical.table3_header')}</th>
+-                      <th className="px-3 py-2.5 text-center font-bold text-xs">?④낵</th>
++                      <th className="px-2 py-2.5 text-left font-bold text-xs">諛붿씠?ъ뒪 怨꾪넻</th>
++                      <th className="px-2 py-2.5 text-left font-bold text-xs">{t('clinical.table3_header')}</th>
++                      <th className="px-2 py-2.5 text-center font-bold text-xs">?④낵</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-3 py-2.5 text-xs text-slate-500">Arteriviruses</td>
+-                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row1')}</td>
+-                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
++                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Arteriviruses</td>
++                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row1')}</td>
++                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+                     </tr>
+                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-3 py-2.5 text-xs text-slate-500">Orthomyxoviridae</td>
+-                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row2')}</td>
+-                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
++                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Orthomyxoviridae</td>
++                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row2')}</td>
++                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+                     </tr>
+                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-3 py-2.5 text-xs text-slate-500">Pestiviruses</td>
+-                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row3')}</td>
+-                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
++                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Pestiviruses</td>
++                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row3')}</td>
++                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+                     </tr>
+                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-3 py-2.5 text-xs text-slate-500">Bunyaviridae</td>
+-                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row4')}</td>
+-                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
++                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Bunyaviridae</td>
++                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row4')}</td>
++                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+                     </tr>
+                     <tr className="hover:bg-emerald-50/50 transition-colors">
+-                      <td className="px-3 py-2.5 text-xs text-slate-500">Rhabdoviridae</td>
+-                      <td className="px-3 py-2.5 text-xs font-medium text-slate-700">{t('clinical.table3_row5')}</td>
+-                      <td className="px-3 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-0.5 rounded-full">{t('clinical.table3_effect')}</span></td>
++                      <td className="px-2 py-2.5 text-xs text-slate-500 break-words">Rhabdoviridae</td>
++                      <td className="px-2 py-2.5 text-xs font-medium text-slate-700 break-keep">{t('clinical.table3_row5')}</td>
++                      <td className="px-2 py-2.5 text-center"><span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect')}</span></td>
+                     </tr>
+                   </tbody>
+                 </table>
+@@ -401,7 +412,7 @@ const MonsmectaSNJLanding = () => {
+             </div>
+ 
+             {/* Card 4: Expert Review Meeting Feedback */}
+-            <div className="bg-white p-8 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between">
++            <div className="bg-white p-5 md:p-10 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col justify-between">
+               <div>
+                 <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-3 flex items-start sm:items-center gap-3 break-keep break-words">
+                   <span className="w-8 h-8 rounded-full shrink-0 bg-[#00513b] text-white flex items-center justify-center text-sm shadow-md">4</span>

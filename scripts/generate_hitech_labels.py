@@ -153,8 +153,8 @@ products = [
         "effects": ["요소(Urea) 및 요독 배출 촉진", "인독실설페이트 흡착 제거", "신장 수치 안정화 보조", "활력 증진 및 에너지 대사"],
         "unit_desc": "1L 기준 (괄호 안은 1ml 당 함량)",
         "ingredients": [
-            ("Montmorillonite (요독 흡착 핵심성분)", "80~90% (고함량)"),
-            ("Adisseo Vigovisol (프리미엄 비타민 복합체)", "10~20% (보조)"),
+            ("Montmorillonite (요독 흡착 핵심성분)", "고함량"),
+            ("Adisseo Vigovisol (프리미엄 비타민 복합체)", "보조제"),
             ("└ 비타민 A (Vitamin A)", "4,000,000 IU (4,000 IU)"),
             ("└ 비타민 D3 (Vitamin D3)", "800,000 IU (800 IU)"),
             ("└ 비타민 E (Vitamin E)", "2,000 IU (2 IU)"),
