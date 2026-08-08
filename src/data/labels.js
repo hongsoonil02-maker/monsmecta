@@ -329,18 +329,13 @@ export const LABEL_DATA = {
     feed1: "체중 5kg 당 1일 1회 2ml 급여",
     feed2: "(1 펌프/스포이드 = 약 1ml)",
     feed3: "개, 고양이 등 반려동물 적용",
-    ingredients_title: "핵심 성분 10종 (액상원료 10% 첨가, 1L 함량 환산)",
+    ingredients_title: "핵심 성분 5종 (액상원료 10% 첨가, 1L 함량 환산)",
     ingredients: [
       { title: "1) Vit A (비타민A)", desc: "시력 및 피부·면역 기능 유지", note: "1L 기준 750,000 IU" },
-      { title: "2) Vit C (비타민C)", desc: "항산화 및 콜라겐 합성 지원", note: "1L 기준 299.9 mg" },
-      { title: "3) Vit D3 (비타민D3·콜레칼시페롤)", desc: "칼슘 흡수 및 뼈 건강 유지", note: "1L 기준 150,000 IU" },
-      { title: "4) Vit E 50% (비타민E)", desc: "항산화 및 세포 보호", note: "1L 기준 300 IU" },
-      { title: "5) Vit K3 (비타민K3·메나디온) 50%", desc: "혈액 응고 및 뼈 대사 보조", note: "1L 기준 200 mg" },
-      { title: "6) Vit B1 HCl (비타민B1) 99%", desc: "탄수화물 에너지 대사 지원", note: "1L 기준 203 mg" },
-      { title: "7) Vit B6 (비타민B6·피리독신)", desc: "단백질·아미노산 대사 보조", note: "1L 기준 98 mg" },
-      { title: "8) Vit B12 (비타민B12·코발라민)", desc: "적혈구 생성 및 신경 기능", note: "1L 기준 1 mg" },
-      { title: "9) Nicotinamide (니코틴아미드)", desc: "에너지 대사 및 피부 건강", note: "1L 기준 500 mg" },
-      { title: "10) Calcium Pantothenate (판토텐산칼슘)", desc: "지방·탄수화물 대사 보조", note: "1L 기준 300 mg" }
+      { title: "2) Vit D3 (비타민D3)", desc: "칼슘 흡수 및 뼈 건강 유지", note: "1L 기준 150,000 IU" },
+      { title: "3) Vit E (비타민E)", desc: "항산화 및 세포 보호", note: "1L 기준 300 mg" },
+      { title: "4) L-Methionine (L-메티오닌)", desc: "간 해독 작용 및 단백질 합성 보조", note: "1L 기준 300 mg" },
+      { title: "5) L-Arginine (L-아르기닌)", desc: "혈행 개선 및 면역 기능 강화", note: "1L 기준 80 mg" }
     ],
     reg_no: "제XX9UY0145호",
     type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
@@ -351,6 +346,38 @@ export const LABEL_DATA = {
       "필수 비타민 10종 종합 공급",
       "피로 회복 및 항산화 작용",
       "뼈·치아 건강 및 대사 활성화"
+    ],
+    weight_val: "30ml",
+    mfg_val: "제조일자 별도 표기",
+    exp_val: "유통기한 제조일로부터 24개월",
+    warnings: [
+      "본 제품은 반려동물 전용이므로 사람이 섭취하지 마십시오.",
+      "직사광선을 피하고 서늘한 곳에 보관하며, 개봉 후에는 가급적 빨리 급여하십시오.",
+      "어린이의 손이 닿지 않는 곳에 보관하십시오."
+    ]
+  },
+  eczema: {
+    product_name: "몬스멕타 익제마(ECZEMA)",
+    desc: "피부 및 아토피 개선 보조제",
+    feed1: "1일 1회 체중 5kg당 2ml 급여",
+    feed2: "(1 펌프/스포이드 = 약 1ml)",
+    feed3: "개, 고양이 등 반려동물 적용",
+    ingredients_title: "핵심 3단계 장-피부 축 (Gut-Skin Axis) 기전 배합",
+    ingredients: [
+      { title: "1) 초미세 몬모릴로나이트", desc: "[원인 제거] 장내 알러지 유발 물질과 독소를 흡착해서 배출" },
+      { title: "2) 락토바실러스 람노서스 & 파라카제이", desc: "[면역 정상화] 피부 특화 유산균으로 무너진 장벽 튼튼하게 복구" },
+      { title: "3) 퀘르세틴 (Quercetin) (40,000mg/L)", desc: "[가려움 차단] 천연 항히스타민제로 비만세포 히스타민 방출 억제" },
+      { title: "4) 브로멜라인 (Bromelain) (30,000mg/L)", desc: "[흡수율 상승] 파인애플 추출 효소로 퀘르세틴 장 흡수율 비약적 상승 및 염증 완화" },
+      { title: "5) 오메가3 (Omega 3) (30,000mg/L)", desc: "[장벽 복구] 무너진 피부 장벽(각질층)을 복구하는 천연 피부 재생 성분" }
+    ],
+    reg_no: "제XX9UY0145호",
+    type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
+    amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
+    ingredients_list_val: "바실러스 서브틸리스, 퀘르세틴, 브로멜라인, 오메가3, 정제수",
+    effects: [
+      "피부 장벽 강화 및 피부 세포 재생 촉진",
+      "알러지 유발 독소 배출 및 즉각적인 가려움증 억제",
+      "피부 모질 개선 및 탈모 방지 보조"
     ],
     weight_val: "30ml",
     mfg_val: "제조일자 별도 표기",

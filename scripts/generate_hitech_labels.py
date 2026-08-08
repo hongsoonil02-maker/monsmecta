@@ -80,10 +80,11 @@ products = [
         "neon": "#ec4899", # pink-500
         "effects": ["피부 장벽 강화 및 재생", "가려움증 및 발적 완화", "아토피 등 알러지 억제", "모질 개선 및 탈모 방지"],
         "ingredients": [
-            ("Omega-3 EPA/DHA", "15,000mg"),
-            ("Ceramide (세라마이드)", "1,000mg"),
-            ("Biotin (비오틴)", "50,000μg"),
-            ("Zinc (아연)", "800mg")
+            ("Montmorillonite (알러지 독소 흡착)", "고함량"),
+            ("L. rhamnosus & paracasei", "특화 균주"),
+            ("Quercetin (퀘르세틴)", "40,000mg"),
+            ("Bromelain (브로멜라인)", "30,000mg"),
+            ("Omega-3 (오메가3)", "30,000mg")
         ]
     },
     {
@@ -184,15 +185,10 @@ products = [
         "raw_materials": "비타민A, 비타민C, 비타민D3, 비타민E, 비타민K3, 비타민B1, 비타민B6, 비타민B12, 니코틴아미드, 판토텐산칼슘, 정제수",
         "ingredients": [
             ("Vit A (비타민A)", "750,000 IU"),
-            ("Vit C (비타민C)", "299.9 mg"),
-            ("Vit D3 (비타민D3·콜레칼시페롤)", "150,000 IU"),
-            ("Vit E 50% (비타민E)", "300 IU"),
-            ("Vit K3 (비타민K3·메나디온) 50%", "200 mg"),
-            ("Vit B1 HCl (비타민B1) 99%", "203 mg"),
-            ("Vit B6 (비타민B6·피리독신)", "98 mg"),
-            ("Vit B12 (비타민B12·코발라민)", "1 mg"),
-            ("Nicotinamide (니코틴아미드)", "500 mg"),
-            ("Calcium Pantothenate (판토텐산칼슘)", "300 mg")
+            ("Vit D3 (비타민D3)", "150,000 IU"),
+            ("Vit E (비타민E)", "300 mg"),
+            ("L-Methionine (L-메티오닌)", "300 mg"),
+            ("L-Arginine (L-아르기닌)", "80 mg")
         ]
     }
 ]
