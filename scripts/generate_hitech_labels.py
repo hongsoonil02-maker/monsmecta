@@ -44,6 +44,7 @@ products = [
         "neon": "#a855f7", # purple-500
         "effects": ["강력한 면역 세포 활성화", "종양 억제 보조 기전", "항암 치료 시 부작용 완화", "염증 반응 감소"],
         "ingredients": [
+            ("Montmorillonite (요독 흡착 핵심성분)", "고함량"),
             ("Beta-glucan (베타글루칸)", "10,000mg"),
             ("Fucoidan (후코이단)", "5,000mg"),
             ("Vitamin C", "15,000mg"),

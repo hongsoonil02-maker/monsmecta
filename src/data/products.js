@@ -64,7 +64,7 @@ export const PRODUCTS = {
     border: 'hover:border-purple-500',
     text: 'text-purple-400',
     shadow: 'hover:shadow-purple-500/20',
-    isComingSoon: true,
+    isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, CANCERCARE',
       subtitle: '현장 진료의 까다로운 기준을 통과한 면역 증진 및 종양 억제 보조제입니다.',
