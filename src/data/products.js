@@ -91,10 +91,10 @@ export const PRODUCTS = {
     border: 'hover:border-cyan-500',
     text: 'text-cyan-400',
     shadow: 'hover:shadow-cyan-500/20',
-    isComingSoon: true,
+    isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, COLDZERO',
-      subtitle: '현장 진료의 까다로운 기준을 통과한 호흡기 및 감기 예방 보조제입니다.',
+      subtitle: '전통 쌍화 처방과 천연 호흡기 케어 성분을 몬스멕타와 결합하여 호흡기 염증 및 초기 감기를 효과적으로 예방하는 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 호흡기 프리미엄 케어',
       badgeText: '호흡기 케어',
       badgeColor: 'bg-cyan-700',
@@ -102,9 +102,9 @@ export const PRODUCTS = {
       bgColor: 'bg-cyan-50'
     },
     values: {
-      title: '에스앤제이의 3대 가치 약속',
-      formulaTitle: '독보적인 배합 비율',
-      formulaDesc: '임상 현장에서 검증된 강력한 원료 배합으로 확실한 효과를 이끌어냅니다.'
+      title: '천연 호흡기/감기 케어',
+      formulaTitle: '쌍화 복합체 및 호흡기 특화 배합',
+      formulaDesc: '원기 회복에 탁월한 쌍화 복합 추출물과 퀘르세틴, 맥문동, 유근피 등 천연 호흡기 항염증 성분을 배합하여 기관지 윤활 및 기침 완화에 도움을 줍니다.'
     }
   },
   eczema: {
