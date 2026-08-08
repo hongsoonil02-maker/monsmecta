@@ -11,12 +11,12 @@ const Hero = ({ setIsLabelModalOpen, activeProduct, setActiveProduct }) => {
     title: pData.hero?.titleKey ? t(pData.hero.titleKey) : (pData.hero?.title || pData.name_ko),
     subtitle: pData.hero?.subtitleKey ? t(pData.hero.subtitleKey) : (pData.hero?.subtitle || pData.desc),
     badge: pData.hero?.badge || t('heroBadge', '동물병원 전용 B2B 처방 솔루션'),
-    imgSrc: activeProduct === 'hepamax' ? `${import.meta.env.BASE_URL}assets/hepamax_mockup.png` : `${import.meta.env.BASE_URL}assets/bottle_mockup.png`,
+    imgSrc: `${import.meta.env.BASE_URL}assets/${activeProduct === 'monsmecta' ? 'bottle' : activeProduct}_mockup.png`,
     badgeColor: pData.hero?.badgeColor || `bg-${pData.color}-600`,
     badgeText: pData.hero?.badgeText || '건강 케어',
     borderColor: pData.hero?.borderColor || `border-${pData.color}-100`,
     bgColor: pData.hero?.bgColor || `bg-${pData.color}-50`,
-    poster: activeProduct === 'monsmecta' ? `${import.meta.env.BASE_URL}assets/bottle_mockup_2.png` : (activeProduct === 'hepamax' ? `${import.meta.env.BASE_URL}assets/hepamax_mockup.png` : `${import.meta.env.BASE_URL}assets/bottle_mockup.png`),
+    poster: activeProduct === 'monsmecta' ? `${import.meta.env.BASE_URL}assets/bottle_mockup_2.png` : `${import.meta.env.BASE_URL}assets/${activeProduct}_mockup.png`,
     video: activeProduct === 'monsmecta' ? `${import.meta.env.BASE_URL}assets/video.mp4` : null
   };
 
