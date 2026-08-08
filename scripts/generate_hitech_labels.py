@@ -8,18 +8,17 @@ products = [
         "id": "monsmecta",
         "name_ko": "몬스멕타 오리지널",
         "name_en": "MONSMECTA ORIGINAL",
-        "desc": "장 건강 보조 및 장내 환경 개선",
+        "desc": "연변 시 장 기능 개선 및 정장 작용에 뛰어난",
         "color1": "#00513b", "color2": "#001a13",
         "neon": "#10b981", # emerald-500
-        "effects": ["장내 유해물질 흡착 배출", "설사 및 연변 개선", "장 점막 보호 및 회복", "장내 미생물 균형 유지"],
-        "raw_materials": "바실러스 서브틸리스, 비타민A, 아세트산나트륨, 프로피온산나트륨, 포도당, 몬모릴로나이트, 정제수",
+        "effects": ["장 관련 질병(파보, 로타, 코로나 등)에 대한 저항력 향상에 도움", "면역 기능 및 건강 상태 유지에 도움", "장 기능 개선 및 정장 작용에 도움"],
+        "raw_materials": "바실러스 서브틸리스, 비타민 A, 아세트산나트륨, 프로피온산나트륨, 포도당, 정제수",
         "ingredients": [
-            ("Montmorillonite (몬모릴로나이트)", "43.12%"),
-            ("Glucose (포도당)", "5.00%"),
-            ("Vitamin A (비타민 A)", "500,000 IU/kg"),
-            ("Sodium Acetate (초산나트륨)", "0.50%"),
-            ("Sodium Propionate (프로피온산나트륨)", "0.30%"),
-            ("Bacillus Subtilis (바실러스 서브틸리스)", "1.0x10^10 CFU/kg")
+            ("Bacillus subtilis (고초균)", "항균·항바이러스 작용"),
+            ("Glucose (포도당)", "장 기능 개선 및 정장 작용"),
+            ("Vitamin A (비타민 A)", "상피세포의 회복"),
+            ("Sodium acetate, Sodium propionate", "전해질 보충"),
+            ("Montmorillonite (몬모릴로나이트)", "연변 및 설사 개선, 독소 제거")
         ]
     },
     {
