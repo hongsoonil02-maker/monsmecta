@@ -81,7 +81,6 @@ products = [
         "effects": ["피부 장벽 강화 및 재생", "가려움증 및 발적 완화", "아토피 등 알러지 억제", "모질 개선 및 탈모 방지"],
         "ingredients": [
             ("Montmorillonite (알러지 독소 흡착)", "고함량"),
-            ("L. rhamnosus & paracasei", "특화 균주"),
             ("Quercetin (퀘르세틴)", "40,000mg"),
             ("Bromelain (브로멜라인)", "30,000mg"),
             ("Omega-3 (오메가3)", "30,000mg")
