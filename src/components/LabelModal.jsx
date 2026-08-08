@@ -97,7 +97,7 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, setIsPrintModalOpen
           <div className="flex flex-col md:flex-row gap-8">
             <div className={`md:w-1/3 flex flex-col items-center border-r border-white/10 pr-0 md:pr-8`}>
               <div className={`${theme.accentBg} w-full rounded-2xl p-6 flex justify-center items-center mb-6 border border-white/5`}>
-                <img src={`${import.meta.env.BASE_URL}assets/bottle_mockup.png`} alt={labelData.product_name} className="w-3/4 max-w-[200px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform" />
+                <img src={`${import.meta.env.BASE_URL}assets/${activeProduct === 'monsmecta' ? 'bottle' : activeProduct}_mockup.png`} alt={labelData.product_name} className="w-3/4 max-w-[200px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform" />
               </div>
               <div className="w-full text-center">
                 <h4 className={`text-xl font-black ${theme.text} mb-2`}>{labelData.product_name}</h4>
