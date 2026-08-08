@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const PrintModal = ({ isPrintModalOpen, setIsPrintModalOpen }) => {
+const PrintModal = ({ isPrintModalOpen, setIsPrintModalOpen, activeProduct }) => {
   const { t } = useTranslation();
 
   if (!isPrintModalOpen) return null;
