@@ -4,6 +4,7 @@ import { PRODUCTS } from './data/products';
 import Chatbot from './components/Chatbot';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Lineup from './components/Lineup';
 import Values from './components/Values';
 import ClinicalEvidence from './components/ClinicalEvidence';
 import Infographics from './components/Infographics';
@@ -233,6 +234,7 @@ const MonsmectaSNJLanding = () => {
       <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
       <main id="main-content">
         <Hero setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
+        <Lineup setIsLabelModalOpen={setIsLabelModalOpen} />
         <Values activeProduct={activeProduct} />
         <ClinicalEvidence activeProduct={activeProduct} />
         <Infographics iframeHeights={iframeHeights} />
