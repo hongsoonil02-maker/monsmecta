@@ -179,9 +179,9 @@ products = [
         "desc": "종합 비타민 및 미네랄 보조제",
         "color1": "#2B2A0A", "color2": "#0B1515",
         "neon": "#eab308", # yellow-500
-        "effects": ["필수 비타민 고함량 복합 배합", "필수 아미노산 및 보조 성분 배합", "피로 회복 및 항산화 작용", "뼈·치아 건강 및 대사 활성화"],
+        "effects": ["필수 비타민 고함량 복합 배합", "필수 비타민 10종 종합 공급", "피로 회복 및 항산화 작용", "뼈·치아 건강 및 대사 활성화"],
         "ing_list_class": "space-y-1 text-[15px]",
-        "raw_materials": "비타민A, 비타민C, 비타민D3, 비타민E, 비타민K3, 비타민B1, 비타민B6, 비타민B12, 니코틴아미드, 판토텐산칼슘, L-메티오닌, 염산라이신, 정제수",
+        "raw_materials": "비타민A, 비타민C, 비타민D3, 비타민E, 비타민K3, 비타민B1, 비타민B6, 비타민B12, 니코틴아미드, 판토텐산칼슘, 정제수",
         "ingredients": [
             ("Vit A (비타민A)", "750,000 IU"),
             ("Vit C (비타민C)", "299.9 mg"),
@@ -192,9 +192,7 @@ products = [
             ("Vit B6 (비타민B6·피리독신)", "98 mg"),
             ("Vit B12 (비타민B12·코발라민)", "1 mg"),
             ("Nicotinamide (니코틴아미드)", "500 mg"),
-            ("Calcium Pantothenate (판토텐산칼슘)", "300 mg"),
-            ("L-Methionine (L-메티오닌)", "300 mg"),
-            ("Lysine HCl (라이신)", "500 mg")
+            ("Calcium Pantothenate (판토텐산칼슘)", "300 mg")
         ]
     }
 ]

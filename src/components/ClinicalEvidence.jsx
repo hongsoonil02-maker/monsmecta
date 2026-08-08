@@ -880,7 +880,7 @@ const ClinicalEvidence = ({ activeProduct }) => {
                 <span>종합 비타민 핵심 효능</span>
               </h3>
               <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
-                비타플러스는 비타민 10종과 필수 아미노산(라이신·메티오닌)을 액상원료 10% 첨가 기준으로 배합한 종합 비타민 특화 솔루션입니다.
+                비타플러스는 지용성·수용성 비타민 10종을 액상원료 10% 첨가 기준으로 배합한 종합 비타민 특화 솔루션입니다.
               </p>
               <div className="space-y-3.5">
                 <div className="bg-yellow-50 rounded-2xl p-4 border border-yellow-200 hover:border-yellow-400 transition-colors shadow-sm flex items-start gap-4">
@@ -888,13 +888,6 @@ const ClinicalEvidence = ({ activeProduct }) => {
                   <div>
                     <h4 className="font-bold text-slate-800">필수 비타민 고함량 복합 배합</h4>
                     <p className="text-xs text-slate-500 mt-1 leading-relaxed">지용성 비타민(A·D3·E·K3)과 수용성 비타민(C·B1·B6·B12·니코틴아미드·판토텐산칼슘) 10종을 고함량으로 복합 배합했습니다.</p>
-                  </div>
-                </div>
-                <div className="bg-yellow-50 rounded-2xl p-4 border border-yellow-200 hover:border-yellow-400 transition-colors shadow-sm flex items-start gap-4">
-                  <div className="w-10 h-10 bg-yellow-100 text-yellow-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🧬</div>
-                  <div>
-                    <h4 className="font-bold text-slate-800">필수 아미노산 배합</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">필수 아미노산인 L-메티오닌과 라이신을 배합해 단백질 합성과 간 대사를 돕습니다.</p>
                   </div>
                 </div>
                 <div className="bg-yellow-50 rounded-2xl p-4 border border-yellow-200 hover:border-yellow-400 transition-colors shadow-sm flex items-start gap-4">
@@ -936,17 +929,12 @@ const ClinicalEvidence = ({ activeProduct }) => {
                   <h5 className="font-bold text-slate-800 text-sm mb-2 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-yellow-500"></span>수용성 비타민·B군</h5>
                   <p className="text-xs text-slate-600 leading-relaxed">비타민 C 299.9 mg · 비타민 B1 203 mg · 비타민 B6 98 mg · 비타민 B12 1 mg · 니코틴아미드 500 mg · 판토텐산칼슘 300 mg</p>
                 </div>
-
-                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3">
-                  <h5 className="font-bold text-slate-800 text-sm mb-2 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-yellow-500"></span>필수 아미노산</h5>
-                  <p className="text-xs text-slate-600 leading-relaxed">L-메티오닌 300 mg · 라이신 500 mg</p>
-                </div>
               </div>
             </div>
             
             <div className="mt-5 bg-yellow-50/90 border border-yellow-200 rounded-2xl p-4 text-xs font-medium text-yellow-900 leading-relaxed shadow-sm">
               <p className="font-bold mb-1">📌 S&J 동물병원 자문단 코멘트:</p>
-              <p>"비타민 10종+필수 아미노산(라이신·메티오닌)을 한 번에 보충하는 종합 포뮬러로, 식이 부족·만성질환·회복기 환축의 필수 영양 공급에 권장합니다. 액상원료 10% 첨가 기준으로 함량을 환산해 표기했습니다."</p>
+              <p>"비타민 10종을 한 번에 보충하는 종합 포뮬러로, 식이 부족·만성질환·회복기 환축의 필수 영양 공급에 권장합니다. 액상원료 10% 첨가 기준으로 함량을 환산해 표기했습니다."</p>
             </div>
           </div>
         </div>

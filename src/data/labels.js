@@ -329,7 +329,7 @@ export const LABEL_DATA = {
     feed1: "체중 5kg 당 1일 1회 2ml 급여",
     feed2: "(1 펌프/스포이드 = 약 1ml)",
     feed3: "개, 고양이 등 반려동물 적용",
-    ingredients_title: "핵심 성분 12종 (액상원료 10% 첨가, 1L 함량 환산)",
+    ingredients_title: "핵심 성분 10종 (액상원료 10% 첨가, 1L 함량 환산)",
     ingredients: [
       { title: "1) Vit A (비타민A)", desc: "시력 및 피부·면역 기능 유지", note: "1L 기준 750,000 IU" },
       { title: "2) Vit C (비타민C)", desc: "항산화 및 콜라겐 합성 지원", note: "1L 기준 299.9 mg" },
@@ -340,17 +340,15 @@ export const LABEL_DATA = {
       { title: "7) Vit B6 (비타민B6·피리독신)", desc: "단백질·아미노산 대사 보조", note: "1L 기준 98 mg" },
       { title: "8) Vit B12 (비타민B12·코발라민)", desc: "적혈구 생성 및 신경 기능", note: "1L 기준 1 mg" },
       { title: "9) Nicotinamide (니코틴아미드)", desc: "에너지 대사 및 피부 건강", note: "1L 기준 500 mg" },
-      { title: "10) Calcium Pantothenate (판토텐산칼슘)", desc: "지방·탄수화물 대사 보조", note: "1L 기준 300 mg" },
-      { title: "11) L-Methionine (L-메티오닌)", desc: "필수 아미노산·간 대사 지원", note: "1L 기준 300 mg" },
-      { title: "12) Lysine HCl (라이신)", desc: "단백질 합성 및 성장 지원", note: "1L 기준 500 mg" }
+      { title: "10) Calcium Pantothenate (판토텐산칼슘)", desc: "지방·탄수화물 대사 보조", note: "1L 기준 300 mg" }
     ],
     reg_no: "제XX9UY0145호",
     type_val: "보조사료 / 미생물제 / 바실러스 서브틸리스 / 액상 / 반려동물용",
     amount_val: "바실러스 서브틸리스 1.0 x 10^7 CFU/g 이상, 부형제(정제수)",
-    ingredients_list_val: "비타민A, 비타민C, 비타민D3, 비타민E, 비타민K3, 비타민B1, 비타민B6, 비타민B12, 니코틴아미드, 판토텐산칼슘, L-메티오닌, 염산라이신, 정제수",
+    ingredients_list_val: "비타민A, 비타민C, 비타민D3, 비타민E, 비타민K3, 비타민B1, 비타민B6, 비타민B12, 니코틴아미드, 판토텐산칼슘, 정제수",
     effects: [
       "필수 비타민 고함량 복합 배합",
-      "필수 아미노산 및 보조 성분 배합",
+      "필수 비타민 10종 종합 공급",
       "피로 회복 및 항산화 작용",
       "뼈·치아 건강 및 대사 활성화"
     ],
