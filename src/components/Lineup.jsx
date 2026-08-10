@@ -7,7 +7,14 @@ const Lineup = ({ setIsLabelModalOpen, activeProduct, setActiveProduct }) => {
   return (
     <section className="bg-[#002b1f] text-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 flex flex-col items-center">
+          <div className="mb-4 inline-flex items-center gap-2 px-4 py-1.5 bg-yellow-400/20 border border-yellow-400/50 rounded-full text-yellow-300 text-sm font-bold shadow-[0_0_15px_rgba(250,204,21,0.2)]">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-500"></span>
+            </span>
+            9월 초 10종 라인업 공식 런칭 예정
+          </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
             몬스멕타 <span className="text-emerald-400">10종</span> 라인업
           </h2>
