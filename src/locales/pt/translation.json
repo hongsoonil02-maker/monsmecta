@@ -148,6 +148,14 @@
         "signature_title": "Com valor veterinário e confiança,",
         "signature_name": "Dr. James Hong"
     },
+    "audioTestimonial": {
+        "tag": "🎙️ Entrevista de Áudio Clínica Veterinária",
+        "title": "«Resposta Imediata após a Administração de MONSMECTA em Pacientes com Vômitos, Dor Abdominal e Diarreia»",
+        "sub": "Gravação de chamada sobre a reação em campo do Dr. Dong-Jun Kim (Hospital Veterinário Sarang)",
+        "docName": "Dr. Dong-Jun Kim (Hospital Veterinário Sarang)",
+        "docSub": "Gravação de chamada de reação em campo Monsmecta",
+        "quote": "«Além do simples tratamento da diarreia, a palatabilidade avassaladora — mesmo em pacientes com vômitos ou dor abdominal — e o alívio imediato da dor tornam-no essencial como auxiliar de primeira linha para toda a gama de problemas digestivos.»"
+    },
     "footer": {
         "title": "S&J Animal Hospital",
         "info1": "Representante: Soonil Hong (Dr. James Hong) | Número de registro comercial: 792-66-00615",

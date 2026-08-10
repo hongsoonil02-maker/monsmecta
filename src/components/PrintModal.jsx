@@ -1,12 +1,9 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const PrintModal = ({ isPrintModalOpen, setIsPrintModalOpen, activeProduct }) => {
+const PrintModal = ({ isPrintModalOpen, setIsPrintModalOpen, printUrl }) => {
   const { t } = useTranslation();
 
   if (!isPrintModalOpen) return null;
-
-  const isOriginal = activeProduct === 'monsmecta';
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity" role="dialog" aria-modal="true" aria-labelledby="print-modal-title">
@@ -26,7 +23,7 @@ const PrintModal = ({ isPrintModalOpen, setIsPrintModalOpen, activeProduct }) =>
         {/* Modal Body / Image Content */}
         <div className={`flex-1 w-full overflow-auto bg-gray-900 rounded-b-3xl min-h-[500px]`}>
           <iframe 
-            src={`${import.meta.env.BASE_URL}assets/labels/${activeProduct}_label_print.html?v=${Date.now()}`}
+            src={printUrl}
             className={`min-w-[1200px] w-full h-[600px] scale-100 border-none bg-white origin-top`}
             title="Print Preview"
           />

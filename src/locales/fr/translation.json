@@ -221,6 +221,14 @@
         "signature_title": "수의사로서의 가치와 신뢰를 담아,",
         "signature_name": "홍순일 원장 (Dr. James Hong)"
     },
+    "audioTestimonial": {
+        "tag": "🎙️ Interview Audio Clinique Vétérinaire",
+        "title": "«Réponse Immédiate lors de l'Administration de MONSMECTA chez les Patients Présentant des Vomissements, Douleurs Abdominales et Diarrhée»",
+        "sub": "Enregistrement d'appel sur la réaction de terrain du Dr Dong-Jun Kim (Hôpital Vétérinaire Sarang)",
+        "docName": "Dr Dong-Jun Kim (Hôpital Vétérinaire Sarang)",
+        "docSub": "Enregistrement d'appel de réaction de terrain Monsmecta",
+        "quote": "«Au-delà du simple traitement de la diarrhée, son appétence exceptionnelle — même chez les patients qui vomissent ou souffrent de douleurs abdominales — et son soulagement immédiat de la douleur en font un complément de première ligne indispensable pour tous les troubles digestifs.»"
+    },
     "chat": {
         "title": "몬스멕타 AI 전문가",
         "subtitle": "신속하고 정확한 상담",

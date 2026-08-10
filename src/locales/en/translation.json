@@ -106,6 +106,14 @@
         "signature_title": "With the value and trust of veterinary medicine,",
         "signature_name": "Dr. James Hong (Soon-il Hong)"
     },
+    "audioTestimonial": {
+        "tag": "🎙️ Clinical Audio Interview with Field Veterinarian",
+        "title": "\"Immediate Response Upon MONSMECTA Administration in Vomiting, Abdominal Pain & Diarrhea Patients\"",
+        "sub": "Field response call recording with Dr. Dong-Jun Kim (Sarang Animal Hospital)",
+        "docName": "Dr. Dong-Jun Kim (Sarang Animal Hospital)",
+        "docSub": "Monsmecta field response call recording",
+        "quote": "\"Beyond simple diarrhea treatment, its overwhelming palatability — even for patients with vomiting or abdominal pain — and instant pain relief make it essential as a first-line standby/prescription aid for the entire range of digestive issues.\""
+    },
     "order": {
         "title": "Quick Order Form for Animal Hospital Directors",
         "desc": "The information you provide is used strictly for hospital verification and tax invoice issuance.",

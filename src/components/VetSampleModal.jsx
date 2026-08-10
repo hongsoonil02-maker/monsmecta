@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const SUBMISSION_KEY = 'monsmecta_sample_done_v1';
@@ -42,15 +42,14 @@ export default function VetSampleModal({ isOpen, onClose }) {
   useEffect(() => {
     if (!isOpen) return;
     requestIdRef.current = genId();
-    let done = null;
-    try {
-      done = JSON.parse(localStorage.getItem(SUBMISSION_KEY));
-    } catch (e) { /* ignore */ }
-    if (done && done.ts && Date.now() - done.ts < DONE_TTL) {
-      setAlreadySubmitted(true);
-    } else {
-      setAlreadySubmitted(false);
-    }
+    const timer = setTimeout(() => {
+      let done = null;
+      try {
+        done = JSON.parse(localStorage.getItem(SUBMISSION_KEY));
+      } catch { /* ignore */ }
+      setAlreadySubmitted(!!(done && done.ts && Date.now() - done.ts < DONE_TTL));
+    }, 0);
+    return () => clearTimeout(timer);
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -65,7 +64,7 @@ export default function VetSampleModal({ isOpen, onClose }) {
     let last = null;
     try {
       last = JSON.parse(localStorage.getItem(LAST_KEY));
-    } catch (err) { /* ignore */ }
+    } catch { /* ignore */ }
     if (last && last.phone && last.phone === normPhone && Date.now() - last.ts < LAST_TTL) {
       submittingRef.current = false;
       setIsSubmitting(false);
@@ -101,7 +100,7 @@ export default function VetSampleModal({ isOpen, onClose }) {
       let json = null;
       try {
         json = await response.json();
-      } catch (err) { /* ignore */ }
+      } catch { /* ignore */ }
 
       if (!response.ok) {
         alert(t('sampleModal.error', '신청 처리 중 서버 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.'));
@@ -119,7 +118,7 @@ export default function VetSampleModal({ isOpen, onClose }) {
       try {
         localStorage.setItem(SUBMISSION_KEY, JSON.stringify({ hospital: form.hospitalName, phone: normPhone, ts: Date.now() }));
         localStorage.setItem(LAST_KEY, JSON.stringify({ phone: normPhone, ts: Date.now() }));
-      } catch (err) { /* ignore */ }
+      } catch { /* ignore */ }
       setAlreadySubmitted(true);
       setSubmitted(true);
     } catch (error) {
@@ -206,7 +205,7 @@ export default function VetSampleModal({ isOpen, onClose }) {
               onClick={() => {
                 try {
                   localStorage.removeItem(SUBMISSION_KEY);
-                } catch (err) { /* ignore */ }
+                } catch { /* ignore */ }
                 setAlreadySubmitted(false);
               }}
               className="block mx-auto mt-2 text-xs text-blue-600 underline hover:text-blue-800"

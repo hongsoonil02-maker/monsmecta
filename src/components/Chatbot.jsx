@@ -1,26 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 
 export default function Chatbot() {
   const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { role: 'assistant', content: t('chat.greeting') }
-  ]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
-
-  useEffect(() => {
-    setMessages(prev => {
-      const newMsgs = [...prev];
-      if (newMsgs.length > 0 && newMsgs[0].role === 'assistant') {
-        newMsgs[0].content = t('chat.greeting');
-      }
-      return newMsgs;
-    });
-  }, [i18n.language, t]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -50,7 +38,11 @@ export default function Chatbot() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          messages: [...messages, { role: 'user', content: userMessage }].map(m => ({ role: m.role, content: m.content })),
+          messages: [
+            { role: 'assistant', content: t('chat.greeting') },
+            ...messages,
+            { role: 'user', content: userMessage },
+          ].map(m => ({ role: m.role, content: m.content })),
           language: i18n.language
         }),
       });
@@ -108,6 +100,11 @@ export default function Chatbot() {
 
         {/* 메시지 영역 */}
         <div className="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4">
+          <div className="flex justify-start">
+            <div className="max-w-[80%] rounded-2xl px-4 py-2 text-sm leading-relaxed bg-white text-slate-800 border border-slate-200 shadow-sm rounded-bl-none whitespace-pre-wrap">
+              {t('chat.greeting')}
+            </div>
+          </div>
           {messages.map((msg, index) => (
             <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div

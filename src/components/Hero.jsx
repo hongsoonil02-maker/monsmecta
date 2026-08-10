@@ -1,8 +1,7 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from '../data/products';
 
-const Hero = ({ setIsLabelModalOpen, activeProduct, setActiveProduct }) => {
+const Hero = ({ setIsLabelModalOpen, activeProduct }) => {
   const { t } = useTranslation();
 
   const pData = PRODUCTS[activeProduct] || PRODUCTS['monsmecta'];

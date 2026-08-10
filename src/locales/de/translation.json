@@ -148,6 +148,14 @@
         "signature_title": "Mit veterinärmedizinischem Wert und Vertrauen,",
         "signature_name": "Dr. James Hong"
     },
+    "audioTestimonial": {
+        "tag": "🎙️ Klinisches Audio-Interview mit einem Tierarzt",
+        "title": "„Sofortige Reaktion bei Verabreichung von MONSMECTA bei Patienten mit Erbrechen, Bauchschmerzen und Durchfall“",
+        "sub": "Telefonaufzeichnung der Feldreaktion von Dr. Dong-Jun Kim (Tierklinik Sarang)",
+        "docName": "Dr. Dong-Jun Kim (Tierklinik Sarang)",
+        "docSub": "Monsmecta-Feldreaktions-Telefonaufzeichnung",
+        "quote": "„Über die reine Durchfallbehandlung hinaus sind die überwältigende Schmackhaftigkeit — selbst bei Patienten mit Erbrechen oder Bauchschmerzen — und die sofortige Schmerzlinderung entscheidend für den Einsatz als Mittel der ersten Wahl bei allen Verdauungsbeschwerden.“"
+    },
     "footer": {
         "title": "S&J Animal Hospital",
         "info1": "Vertreter: Soonil Hong (Dr. James Hong) | Unternehmensregistrierungsnummer: 792-66-00615",

@@ -1,9 +1,6 @@
-import React from 'react';
 import { PRODUCTS, LINEUP_PRODUCTS } from '../data/products';
-import { useTranslation } from 'react-i18next';
 
-const Lineup = ({ setIsLabelModalOpen, activeProduct, setActiveProduct }) => {
-  const { t } = useTranslation();
+const Lineup = ({ setIsLabelModalOpen, setActiveProduct }) => {
   return (
     <section className="bg-[#002b1f] text-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -148,6 +148,14 @@
         "signature_title": "Veterinerlik değeri ve güveniyle,",
         "signature_name": "Dr. James Hong"
     },
+    "audioTestimonial": {
+        "tag": "🎙️ Saha Veteriner Hekimi ile Klinik Sesli Röportaj",
+        "title": "«Kusan, Karın Ağrısı Çeken ve İshalli Hastalara MONSMECTA Uygulamasında Anında Yanıt»",
+        "sub": "Dr. Dong-Jun Kim (Sarang Veteriner Hastanesi) saha tepkisi telefon kaydı",
+        "docName": "Dr. Dong-Jun Kim (Sarang Veteriner Hastanesi)",
+        "docSub": "Monsmecta saha tepkisi telefon kaydı",
+        "quote": "«Basit ishal tedavisinin ötesinde, kusan veya karın ağrısı çeken hastalarda bile ezici lezzetliliği ve anında ağrı kesici etkisi, onu tüm sindirim sorunları için birinci basamak vazgeçilmez bir yardımcı haline getirmektedir.»"
+    },
     "footer": {
         "title": "S&J Hayvan Hastanesi",
         "info1": "Temsilci: Soonil Hong (Dr. James Hong) | İşletme Kayıt Numarası: 792-66-00615",

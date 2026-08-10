@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from '../data/products';
 
 const OrderForm = ({
   isOrderComplete,
-  setIsOrderComplete,
   quantities,
   setQuantities,
   hospitalName,
-  setHospitalName,
+  onHospitalNameChange,
   vetName,
   setVetName,
   bizNumber,
@@ -37,7 +36,7 @@ const OrderForm = ({
     }
   };
 
-  const totalPrice = Object.entries(quantities).reduce((sum, [key, q]) => sum + (q * 4400), 0);
+  const totalPrice = Object.entries(quantities).reduce((sum, [, q]) => sum + (q * 4400), 0);
   const totalQuantity = Object.values(quantities).reduce((sum, q) => sum + q, 0);
 
   return (
@@ -117,7 +116,7 @@ const OrderForm = ({
                     <input
                       type="text"
                       value={hospitalName}
-                      onChange={(e) => setHospitalName(e.target.value)}
+                      onChange={(e) => onHospitalNameChange(e.target.value)}
                       className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
                       placeholder={t('order.hospital_name_placeholder')}
                       required

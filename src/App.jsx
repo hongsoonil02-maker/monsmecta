@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from './data/products';
 import Chatbot from './components/Chatbot';
@@ -9,6 +9,7 @@ import Values from './components/Values';
 import ClinicalEvidence from './components/ClinicalEvidence';
 import Infographics from './components/Infographics';
 import Letter from './components/Letter';
+import AudioTestimonial from './components/AudioTestimonial';
 import OrderForm from './components/OrderForm';
 import Footer from './components/Footer';
 import LabelModal from './components/LabelModal';
@@ -66,12 +67,13 @@ const MonsmectaSNJLanding = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLabelModalOpen, setIsLabelModalOpen] = useState(false);
   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
+  const [printUrl, setPrintUrl] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOrderComplete, setIsOrderComplete] = useState(() => {
     try {
       const done = JSON.parse(localStorage.getItem(ORDER_DONE_KEY));
       return !!(done && done.ts && Date.now() - done.ts < ORDER_DONE_TTL);
-    } catch (err) { /* ignore */ }
+    } catch { /* ignore */ }
     return false;
   });
   const [orderError, setOrderError] = useState('');
@@ -79,15 +81,13 @@ const MonsmectaSNJLanding = () => {
   const lastSubmitRef = useRef(0);
   const submittingRef = useRef(false);
   const orderRequestIdRef = useRef(null);
-  const pricePerBottle = 4400;
-  const priceHepamax = 4400;
-  const priceProbiotics = 4400;
 
-  useEffect(() => {
-    if (hospitalName && hospitalName.length > 1) {
+  const handleHospitalNameChange = (name) => {
+    setHospitalName(name);
+    if (name && name.length > 1) {
       try {
         const saved = JSON.parse(localStorage.getItem(ORDER_AUTOFILL_KEY));
-        if (saved && saved.hospitalName === hospitalName) {
+        if (saved && saved.hospitalName === name) {
           if (!vetName && saved.vetName) setVetName(saved.vetName);
           if (!bizNumber && saved.bizNumber) setBizNumber(saved.bizNumber);
           if (!bizCategory && saved.bizCategory) setBizCategory(saved.bizCategory);
@@ -95,9 +95,9 @@ const MonsmectaSNJLanding = () => {
           if (!email && saved.email) setEmail(saved.email);
           if (!address && saved.address) setAddress(saved.address);
         }
-      } catch (err) { /* ignore */ }
+      } catch { /* ignore */ }
     }
-  }, [hospitalName]);
+  };
 
   const handleCheckout = async (e) => {
     e.preventDefault();
@@ -134,7 +134,7 @@ const MonsmectaSNJLanding = () => {
     let last = null;
     try {
       last = JSON.parse(localStorage.getItem(ORDER_LAST_KEY));
-    } catch (err) { /* ignore */ }
+    } catch { /* ignore */ }
     if (last && last.biz && last.biz === normBiz && Date.now() - last.ts < ORDER_LAST_TTL) {
       alert(t('order.recentSubmit'));
       return;
@@ -182,7 +182,7 @@ const MonsmectaSNJLanding = () => {
       let json = null;
       try {
         json = await response.json();
-      } catch (err) { /* ignore */ }
+      } catch { /* ignore */ }
 
       if (!response.ok) {
         alert(t('order.errorServer'));
@@ -203,7 +203,7 @@ const MonsmectaSNJLanding = () => {
         localStorage.setItem(ORDER_AUTOFILL_KEY, JSON.stringify({
           hospitalName, vetName, bizNumber, bizCategory, bizType, email, address
         }));
-      } catch (err) { /* ignore */ }
+      } catch { /* ignore */ }
       setIsOrderComplete(true);
     } catch (error) {
       console.error('Error!', error.message);
@@ -222,8 +222,13 @@ const MonsmectaSNJLanding = () => {
   const handleResetOrder = () => {
     try {
       localStorage.removeItem(ORDER_DONE_KEY);
-    } catch (err) { /* ignore */ }
+    } catch { /* ignore */ }
     setIsOrderComplete(false);
+  };
+
+  const openPrintModal = (product) => {
+    setPrintUrl(`${import.meta.env.BASE_URL}assets/labels/${product}_label_print.html?v=${Date.now()}`);
+    setIsPrintModalOpen(true);
   };
 
   return (
@@ -241,13 +246,14 @@ const MonsmectaSNJLanding = () => {
         <ClinicalEvidence activeProduct={activeProduct} />
         <Infographics iframeHeights={iframeHeights} />
         <Letter />
+        <AudioTestimonial />
         <OrderForm
           isOrderComplete={isOrderComplete}
           setIsOrderComplete={setIsOrderComplete}
           quantities={quantities}
           setQuantities={setQuantities}
           hospitalName={hospitalName}
-          setHospitalName={setHospitalName}
+          onHospitalNameChange={handleHospitalNameChange}
           vetName={vetName}
           setVetName={setVetName}
           bizNumber={bizNumber}
@@ -281,8 +287,8 @@ const MonsmectaSNJLanding = () => {
         }
       `}} />
 
-      <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} activeProduct={activeProduct} />
-      <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} activeProduct={activeProduct} />
+      <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} onOpenPrint={() => openPrintModal(activeProduct)} activeProduct={activeProduct} />
+      <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} printUrl={printUrl} />
       <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
       <LegalModal legalType={legalType} setLegalType={setLegalType} />
       <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />

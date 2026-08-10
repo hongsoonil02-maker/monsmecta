@@ -1,9 +1,8 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from '../data/products';
 
 const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, activeProduct, setActiveProduct }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
