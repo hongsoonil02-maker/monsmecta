@@ -145,7 +145,7 @@ new_template = """template = \"\"\"<!DOCTYPE html>
                             <!-- Box 5: 유통기한 등 (Bottom) -->
                             <div class="grid grid-cols-2 gap-x-4 border-t-2 border-teal-500/30 pt-4 font-bold text-[18px] mt-6">
                                 <div class="text-teal-300">제조일자 <span class="text-amber-100/90 font-normal ml-2">별도표기</span></div>
-                                <div class="text-teal-300">유통기한 <span class="text-amber-100/90 font-normal ml-2">제조일로부터 24개월</span></div>
+                                <div class="text-teal-300">유통기한 <span class="text-amber-100/90 font-normal ml-2">제조일로부터 18개월</span></div>
                             </div>
                         </div>
                         
