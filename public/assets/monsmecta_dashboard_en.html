@@ -159,7 +159,7 @@
                     <div class="timeline-icon bg-amber-500 text-white shadow-md">2</div>
                     <h3 class="font-bold text-amber-900 text-sm mb-1">Monsmecta Solo Dosage</h3>
                     <div class="bg-white rounded-lg p-2 border border-amber-200 mt-2">
-                        <p class="text-[11px] font-bold text-amber-700">✓ 1 hour before or 2 hours after meals</p>
+                        <p class="text-[11px] font-bold text-amber-700">??1 hour before or 2 hours after meals</p>
                         <p class="text-[10px] text-amber-600 mt-1">Maintain a completely empty stomach</p>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                     <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">3</div>
                     <h3 class="font-bold text-slate-900 text-sm mb-1">Other Medication Intake</h3>
                     <div class="bg-white rounded-lg p-2 border border-slate-200 mt-2">
-                        <p class="text-[11px] font-bold text-rose-600">✓ Maintain at least 1-2 hour interval</p>
+                        <p class="text-[11px] font-bold text-rose-600">??Maintain at least 1-2 hour interval</p>
                         <p class="text-[10px] text-slate-500 mt-1">Prevent interference with absorption of other treatments</p>
                     </div>
                 </div>
@@ -211,8 +211,8 @@
             }
         };
 
-        const ctxRadar = document.getElementById('efficacyRadarChart').getContext('2d');
-        new Chart(ctxRadar, {
+        const ctxRadar = document.getElementById('efficacyRadarChart')?.getContext('2d');
+        if (ctxRadar) new Chart(ctxRadar, {
             type: 'radar',
             data: {
                 labels: [
@@ -263,8 +263,8 @@
             }
         });
 
-        const ctxBar = document.getElementById('marginBarChart').getContext('2d');
-        new Chart(ctxBar, {
+        const ctxBar = document.getElementById('marginBarChart')?.getContext('2d');
+        if (ctxBar) new Chart(ctxBar, {
             type: 'bar',
             data: {
                 labels: ['General Online Antidiarrheal', 'Monsmecta (Hospital Recommended Price A)', 'Monsmecta (Hospital Recommended Price B)'].map(l => wrapLabel(l, 14)),
@@ -287,7 +287,7 @@
                 scales: {
                     x: {
                         beginAtZero: true,
-                        title: { display: true, text: '마진율 (%)', font: { family: "'Noto Sans KR', sans-serif" } },
+                        title: { display: true, text: '마진??(%)', font: { family: "'Noto Sans KR', sans-serif" } },
                         grid: { borderDash: [4, 4] }
                     },
                     y: {

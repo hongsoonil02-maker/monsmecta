@@ -159,7 +159,7 @@
                     <div class="timeline-icon bg-amber-500 text-white shadow-md">2</div>
                     <h3 class="font-bold text-amber-900 text-sm mb-1">Administración Exclusiva de Monsmecta</h3>
                     <div class="bg-white rounded-lg p-2 border border-amber-200 mt-2">
-                        <p class="text-[11px] font-bold text-amber-700">✓ 1 hora antes o 2 horas después de la comida</p>
+                        <p class="text-[11px] font-bold text-amber-700">??1 hora antes o 2 horas después de la comida</p>
                         <p class="text-[10px] text-amber-600 mt-1">Mantener estado de ayuno completo</p>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                     <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">3</div>
                     <h3 class="font-bold text-slate-900 text-sm mb-1">Administración de Otros Medicamentos</h3>
                     <div class="bg-white rounded-lg p-2 border border-slate-200 mt-2">
-                        <p class="text-[11px] font-bold text-rose-600">✓ Mantener un intervalo de al menos 1-2 horas</p>
+                        <p class="text-[11px] font-bold text-rose-600">??Mantener un intervalo de al menos 1-2 horas</p>
                         <p class="text-[10px] text-slate-500 mt-1">Prevenir la interferencia con la absorción de otros tratamientos</p>
                     </div>
                 </div>
@@ -211,20 +211,20 @@
             }
         };
 
-        const ctxRadar = document.getElementById('efficacyRadarChart').getContext('2d');
-        new Chart(ctxRadar, {
+        const ctxRadar = document.getElementById('efficacyRadarChart')?.getContext('2d');
+        if (ctxRadar) new Chart(ctxRadar, {
             type: 'radar',
             data: {
                 labels: [
-                    '단순 설사 억제',
-                    '위내 산도 완충 (복통 감소)',
-                    '자발적 기호성 (구토 방지)',
-                    '장 점막 쉴드 코팅',
-                    '바실러스 항바이러스 작용'
+                    '?�순 ?�사 ?�제',
+                    '?�내 ?�도 ?�충 (복통 감소)',
+                    '?�발??기호??(구토 방�?)',
+                    '???�막 ?�드 코팅',
+                    '바실?�스 ??��?�러???�용'
                 ].map(l => wrapLabel(l, 14)),
                 datasets: [
                     {
-                        label: '몬스멕타',
+                        label: '몬스멕�?',
                         data: [95, 98, 90, 95, 85],
                         backgroundColor: 'rgba(16, 185, 129, 0.2)',
                         borderColor: 'rgba(5, 150, 105, 1)',
@@ -233,7 +233,7 @@
                         pointRadius: 4
                     },
                     {
-                        label: '일반 스멕타',
+                        label: '?�반 ?�멕?�',
                         data: [90, 30, 40, 60, 10],
                         backgroundColor: 'rgba(203, 213, 225, 0.2)',
                         borderColor: 'rgba(148, 163, 184, 1)',
@@ -263,13 +263,13 @@
             }
         });
 
-        const ctxBar = document.getElementById('marginBarChart').getContext('2d');
-        new Chart(ctxBar, {
+        const ctxBar = document.getElementById('marginBarChart')?.getContext('2d');
+        if (ctxBar) new Chart(ctxBar, {
             type: 'bar',
             data: {
-                labels: ['일반 온라인 지사제', '몬스멕타 (병원 권장가 A)', '몬스멕타 (병원 권장가 B)'].map(l => wrapLabel(l, 14)),
+                labels: ['?�반 ?�라??지?�제', '몬스멕�? (병원 권장가 A)', '몬스멕�? (병원 권장가 B)'].map(l => wrapLabel(l, 14)),
                 datasets: [{
-                    label: '추정 마진율 (%)',
+                    label: '추정 마진??(%)',
                     data: [15, 150, 220],
                     backgroundColor: [
                         'rgba(244, 63, 94, 0.7)',
@@ -287,7 +287,7 @@
                 scales: {
                     x: {
                         beginAtZero: true,
-                        title: { display: true, text: '마진율 (%)', font: { family: "'Noto Sans KR', sans-serif" } },
+                        title: { display: true, text: '마진??(%)', font: { family: "'Noto Sans KR', sans-serif" } },
                         grid: { borderDash: [4, 4] }
                     },
                     y: {

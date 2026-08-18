@@ -51,27 +51,24 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
             </select>
           </div>
 
-          {/* Language Selector - Desktop: Button Group */}
-          <div className="hidden lg:flex items-center space-x-1 bg-slate-100 px-2 py-1 rounded-full border border-slate-200">
-            {LANGUAGES.slice(0, 6).map(lang => (
-              <button
-                key={lang.code}
-                onClick={() => i18n.changeLanguage(lang.code)}
-                className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all ${
-                  i18n.language === lang.code
-                    ? 'bg-[#00513b] text-white shadow-sm'
-                    : 'text-slate-600 hover:text-[#00513b]'
-                }`}
-                title={lang.label}
-                aria-label={`Switch to ${lang.label}`}
-              >
-                {lang.code.toUpperCase()}
-              </button>
-            ))}
+          {/* Language Selector - Desktop: Dropdown */}
+          <div className="hidden md:flex items-center shrink-0">
+            <select
+              value={i18n.language || 'ko'}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              aria-label={t('nav.lang')}
+              className="bg-slate-100 border border-slate-300 text-[#00513b] text-xs font-bold rounded-full px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-slate-200 transition-colors"
+            >
+              {LANGUAGES.map(lang => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.flag} {lang.label}
+                </option>
+              ))}
+            </select>
           </div>
 
-          {/* Language Selector - Mobile/Tablet: Dropdown */}
-          <div className="flex lg:hidden items-center shrink-0">
+          {/* Language Selector - Mobile: Dropdown */}
+          <div className="flex md:hidden items-center shrink-0">
             <select
               value={i18n.language || 'ko'}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
