@@ -18,6 +18,18 @@ export default function Chatbot() {
     scrollToBottom();
   }, [messages, isOpen]);
 
+  // 언어 변경 시 초기 인사말 업데이트
+  useEffect(() => {
+    setMessages(prev => {
+      if (prev.length === 0) return prev;
+      const updated = [...prev];
+      if (updated[0].role === 'assistant') {
+        updated[0] = { ...updated[0], content: t('chat.greeting') };
+      }
+      return updated;
+    });
+  }, [i18n.language, t]);
+
   const toggleChat = () => setIsOpen(!isOpen);
 
   const handleSubmit = async (e) => {

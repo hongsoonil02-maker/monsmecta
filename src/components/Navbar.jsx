@@ -1,8 +1,26 @@
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from '../data/products';
 
+const LANGUAGES = [
+  { code: 'ko', label: '한국어', flag: '🇰🇷' },
+  { code: 'en', label: 'English', flag: '🇺🇸' },
+  { code: 'ja', label: '日本語', flag: '🇯🇵' },
+  { code: 'zh', label: '中文', flag: '🇨🇳' },
+  { code: 'es', label: 'Español', flag: '🇪🇸' },
+  { code: 'fr', label: 'Français', flag: '🇫🇷' },
+  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
+  { code: 'th', label: 'ไทย', flag: '🇹🇭' },
+  { code: 'vi', label: 'Tiếng Việt', flag: '🇻🇳' },
+  { code: 'ru', label: 'Русский', flag: '🇷🇺' },
+  { code: 'pt', label: 'Português', flag: '🇵🇹' },
+  { code: 'ar', label: 'العربية', flag: '🇸🇦' },
+  { code: 'id', label: 'Bahasa Indonesia', flag: '🇮🇩' },
+  { code: 'ms', label: 'Bahasa Melayu', flag: '🇲🇾' },
+  { code: 'tr', label: 'Türkçe', flag: '🇹🇷' },
+];
+
 const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, activeProduct, setActiveProduct }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
@@ -33,9 +51,39 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
             </select>
           </div>
 
-          {/* Language toggle - Google Translate Widget */}
-          <div className="flex items-center shrink-0">
-            <div id="google_translate_element" className="scale-75 sm:scale-90 origin-right"></div>
+          {/* Language Selector - Desktop: Button Group */}
+          <div className="hidden lg:flex items-center space-x-1 bg-slate-100 px-2 py-1 rounded-full border border-slate-200">
+            {LANGUAGES.slice(0, 6).map(lang => (
+              <button
+                key={lang.code}
+                onClick={() => i18n.changeLanguage(lang.code)}
+                className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all ${
+                  i18n.language === lang.code
+                    ? 'bg-[#00513b] text-white shadow-sm'
+                    : 'text-slate-600 hover:text-[#00513b]'
+                }`}
+                title={lang.label}
+                aria-label={`Switch to ${lang.label}`}
+              >
+                {lang.code.toUpperCase()}
+              </button>
+            ))}
+          </div>
+
+          {/* Language Selector - Mobile/Tablet: Dropdown */}
+          <div className="flex lg:hidden items-center shrink-0">
+            <select
+              value={i18n.language || 'ko'}
+              onChange={(e) => i18n.changeLanguage(e.target.value)}
+              aria-label={t('nav.lang')}
+              className="bg-slate-100 border border-slate-300 text-[#00513b] text-xs font-bold rounded-full px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer"
+            >
+              {LANGUAGES.map(lang => (
+                <option key={lang.code} value={lang.code}>
+                  {lang.flag} {lang.code.toUpperCase()}
+                </option>
+              ))}
+            </select>
           </div>
 
           <button onClick={onOpenNoticeModal} className="hidden md:inline-block bg-teal-50 text-[#00513b] border border-[#00513b] px-4 py-2.5 rounded-full text-sm font-bold shadow-sm hover:bg-teal-100 transition-all duration-200">

@@ -39,6 +39,8 @@ const resources = {
 const syncDocumentLanguage = (language) => {
     if (typeof document === 'undefined') return;
     document.documentElement.lang = language;
+    // RTL support for Arabic
+    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
 };
 
 i18n
