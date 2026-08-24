@@ -48,6 +48,7 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
+        lng: 'ko',
         fallbackLng: 'ko',
         supportedLngs: ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de', 'th', 'vi', 'ru', 'pt', 'ar', 'id', 'ms', 'tr'],
         interpolation: { escapeValue: false },
