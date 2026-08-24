@@ -1,13 +1,21 @@
 import { useTranslation } from 'react-i18next';
+import { useModalBehavior, handleBackdropClick } from '../hooks/useModalBehavior';
 
 const LegalModal = ({ legalType, setLegalType }) => {
   const { t } = useTranslation();
+  const panelRef = useModalBehavior(!!legalType, () => setLegalType(null));
 
   if (!legalType) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm animate-fade-in" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
-      <div className="bg-white rounded-3xl max-w-xl w-full p-6 md:p-8 shadow-2xl border border-slate-100 relative overflow-hidden transform transition-all animate-scale-up">
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm animate-fade-in"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="legal-modal-title"
+      onClick={(e) => handleBackdropClick(e, () => setLegalType(null))}
+    >
+      <div ref={panelRef} tabIndex={-1} className="bg-white rounded-3xl max-w-xl w-full p-6 md:p-8 shadow-2xl border border-slate-100 relative overflow-hidden transform transition-all animate-scale-up focus:outline-none">
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-6">
           <h3 id="legal-modal-title" className="text-xl font-black text-[#00513b] flex items-center gap-2">

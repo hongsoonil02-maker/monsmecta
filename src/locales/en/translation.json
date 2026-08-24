@@ -88,8 +88,6 @@
         "card4_quote2_author": "Dr. Sung-Dae Jung (Dongjin Animal Hospital)",
         "card4_quote3": "\"Beyond simple diarrhea treatment, its overwhelming palatability — even for patients with vomiting or abdominal pain — and instant pain relief make it essential as a first-line standby/prescription aid for the entire range of digestive issues.\"",
         "card4_quote3_author": "Dr. Dong-Jun Kim (Director of Sarang Animal Hospital)",
-        "card4_quote4": "\"I think it would be great for humans too...\"",
-        "card4_quote4_author": "Prof. Hwa-Young Youn (Former Professor of Internal Medicine, SNU College of Veterinary Medicine · Former Head of Internal Medicine, SNU Animal Hospital)",
         "card4_note": "Monsmecta's academic and advisory board consists of veterinary experts including alumni of Seoul National University College of Veterinary Medicine, rigorously validating clinical data and prescription standards."
     },
     "infographics": {
@@ -157,7 +155,11 @@
         "timeoutError": "The server is taking too long to respond. Please try again later.",
         "alreadyTitle": "An order has already been received in this browser.",
         "alreadyDesc": "An order record is saved in this browser. To place a new order, click 'Order again' below.",
-        "resubmit": "Order again"
+        "resubmit": "Order again",
+        "addProduct": "Add",
+        "emptyProducts": "Select a product above and press 'Add' to build your order.",
+        "minOrderNotice": "* Minimum order quantity: {{min}} bottles",
+        "validationMinQuantity": "The minimum order quantity is {{min}} bottles."
     },
     "notice": {
         "title": "Custom Animal Hospital Notice Board Printing",
@@ -250,9 +252,9 @@
     },
     "legal": {
         "privacyTitle": "Privacy Policy",
-        "privacyBody": "Monsmecta places the utmost priority on protecting your personal information. Collected information (animal hospital name, director's name, phone number, address) is used solely for sample delivery and order processing.",
+        "privacyBody": "1. Information We Collect\n• Orders: hospital name, director(veterinarian) name, business registration number, business type/items, billing email, delivery address\n• Sample requests: hospital name, veterinarian name, phone number, shipping address\n\n2. Purpose of Use\n• Verifying B2B veterinarian(hospital) identity and processing orders\n• Issuing electronic tax invoices and delivering products/samples\n• Handling inquiries and regional exclusive supply information\n\n3. Retention Period\n• Order/invoice information: retained as required by applicable law, then destroyed\n• Sample request information: destroyed within 6 months after delivery\n\n4. Processing Entrustment & Cross-border Transfer\n• Order and sample data are stored via Google Apps Script / Google Sheets (Google cloud, servers located outside Korea).\n• Minimal information (recipient, address, phone) may be shared with courier companies for delivery.\n\n5. Your Rights\n• You may request access, correction, or deletion of your personal data at any time.\n\n6. Contact\n• S&J Animal Hospital | TEL +82-31-321-6562 | E-mail Soonilhong@naver.com",
         "termsTitle": "Terms of Service",
-        "termsBody": "These terms govern the rights and obligations regarding the use of Monsmecta services and products. Sample requests and purchases are limited to licensed veterinarians.",
+        "termsBody": "1. This service is provided exclusively for licensed veterinarians and animal hospitals (B2B).\n\n2. All MONSMECTA products are supplied to veterinary hospitals only. Resale through online marketplaces or pet shops is prohibited.\n\n3. Orders operate on a bank-transfer prepayment basis and are shipped sequentially after payment confirmation.\n\n4. Due to the nature of the products, cancellation or return after shipment may be restricted for simple change of mind. For defective products, contact us within 7 days of receipt for exchange or refund.\n\n5. Retail pricing is set independently by each hospital; the supplier does not intervene in hospital pricing decisions.",
         "businessTitle": "Business Information",
         "businessBody": "Company Name: S&J Animal Hospital | Business Registration No.: 792-66-00615 | Representative: Soon-il Hong | Address: 98-8, Seonjang 1-ro, Pogok-eup, Cheoin-gu, Yongin-si, Gyeonggi-do, Republic of Korea"
     },
@@ -288,5 +290,45 @@
         "alreadyTitle": "Your request has already been submitted!",
         "alreadyDesc": "A request record is saved in this browser. Our veterinary advisory committee will contact you shortly at the address you provided.",
         "resubmit": "Submit again with different details"
+    },
+    "lineup": {
+        "badge": "Official launch of the full 10-product lineup in early September",
+        "title": "The MONSMECTA <count>10-product</count> lineup",
+        "subtitle": "Premium prescription solutions tailored to your pet's symptoms and condition",
+        "comingSoon": "Coming soon",
+        "comingSoonAlert": "This product is coming soon.",
+        "elabelBtn": "View E-Label"
+    },
+    "products": {
+        "hepamax": {
+            "desc": "Liver function & gut health support supplement"
+        },
+        "cancercare": {
+            "desc": "Immune support & tumor care supplement"
+        },
+        "coldzero": {
+            "desc": "Respiratory & cold prevention supplement"
+        },
+        "skincare": {
+            "desc": "Skin & atopy care supplement"
+        },
+        "heartcare": {
+            "desc": "Heart & circulation health supplement"
+        },
+        "jointcare": {
+            "desc": "Joint & cartilage health supplement"
+        },
+        "powerase": {
+            "desc": "Vitality & digestive enzyme supplement"
+        },
+        "probiotics": {
+            "desc": "Premium probiotics with DuPont Danisco strains"
+        },
+        "urinary": {
+            "desc": "Urinary & kidney health supplement"
+        },
+        "vitaplus": {
+            "desc": "Comprehensive vitamin & mineral supplement"
+        }
     }
 }

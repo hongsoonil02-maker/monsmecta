@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function Chatbot() {
   const { t, i18n } = useTranslation();
+  const CHAT_TIMEOUT = 30000;
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -18,18 +19,6 @@ export default function Chatbot() {
     scrollToBottom();
   }, [messages, isOpen]);
 
-  // 언어 변경 시 초기 인사말 업데이트
-  useEffect(() => {
-    setMessages(prev => {
-      if (prev.length === 0) return prev;
-      const updated = [...prev];
-      if (updated[0].role === 'assistant') {
-        updated[0] = { ...updated[0], content: t('chat.greeting') };
-      }
-      return updated;
-    });
-  }, [i18n.language, t]);
-
   const toggleChat = () => setIsOpen(!isOpen);
 
   const handleSubmit = async (e) => {
@@ -40,6 +29,9 @@ export default function Chatbot() {
     setInput('');
     setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
     setIsLoading(true);
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), CHAT_TIMEOUT);
 
     try {
       // 100_bagger_saas API proxy 호출
@@ -57,6 +49,7 @@ export default function Chatbot() {
           ].map(m => ({ role: m.role, content: m.content })),
           language: i18n.language
         }),
+        signal: controller.signal
       });
 
       if (!response.ok) {
@@ -69,6 +62,7 @@ export default function Chatbot() {
       console.error('Chat error:', error);
       setMessages(prev => [...prev, { role: 'assistant', content: t('chat.error') }]);
     } finally {
+      clearTimeout(timer);
       setIsLoading(false);
     }
   };
@@ -76,7 +70,7 @@ export default function Chatbot() {
   if (typeof document === 'undefined') return null;
 
   return createPortal((
-    <div className="fixed bottom-4 right-3 z-50 sm:bottom-6 sm:right-6">
+    <div className="fixed bottom-[5rem] right-3 z-50 sm:right-6">
       {/* 챗봇 토글 버튼 */}
       <button
         onClick={toggleChat}

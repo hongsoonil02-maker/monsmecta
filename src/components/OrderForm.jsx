@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PRODUCTS } from '../data/products';
+import { PRODUCTS, getProductDisplayName } from '../data/products';
 
 const OrderForm = ({
   isOrderComplete,
   quantities,
   setQuantities,
+  minQuantity = 1,
   hospitalName,
   onHospitalNameChange,
   vetName,
@@ -27,7 +28,8 @@ const OrderForm = ({
   onResetOrder,
   handleCheckout
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isKoreanLang = (i18n.language || 'ko').toLowerCase().startsWith('ko');
   const [selectedProduct, setSelectedProduct] = useState(Object.keys(PRODUCTS)[0]);
 
   const handleAddProduct = () => {
@@ -36,7 +38,7 @@ const OrderForm = ({
     }
   };
 
-  const totalPrice = Object.entries(quantities).reduce((sum, [, q]) => sum + (q * 4400), 0);
+  const totalPrice = Object.entries(quantities).reduce((sum, [key, q]) => sum + (q * (PRODUCTS[key]?.price || 0)), 0);
   const totalQuantity = Object.values(quantities).reduce((sum, q) => sum + q, 0);
 
   return (
@@ -209,22 +211,25 @@ const OrderForm = ({
                     className="flex-1 px-4 py-3 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none font-medium bg-white"
                   >
                     {Object.values(PRODUCTS).map(p => (
-                      <option key={p.id} value={p.id}>{p.name_ko}</option>
+                      <option key={p.id} value={p.id}>{getProductDisplayName(p, isKoreanLang)}</option>
                     ))}
                   </select>
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={handleAddProduct}
                     className="bg-slate-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-700 transition-colors shrink-0"
                   >
-                    추가하기
+                    {t('order.addProduct', '추가하기')}
                   </button>
                 </div>
+                <p className="text-xs text-slate-500 font-medium -mt-2">
+                  {t('order.minOrderNotice', { min: minQuantity, defaultValue: `* 최소 주문 수량: ${minQuantity}병` })}
+                </p>
 
                 <div className="space-y-4">
                   {totalQuantity === 0 && (
                     <div className="text-center py-8 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
-                      <p className="text-slate-500 font-medium">위에서 발주할 품목을 선택 후 '추가하기'를 눌러주세요.</p>
+                      <p className="text-slate-500 font-medium">{t('order.emptyProducts', "위에서 발주할 품목을 선택 후 '추가하기'를 눌러주세요.")}</p>
                     </div>
                   )}
 
@@ -239,8 +244,8 @@ const OrderForm = ({
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                         </button>
                         <div className="mb-4 md:mb-0 text-center md:text-left pr-8">
-                          <div className="font-black text-xl text-slate-800 tracking-tight">{p.name_ko} <span className="text-sm font-bold text-slate-500">{t('order.unit')}</span></div>
-                          <div className="text-sm font-medium text-slate-500 mt-1">{t('order.supply_price')} <span className={`font-bold ${key === 'monsmecta' ? 'text-[#00513b]' : 'text-emerald-700'} ml-1`}>4,400{t('order.won')}</span> <span className="text-[10px]">{t('order.vat_included')}</span></div>
+                          <div className="font-black text-xl text-slate-800 tracking-tight">{getProductDisplayName(p, isKoreanLang)} <span className="text-sm font-bold text-slate-500">{t('order.unit')}</span></div>
+                          <div className="text-sm font-medium text-slate-500 mt-1">{t('order.supply_price')} <span className={`font-bold ${key === 'monsmecta' ? 'text-[#00513b]' : 'text-emerald-700'} ml-1`}>{p.price.toLocaleString()}{t('order.won')}</span> <span className="text-[10px]">{t('order.vat_included')}</span></div>
                         </div>
                         <div className={`flex items-center bg-white border ${key === 'monsmecta' ? 'border-slate-200' : 'border-emerald-200'} rounded-xl overflow-hidden shadow-sm shrink-0`}>
                           <button type="button" onClick={() => setQuantities(prev => ({ ...prev, [key]: Math.max(1, prev[key] - 1) }))} className={`w-12 h-12 flex items-center justify-center ${key === 'monsmecta' ? 'bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b]' : 'bg-emerald-50 text-slate-600 hover:bg-emerald-100 hover:text-emerald-800'} text-xl font-black transition-colors`}>-</button>

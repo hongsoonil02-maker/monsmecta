@@ -1,8 +1,20 @@
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from '../data/products';
 
 const Hero = ({ setIsLabelModalOpen, activeProduct }) => {
   const { t } = useTranslation();
+  const [deferredMediaReady, setDeferredMediaReady] = useState(false);
+
+  useEffect(() => {
+    const mount = () => setDeferredMediaReady(true);
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(mount, { timeout: 4000 });
+      return () => window.cancelIdleCallback && window.cancelIdleCallback(id);
+    }
+    const timer = setTimeout(mount, 2500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const pData = PRODUCTS[activeProduct] || PRODUCTS['monsmecta'];
   
@@ -58,7 +70,7 @@ const Hero = ({ setIsLabelModalOpen, activeProduct }) => {
           <div className="relative w-full max-w-md transform transition-all duration-700 hover:scale-105 z-20">
             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-emerald-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
             <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-white/40">
-              {current.video ? (
+              {current.video && deferredMediaReady ? (
                 <video
                   autoPlay
                   loop

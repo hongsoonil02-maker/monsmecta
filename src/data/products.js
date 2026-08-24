@@ -10,6 +10,7 @@ export const PRODUCTS = {
     border: 'hover:border-emerald-500',
     text: 'text-emerald-400',
     shadow: 'hover:shadow-emerald-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       titleKey: 'hero.title',
@@ -37,6 +38,7 @@ export const PRODUCTS = {
     border: 'hover:border-amber-500',
     text: 'text-amber-400',
     shadow: 'hover:shadow-amber-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, HEPAMAX',
@@ -64,6 +66,7 @@ export const PRODUCTS = {
     border: 'hover:border-purple-500',
     text: 'text-purple-400',
     shadow: 'hover:shadow-purple-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, CANCERCARE',
@@ -91,6 +94,7 @@ export const PRODUCTS = {
     border: 'hover:border-cyan-500',
     text: 'text-cyan-400',
     shadow: 'hover:shadow-cyan-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, COLDZERO',
@@ -118,6 +122,7 @@ export const PRODUCTS = {
     border: 'hover:border-pink-500',
     text: 'text-pink-400',
     shadow: 'hover:shadow-pink-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, SKINCARE',
@@ -145,6 +150,7 @@ export const PRODUCTS = {
     border: 'hover:border-red-500',
     text: 'text-red-400',
     shadow: 'hover:shadow-red-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, HEARTCARE',
@@ -172,6 +178,7 @@ export const PRODUCTS = {
     border: 'hover:border-blue-500',
     text: 'text-blue-400',
     shadow: 'hover:shadow-blue-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, JOINTCARE',
@@ -199,6 +206,7 @@ export const PRODUCTS = {
     border: 'hover:border-orange-500',
     text: 'text-orange-400',
     shadow: 'hover:shadow-orange-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, POWERASE',
@@ -226,6 +234,7 @@ export const PRODUCTS = {
     border: 'hover:border-green-500',
     text: 'text-green-400',
     shadow: 'hover:shadow-green-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '세계적 유산균 명가의 선택, PROBIOTICS',
@@ -253,6 +262,7 @@ export const PRODUCTS = {
     border: 'hover:border-indigo-500',
     text: 'text-indigo-400',
     shadow: 'hover:shadow-indigo-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, URINARY',
@@ -280,6 +290,7 @@ export const PRODUCTS = {
     border: 'hover:border-yellow-500',
     text: 'text-yellow-400',
     shadow: 'hover:shadow-yellow-500/20',
+    price: 4400,
     isComingSoon: false,
     hero: {
       title: '임상 수의사의 해답, VITAPLUS',
@@ -300,3 +311,6 @@ export const PRODUCTS = {
 
 export const PRODUCT_IDS = Object.keys(PRODUCTS);
 export const LINEUP_PRODUCTS = PRODUCT_IDS.filter(id => id !== 'monsmecta');
+
+export const getProductDisplayName = (product, isKoreanLang) =>
+  isKoreanLang ? product.name_ko : (product.name_en || product.name_ko);

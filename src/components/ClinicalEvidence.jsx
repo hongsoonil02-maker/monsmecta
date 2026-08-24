@@ -158,7 +158,7 @@ const ClinicalEvidence = ({ activeProduct }) => {
                   </thead>
                   <tbody>
                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Arteriviruses</td>
+                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Arteriviridae</td>
                       <td className="px-1 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row1', 'PRRSV (돼지생식기호흡기증후군)')}</td>
                       <td className="px-1 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
                     </tr>
@@ -168,12 +168,12 @@ const ClinicalEvidence = ({ activeProduct }) => {
                       <td className="px-1 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
                     </tr>
                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Pestiviruses</td>
+                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Flaviviridae</td>
                       <td className="px-1 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row3', '소 바이러스성 설사병 (BVDV)')}</td>
                       <td className="px-1 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
                     </tr>
                     <tr className="border-b border-slate-100 hover:bg-emerald-50/50 transition-colors">
-                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Bunyaviridae</td>
+                      <td className="px-1 py-3 text-xs text-slate-500 break-words font-medium">Peribunyaviridae</td>
                       <td className="px-1 py-3 text-xs font-medium text-slate-700 break-words sm:break-keep">{t('clinical.table3_row4', '아카바네, 아이노 바이러스')}</td>
                       <td className="px-1 py-3 text-center"><span className="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">{t('clinical.table3_effect', '효과 확인')}</span></td>
                     </tr>
@@ -228,10 +228,6 @@ const ClinicalEvidence = ({ activeProduct }) => {
                 <div className="bg-gradient-to-r from-emerald-50/80 to-slate-50 p-4 rounded-2xl border-l-4 border-[#00513b] shadow-sm">
                   <p className="text-slate-700 italic font-medium text-xs md:text-sm leading-relaxed mb-2">{t('clinical.card4_quote1', '"1-Deoxynojirimycin(DNJ)의 여러 바이러스 억제 효과와 차별화된 유해물질 흡착력은 확실한 차별점입니다."')}</p>
                   <p className="text-xs font-bold text-emerald-900">— {t('clinical.card4_quote1_author', '박봉균 교수 (전 농림축산검역본부장, 바이러스학 분야 권위자)')}</p>
-                </div>
-                <div className="bg-gradient-to-r from-amber-50/80 to-slate-50 p-4 rounded-2xl border-l-4 border-amber-500 shadow-sm">
-                  <p className="text-slate-700 italic font-medium text-xs md:text-sm leading-relaxed mb-2">{t('clinical.card4_quote4', '"인체에도 좋을 거 같은데..."')}</p>
-                  <p className="text-xs font-bold text-amber-800">— {t('clinical.card4_quote4_author', '윤화영 교수 (전 서울대학교 수의과대학 내과학 교수 · 전 서울대 동물병원 내과과장)')}</p>
                 </div>
                 <div className="bg-gradient-to-r from-emerald-50/80 to-slate-50 p-4 rounded-2xl border-l-4 border-[#00513b] shadow-sm">
                   <p className="text-slate-700 italic font-medium text-xs md:text-sm leading-relaxed mb-2">{t('clinical.card4_quote2', '"입자도, 수분 흡수율, 비표면적... 수의사가 원하는 데이터를 다 갖췄습니다."')}</p>

@@ -29,6 +29,7 @@ const ORDER_AUTOFILL_KEY = 'monsmecta_order_autofill_v1';
 const ORDER_DONE_TTL = 30 * 24 * 60 * 60 * 1000;
 const ORDER_LAST_TTL = 5 * 60 * 1000;
 const ORDER_FETCH_TIMEOUT = 60000;
+const ORDER_MIN_QUANTITY = 5;
 
 const genId = () =>
   (typeof crypto !== 'undefined' && crypto.randomUUID)
@@ -124,6 +125,10 @@ const MonsmectaSNJLanding = () => {
       alert(t('order.validationQuantity', '발주할 제품의 수량을 1개 이상 선택해주세요.'));
       return;
     }
+    if (totalQuantity < ORDER_MIN_QUANTITY) {
+      alert(t('order.validationMinQuantity', { min: ORDER_MIN_QUANTITY, defaultValue: `최소 주문 수량은 ${ORDER_MIN_QUANTITY}병입니다.` }));
+      return;
+    }
 
     if (!isValidBizNumber(bizNumber)) {
       alert(t('order.validationBizNumber'));
@@ -166,8 +171,7 @@ const MonsmectaSNJLanding = () => {
       Object.entries(quantities).forEach(([key, q]) => {
         if (q > 0) {
           formData.append(`${PRODUCTS[key]?.name_ko || key} 수량(병)`, q);
-          // Assuming 4400 for all products if not defined for now, user can change later
-          totalPrice += q * 4400; 
+          totalPrice += q * (PRODUCTS[key]?.price || 0);
         }
       });
       formData.append('총 결제금액', totalPrice);
@@ -252,6 +256,7 @@ const MonsmectaSNJLanding = () => {
           setIsOrderComplete={setIsOrderComplete}
           quantities={quantities}
           setQuantities={setQuantities}
+          minQuantity={ORDER_MIN_QUANTITY}
           hospitalName={hospitalName}
           onHospitalNameChange={handleHospitalNameChange}
           vetName={vetName}

@@ -84,8 +84,6 @@
         "card4_quote2_author": "BS. Seong-Dae Jeong (Bệnh viện Thú y Dongjin)",
         "card4_quote3": "«Vượt qua điều trị tiêu chảy thông thường, khả năng giảm đau nhanh khiến nó trở nên thiết yếu.»",
         "card4_quote3_author": "BS. Dong-Jun Kim (Bệnh viện Thú y Sarang)",
-        "card4_quote4": "«Tôi nghĩ nó cũng rất tuyệt vời cho con người...»",
-        "card4_quote4_author": "GS. Hwa-Young Yun (Cựu Giáo sư Đại học Quốc gia Seoul)",
         "card4_note": "Hội đồng cố vấn của Monsmecta bao gồm các chuyên gia thú y từ Đại học Quốc gia Seoul.",
         "chart_monsmecta": "Monsmecta"
     },
@@ -132,7 +130,11 @@
         "timeoutError": "서버 응답이 지연되고 있습니다. 잠시 후 다시 시도해 주세요.",
         "alreadyTitle": "이미 발주가 접수된 브라우저입니다.",
         "alreadyDesc": "브라우저에 발주 기록이 저장되어 있습니다. 새 발주가 필요하면 아래 '다시 발주하기'를 눌러 주세요.",
-        "resubmit": "다시 발주하기"
+        "resubmit": "다시 발주하기",
+        "addProduct": "Thêm",
+        "emptyProducts": "Chọn sản phẩm ở trên rồi nhấn “Thêm”.",
+        "minOrderNotice": "* Số lượng đặt hàng tối thiểu: {{min}} chai",
+        "validationMinQuantity": "Số lượng đặt hàng tối thiểu là {{min}} chai."
     },
     "infographics": {
         "title": "Kịch bản tư vấn và dữ liệu học thuật chi tiết",
@@ -290,5 +292,13 @@
         "alreadyTitle": "이미 신청이 완료되었습니다!",
         "alreadyDesc": "사용하신 브라우저에 신청 기록이 저장되어 있습니다. 담당 수의사 자문위원이 입력하신 주소로 곧 연락드릴 예정입니다.",
         "resubmit": "다른 병원 정보로 다시 신청하기"
+    },
+    "lineup": {
+        "badge": "Ra mắt chính thức danh mục 10 sản phẩm vào đầu tháng 9",
+        "title": "Danh mục <count>10 sản phẩm</count> MONSMECTA",
+        "subtitle": "Giải pháp kê đơn cao cấp phù hợp với triệu chứng và tình trạng của thú cưng",
+        "comingSoon": "Sắp ra mắt",
+        "comingSoonAlert": "Sản phẩm này sắp ra mắt.",
+        "elabelBtn": "Xem nhãn điện tử"
     }
 }

@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { PRODUCTS } from '../data/products';
+import { PRODUCTS, getProductDisplayName } from '../data/products';
 
 const LANGUAGES = [
   { code: 'ko', label: '한국어', flag: '🇰🇷' },
@@ -21,6 +21,7 @@ const LANGUAGES = [
 
 const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, activeProduct, setActiveProduct }) => {
   const { t, i18n } = useTranslation();
+  const isKoreanLang = (i18n.language || 'ko').toLowerCase().startsWith('ko');
 
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
@@ -45,7 +46,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
             >
               {Object.values(PRODUCTS).map(p => (
                 <option key={p.id} value={p.id}>
-                  {p.icon} {p.name_ko}
+                  {p.icon} {getProductDisplayName(p, isKoreanLang)}
                 </option>
               ))}
             </select>

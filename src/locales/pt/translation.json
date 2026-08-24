@@ -84,8 +84,6 @@
         "card4_quote2_author": "Dr. Seong-Dae Jeong (Hospital Veterinário Dongjin)",
         "card4_quote3": "«Além do tratamento da diarreia, o alívio rápido torna-o indispensável no atendimento primário.»",
         "card4_quote3_author": "Dr. Dong-Jun Kim (Hospital Veterinário Sarang)",
-        "card4_quote4": "«Penso que também seria excelente para os seres humanos...»",
-        "card4_quote4_author": "Prof. Hwa-Young Yun (Ex-Professor da Universidade Nacional de Seul)",
         "card4_note": "O conselho consultivo da Monsmecta é composto por especialistas veterinários da Universidade Nacional de Seul.",
         "chart_monsmecta": "Monsmecta"
     },
@@ -132,7 +130,11 @@
         "timeoutError": "서버 응답이 지연되고 있습니다. 잠시 후 다시 시도해 주세요.",
         "alreadyTitle": "이미 발주가 접수된 브라우저입니다.",
         "alreadyDesc": "브라우저에 발주 기록이 저장되어 있습니다. 새 발주가 필요하면 아래 '다시 발주하기'를 눌러 주세요.",
-        "resubmit": "다시 발주하기"
+        "resubmit": "다시 발주하기",
+        "addProduct": "Adicionar",
+        "emptyProducts": "Selecione um produto acima e clique em “Adicionar”.",
+        "minOrderNotice": "* Quantidade mínima do pedido: {{min}} unidades",
+        "validationMinQuantity": "A quantidade mínima do pedido é de {{min}} unidades."
     },
     "infographics": {
         "title": "Dados acadêmicos detalhados e cenário de consulta",
@@ -290,5 +292,13 @@
         "alreadyTitle": "이미 신청이 완료되었습니다!",
         "alreadyDesc": "사용하신 브라우저에 신청 기록이 저장되어 있습니다. 담당 수의사 자문위원이 입력하신 주소로 곧 연락드릴 예정입니다.",
         "resubmit": "다른 병원 정보로 다시 신청하기"
+    },
+    "lineup": {
+        "badge": "Lançamento oficial do portfólio completo de 10 produtos no início de setembro",
+        "title": "Portfólio MONSMECTA com <count>10 produtos</count>",
+        "subtitle": "Soluções de prescrição premium adaptadas aos sintomas e ao estado de cada pet",
+        "comingSoon": "Em breve",
+        "comingSoonAlert": "Este produto chegará em breve.",
+        "elabelBtn": "Ver rótulo eletrônico"
     }
 }

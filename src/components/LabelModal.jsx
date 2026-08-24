@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { LABEL_DATA } from '../data/labels';
+import { useModalBehavior, handleBackdropClick } from '../hooks/useModalBehavior';
 
 const THEME_MAP = {
   monsmecta: {
@@ -129,12 +130,19 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, onOpenPrint, active
   const { t } = useTranslation();
   const labelData = LABEL_DATA[activeProduct] || LABEL_DATA['monsmecta'];
   const theme = THEME_MAP[activeProduct] || THEME_MAP['monsmecta'];
+  const panelRef = useModalBehavior(isLabelModalOpen, () => setIsLabelModalOpen(false));
 
   if (!isLabelModalOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity" role="dialog" aria-modal="true" aria-labelledby="label-modal-title">
-      <div className={`${theme.bodyBg} border ${theme.border} rounded-3xl shadow-2xl shadow-black/50 w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300`}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="label-modal-title"
+      onClick={(e) => handleBackdropClick(e, () => setIsLabelModalOpen(false))}
+    >
+      <div ref={panelRef} tabIndex={-1} className={`${theme.bodyBg} border ${theme.border} rounded-3xl shadow-2xl shadow-black/50 w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300 focus:outline-none`}>
         <div className={`sticky top-0 bg-gradient-to-r ${theme.headerGradient} border-b ${theme.border} text-white p-6 flex justify-between items-center z-10`}>
           <div>
             <p className={`text-xs ${theme.text} font-bold tracking-widest uppercase mb-1`}>{t('label.header_eyebrow')}</p>

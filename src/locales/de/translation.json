@@ -84,8 +84,6 @@
         "card4_quote2_author": "Dr. Seong-Dae Jeong (Tierklinik Dongjin)",
         "card4_quote3": "„Über die einfache Behandlung von Durchfall hinaus machen die Schmerzlinderung es unverzichtbar.“",
         "card4_quote3_author": "Dr. Dong-Jun Kim (Tierklinik Sarang)",
-        "card4_quote4": "„Ich denke, es wäre auch für Menschen großartig...“",
-        "card4_quote4_author": "Prof. Hwa-Young Yun (Ehemaliger Professor für Innere Medizin, Nationaluniversität Seoul)",
         "card4_note": "Der Beirat von Monsmecta besteht aus Veterinärexperten der Nationaluniversität Seoul.",
         "chart_monsmecta": "Monsmecta"
     },
@@ -132,7 +130,11 @@
         "timeoutError": "서버 응답이 지연되고 있습니다. 잠시 후 다시 시도해 주세요.",
         "alreadyTitle": "이미 발주가 접수된 브라우저입니다.",
         "alreadyDesc": "브라우저에 발주 기록이 저장되어 있습니다. 새 발주가 필요하면 아래 '다시 발주하기'를 눌러 주세요.",
-        "resubmit": "다시 발주하기"
+        "resubmit": "다시 발주하기",
+        "addProduct": "Hinzufügen",
+        "emptyProducts": "Wählen Sie oben ein Produkt und klicken Sie auf „Hinzufügen“.",
+        "minOrderNotice": "* Mindestbestellmenge: {{min}} Flaschen",
+        "validationMinQuantity": "Die Mindestbestellmenge beträgt {{min}} Flaschen."
     },
     "infographics": {
         "title": "Detaillierte akademische Daten und Beratungsszenario",
@@ -290,5 +292,13 @@
         "alreadyTitle": "이미 신청이 완료되었습니다!",
         "alreadyDesc": "사용하신 브라우저에 신청 기록이 저장되어 있습니다. 담당 수의사 자문위원이 입력하신 주소로 곧 연락드릴 예정입니다.",
         "resubmit": "다른 병원 정보로 다시 신청하기"
+    },
+    "lineup": {
+        "badge": "Offizieller Launch der kompletten 10-Produkt-Linie Anfang September",
+        "title": "MONSMECTA <count>10-Produkt-Linie</count>",
+        "subtitle": "Premium-Verschreibungen, abgestimmt auf Symptome und Zustand Ihres Haustiers",
+        "comingSoon": "Demnächst",
+        "comingSoonAlert": "Dieses Produkt erscheint in Kürze.",
+        "elabelBtn": "E-Label ansehen"
     }
 }

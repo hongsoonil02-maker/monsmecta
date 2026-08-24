@@ -22,7 +22,7 @@ const A11yToolbar = () => {
   }, [largeText]);
 
   return (
-    <div className="fixed bottom-24 right-4 sm:bottom-28 sm:right-6 z-[9999] flex flex-col items-end gap-2">
+    <div className="fixed bottom-[10rem] right-4 sm:right-6 z-[9999] flex flex-col items-end gap-2">
       {isOpen && (
         <div className="bg-white border border-gray-200 rounded-lg shadow-xl p-3 flex flex-col gap-2 mb-2 w-48">
           <div className="text-sm font-bold text-gray-700 border-b pb-2 mb-1">접근성 설정 (A11y)</div>

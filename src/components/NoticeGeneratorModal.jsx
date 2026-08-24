@@ -1,9 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useModalBehavior, handleBackdropClick } from '../hooks/useModalBehavior';
 
 const NoticeGeneratorModal = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
   const iframeRef = useRef(null);
+  const panelRef = useModalBehavior(isOpen, onClose);
   
   const [hospitalName, setHospitalName] = useState('');
   const [address, setAddress] = useState('');
@@ -34,8 +36,14 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity" role="dialog" aria-modal="true" aria-labelledby="notice-modal-title">
-      <div className="bg-slate-100 rounded-3xl shadow-2xl w-full max-w-6xl max-h-[95vh] overflow-hidden flex flex-col relative animate-in fade-in zoom-in duration-300">
+    <div
+      className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="notice-modal-title"
+      onClick={(e) => handleBackdropClick(e, onClose)}
+    >
+      <div ref={panelRef} tabIndex={-1} className="bg-slate-100 rounded-3xl shadow-2xl w-full max-w-6xl max-h-[95vh] overflow-hidden flex flex-col relative animate-in fade-in zoom-in duration-300 focus:outline-none">
         
         {/* Modal Header */}
         <div className="bg-white border-b border-slate-200 p-4 md:p-6 flex justify-between items-center shrink-0">

@@ -84,8 +84,6 @@
         "card4_quote2_author": "Dr. Seong-Dae Jeong (RS Hewan Dongjin)",
         "card4_quote3": "«Selain pengobatan diare, pereda nyeri yang cepat membuatnya sangat penting.»",
         "card4_quote3_author": "Dr. Dong-Jun Kim (RS Hewan Sarang)",
-        "card4_quote4": "«Saya pikir ini juga sangat bagus untuk manusia...»",
-        "card4_quote4_author": "Prof. Hwa-Young Yun (Mantan Profesor Universitas Nasional Seoul)",
         "card4_note": "Dewan penasihat Monsmecta terdiri dari para ahli kedokteran hewan dari Universitas Nasional Seoul.",
         "chart_monsmecta": "Monsmecta"
     },
@@ -132,7 +130,11 @@
         "timeoutError": "서버 응답이 지연되고 있습니다. 잠시 후 다시 시도해 주세요.",
         "alreadyTitle": "이미 발주가 접수된 브라우저입니다.",
         "alreadyDesc": "브라우저에 발주 기록이 저장되어 있습니다. 새 발주가 필요하면 아래 '다시 발주하기'를 눌러 주세요.",
-        "resubmit": "다시 발주하기"
+        "resubmit": "다시 발주하기",
+        "addProduct": "Tambah",
+        "emptyProducts": "Pilih produk di atas lalu tekan 'Tambah'.",
+        "minOrderNotice": "* Jumlah pesanan minimum: {{min}} botol",
+        "validationMinQuantity": "Jumlah pesanan minimum adalah {{min}} botol."
     },
     "infographics": {
         "title": "Data Akademik Terperinci dan Skenario Konsultasi",
@@ -290,5 +292,13 @@
         "alreadyTitle": "이미 신청이 완료되었습니다!",
         "alreadyDesc": "사용하신 브라우저에 신청 기록이 저장되어 있습니다. 담당 수의사 자문위원이 입력하신 주소로 곧 연락드릴 예정입니다.",
         "resubmit": "다른 병원 정보로 다시 신청하기"
+    },
+    "lineup": {
+        "badge": "Peluncuran resmi lini produk lengkap 10 produk pada awal September",
+        "title": "Lini <count>10 produk</count> MONSMECTA",
+        "subtitle": "Solusi resep premium yang disesuaikan dengan gejala dan kondisi hewan peliharaan",
+        "comingSoon": "Segera hadir",
+        "comingSoonAlert": "Produk ini akan segera hadir.",
+        "elabelBtn": "Lihat E-Label"
     }
 }

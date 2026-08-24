@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useModalBehavior, handleBackdropClick } from '../hooks/useModalBehavior';
 
 const SUBMISSION_KEY = 'monsmecta_sample_done_v1';
 const LAST_KEY = 'monsmecta_sample_last_v1';
@@ -27,16 +28,8 @@ export default function VetSampleModal({ isOpen, onClose }) {
     requestType: t('sampleModal.type1', '무료 샘플 신청 (100g 2개)'),
   });
 
-  // ESC 키 닫기 이벤트 지원 (Accessibility)
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
+  // 모달 공통 동작 (ESC 닫기, 스크롤 잠금, 포커스 관리)
+  const panelRef = useModalBehavior(isOpen, onClose);
 
   // 모달이 열릴 때마다 완료 기록을 확인 (같은 브라우저 중복 신청 방지)
   useEffect(() => {
@@ -136,13 +129,14 @@ export default function VetSampleModal({ isOpen, onClose }) {
   };
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
+      onClick={(e) => handleBackdropClick(e, onClose)}
     >
-      <div className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative border border-blue-100">
+      <div ref={panelRef} tabIndex={-1} className="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative border border-blue-100 focus:outline-none">
         <button
           onClick={onClose}
           aria-label={t('common.close')}

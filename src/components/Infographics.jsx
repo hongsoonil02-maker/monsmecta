@@ -24,6 +24,7 @@ const Infographics = ({ iframeHeights }) => {
             className="absolute top-0 left-0 w-full h-full border-0"
             title={t('infographics.iframe1')}
             scrolling="no"
+            loading="lazy"
           />
         </div>
 
@@ -37,6 +38,7 @@ const Infographics = ({ iframeHeights }) => {
             className="absolute top-0 left-0 w-full h-full border-0"
             title={t('infographics.iframe2')}
             scrolling="no"
+            loading="lazy"
           />
         </div>
 
@@ -50,6 +52,7 @@ const Infographics = ({ iframeHeights }) => {
             className="absolute top-0 left-0 w-full h-full border-0"
             title={t('infographics.iframe3')}
             scrolling="no"
+            loading="lazy"
           />
         </div>
 

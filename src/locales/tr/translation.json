@@ -84,8 +84,6 @@
         "card4_quote2_author": "Dr. Seong-Dae Jeong (Dongjin Hayvan Hastanesi)",
         "card4_quote3": "«Basit ishal tedavisinin ötesinde, hızlı ağrı kesici etkisi onu vazgeçilmez kılmaktadır.»",
         "card4_quote3_author": "Dr. Dong-Jun Kim (Sarang Hayvan Hastanesi)",
-        "card4_quote4": "«İnsanlar için de harika olacağını düşünüyorum...»",
-        "card4_quote4_author": "Prof. Dr. Hwa-Young Yun (Eski Seul Ulusal Üniversitesi Öğretim Üyesi)",
         "card4_note": "Monsmecta akademik danışma kurulu Seul Ulusal Üniversitesi mezunu veteriner hekim uzmanlardan oluşmaktadır.",
         "chart_monsmecta": "Monsmecta"
     },
@@ -132,7 +130,11 @@
         "timeoutError": "서버 응답이 지연되고 있습니다. 잠시 후 다시 시도해 주세요.",
         "alreadyTitle": "이미 발주가 접수된 브라우저입니다.",
         "alreadyDesc": "브라우저에 발주 기록이 저장되어 있습니다. 새 발주가 필요하면 아래 '다시 발주하기'를 눌러 주세요.",
-        "resubmit": "다시 발주하기"
+        "resubmit": "다시 발주하기",
+        "addProduct": "Ekle",
+        "emptyProducts": "Yukarıdan bir ürün seçip 'Ekle'ye basın.",
+        "minOrderNotice": "* Minimum sipariş adedi: {{min}} şişe",
+        "validationMinQuantity": "Minimum sipariş adedi {{min}} şişedir."
     },
     "infographics": {
         "title": "Ayrıntılı Akademik Veriler ve Danışma Senaryosu",
@@ -290,5 +292,13 @@
         "alreadyTitle": "이미 신청이 완료되었습니다!",
         "alreadyDesc": "사용하신 브라우저에 신청 기록이 저장되어 있습니다. 담당 수의사 자문위원이 입력하신 주소로 곧 연락드릴 예정입니다.",
         "resubmit": "다른 병원 정보로 다시 신청하기"
+    },
+    "lineup": {
+        "badge": "Eylül başında 10 ürünlük serinin resmi lansmanı",
+        "title": "MONSMECTA <count>10 ürünlük</count> seri",
+        "subtitle": "Evcil hayvanın semptom ve durumuna göre uyarlanmış premium reçete çözümleri",
+        "comingSoon": "Yakında",
+        "comingSoonAlert": "Bu ürün yakında gelecek.",
+        "elabelBtn": "E-Etiketi Görüntüle"
     }
 }

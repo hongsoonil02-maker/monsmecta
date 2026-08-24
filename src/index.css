@@ -21,7 +21,9 @@ body {
 body {
   font-family: 'Pretendard', sans-serif;
   background-color: #f9fafb;
-}.high-contrast {
+}
+
+.high-contrast {
   filter: contrast(150%) saturate(150%) brightness(95%);
   background-color: #000 !important;
   color: #fff !important;
@@ -32,3 +34,37 @@ body {
 .large-text h1 { font-size: 120% !important; }
 .large-text h2 { font-size: 115% !important; }
 .large-text p { font-size: 110% !important; }
+
+/* Modal / section enter animations (used with tailwind 'animate-in fade-in zoom-in' style classes) */
+@keyframes mm-enter {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-in {
+  animation: mm-enter 0.3s ease-out both;
+}
+
+@keyframes mm-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadeIn,
+.animate-fade-in {
+  animation: mm-fade-in 0.3s ease-out both;
+}
+
+@keyframes mm-scale-up {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-scale-up {
+  animation: mm-scale-up 0.3s ease-out both;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
