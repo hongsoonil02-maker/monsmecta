@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/check-encoding.cjs && vite build",
     "lint": "eslint src",
+    "check:encoding": "node scripts/check-encoding.cjs",
     "preview": "vite preview",
     "deploy": "echo 'Deployment is handled automatically by GitHub Actions when pushing to main.'"
   },
