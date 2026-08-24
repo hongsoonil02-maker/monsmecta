@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next';
+﻿import { useTranslation } from 'react-i18next';
 
 const Infographics = ({ iframeHeights }) => {
   const { t, i18n } = useTranslation();
@@ -20,7 +20,7 @@ const Infographics = ({ iframeHeights }) => {
           style={{ height: iframeHeights.james ? `${iframeHeights.james}px` : '1800px' }}
         >
           <iframe
-            src={`${import.meta.env.BASE_URL}assets/james_infographic_${lang}.html?v=8.2`}
+            src={`${import.meta.env.BASE_URL}assets/james_infographic_${lang}.html?v=8.3`}
             className="absolute top-0 left-0 w-full h-full border-0"
             title={t('infographics.iframe1')}
             scrolling="no"
@@ -34,7 +34,7 @@ const Infographics = ({ iframeHeights }) => {
           style={{ height: iframeHeights.dashboard ? `${iframeHeights.dashboard}px` : '1800px' }}
         >
           <iframe
-            src={`${import.meta.env.BASE_URL}assets/monsmecta_dashboard_${lang}.html?v=8.2`}
+            src={`${import.meta.env.BASE_URL}assets/monsmecta_dashboard_${lang}.html?v=8.3`}
             className="absolute top-0 left-0 w-full h-full border-0"
             title={t('infographics.iframe2')}
             scrolling="no"
@@ -48,7 +48,7 @@ const Infographics = ({ iframeHeights }) => {
           style={{ height: iframeHeights.scenario ? `${iframeHeights.scenario}px` : '1800px' }}
         >
           <iframe
-            src={`${import.meta.env.BASE_URL}assets/monsmecta_scenario_${lang}.html?v=8.2`}
+            src={`${import.meta.env.BASE_URL}assets/monsmecta_scenario_${lang}.html?v=8.3`}
             className="absolute top-0 left-0 w-full h-full border-0"
             title={t('infographics.iframe3')}
             scrolling="no"

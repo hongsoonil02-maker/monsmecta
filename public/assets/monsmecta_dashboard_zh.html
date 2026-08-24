@@ -39,13 +39,13 @@
             <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400"></div>
             <div class="flex flex-col md:flex-row justify-between items-center z-10 relative">
                 <div class="text-center md:text-left mb-6 md:mb-0">
-                    <span class="text-amber-400 font-bold tracking-widest text-xs uppercase mb-2 block">临床与战?�仪表板</span>
+                    <span class="text-amber-400 font-bold tracking-widest text-xs uppercase mb-2 block">临床与战略仪表板</span>
                     <h1 class="text-3xl md:text-5xl font-black montserrat tracking-tight mb-2">MONSMECTA</h1>
-                    <p class="text-slate-300 font-medium text-base md:text-lg">?�用策略?�临床用??��?�指??/p>
+                    <p class="text-slate-300 font-medium text-base md:text-lg">利用策略及临床用药综合指南</p>
                 </div>
                 <div class="flex gap-4">
                     <div class="text-center bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
-                        <p class="text-[10px] text-slate-300 font-bold uppercase tracking-widest mb-1">开?��?/p>
+                        <p class="text-[10px] text-slate-300 font-bold uppercase tracking-widest mb-1">开发者</p>
                         <p class="text-xl font-black text-white montserrat">Dr. James Hong</p>
                     </div>
                     <div class="text-center bg-amber-500/10 p-4 rounded-2xl backdrop-blur-sm border border-amber-500/30">
@@ -57,46 +57,46 @@
         </header>
 
         <div class="grid grid-cols-1 mb-4">
-            <p class="text-lg text-slate-700 font-light leading-relaxed">?�仪表板结合了金东俊??��?�临床反馈的<strong class="font-bold text-slate-900">?�利?�策?�报?��?/strong>?�安?�处?�的<strong class="font-bold text-slate-900">?�Smecta?�用?�法?�注?�事项�?/strong>，为?�医?�保?�者提供直观的见解??/p>
+            <p class="text-lg text-slate-700 font-light leading-relaxed">本仪表板结合了金东俊院长的临床反馈的<strong class="font-bold text-slate-900">‘利用策略报告’</strong>和安全处方的<strong class="font-bold text-slate-900">‘Smecta服用方法及注意事项’</strong>，为兽医和保护者提供直观的见解。</p>
         </div>
 
         <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
                 <div class="mb-6 border-b border-slate-100 pb-4">
-                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">第�??�分. 策略</span>
-                    <h2 class="text-2xl font-bold text-slate-900 mt-1">临床?�馈?�效?�比�?/h2>
-                    <p class="text-sm text-slate-500 mt-2">?�据?�东俊院?�的?�馈，Monsmecta?�较于普?�Smecta?�核心临床优?�指?��?/p>
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">第一部分. 策略</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">临床反馈及效能比较</h2>
+                    <p class="text-sm text-slate-500 mt-2">根据金东俊院长的反馈，Monsmecta相较于普通Smecta的核心临床优势指标。</p>
                 </div>
                 <div class="chart-container">
                     <canvas id="efficacyRadarChart"></canvas>
                 </div>
                 <div class="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
-                    <strong class="font-bold block mb-1">?�场?�医?�馈?�结:</strong>
-                    "传统?�剂仅限于�??�的止泻，而Monsmecta?�过调节?�内?�度（pH缓冲）功?�立?�缓解腹?�，并通过?�胶?�的优良?�口?�防止强?�喂食压?�和?�吐??
+                    <strong class="font-bold block mb-1">现场兽医反馈总结:</strong>
+                    "传统制剂仅限于简单的止泻，而Monsmecta通过调节胃内酸度（pH缓冲）功能立即缓解腹痛，并通过凝胶型的优良适口性防止强制喂食压力和呕吐。"
                 </div>
             </div>
 
             <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
                 <div class="mb-6 border-b border-slate-100 pb-4">
-                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">第二?�分. 市场价�?/span>
-                    <h2 class="text-2xl font-bold text-slate-900 mt-1">?�物?�院?�利?�指??/h2>
-                    <p class="text-sm text-slate-500 mt-2">?�于?�线?��??�制?�独家供应，建�?消费?�价?�与?�院?�润?�结?�的对比??/p>
+                    <span class="text-xs font-bold tracking-widest text-emerald-600 uppercase">第二部分. 市场价值</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">动物医院盈利性指标</h2>
+                    <p class="text-sm text-slate-500 mt-2">由于在线分销限制和独家供应，建议消费者价格与医院利润率结构的对比。</p>
                 </div>
                 <div class="chart-container">
                     <canvas id="marginBarChart"></canvas>
                 </div>
                 <div class="mt-6 p-4 bg-emerald-50 rounded-xl border border-emerald-100 text-sm text-emerald-900">
-                    <strong class="font-bold block mb-1">竞争?�总结:</strong>
-                    "形成15,000??25,000?�的保护?�可?�受?�建�?��??��，通过线下?��??��?，确保动?�医??���?50%?��?�?20%?�稳定利润�?
+                    <strong class="font-bold block mb-1">竞争力总结:</strong>
+                    "形成15,000元~25,000元的保护者可接受的建议零售价，通过线下独家分销，确保动物医院至少150%至最高220%的稳定利润。"
                 </div>
             </div>
         </section>
 
         <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
             <div class="mb-8 text-center max-w-3xl mx-auto">
-                <span class="text-amber-500 font-bold tracking-widest text-xs uppercase mb-1 block">第三?�分. ?�制</span>
-                <h2 class="text-3xl font-black text-slate-900">?�心?�重作用?�制</h2>
-                <p class="text-sm text-slate-600 mt-3">超微?�脱?�和??��?��??�菌?�株?�肠?�内?�附?��??�质?�保?�粘?�的过程??��?��?/p>
+                <span class="text-amber-500 font-bold tracking-widest text-xs uppercase mb-1 block">第三部分. 机制</span>
+                <h2 class="text-3xl font-black text-slate-900">核心双重作用机制</h2>
+                <p class="text-sm text-slate-600 mt-3">超微蒙脱石和枯草芽孢杆菌菌株在肠道内吸附有害物质及保护粘膜的过程可视化。</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -104,9 +104,9 @@
                     <div>
                         <div class="flex items-center gap-2 mb-2">
                             <span class="bg-amber-500 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">1</span>
-                            <h3 class="text-lg font-bold text-slate-900">毒素?�病毒精�?��??/h3>
+                            <h3 class="text-lg font-bold text-slate-900">毒素及病毒精确吸附</h3>
                         </div>
-                        <p class="text-xs text-slate-500 mb-1">天然Smectite颗粒?�过?�电?�附?��?细菌?�病毒及异常?�酵气体并排?��?/p>
+                        <p class="text-xs text-slate-500 mb-1">天然Smectite颗粒通过静电吸附有害细菌、病毒及异常发酵气体并排出。</p>
                     </div>
                     <div class="relative w-full h-48 bg-rose-50 border-b-4 border-rose-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4 mt-2">
                         <div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div><div class="css-villus"></div>
@@ -122,9 +122,9 @@
                     <div>
                         <div class="flex items-center gap-2 mb-2">
                             <span class="bg-teal-600 text-white font-bold w-6 h-6 rounded-full flex items-center justify-center text-xs">2</span>
-                            <h3 class="text-lg font-bold text-slate-900">?�损?�肠?�粘?�保??/h3>
+                            <h3 class="text-lg font-bold text-slate-900">受损胃肠道粘膜保护</h3>
                         </div>
-                        <p class="text-xs text-slate-500 mb-1">轻柔?�涂覆受?�的粘膜以缓解疼?�，并通过??��?��??�菌?�建?�道??��??/p>
+                        <p class="text-xs text-slate-500 mb-1">轻柔地涂覆受损的粘膜以缓解疼痛，并通过枯草芽孢杆菌重建肠道环境。</p>
                     </div>
                     <div class="relative w-full h-48 bg-teal-50 border-b-4 border-teal-300 rounded-xl flex items-end justify-center px-4 overflow-hidden pt-4 mt-2">
                         <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border: 3px solid #5eead4; border-bottom: none; height: 65px;"></div>
@@ -133,7 +133,7 @@
                         <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border: 3px solid #5eead4; border-bottom: none; height: 65px;"></div>
                         <div class="css-villus" style="background: linear-gradient(to top, #99f6e4, #f0fdfa); border: 3px solid #5eead4; border-bottom: none; height: 65px;"></div>
                         <div class="css-protective-film"></div>
-                        <div class="absolute bg-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-md" style="top: 36px;">?�粘?�保?�涂�?/div>
+                        <div class="absolute bg-teal-600 text-white text-[10px] font-bold px-3 py-1 rounded-full z-20 shadow-md" style="top: 36px;">肠粘膜保护涂层</div>
                     </div>
                 </div>
             </div>
@@ -141,9 +141,9 @@
 
         <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-200">
             <div class="mb-6 border-b border-slate-100 pb-4">
-                <span class="text-xs font-bold tracking-widest text-rose-600 uppercase">第四?�分. ?�用</span>
-                <h2 class="text-2xl font-bold text-slate-900 mt-1">正确?�用?�法?�时?�间?�时?�线</h2>
-                <p class="text-sm text-slate-500 mt-2">?�于?�附?�制?�的?�性，与其他药?�或食物混合?�可?�会?�碍?�效?�分?�吸?�。�??�保?�者强调以下时?�线??/p>
+                <span class="text-xs font-bold tracking-widest text-rose-600 uppercase">第四部分. 服用</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">正确服用方法及时间间隔时间线</h2>
+                <p class="text-sm text-slate-500 mt-2">由于吸附性制剂的特性，与其他药物或食物混合时可能会阻碍有效成分的吸收。请向保护者强调以下时间线。</p>
             </div>
 
             <div class="timeline-container bg-slate-50 rounded-2xl p-6 border border-slate-200 mt-4">
@@ -151,25 +151,25 @@
                 
                 <div class="timeline-node">
                     <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">1</div>
-                    <h3 class="font-bold text-slate-900 text-sm mb-1">?�餐?�间</h3>
-                    <p class="text-xs text-slate-500">常规饲料?�食</p>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">用餐时间</h3>
+                    <p class="text-xs text-slate-500">常规饲料喂食</p>
                 </div>
                 
                 <div class="timeline-node border-amber-400 bg-amber-50">
                     <div class="timeline-icon bg-amber-500 text-white shadow-md">2</div>
-                    <h3 class="font-bold text-amber-900 text-sm mb-1">Monsmecta?�独?�用</h3>
+                    <h3 class="font-bold text-amber-900 text-sm mb-1">Monsmecta单独服用</h3>
                     <div class="bg-white rounded-lg p-2 border border-amber-200 mt-2">
-                        <p class="text-[11px] font-bold text-amber-700">??�?��1小时?��???小时</p>
-                        <p class="text-[10px] text-amber-600 mt-1">必须保持完全空腹?��?/p>
+                        <p class="text-[11px] font-bold text-amber-700">✓ 饭前1小时或饭后2小时</p>
+                        <p class="text-[10px] text-amber-600 mt-1">必须保持完全空腹状态</p>
                     </div>
                 </div>
                 
                 <div class="timeline-node">
                     <div class="timeline-icon bg-white text-rose-500 border-2 border-rose-200">3</div>
-                    <h3 class="font-bold text-slate-900 text-sm mb-1">?�他??��?�用</h3>
+                    <h3 class="font-bold text-slate-900 text-sm mb-1">其他药物服用</h3>
                     <div class="bg-white rounded-lg p-2 border border-slate-200 mt-2">
-                        <p class="text-[11px] font-bold text-rose-600">??保持?�少1~2小时?�隔</p>
-                        <p class="text-[10px] text-slate-500 mt-1">?��??�碍?�他治疗??��?�收</p>
+                        <p class="text-[11px] font-bold text-rose-600">✓ 保持至少1~2小时间隔</p>
+                        <p class="text-[10px] text-slate-500 mt-1">防止阻碍其他治疗药物吸收</p>
                     </div>
                 </div>
             </div>
@@ -211,20 +211,20 @@
             }
         };
 
-        const ctxRadar = document.getElementById('efficacyRadarChart')?.getContext('2d');
-        if (ctxRadar) new Chart(ctxRadar, {
+        const ctxRadar = document.getElementById('efficacyRadarChart').getContext('2d');
+        new Chart(ctxRadar, {
             type: 'radar',
             data: {
                 labels: [
-                    '?�순 ?�사 ?�제',
-                    '?�내 ?�도 ?�충 (복통 감소)',
-                    '?�발??기호??(구토 방�?)',
-                    '???�막 ?�드 코팅',
-                    '바실?�스 ??��?�러???�용'
+                    '단순 설사 억제',
+                    '위내 산도 완충 (복통 감소)',
+                    '자발적 기호성 (구토 방지)',
+                    '장 점막 쉴드 코팅',
+                    '바실러스 항바이러스 작용'
                 ].map(l => wrapLabel(l, 14)),
                 datasets: [
                     {
-                        label: '몬스멕�?',
+                        label: '몬스멕타',
                         data: [95, 98, 90, 95, 85],
                         backgroundColor: 'rgba(16, 185, 129, 0.2)',
                         borderColor: 'rgba(5, 150, 105, 1)',
@@ -233,7 +233,7 @@
                         pointRadius: 4
                     },
                     {
-                        label: '?�반 ?�멕?�',
+                        label: '일반 스멕타',
                         data: [90, 30, 40, 60, 10],
                         backgroundColor: 'rgba(203, 213, 225, 0.2)',
                         borderColor: 'rgba(148, 163, 184, 1)',
@@ -263,13 +263,13 @@
             }
         });
 
-        const ctxBar = document.getElementById('marginBarChart')?.getContext('2d');
-        if (ctxBar) new Chart(ctxBar, {
+        const ctxBar = document.getElementById('marginBarChart').getContext('2d');
+        new Chart(ctxBar, {
             type: 'bar',
             data: {
-                labels: ['?�반 ?�라??지?�제', '몬스멕�? (병원 권장가 A)', '몬스멕�? (병원 권장가 B)'].map(l => wrapLabel(l, 14)),
+                labels: ['일반 온라인 지사제', '몬스멕타 (병원 권장가 A)', '몬스멕타 (병원 권장가 B)'].map(l => wrapLabel(l, 14)),
                 datasets: [{
-                    label: '추정 마진??(%)',
+                    label: '추정 마진율 (%)',
                     data: [15, 150, 220],
                     backgroundColor: [
                         'rgba(244, 63, 94, 0.7)',
@@ -287,7 +287,7 @@
                 scales: {
                     x: {
                         beginAtZero: true,
-                        title: { display: true, text: '마진??(%)', font: { family: "'Noto Sans KR', sans-serif" } },
+                        title: { display: true, text: '마진율 (%)', font: { family: "'Noto Sans KR', sans-serif" } },
                         grid: { borderDash: [4, 4] }
                     },
                     y: {
