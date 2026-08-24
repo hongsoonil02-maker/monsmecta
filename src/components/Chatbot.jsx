@@ -34,19 +34,16 @@ export default function Chatbot() {
     const timer = setTimeout(() => controller.abort(), CHAT_TIMEOUT);
 
     try {
-      // 100_bagger_saas API proxy 호출
-      const chatbotApiUrl = import.meta.env.VITE_CHATBOT_API_URL || 'https://100baggersaas.vercel.app/api/monsmecta-chat';
+      // Agrokorea 공용 Cloudflare Worker 챗봇 프록시 호출
+      const chatbotApiUrl = import.meta.env.VITE_CHATBOT_API_URL || 'https://vetacol.hongsoonil02.workers.dev/api/chat';
       const response = await fetch(chatbotApiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          messages: [
-            { role: 'assistant', content: t('chat.greeting') },
-            ...messages,
-            { role: 'user', content: userMessage },
-          ].map(m => ({ role: m.role, content: m.content })),
+          product: 'monsmecta',
+          message: userMessage,
           language: i18n.language
         }),
         signal: controller.signal
