@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>MONSMECTA 긴급 임상 증례 리플렛 - 55일령 발작 푸들의 7일간의 기록</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .no-print {
+        display: none !important;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 10mm;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 font-sans p-4 sm:p-8">
+
+  <!-- 인쇄 안내 상단 바 (인쇄시 숨김) -->
+  <div class="no-print max-w-4xl mx-auto mb-6 bg-[#00513b] text-white p-4 rounded-2xl flex items-center justify-between shadow-xl">
+    <div>
+      <h3 class="font-extrabold text-base">🏥 전국 동물병원 배포용 DM 우편물 / 임상 리플렛 (A4 최적화)</h3>
+      <p class="text-xs text-emerald-200 mt-0.5">김동준 원장님의 자필 차트와 스마트폰 동영상 재생 QR코드가 탑재된 공식 인쇄물입니다.</p>
+    </div>
+    <button onclick="window.print()" class="px-5 py-2.5 bg-yellow-400 hover:bg-yellow-300 text-slate-950 font-black text-sm rounded-xl shadow-md transition-all flex items-center gap-2">
+      <span>🖨️ A4 용지 인쇄하기</span>
+    </button>
+  </div>
+
+  <!-- A4 리플렛 본문 (규격: 210mm x 297mm) -->
+  <div class="max-w-4xl mx-auto bg-white border border-slate-300 rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden print:border-none print:shadow-none print:p-0">
+    
+    <!-- 리플렛 헤더 -->
+    <div class="border-b-2 border-[#00513b] pb-6 flex items-start justify-between gap-6">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-rose-100 text-rose-700 text-xs font-black rounded-full mb-2 border border-rose-200">
+          🚨 긴급 수의 임상 증례 리포트 (Vol. 2026-08)
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight leading-tight">
+          "파보 음성인데 전신 발작하는 55일령 강아지..."<br>
+          <span class="text-[#00513b]">7일 만에 기립 완치된 사랑동물병원 임상 기록</span>
+        </h1>
+        <p class="text-xs text-slate-600 font-semibold mt-2">
+          발행처: 에스앤제이 동물병원 몬스멕타 학술자문단 · 임상 증례 제공: 하남 사랑동물병원 김동준 원장
+        </p>
+      </div>
+
+      <!-- 스마트폰 직캠 영상 QR코드 -->
+      <div class="shrink-0 text-center bg-slate-50 p-3 rounded-2xl border border-slate-200 shadow-sm">
+        <img 
+          src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://monsmecta.kr/%23clinical-case-study" 
+          alt="동영상 시청 QR코드"
+          class="w-24 h-24 mx-auto rounded-lg"
+        />
+        <span class="text-[10px] font-black text-[#00513b] block mt-1.5 leading-tight">
+          스마트폰 카메라로<br>실제 치료영상 보기
+        </span>
+      </div>
+    </div>
+
+    <!-- 환축 요약 바 -->
+    <div class="my-6 grid grid-cols-4 gap-3 bg-emerald-50 p-3.5 rounded-2xl border border-emerald-200 text-xs">
+      <div>
+        <span class="font-bold text-slate-500 block text-[11px]">환축 정보</span>
+        <strong class="text-slate-900">토이푸들 ♂ (55일령, 0.6kg)</strong>
+      </div>
+      <div>
+        <span class="font-bold text-slate-500 block text-[11px]">내원 증상</span>
+        <strong class="text-rose-600">심한 발작(Seizure) · 식욕전폐</strong>
+      </div>
+      <div>
+        <span class="font-bold text-slate-500 block text-[11px]">바이러스 검사</span>
+        <strong class="text-emerald-700">파보/코로나 음성(Neg)</strong>
+      </div>
+      <div>
+        <span class="font-bold text-slate-500 block text-[11px]">최종 예후</span>
+        <strong class="text-[#00513b]">7일 만에 완치 [퇴원]</strong>
+      </div>
+    </div>
+
+    <!-- 자필 차트 3단계 임상 기록 컷 -->
+    <div class="mb-6">
+      <h3 class="text-sm font-black text-slate-900 uppercase tracking-wide mb-3 flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#00513b]"></span>
+        김동준 원장 실제 자필 차트 3단계 기록
+      </h3>
+      <div class="grid grid-cols-3 gap-4">
+        <div class="border border-slate-200 rounded-2xl p-2.5 bg-slate-50 flex flex-col justify-between">
+          <img src="/assets/clinical/chart_day1_day2.jpg" alt="Day 1 차트" class="w-full h-32 object-contain rounded-lg bg-white border mb-2">
+          <div>
+            <span class="text-[10px] font-extrabold px-2 py-0.5 bg-rose-100 text-rose-700 rounded-full">STEP 1 (Day 1~2)</span>
+            <h4 class="text-xs font-bold text-slate-900 mt-1">응급 내원 & 1차 투약</h4>
+            <p class="text-[10px] text-slate-600 mt-0.5 leading-snug">몬스멕타 1pump+베타루킨 긴급 투여. 24시간 내 경련 억제 후 DHPPL 접종.</p>
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl p-2.5 bg-slate-50 flex flex-col justify-between">
+          <img src="/assets/clinical/chart_day3_day5.jpg" alt="Day 4 차트" class="w-full h-32 object-contain rounded-lg bg-white border mb-2">
+          <div>
+            <span class="text-[10px] font-extrabold px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded-full">STEP 2 (Day 3~5)</span>
+            <h4 class="text-xs font-bold text-slate-900 mt-1">식욕 폭발 & 기립 성공</h4>
+            <p class="text-[10px] text-slate-600 mt-0.5 leading-snug">몬스멕타 2pump 증량. 캔사료 완식하며 정상 분변 및 기립 자세 회복.</p>
+          </div>
+        </div>
+
+        <div class="border border-slate-200 rounded-2xl p-2.5 bg-slate-50 flex flex-col justify-between">
+          <img src="/assets/clinical/chart_day6_day7.jpg" alt="Day 7 차트" class="w-full h-32 object-contain rounded-lg bg-white border mb-2">
+          <div>
+            <span class="text-[10px] font-extrabold px-2 py-0.5 bg-amber-100 text-amber-800 rounded-full">STEP 3 (Day 6~7)</span>
+            <h4 class="text-xs font-bold text-slate-900 mt-1">헤파맥스 병용 완치</h4>
+            <p class="text-[10px] text-slate-600 mt-0.5 leading-snug">몬스멕타 1ml+헤파맥스 1ml 복합 처방 후 활력 정상. [퇴원] 판정 완료.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B2B 수의사용 3단계 응급 프로토콜 박스 -->
+    <div class="bg-slate-900 text-white rounded-2xl p-5 mb-6">
+      <div class="flex items-center justify-between border-b border-slate-700 pb-2 mb-3">
+        <h4 class="text-xs font-extrabold text-emerald-400">VETERINARY CLINICAL PROTOCOL (소화기성 내독소혈증)</h4>
+        <span class="text-[10px] text-slate-400">100% 천연 점토광물 미네랄 제제</span>
+      </div>
+      <div class="grid grid-cols-3 gap-3 text-xs">
+        <div>
+          <span class="text-amber-400 font-bold block text-[11px]">01 독소 흡착</span>
+          <strong class="text-white text-xs block">몬스멕타 1~2 pump</strong>
+          <span class="text-slate-300 text-[10px] block mt-0.5">내독소(Endotoxin) 급착 배출</span>
+        </div>
+        <div>
+          <span class="text-amber-400 font-bold block text-[11px]">02 면역 부스팅</span>
+          <strong class="text-white text-xs block">베타루킨 0.5g</strong>
+          <span class="text-slate-300 text-[10px] block mt-0.5">장 면역 정상화 & 조기 접종</span>
+        </div>
+        <div>
+          <span class="text-amber-400 font-bold block text-[11px]">03 간 해독 & 퇴원</span>
+          <strong class="text-white text-xs block">몬스멕타 + 헤파맥스</strong>
+          <span class="text-slate-300 text-[10px] block mt-0.5">각 1ml 2회 PO 복합 처방</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 리플렛 하단 CTA (병원 샘플 신청 안내) -->
+    <div class="border-t border-slate-200 pt-4 flex items-center justify-between">
+      <div>
+        <div class="text-xs font-extrabold text-slate-900">전국 동물병원 원장님 전용 무료 임상 샘플 키트 신청</div>
+        <div class="text-[11px] text-slate-500 mt-0.5">온라인 및 펫샵 유통 원천 배제 · 동물병원 독점 공급 원칙 준수</div>
+      </div>
+      <div class="text-right">
+        <span class="text-xs font-bold text-[#00513b]">https://monsmecta.kr</span>
+        <span class="text-[10px] text-slate-400 block">전화 문의: 031-792-5400</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
