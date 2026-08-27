@@ -21,11 +21,17 @@ export default function ClinicalCaseStudy() {
     setSelectedVideo(firstVid);
     if (videoRef.current) {
       videoRef.current.load();
+      videoRef.current.play().catch(() => {});
     }
   };
 
   const handleSelectVideo = (video) => {
     setSelectedVideo(video);
+    // 선택한 영상의 STEP으로 상단 차트/스텝 탭도 자동 동기화
+    const chartIndex = CLINICAL_CASE_DATA.charts.findIndex(c => c.id === video.phaseKey);
+    if (chartIndex !== -1) {
+      setActivePhaseIndex(chartIndex);
+    }
     if (videoRef.current) {
       videoRef.current.load();
       videoRef.current.play().catch(() => {});
@@ -242,7 +248,10 @@ export default function ClinicalCaseStudy() {
             {/* 비디오 설명 카드 */}
             <div className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-start">
               <div>
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                  <span className="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-400 text-slate-950 font-mono">
+                    {selectedVideo.stepNum} · {selectedVideo.phase}
+                  </span>
                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${selectedVideo.badgeColor}`}>
                     {selectedVideo.badge}
                   </span>
@@ -277,50 +286,75 @@ export default function ClinicalCaseStudy() {
             </div>
           </div>
 
-          {/* 8개 세로형 숏폼 카드 그리드 (삼성 S20 Ultra 412px 기준 2열, 테블릿 3열, 데스크톱 4열) */}
+          {/* 8개 세로형 숏폼 카드 그리드 (치료 일자 1일차~7일차 순서 엄격 정렬 & STEP 동기화) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {CLINICAL_CASE_DATA.videos.map((vid, idx) => (
-              <div
-                key={vid.id}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openVideoModal(vid); } }}
-                onClick={() => openVideoModal(vid)}
-                aria-label={`${vid.title} 영상 열기`}
-                className="group relative bg-slate-900/80 rounded-2xl p-2.5 sm:p-3 border border-white/10 hover:border-emerald-400/80 transition-all duration-300 cursor-pointer flex flex-col justify-between hover:shadow-xl hover:shadow-emerald-950/40 text-start focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 active:scale-[0.98]"
-              >
-                <div>
-                  {/* 세로형 9:16 썸네일 */}
-                  <div className="relative aspect-[9/16] rounded-xl overflow-hidden bg-black mb-2.5 border border-white/10 shadow">
-                    <img
-                      src={`${import.meta.env.BASE_URL}assets/clinical_thumbs/thumb_${idx + 1}_${vid.file.slice(0, 20)}.jpg`}
-                      alt={vid.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-between p-2">
-                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-black/70 text-white font-mono">
-                        {vid.duration}
+            {CLINICAL_CASE_DATA.videos.map((vid, idx) => {
+              const isSelected = selectedVideo.id === vid.id;
+              const isCurrentStep = currentChart.id === vid.phaseKey;
+              return (
+                <div
+                  key={vid.id}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSelectVideo(vid); } }}
+                  onClick={() => handleSelectVideo(vid)}
+                  aria-label={`${vid.stepNum} ${vid.phase} ${vid.title} 영상 선택 및 재생`}
+                  className={`group relative rounded-2xl p-2.5 sm:p-3 border transition-all duration-300 cursor-pointer flex flex-col justify-between hover:shadow-xl text-start focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 active:scale-[0.98] ${
+                    isSelected
+                      ? 'bg-emerald-950/90 border-emerald-400 ring-2 ring-emerald-400 shadow-lg shadow-emerald-950/60'
+                      : isCurrentStep
+                      ? 'bg-slate-900/90 border-emerald-500/50 hover:border-emerald-400'
+                      : 'bg-slate-900/60 border-white/10 hover:border-white/30 opacity-75 hover:opacity-100'
+                  }`}
+                >
+                  <div>
+                    {/* 상단 STEP 및 치료 순서 번호 헤더 */}
+                    <div className="flex items-center justify-between mb-2">
+                      <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full ${
+                        isCurrentStep ? 'bg-emerald-400 text-slate-950' : 'bg-slate-800 text-slate-400'
+                      }`}>
+                        {vid.stepNum} · #{idx + 1}
                       </span>
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs font-black shadow-lg group-hover:scale-110 transition-transform">
-                        ▶
+                      <span className="text-[11px] font-mono text-emerald-300 font-bold">
+                        {vid.phase}
+                      </span>
+                    </div>
+
+                    {/* 세로형 9:16 썸네일 */}
+                    <div className="relative aspect-[9/16] rounded-xl overflow-hidden bg-black mb-2.5 border border-white/10 shadow">
+                      <img
+                        src={`${import.meta.env.BASE_URL}assets/clinical_thumbs/thumb_${idx + 1}_${vid.file.slice(0, 20)}.jpg`}
+                        alt={vid.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-between p-2">
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-black/70 text-white font-mono">
+                          {vid.duration}
+                        </span>
+                        <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs font-black shadow-lg group-hover:scale-110 transition-transform ${
+                          isSelected ? 'bg-amber-400 text-slate-950 ring-2 ring-white' : 'bg-emerald-500 text-slate-950'
+                        }`}>
+                          {isSelected ? '■' : '▶'}
+                        </div>
                       </div>
                     </div>
+                    
+                    <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mb-1.5 ${vid.badgeColor}`}>
+                      {vid.badge}
+                    </span>
+                    <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
+                      {vid.title}
+                    </h4>
                   </div>
-                  <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mb-1.5 ${vid.badgeColor}`}>
-                    {vid.phase}
-                  </span>
-                  <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
-                    {vid.title}
-                  </h4>
+                  <p className="text-[11px] text-slate-400 mt-2 line-clamp-2 leading-relaxed">
+                    {vid.desc}
+                  </p>
                 </div>
-                <p className="text-[11px] text-slate-400 mt-2 line-clamp-2 leading-relaxed">
-                  {vid.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 

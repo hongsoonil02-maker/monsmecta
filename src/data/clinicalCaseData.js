@@ -15,24 +15,24 @@ export const CLINICAL_CASE_DATA = {
   charts: [
     {
       id: "phase1",
-      period: "Day 1 ~ Day 2 (7/28 ~ 7/30)",
-      title: "응급 내원, 심한 발작 및 몬스멕타 1차 투약",
+      period: "Day 1 ~ Day 2 (7/28 ~ 7/29)",
+      title: "응급 내원, 심한 발작 및 몬스멕타 긴급 투약",
       src: "assets/clinical/chart_day1_day2.jpg",
       highlights: [
         "7/28 18:50 내원 즉시 파보/코로나 5종 키트 음성(Neg, Neg) 확인",
         "7/28 18:55 [촬영] 1차 몬스멕타 1pump + 베타루킨 분말 0.5g 투약",
-        "7/28 20:00 [촬영] 2차 몬스멕타 1pump 추가 투약 후 경련 잦아듦",
-        "7/29 05:50 상태 호전으로 DHPPL 1차 종합백신 접종 가능해짐"
+        "7/28 20:00 [촬영] 2차 몬스멕타 1pump 추가 투약 후 경련 진정",
+        "7/29 05:50 상태 급호전으로 DHPPL 1차 종합백신 접종 가능"
       ]
     },
     {
       id: "phase2",
       period: "Day 3 ~ Day 5 (7/30 ~ 8/2)",
-      title: "식욕 폭발(식욕↑, 식사량↑), 변 안정 및 기립 회복",
+      title: "식욕 폭발(식욕↑, 식사량↑), 소화기 안정 및 기립 회복",
       src: "assets/clinical/chart_day3_day5.jpg",
       highlights: [
         "7/30 19:33 [촬영] 몬스멕타 2pump 지속 투여로 장독소 배출 가속",
-        "7/31 '어제 lowfat can 섞어먹여 식욕↑, 식사량↑, 변 약간 묽어짐'",
+        "7/31 '어제 lowfat can 섞어먹여 식욕↑, 식사량↑, 변 안정'",
         "7/31 16:20 [촬영] 밥그릇에 머리를 박고 캔사료를 폭풍 완식",
         "8/2 20:57 [촬영] 네 발로 당당히 서서 전신 자세 반사 완전 회복"
       ]
@@ -43,9 +43,9 @@ export const CLINICAL_CASE_DATA = {
       title: "몬스멕타 + 헤파맥스 복합 처방 및 최종 완치 [퇴원]",
       src: "assets/clinical/chart_day6_day7.jpg",
       highlights: [
-        "8/3 경미한 콧물 증상 외 소화기 정상화 (세레니아 등 대증 처치)",
+        "8/3 경미한 콧물 증상 외 소화기 완벽 정상화 (대증 처치)",
         "8/4 몬스멕타 2pump + 헤파맥스 2pump (1ml, 1ml 2회 PO) 병용",
-        "간 해독 기능 보강 및 장점막 최종 재생 확인",
+        "간 해독 기능 보강 및 장 점막 최종 재생 확인",
         "하남 사랑동물병원 김동준 원장 자필 서명과 함께 최종 [퇴원] 완료"
       ]
     }
@@ -58,6 +58,7 @@ export const CLINICAL_CASE_DATA = {
       duration: "9.0초",
       phase: "Day 1 (7/28)",
       phaseKey: "phase1",
+      stepNum: "STEP 1",
       badge: "🚨 초진 응급 발작 순간",
       badgeColor: "bg-red-600 text-white",
       title: "내원 당시 전신 발작(Seizure) 증상",
@@ -70,6 +71,7 @@ export const CLINICAL_CASE_DATA = {
       duration: "15.5초",
       phase: "Day 1 (7/28)",
       phaseKey: "phase1",
+      stepNum: "STEP 1",
       badge: "⚠️ 우울 및 식욕 전폐",
       badgeColor: "bg-amber-600 text-white",
       title: "전신 무기력(Depression) 상태",
@@ -82,6 +84,7 @@ export const CLINICAL_CASE_DATA = {
       duration: "23.2초",
       phase: "Day 1~2 (7/28~29)",
       phaseKey: "phase1",
+      stepNum: "STEP 1",
       badge: "💡 김동준 원장 한 손 펌핑 투약",
       badgeColor: "bg-emerald-600 text-white",
       title: "55일령 환축에게 한 손으로 펌핑 투약",
@@ -92,11 +95,12 @@ export const CLINICAL_CASE_DATA = {
       id: "v4",
       file: "KakaoTalk_20260827_161840186.mp4",
       duration: "27.8초",
-      phase: "Day 2 (7/29)",
+      phase: "Day 3 (7/30)",
       phaseKey: "phase2",
+      stepNum: "STEP 2",
       badge: "🌱 신경계 안정 & 백신 접종",
       badgeColor: "bg-cyan-600 text-white",
-      title: "투약 1일 만에 고개 들고 눈빛 회복",
+      title: "투약 2일 만에 고개 들고 눈빛 회복",
       desc: "경련이 완전히 멈추고 또렷한 눈빛으로 정면을 응시. DHPPL 1차 종합백신을 접종할 수 있을 정도로 기초 활력 안정.",
       isCrucial: false
     },
@@ -106,6 +110,7 @@ export const CLINICAL_CASE_DATA = {
       duration: "7.2초",
       phase: "Day 4 (7/31)",
       phaseKey: "phase2",
+      stepNum: "STEP 2",
       badge: "🔥 기적의 식욕 폭발",
       badgeColor: "bg-rose-600 text-white",
       title: "식욕 전폐 환축의 캔사료 폭풍 완식",
@@ -118,6 +123,7 @@ export const CLINICAL_CASE_DATA = {
       duration: "15.6초",
       phase: "Day 5 (8/1)",
       phaseKey: "phase2",
+      stepNum: "STEP 2",
       badge: "🩺 진료대 경과 관찰",
       badgeColor: "bg-slate-700 text-white",
       title: "처치대 위 김동준 원장의 복부 촉진",
@@ -130,6 +136,7 @@ export const CLINICAL_CASE_DATA = {
       duration: "24.2초",
       phase: "Day 6 (8/2)",
       phaseKey: "phase2",
+      stepNum: "STEP 2",
       badge: "✨ 네 다리 기립 자세 회복",
       badgeColor: "bg-blue-600 text-white",
       title: "보행 및 자세 반사의 완벽한 정상화",
@@ -142,6 +149,7 @@ export const CLINICAL_CASE_DATA = {
       duration: "24.5초",
       phase: "Day 7 (8/4)",
       phaseKey: "phase3",
+      stepNum: "STEP 3",
       badge: "🎉 헤파맥스 복합 처방 & 퇴원",
       badgeColor: "bg-purple-600 text-white",
       title: "몬스멕타+헤파맥스 복합 처방 후 완치 퇴원",
