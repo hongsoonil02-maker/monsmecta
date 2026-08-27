@@ -67,14 +67,14 @@ export default function Chatbot() {
   if (typeof document === 'undefined') return null;
 
   return createPortal((
-    <div className="fixed bottom-[5rem] right-3 z-50 sm:right-6">
+    <div className="fixed bottom-[calc(5.2rem+env(safe-area-inset-bottom,0px))] right-3 z-50 sm:right-6">
       {/* 챗봇 토글 버튼 */}
       <button
         onClick={toggleChat}
-        className={`${isOpen ? 'hidden' : 'flex'} items-center justify-center w-16 h-16 bg-[#00513b] text-white rounded-full shadow-2xl hover:scale-105 transition-transform duration-300 focus:outline-none`}
+        className={`${isOpen ? 'hidden' : 'flex'} items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#00513b] hover:bg-[#003d2b] active:bg-[#00281d] text-white rounded-full shadow-2xl border-2 border-emerald-400/50 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-400/50`}
         aria-label={t('chat.openLabel')}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
         </svg>
       </button>

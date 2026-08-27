@@ -36,30 +36,61 @@ const resources = {
     tr: { translation: translationTr },
 };
 
+const SUPPORTED_LANGS = ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de', 'th', 'vi', 'ru', 'pt', 'ar', 'id', 'ms', 'tr'];
+
+const getInitialLanguage = () => {
+    if (typeof window === 'undefined') return 'ko';
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const langParam = urlParams.get('lang') || urlParams.get('lng');
+        if (langParam && SUPPORTED_LANGS.includes(langParam)) {
+            localStorage.setItem('monsmecta_user_lang', langParam);
+            return langParam;
+        }
+        const userSaved = localStorage.getItem('monsmecta_user_lang');
+        if (userSaved && SUPPORTED_LANGS.includes(userSaved)) {
+            return userSaved;
+        }
+    } catch {
+        // ignore
+    }
+    return 'ko';
+};
+
 const syncDocumentLanguage = (language) => {
     if (typeof document === 'undefined') return;
-    document.documentElement.lang = language;
+    document.documentElement.lang = language || 'ko';
     // RTL support for Arabic
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
 };
+
+const initialLang = getInitialLanguage();
 
 i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
         resources,
+        lng: initialLang,
         fallbackLng: 'ko',
-        supportedLngs: ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de', 'th', 'vi', 'ru', 'pt', 'ar', 'id', 'ms', 'tr'],
+        supportedLngs: SUPPORTED_LANGS,
         interpolation: { escapeValue: false },
         returnNull: false,
         detection: {
-            order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
-            caches: ['localStorage', 'cookie'],
+            order: ['querystring', 'localStorage'],
+            lookupQuerystring: 'lang',
+            lookupLocalStorage: 'monsmecta_user_lang',
+            caches: ['localStorage'],
         }
     });
 
-syncDocumentLanguage(i18n.language);
-i18n.on('languageChanged', syncDocumentLanguage);
+syncDocumentLanguage(i18n.language || initialLang);
+i18n.on('languageChanged', (lng) => {
+    syncDocumentLanguage(lng);
+    try {
+        localStorage.setItem('monsmecta_user_lang', lng);
+    } catch { /* ignore */ }
+});
 
 export default i18n;
 
