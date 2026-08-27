@@ -220,7 +220,7 @@ export default function ClinicalCaseStudy() {
                           : 'text-slate-400 hover:text-white'
                       }`}
                     >
-                      {v.phase.replace(/\s*\(.*?\)/, '')} {v.badge.slice(0, 2)}
+                      동영상 {v.userOrder} {v.badge.slice(0, 2)}
                     </button>
                   ))}
                 </div>
@@ -313,10 +313,10 @@ export default function ClinicalCaseStudy() {
                       <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full ${
                         isCurrentStep ? 'bg-emerald-400 text-slate-950' : 'bg-slate-800 text-slate-400'
                       }`}>
-                        {vid.stepNum} · #{idx + 1}
+                        {vid.stepNum} · 동영상 {vid.userOrder}
                       </span>
                       <span className="text-[11px] font-mono text-emerald-300 font-bold">
-                        {vid.phase}
+                        {vid.badge.slice(0, 2)}
                       </span>
                     </div>
 
