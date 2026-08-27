@@ -33,6 +33,10 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
         <div className="hidden md:flex space-x-8">
           <a href="#about" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.products')}</a>
           <a href="#clinical" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.clinical')}</a>
+          <a href="#clinical-case-study" className="text-sm font-bold text-emerald-700 hover:text-emerald-900 transition-colors flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
+            {t('nav.caseStudy', '임상 다큐')}
+          </a>
           <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
         </div>
         <div className="flex items-center gap-2 sm:gap-4 shrink-0">
@@ -112,6 +116,10 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
         <div className="md:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-4">
           <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.products')}</a>
           <a href="#clinical" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.clinical')}</a>
+          <a href="#clinical-case-study" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-bold text-emerald-700 hover:text-emerald-900 transition-colors flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            {t('nav.caseStudy', '임상 다큐 (55일령 발작 환축)')}
+          </a>
           <a href="#values" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
           <a href="#order" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#00513b] text-white px-6 py-3 rounded-xl text-sm font-bold shadow-md hover:bg-[#003d2b] transition-all duration-200 mt-4">
             {t('nav.order')}

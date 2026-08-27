@@ -65,15 +65,25 @@ export default function AudioTestimonial() {
 
   return (
     <section
+      id="audio-testimonial"
       aria-label={t('audioTestimonial.title', '"구토·복통·설사 환축 몬스멕타 즉시 투여 반응"')}
       className="bg-gradient-to-br from-[#00513b] via-emerald-900 to-[#00281d] text-white rounded-3xl p-6 sm:p-8 my-10 border border-emerald-400/30 shadow-xl"
     >
       <audio ref={audioRef} src={`${import.meta.env.BASE_URL}assets/kimdongjun-call.m4a`} preload="metadata" />
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-2 text-center md:text-left">
-          <span className="px-3 py-1 bg-yellow-400/20 text-yellow-300 text-xs font-bold rounded-full border border-yellow-400/30">
-            {t('audioTestimonial.tag', '🎙️ 현장 수의사 임상 녹음 인터뷰')}
-          </span>
+          <div className="flex flex-wrap items-center gap-2 justify-center md:justify-start">
+            <span className="px-3 py-1 bg-yellow-400/20 text-yellow-300 text-xs font-bold rounded-full border border-yellow-400/30">
+              {t('audioTestimonial.tag', '🎙️ 현장 수의사 임상 녹음 인터뷰')}
+            </span>
+            <a
+              href="#clinical-case-study"
+              className="px-3 py-1 bg-white/10 hover:bg-white/20 text-emerald-200 text-xs font-bold rounded-full border border-white/20 transition-colors flex items-center gap-1"
+            >
+              <span>📋 55일령 발작 푸들 자필 차트·직캠 보기</span>
+              <span>↑</span>
+            </a>
+          </div>
           <h4 className="text-xl sm:text-2xl font-black text-white break-keep">
             {t('audioTestimonial.title', '"구토·복통·설사 환축 몬스멕타 즉시 투여 반응"')}
           </h4>

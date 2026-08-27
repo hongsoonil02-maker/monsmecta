@@ -7,6 +7,7 @@ import Hero from './components/Hero';
 import Lineup from './components/Lineup';
 import Values from './components/Values';
 import ClinicalEvidence from './components/ClinicalEvidence';
+import ClinicalCaseStudy from './components/ClinicalCaseStudy';
 import Infographics from './components/Infographics';
 import Letter from './components/Letter';
 import AudioTestimonial from './components/AudioTestimonial';
@@ -248,6 +249,7 @@ const MonsmectaSNJLanding = () => {
         <Lineup setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <Values activeProduct={activeProduct} />
         <ClinicalEvidence activeProduct={activeProduct} />
+        <ClinicalCaseStudy />
         <Infographics iframeHeights={iframeHeights} />
         <Letter />
         <AudioTestimonial />
