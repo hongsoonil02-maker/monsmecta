@@ -188,19 +188,21 @@ export default function ClinicalCaseStudy() {
               )}
             </div>
 
-            {/* 비디오 화면 */}
-            <div className="relative rounded-2xl overflow-hidden bg-black border border-white/10 flex items-center justify-center min-h-[340px] max-h-[460px]">
-              <video
-                ref={videoRef}
-                key={selectedVideo.file}
-                controls
-                playsInline
-                preload="metadata"
-                className="w-full h-full max-h-[440px] object-contain"
-              >
-                <source src={`${import.meta.env.BASE_URL}assets/${selectedVideo.file}`} type="video/mp4" />
-                귀하의 브라우저는 비디오 태그를 지원하지 않습니다.
-              </video>
+            {/* 비디오 화면 - 스마트폰 세로형 9:16 핏 최적화 */}
+            <div className="relative rounded-2xl overflow-hidden bg-slate-950/80 border border-white/10 p-3 sm:p-5 flex items-center justify-center">
+              <div className="w-full max-w-[260px] sm:max-w-[290px] aspect-[9/16] rounded-2xl overflow-hidden bg-black border-2 border-white/20 shadow-2xl relative">
+                <video
+                  ref={videoRef}
+                  key={selectedVideo.file}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                >
+                  <source src={`${import.meta.env.BASE_URL}assets/${selectedVideo.file}`} type="video/mp4" />
+                  귀하의 브라우저는 비디오 태그를 지원하지 않습니다.
+                </video>
+              </div>
             </div>
 
             {/* 비디오 설명 카드 */}
@@ -234,12 +236,12 @@ export default function ClinicalCaseStudy() {
                 📹 사랑동물병원 직캠 8대 영상 전편 아카이브
               </h3>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                내원 당시 발작 순간부터 한 손 펌핑 투약, 폭풍 식욕 회복, 완치 퇴원까지 날것 그대로의 영상입니다.
+                스마트폰 세로 직캠으로 촬영된 무편집 진료실 현장 영상입니다. (클릭 시 고화질 재생)
               </p>
             </div>
           </div>
 
-          {/* 8개 카드 그리드 */}
+          {/* 8개 세로형 숏폼 카드 그리드 */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {CLINICAL_CASE_DATA.videos.map((vid, idx) => (
               <div
@@ -248,27 +250,27 @@ export default function ClinicalCaseStudy() {
                 className="group relative bg-slate-900/80 rounded-2xl p-3 border border-white/10 hover:border-emerald-400/80 transition-all duration-300 cursor-pointer flex flex-col justify-between hover:shadow-xl hover:shadow-emerald-950/40"
               >
                 <div>
-                  <div className="relative aspect-video rounded-xl overflow-hidden bg-black mb-3 border border-white/5">
+                  {/* 세로형 9:16 썸네일 */}
+                  <div className="relative aspect-[9/16] rounded-xl overflow-hidden bg-black mb-3 border border-white/10 shadow">
                     <img
                       src={`${import.meta.env.BASE_URL}assets/clinical_thumbs/thumb_${idx + 1}_${vid.file.slice(0, 20)}.jpg`}
                       alt={vid.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
-                        // fallback to simple placeholder if thumb fails
                         e.target.style.display = 'none';
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-between p-2">
-                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-black/60 text-white font-mono">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-between p-2.5">
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-black/70 text-white font-mono">
                         {vid.duration}
                       </span>
-                      <div className="w-7 h-7 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs font-black shadow group-hover:scale-110 transition-transform">
+                      <div className="w-8 h-8 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs font-black shadow-lg group-hover:scale-110 transition-transform">
                         ▶
                       </div>
                     </div>
                   </div>
                   <span className={`inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mb-1.5 ${vid.badgeColor}`}>
-                    {vid.phase} · {vid.badge.split(' ')[1] || '임상영상'}
+                    {vid.phase}
                   </span>
                   <h6 className="text-xs sm:text-sm font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
                     {vid.title}
@@ -357,44 +359,45 @@ export default function ClinicalCaseStudy() {
         </div>
       )}
 
-      {/* 비디오 큰 화면 팝업 모달 */}
+      {/* 비디오 큰 화면 팝업 모달 - 스마트폰 세로 9:16 핏 최적화 */}
       {isVideoModalOpen && modalVideo && (
         <div 
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-4"
           onClick={() => setIsVideoModalOpen(false)}
         >
           <div 
-            className="relative max-w-2xl w-full bg-slate-900 rounded-3xl p-5 border border-white/20 flex flex-col shadow-2xl"
+            className="relative max-w-sm sm:max-w-md w-full bg-slate-900/95 rounded-3xl p-4 sm:p-5 border border-white/20 flex flex-col shadow-2xl max-h-[95vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-3">
-              <div>
+              <div className="pr-2">
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${modalVideo.badgeColor} mr-2`}>
                   {modalVideo.badge}
                 </span>
-                <h4 className="text-base font-bold text-white inline-block">{modalVideo.title}</h4>
+                <h4 className="text-sm sm:text-base font-bold text-white inline-block">{modalVideo.title}</h4>
               </div>
               <button
                 onClick={() => setIsVideoModalOpen(false)}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-lg"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-base shrink-0"
               >
                 ✕
               </button>
             </div>
             
-            <div className="aspect-video bg-black rounded-2xl overflow-hidden flex items-center justify-center">
+            {/* 스마트폰 9:16 세로 핏 비디오 컨테이너 (검은 여백 제거) */}
+            <div className="w-full max-w-[310px] sm:max-w-[330px] mx-auto aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/15 flex items-center justify-center relative">
               <video
                 controls
                 autoPlay
                 playsInline
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
               >
                 <source src={`${import.meta.env.BASE_URL}assets/${modalVideo.file}`} type="video/mp4" />
                 브라우저가 비디오를 지원하지 않습니다.
               </video>
             </div>
             
-            <p className="text-xs sm:text-sm text-slate-300 mt-4 leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5">
+            <p className="text-xs text-slate-300 mt-3 leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5">
               {modalVideo.desc}
             </p>
           </div>
