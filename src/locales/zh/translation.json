@@ -2,10 +2,11 @@
     "nav": {
         "products": "产品介绍",
         "clinical": "临床数据",
+        "caseStudy": "临床实录",
         "values": "三大价值",
         "order": "快速订购",
-        "noticeBtn": "알림판 만들기",
-        "skipToContent": "본문 바로가기",
+        "noticeBtn": "制作院内告示牌",
+        "skipToContent": "跳转至正文",
         "lang": "选择语言",
         "menuToggle": "打开/关闭移动菜单"
     },

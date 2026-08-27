@@ -338,5 +338,42 @@
         "vitaplus": {
             "desc": "Comprehensive vitamin & mineral supplement"
         }
+    },
+    "a11y": {
+        "toolbarLabel": "Web Accessibility Tools",
+        "title": "Accessibility Settings",
+        "contrastOn": "Turn On High Contrast",
+        "contrastOff": "Turn Off High Contrast",
+        "largeTextOn": "Large Text Mode",
+        "largeTextOff": "Reset Text Size",
+        "openMenu": "Open Accessibility Menu"
+    },
+    "clinicalCase": {
+        "badge": "🎙️ MONSMECTA Advisory Board Real Clinical Documentary",
+        "title": "A 55-day-old Seizure Puppy's",
+        "titleHighlight": "7-Day Miracle",
+        "subtitle": "Real records written by Dr. Dong-jun Kim of Hanam Sarang Animal Hospital battling for life: original handwritten medical charts and 8 unedited live clinic videos.",
+        "patient": "Patient Info",
+        "patientVal": "Toy Poodle ♂ (55 Days Old)",
+        "symptom": "Symptoms",
+        "symptomVal": "Severe Seizure & Anorexia",
+        "kit": "5-Disease Kit Test",
+        "kitVal": "Parvo / Corona Negative",
+        "prognosis": "Final Prognosis",
+        "prognosisVal": "Fully Cured in 7 Days [Discharged]",
+        "handwrittenTitle": "Original Handwritten Chart by Dr. Kim",
+        "zoomBtn": "🔍 View Original High-Res",
+        "zoomHover": "🔍 Zoom In on Handwritten Notes",
+        "chartRecord": "📋 Key Medical Chart Records",
+        "camTitle": "Unedited Live Clinic Video",
+        "length": "Duration",
+        "fullscreenBtn": "⛶ Watch Fullscreen",
+        "archiveTitle": "📹 Sarang Animal Hospital 8 Live Clips Archive",
+        "archiveSubtitle": "Raw clinical videos recorded vertically on smartphone. (Click to play in high quality)",
+        "protocolSub": "Veterinary Clinical Protocol",
+        "listenCall": "🎙️ Listen to Dr. Kim's Voice Call Interview",
+        "videoClose": "Close Video",
+        "chartClose": "Close Chart",
+        "mineralSafe": "🌿 100% Natural Clay Mineral Formulation (Non-Animal Origin · Halal-Friendly · Zero Steroids · Zero Liver/Kidney Burden)"
     }
 }

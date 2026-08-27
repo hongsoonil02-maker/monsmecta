@@ -2,10 +2,11 @@
     "nav": {
         "products": "製品紹介",
         "clinical": "臨床データ",
+        "caseStudy": "臨床ドキュメンタリー",
         "values": "3大価値",
         "order": "クイック注文",
-        "noticeBtn": "알림판 만들기",
-        "skipToContent": "본문 바로가기",
+        "noticeBtn": "院内案内板の作成",
+        "skipToContent": "本文へスキップ",
         "lang": "言語を選択",
         "menuToggle": "モバイルメニュー開閉"
     },

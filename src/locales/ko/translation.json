@@ -314,5 +314,42 @@
         "priceLabel": "공급가",
         "priceTBD": "출시 예정 (가격미책정)",
         "elabelBtn": "E-Label 확인"
+    },
+    "a11y": {
+        "toolbarLabel": "웹 접근성 설정 도구",
+        "title": "접근성 설정 (A11y)",
+        "contrastOn": "고대비 켜기",
+        "contrastOff": "고대비 끄기",
+        "largeTextOn": "큰 글씨 모드",
+        "largeTextOff": "글씨 크기 복구",
+        "openMenu": "접근성 메뉴 열기"
+    },
+    "clinicalCase": {
+        "badge": "🎙️ 몬스멕타 자문위원 리얼 임상 다큐멘터리",
+        "title": "55일령 발작 환축의",
+        "titleHighlight": "7일간의 기적",
+        "subtitle": "하남 사랑동물병원 김동준 원장님이 환축의 생사를 다투며 직접 작성한 자필 수기 차트와 진료실 무편집 직캠 동영상 8편의 기록입니다.",
+        "patient": "환축 정보",
+        "patientVal": "토이푸들 ♂ (55일령)",
+        "symptom": "내원시 증상",
+        "symptomVal": "심한 발작·식욕전폐",
+        "kit": "5종 키트 검사",
+        "kitVal": "파보·코로나 음성(Neg)",
+        "prognosis": "최종 예후",
+        "prognosisVal": "7일 만에 완치 [퇴원]",
+        "handwrittenTitle": "김동준 원장 자필 차트 원본",
+        "zoomBtn": "🔍 원본 크게보기",
+        "zoomHover": "🔍 고해상도 자필 글씨 확대보기",
+        "chartRecord": "📋 자필 차트 주요 기록",
+        "camTitle": "진료실 무편집 직캠 비디오",
+        "length": "길이",
+        "fullscreenBtn": "⛶ 큰 화면 재생",
+        "archiveTitle": "📹 사랑동물병원 직캠 8대 영상 전편 아카이브",
+        "archiveSubtitle": "스마트폰 세로 직캠으로 촬영된 무편집 진료실 현장 영상입니다. (클릭 시 고화질 재생)",
+        "protocolSub": "Veterinary Clinical Protocol",
+        "listenCall": "🎙️ 김동준 원장 통화 육성 인터뷰 듣기",
+        "videoClose": "비디오 닫기",
+        "chartClose": "차트 닫기",
+        "mineralSafe": "🌿 100% 천연 점토 광물 미네랄 제제 (무동물성 성분 · 비스테로이드 · 간/신장 부담 제로)"
     }
 }

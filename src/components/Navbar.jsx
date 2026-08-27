@@ -97,8 +97,9 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-slate-600 hover:text-[#00513b] focus:outline-none"
+            className="md:hidden text-slate-600 hover:text-[#00513b] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00513b] min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl transition-colors"
             aria-label={t('nav.menuToggle')}
+            aria-expanded={isMobileMenuOpen}
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {isMobileMenuOpen ? (
