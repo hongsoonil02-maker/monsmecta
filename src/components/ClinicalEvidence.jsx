@@ -371,7 +371,7 @@ const ClinicalEvidence = ({ activeProduct }) => {
                 <span>요독 흡착 및 비뇨기 핵심 효능</span>
               </h3>
               <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
-                유리너리는 요독증 완화와 활력 증진을 위해 설계된 비뇨기/신장 특화 처방 솔루션입니다.
+                레날디톡스는 요독증 완화와 활력 증진을 위해 설계된 신장 디톡스 및 비뇨기 특화 처방 솔루션입니다.
               </p>
               <div className="space-y-3.5">
                 <div className="bg-indigo-50 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">

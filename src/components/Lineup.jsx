@@ -35,14 +35,39 @@ const Lineup = ({ setIsLabelModalOpen, setActiveProduct }) => {
               <div key={id} className="bg-[#003627] border border-[#00513b] rounded-2xl p-5 flex flex-col hover:border-[#007555] hover:shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all group">
                 <div className="text-3xl mb-4 transform group-hover:scale-110 transition-transform origin-left">{product.icon}</div>
                 <div className="mb-4 flex-1">
-                  <h3 className={`text-base font-bold mb-1 ${product.text}`}>{getProductDisplayName(product, isKoreanLang)}</h3>
+                  <div className="flex items-center justify-between gap-1 mb-1">
+                    <h3 className={`text-base font-bold ${product.text}`}>{getProductDisplayName(product, isKoreanLang)}</h3>
+                    {product.volume && (
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-black/40 text-slate-300 border border-white/10 shrink-0">{product.volume}</span>
+                    )}
+                  </div>
                   <p className="text-[10px] text-slate-500 mb-2 font-mono uppercase tracking-wider">{product.name_en}</p>
                   <p className="text-xs text-slate-400 leading-snug break-keep">{t(`products.${product.id}.desc`, { defaultValue: product.desc })}</p>
+                  
+                  {/* 가격 및 출시 상태 안내 */}
+                  <div className="mt-3 pt-2.5 border-t border-[#00513b]/60 flex items-center justify-between">
+                    <span className="text-[11px] text-emerald-300/80 font-medium">{t('lineup.priceLabel', '공급가')}</span>
+                    {product.price ? (
+                      <span className="text-xs font-black text-yellow-400 font-mono">
+                        {product.price.toLocaleString()}{t('order.won', '원')} <span className="text-[9px] text-slate-400 font-normal">(VAT포함)</span>
+                      </span>
+                    ) : (
+                      <span className="text-[10px] font-bold text-amber-300/90 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-800/40">
+                        {t('lineup.priceTBD', '출시 예정 (가격미책정)')}
+                      </span>
+                    )}
+                  </div>
                 </div>
                 <div className="space-y-2 mt-auto">
-                  {product.isComingSoon && (
-                    <div className="inline-block px-2 py-1 rounded-full bg-emerald-950 text-emerald-300 text-[10px] font-bold border border-emerald-800">
-                      {t('lineup.comingSoon', '출시 준비중')}
+                  {product.isComingSoon ? (
+                    <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-900/80 text-amber-300 text-[10px] font-bold border border-amber-600/30">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                      {t('lineup.comingSoon', '커밍순 (출시예정)')}
+                    </div>
+                  ) : (
+                    <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-300 text-[10px] font-bold border border-emerald-700/50">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                      {t('lineup.available', '공식 처방 가능')}
                     </div>
                   )}
                   <button
@@ -51,7 +76,7 @@ const Lineup = ({ setIsLabelModalOpen, setActiveProduct }) => {
                         setActiveProduct(id);
                         setIsLabelModalOpen(true);
                       } else {
-                        alert(t('lineup.comingSoonAlert', '출시 준비중인 제품입니다.'));
+                        alert(t('lineup.comingSoonAlert', '출시 준비중인 제품입니다. (가격 미책정)'));
                       }
                     }}
                     className="w-full py-2 bg-[#004a36] hover:bg-[#005c43] text-emerald-50 text-xs font-bold rounded-lg transition-colors flex items-center justify-center gap-1 border border-[#006045]"

@@ -96,8 +96,8 @@ export const LABEL_DATA = {
     ]
   },
   urinary: {
-    product_name: "몬스멕타 유리너리(URINARY)",
-    desc: "비뇨기계 및 신장 건강 보조제",
+    product_name: "몬스멕타 레날디톡스(RENAL DETOX)",
+    desc: "신장 요독 흡착 및 비뇨기 디톡스 보조제",
     feed1: "1일 두당 2~4ml",
     feed2: "음수량을 늘려주며 함께 급여 권장",
     feed3: "개, 고양이 등 반려동물 적용",
@@ -115,10 +115,10 @@ export const LABEL_DATA = {
     ingredients_list_val: "바실러스 서브틸리스, 아세트산나트륨, 프로피온산나트륨, 포도당, 몬모릴로나이트, 비타민A, 비타민D3, 비타민E, 비타민B1, 비타민B2, 비타민C, 니코틴산아미드, 판토텐산 칼슘, 정제수",
     effects: [
       "방광염 예방 및 비뇨기계 염증 완화",
-      "신장 수치 개선 및 요독 물질(BUN) 흡착 제거",
+      "신장 수치 개선 및 요독 물질(BUN) 강력 흡착 배출",
       "결석 재발 방지 및 음수량 증가 보조"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [

@@ -167,13 +167,14 @@
         "addProduct": "추가하기",
         "emptyProducts": "위에서 발주할 품목을 선택 후 '추가하기'를 눌러주세요.",
         "minOrderNotice": "* 최소 주문 수량: {{min}}병",
-        "validationMinQuantity": "최소 주문 수량은 {{min}}병입니다."
+        "validationMinQuantity": "최소 주문 수량은 {{min}}병입니다.",
+        "comingSoonCannotOrder": "해당 제품은 현재 출시 준비중(가격미책정)으로, 공식 출시 후 발주하실 수 있습니다."
     },
     "notice": {
         "title": "동물병원 알림판 커스텀 출력",
         "desc": "병원명, 주소, 연락처를 입력하시면 알림판 하단에 자동으로 적용됩니다.",
-        "printBtn": "A4 사이즈로 인쇄하기",
-        "printHelp": "인쇄 창이 뜨면 '머리글 및 바닥글' 옵션을 해제해주세요.",
+        "printBtn": "A4 알림판 인쇄하기",
+        "printHelp": "모바일 Wi-Fi 프린터 및 PC 인쇄를 모두 지원합니다. 인쇄 창에서 '머리글/바닥글'을 해제하시면 깔끔합니다.",
         "hospitalName": "동물병원명",
         "hospitalAddress": "병원주소(선택)",
         "hospitalTel": "병원전화번호(선택)",
@@ -183,7 +184,10 @@
         "hospitalTelPlaceholder": "예) 031-321-6562",
         "vetTelPlaceholder": "예) 010-1234-5678",
         "previewTitle": "알림판 미리보기",
-        "stickyBtn": "알림판 만들기"
+        "stickyBtn": "알림판 만들기",
+        "tabForm": "정보 입력",
+        "tabPreview": "알림판 미리보기",
+        "openNewTab": "새 창에서 원본 보기 & Wi-Fi 출력"
     },
     "label": {
         "header_eyebrow": "제품 상세 정보",
@@ -303,8 +307,11 @@
         "badge": "9월 초 10종 라인업 공식 런칭 예정",
         "title": "몬스멕타 <count>10종</count> 라인업",
         "subtitle": "반려동물의 증상과 상태에 맞춘 프리미엄 맞춤형 처방 솔루션",
-        "comingSoon": "출시 준비중",
-        "comingSoonAlert": "출시 준비중인 제품입니다.",
+        "comingSoon": "커밍순 (출시예정)",
+        "comingSoonAlert": "출시 준비중인 제품입니다. (가격 미책정)",
+        "available": "공식 처방 가능",
+        "priceLabel": "공급가",
+        "priceTBD": "출시 예정 (가격미책정)",
         "elabelBtn": "E-Label 확인"
     }
 }

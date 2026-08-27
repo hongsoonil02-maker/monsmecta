@@ -33,6 +33,11 @@ const OrderForm = ({
   const [selectedProduct, setSelectedProduct] = useState(Object.keys(PRODUCTS)[0]);
 
   const handleAddProduct = () => {
+    const p = PRODUCTS[selectedProduct];
+    if (!p || p.isComingSoon || !p.price) {
+      alert(t('order.comingSoonCannotOrder', '해당 제품은 현재 출시 준비중(가격미책정)으로, 공식 출시 후 발주하실 수 있습니다.'));
+      return;
+    }
     if ((quantities[selectedProduct] || 0) === 0) {
       setQuantities(prev => ({ ...prev, [selectedProduct]: 1 }));
     }
@@ -210,9 +215,20 @@ const OrderForm = ({
                     onChange={(e) => setSelectedProduct(e.target.value)}
                     className="flex-1 px-4 py-3 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none font-medium bg-white"
                   >
-                    {Object.values(PRODUCTS).map(p => (
-                      <option key={p.id} value={p.id}>{getProductDisplayName(p, isKoreanLang)}</option>
-                    ))}
+                    <optgroup label="✅ 즉시 발주 가능 품목">
+                      {Object.values(PRODUCTS).filter(p => !p.isComingSoon && p.price).map(p => (
+                        <option key={p.id} value={p.id}>
+                          {getProductDisplayName(p, isKoreanLang)} - {p.price.toLocaleString()}원 ({p.volume || '병'})
+                        </option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="⏳ 출시 예정 품목 (커밍순 / 가격미책정)">
+                      {Object.values(PRODUCTS).filter(p => p.isComingSoon || !p.price).map(p => (
+                        <option key={p.id} value={p.id} disabled>
+                          {getProductDisplayName(p, isKoreanLang)} [출시 예정 / 가격미책정]
+                        </option>
+                      ))}
+                    </optgroup>
                   </select>
                   <button
                     type="button"
@@ -244,8 +260,17 @@ const OrderForm = ({
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                         </button>
                         <div className="mb-4 md:mb-0 text-center md:text-left pr-8">
-                          <div className="font-black text-xl text-slate-800 tracking-tight">{getProductDisplayName(p, isKoreanLang)} <span className="text-sm font-bold text-slate-500">{t('order.unit')}</span></div>
-                          <div className="text-sm font-medium text-slate-500 mt-1">{t('order.supply_price')} <span className={`font-bold ${key === 'monsmecta' ? 'text-[#00513b]' : 'text-emerald-700'} ml-1`}>{p.price.toLocaleString()}{t('order.won')}</span> <span className="text-[10px]">{t('order.vat_included')}</span></div>
+                          <div className="font-black text-xl text-slate-800 tracking-tight">
+                            {getProductDisplayName(p, isKoreanLang)} 
+                            <span className="text-sm font-bold text-slate-500 ml-1.5">{p.volume ? `(${p.volume} / 병)` : t('order.unit', '(병)')}</span>
+                          </div>
+                          <div className="text-sm font-medium text-slate-500 mt-1">
+                            {t('order.supply_price')}{' '}
+                            <span className={`font-bold ${key === 'monsmecta' ? 'text-[#00513b]' : 'text-emerald-700'} ml-1 font-mono text-base`}>
+                              {p.price ? p.price.toLocaleString() : '0'}{t('order.won')}
+                            </span>{' '}
+                            <span className="text-[10px] text-slate-500">{t('order.vat_included')}</span>
+                          </div>
                         </div>
                         <div className={`flex items-center bg-white border ${key === 'monsmecta' ? 'border-slate-200' : 'border-emerald-200'} rounded-xl overflow-hidden shadow-sm shrink-0`}>
                           <button type="button" onClick={() => setQuantities(prev => ({ ...prev, [key]: Math.max(1, prev[key] - 1) }))} className={`w-12 h-12 flex items-center justify-center ${key === 'monsmecta' ? 'bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b]' : 'bg-emerald-50 text-slate-600 hover:bg-emerald-100 hover:text-emerald-800'} text-xl font-black transition-colors`}>-</button>

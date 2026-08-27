@@ -159,13 +159,14 @@
         "addProduct": "Add",
         "emptyProducts": "Select a product above and press 'Add' to build your order.",
         "minOrderNotice": "* Minimum order quantity: {{min}} bottles",
-        "validationMinQuantity": "The minimum order quantity is {{min}} bottles."
+        "validationMinQuantity": "The minimum order quantity is {{min}} bottles.",
+        "comingSoonCannotOrder": "This product is coming soon (price TBD) and will be available after official launch."
     },
     "notice": {
         "title": "Custom Animal Hospital Notice Board Printing",
         "desc": "Enter your hospital name, address, and contact information and they will be automatically applied to the bottom of the notice board.",
-        "printBtn": "Print in A4 Size",
-        "printHelp": "When the print window appears, uncheck the 'Headers and footers' option.",
+        "printBtn": "Print A4 Notice Board",
+        "printHelp": "Supports both mobile Wi-Fi printing and PC printing. Uncheck 'Headers and footers' in the print dialog for best results.",
         "hospitalName": "Hospital Name",
         "hospitalAddress": "Hospital Address (Optional)",
         "hospitalTel": "Hospital Phone (Optional)",
@@ -175,7 +176,10 @@
         "hospitalTelPlaceholder": "e.g., 031-321-6562",
         "vetTelPlaceholder": "e.g., 010-1234-5678",
         "previewTitle": "Notice Board Preview",
-        "stickyBtn": "Make a Notice Board"
+        "stickyBtn": "Make a Notice Board",
+        "tabForm": "Input Details",
+        "tabPreview": "Poster Preview",
+        "openNewTab": "Open in New Window & Wi-Fi Print"
     },
     "label": {
         "header_eyebrow": "Product Details",
@@ -296,12 +300,15 @@
         "title": "The MONSMECTA <count>10-product</count> lineup",
         "subtitle": "Premium prescription solutions tailored to your pet's symptoms and condition",
         "comingSoon": "Coming soon",
-        "comingSoonAlert": "This product is coming soon.",
+        "comingSoonAlert": "This product is coming soon (price TBD).",
+        "available": "Available for Order",
+        "priceLabel": "Supply Price",
+        "priceTBD": "Coming Soon (Price TBD)",
         "elabelBtn": "View E-Label"
     },
     "products": {
         "hepamax": {
-            "desc": "Liver function & gut health support supplement"
+            "desc": "Liver function & gut health support supplement (30ml)"
         },
         "cancercare": {
             "desc": "Immune support & tumor care supplement"
@@ -325,7 +332,7 @@
             "desc": "Premium probiotics with DuPont Danisco strains"
         },
         "urinary": {
-            "desc": "Urinary & kidney health supplement"
+            "desc": "Kidney detox & urinary health support supplement"
         },
         "vitaplus": {
             "desc": "Comprehensive vitamin & mineral supplement"
