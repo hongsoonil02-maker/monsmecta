@@ -13,9 +13,11 @@ export default function ClinicalCaseStudy() {
   const [modalVideo, setModalVideo] = useState(null);
   const videoRef = useRef(null);
 
+  const docuVideoUrl = `${import.meta.env.BASE_URL}assets/kimdongjun_clinical_documentary_v2.mp4?v=20260828b`;
+
   const handleCopyDocuLink = (e) => {
     e.stopPropagation();
-    const url = 'https://monsmecta.kr/assets/kimdongjun_clinical_documentary.mp4';
+    const url = 'https://monsmecta.kr/assets/kimdongjun_clinical_documentary_v2.mp4';
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(url).then(() => {
         setCopySuccess(true);
@@ -573,13 +575,14 @@ export default function ClinicalCaseStudy() {
             {/* 스마트폰 9:16 세로 핏 비디오 컨테이너 */}
             <div className="w-full max-w-[300px] sm:max-w-[320px] mx-auto aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-2xl border border-emerald-500/30 flex items-center justify-center relative">
               <video
+                key="docu-video-v2"
                 controls
                 autoPlay
                 playsInline
                 aria-label="김동준 원장 55일령 발작 환축 7일간의 기적 다큐멘터리"
                 className="w-full h-full object-cover"
               >
-                <source src={`${import.meta.env.BASE_URL}assets/kimdongjun_clinical_documentary.mp4`} type="video/mp4" />
+                <source src={docuVideoUrl} type="video/mp4" />
                 브라우저가 비디오를 지원하지 않습니다.
               </video>
             </div>
@@ -593,8 +596,8 @@ export default function ClinicalCaseStudy() {
                 <span>{copySuccess ? '✅ 영상 링크 복사완료!' : '🔗 카톡/모바일 공유 링크 복사'}</span>
               </button>
               <a
-                href={`${import.meta.env.BASE_URL}assets/kimdongjun_clinical_documentary.mp4`}
-                download="김동준원장_55일령발작환축_7일임상다큐.mp4"
+                href={docuVideoUrl}
+                download="김동준원장_55일령발작환축_7일임상다큐_v2.mp4"
                 className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-xl transition-colors flex items-center justify-center gap-1 shrink-0 text-center"
               >
                 <span>📥 MP4 다운로드</span>

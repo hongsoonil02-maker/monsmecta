@@ -11,8 +11,9 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 WORKDIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS_DIR = os.path.join(WORKDIR, "public", "assets")
-TEMP_DIR = os.path.join(WORKDIR, "temp_docu")
-OUTPUT_VIDEO = os.path.join(ASSETS_DIR, "kimdongjun_clinical_documentary.mp4")
+TEMP_DIR = os.path.join(WORKDIR, "temp_docu_v2")
+OUTPUT_VIDEO_V2 = os.path.join(ASSETS_DIR, "kimdongjun_clinical_documentary_v2.mp4")
+OUTPUT_VIDEO_LEGACY = os.path.join(ASSETS_DIR, "kimdongjun_clinical_documentary.mp4")
 
 os.makedirs(TEMP_DIR, exist_ok=True)
 os.makedirs(ASSETS_DIR, exist_ok=True)
@@ -27,15 +28,14 @@ def get_font(size, bold=True):
     except Exception:
         return ImageFont.load_default()
 
-# 1. 씬 구성 정의 (정확히 정렬된 2줄 자막 및 비디오 플레이어 안전구역 반영)
+# 1. 씬 구성 정의 (균형 잡힌 2줄 분할, 텍스트 오버플로우 제로 보장)
 SCENES = [
     {
         "id": "scene_01",
         "type": "title_card",
-        "badge": "🎙️ 몬스멕타 자문위원 리얼 임상 다큐멘터리",
-        "title": "55일령 발작 환축의 7일간의 기적",
-        "sub_badge": "🚨 긴급 응급 내원 (2026. 07. 28)",
-        "subtitle": "하남 사랑동물병원 김동준 원장의 실제 임상 치료 일지",
+        "badge": "[임상 다큐] 몬스멕타 자문위원 리얼 치료 일지",
+        "title": "55일령 발작 환축의\n7일간의 기적",
+        "subtitle": "하남 사랑동물병원 김동준 원장의 실제 임상 치료 기록",
         "script": "하남 사랑동물병원 김동준 원장의 실제 임상 치료 일지. 생후 55일 된 환축의 7일간의 기적 같은 회복 다큐멘터리입니다.",
         "duration": 11.5
     },
@@ -45,7 +45,7 @@ SCENES = [
         "video_file": os.path.join(ASSETS_DIR, "kimdongjun_case_01.mp4"),
         "step": "STEP 1 : 내원 당시 급성 전신 발작(Seizure)",
         "patient_info": "환축: 토이푸들 ♂ (55일령) | 안락사 위기",
-        "sub_text": "2026년 7월 28일 저녁, 어린 토이푸들이 스스로 서지 못하고\n온몸을 떨며 응급 내원했습니다. (안락사 위기의 순간)",
+        "sub_text": "2026년 7월 28일 저녁, 어린 토이푸들이\n스스로 서지 못하고 온몸을 떨며 응급 내원했습니다.",
         "script": "2026년 7월 28일 저녁, 어린 토이푸들이 스스로 서지 못하고 온몸을 떨며 응급 내원했습니다. 안락사까지 거론되던 위급한 순간이었습니다.",
         "min_duration": 13.5
     },
@@ -73,7 +73,7 @@ SCENES = [
         "id": "scene_05",
         "type": "chart_card",
         "chart_file": os.path.join(ASSETS_DIR, "clinical", "chart_day1_day2.jpg"),
-        "badge": "📋 김동준 원장 자필 차트 (Day 1 ~ Day 2)",
+        "badge": "[김동준 원장 자필 차트] Day 1 ~ Day 2",
         "step": "투약 수 시간 만에 경련 진정 · 익일 종합백신 접종",
         "sub_text": "투약 몇 시간 만에 심한 경련이 진정되었고,\n익일 새벽 종합백신 접종이 가능할 정도로 급호전되었습니다.",
         "script": "투약 몇 시간 만에 심한 경련이 진정되었고, 다음 날 새벽에는 종합백신 접종이 가능할 정도로 활력이 급호전되었습니다.",
@@ -122,7 +122,7 @@ SCENES = [
     {
         "id": "scene_10",
         "type": "outro_card",
-        "badge": "🌿 김동준 원장의 소아 자견 급성 허탈 3단계 프로토콜",
+        "badge": "[치료 프로토콜] 소아 자견 급성 허탈 3단계 요약",
         "step": "1단계 몬스멕타 장독소 배출 → 2단계 베타루킨 장면역 → 3단계 헤파맥스 간해독",
         "title": "동물병원 전용 처방 솔루션 MONSMECTA",
         "sub_text": "원인불명 급성 소화기 허탈의 1차 해답.\n수의사의 진료 권위를 지키는 동물병원 전용 처방 솔루션",
@@ -145,13 +145,11 @@ def create_text_image(draw, text, pos, font, fill, stroke_fill=None, stroke_widt
         draw.text((line_x, cur_y), line, font=font, fill=fill, stroke_fill=stroke_fill, stroke_width=stroke_width)
         cur_y += font.size * 1.35
 
-# 핵심: 자막이 검은 박스를 절대 벗어나지 않도록 하고, 하단 플레이어 바에 가리지 않는 안전 영역(1440~1670)에 렌더링
-def draw_subtitle_box(draw, text, font, box_y1=1450, box_y2=1670, max_w=820):
-    box_x1, box_x2 = 60, 1020
-    # 검은색 반투명 라운드 박스 + 에메랄드 테두리
-    draw.rounded_rectangle([(box_x1, box_y1), (box_x2, box_y2)], radius=28, fill=(0, 0, 0, 230), outline=(16, 185, 129, 220), width=3)
+# 1000px 너비 박스 + 1420~1640 세이프존 (하단 컨트롤 바 여백 280px 확보)
+def draw_subtitle_box(draw, text, font, box_y1=1420, box_y2=1640, max_w=900):
+    box_x1, box_x2 = 40, 1040
+    draw.rounded_rectangle([(box_x1, box_y1), (box_x2, box_y2)], radius=28, fill=(0, 0, 0, 235), outline=(16, 185, 129, 220), width=3)
     
-    # 텍스트 오버플로우 방지 자동 줄바꿈
     raw_lines = text.split("\n")
     lines = []
     for r in raw_lines:
@@ -204,7 +202,7 @@ def create_title_card_image(scene, out_png):
 
     draw.rounded_rectangle([(120, 910), (960, 1310)], radius=30, fill=(0, 40, 29, 240), outline=(5, 150, 105, 180), width=3)
     font_card_head = get_font(36, True)
-    create_text_image(draw, "📋 [초진 응급 프로파일]", (540, 950), font_card_head, (250, 204, 21, 255), align="center")
+    create_text_image(draw, "[ 초진 응급 프로파일 ]", (540, 950), font_card_head, (250, 204, 21, 255), align="center")
 
     font_spec = get_font(34, False)
     specs = [
@@ -221,7 +219,7 @@ def create_title_card_image(scene, out_png):
 
     draw.rounded_rectangle([(140, 1440), (940, 1540)], radius=50, fill=(234, 179, 8, 230))
     font_btn = get_font(42, True)
-    create_text_image(draw, "🩺 안락사 위기에서 100% 완치까지", (540, 1465), font_btn, (0, 60, 42, 255), align="center")
+    create_text_image(draw, "안락사 위기에서 100% 완치까지", (540, 1465), font_btn, (0, 60, 42, 255), align="center")
 
     img.save(out_png, "PNG")
 
@@ -242,25 +240,23 @@ def create_chart_scene_image(scene, out_png):
         img.paste(chart_resized, (60, 190))
         draw.rectangle([(58, 188), (60 + target_w + 2, 190 + target_h + 2)], outline=(52, 211, 153, 200), width=3)
 
-    # Highlights Box
-    draw.rounded_rectangle([(60, 1150), (1020, 1410)], radius=24, fill=(0, 40, 29, 240), outline=(250, 204, 21, 200), width=3)
+    draw.rounded_rectangle([(60, 1140), (1020, 1390)], radius=24, fill=(0, 40, 29, 240), outline=(250, 204, 21, 200), width=3)
     font_hl_title = get_font(34, True)
-    create_text_image(draw, "✨ 김동준 원장 자필 차트 핵심 내용", (540, 1175), font_hl_title, (250, 204, 21, 255), align="center")
+    create_text_image(draw, "김동준 원장 자필 차트 핵심 기록", (540, 1165), font_hl_title, (250, 204, 21, 255), align="center")
 
     font_hl = get_font(30, False)
     hls = [
-        "✔ 7/28 18:50 내원 즉시 몬스멕타 1차 투약 후 경련 진정",
-        "✔ 7/28 20:00 2차 몬스멕타 투약 후 안락사 위기 극복",
-        "✔ 7/29 05:50 상태 급호전으로 DHPPL 1차 종합백신 접종"
+        "• 7/28 18:50 내원 즉시 몬스멕타 1차 투약 후 경련 진정",
+        "• 7/28 20:00 2차 몬스멕타 투약 후 안락사 위기 극복",
+        "• 7/29 05:50 상태 급호전으로 DHPPL 1차 종합백신 접종"
     ]
-    hy = 1235
+    hy = 1225
     for h in hls:
         draw.text((100, hy), h, font=font_hl, fill=(241, 245, 249, 255))
-        hy += 52
+        hy += 50
 
-    # Subtitle Box in Safe Zone (1450~1670)
     font_sub = get_font(31, True)
-    draw_subtitle_box(draw, scene["sub_text"], font_sub, box_y1=1450, box_y2=1670)
+    draw_subtitle_box(draw, scene["sub_text"], font_sub, box_y1=1420, box_y2=1640)
 
     img.save(out_png, "PNG")
 
@@ -286,22 +282,20 @@ def create_outro_card_image(scene, out_png):
     font_st_prod = get_font(34, True)
     font_st_desc = get_font(26, False)
     for title, prod, desc, color in steps:
-        draw.rounded_rectangle([(80, sy), (1000, sy + 270)], radius=20, fill=(10, 35, 26, 240), outline=color, width=3)
-        draw.text((110, sy + 20), title, font=font_st_title, fill=color)
-        draw.text((110, sy + 68), f"처방: {prod}", font=font_st_prod, fill=(255, 255, 255, 255))
-        create_text_image(draw, desc, (110, sy + 130), font_st_desc, (203, 213, 225, 255))
-        sy += 295
+        draw.rounded_rectangle([(80, sy), (1000, sy + 265)], radius=20, fill=(10, 35, 26, 240), outline=color, width=3)
+        draw.text((110, sy + 18), title, font=font_st_title, fill=color)
+        draw.text((110, sy + 64), f"처방: {prod}", font=font_st_prod, fill=(255, 255, 255, 255))
+        create_text_image(draw, desc, (110, sy + 125), font_st_desc, (203, 213, 225, 255))
+        sy += 290
 
-    # Monsmecta Final Callout
-    draw.rounded_rectangle([(80, 1310), (1000, 1420)], radius=24, fill=(0, 81, 59, 255), outline=(52, 211, 153, 255), width=3)
+    draw.rounded_rectangle([(80, 1290), (1000, 1395)], radius=24, fill=(0, 81, 59, 255), outline=(52, 211, 153, 255), width=3)
     font_brand = get_font(42, True)
-    create_text_image(draw, "MONSMECTA", (540, 1325), font_brand, (250, 204, 21, 255), align="center")
+    create_text_image(draw, "MONSMECTA", (540, 1305), font_brand, (250, 204, 21, 255), align="center")
     font_sub_brand = get_font(26, True)
-    create_text_image(draw, "동물병원 전용 처방 솔루션 · 에스앤제이 동물병원", (540, 1375), font_sub_brand, (209, 250, 229, 255), align="center")
+    create_text_image(draw, "동물병원 전용 처방 솔루션 · 에스앤제이 동물병원", (540, 1355), font_sub_brand, (209, 250, 229, 255), align="center")
 
-    # Subtitle Box in Safe Zone (1450~1670)
     font_sub = get_font(31, True)
-    draw_subtitle_box(draw, scene["sub_text"], font_sub, box_y1=1450, box_y2=1670)
+    draw_subtitle_box(draw, scene["sub_text"], font_sub, box_y1=1420, box_y2=1640)
 
     img.save(out_png, "PNG")
 
@@ -309,7 +303,6 @@ def create_video_overlay_image(scene, out_png):
     img = Image.new("RGBA", (1080, 1920), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
 
-    # Top Step Banner
     draw.rounded_rectangle([(60, 80), (1020, 180)], radius=24, fill=(0, 45, 32, 235), outline=(52, 211, 153, 220), width=3)
     font_step = get_font(34, True)
     create_text_image(draw, scene["step"], (540, 100), font_step, (250, 204, 21, 255), align="center")
@@ -317,14 +310,13 @@ def create_video_overlay_image(scene, out_png):
     font_pat = get_font(28, True)
     create_text_image(draw, scene["patient_info"], (540, 142), font_pat, (209, 250, 229, 255), align="center")
 
-    # Bottom Subtitle Box in Safe Zone (1450~1670)
     font_sub = get_font(31, True)
-    draw_subtitle_box(draw, scene["sub_text"], font_sub, box_y1=1450, box_y2=1670)
+    draw_subtitle_box(draw, scene["sub_text"], font_sub, box_y1=1420, box_y2=1640)
 
     img.save(out_png, "PNG")
 
 async def main():
-    print("=== 김동준 원장 임상 다큐멘터리 제작 시작 (자막 개선 버전) ===")
+    print("=== 김동준 원장 임상 다큐멘터리 제작 시작 (v2 완전 개선본) ===")
     
     import edge_tts
     scene_clips = []
@@ -339,7 +331,6 @@ async def main():
         res = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', audio_path], capture_output=True, text=True)
         voice_dur = float(res.stdout.strip())
         sc["voice_duration"] = voice_dur
-        print(f"  -> 음성 길이: {voice_dur:.2f}초")
 
         overlay_png = os.path.join(TEMP_DIR, f"{sc['id']}_overlay.png")
         if sc["type"] == "title_card":
@@ -427,13 +418,16 @@ async def main():
         "-i", raw_output,
         "-c:v", "libx264", "-crf", "25", "-preset", "medium", "-pix_fmt", "yuv420p",
         "-c:a", "aac", "-b:a", "128k", "-ar", "48000",
-        OUTPUT_VIDEO
+        OUTPUT_VIDEO_V2
     ]
     subprocess.run(opt_cmd, check=True)
 
-    print(f"\n🎉 자막 개선된 최종 다큐멘터리 비디오 생성 완료: {OUTPUT_VIDEO}")
+    # Legacy copy for compatibility
+    shutil.copy2(OUTPUT_VIDEO_V2, OUTPUT_VIDEO_LEGACY)
 
-    res = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size', '-of', 'json', OUTPUT_VIDEO], capture_output=True, text=True)
+    print(f"\n🎉 최종 다큐멘터리 v2 비디오 생성 완료: {OUTPUT_VIDEO_V2}")
+
+    res = subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size', '-of', 'json', OUTPUT_VIDEO_V2], capture_output=True, text=True)
     info = json.loads(res.stdout)
     tot_dur = float(info['format']['duration'])
     tot_size_mb = int(info['format']['size']) / (1024 * 1024)
