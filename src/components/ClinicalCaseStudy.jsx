@@ -8,8 +8,23 @@ export default function ClinicalCaseStudy() {
   const [selectedVideo, setSelectedVideo] = useState(CLINICAL_CASE_DATA.videos[0]);
   const [isChartModalOpen, setIsChartModalOpen] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isDocuModalOpen, setIsDocuModalOpen] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
   const [modalVideo, setModalVideo] = useState(null);
   const videoRef = useRef(null);
+
+  const handleCopyDocuLink = (e) => {
+    e.stopPropagation();
+    const url = 'https://monsmecta.kr/assets/kimdongjun_clinical_documentary.mp4';
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(() => {
+        setCopySuccess(true);
+        setTimeout(() => setCopySuccess(false), 2500);
+      });
+    } else {
+      alert('동영상 링크: ' + url);
+    }
+  };
 
   const currentChart = CLINICAL_CASE_DATA.charts[activePhaseIndex];
   const phaseVideos = CLINICAL_CASE_DATA.videos.filter(v => v.phaseKey === currentChart.id);
@@ -49,11 +64,12 @@ export default function ClinicalCaseStudy() {
       if (e.key === 'Escape') {
         if (isChartModalOpen) setIsChartModalOpen(false);
         if (isVideoModalOpen) setIsVideoModalOpen(false);
+        if (isDocuModalOpen) setIsDocuModalOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isChartModalOpen, isVideoModalOpen]);
+  }, [isChartModalOpen, isVideoModalOpen, isDocuModalOpen]);
 
   return (
     <section 
@@ -69,7 +85,7 @@ export default function ClinicalCaseStudy() {
       <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
         
         {/* 헤더 섹션 */}
-        <header className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <header className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/90 border border-emerald-400/40 text-emerald-300 text-xs sm:text-sm font-black mb-4 shadow-lg shadow-emerald-950/50">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" aria-hidden="true" />
             {t('clinicalCase.badge', '🎙️ 몬스멕타 자문위원 리얼 임상 다큐멘터리')}
@@ -111,6 +127,42 @@ export default function ClinicalCaseStudy() {
             </div>
           </div>
         </header>
+
+        {/* 2분 54초 리얼 다큐멘터리 완성본 스페셜 쇼케이스 & 원클릭 공유 배너 */}
+        <div className="mb-10 max-w-4xl mx-auto p-4 sm:p-6 bg-gradient-to-r from-emerald-950 via-[#003828] to-slate-900 rounded-3xl border-2 border-emerald-400/50 shadow-2xl shadow-emerald-950/80 text-start flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-400/10 blur-3xl pointer-events-none" />
+          
+          <div className="space-y-2 z-10 flex-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-3 py-1 bg-yellow-400 text-slate-950 text-[11px] sm:text-xs font-black rounded-full shadow-sm">
+                🎬 2분 54초 풀 다큐멘터리 완성본
+              </span>
+              <span className="text-xs text-emerald-300 font-bold">1080p 세로 직캠 + AI 성우 내레이션</span>
+            </div>
+            <h3 className="text-base sm:text-2xl font-black text-white leading-snug break-keep">
+              55일령 발작 토이푸들의 7일간의 기적 (전편 통합본)
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl break-keep">
+              응급 내원부터 1차 펌프 투약, 신경 반사 회복, 캔사료 폭풍 완식 먹방, 그리고 최종 완치 퇴원까지 8편의 직캠과 자필 차트를 2분 54초의 감동적인 다큐멘터리로 감상하고 동료 수의사분들께 바로 공유해 보세요.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row items-stretch sm:items-center gap-2.5 w-full md:w-auto shrink-0 z-10">
+            <button
+              onClick={() => setIsDocuModalOpen(true)}
+              className="px-6 py-3.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-slate-950 font-black text-sm rounded-2xl shadow-xl shadow-yellow-500/20 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span className="text-lg">▶</span>
+              <span>다큐 영상 전체 시청</span>
+            </button>
+            <button
+              onClick={handleCopyDocuLink}
+              className="px-4 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm rounded-2xl border border-white/20 hover:border-white/40 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+            >
+              <span>{copySuccess ? '✅ 링크 복사됨!' : '🔗 영상 링크 복사'}</span>
+            </button>
+          </div>
+        </div>
 
         {/* 3단계 타임라인 스텝퍼 탭 */}
         <nav aria-label="임상 경과 타임라인" className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 max-w-4xl mx-auto mb-10">
@@ -483,6 +535,71 @@ export default function ClinicalCaseStudy() {
             <p className="text-xs text-slate-300 mt-3 leading-relaxed bg-white/5 p-3 rounded-xl border border-white/5 text-start">
               {modalVideo.desc}
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* 2분 54초 리얼 다큐멘터리 전편 전체화면 모달 */}
+      {isDocuModalOpen && (
+        <div 
+          role="dialog"
+          aria-modal="true"
+          aria-label="55일령 발작 환축의 7일간의 기적 다큐멘터리"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-4"
+          onClick={() => setIsDocuModalOpen(false)}
+        >
+          <div 
+            className="relative max-w-sm sm:max-w-md w-full bg-slate-900/95 rounded-3xl p-4 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-3 text-start">
+              <div>
+                <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-yellow-400 text-slate-950 me-2 inline-block">
+                  🎬 2분 54초 풀 다큐멘터리
+                </span>
+                <h4 className="text-sm sm:text-base font-bold text-white block mt-1">
+                  55일령 발작 환축의 7일간의 기적
+                </h4>
+              </div>
+              <button
+                onClick={() => setIsDocuModalOpen(false)}
+                className="w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 cursor-pointer"
+                aria-label="다큐멘터리 닫기"
+              >
+                ✕
+              </button>
+            </div>
+            
+            {/* 스마트폰 9:16 세로 핏 비디오 컨테이너 */}
+            <div className="w-full max-w-[300px] sm:max-w-[320px] mx-auto aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-2xl border border-emerald-500/30 flex items-center justify-center relative">
+              <video
+                controls
+                autoPlay
+                playsInline
+                aria-label="김동준 원장 55일령 발작 환축 7일간의 기적 다큐멘터리"
+                className="w-full h-full object-cover"
+              >
+                <source src={`${import.meta.env.BASE_URL}assets/kimdongjun_clinical_documentary.mp4`} type="video/mp4" />
+                브라우저가 비디오를 지원하지 않습니다.
+              </video>
+            </div>
+
+            {/* 원클릭 모바일 공유 & 다운로드 버튼군 */}
+            <div className="mt-4 pt-3 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+              <button
+                onClick={handleCopyDocuLink}
+                className="flex-1 py-2.5 bg-[#00513b] hover:bg-[#003d2b] text-white text-xs font-bold rounded-xl transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-emerald-950/60"
+              >
+                <span>{copySuccess ? '✅ 영상 링크 복사완료!' : '🔗 카톡/모바일 공유 링크 복사'}</span>
+              </button>
+              <a
+                href={`${import.meta.env.BASE_URL}assets/kimdongjun_clinical_documentary.mp4`}
+                download="김동준원장_55일령발작환축_7일임상다큐.mp4"
+                className="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-bold rounded-xl transition-colors flex items-center justify-center gap-1 shrink-0 text-center"
+              >
+                <span>📥 MP4 다운로드</span>
+              </a>
+            </div>
           </div>
         </div>
       )}
