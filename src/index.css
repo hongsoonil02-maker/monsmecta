@@ -29,21 +29,33 @@ body {
 }
 
 .high-contrast {
-  filter: contrast(150%) saturate(150%) brightness(95%);
-  background-color: #000 !important;
-  color: #fff !important;
+  filter: contrast(140%) brightness(105%);
 }
 .large-text {
+  font-size: 115% !important;
+}
+.large-text h1, .large-text h2, .large-text h3 {
+  font-size: 115% !important;
+}
+.large-text p, .large-text span, .large-text button, .large-text a {
   font-size: 110% !important;
 }
-.large-text h1 { font-size: 120% !important; }
-.large-text h2 { font-size: 115% !important; }
-.large-text p { font-size: 110% !important; }
 
-/* Modal / section enter animations (used with tailwind 'animate-in fade-in zoom-in' style classes) */
-@keyframes mm-enter {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+/* 움직임 줄이기 (전정기관 장애 및 멀미 방지) */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* 가독성 향상 모드 (난독증 및 시각 약자 배려) */
+.readable-font {
+  letter-spacing: 0.06em !important;
+  line-height: 1.85 !important;
+  word-spacing: 0.12em !important;
 }
 .animate-in {
   animation: mm-enter 0.3s ease-out both;

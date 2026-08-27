@@ -317,12 +317,19 @@
     },
     "a11y": {
         "toolbarLabel": "웹 접근성 설정 도구",
-        "title": "접근성 설정 (A11y)",
+        "title": "장애인 접근 편의 도구",
         "contrastOn": "고대비 켜기",
         "contrastOff": "고대비 끄기",
-        "largeTextOn": "큰 글씨 모드",
+        "largeTextOn": "큰 글씨 확대",
         "largeTextOff": "글씨 크기 복구",
-        "openMenu": "접근성 메뉴 열기"
+        "openMenu": "장애인 접근 편의 도구 열기",
+        "reduceMotionOn": "움직임 줄이기",
+        "reduceMotionOff": "움직임 효과 켜기",
+        "readableFontOn": "가독성 줄간격 확대",
+        "readableFontOff": "기본 줄간격 복구",
+        "readAloudOn": "본문 음성 읽기",
+        "readAloudOff": "음성 읽기 멈춤",
+        "ttsNotSupported": "현재 브라우저에서는 음성 읽기 기능을 지원하지 않습니다."
     },
     "clinicalCase": {
         "badge": "🎙️ 몬스멕타 자문위원 리얼 임상 다큐멘터리",
@@ -350,6 +357,20 @@
         "listenCall": "🎙️ 김동준 원장 통화 육성 인터뷰 듣기",
         "videoClose": "비디오 닫기",
         "chartClose": "차트 닫기",
-        "mineralSafe": "🌿 100% 천연 점토 광물 미네랄 제제 (무동물성 성분 · 비스테로이드 · 간/신장 부담 제로)"
+        "mineralSafe": "🌿 100% 천연 점토 광물 미네랄 제제 (무동물성 성분 · 비스테로이드 · 간/신장 부담 제로)",
+        "docuBadge": "🎬 2분 54초 풀 다큐멘터리 완성본",
+        "docuSpec": "1080p 세로 직캠 + AI 성우 내레이션",
+        "docuBannerTitle": "55일령 발작 토이푸들의 7일간의 기적 (전편 통합본)",
+        "docuBannerDesc": "응급 내원부터 1차 펌프 투약, 신경 반사 회복, 캔사료 폭풍 완식 먹방, 그리고 최종 완치 퇴원까지 8편의 직캠과 자필 차트를 2분 54초의 감동적인 다큐멘터리로 감상하고 동료 수의사분들께 바로 공유해 보세요.",
+        "docuWatchBtn": "다큐 영상 전체 시청",
+        "docuCopyBtn": "영상 링크 복사",
+        "docuCopied": "링크 복사됨!",
+        "docuDownload": "MP4 다운로드",
+        "docuModalBadge": "🎬 2분 54초 풀 다큐멘터리",
+        "docuModalTitle": "55일령 발작 환축의 7일간의 기적",
+        "docuCopyBtnMobile": "🔗 카톡/모바일 공유 링크 복사",
+        "docuTranscriptBtn": "다큐멘터리 전체 자막/대본 전문 보기",
+        "docuTranscriptShow": "▼ 전문 펼치기",
+        "docuTranscriptHide": "▲ 닫기"
     }
 }

@@ -243,7 +243,6 @@ const MonsmectaSNJLanding = () => {
       </a>
 
       <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
-      <A11yToolbar />
       <main id="main-content">
         <Hero setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <Lineup setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
@@ -300,6 +299,7 @@ const MonsmectaSNJLanding = () => {
       <LegalModal legalType={legalType} setLegalType={setLegalType} />
       <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
       <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />
+      <A11yToolbar />
       <Chatbot />
     </div>
   );

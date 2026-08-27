@@ -67,7 +67,7 @@ export default function Chatbot() {
   if (typeof document === 'undefined') return null;
 
   return createPortal((
-    <div className="fixed bottom-[calc(5.2rem+env(safe-area-inset-bottom,0px))] right-3 z-50 sm:right-6">
+    <div className="fixed bottom-[calc(5.2rem+env(safe-area-inset-bottom,0px))] right-3 z-[80] sm:right-6">
       {/* 챗봇 토글 버튼 */}
       <button
         onClick={toggleChat}

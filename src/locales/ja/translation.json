@@ -299,5 +299,37 @@
         "comingSoon": "発売準備中",
         "comingSoonAlert": "この製品は発売準備中です。",
         "elabelBtn": "Eラベルを見る"
+    },
+    "a11y": {
+        "toolbarLabel": "アクセシビリティ設定ツール",
+        "title": "アクセシビリティ・支援ツール",
+        "contrastOn": "ハイコントラスト ON",
+        "contrastOff": "ハイコントラスト OFF",
+        "largeTextOn": "大きな文字",
+        "largeTextOff": "標準文字サイズ",
+        "reduceMotionOn": "動きを減らす",
+        "reduceMotionOff": "動きを有効化",
+        "readableFontOn": "読みやすい行間拡大",
+        "readableFontOff": "標準行間",
+        "readAloudOn": "音声読み上げ (TTS)",
+        "readAloudOff": "読み上げ停止",
+        "ttsNotSupported": "お使いのブラウザは音声読み上げに対応していません。",
+        "openMenu": "アクセシビリティメニューを開く"
+    },
+    "clinicalCase": {
+        "docuBadge": "🎬 2分54秒 フルドキュメンタリー完成版",
+        "docuSpec": "1080p 縦型直撮り映像 + AI音声ナレーション",
+        "docuBannerTitle": "生後55日 痙攣発作パピー 7日間の奇跡 (全編統合版)",
+        "docuBannerDesc": "緊急来院から第1回投与、神経反射回復、旺盛な食欲の復活、そして完治退院まで。8本の未編集動画と手書きカルテを収めた2分54秒のドキュメンタリーをご覧ください。",
+        "docuWatchBtn": "ドキュメンタリー全編を視聴",
+        "docuCopyBtn": "動画リンクをコピー",
+        "docuCopied": "リンクをコピーしました！",
+        "docuDownload": "MP4ダウンロード",
+        "docuModalBadge": "🎬 2分54秒 フルドキュメンタリー",
+        "docuModalTitle": "生後55日 痙攣発作患畜の7日間の奇跡",
+        "docuCopyBtnMobile": "🔗 モバイル共有リンクをコピー",
+        "docuTranscriptBtn": "ドキュメンタリー全字幕・台本を表示",
+        "docuTranscriptShow": "▼ 台本を展開",
+        "docuTranscriptHide": "▲ 閉じる"
     }
 }

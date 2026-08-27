@@ -303,13 +303,20 @@
         "elabelBtn": "عرض الملصق الإلكتروني"
     },
     "a11y": {
-        "toolbarLabel": "أدوات إمكانية الوصول للويب",
-        "title": "إعدادات إمكانية الوصول",
-        "contrastOn": "تشغيل التباين العالي",
-        "contrastOff": "إيقاف التباين العالي",
-        "largeTextOn": "وضع النص الكبير",
-        "largeTextOff": "استعادة حجم النص",
-        "openMenu": "فتح قائمة إمكانية الوصول"
+        "toolbarLabel": "Accessibility Tools",
+        "title": "Accessibility & Accommodation",
+        "contrastOn": "High Contrast ON",
+        "contrastOff": "High Contrast OFF",
+        "largeTextOn": "Larger Text",
+        "largeTextOff": "Default Text Size",
+        "openMenu": "Open Accessibility Menu",
+        "reduceMotionOn": "Reduce Motion",
+        "reduceMotionOff": "Allow Motion",
+        "readableFontOn": "Enhanced Readability",
+        "readableFontOff": "Default Font Spacing",
+        "readAloudOn": "Read Aloud (TTS)",
+        "readAloudOff": "Stop Reading",
+        "ttsNotSupported": "Speech synthesis is not supported on this browser."
     },
     "clinicalCase": {
         "badge": "🎙️ وثائقي سريري حقيقي من المجلس الاستشاري لمونسميكتا",
@@ -337,6 +344,20 @@
         "listenCall": "🎙️ استمع إلى المقابلة الصوتية مع د. كيم",
         "videoClose": "إغلاق الفيديو",
         "chartClose": "إغلاق المخطط",
-        "mineralSafe": "🌿 تركيبة معدنية طينية طبيعية 100% (خالية تماماً من المشتقات الحيوانية · خالية من المنشطات · آمنة 100% للكبد والكلى)"
+        "mineralSafe": "🌿 تركيبة معدنية طينية طبيعية 100% (خالية تماماً من المشتقات الحيوانية · خالية من المنشطات · آمنة 100% للكبد والكلى)",
+        "docuBadge": "🎬 2m 54s Full Documentary",
+        "docuSpec": "1080p Vertical Cam + Voice Narration",
+        "docuBannerTitle": "7-Day Miracle: 55-Day-Old Puppy Seizure Recovery",
+        "docuBannerDesc": "From emergency seizure collapse to first pump dosage, reflex restoration, appetite resurgence, and final discharge: experience the 8 raw clinic clips and handwritten charts in this 2m 54s documentary.",
+        "docuWatchBtn": "Watch Full Documentary",
+        "docuCopyBtn": "Copy Video Link",
+        "docuCopied": "Link Copied!",
+        "docuDownload": "Download MP4",
+        "docuModalBadge": "🎬 2m 54s Full Documentary",
+        "docuModalTitle": "7-Day Miracle: 55-Day-Old Puppy Recovery",
+        "docuCopyBtnMobile": "🔗 Share Video Link",
+        "docuTranscriptBtn": "View Full Documentary Transcript",
+        "docuTranscriptShow": "▼ Expand Transcript",
+        "docuTranscriptHide": "▲ Collapse"
     }
 }

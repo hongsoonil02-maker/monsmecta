@@ -299,5 +299,37 @@
         "comingSoon": "即将上市",
         "comingSoonAlert": "该产品即将上市。",
         "elabelBtn": "查看电子标签"
+    },
+    "a11y": {
+        "toolbarLabel": "无障碍辅助工具",
+        "title": "无障碍与便捷工具",
+        "contrastOn": "开启高对比度",
+        "contrastOff": "关闭高对比度",
+        "largeTextOn": "放大字号",
+        "largeTextOff": "恢复默认字号",
+        "reduceMotionOn": "减少动态效果",
+        "reduceMotionOff": "开启动态效果",
+        "readableFontOn": "扩大行距（易读模式）",
+        "readableFontOff": "恢复默认行距",
+        "readAloudOn": "语音朗读 (TTS)",
+        "readAloudOff": "停止朗读",
+        "ttsNotSupported": "当前浏览器不支持语音朗读功能。",
+        "openMenu": "打开无障碍菜单"
+    },
+    "clinicalCase": {
+        "docuBadge": "🎬 2分54秒 完整临床纪录片",
+        "docuSpec": "1080p 竖屏直拍 + 智能语音旁白",
+        "docuBannerTitle": "55日龄抽搐幼犬 7天治愈奇迹（全篇合辑）",
+        "docuBannerDesc": "从急诊抽搐送医、首次按压给药、神经反射恢复、食欲暴增进食到最终痊愈出院。8段诊疗室未剪辑原画与亲笔病历，浓缩为2分54秒的震撼纪录片，欢迎直接分享给同行兽医师。",
+        "docuWatchBtn": "完整观看纪录片",
+        "docuCopyBtn": "复制视频链接",
+        "docuCopied": "链接已复制！",
+        "docuDownload": "下载 MP4",
+        "docuModalBadge": "🎬 2分54秒 完整纪录片",
+        "docuModalTitle": "55日龄抽搐患犬的7天奇迹",
+        "docuCopyBtnMobile": "🔗 复制微信/移动端分享链接",
+        "docuTranscriptBtn": "查看完整纪录片台词与病历记录",
+        "docuTranscriptShow": "▼ 展开全文",
+        "docuTranscriptHide": "▲ 收起"
     }
 }
