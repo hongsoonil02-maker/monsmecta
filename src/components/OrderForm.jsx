@@ -218,14 +218,14 @@ const OrderForm = ({
                     <optgroup label="✅ 즉시 발주 가능 품목">
                       {Object.values(PRODUCTS).filter(p => !p.isComingSoon && p.price).map(p => (
                         <option key={p.id} value={p.id}>
-                          {getProductDisplayName(p, isKoreanLang)} - {p.price.toLocaleString()}원 ({p.volume || '병'})
+                          {getProductDisplayName(p, isKoreanLang)} ({p.volume}) - {p.price.toLocaleString()}원
                         </option>
                       ))}
                     </optgroup>
                     <optgroup label="⏳ 출시 예정 품목 (커밍순 / 가격미책정)">
                       {Object.values(PRODUCTS).filter(p => p.isComingSoon || !p.price).map(p => (
                         <option key={p.id} value={p.id} disabled>
-                          {getProductDisplayName(p, isKoreanLang)} [출시 예정 / 가격미책정]
+                          {getProductDisplayName(p, isKoreanLang)} ({p.volume}) [출시 예정 / 가격미책정]
                         </option>
                       ))}
                     </optgroup>

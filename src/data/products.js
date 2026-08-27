@@ -1,8 +1,8 @@
 export const PRODUCTS = {
   monsmecta: {
     id: 'monsmecta',
-    name_ko: '몬스멕타 (100ml / 장 건강)',
-    name_en: 'MONSMECTA',
+    name_ko: '몬스멕타 (오리지널)',
+    name_en: 'MONSMECTA (ORIGINAL)',
     volume: '100ml',
     desc: '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어 (100ml)',
     icon: '🧪',
@@ -17,7 +17,7 @@ export const PRODUCTS = {
       titleKey: 'hero.title',
       subtitleKey: 'hero.subtitle',
       badge: '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어 (100ml)',
-      badgeText: '장 건강 100ml',
+      badgeText: '장 건강 (100ml)',
       badgeColor: 'bg-emerald-600',
       borderColor: 'border-white',
       bgColor: 'bg-white'
@@ -30,7 +30,7 @@ export const PRODUCTS = {
   },
   hepamax: {
     id: 'hepamax',
-    name_ko: '몬스멕타 헤파맥스 (30ml)',
+    name_ko: '몬스멕타 헤파맥스',
     name_en: 'MONSMECTA HEPAMAX',
     volume: '30ml',
     desc: '간 기능 개선 및 장 건강 보조제 (30ml)',
@@ -46,7 +46,7 @@ export const PRODUCTS = {
       title: '임상 수의사의 해답, HEPAMAX',
       subtitle: '현장 진료의 까다로운 기준을 통과한 간 건강 솔루션. 에스앤제이 동물병원 홍순일 원장이 직접 검증하고 처방합니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 간 건강 프리미엄 케어 (30ml)',
-      badgeText: '간 건강 30ml',
+      badgeText: '간 건강 (30ml)',
       badgeColor: 'bg-amber-700',
       borderColor: 'border-amber-100',
       bgColor: 'bg-amber-50'
@@ -61,8 +61,8 @@ export const PRODUCTS = {
     id: 'urinary',
     name_ko: '몬스멕타 레날디톡스',
     name_en: 'MONSMECTA RENAL DETOX',
-    volume: '100ml',
-    desc: '신장 요독 흡착 및 비뇨기 디톡스 보조제 (100ml)',
+    volume: '30ml',
+    desc: '신장 요독 흡착 및 비뇨기 디톡스 보조제 (30ml)',
     icon: '💧',
     color: 'indigo',
     bg: 'hover:bg-indigo-900',
@@ -74,8 +74,8 @@ export const PRODUCTS = {
     hero: {
       title: '임상 수의사의 해답, RENAL DETOX',
       subtitle: '몬모릴로나이트의 강력한 요독 흡착력과 세계적인 아디세오(Adisseo)의 프리미엄 비타민을 결합한 신장 요독 디톡스 및 비뇨기 건강 보조제입니다.',
-      badge: '동물병원 전용 B2B 처방 솔루션 · 신장 요독 디톡스 프리미엄 케어',
-      badgeText: '신장/요독 디톡스',
+      badge: '동물병원 전용 B2B 처방 솔루션 · 신장 요독 디톡스 프리미엄 케어 (30ml)',
+      badgeText: '신장/요독 디톡스 (30ml)',
       badgeColor: 'bg-indigo-700',
       borderColor: 'border-indigo-100',
       bgColor: 'bg-indigo-50'

@@ -118,7 +118,7 @@ export const LABEL_DATA = {
       "신장 수치 개선 및 요독 물질(BUN) 강력 흡착 배출",
       "결석 재발 방지 및 음수량 증가 보조"
     ],
-    weight_val: "100ml",
+    weight_val: "30ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
