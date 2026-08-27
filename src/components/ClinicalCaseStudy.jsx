@@ -220,7 +220,7 @@ export default function ClinicalCaseStudy() {
                           : 'text-slate-400 hover:text-white'
                       }`}
                     >
-                      {v.badge.split(' ')[1] || v.phase}
+                      {v.phase.replace(/\s*\(.*?\)/, '')} {v.badge.slice(0, 2)}
                     </button>
                   ))}
                 </div>
@@ -323,7 +323,7 @@ export default function ClinicalCaseStudy() {
                     {/* 세로형 9:16 썸네일 */}
                     <div className="relative aspect-[9/16] rounded-xl overflow-hidden bg-black mb-2.5 border border-white/10 shadow">
                       <img
-                        src={`${import.meta.env.BASE_URL}assets/clinical_thumbs/thumb_${idx + 1}_${vid.file.slice(0, 20)}.jpg`}
+                        src={`${import.meta.env.BASE_URL}assets/clinical_thumbs/${vid.thumb}`}
                         alt={vid.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         onError={(e) => {

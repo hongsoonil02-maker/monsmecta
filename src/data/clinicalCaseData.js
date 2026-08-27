@@ -55,6 +55,7 @@ export const CLINICAL_CASE_DATA = {
     {
       id: "v7",
       file: "KakaoTalk_20260827_161858177.mp4",
+      thumb: "thumb_day1_seizure.jpg",
       duration: "9.0초",
       phase: "Day 1 (7/28)",
       phaseKey: "phase1",
@@ -68,6 +69,7 @@ export const CLINICAL_CASE_DATA = {
     {
       id: "v3",
       file: "KakaoTalk_20260827_161839852.mp4",
+      thumb: "thumb_day1_depression.jpg",
       duration: "15.5초",
       phase: "Day 1 (7/28)",
       phaseKey: "phase1",
@@ -81,6 +83,7 @@ export const CLINICAL_CASE_DATA = {
     {
       id: "v2",
       file: "KakaoTalk_20260827_161823224.mp4",
+      thumb: "thumb_day1_pumping.jpg",
       duration: "23.2초",
       phase: "Day 1~2 (7/28~29)",
       phaseKey: "phase1",
@@ -94,6 +97,7 @@ export const CLINICAL_CASE_DATA = {
     {
       id: "v4",
       file: "KakaoTalk_20260827_161840186.mp4",
+      thumb: "thumb_day3_alert.jpg",
       duration: "27.8초",
       phase: "Day 3 (7/30)",
       phaseKey: "phase2",
@@ -107,6 +111,7 @@ export const CLINICAL_CASE_DATA = {
     {
       id: "v1",
       file: "KakaoTalk_20260827_161821797.mp4",
+      thumb: "thumb_day4_eating.jpg",
       duration: "7.2초",
       phase: "Day 4 (7/31)",
       phaseKey: "phase2",
@@ -120,19 +125,21 @@ export const CLINICAL_CASE_DATA = {
     {
       id: "v5",
       file: "KakaoTalk_20260827_161850921.mp4",
+      thumb: "thumb_day5_palpation.jpg",
       duration: "15.6초",
       phase: "Day 5 (8/1)",
       phaseKey: "phase2",
       stepNum: "STEP 2",
-      badge: "🩺 진료대 경과 관찰",
-      badgeColor: "bg-slate-700 text-white",
-      title: "처치대 위 김동준 원장의 복부 촉진",
-      desc: "진료대 위 몬스멕타 실물 병 옆에서 복통 완화 여부와 체온, 전신 긴장도를 꼼꼼히 점검하는 실제 진료 장면.",
+      badge: "🩺 기립 활력 & 몬스멕타 투약",
+      badgeColor: "bg-indigo-600 text-white",
+      title: "처치대 위 기립 활력 및 몬스멕타 투약",
+      desc: "진료대 위에서 일어서서 몬스멕타를 적극적으로 받아먹는 놀라운 활력 회복! 복통 완화 및 전신 긴장도 정상화.",
       isCrucial: false
     },
     {
       id: "v6",
       file: "KakaoTalk_20260827_161851285.mp4",
+      thumb: "thumb_day6_standing.jpg",
       duration: "24.2초",
       phase: "Day 6 (8/2)",
       phaseKey: "phase2",
@@ -140,12 +147,13 @@ export const CLINICAL_CASE_DATA = {
       badge: "✨ 네 다리 기립 자세 회복",
       badgeColor: "bg-blue-600 text-white",
       title: "보행 및 자세 반사의 완벽한 정상화",
-      desc: "발작과 마비 후유증 우려를 씻어내고 네 발로 꼿꼿이 서서 꼬리를 흔들며 원장님과 눈을 맞추는 감동적인 회복 순간.",
+      desc: "차트 기록 8/2 [20:57 (촬영) 기립 양호, 보행 양호]. 네 발로 꼿꼿이 서서 꼬리를 흔들며 자세 반사가 완벽히 돌아온 감동적인 순간.",
       isCrucial: true
     },
     {
       id: "v8",
       file: "KakaoTalk_20260827_161859505.mp4",
+      thumb: "thumb_day7_discharge.jpg",
       duration: "24.5초",
       phase: "Day 7 (8/4)",
       phaseKey: "phase3",
@@ -153,7 +161,7 @@ export const CLINICAL_CASE_DATA = {
       badge: "🎉 헤파맥스 복합 처방 & 퇴원",
       badgeColor: "bg-purple-600 text-white",
       title: "몬스멕타+헤파맥스 복합 처방 후 완치 퇴원",
-      desc: "몬스멕타와 헤파맥스 1ml씩 복합 처방(1ml, 1ml 2회 PO) 후 입맛을 다시며 편안하게 안정을 찾고 최종 퇴원!",
+      desc: "차트 기록 8/4 [몬스멕타 2pump + 헤파맥스 1cc 처방 후 퇴원! (촬영)]. 두 병을 함께 처방하고 완벽히 회복하여 퇴원하는 최종 순간.",
       isCrucial: true
     }
   ],
