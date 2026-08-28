@@ -359,7 +359,7 @@ export default function ClinicalCaseStudy() {
 
           {/* 8개 세로형 숏폼 카드 그리드 (치료 일자 1일차~7일차 순서 엄격 정렬 & STEP 동기화) */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {CLINICAL_CASE_DATA.videos.map((vid, idx) => {
+            {CLINICAL_CASE_DATA.videos.map((vid) => {
               const isSelected = selectedVideo.id === vid.id;
               const isCurrentStep = currentChart.id === vid.phaseKey;
               return (

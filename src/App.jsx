@@ -1,7 +1,6 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from './data/products';
-import Chatbot from './components/Chatbot';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Lineup from './components/Lineup';
@@ -13,14 +12,17 @@ import Letter from './components/Letter';
 import AudioTestimonial from './components/AudioTestimonial';
 import OrderForm from './components/OrderForm';
 import Footer from './components/Footer';
-import LabelModal from './components/LabelModal';
-import PrintModal from './components/PrintModal';
-import VetSampleModal from './components/VetSampleModal';
-import LegalModal from './components/LegalModal';
 import StickyBottomCTA from './components/StickyBottomCTA';
-import NoticeGeneratorModal from './components/NoticeGeneratorModal';
 import useIframeHeight from './hooks/useIframeHeight';
 import A11yToolbar from './components/A11yToolbar';
+
+// 상호작용 이후에만 필요한 컴포넌트는 지연 로딩하여 초기 번들을 줄인다.
+const Chatbot = lazy(() => import('./components/Chatbot'));
+const LabelModal = lazy(() => import('./components/LabelModal'));
+const PrintModal = lazy(() => import('./components/PrintModal'));
+const VetSampleModal = lazy(() => import('./components/VetSampleModal'));
+const LegalModal = lazy(() => import('./components/LegalModal'));
+const NoticeGeneratorModal = lazy(() => import('./components/NoticeGeneratorModal'));
 
 const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
 
@@ -293,14 +295,29 @@ const MonsmectaSNJLanding = () => {
         }
       `}} />
 
-      <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} onOpenPrint={() => openPrintModal(activeProduct)} activeProduct={activeProduct} />
-      <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} printUrl={printUrl} />
-      <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
-      <LegalModal legalType={legalType} setLegalType={setLegalType} />
-      <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
+      {/* 모달은 열릴 때만 마운트하여 해당 청크를 지연 로딩한다. */}
+      <Suspense fallback={null}>
+        {isLabelModalOpen && (
+          <LabelModal isLabelModalOpen={isLabelModalOpen} setIsLabelModalOpen={setIsLabelModalOpen} onOpenPrint={() => openPrintModal(activeProduct)} activeProduct={activeProduct} />
+        )}
+        {isPrintModalOpen && (
+          <PrintModal isPrintModalOpen={isPrintModalOpen} setIsPrintModalOpen={setIsPrintModalOpen} printUrl={printUrl} />
+        )}
+        {isSampleModalOpen && (
+          <VetSampleModal isOpen={isSampleModalOpen} onClose={() => setIsSampleModalOpen(false)} />
+        )}
+        {legalType && (
+          <LegalModal legalType={legalType} setLegalType={setLegalType} />
+        )}
+        {isNoticeModalOpen && (
+          <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
+        )}
+      </Suspense>
       <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />
       <A11yToolbar />
-      <Chatbot />
+      <Suspense fallback={null}>
+        <Chatbot />
+      </Suspense>
     </div>
   );
 };
