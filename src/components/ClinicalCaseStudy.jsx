@@ -90,7 +90,7 @@ export default function ClinicalCaseStudy() {
     <section 
       id="clinical-case-study" 
       aria-labelledby="clinical-case-heading"
-      className="py-16 sm:py-20 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-white relative overflow-hidden border-t border-b border-emerald-500/20"
+      className="py-16 sm:py-20 session-section bg-gradient-to-br from-[#00513b] via-[#004230] to-[#00281d] text-white relative overflow-hidden border-t border-b border-emerald-500/20"
     >
       {/* 배경 장식 글로우 */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-500/10 blur-[140px] pointer-events-none rounded-full" />
@@ -486,7 +486,7 @@ export default function ClinicalCaseStudy() {
           >
             <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-3 text-start">
               <div>
-                <h4 className="text-sm sm:text-lg font-bold text-white">{currentChart.title}</h4>
+                <h4 className="kr-title-2line text-sm sm:text-lg font-bold text-white" style={{WebkitLineClamp: 2}}>{currentChart.title}</h4>
                 <p className="text-xs text-emerald-300">{currentChart.period} · 하남 사랑동물병원 김동준 원장 자필 차트</p>
               </div>
               <button
@@ -526,7 +526,7 @@ export default function ClinicalCaseStudy() {
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${modalVideo.badgeColor} me-2`}>
                   {modalVideo.badge}
                 </span>
-                <h4 className="text-sm sm:text-base font-bold text-white inline-block">{modalVideo.title}</h4>
+                <h4 className="kr-title-2line text-sm sm:text-base font-bold text-white inline-block align-middle" style={{WebkitLineClamp: 2}}>{modalVideo.title}</h4>
               </div>
               <button
                 onClick={() => setIsVideoModalOpen(false)}
@@ -576,7 +576,7 @@ export default function ClinicalCaseStudy() {
                 <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-yellow-400 text-slate-950 me-2 inline-block">
                   {t('clinicalCase.docuModalBadge', '🎬 2분 54초 풀 다큐멘터리')}
                 </span>
-                <h4 className="text-xs sm:text-base font-bold text-white block mt-1 line-clamp-1">
+                <h4 className="kr-title-2line text-xs sm:text-base font-bold text-white block mt-1" style={{WebkitLineClamp: 2}}>
                   {t('clinicalCase.docuModalTitle', '55일령 발작 환축의 7일간의 기적')}
                 </h4>
               </div>

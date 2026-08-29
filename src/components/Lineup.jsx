@@ -6,7 +6,7 @@ const Lineup = ({ setIsLabelModalOpen, setActiveProduct }) => {
   const isKoreanLang = (i18n.language || 'ko').toLowerCase().startsWith('ko');
 
   return (
-    <section className="bg-[#002b1f] text-white py-16 md:py-24">
+    <section className="session-section bg-gradient-to-br from-[#00513b] via-[#004230] to-[#00281d] text-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 flex flex-col items-center">
           <div className="mb-4 inline-flex items-center gap-2 px-4 py-1.5 bg-yellow-400/20 border border-yellow-400/50 rounded-full text-yellow-300 text-sm font-bold shadow-[0_0_15px_rgba(250,204,21,0.2)]">

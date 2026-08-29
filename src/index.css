@@ -5,6 +5,8 @@
   --color-brand-green: #00513b;
   --color-brand-dark: #003d2b;
   --font-sans: 'Pretendard', 'Noto Sans KR', sans-serif;
+  --session-bg: #0f4c35;
+  --session-bg-light: #1a5f45;
 }
 
 html,
@@ -26,6 +28,39 @@ p, span, li, button, a {
 body {
   font-family: 'Pretendard', sans-serif;
   background-color: #f9fafb;
+}
+
+.session-section {
+  background-color: var(--session-bg) !important;
+}
+
+.session-section-light {
+  background-color: var(--session-bg-light) !important;
+}
+
+/* 모바일 한글 타이틀 2줄 줄맞춤 */
+.kr-title-2line {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.55;
+  word-break: keep-all;
+  hanging-punctuation: first;
+  text-align: start;
+  padding-inline-start: 0;
+}
+
+/* HTML 엔티티를 사용하여 첫 글자 정렬 구현 */
+.kr-title-2line-fix {
+  display: block;
+  text-align: justify;
+  text-justify: distribute-all-lines;
+  word-break: break-all;
+  line-height: 1.55;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .high-contrast {
