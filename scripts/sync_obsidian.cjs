@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const logPath = 'C:\\Users\\master\\agrolib\\obsidian_log.md';
 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-const logEntry = `\n- **[${now}] [monsmecta_landing]**: 다큐멘터리 섹션 내 3단계 임상 프로토콜 카드 박스를 어두운 흑녹색에서 옅고 산뜻한 프리미엄 라이트 테마(bg-emerald-50/90, white step cards)로 톤 조절 완료.\n`;
+const logEntry = `\n- **[${now}] [monsmecta_landing]**: 원내 A4 알림판(notice_a4_winner_poster.html) 디자인을 보호자 감성·공감형으로 개선. 상단 공감 후킹 배지(하트비트 애니메이션), 증상 아이콘 카드 5종(구토/설사/복통/식욕부진/기력저하), 가격 박스 상단 신뢰 배지(수의사 임상 처방·전 축종) 및 소프트 글로우 추가. A4 규격(800×1131px) 오버플로 없이 렌더링 검증 완료.\n`;
 
 try {
   fs.appendFileSync(logPath, logEntry, 'utf8');
