@@ -50,10 +50,10 @@ const OrderForm = ({
     <section id="order" className="py-16 sm:py-24 md:py-28 bg-slate-50 border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200/90 transform transition-all duration-500 hover:shadow-2xl">
-          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-6 sm:p-8 md:p-10 text-center relative overflow-hidden border-b border-slate-800">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
+          <div className="bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432] p-6 sm:p-8 md:p-10 text-center relative overflow-hidden border-b border-emerald-600/40">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-md break-keep">{t('order.title')}</h2>
-            <p className="text-slate-300 text-xs sm:text-sm md:text-base font-medium mt-3">{t('order.desc')}</p>
+            <p className="text-emerald-100 text-xs sm:text-sm md:text-base font-medium mt-3">{t('order.desc')}</p>
           </div>
 
           {isOrderComplete ? (

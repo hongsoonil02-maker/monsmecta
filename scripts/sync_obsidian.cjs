@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const logPath = 'C:\\Users\\master\\agrolib\\obsidian_log.md';
 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-const logEntry = `\n- **[${now}] [monsmecta_landing]**: 원내 A4 알림판(notice_a4_winner_poster.html) 디자인을 보호자 감성·공감형으로 개선. 상단 공감 후킹 배지(하트비트 애니메이션), 증상 아이콘 카드 5종(구토/설사/복통/식욕부진/기력저하), 가격 박스 상단 신뢰 배지(수의사 임상 처방·전 축종) 및 소프트 글로우 추가. A4 규격(800×1131px) 오버플로 없이 렌더링 검증 완료.\n`;
+const logEntry = `\n- **[${now}] [monsmecta_landing]**: 동물병원 원장님 전용 퀵 발주서 헤더 박스 배경색을 다크 슬레이트에서 전역 시그니처 약간 짙은 녹색 톤(bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432])으로 통일 동기화 완료.\n`;
 
 try {
   fs.appendFileSync(logPath, logEntry, 'utf8');
