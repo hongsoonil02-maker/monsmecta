@@ -33,7 +33,7 @@ const Values = ({ activeProduct }) => {
           </div>
 
           <div className="bg-slate-50 p-6 sm:p-8 md:p-10 rounded-3xl border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-slate-800 text-white rounded-2xl flex items-center justify-center mb-6 text-2xl sm:text-3xl shadow-md group-hover:scale-110 transition-transform">🔬</div>
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#00513b] text-white rounded-2xl flex items-center justify-center mb-6 text-2xl sm:text-3xl shadow-md group-hover:scale-110 transition-transform">🔬</div>
             <h4 className="text-lg sm:text-xl font-black text-slate-900 mb-3 sm:mb-4 break-keep">
               {activeProduct === 'monsmecta' ? t('values.formula') : (PRODUCTS[activeProduct]?.values?.formulaTitle || '독보적인 배합 비율')}
             </h4>

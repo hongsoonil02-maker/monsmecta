@@ -233,7 +233,7 @@ const OrderForm = ({
                   <button
                     type="button"
                     onClick={handleAddProduct}
-                    className="bg-slate-800 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-700 transition-colors shrink-0"
+                    className="bg-[#00513b] hover:bg-[#006247] text-white px-6 py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition-all active:scale-95 shrink-0"
                   >
                     {t('order.addProduct', '추가하기')}
                   </button>

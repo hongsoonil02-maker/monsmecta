@@ -481,7 +481,7 @@ export default function ClinicalCaseStudy() {
           onClick={() => setIsChartModalOpen(false)}
         >
           <div 
-            className="relative max-w-4xl w-full max-h-[90dvh] bg-slate-900 rounded-3xl p-4 sm:p-6 border border-white/20 flex flex-col shadow-2xl"
+            className="relative max-w-4xl w-full max-h-[90dvh] bg-[#002b1e] rounded-3xl p-4 sm:p-6 border border-emerald-500/40 flex flex-col shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-3 text-start">
@@ -497,7 +497,7 @@ export default function ClinicalCaseStudy() {
                 ✕
               </button>
             </div>
-            <div className="flex-1 overflow-auto flex items-center justify-center p-2 bg-slate-950/60 rounded-2xl border border-white/5">
+            <div className="flex-1 overflow-auto flex items-center justify-center p-2 bg-black/40 rounded-2xl border border-white/5">
               <img
                 src={`${import.meta.env.BASE_URL}${currentChart.src}`}
                 alt={currentChart.title}
@@ -518,7 +518,7 @@ export default function ClinicalCaseStudy() {
           onClick={() => setIsVideoModalOpen(false)}
         >
           <div 
-            className="relative max-w-sm sm:max-w-md w-full bg-slate-900/95 rounded-3xl p-4 sm:p-5 border border-white/20 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto"
+            className="relative max-w-sm sm:max-w-md w-full bg-[#002b1e] rounded-3xl p-4 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-3 text-start">
@@ -570,7 +570,7 @@ export default function ClinicalCaseStudy() {
           onClick={() => setIsDocuModalOpen(false)}
         >
           <div 
-            className="relative max-w-sm sm:max-w-md w-[94vw] sm:w-full bg-slate-900/95 rounded-3xl p-3.5 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto"
+            className="relative max-w-sm sm:max-w-md w-[94vw] sm:w-full bg-[#002b1e] rounded-3xl p-3.5 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-2.5 sm:mb-3 border-b border-white/10 pb-2.5 sm:pb-3 text-start">
@@ -630,7 +630,7 @@ export default function ClinicalCaseStudy() {
                   tabIndex={0} 
                   role="region" 
                   aria-label="다큐멘터리 전체 대본 텍스트"
-                  className="mt-2 p-3 bg-slate-950/85 rounded-xl border border-white/10 text-[11px] sm:text-xs text-slate-300 space-y-2 max-h-40 overflow-y-auto leading-relaxed focus:outline-none focus:ring-1 focus:ring-emerald-400"
+                  className="mt-2 p-3 bg-[#001d14] rounded-xl border border-emerald-500/20 text-[11px] sm:text-xs text-slate-300 space-y-2 max-h-40 overflow-y-auto leading-relaxed focus:outline-none focus:ring-1 focus:ring-emerald-400"
                 >
                   <p className="border-b border-white/10 pb-1 text-emerald-400 font-bold">
                     [프롤로그 0:00~0:12] 하남 사랑동물병원 김동준 원장의 실제 임상 치료 일지. 생후 55일 된 환축의 7일간의 기적 같은 회복 다큐멘터리입니다.
