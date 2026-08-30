@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const logPath = 'C:\\Users\\master\\agrolib\\obsidian_log.md';
 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-const logEntry = `\n- **[${now}] [monsmecta_landing]**: A4 알림판 박스 간 상하 여백을 절반으로 정돈하고 제품 사진 및 성분·효능 카드를 품위 있게 리밸런싱하여 세로 레이아웃 완성 및 dist 빌드 최신화 완료.\n`;
+const logEntry = `\n- **[${now}] [monsmecta_landing]**: A4 알림판 맨 하단 구매처 정보 줄을 한 줄 높이만큼 위로 올려 하단 여백 안정감 확보 및 dist 빌드 최신화 완료.\n`;
 
 try {
   fs.appendFileSync(logPath, logEntry, 'utf8');
