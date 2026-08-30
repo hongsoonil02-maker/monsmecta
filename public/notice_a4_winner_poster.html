@@ -31,7 +31,7 @@
 
     body {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-      background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%) !important;
+      background: #E2E8F0;
       color: var(--text-main);
       display: flex;
       flex-direction: column;
@@ -118,14 +118,15 @@
       transform: translateY(-1px);
     }
 
-    /* A4 실물 캔버스 (210mm x 297mm 정확한 비율 800x1131px) */
+    /* A4 실물 캔버스 (알림판 본체: 연두색 파스텔톤 바탕 적용) */
     .a4-sheet {
       width: 800px;
       height: 1131px;
-      background: #ffffff;
+      max-height: 1131px;
+      background: linear-gradient(180deg, #F4FAF5 0%, #EBF7EE 100%);
       border-radius: 8px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      padding: 24px 36px 18px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      padding: 16px 30px 12px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -141,23 +142,23 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 2px solid var(--border-color);
-      padding-bottom: 10px;
+      padding-bottom: 6px;
     }
 
     .header .hospital-brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .header .hospital-brand img {
-      height: 46px;
+      height: 42px;
       width: auto;
       object-fit: contain;
     }
 
     .header .hospital-brand .hospital-text .name-en {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
       color: var(--secondary);
       letter-spacing: 0.6px;
@@ -166,7 +167,7 @@
     }
 
     .header .hospital-brand .hospital-text .name-ko {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 900;
       color: var(--primary);
       letter-spacing: -0.6px;
@@ -180,17 +181,17 @@
     .header .header-right .badge-vet {
       background: #EFF6FF;
       color: var(--secondary);
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 6px;
       border: 1px solid #BFDBFE;
       display: inline-block;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .header .header-right .contact-num {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 850;
       color: var(--primary);
       letter-spacing: -0.3px;
@@ -200,7 +201,7 @@
     .promo-section {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
 
     .hero-top {
@@ -227,22 +228,22 @@
     .empathy-badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%);
       color: #BE123C;
-      font-size: 0.98rem;
+      font-size: 0.90rem;
       font-weight: 900;
-      padding: 8px 20px;
+      padding: 5px 16px;
       border-radius: 999px;
       border: 1.5px solid #FBCFE8;
-      box-shadow: 0 4px 12px rgba(190, 18, 60, 0.12);
+      box-shadow: 0 4px 10px rgba(190, 18, 60, 0.12);
       letter-spacing: -0.4px;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .empathy-badge .pulse-heart {
       display: inline-block;
-      font-size: 1.05rem;
+      font-size: 1rem;
       animation: heartbeat 1.6s ease-in-out infinite;
     }
 
@@ -255,21 +256,21 @@
     }
 
     .main-headline {
-      font-size: 1.85rem;
+      font-size: 1.65rem;
       font-weight: 950;
       color: var(--primary);
-      line-height: 1.28;
-      letter-spacing: -1.5px;
+      line-height: 1.22;
+      letter-spacing: -1.2px;
       text-align: center;
     }
 
     .main-headline .lead-line {
       display: block;
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       font-weight: 800;
       color: var(--text-muted);
-      letter-spacing: -0.8px;
-      margin-bottom: 4px;
+      letter-spacing: -0.6px;
+      margin-bottom: 2px;
     }
 
     .main-headline span.highlight-red {
@@ -285,81 +286,76 @@
     .symptom-strip {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-      margin-top: 8px;
+      gap: 8px;
+      margin-top: 4px;
       width: 100%;
     }
 
     .symptom-card {
       background: #ffffff;
       border: 1.5px solid #FEE2E2;
-      border-radius: 14px;
-      padding: 9px 6px 8px;
+      border-radius: 12px;
+      padding: 6px 4px 5px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
+      gap: 3px;
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.05);
       transition: transform 0.2s;
     }
 
     .symptom-card .s-emoji {
-      font-size: 1.6rem;
+      font-size: 1.35rem;
       line-height: 1;
     }
 
     .symptom-card .s-label {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 850;
       color: var(--primary);
       text-align: center;
       letter-spacing: -0.5px;
-      line-height: 1.2;
+      line-height: 1.15;
     }
 
     .symptom-strip .symptom-arrow {
-      grid-column: 1 / -1;
-      text-align: center;
-      font-size: 0.92rem;
-      font-weight: 800;
-      color: #BE123C;
-      margin-top: 2px;
+      display: none;
     }
 
     /* 가격 중심부 박스 - 몬스멕타 공식 브랜드 딥그린 테마 동기화 및 여백 최적화 */
     .price-box-wrapper {
       background: linear-gradient(145deg, #00281d 0%, #004D34 100%);
-      border-radius: 18px;
-      padding: 18px 28px 16px;
+      border-radius: 14px;
+      padding: 12px 22px 10px;
       color: #ffffff;
-      box-shadow: 0 14px 28px -6px rgba(0, 40, 29, 0.45), 0 0 0 6px rgba(16, 185, 129, 0.08);
+      box-shadow: 0 10px 22px -6px rgba(0, 40, 29, 0.4), 0 0 0 4px rgba(16, 185, 129, 0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border: 2.5px solid #10B981;
+      border: 2px solid #10B981;
       position: relative;
-      margin-top: 14px;
+      margin-top: 10px;
       animation: softGlow 2.8s ease-in-out infinite;
     }
 
     @keyframes softGlow {
-      0%, 100% { box-shadow: 0 14px 28px -6px rgba(0, 40, 29, 0.45), 0 0 0 5px rgba(16, 185, 129, 0.10); }
-      50% { box-shadow: 0 14px 30px -4px rgba(0, 40, 29, 0.55), 0 0 0 9px rgba(16, 185, 129, 0.18); }
+      0%, 100% { box-shadow: 0 10px 22px -6px rgba(0, 40, 29, 0.4), 0 0 0 4px rgba(16, 185, 129, 0.10); }
+      50% { box-shadow: 0 10px 24px -4px rgba(0, 40, 29, 0.5), 0 0 0 7px rgba(16, 185, 129, 0.18); }
     }
 
     /* 가격 박스 상단 플로팅 신뢰 배지 */
     .price-trust-badge {
       position: absolute;
-      top: -15px;
+      top: -12px;
       left: 50%;
       transform: translateX(-50%);
       background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
       color: #00281d;
-      font-size: 0.82rem;
+      font-size: 0.76rem;
       font-weight: 950;
-      padding: 6px 20px;
+      padding: 4px 16px;
       border-radius: 999px;
-      box-shadow: 0 6px 14px rgba(245, 158, 11, 0.45);
+      box-shadow: 0 4px 10px rgba(245, 158, 11, 0.4);
       white-space: nowrap;
       letter-spacing: -0.3px;
       border: 1.5px solid #FEF3C7;
@@ -417,7 +413,7 @@
     }
 
     .price-right .sale-price {
-      font-size: 3.5rem;
+      font-size: 2.8rem;
       font-weight: 950;
       color: #ffffff;
       line-height: 1;
@@ -429,7 +425,7 @@
     }
 
     .price-right .sale-price .unit {
-      font-size: 1.9rem;
+      font-size: 1.5rem;
       font-weight: 800;
       margin-left: 2px;
     }
@@ -438,36 +434,36 @@
     .product-showcase {
       display: grid;
       grid-template-columns: 32% 68%;
-      gap: 18px;
+      gap: 14px;
       align-items: stretch;
-      margin: 2px 0;
+      margin: 0;
     }
 
     /* 좌측: 실물 사진 카드 */
     .product-photo {
       background: linear-gradient(160deg, #F0FDF4 0%, #DCFCE7 100%);
       border: 2px solid #A7F3D0;
-      border-radius: 18px;
-      padding: 10px 12px 8px;
+      border-radius: 14px;
+      padding: 6px 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 22px -8px rgba(0, 40, 29, 0.28);
+      box-shadow: 0 8px 18px -6px rgba(0, 40, 29, 0.25);
     }
 
     .product-photo img {
       width: auto;
-      max-width: 130px;
-      max-height: 320px;
+      max-width: 120px;
+      max-height: 240px;
       height: auto;
       object-fit: contain;
-      filter: drop-shadow(0 14px 22px rgba(0, 40, 29, 0.4));
+      filter: drop-shadow(0 10px 18px rgba(0, 40, 29, 0.35));
     }
 
     .product-photo .photo-caption {
-      margin-top: 7px;
-      font-size: 0.88rem;
+      margin-top: 4px;
+      font-size: 0.82rem;
       font-weight: 900;
       color: #00513b;
       letter-spacing: -0.4px;
@@ -477,15 +473,15 @@
     .product-detail {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .block-title {
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 950;
       color: #00281d;
       letter-spacing: -0.6px;
-      margin-bottom: 5px;
+      margin-bottom: 3px;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -494,9 +490,9 @@
     .block-title span {
       background: #00513b;
       color: #ECFDF5;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 900;
-      padding: 2px 10px;
+      padding: 2px 8px;
       border-radius: 999px;
     }
 
@@ -504,9 +500,9 @@
     .ingredient-block {
       background: #ffffff;
       border: 1.5px solid #E2E8F0;
-      border-radius: 16px;
-      padding: 8px 14px 10px;
-      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.05);
+      border-radius: 14px;
+      padding: 6px 12px;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
     }
 
     .ingredient-block .block-title {
@@ -517,47 +513,47 @@
       list-style: none;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 6px 14px;
+      gap: 3px 10px;
       align-items: start;
     }
 
     .ingredient-list li {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 8px;
     }
 
     .ingredient-list .ing-num {
       flex-shrink: 0;
-      width: 19px;
-      height: 19px;
+      width: 17px;
+      height: 17px;
       border-radius: 50%;
       background: linear-gradient(135deg, #10B981, #00513b);
       color: #ffffff;
-      font-size: 0.74rem;
+      font-size: 0.70rem;
       font-weight: 950;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 6px rgba(0, 81, 59, 0.3);
+      box-shadow: 0 2px 5px rgba(0, 81, 59, 0.3);
       margin-top: 1px;
     }
 
     .ingredient-list .ing-text {
       display: flex;
       flex-direction: column;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
     .ingredient-list .ing-text b {
-      font-size: 0.88rem;
+      font-size: 0.80rem;
       font-weight: 900;
       color: #0F172A;
       letter-spacing: -0.4px;
     }
 
     .ingredient-list .ing-text .ing-sub {
-      font-size: 0.74rem;
+      font-size: 0.68rem;
       font-weight: 600;
       color: #475569;
       letter-spacing: -0.3px;
@@ -566,10 +562,10 @@
     /* 효능 블록 */
     .benefit-block {
       background: linear-gradient(160deg, #00281d 0%, #004D34 100%);
-      border-radius: 16px;
-      padding: 9px 14px;
-      border: 2px solid #10B981;
-      box-shadow: 0 10px 22px -8px rgba(0, 40, 29, 0.4);
+      border-radius: 14px;
+      padding: 7px 12px;
+      border: 1.5px solid #10B981;
+      box-shadow: 0 8px 18px -6px rgba(0, 40, 29, 0.35);
     }
 
     .benefit-title {
@@ -579,32 +575,32 @@
     .benefit-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 6px;
-      margin-bottom: 6px;
+      gap: 5px;
+      margin-bottom: 4px;
     }
 
     .benefit-card {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(16, 185, 129, 0.35);
-      border-radius: 12px;
-      padding: 7px 6px;
+      border-radius: 10px;
+      padding: 5px 4px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
       text-align: center;
     }
 
     .benefit-card .b-emoji {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       line-height: 1;
     }
 
     .benefit-card .b-text {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
       color: #D1FAE5;
-      line-height: 1.25;
+      line-height: 1.2;
       letter-spacing: -0.3px;
     }
 
@@ -616,13 +612,13 @@
     .usage-row {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
       border-top: 1px solid rgba(16, 185, 129, 0.3);
-      padding-top: 6px;
+      padding-top: 4px;
     }
 
     .usage-item {
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 700;
       color: #A7F3D0;
       letter-spacing: -0.3px;
@@ -637,11 +633,11 @@
       display: inline-block;
       background: #10B981;
       color: #00281d;
-      font-size: 0.68rem;
+      font-size: 0.64rem;
       font-weight: 900;
-      padding: 1px 8px;
-      border-radius: 5px;
-      margin-right: 6px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-right: 5px;
     }
 
     .usage-item.usage-tip {
@@ -649,65 +645,65 @@
       font-weight: 800;
     }
 
-    /* 4. 하단 제조원/판매원 및 데스크 안내 (2줄 좌측 끝 맞춤 반영) */
+    /* 4. 하단 제조원/판매원 및 데스크 안내 */
     .footer-area {
       display: flex;
       justify-content: space-between;
       align-items: center;
       background: #FEF2F2;
-      border: 2px solid #FECACA;
-      border-radius: 16px;
-      padding: 11px 20px;
+      border: 1.5px solid #FECACA;
+      border-radius: 12px;
+      padding: 8px 16px;
     }
 
     .footer-area .cta-text {
       text-align: left;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
       flex: 1;
     }
 
     .footer-area .cta-text h3 {
-      font-size: 1.12rem;
+      font-size: 0.98rem;
       font-weight: 950;
       color: #9F1239;
       margin: 0;
-      line-height: 1.35;
+      line-height: 1.3;
       text-align: left;
     }
 
     .footer-area .cta-text p {
-      font-size: 0.88rem;
+      font-size: 0.80rem;
       font-weight: 700;
       color: #881337;
       margin: 0;
-      line-height: 1.4;
+      line-height: 1.35;
       text-align: left;
     }
 
     .footer-area .desk-btn {
       background: var(--accent);
       color: #ffffff;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       font-weight: 900;
-      padding: 10px 20px;
-      border-radius: 10px;
+      padding: 8px 16px;
+      border-radius: 8px;
       white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
-      margin-left: 16px;
+      box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
+      margin-left: 12px;
     }
 
-    /* 5. 바텀 서명 (푸터 2줄 좌측 끝단 맞춤 및 '오늘' 변경 반영) */
+    /* 5. 바텀 서명 */
     .bottom-bar {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-      gap: 4px;
-      padding-top: 8px;
+      gap: 3px;
+      padding-top: 5px;
       border-top: 1px solid var(--border-color);
-      font-size: 0.82rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       font-weight: 700;
       text-align: left;
@@ -764,10 +760,11 @@
         max-width: 210mm !important;
         max-height: 297mm !important;
         margin: 0 !important;
-        padding: 22px 34px 16px !important;
+        padding: 14px 28px 10px !important;
         box-shadow: none !important;
         border: none !important;
         border-top: 8px solid var(--primary) !important;
+        background: linear-gradient(180deg, #F4FAF5 0%, #EBF7EE 100%) !important;
         overflow: hidden !important;
         page-break-after: avoid !important;
         page-break-inside: avoid !important;
