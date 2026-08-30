@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const logPath = 'C:\\Users\\master\\agrolib\\obsidian_log.md';
 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-const logEntry = `\n- **[${now}] [monsmecta_landing]**: 모바일 히어로 섹션 메인 카피를 '임상수의사의 해답'과 'MONSMECTA'로 줄바꿈(개행 분리) 적용 및 10종 라인업 hero title 일괄 동기화 완료.\n`;
+const logEntry = `\n- **[${now}] [monsmecta_landing]**: A4 알림판 웹 제어 바를 전역 시그니처 딥그린(#00513b)으로 통일, body 및 embedded 모드 연녹색 파스텔톤(#E8F5E9→#F1F8E9) 보장, 모달 미리보기 배경 에메랄드 틴트 적용 및 dist 빌드 최신화 완료.\n`;
 
 try {
   fs.appendFileSync(logPath, logEntry, 'utf8');

@@ -217,7 +217,7 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
           </div>
 
           {/* Right: Iframe Preview (Always on lg, conditionally on mobile) */}
-          <div className={`${activeTab === 'preview' ? 'flex' : 'hidden'} lg:flex flex-col flex-1 bg-slate-200/80 p-3 sm:p-6 items-center justify-start overflow-y-auto relative`}>
+          <div className={`${activeTab === 'preview' ? 'flex' : 'hidden'} lg:flex flex-col flex-1 bg-emerald-50/70 border-l border-slate-200 p-3 sm:p-6 items-center justify-start overflow-y-auto relative`}>
             {/* Mobile preview action bar */}
             <div className="lg:hidden w-full max-w-[400px] flex items-center justify-between gap-2 mb-3 bg-white p-2.5 rounded-xl border border-slate-300 shadow-sm shrink-0">
               <button

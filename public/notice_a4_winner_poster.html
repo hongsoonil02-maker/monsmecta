@@ -9,10 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #0F172A;
-      --card-bg: #1E293B;
-      --primary: #0A2540;
-      --secondary: #1D4ED8;
+      --bg-color: #00281d;
+      --card-bg: #004D34;
+      --primary: #00513b;
+      --secondary: #00513b;
       --accent: #E11D48;
       --highlight: #FFB800;
       --label-green: #00281d;
@@ -31,7 +31,7 @@
 
     body {
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-      background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%);
+      background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%) !important;
       color: var(--text-main);
       display: flex;
       flex-direction: column;
@@ -40,11 +40,11 @@
       padding: 24px;
     }
 
-    /* 상단 웹 제어 바 */
+    /* 상단 웹 제어 바 (전역 딥그린 시그니처 톤) */
     .web-control-bar {
       width: 100%;
       max-width: 800px;
-      background: #1E293B;
+      background: linear-gradient(135deg, #00513b 0%, #00281d 100%);
       color: #F8FAFC;
       border-radius: 14px;
       padding: 16px 24px;
@@ -52,7 +52,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 25px -5px rgba(0, 40, 29, 0.4);
+      border: 1px solid rgba(16, 185, 129, 0.3);
     }
 
     .web-control-bar .title-box {
@@ -718,9 +719,9 @@
 
     /* iframe 내장 모드: 상단 제어 바 숨김 및 여백 제거 */
     body.embedded {
-      padding: 0;
-      background: #ffffff;
-      min-height: 0;
+      padding: 12px 0;
+      background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%) !important;
+      min-height: 100%;
     }
 
     body.embedded .web-control-bar {
