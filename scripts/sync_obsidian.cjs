@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const logPath = 'C:\\Users\\master\\agrolib\\obsidian_log.md';
 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-const logEntry = `\n- **[${now}] [monsmecta_landing]**: 발주서 내 '추가하기' 버튼(OrderForm.jsx) 및 Values 아이콘 박스, 임상 케이스 차트/비디오/다큐 모달 박스들의 어두운 슬레이트 배경색을 전역 시그니처 짙은 녹색 톤(bg-[#00513b], bg-[#002b1e])으로 일괄 통일 동기화 완료.\n`;
+const logEntry = `\n- **[${now}] [monsmecta_landing]**: A4 알림판(notice_a4_winner_poster.html) 2차 개편 완료 — 수의사용 사양서 라벨 섹션 제거 후 실사 제품 사진(rembg AI 배경 투명 처리, assets/monsmecta_bottle_real.png) + 핵심 성분 5가지 복합체 + 효능 3카드 + 용법 안내로 구성된 product-showcase 섹션 신설. 여백/폰트 압축으로 A4 규격(scrollHeight 1123px ≤ 1131px) 검증 통과.\n`;
 
 try {
   fs.appendFileSync(logPath, logEntry, 'utf8');
