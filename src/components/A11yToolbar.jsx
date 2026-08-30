@@ -63,7 +63,7 @@ const A11yToolbar = () => {
 
     window.speechSynthesis.cancel();
     const textToRead = [
-      t('hero.title', '임상 수의사의 해답, MONSMECTA'),
+      t('hero.title', '임상수의사의 해답, MONSMECTA'),
       t('hero.subtitle', '현장 진료의 까다로운 기준을 통과한 위장관 솔루션.'),
       t('clinicalCase.title', '55일령 발작 환축의 7일간의 기적'),
       t('clinicalCase.subtitle', '하남 사랑동물병원 김동준 원장의 실제 임상 치료 일지입니다.')

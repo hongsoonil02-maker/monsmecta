@@ -43,7 +43,7 @@ export const PRODUCTS = {
     price: 3300,
     isComingSoon: false,
     hero: {
-      title: '임상 수의사의 해답, HEPAMAX',
+      title: '임상수의사의 해답\nHEPAMAX',
       subtitle: '현장 진료의 까다로운 기준을 통과한 간 건강 솔루션. 에스앤제이 동물병원 홍순일 원장이 직접 검증하고 처방합니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 간 건강 프리미엄 케어 (30ml)',
       badgeText: '간 건강 (30ml)',
@@ -72,7 +72,7 @@ export const PRODUCTS = {
     price: 7700,
     isComingSoon: false,
     hero: {
-      title: '임상 수의사의 해답, RENAL DETOX',
+      title: '임상수의사의 해답\nRENAL DETOX',
       subtitle: '몬모릴로나이트의 강력한 요독 흡착력과 세계적인 아디세오(Adisseo)의 프리미엄 비타민을 결합한 신장 요독 디톡스 및 비뇨기 건강 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 신장 요독 디톡스 프리미엄 케어 (30ml)',
       badgeText: '신장/요독 디톡스 (30ml)',
@@ -101,7 +101,7 @@ export const PRODUCTS = {
     price: null,
     isComingSoon: true,
     hero: {
-      title: '임상 수의사의 해답, CANCERCARE',
+      title: '임상수의사의 해답\nCANCERCARE',
       subtitle: '천연 항암 물질과 몬스멕타의 시너지로 부작용 없이 면역력을 높여주는 종양 억제 보조제입니다.',
       badge: '수석 B2B 처방 전용 / 천연 항암 보조 (출시 예정)',
       badgeText: '항암/면역',
@@ -130,7 +130,7 @@ export const PRODUCTS = {
     price: null,
     isComingSoon: true,
     hero: {
-      title: '임상 수의사의 해답, COLDZERO',
+      title: '임상수의사의 해답\nCOLDZERO',
       subtitle: '전통 쌍화 처방과 천연 호흡기 케어 성분을 몬스멕타와 결합하여 호흡기 염증 및 초기 감기를 효과적으로 예방하는 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 호흡기 프리미엄 케어 (출시 예정)',
       badgeText: '호흡기 케어',
@@ -159,7 +159,7 @@ export const PRODUCTS = {
     price: null,
     isComingSoon: true,
     hero: {
-      title: '임상 수의사의 해답, SKINCARE',
+      title: '임상수의사의 해답\nSKINCARE',
       subtitle: '피부 장벽 강화 성분으로 가려움·발적·아토피를 잡아주는 피부/아토피 프리미엄 케어 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 피부/아토피 프리미엄 케어 (출시 예정)',
       badgeText: '피부 건강',
@@ -188,7 +188,7 @@ export const PRODUCTS = {
     price: null,
     isComingSoon: true,
     hero: {
-      title: '임상 수의사의 해답, HEARTCARE',
+      title: '임상수의사의 해답\nHEARTCARE',
       subtitle: '코큐텐(Q10)과 산사나무 열매 추출물, L-카르니틴, 타우린, 오메가3를 배합하여 심근 수축력 강화와 혈행 개선을 돕는 심장 및 혈행 프리미엄 케어 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 심장/혈행 프리미엄 케어 (출시 예정)',
       badgeText: '심장 건강',
@@ -217,7 +217,7 @@ export const PRODUCTS = {
     price: null,
     isComingSoon: true,
     hero: {
-      title: '임상 수의사의 해답, JOINTCARE',
+      title: '임상수의사의 해답\nJOINTCARE',
       subtitle: 'MSM과 그린립 머슬 추출물, 보스웰리아, 콘드로이친, 오메가3를 배합하여 관절 염증 완화와 연골·윤활액 건강을 돕는 관절/연골 프리미엄 케어 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 관절/연골 프리미엄 케어 (출시 예정)',
       badgeText: '관절 건강',
@@ -246,7 +246,7 @@ export const PRODUCTS = {
     price: null,
     isComingSoon: true,
     hero: {
-      title: '임상 수의사의 해답, POWERASE',
+      title: '임상수의사의 해답\nPOWERASE',
       subtitle: '엔도 프로테아제·알파 아밀라제·라이페이스 3대 소화 효소 배합으로 소화와 영양 흡수를 돕고 기력·활력 회복을 지원하는 프리미엄 케어 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 활력/기력 프리미엄 케어 (출시 예정)',
       badgeText: '활력 회복',
@@ -304,7 +304,7 @@ export const PRODUCTS = {
     price: null,
     isComingSoon: true,
     hero: {
-      title: '임상 수의사의 해답, VITAPLUS',
+      title: '임상수의사의 해답\nVITAPLUS',
       subtitle: '비타민 A·C·D3·E·K3·B군 10종을 액상원료 10% 기준으로 정량 배합해 피로 회복·항산화·뼈 건강을 돕는 종합 비타민 프리미엄 케어 보조제입니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 비타민/미네랄 프리미엄 케어 (출시 예정)',
       badgeText: '종합 비타민',

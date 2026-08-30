@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const logPath = 'C:\\Users\\master\\agrolib\\obsidian_log.md';
 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-const logEntry = `\n- **[${now}] [monsmecta_landing]**: A4 알림판 상단 웹 제어 바 정리 — 모달 iframe 내장 시 body.embedded 클래스로 제어 바 완전 숨김+여백 제거, 단독 창에서는 배지·토너먼트 대시보드 버튼 삭제 후 '몬스멕타 A4 알림판 / A4 인쇄하기'만 남긴 간결 바로 축소. puppeteer로 내장/단독 양쪽 모드 검증 통과.\n`;
+const logEntry = `\n- **[${now}] [monsmecta_landing]**: 모바일 히어로 섹션 메인 카피를 '임상수의사의 해답'과 'MONSMECTA'로 줄바꿈(개행 분리) 적용 및 10종 라인업 hero title 일괄 동기화 완료.\n`;
 
 try {
   fs.appendFileSync(logPath, logEntry, 'utf8');

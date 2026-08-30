@@ -50,7 +50,7 @@ const Hero = ({ setIsLabelModalOpen, activeProduct }) => {
             <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)] shrink-0"></span>
             <span className="truncate">{current.badge}</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black leading-snug sm:leading-tight tracking-tight drop-shadow-xl break-keep text-balance">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black leading-snug sm:leading-tight tracking-tight drop-shadow-xl break-keep text-balance whitespace-pre-line">
             {current.title}
           </h1>
           <p className="text-sm sm:text-base md:text-xl text-emerald-50/95 leading-relaxed max-w-xl mx-auto md:mx-0 font-light whitespace-pre-line break-keep text-balance">
