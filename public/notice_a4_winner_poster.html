@@ -125,12 +125,14 @@
       background: #ffffff;
       border-radius: 8px;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-      padding: 26px 38px 22px;
+      padding: 24px 36px 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
       border-top: 8px solid var(--primary);
+      overflow: hidden;
+      box-sizing: border-box;
     }
 
     /* 1. 헤더 영역 */
@@ -717,11 +719,12 @@
       width: 100%;
     }
 
-    /* iframe 내장 모드: 상단 제어 바 숨김 및 여백 제거 */
+    /* iframe 내장 모드: 상단 제어 바 숨김 및 여백 제로 (인쇄 2페이지 방지 절대 필수) */
     body.embedded {
-      padding: 12px 0;
-      background: linear-gradient(135deg, #E8F5E9 0%, #F1F8E9 100%) !important;
-      min-height: 100%;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: #ffffff;
+      min-height: 0 !important;
     }
 
     body.embedded .web-control-bar {
@@ -731,19 +734,24 @@
     body.embedded .a4-sheet {
       border-radius: 0;
       box-shadow: none;
+      margin: 0 auto;
     }
 
-    /* 인쇄 전용 스타일 (@media print) */
+    /* 인쇄 전용 스타일 (@media print - 1페이지 절대 초과 금지 엄격 제어) */
     @media print {
       @page {
         size: A4 portrait;
-        margin: 0;
+        margin: 0 !important;
       }
 
-      body {
-        background: none;
-        padding: 0;
-        margin: 0;
+      html, body, body.embedded {
+        width: 210mm !important;
+        height: 297mm !important;
+        max-height: 297mm !important;
+        overflow: hidden !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
       }
 
       .web-control-bar {
@@ -751,13 +759,20 @@
       }
 
       .a4-sheet {
-        width: 100vw;
-        height: 100vh;
-        max-width: 210mm;
-        max-height: 297mm;
-        margin: 0;
-        box-shadow: none;
-        border-top: 8px solid var(--primary);
+        width: 210mm !important;
+        height: 297mm !important;
+        max-width: 210mm !important;
+        max-height: 297mm !important;
+        margin: 0 !important;
+        padding: 22px 34px 16px !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-top: 8px solid var(--primary) !important;
+        overflow: hidden !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+        break-after: avoid !important;
+        break-inside: avoid !important;
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }

@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const logPath = 'C:\\Users\\master\\agrolib\\obsidian_log.md';
 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-const logEntry = `\n- **[${now}] [monsmecta_landing]**: A4 알림판 웹 제어 바를 전역 시그니처 딥그린(#00513b)으로 통일, body 및 embedded 모드 연녹색 파스텔톤(#E8F5E9→#F1F8E9) 보장, 모달 미리보기 배경 에메랄드 틴트 적용 및 dist 빌드 최신화 완료.\n`;
+const logEntry = `\n- **[${now}] [monsmecta_landing]**: A4 알림판 인쇄/미리보기 2페이지 오버플로 긴급 수정(body.embedded 여백 제거, a4-sheet 1131px 엄격 고정 및 @media print 1페이지 제어) — Puppeteer 검증 scrollHeight 1123px ≤ 1131px 단일 페이지 완벽 통과.\n`;
 
 try {
   fs.appendFileSync(logPath, logEntry, 'utf8');
