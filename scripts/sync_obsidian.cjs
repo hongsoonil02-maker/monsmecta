@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const logPath = 'C:\\Users\\master\\agrolib\\obsidian_log.md';
 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-const logEntry = `\n- **[${now}] [monsmecta_landing]**: 동물병원 원장님 전용 퀵 발주서 헤더 박스 배경색을 다크 슬레이트에서 전역 시그니처 약간 짙은 녹색 톤(bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432])으로 통일 동기화 완료.\n`;
+const logEntry = `\n- **[${now}] [monsmecta_landing]**: 몬스멕타 100ml 제품 실사 사진을 사용자가 제공한 최신 고화질 실물 펌프 병 사진(public/assets/bottle_mockup.png 등)으로 교체 및 전역 동기화 완료.\n`;
 
 try {
   fs.appendFileSync(logPath, logEntry, 'utf8');
