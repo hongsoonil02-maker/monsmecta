@@ -711,6 +711,22 @@
       width: 100%;
     }
 
+    /* iframe 내장 모드: 상단 제어 바 숨김 및 여백 제거 */
+    body.embedded {
+      padding: 0;
+      background: #ffffff;
+      min-height: 0;
+    }
+
+    body.embedded .web-control-bar {
+      display: none !important;
+    }
+
+    body.embedded .a4-sheet {
+      border-radius: 0;
+      box-shadow: none;
+    }
+
     /* 인쇄 전용 스타일 (@media print) */
     @media print {
       @page {
@@ -786,15 +802,13 @@
 </head>
 <body>
 
-  <!-- 상단 웹 제어 바 -->
+  <!-- 상단 웹 제어 바 (단독 창에서만 표시, iframe 내장 시 자동 숨김) -->
   <div class="web-control-bar">
     <div class="title-box">
-      <span class="badge">🏆 공식 라벨 적용판 (OptD Hermes V2)</span>
-      <h1>에스앤제이 동물병원 몬스멕타 A4 알림판 (수의사 전용 공식 라벨)</h1>
+      <h1>몬스멕타 A4 알림판</h1>
     </div>
     <div class="btn-group">
-      <a href="notice_a4_tournament_dashboard.html" class="btn btn-dash">📊 토너먼트 4대 시안 대시보드</a>
-      <button onclick="window.print()" class="btn btn-print">🖨️ A4 포스터 바로 인쇄하기 (모바일 Wi-Fi 지원)</button>
+      <button onclick="window.print()" class="btn btn-print">🖨️ A4 인쇄하기</button>
     </div>
   </div>
 
@@ -967,6 +981,11 @@
   </div>
 
   <script>
+    // iframe(모달 미리보기) 내장 시 상단 제어 바 즉시 숨김
+    if (window.self !== window.top) {
+      document.body.classList.add('embedded');
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
       const name = params.get('name');
