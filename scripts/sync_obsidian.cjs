@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 
 const logPath = 'C:\\Users\\master\\agrolib\\obsidian_log.md';
 const now = new Date().toISOString().replace('T', ' ').substring(0, 19);
-const logEntry = `\n- **[${now}] [monsmecta_landing]**: A4 알림판 본체(.a4-sheet) 바탕색을 은은하고 고급스러운 연두색 파스텔톤(#F4FAF5→#EBF7EE)으로 전면 적용 및 인쇄 연동, 1장 단일 규격(내부 콘텐츠 762px 여유) 완벽 검증 통과.\n`;
+const logEntry = `\n- **[${now}] [monsmecta_landing]**: A4 알림판 메인카피 위 서브타이틀에서 쉼표 제거('토하고 설사하는 우리 아이,' → '토하고 설사하는 우리 아이') 및 dist 빌드 최신화 완료.\n`;
 
 try {
   fs.appendFileSync(logPath, logEntry, 'utf8');

@@ -118,12 +118,12 @@
       transform: translateY(-1px);
     }
 
-    /* A4 실물 캔버스 (알림판 본체: 연두색 파스텔톤 바탕 적용) */
+    /* A4 실물 캔버스 (알림판 본체: 상단 엷게 → 하단 점진적으로 짙어지는 세련된 페이드인 연두 파스텔 그라데이션) */
     .a4-sheet {
       width: 800px;
       height: 1131px;
       max-height: 1131px;
-      background: linear-gradient(180deg, #F4FAF5 0%, #EBF7EE 100%);
+      background: linear-gradient(180deg, #F0FAF3 0%, #DDF4E4 35%, #C2EFCF 70%, #A6E6BA 100%) !important;
       border-radius: 8px;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
       padding: 16px 30px 12px;
@@ -764,7 +764,7 @@
         box-shadow: none !important;
         border: none !important;
         border-top: 8px solid var(--primary) !important;
-        background: linear-gradient(180deg, #F4FAF5 0%, #EBF7EE 100%) !important;
+        background: linear-gradient(180deg, #F0FAF3 0%, #DDF4E4 35%, #C2EFCF 70%, #A6E6BA 100%) !important;
         overflow: hidden !important;
         page-break-after: avoid !important;
         page-break-inside: avoid !important;
@@ -856,7 +856,7 @@
           </div>
 
           <h1 class="main-headline">
-            <span class="lead-line">토하고 설사하는 우리 아이,</span>
+            <span class="lead-line">토하고 설사하는 우리 아이</span>
             <span class="brand-pop">동물용 활기명수 &lsquo;몬스멕타&rsquo;</span><br>
             <span class="highlight-red">한 병이면 든든합니다</span>
           </h1>
