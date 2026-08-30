@@ -144,7 +144,7 @@ export default function ClinicalCaseStudy() {
         </header>
 
         {/* 2분 54초 리얼 다큐멘터리 완성본 스페셜 쇼케이스 & 원클릭 공유 배너 */}
-        <div className="mb-10 max-w-4xl mx-auto p-4 sm:p-6 bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 rounded-3xl border border-emerald-500 shadow-xl text-start flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden group text-white">
+        <div className="mb-10 max-w-4xl mx-auto p-4 sm:p-6 bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432] rounded-3xl border border-emerald-500/50 shadow-xl text-start flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden group text-white">
           <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 blur-3xl pointer-events-none" />
           
           <div className="space-y-2 z-10 flex-1">
@@ -152,14 +152,14 @@ export default function ClinicalCaseStudy() {
               <span className="px-3 py-1 bg-amber-300 text-slate-950 text-[11px] sm:text-xs font-black rounded-full shadow-sm">
                 {t('clinicalCase.docuBadge', '🎬 2분 54초 풀 다큐멘터리 완성본')}
               </span>
-              <span className="text-xs text-emerald-100 font-bold">
+              <span className="text-xs text-emerald-200 font-bold">
                 {t('clinicalCase.docuSpec', '1080p 세로 직캠 + AI 성우 내레이션')}
               </span>
             </div>
             <h3 className="text-base sm:text-2xl font-black text-white leading-snug break-keep">
               {t('clinicalCase.docuBannerTitle', '55일령 발작 토이푸들의 7일간의 기적 (전편 통합본)')}
             </h3>
-            <p className="text-xs sm:text-sm text-emerald-50 leading-relaxed max-w-xl break-keep">
+            <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed max-w-xl break-keep">
               {t('clinicalCase.docuBannerDesc', '응급 내원부터 1차 펌프 투약, 신경 반사 회복, 캔사료 폭풍 완식 먹방, 그리고 최종 완치 퇴원까지 8편의 직캠과 자필 차트를 2분 54초의 감동적인 다큐멘터리로 감상하고 동료 수의사분들께 바로 공유해 보세요.')}
             </p>
           </div>
@@ -194,19 +194,19 @@ export default function ClinicalCaseStudy() {
                 aria-current={isActive ? 'step' : undefined}
                 className={`flex-1 text-start p-3.5 sm:p-4 rounded-2xl border min-h-[48px] transition-all duration-300 relative overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
                   isActive
-                    ? 'bg-emerald-600 text-white border-emerald-600 shadow-md ring-2 ring-emerald-500/30'
-                    : 'bg-white border-slate-200 hover:bg-slate-50 text-slate-600 shadow-xs'
+                    ? 'bg-[#005a41] text-white border-[#004632] shadow-lg ring-2 ring-emerald-600/40'
+                    : 'bg-slate-100/90 border-slate-300/80 hover:bg-slate-200/80 hover:border-slate-400 text-slate-800 shadow-sm'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className={`text-[11px] font-extrabold px-2 py-0.5 rounded-full ${isActive ? 'bg-amber-300 text-slate-950' : 'bg-slate-100 text-slate-500'}`}>
+                  <span className={`text-[11px] font-extrabold px-2 py-0.5 rounded-full ${isActive ? 'bg-amber-300 text-slate-950' : 'bg-white text-slate-700 border border-slate-200'}`}>
                     STEP 0{idx + 1}
                   </span>
-                  <span className={`text-[11px] font-mono ${isActive ? 'text-emerald-100' : 'text-slate-400'}`}>
+                  <span className={`text-[11px] font-mono ${isActive ? 'text-emerald-200' : 'text-slate-500 font-semibold'}`}>
                     {chart.period}
                   </span>
                 </div>
-                <h3 className={`text-xs sm:text-base font-bold line-clamp-1 ${isActive ? 'text-white' : 'text-slate-700'}`}>
+                <h3 className={`text-xs sm:text-base font-bold line-clamp-1 ${isActive ? 'text-white' : 'text-slate-900'}`}>
                   {chart.title}
                 </h3>
               </button>
@@ -429,24 +429,24 @@ export default function ClinicalCaseStudy() {
           </div>
         </section>
 
-        {/* B2B 수의사용 3단계 응급 프로토콜 카드 */}
-        <section aria-labelledby="protocol-heading" className="bg-gradient-to-br from-emerald-950/90 via-slate-900 to-slate-950 p-5 sm:p-10 rounded-3xl border border-emerald-500/30 shadow-2xl relative overflow-hidden">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 border-b border-white/10 pb-6 text-start">
+        {/* B2B 수의사용 3단계 응급 프로토콜 카드 (옅고 산뜻한 프리미엄 라이트 테마) */}
+        <section aria-labelledby="protocol-heading" className="bg-gradient-to-br from-emerald-50/90 via-white to-teal-50/70 p-5 sm:p-10 rounded-3xl border border-emerald-200 shadow-xl relative overflow-hidden text-slate-900">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 border-b border-slate-200 pb-6 text-start">
             <div>
-              <span className="px-3 py-1 bg-amber-400/20 text-amber-300 text-xs font-extrabold rounded-full border border-amber-400/30 inline-block mb-2">
+              <span className="px-3 py-1 bg-amber-100 text-amber-900 text-xs font-extrabold rounded-full border border-amber-300 inline-block mb-2 shadow-2xs">
                 {t('clinicalCase.protocolSub', 'Veterinary Clinical Protocol')}
               </span>
-              <h3 id="protocol-heading" className="text-lg sm:text-2xl lg:text-3xl font-black text-white break-keep">
+              <h3 id="protocol-heading" className="text-lg sm:text-2xl lg:text-3xl font-black text-slate-900 break-keep">
                 {CLINICAL_CASE_DATA.protocol.title}
               </h3>
-              <p className="text-xs sm:text-sm text-emerald-300/90 mt-1">
+              <p className="text-xs sm:text-sm text-emerald-800 font-semibold mt-1">
                 적용 대상: {CLINICAL_CASE_DATA.protocol.target}
               </p>
             </div>
 
             <a
               href="#audio-testimonial"
-              className="min-h-[44px] px-4 sm:px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm transition-colors shrink-0 shadow-lg flex items-center gap-2 border border-emerald-400/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 active:scale-95"
+              className="min-h-[44px] px-4 sm:px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition-colors shrink-0 shadow-md flex items-center gap-2 border border-emerald-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 active:scale-95"
             >
               <span>{t('clinicalCase.listenCall', '🎙️ 김동준 원장 통화 육성 인터뷰 듣기')}</span>
               <span className="rtl:rotate-180" aria-hidden="true">↓</span>
@@ -455,14 +455,14 @@ export default function ClinicalCaseStudy() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 text-start">
             {CLINICAL_CASE_DATA.protocol.steps.map((s, idx) => (
-              <div key={idx} className="bg-white/5 p-4 sm:p-5 rounded-2xl border border-white/10 flex flex-col justify-between">
+              <div key={idx} className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                 <div>
-                  <div className="w-8 h-8 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center font-black text-sm mb-3">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-100 border border-emerald-300 text-emerald-800 flex items-center justify-center font-black text-sm mb-3">
                     0{idx + 1}
                   </div>
-                  <h4 className="text-sm sm:text-base font-bold text-white mb-1">{s.step}</h4>
-                  <div className="text-xs font-bold text-emerald-400 mb-2">{s.product} ({s.dosage})</div>
-                  <p className="text-xs text-slate-300 leading-relaxed">{s.detail}</p>
+                  <h4 className="text-sm sm:text-base font-black text-slate-900 mb-1">{s.step}</h4>
+                  <div className="text-xs font-bold text-emerald-700 mb-2">{s.product} ({s.dosage})</div>
+                  <p className="text-xs text-slate-600 leading-relaxed">{s.detail}</p>
                 </div>
               </div>
             ))}
