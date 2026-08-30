@@ -121,12 +121,12 @@
     /* A4 실물 캔버스 (알림판 본체: 상단 엷게 → 하단 점진적으로 짙어지는 세련된 페이드인 연두 파스텔 그라데이션) */
     .a4-sheet {
       width: 800px;
-      height: 1131px;
-      max-height: 1131px;
+      height: 1123px;
+      max-height: 1123px;
       background: linear-gradient(180deg, #F0FAF3 0%, #DDF4E4 35%, #C2EFCF 70%, #A6E6BA 100%) !important;
       border-radius: 8px;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-      padding: 20px 32px 26px;
+      padding: 18px 32px 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -694,20 +694,21 @@
       margin-left: 16px;
     }
 
-    /* 5. 바텀 서명 */
+    /* 5. 바텀 서명 (하단 여유 공간 확보를 위해 확실하게 위로 올림) */
     .bottom-bar {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
       gap: 3px;
-      padding-top: 6px;
+      padding-top: 8px;
       border-top: 1px solid var(--border-color);
       font-size: 0.78rem;
       color: var(--text-muted);
       font-weight: 700;
       text-align: left;
       width: 100%;
+      margin-bottom: 22px !important;
     }
 
     .bottom-bar div {
@@ -786,6 +787,10 @@
       .price-trust-badge {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+      }
+
+      .bottom-bar {
+        margin-bottom: 22px !important;
       }
     }
 
