@@ -80,10 +80,11 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
         {/* Modal Header */}
         <div className="bg-white border-b border-slate-200 p-4 md:p-5 flex justify-between items-center shrink-0">
           <div>
-            <h3 id="notice-modal-title" className="text-lg md:text-2xl font-black text-[#00513b] flex items-center gap-2">
-              <span className="text-xl md:text-2xl">🖨️</span> {t('notice.title', '동물병원 알림판 커스텀 출력')}
+            <h3 id="notice-modal-title" className="text-base sm:text-xl md:text-2xl font-black text-[#00513b] flex items-start gap-2 text-start">
+              <span className="text-lg md:text-2xl shrink-0 select-none mt-0.5">🖨️</span>
+              <span className="break-keep flex-1">{t('notice.title', '동물병원 알림판 커스텀 출력')}</span>
             </h3>
-            <p className="text-xs text-slate-500 hidden sm:block mt-0.5">{t('notice.desc', '병원명, 주소, 연락처를 입력하시면 알림판 하단에 자동으로 적용됩니다.')}</p>
+            <p className="text-xs text-slate-500 hidden sm:block mt-1">{t('notice.desc', '병원명, 주소, 연락처를 입력하시면 알림판 하단에 자동으로 적용됩니다.')}</p>
           </div>
           <button onClick={onClose} aria-label={t('common.close', '닫기')} className="text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-full p-2 transition-colors focus:outline-none">
             <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

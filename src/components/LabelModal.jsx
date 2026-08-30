@@ -146,7 +146,7 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, onOpenPrint, active
         <div className={`sticky top-0 bg-gradient-to-r ${theme.headerGradient} border-b ${theme.border} text-white p-6 flex justify-between items-center z-10`}>
           <div>
             <p className={`text-xs ${theme.text} font-bold tracking-widest uppercase mb-1`}>{t('label.header_eyebrow')}</p>
-            <h3 id="label-modal-title" className="text-2xl font-black text-white">{t('label.header_title')}</h3>
+            <h3 id="label-modal-title" className="text-xl sm:text-2xl font-black text-white break-keep text-start">{t('label.header_title')}</h3>
           </div>
           <button onClick={() => setIsLabelModalOpen(false)} aria-label={t('common.close')} className="text-white/60 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2 transition-colors">
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

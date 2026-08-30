@@ -145,13 +145,13 @@ export default function VetSampleModal({ isOpen, onClose }) {
           &times;
         </button>
 
-        <div className="flex items-center gap-3 mb-4">
-          <span className="text-3xl">🩺</span>
-          <div>
-            <h3 id="modal-title" className="text-xl font-extrabold text-blue-900">
+        <div className="flex items-start gap-3 mb-5 pr-8 text-start">
+          <span className="text-3xl shrink-0 select-none mt-0.5">🩺</span>
+          <div className="flex-1">
+            <h3 id="modal-title" className="text-lg sm:text-xl font-extrabold text-blue-900 leading-snug break-keep">
               {t('sampleModal.title', '수의사 원장님 전용 샘플 & 처방권 문의')}
             </h3>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 mt-1 leading-relaxed break-keep">
               {t('sampleModal.sub', '동물병원 독점 처방용 몬스멕타(MONSMECTA) 샘플 키트를 보내드립니다.')}
             </p>
           </div>

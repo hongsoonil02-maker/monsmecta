@@ -31,14 +31,32 @@ body {
 }
 
 .session-section {
-  background-color: var(--session-bg) !important;
+  /* 일관된 테마 적용을 위해 Tailwind 클래스 우선 */
 }
 
 .session-section-light {
-  background-color: var(--session-bg-light) !important;
+  /* 일관된 테마 적용을 위해 Tailwind 클래스 우선 */
 }
 
-/* 모바일 한글 타이틀 2줄 줄맞춤 */
+/* 모바일 한글 타이틀 2줄 줄맞춤 (첫 줄 첫 글자와 둘째 줄 첫 글자 세로선 완벽 일치) */
+.kr-hanging-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  text-align: start;
+}
+.kr-hanging-title > .kr-icon,
+.kr-hanging-title > [data-icon] {
+  flex-shrink: 0;
+  user-select: none;
+}
+.kr-hanging-title > .kr-text,
+.kr-hanging-title > [data-text] {
+  flex: 1;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 .kr-title-2line {
   display: -webkit-box;
   -webkit-line-clamp: 2;

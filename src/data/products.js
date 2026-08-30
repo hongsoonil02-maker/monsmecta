@@ -4,7 +4,7 @@ export const PRODUCTS = {
     name_ko: '몬스멕타 (오리지널)',
     name_en: 'MONSMECTA (ORIGINAL)',
     volume: '100ml',
-    desc: '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어 (100ml)',
+    desc: '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어',
     icon: '🧪',
     color: 'emerald',
     bg: 'hover:bg-emerald-900',
@@ -16,8 +16,8 @@ export const PRODUCTS = {
     hero: {
       titleKey: 'hero.title',
       subtitleKey: 'hero.subtitle',
-      badge: '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어 (100ml)',
-      badgeText: '장 건강 (100ml)',
+      badge: '동물병원 전용 B2B 처방 솔루션 · 모든 동물을 위한 소화기 케어',
+      badgeText: '장 건강',
       badgeColor: 'bg-emerald-600',
       borderColor: 'border-white',
       bgColor: 'bg-white'

@@ -18,7 +18,7 @@ const PrintModal = ({ isPrintModalOpen, setIsPrintModalOpen, printUrl }) => {
       <div ref={panelRef} tabIndex={-1} className={`bg-slate-100 rounded-3xl shadow-2xl w-full max-w-[1250px] max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300 flex flex-col focus:outline-none`}>
         {/* Modal Header */}
         <div className="sticky top-0 bg-white border-b border-slate-200 p-4 md:p-6 flex justify-between items-center z-10 rounded-t-3xl shadow-sm">
-          <h3 id="print-modal-title" className="text-xl md:text-2xl font-black text-[#00513b] flex items-center gap-2">
+          <h3 id="print-modal-title" className="text-lg md:text-2xl font-black text-[#00513b] break-keep text-start">
             {t('label.print_title')}
           </h3>
           <button onClick={() => setIsPrintModalOpen(false)} aria-label={t('common.close')} className="text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-full p-2 transition-colors focus:outline-none">

@@ -47,13 +47,13 @@ const OrderForm = ({
   const totalQuantity = Object.values(quantities).reduce((sum, q) => sum + q, 0);
 
   return (
-    <section id="order" className="py-10 md:py-20 bg-slate-50">
+    <section id="order" className="py-16 sm:py-24 md:py-28 bg-slate-50 border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200 transform transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,81,59,0.1)]">
-          <div className="bg-gradient-to-r from-[#00513b] to-[#003d2b] p-8 md:p-10 text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
-            <h2 className="text-3xl font-black text-white drop-shadow-md break-keep">{t('order.title')}</h2>
-            <p className="text-emerald-100/80 font-medium mt-3">{t('order.desc')}</p>
+        <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200/90 transform transition-all duration-500 hover:shadow-2xl">
+          <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-6 sm:p-8 md:p-10 text-center relative overflow-hidden border-b border-slate-800">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white drop-shadow-md break-keep">{t('order.title')}</h2>
+            <p className="text-slate-300 text-xs sm:text-sm md:text-base font-medium mt-3">{t('order.desc')}</p>
           </div>
 
           {isOrderComplete ? (
@@ -283,17 +283,17 @@ const OrderForm = ({
                 </div>
               </div>
 
-              <div className="bg-[#003d2b] p-8 md:p-10 rounded-2xl text-white shadow-2xl relative overflow-hidden">
+              <div className="bg-slate-900 p-6 sm:p-8 md:p-10 rounded-2xl text-white shadow-2xl relative overflow-hidden border border-slate-800">
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-yellow-400 opacity-10 rounded-full blur-3xl"></div>
-                <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4 relative z-10">
-                  <span className="text-xl font-bold text-slate-300">{t('order.total_price')}</span>
-                  <span className="text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight">{totalPrice.toLocaleString()}<span className="text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
+                <div className="flex flex-col md:flex-row justify-between items-center mb-6 sm:mb-8 gap-4 relative z-10">
+                  <span className="text-lg sm:text-xl font-bold text-slate-300">{t('order.total_price')}</span>
+                  <span className="text-4xl sm:text-5xl font-black text-yellow-400 drop-shadow-lg tracking-tight font-mono">{totalPrice.toLocaleString()}<span className="text-xl sm:text-2xl ml-2 text-yellow-500">{t('order.won')}</span></span>
                 </div>
-                <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 text-2xl font-black py-5 rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition duration-300 shadow-[0_0_20px_rgba(250,204,21,0.3)] transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0">
+                <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 text-xl sm:text-2xl font-black py-4 sm:py-5 rounded-xl hover:from-yellow-300 hover:to-yellow-400 transition duration-300 shadow-[0_0_20px_rgba(250,204,21,0.3)] transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer">
                   <span>{isSubmitting ? t('order.submitting') : t('order.btn')}</span>
-                  {!isSubmitting && <svg className="w-7 h-7 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
+                  {!isSubmitting && <svg className="w-6 h-6 sm:w-7 sm:h-7 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
                 </button>
-                <p className="text-center text-slate-400 text-sm mt-6 font-medium">{t('order.bank_info')}</p>
+                <p className="text-center text-slate-400 text-xs sm:text-sm mt-5 sm:mt-6 font-medium">{t('order.bank_info')}</p>
               </div>
             </form>
           )}

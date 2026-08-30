@@ -4,7 +4,7 @@ const ClinicalEvidence = ({ activeProduct }) => {
   const { t } = useTranslation();
 
   return (
-    <section id="clinical" className="py-12 md:py-24 bg-slate-100 border-y border-slate-200">
+    <section id="clinical" className="py-16 sm:py-24 md:py-28 bg-slate-100 border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('clinical.title', '학술 검증 및 임상 시험 데이터')}</h2>

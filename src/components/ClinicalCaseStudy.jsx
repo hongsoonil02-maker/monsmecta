@@ -90,14 +90,14 @@ export default function ClinicalCaseStudy() {
     <section 
       id="clinical-case-study" 
       aria-labelledby="clinical-case-heading"
-      className="py-16 sm:py-20 session-section bg-gradient-to-br from-[#00513b] via-[#004230] to-[#00281d] text-white relative overflow-hidden border-t border-b border-emerald-500/20"
+      className="py-16 sm:py-24 bg-slate-900 text-white relative overflow-hidden border-y border-slate-800"
     >
-      {/* 배경 장식 글로우 */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-500/10 blur-[140px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-10 end-10 w-96 h-96 bg-amber-500/10 blur-[120px] pointer-events-none rounded-full" />
+      {/* 배경 은은한 시네마틱 앰비언트 글로우 */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-500/5 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-10 end-10 w-96 h-96 bg-amber-500/5 blur-[120px] pointer-events-none rounded-full" />
 
-      {/* 삼성 갤럭시 S20 Ultra (412px) 및 모바일 반응형 컨테이너 */}
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
+      {/* 모바일 여유로운 컨테이너 */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* 헤더 섹션 */}
         <header className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
@@ -522,11 +522,13 @@ export default function ClinicalCaseStudy() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-3 text-start">
-              <div className="pe-2">
-                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${modalVideo.badgeColor} me-2`}>
-                  {modalVideo.badge}
-                </span>
-                <h4 className="kr-title-2line text-sm sm:text-base font-bold text-white inline-block align-middle" style={{WebkitLineClamp: 2}}>{modalVideo.title}</h4>
+              <div className="pe-2 flex-1">
+                <div className="kr-hanging-title">
+                  <span className={`kr-icon text-[10px] font-bold px-2 py-0.5 rounded-full ${modalVideo.badgeColor}`}>
+                    {modalVideo.badge}
+                  </span>
+                  <h4 className="kr-text text-sm sm:text-base font-bold text-white leading-snug">{modalVideo.title}</h4>
+                </div>
               </div>
               <button
                 onClick={() => setIsVideoModalOpen(false)}
@@ -572,13 +574,15 @@ export default function ClinicalCaseStudy() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-2.5 sm:mb-3 border-b border-white/10 pb-2.5 sm:pb-3 text-start">
-              <div>
-                <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-yellow-400 text-slate-950 me-2 inline-block">
-                  {t('clinicalCase.docuModalBadge', '🎬 2분 54초 풀 다큐멘터리')}
-                </span>
-                <h4 className="kr-title-2line text-xs sm:text-base font-bold text-white block mt-1" style={{WebkitLineClamp: 2}}>
-                  {t('clinicalCase.docuModalTitle', '55일령 발작 환축의 7일간의 기적')}
-                </h4>
+              <div className="pe-2 flex-1">
+                <div className="kr-hanging-title">
+                  <span className="kr-icon text-[10px] font-black px-2.5 py-0.5 rounded-full bg-yellow-400 text-slate-950">
+                    🎬 2분 54초
+                  </span>
+                  <h4 className="kr-text text-xs sm:text-base font-bold text-white leading-snug">
+                    {t('clinicalCase.docuModalTitle', '55일령 발작 환축의 7일간의 기적')}
+                  </h4>
+                </div>
               </div>
               <button
                 onClick={() => setIsDocuModalOpen(false)}
