@@ -502,15 +502,20 @@
       background: #ffffff;
       border: 1.5px solid #E2E8F0;
       border-radius: 16px;
-      padding: 8px 14px;
+      padding: 8px 14px 10px;
       box-shadow: 0 6px 14px rgba(15, 23, 42, 0.05);
+    }
+
+    .ingredient-block .block-title {
+      justify-content: center;
     }
 
     .ingredient-list {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 14px;
+      align-items: start;
     }
 
     .ingredient-list li {
@@ -903,14 +908,14 @@
             <li>
               <span class="ing-num">1</span>
               <div class="ing-text">
-                <b>항균·항바이러스 작용</b>
-                <span class="ing-sub">고초균(Bacillus subtilis) · 경상국립대 수의대 항바이러스 효과 확인</span>
+                <b>항균·항바이러스 작용 — 고초균(Bacillus subtilis)</b>
+                <span class="ing-sub">경상국립대학교 수의과대학 항바이러스 효과 확인</span>
               </div>
             </li>
             <li>
               <span class="ing-num">2</span>
               <div class="ing-text">
-                <b>장 기능 개선·정장 작용</b>
+                <b>장 기능 개선 및 정장 작용</b>
                 <span class="ing-sub">포도당</span>
               </div>
             </li>
@@ -931,8 +936,8 @@
             <li>
               <span class="ing-num">5</span>
               <div class="ing-text">
-                <b>연변·설사 개선, 독소 제거</b>
-                <span class="ing-sub">고순도 초미세 나노 몬모릴로나이트 (곰팡이 독소 제거·면역 증강·장 환경 개선)</span>
+                <b>연변·설사 개선, 곰팡이 독소 제거</b>
+                <span class="ing-sub">면역 증강 및 장 환경 개선 — 고순도 초미세 나노 몬모릴로나이트</span>
               </div>
             </li>
           </ul>
@@ -956,7 +961,7 @@
           </div>
 
           <div class="usage-row">
-            <div class="usage-item"><span class="u-label">대상</span> 개·고양이·조류·토끼·햄스터·파충류 등 <b>전 축종</b></div>
+            <div class="usage-item"><span class="u-label">대상</span> 개·고양이·조류·토끼·햄스터·파충류 등 <b>모든 동물</b></div>
             <div class="usage-item"><span class="u-label">용법</span> 1일 두당 <b>2~4ml</b>, 5~7일간 경구 급여</div>
             <div class="usage-item usage-tip">💡 가라앉는 성분이 있어 <b>흔들어서</b> 급여하세요</div>
           </div>
