@@ -47,7 +47,7 @@ const OrderForm = ({
   const totalQuantity = Object.values(quantities).reduce((sum, q) => sum + q, 0);
 
   return (
-    <section id="order" className="py-16 sm:py-24 md:py-28 bg-slate-50 border-t border-slate-200/80">
+    <section id="order" className="py-10 sm:py-14 md:py-[68px] bg-slate-50 border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200/90 transform transition-all duration-500 hover:shadow-2xl">
           <div className="bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432] p-6 sm:p-8 md:p-10 text-center relative overflow-hidden border-b border-emerald-600/40">

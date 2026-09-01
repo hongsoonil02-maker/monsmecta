@@ -5,7 +5,7 @@ const Values = ({ activeProduct }) => {
   const { t } = useTranslation();
 
   return (
-    <section id="values" className="py-16 sm:py-24 md:py-28 bg-white relative">
+    <section id="values" className="py-10 sm:py-14 md:py-[68px] bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-14">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#00513b] break-keep tracking-tight">

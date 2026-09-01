@@ -4,7 +4,7 @@ const Footer = ({ setLegalType }) => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-slate-100 text-slate-600 pt-12 pb-28 md:pt-16 md:pb-32 border-t border-slate-200">
+    <footer className="bg-slate-100 text-slate-600 pt-[28px] pb-[68px] md:pt-[38px] md:pb-[76px] border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h4 className="text-slate-900 font-black text-xl mb-6 tracking-wide">{t('footer.title')}</h4>
         <div className="space-y-2.5 mb-6 font-medium text-xs sm:text-sm md:text-base text-slate-600">

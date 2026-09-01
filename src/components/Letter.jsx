@@ -4,7 +4,7 @@ const Letter = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-16 sm:py-24 md:py-28 bg-emerald-50/70 text-slate-800 relative overflow-hidden border-y border-emerald-200/70">
+    <section className="py-10 sm:py-14 md:py-[68px] bg-emerald-50/70 text-slate-800 relative overflow-hidden border-y border-emerald-200/70">
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.15),transparent_50%)]"></div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
         <blockquote className="relative">

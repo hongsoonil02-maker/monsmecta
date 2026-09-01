@@ -67,7 +67,7 @@ export default function AudioTestimonial() {
     <section
       id="audio-testimonial"
       aria-label={t('audioTestimonial.title', '"구토·복통·설사 환축 몬스멕타 즉시 투여 반응"')}
-      className="bg-white text-slate-900 rounded-3xl p-6 sm:p-8 md:p-10 my-12 max-w-7xl mx-4 sm:mx-6 lg:mx-auto border border-slate-200/90 shadow-xl"
+      className="bg-white text-slate-900 rounded-3xl p-6 sm:p-8 md:p-10 my-[28px] max-w-7xl mx-4 sm:mx-6 lg:mx-auto border border-slate-200/90 shadow-xl"
     >
       <audio ref={audioRef} src={`${import.meta.env.BASE_URL}assets/kimdongjun-call.m4a`} preload="metadata" />
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">

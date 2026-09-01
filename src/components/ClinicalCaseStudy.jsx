@@ -90,7 +90,7 @@ export default function ClinicalCaseStudy() {
     <section 
       id="clinical-case-study" 
       aria-labelledby="clinical-case-heading"
-      className="py-16 sm:py-24 bg-slate-50 text-slate-900 relative overflow-hidden border-y border-slate-200"
+      className="py-10 sm:py-14 bg-slate-50 text-slate-900 relative overflow-hidden border-y border-slate-200"
     >
       {/* 배경 은은한 앰비언트 글로우 */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-300/20 blur-[140px] pointer-events-none rounded-full" />

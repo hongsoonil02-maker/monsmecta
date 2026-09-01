@@ -7,7 +7,7 @@ const Infographics = ({ iframeHeights }) => {
   const lang = supportedLangs.includes(rawLang) ? rawLang : 'ko';
 
   return (
-    <section className="py-14 sm:py-20 md:py-28 bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-8 sm:py-12 md:py-[68px] bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-10 sm:mb-14">
         <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#00513b] mb-4 break-keep tracking-tight">{t('infographics.title')}</h3>
         <p className="text-slate-500 text-sm sm:text-base md:text-lg font-medium max-w-2xl mx-auto break-keep leading-relaxed">{t('infographics.desc')}</p>
