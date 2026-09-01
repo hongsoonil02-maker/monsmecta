@@ -40,7 +40,7 @@ const Hero = ({ setIsLabelModalOpen, activeProduct }) => {
   };
 
   return (
-    <section id="about" className="relative bg-gradient-to-br from-[#00513b] via-[#004230] to-[#00281d] text-white overflow-hidden pt-6 pb-14 sm:pt-14 sm:pb-20 md:py-32">
+    <section id="about" className="relative bg-gradient-to-br from-[#00513b] via-[#004230] to-[#00281d] text-white overflow-hidden pt-4 pb-8 sm:pt-8 sm:pb-12 md:py-[76px]">
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.25),transparent_45%)]"></div>
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-400 via-transparent to-transparent mix-blend-overlay"></div>
 
