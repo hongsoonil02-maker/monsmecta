@@ -715,7 +715,7 @@
       margin-left: 16px;
     }
 
-    /* 5. 바텀 서명 (하단 여유 공간 확보를 위해 확실하게 위로 올림) */
+    /* 5. 바텀 서명 (하단 여유 공간 확보를 위해 확실하게 위로 올림 - 흰색 텍스트로 배경 위 또렷하게) */
     .bottom-bar {
       display: flex;
       flex-direction: column;
@@ -723,13 +723,16 @@
       justify-content: center;
       gap: 3px;
       padding-top: 8px;
-      border-top: 1px solid rgba(22, 101, 52, 0.35);
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
       font-size: 0.78rem;
-      color: #0B5C3A;
-      font-weight: 750;
+      color: #FFFFFF;
+      font-weight: 800;
       text-align: left;
       width: 100%;
       margin-bottom: 22px !important;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 1px 3px rgba(0, 26, 18, 0.45);
     }
 
     .bottom-bar div {
