@@ -118,12 +118,13 @@
       transform: translateY(-1px);
     }
 
-    /* A4 실물 캔버스 (알림판 본체: 상단 엷게 → 하단 점진적으로 짙어지는 세련된 페이드인 연두 파스텔 그라데이션) */
+    /* A4 실물 캔버스 (알림판 본체: 상단 엷게 → 하단 점진적으로 짙어지는 세련된 페이드인 녹색 그라데이션)
+       배경 그라데이션은 ::before 레이어로 콘텐츠 맨 뒤에 놓아 글씨/요소가 가려지거나 흐려지지 않게 분리 */
     .a4-sheet {
       width: 800px;
       height: 1123px;
       max-height: 1123px;
-      background: linear-gradient(180deg, #F1FBF5 0%, #D9F3E4 25%, #86D4AC 55%, #2E8B5F 80%, #00281d 100%) !important;
+      background: transparent;
       border-radius: 8px;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
       padding: 18px 32px 24px;
@@ -131,10 +132,29 @@
       flex-direction: column;
       justify-content: space-between;
       position: relative;
+      z-index: 0;
       border-top: 8px solid var(--primary);
       border-bottom: 8px solid var(--primary);
       overflow: hidden;
       box-sizing: border-box;
+    }
+
+    .a4-sheet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, #F1FBF5 0%, #D9F3E4 25%, #86D4AC 55%, #2E8B5F 80%, #00281d 100%);
+      pointer-events: none;
+    }
+
+    /* A4 캔버스 내부 콘텐츠는 항상 배경 레이어보다 위에 표시 */
+    .a4-sheet > * {
+      position: relative;
+      z-index: 1;
     }
 
     /* 1. 헤더 영역 */
@@ -703,10 +723,10 @@
       justify-content: center;
       gap: 3px;
       padding-top: 8px;
-      border-top: 1px solid var(--border-color);
+      border-top: 1px solid rgba(22, 101, 52, 0.35);
       font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 700;
+      color: #0B5C3A;
+      font-weight: 750;
       text-align: left;
       width: 100%;
       margin-bottom: 22px !important;
@@ -767,12 +787,18 @@
         border: none !important;
         border-top: 8px solid var(--primary) !important;
         border-bottom: 8px solid var(--primary) !important;
-        background: linear-gradient(180deg, #F1FBF5 0%, #D9F3E4 25%, #86D4AC 55%, #2E8B5F 80%, #00281d 100%) !important;
+        background: transparent !important;
         overflow: hidden !important;
         page-break-after: avoid !important;
         page-break-inside: avoid !important;
         break-after: avoid !important;
         break-inside: avoid !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .a4-sheet::before {
+        background: linear-gradient(180deg, #F1FBF5 0%, #D9F3E4 25%, #86D4AC 55%, #2E8B5F 80%, #00281d 100%);
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
       }
