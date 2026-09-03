@@ -23,20 +23,26 @@ export default function StickyBottomCTA({ onOpenModal, onOpenNoticeModal }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 w-full md:w-auto">
-          <button
-            onClick={onOpenNoticeModal}
-            aria-label={t('notice.title', '원내 A4 알림판 만들기')}
-            className="flex-1 md:flex-initial min-h-[44px] px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 focus:ring-2 focus:ring-blue-400 focus:outline-none active:scale-[0.98]"
+        <div className="flex items-center gap-1.5 sm:gap-2 w-full md:w-auto">
+          <a
+            href="#order"
+            className="flex-1 md:flex-initial min-h-[42px] sm:min-h-[44px] px-3 sm:px-4 py-2 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-[#00513b] font-black text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1 active:scale-[0.98]"
           >
-            <span>🖨️ {t('notice.stickyBtn', '알림판 만들기')}</span>
-          </button>
+            <span>⚡ {t('order.quickBtn', '즉시 발주')}</span>
+          </a>
           <button
             onClick={onOpenModal}
             aria-label={t('stickyCta.sampleBtn', '수의사 무료 샘플 신청')}
-            className="flex-1 md:flex-initial min-h-[44px] px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1.5 focus:ring-2 focus:ring-emerald-400 focus:outline-none active:scale-[0.98]"
+            className="flex-1 md:flex-initial min-h-[42px] sm:min-h-[44px] px-3 sm:px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-1 focus:ring-2 focus:ring-emerald-400 focus:outline-none active:scale-[0.98]"
           >
-            <span>{t('stickyCta.sampleBtn', '📦 무료 샘플 신청')}</span>
+            <span>{t('stickyCta.sampleBtn', '📦 무료 샘플')}</span>
+          </button>
+          <button
+            onClick={onOpenNoticeModal}
+            aria-label={t('notice.title', '원내 A4 알림판 만들기')}
+            className="hidden sm:flex md:flex-initial min-h-[42px] sm:min-h-[44px] px-3 sm:px-4 py-2 bg-blue-600/90 hover:bg-blue-600 text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-lg transition-all items-center justify-center gap-1 focus:ring-2 focus:ring-blue-400 focus:outline-none active:scale-[0.98]"
+          >
+            <span>🖨️ {t('notice.stickyBtn', '알림판')}</span>
           </button>
         </div>
       </div>

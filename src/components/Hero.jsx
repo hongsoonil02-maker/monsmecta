@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from '../data/products';
 
-const Hero = ({ setIsLabelModalOpen, activeProduct }) => {
+const Hero = ({ setIsLabelModalOpen, onOpenSampleModal, activeProduct }) => {
   const { t } = useTranslation();
   const [deferredMediaReady, setDeferredMediaReady] = useState(false);
 
@@ -56,11 +56,14 @@ const Hero = ({ setIsLabelModalOpen, activeProduct }) => {
           <p className="text-sm sm:text-base md:text-xl text-emerald-50/95 leading-relaxed max-w-xl mx-auto md:mx-0 font-light whitespace-pre-line break-keep text-balance">
             {current.subtitle}
           </p>
-          <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
-            <button onClick={handleOrderClick} className="inline-block text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-base sm:text-lg font-black px-6 sm:px-8 py-3.5 sm:py-4 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+          <div className="pt-2 sm:pt-4 flex flex-wrap sm:flex-nowrap gap-2.5 sm:gap-3 justify-center md:justify-start">
+            <button onClick={handleOrderClick} className="flex-1 sm:flex-initial text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-sm sm:text-base md:text-lg font-black px-5 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-300">
               {t('hero.orderBtn')}
             </button>
-            <button onClick={() => setIsLabelModalOpen(true)} className="inline-block text-center bg-white/10 backdrop-blur-md border border-white/30 text-white text-base sm:text-lg font-bold px-6 sm:px-8 py-3.5 sm:py-4 rounded-full hover:bg-white/20 transform hover:-translate-y-1 transition-all duration-300">
+            <button onClick={onOpenSampleModal} className="flex-1 sm:flex-initial text-center bg-emerald-500/80 hover:bg-emerald-500 text-white text-sm sm:text-base md:text-lg font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full border border-emerald-300/60 shadow-lg hover:shadow-emerald-500/40 transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-300">
+              {t('hero.sampleBtn', '📦 원장님 무료 샘플')}
+            </button>
+            <button onClick={() => setIsLabelModalOpen(true)} className="w-full sm:w-auto text-center bg-white/10 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-full hover:bg-white/20 transform hover:-translate-y-0.5 transition-all duration-300">
               {t('hero.specBtn')}
             </button>
           </div>

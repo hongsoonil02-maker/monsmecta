@@ -1,7 +1,7 @@
 import { useTranslation, Trans } from 'react-i18next';
 import { PRODUCTS, LINEUP_PRODUCTS, getProductDisplayName } from '../data/products';
 
-const Lineup = ({ setIsLabelModalOpen, setActiveProduct }) => {
+const Lineup = ({ setIsLabelModalOpen, setActiveProduct, onOpenSampleModal }) => {
   const { t, i18n } = useTranslation();
   const isKoreanLang = (i18n.language || 'ko').toLowerCase().startsWith('ko');
 
@@ -70,20 +70,26 @@ const Lineup = ({ setIsLabelModalOpen, setActiveProduct }) => {
                       {t('lineup.available', '공식 처방 가능')}
                     </div>
                   )}
-                  <button
-                    onClick={() => {
-                      if (!product.isComingSoon) {
+                  {product.isComingSoon ? (
+                    <button
+                      onClick={() => onOpenSampleModal && onOpenSampleModal()}
+                      className="w-full py-2.5 bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                      {t('lineup.notifyBtn', '출시 알림·샘플 신청')}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => {
                         setActiveProduct(id);
                         setIsLabelModalOpen(true);
-                      } else {
-                        alert(t('lineup.comingSoonAlert', '출시 준비중인 제품입니다. (가격 미책정)'));
-                      }
-                    }}
-                    className="w-full py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
-                  >
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
-                    {t('lineup.elabelBtn', 'E-Label 확인')}
-                  </button>
+                      }}
+                      className="w-full py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                      {t('lineup.elabelBtn', 'E-Label 확인')}
+                    </button>
+                  )}
                 </div>
               </div>
             );

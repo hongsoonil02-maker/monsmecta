@@ -32,6 +32,17 @@ const OrderForm = ({
   const isKoreanLang = (i18n.language || 'ko').toLowerCase().startsWith('ko');
   const [selectedProduct, setSelectedProduct] = useState(Object.keys(PRODUCTS)[0]);
 
+  const formatBizNumber = (value) => {
+    const raw = value.replace(/[^0-9]/g, '').slice(0, 10);
+    if (raw.length <= 3) return raw;
+    if (raw.length <= 5) return `${raw.slice(0, 3)}-${raw.slice(3)}`;
+    return `${raw.slice(0, 3)}-${raw.slice(3, 5)}-${raw.slice(5)}`;
+  };
+
+  const handleBizNumberChange = (e) => {
+    setBizNumber(formatBizNumber(e.target.value));
+  };
+
   const handleAddProduct = () => {
     const p = PRODUCTS[selectedProduct];
     if (!p || p.isComingSoon || !p.price) {
@@ -39,7 +50,9 @@ const OrderForm = ({
       return;
     }
     if ((quantities[selectedProduct] || 0) === 0) {
-      setQuantities(prev => ({ ...prev, [selectedProduct]: 1 }));
+      // 품목이 비어있던 상태면 최소 수량 5개로 자동 시작, 이미 다른 품목이 있으면 1개 추가
+      const isFirstItem = Object.values(quantities).reduce((a, b) => a + b, 0) === 0;
+      setQuantities(prev => ({ ...prev, [selectedProduct]: isFirstItem ? minQuantity : 1 }));
     }
   };
 
@@ -147,9 +160,9 @@ const OrderForm = ({
                     <input
                       type="text"
                       value={bizNumber}
-                      onChange={(e) => setBizNumber(e.target.value)}
+                      onChange={handleBizNumberChange}
                       className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide"
-                      placeholder={t('order.biz_number_placeholder')}
+                      placeholder={t('order.biz_number_placeholder', '000-00-00000')}
                       required
                       maxLength="12"
                     />
@@ -238,9 +251,17 @@ const OrderForm = ({
                     {t('order.addProduct', '추가하기')}
                   </button>
                 </div>
-                <p className="text-xs text-slate-500 font-medium -mt-2">
-                  {t('order.minOrderNotice', { min: minQuantity, defaultValue: `* 최소 주문 수량: ${minQuantity}병` })}
-                </p>
+                <div className="flex items-center justify-between gap-2 -mt-2 mb-3">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold rounded-lg">
+                    <span>💡</span>
+                    <span>{t('order.minOrderNotice', { min: minQuantity, defaultValue: `전체 합계 최소 ${minQuantity}병 이상부터 발주 가능합니다.` })}</span>
+                  </div>
+                  {totalQuantity > 0 && totalQuantity < minQuantity && (
+                    <span className="text-xs text-red-600 font-bold animate-pulse">
+                      ({minQuantity - totalQuantity}병 더 담아주세요)
+                    </span>
+                  )}
+                </div>
 
                 <div className="space-y-4">
                   {totalQuantity === 0 && (

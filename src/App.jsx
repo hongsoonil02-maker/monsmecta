@@ -246,8 +246,8 @@ const MonsmectaSNJLanding = () => {
 
       <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
       <main id="main-content">
-        <Hero setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
-        <Lineup setIsLabelModalOpen={setIsLabelModalOpen} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
+        <Hero setIsLabelModalOpen={setIsLabelModalOpen} onOpenSampleModal={() => setIsSampleModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
+        <Lineup setIsLabelModalOpen={setIsLabelModalOpen} onOpenSampleModal={() => setIsSampleModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <Values activeProduct={activeProduct} />
         <ClinicalEvidence activeProduct={activeProduct} />
         <ClinicalCaseStudy />
