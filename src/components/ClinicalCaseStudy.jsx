@@ -99,8 +99,8 @@ export default function ClinicalCaseStudy() {
       {/* 모바일 여유로운 컨테이너 */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* 헤더 섹션 - max-w-5xl로 확장하여 메인 그리드 및 전체 섹션 박스와 좌우 끝단 정렬 일치 */}
-        <header className="text-center max-w-5xl mx-auto mb-8 sm:mb-10">
+        {/* 헤더 섹션 - max-w-7xl 전체 컨테이너 폭에 맞춰 윗/아래 세션 박스들과 좌우 끝단 100% 일치 */}
+        <header className="text-center w-full mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs sm:text-sm font-black mb-4 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" aria-hidden="true" />
             {t('clinicalCase.badge', '🎙️ 몬스멕타 자문위원 리얼 임상 다큐멘터리')}
@@ -122,60 +122,60 @@ export default function ClinicalCaseStudy() {
             {t('clinicalCase.mineralSafe', '🌿 100% 천연 점토 광물 미네랄 제제 (무동물성 성분 · 비스테로이드 · 간/신장 부담 제로)')}
           </div>
 
-          {/* 환축 초진 스펙 바 */}
-          <div className="mt-6 w-full grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-sm text-start">
-            <div className="border-e border-slate-100 pe-2">
+          {/* 환축 초진 스펙 바 - max-w-7xl 폭 100% 일치 */}
+          <div className="mt-6 w-full grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-md text-start">
+            <div className="border-e border-slate-100 pe-2 sm:pe-4">
               <span className="text-[11px] font-bold text-slate-400 block">{t('clinicalCase.patient', '환축 정보')}</span>
-              <span className="text-xs sm:text-sm font-bold text-slate-900">{t('clinicalCase.patientVal', '토이푸들 ♂ (55일령)')}</span>
+              <span className="text-xs sm:text-sm md:text-base font-extrabold text-slate-900">{t('clinicalCase.patientVal', '토이푸들 ♂ (55일령)')}</span>
             </div>
-            <div className="border-e border-slate-100 pe-2">
+            <div className="border-e border-slate-100 pe-2 sm:pe-4">
               <span className="text-[11px] font-bold text-slate-400 block">{t('clinicalCase.symptom', '내원시 증상')}</span>
-              <span className="text-xs sm:text-sm font-bold text-rose-600">{t('clinicalCase.symptomVal', '심한 발작·식욕전폐')}</span>
+              <span className="text-xs sm:text-sm md:text-base font-extrabold text-rose-600">{t('clinicalCase.symptomVal', '심한 발작·식욕전폐')}</span>
             </div>
-            <div className="border-e border-slate-100 pe-2">
+            <div className="border-e border-slate-100 pe-2 sm:pe-4">
               <span className="text-[11px] font-bold text-slate-400 block">{t('clinicalCase.kit', '5종 키트 검사')}</span>
-              <span className="text-xs sm:text-sm font-bold text-emerald-700">{t('clinicalCase.kitVal', '파보·코로나 음성(Neg)')}</span>
+              <span className="text-xs sm:text-sm md:text-base font-extrabold text-emerald-700">{t('clinicalCase.kitVal', '파보·코로나 음성(Neg)')}</span>
             </div>
             <div>
               <span className="text-[11px] font-bold text-slate-400 block">{t('clinicalCase.prognosis', '최종 예후')}</span>
-              <span className="text-xs sm:text-sm font-bold text-amber-700">{t('clinicalCase.prognosisVal', '7일 만에 완치 [퇴원]')}</span>
+              <span className="text-xs sm:text-sm md:text-base font-extrabold text-amber-700">{t('clinicalCase.prognosisVal', '7일 만에 완치 [퇴원]')}</span>
             </div>
           </div>
 
-          {/* ★ 김동준 원장 핵심 임상 팩트: 첫 2일간 수액/기타 처치 일체 배제, 오직 몬스멕타 단독 처방 콜아웃 카드 */}
-          <div className="mt-5 w-full p-4 sm:p-5 bg-gradient-to-br from-amber-500/10 via-amber-50/70 to-emerald-50/60 rounded-2xl border-2 border-amber-400/80 shadow-md text-start relative overflow-hidden">
-            <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-amber-200/40 rounded-full blur-2xl pointer-events-none" />
+          {/* ★ 김동준 원장 핵심 임상 팩트: 첫 2일간 수액/기타 처치 일체 배제, 오직 몬스멕타 단독 처방 콜아웃 카드 - max-w-7xl 폭 100% 일치 */}
+          <div className="mt-5 w-full p-4 sm:p-6 bg-gradient-to-br from-amber-500/10 via-amber-50/70 to-emerald-50/60 rounded-3xl border-2 border-amber-400/80 shadow-md text-start relative overflow-hidden">
+            <div className="absolute -right-6 -bottom-6 w-40 h-40 bg-amber-200/40 rounded-full blur-2xl pointer-events-none" />
             
             <div className="relative z-10">
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500 text-slate-950 font-black text-xs shadow-xs">
-                  <span className="text-sm">⚠️</span>
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500 text-slate-950 font-black text-xs sm:text-sm shadow-xs">
+                  <span className="text-base">⚠️</span>
                   <span>{t('clinicalCase.exclusiveFactTitle', '김동준 원장 강조 팩트 (Clinical Proof)')}</span>
                 </div>
                 {/* 3대 핵심 처치 배제 태그 */}
-                <div className="flex items-center gap-1.5 text-[11px] font-extrabold">
-                  <span className="px-2 py-0.5 rounded bg-slate-900 text-white shadow-xs">수액 처치 0ml</span>
-                  <span className="px-2 py-0.5 rounded bg-slate-900 text-white shadow-xs">기타 약물 처치 일체 배제</span>
-                  <span className="px-2.5 py-0.5 rounded bg-emerald-600 text-white font-black shadow-xs">오직 몬스멕타 단독 급여</span>
+                <div className="flex items-center gap-2 text-xs font-extrabold">
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-900 text-white shadow-xs">수액 처치 0ml</span>
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-900 text-white shadow-xs">기타 약물 처치 일체 배제</span>
+                  <span className="px-3 py-1 rounded-lg bg-emerald-600 text-white font-black shadow-xs">오직 몬스멕타 단독 급여</span>
                 </div>
               </div>
 
-              <h3 className="text-sm sm:text-lg font-black text-slate-900 leading-snug break-keep mb-2">
-                "초진 내원 후 골든타임 48시간(2일) 동안, <span className="text-amber-700 underline decoration-amber-400 decoration-2 underline-offset-4">수액 및 기타 약물 처방을 일체 배제</span>하고 <span className="text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded">오직 몬스멕타만 단독 급여</span>했습니다."
+              <h3 className="text-base sm:text-xl font-black text-slate-900 leading-snug break-keep mb-2.5">
+                "초진 내원 후 골든타임 48시간(2일) 동안, <span className="text-amber-700 underline decoration-amber-400 decoration-2 underline-offset-4">수액 및 기타 약물 처방을 일체 배제</span>하고 <span className="text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-lg">오직 몬스멕타만 단독 급여</span>했습니다."
               </h3>
 
-              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed break-keep font-medium">
+              <p className="text-xs sm:text-base text-slate-700 leading-relaxed break-keep font-medium">
                 일반적으로 극심한 발작·탈수 시 병행하는 수액 요법조차 전혀 투여하지 않은 엄격한 단독 임상 조건이었습니다. 
                 <strong> 오직 몬스멕타 1개 제제만으로 48시간 만에 신경 경련을 멈추고 자발적 캔사료 폭풍 완식 먹방까지 완벽하게 이끌어낸</strong> 
                 경이로운 생체 회복의 임상 증거입니다.
               </p>
 
-              <div className="mt-2.5 pt-2.5 border-t border-amber-200/80 flex items-center justify-between text-[11px] text-slate-600 font-bold">
-                <span className="text-slate-800 flex items-center gap-1">
+              <div className="mt-3 pt-3 border-t border-amber-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-600 font-bold">
+                <span className="text-slate-800 flex items-center gap-1.5">
                   <span>🏥</span>
                   <span>하남 사랑동물병원 김동준 대표원장 수의 임상 인터뷰 발췌</span>
                 </span>
-                <span className="text-emerald-800 font-extrabold hidden sm:inline-block">
+                <span className="text-emerald-800 font-extrabold">
                   ※ 진료실 8편 무편집 직캠 & 자필 수기 차트 전편 교차 검증 완료
                 </span>
               </div>
@@ -183,39 +183,39 @@ export default function ClinicalCaseStudy() {
           </div>
         </header>
 
-        {/* 2분 54초 리얼 다큐멘터리 완성본 스페셜 쇼케이스 & 원클릭 공유 배너 */}
-        <div className="mb-10 max-w-5xl mx-auto p-4 sm:p-6 bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432] rounded-3xl border border-emerald-500/50 shadow-xl text-start flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden group text-white">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 blur-3xl pointer-events-none" />
+        {/* 2분 54초 리얼 다큐멘터리 완성본 스페셜 쇼케이스 & 원클릭 공유 배너 - max-w-7xl 폭 100% 일치 */}
+        <div className="mb-10 w-full p-4 sm:p-7 bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432] rounded-3xl border border-emerald-500/50 shadow-xl text-start flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group text-white">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-3xl pointer-events-none" />
           
-          <div className="space-y-2 z-10 flex-1">
+          <div className="space-y-2.5 z-10 flex-1">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="px-3 py-1 bg-amber-300 text-slate-950 text-[11px] sm:text-xs font-black rounded-full shadow-sm">
+              <span className="px-3 py-1 bg-amber-300 text-slate-950 text-xs sm:text-sm font-black rounded-full shadow-sm">
                 {t('clinicalCase.docuBadge', '🎬 2분 54초 풀 다큐멘터리 완성본')}
               </span>
-              <span className="text-xs text-emerald-200 font-bold">
+              <span className="text-xs sm:text-sm text-emerald-200 font-bold">
                 {t('clinicalCase.docuSpec', '1080p 세로 직캠 + AI 성우 내레이션')}
               </span>
             </div>
-            <h3 className="text-base sm:text-2xl font-black text-white leading-snug break-keep">
+            <h3 className="text-lg sm:text-2xl lg:text-3xl font-black text-white leading-snug break-keep">
               {t('clinicalCase.docuBannerTitle', '55일령 발작 토이푸들의 7일간의 기적 (전편 통합본)')}
             </h3>
-            <p className="text-xs sm:text-sm text-emerald-100 leading-relaxed max-w-xl break-keep">
+            <p className="text-xs sm:text-base text-emerald-100 leading-relaxed max-w-2xl break-keep">
               {t('clinicalCase.docuBannerDesc', '응급 내원부터 1차 펌프 투약, 신경 반사 회복, 캔사료 폭풍 완식 먹방, 그리고 최종 완치 퇴원까지 8편의 직캠과 자필 차트를 2분 54초의 감동적인 다큐멘터리로 감상하고 동료 수의사분들께 바로 공유해 보세요.')}
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row items-stretch sm:items-center gap-2.5 w-full md:w-auto shrink-0 z-10">
+          <div className="flex flex-col sm:flex-row md:flex-col lg:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto shrink-0 z-10">
             <button
               onClick={() => setIsDocuModalOpen(true)}
-              className="px-6 py-3.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-slate-950 font-black text-sm rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300"
+              className="px-7 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-300 hover:to-yellow-400 text-slate-950 font-black text-sm sm:text-base rounded-2xl shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-300"
               aria-label={t('clinicalCase.docuWatchBtn', '다큐 영상 전체 시청')}
             >
-              <span className="text-lg" aria-hidden="true">▶</span>
+              <span className="text-xl" aria-hidden="true">▶</span>
               <span>{t('clinicalCase.docuWatchBtn', '다큐 영상 전체 시청')}</span>
             </button>
             <button
               onClick={handleCopyDocuLink}
-              className="px-4 py-3.5 bg-white/15 hover:bg-white/25 text-white font-bold text-xs sm:text-sm rounded-2xl border border-white/30 hover:border-white/50 transition-all flex items-center justify-center gap-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+              className="px-5 py-4 bg-white/15 hover:bg-white/25 text-white font-bold text-xs sm:text-sm rounded-2xl border border-white/30 hover:border-white/50 transition-all flex items-center justify-center gap-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
               aria-label={copySuccess ? t('clinicalCase.docuCopied', '링크 복사됨!') : t('clinicalCase.docuCopyBtn', '영상 링크 복사')}
             >
               <span>{copySuccess ? t('clinicalCase.docuCopied', '✅ 링크 복사됨!') : t('clinicalCase.docuCopyBtn', '🔗 영상 링크 복사')}</span>
@@ -223,8 +223,8 @@ export default function ClinicalCaseStudy() {
           </div>
         </div>
 
-        {/* 3단계 타임라인 스텝퍼 탭 */}
-        <nav aria-label="임상 경과 타임라인" className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 max-w-5xl mx-auto mb-10">
+        {/* 3단계 타임라인 스텝퍼 탭 - max-w-7xl 폭 100% 일치 */}
+        <nav aria-label="임상 경과 타임라인" className="flex flex-col sm:flex-row gap-3 w-full mb-10">
           {CLINICAL_CASE_DATA.charts.map((chart, idx) => {
             const isActive = idx === activePhaseIndex;
             return (
