@@ -141,6 +141,46 @@ export default function ClinicalCaseStudy() {
               <span className="text-xs sm:text-sm font-bold text-amber-700">{t('clinicalCase.prognosisVal', '7일 만에 완치 [퇴원]')}</span>
             </div>
           </div>
+
+          {/* ★ 김동준 원장 핵심 임상 팩트: 첫 2일간 수액/기타 처치 일체 배제, 오직 몬스멕타 단독 처방 콜아웃 카드 */}
+          <div className="mt-5 p-4 sm:p-5 bg-gradient-to-br from-amber-500/10 via-amber-50/70 to-emerald-50/60 rounded-2xl border-2 border-amber-400/80 shadow-md text-start relative overflow-hidden">
+            <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-amber-200/40 rounded-full blur-2xl pointer-events-none" />
+            
+            <div className="relative z-10">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500 text-slate-950 font-black text-xs shadow-xs">
+                  <span className="text-sm">⚠️</span>
+                  <span>{t('clinicalCase.exclusiveFactTitle', '김동준 원장 강조 팩트 (Clinical Proof)')}</span>
+                </div>
+                {/* 3대 핵심 처치 배제 태그 */}
+                <div className="flex items-center gap-1.5 text-[11px] font-extrabold">
+                  <span className="px-2 py-0.5 rounded bg-slate-900 text-white shadow-xs">수액 처치 0ml</span>
+                  <span className="px-2 py-0.5 rounded bg-slate-900 text-white shadow-xs">기타 약물 처치 일체 배제</span>
+                  <span className="px-2.5 py-0.5 rounded bg-emerald-600 text-white font-black shadow-xs">오직 몬스멕타 단독 급여</span>
+                </div>
+              </div>
+
+              <h3 className="text-sm sm:text-lg font-black text-slate-900 leading-snug break-keep mb-2">
+                "초진 내원 후 골든타임 48시간(2일) 동안, <span className="text-amber-700 underline decoration-amber-400 decoration-2 underline-offset-4">수액 및 기타 약물 처방을 일체 배제</span>하고 <span className="text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded">오직 몬스멕타만 단독 급여</span>했습니다."
+              </h3>
+
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed break-keep font-medium">
+                일반적으로 극심한 발작·탈수 시 병행하는 수액 요법조차 전혀 투여하지 않은 엄격한 단독 임상 조건이었습니다. 
+                <strong> 오직 몬스멕타 1개 제제만으로 48시간 만에 신경 경련을 멈추고 자발적 캔사료 폭풍 완식 먹방까지 완벽하게 이끌어낸</strong> 
+                경이로운 생체 회복의 임상 증거입니다.
+              </p>
+
+              <div className="mt-2.5 pt-2.5 border-t border-amber-200/80 flex items-center justify-between text-[11px] text-slate-600 font-bold">
+                <span className="text-slate-800 flex items-center gap-1">
+                  <span>🏥</span>
+                  <span>하남 사랑동물병원 김동준 대표원장 수의 임상 인터뷰 발췌</span>
+                </span>
+                <span className="text-emerald-800 font-extrabold hidden sm:inline-block">
+                  ※ 진료실 8편 무편집 직캠 & 자필 수기 차트 전편 교차 검증 완료
+                </span>
+              </div>
+            </div>
+          </div>
         </header>
 
         {/* 2분 54초 리얼 다큐멘터리 완성본 스페셜 쇼케이스 & 원클릭 공유 배너 */}
