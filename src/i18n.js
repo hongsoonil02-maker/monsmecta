@@ -50,6 +50,17 @@ const getInitialLanguage = () => {
         if (userSaved && SUPPORTED_LANGS.includes(userSaved)) {
             return userSaved;
         }
+
+        // 브라우저 언어 자동 감지 (navigator.languages 우선, 그 다음 navigator.language)
+        const browserLangs = navigator.languages ? [...navigator.languages] : [navigator.language || 'ko'];
+        for (const raw of browserLangs) {
+            if (!raw) continue;
+            const code = raw.toLowerCase().split('-')[0];
+            if (SUPPORTED_LANGS.includes(code)) {
+                localStorage.setItem('monsmecta_user_lang', code);
+                return code;
+            }
+        }
     } catch {
         // ignore
     }

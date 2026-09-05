@@ -83,7 +83,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
               value={i18n.language || 'ko'}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
               aria-label={t('nav.lang')}
-              className="bg-slate-100 border border-slate-300 text-[#00513b] text-[10px] font-bold rounded-full px-1.5 py-1 focus:outline-none focus:ring-1 focus:ring-[#00513b] cursor-pointer"
+              className="bg-slate-100 border border-slate-300 text-[#00513b] text-xs font-bold rounded-full min-h-[36px] px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer shadow-xs active:bg-slate-200"
             >
               {LANGUAGES.map(lang => (
                 <option key={lang.code} value={lang.code}>

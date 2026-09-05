@@ -61,7 +61,6 @@ const A11yToolbar = () => {
       return;
     }
 
-    window.speechSynthesis.cancel();
     const textToRead = [
       t('hero.title', '임상수의사의 해답, MONSMECTA'),
       t('hero.subtitle', '현장 진료의 까다로운 기준을 통과한 위장관 솔루션.'),
@@ -70,7 +69,12 @@ const A11yToolbar = () => {
     ].join('. ');
 
     const utterance = new SpeechSynthesisUtterance(textToRead);
-    utterance.lang = i18n.language === 'en' ? 'en-US' : (i18n.language === 'ja' ? 'ja-JP' : (i18n.language === 'zh' ? 'zh-CN' : 'ko-KR'));
+    const bcp47Map = {
+      ko: 'ko-KR', en: 'en-US', ja: 'ja-JP', zh: 'zh-CN', es: 'es-ES',
+      fr: 'fr-FR', de: 'de-DE', th: 'th-TH', vi: 'vi-VN', ru: 'ru-RU',
+      pt: 'pt-BR', ar: 'ar-SA', id: 'id-ID', ms: 'ms-MY', tr: 'tr-TR'
+    };
+    utterance.lang = bcp47Map[i18n.language] || 'ko-KR';
     utterance.rate = 0.95;
     utterance.onend = () => setIsSpeaking(false);
     utterance.onerror = () => setIsSpeaking(false);

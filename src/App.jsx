@@ -118,9 +118,23 @@ const MonsmectaSNJLanding = () => {
     }
     lastSubmitRef.current = Date.now();
 
-    if (!hospitalName || !vetName || !bizNumber || !bizCategory || !bizType || !email || !address) {
-      alert(t('order.validationRequired'));
-      return;
+    const isKorean = (i18n.language || 'ko').toLowerCase().startsWith('ko');
+
+    if (isKorean) {
+      if (!hospitalName || !vetName || !bizNumber || !bizCategory || !bizType || !email || !address) {
+        alert(t('order.validationRequired', '모든 필수 항목을 입력해주세요.'));
+        return;
+      }
+      if (!isValidBizNumber(bizNumber)) {
+        alert(t('order.validationBizNumber', '올바른 사업자등록번호 10자리를 입력해주세요.'));
+        return;
+      }
+    } else {
+      // 해외 수의사/바이어 주문 및 샘플/수출 문의 검증
+      if (!hospitalName || !vetName || !email || !address) {
+        alert(t('order.validationRequired', 'Please fill in all required fields (Clinic Name, Name, Email, Address/Country).'));
+        return;
+      }
     }
 
     const totalQuantity = Object.values(quantities).reduce((sum, q) => sum + q, 0);
@@ -128,23 +142,18 @@ const MonsmectaSNJLanding = () => {
       alert(t('order.validationQuantity', '발주할 제품의 수량을 1개 이상 선택해주세요.'));
       return;
     }
-    if (totalQuantity < ORDER_MIN_QUANTITY) {
+    if (isKorean && totalQuantity < ORDER_MIN_QUANTITY) {
       alert(t('order.validationMinQuantity', { min: ORDER_MIN_QUANTITY, defaultValue: `최소 주문 수량은 ${ORDER_MIN_QUANTITY}병입니다.` }));
       return;
     }
 
-    if (!isValidBizNumber(bizNumber)) {
-      alert(t('order.validationBizNumber'));
-      return;
-    }
-
-    const normBiz = bizNumber.replace(/[^0-9]/g, '');
+    const normBiz = isKorean ? bizNumber.replace(/[^0-9]/g, '') : 'INTL-INQUIRY';
     let last = null;
     try {
       last = JSON.parse(localStorage.getItem(ORDER_LAST_KEY));
     } catch { /* ignore */ }
-    if (last && last.biz && last.biz === normBiz && Date.now() - last.ts < ORDER_LAST_TTL) {
-      alert(t('order.recentSubmit'));
+    if (last && last.biz && last.biz === (isKorean ? normBiz : email) && Date.now() - last.ts < ORDER_LAST_TTL) {
+      alert(t('order.recentSubmit', '최근에 접수된 내역이 있습니다. 잠시 후 다시 시도해주세요.'));
       return;
     }
 

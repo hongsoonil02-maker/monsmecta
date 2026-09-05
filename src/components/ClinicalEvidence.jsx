@@ -24,7 +24,12 @@ const ClinicalEvidence = ({ activeProduct }) => {
               <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
                 {t('clinical.card1_desc', '몬스멕타의 핵심 기술인 올트라파인 초미세공정이 기존 정장지사제 원료와 비교하여 압도적인 성능을 입증합니다.')}
               </p>
-              <div className="w-full overflow-x-auto rounded-2xl border border-slate-200 shadow-sm mb-6">
+              <div className="flex items-center justify-between gap-2 mb-2 sm:hidden">
+                <span className="text-[11px] text-emerald-700 font-bold flex items-center gap-1 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  <span>👉</span> {t('clinical.scrollHint', '좌우로 스크롤하여 전체 비교')}
+                </span>
+              </div>
+              <div className="w-full overflow-x-auto rounded-2xl border border-slate-200 shadow-sm mb-6 scrollbar-hide">
                 <table className="w-full text-sm border-collapse table-fixed">
                   <colgroup>
                     <col style={{width: '28%'}} />

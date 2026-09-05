@@ -82,7 +82,21 @@ body {
 }
 
 .high-contrast {
-  filter: contrast(140%) brightness(105%);
+  filter: contrast(135%) brightness(102%);
+}
+.high-contrast body,
+.high-contrast p,
+.high-contrast span,
+.high-contrast li {
+  color: #0f172a !important;
+}
+.high-contrast .bg-slate-50,
+.high-contrast .bg-slate-100 {
+  background-color: #f8fafc !important;
+}
+.high-contrast border,
+.high-contrast [class*="border-"] {
+  border-color: #475569 !important;
 }
 .large-text {
   font-size: 115% !important;

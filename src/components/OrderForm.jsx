@@ -118,99 +118,161 @@ const OrderForm = ({
                 </div>
               )}
 
+              {/* 문화권 배려 및 100% 천연 미네랄 무독성 뱃지 */}
+              <div className="mb-6 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200/90 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 text-xs text-emerald-900 font-bold shadow-xs">
+                <div className="flex items-center gap-2">
+                  <span className="text-base" aria-hidden="true">🌿</span>
+                  <span>{t('order.mineralNotice', '100% 천연 고순도 점토 광물 미네랄 제제 (무동물성 성분 · 비스테로이드 · 간/신장 대사부담 제로)')}</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-[11px] bg-white px-2.5 py-1 rounded-full border border-emerald-300 text-emerald-800">
+                  <span>✓ Halal Friendly</span>
+                  <span className="text-emerald-300">|</span>
+                  <span>✓ Porcine-Free</span>
+                  <span className="text-emerald-300">|</span>
+                  <span>✓ 100% Non-Animal</span>
+                </div>
+              </div>
+
               <div className="space-y-6">
                 <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
                   <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">1</span>
-                  {t('order.hospital_info')}
+                  {isKoreanLang ? t('order.hospital_info') : t('order.intl_info', '의뢰 기관 및 연락처 정보 (Clinic & Contact Information)')}
                 </h3>
-                <div className="bg-emerald-50 text-[#00513b] px-4 py-3 rounded-xl text-sm font-medium flex items-start gap-2 border border-emerald-100">
-                  <svg className="w-5 h-5 flex-shrink-0 mt-0.5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  <span className="leading-snug break-keep">
-                    <strong>재발주</strong> 시에는 <strong>동물병원명과 주문수량만 입력</strong>하시면 됩니다.<br/>
-                    <span className="opacity-80 text-xs">(동물병원명을 입력하시면 기존 정보가 자동으로 채워집니다.)</span>
-                  </span>
-                </div>
+                {isKoreanLang ? (
+                  <div className="bg-emerald-50 text-[#00513b] px-4 py-3 rounded-xl text-sm font-medium flex items-start gap-2 border border-emerald-100">
+                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span className="leading-snug break-keep">
+                      <strong>재발주</strong> 시에는 <strong>동물병원명과 주문수량만 입력</strong>하시면 됩니다.<br/>
+                      <span className="opacity-80 text-xs">(동물병원명을 입력하시면 기존 정보가 자동으로 채워집니다.)</span>
+                    </span>
+                  </div>
+                ) : (
+                  <div className="bg-emerald-50 text-[#00513b] px-4 py-3 rounded-xl text-sm font-medium flex items-start gap-2 border border-emerald-100">
+                    <svg className="w-5 h-5 flex-shrink-0 mt-0.5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span className="leading-snug break-keep">
+                      {t('order.intlNotice', 'International veterinary sample requests and distributor orders are welcome. Please provide your clinic name, contact email, and country/shipping address.')}
+                    </span>
+                  </div>
+                )}
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.hospital_name')} <span className="text-red-500">*</span></label>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">
+                      {isKoreanLang ? t('order.hospital_name') : t('order.intl_clinic_name', '동물병원명 / 기관명 (Clinic or Organization Name)')} <span className="text-red-500">*</span>
+                    </label>
                     <input
                       type="text"
                       value={hospitalName}
                       onChange={(e) => onHospitalNameChange(e.target.value)}
                       className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
-                      placeholder={t('order.hospital_name_placeholder')}
+                      placeholder={isKoreanLang ? t('order.hospital_name_placeholder') : 'e.g. Tokyo Central Animal Hospital'}
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.vet_name')} <span className="text-red-500">*</span></label>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">
+                      {isKoreanLang ? t('order.vet_name') : t('order.intl_vet_name', '원장님/담당자 성함 (Veterinarian / Contact Person)')} <span className="text-red-500">*</span>
+                    </label>
                     <input
                       type="text"
                       value={vetName}
                       onChange={(e) => setVetName(e.target.value)}
                       className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
-                      placeholder={t('order.vet_name_placeholder')}
+                      placeholder={isKoreanLang ? t('order.vet_name_placeholder') : 'Dr. Alexander Smith'}
                       required
                     />
                   </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_number')} <span className="text-red-500">*</span></label>
-                    <input
-                      type="text"
-                      value={bizNumber}
-                      onChange={handleBizNumberChange}
-                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide"
-                      placeholder={t('order.biz_number_placeholder', '000-00-00000')}
-                      required
-                      maxLength="12"
-                    />
+                {isKoreanLang ? (
+                  <>
+                    <div className="grid md:grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_number')} <span className="text-red-500">*</span></label>
+                        <input
+                          type="text"
+                          value={bizNumber}
+                          onChange={handleBizNumberChange}
+                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide"
+                          placeholder={t('order.biz_number_placeholder', '000-00-00000')}
+                          required
+                          maxLength="12"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.email')} <span className="text-red-500">*</span></label>
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                          placeholder={t('order.email_placeholder')}
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-6 mb-6">
+                      <div>
+                        <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_category')} <span className="text-red-500">*</span></label>
+                        <input
+                          type="text"
+                          value={bizCategory}
+                          onChange={(e) => setBizCategory(e.target.value)}
+                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                          placeholder={t('order.biz_category_placeholder')}
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_type')} <span className="text-red-500">*</span></label>
+                        <input
+                          type="text"
+                          value={bizType}
+                          onChange={(e) => setBizType(e.target.value)}
+                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                          placeholder={t('order.biz_type_placeholder')}
+                          required
+                        />
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">
+                        {t('order.email', '이메일 (Email)')} <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                        placeholder="vet@hospital.com"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-slate-700 mb-2">
+                        {t('order.whatsapp', '전화번호 / WhatsApp (Phone or WhatsApp)')}
+                      </label>
+                      <input
+                        type="text"
+                        value={bizType}
+                        onChange={(e) => setBizType(e.target.value)}
+                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                        placeholder="+1 555-0199 or WhatsApp ID"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.email')} <span className="text-red-500">*</span></label>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
-                      placeholder={t('order.email_placeholder')}
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_category')} <span className="text-red-500">*</span></label>
-                    <input
-                      type="text"
-                      value={bizCategory}
-                      onChange={(e) => setBizCategory(e.target.value)}
-                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
-                      placeholder={t('order.biz_category_placeholder')}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_type')} <span className="text-red-500">*</span></label>
-                    <input
-                      type="text"
-                      value={bizType}
-                      onChange={(e) => setBizType(e.target.value)}
-                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
-                      placeholder={t('order.biz_type_placeholder')}
-                      required
-                    />
-                  </div>
-                </div>
+                )}
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.address')} <span className="text-red-500">*</span></label>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">
+                    {isKoreanLang ? t('order.address') : t('order.intl_address', '배송지 국가 및 주소 (Country & Shipping Address)')} <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
-                    placeholder={t('order.address_placeholder')}
+                    placeholder={isKoreanLang ? t('order.address_placeholder') : 'Country, City, Street Address, Postal Code'}
                     required
                   />
                 </div>
