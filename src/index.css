@@ -18,16 +18,26 @@ body {
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
   word-break: keep-all;
-}
-
-p, span, li, button, a {
-  word-break: keep-all;
   overflow-wrap: break-word;
 }
 
+p, span, li, button, a, blockquote {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
+/* 모바일 한글 조손/외톨이 줄바꿈 방지 */
+@media (max-width: 640px) {
+  h1, h2, h3 {
+    text-wrap: pretty;
+  }
+}
+
 body {
-  font-family: 'Pretendard', sans-serif;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
   background-color: #f9fafb;
+  letter-spacing: -0.015em;
 }
 
 .session-section {

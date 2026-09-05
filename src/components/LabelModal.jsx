@@ -143,13 +143,13 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, onOpenPrint, active
       onClick={(e) => handleBackdropClick(e, () => setIsLabelModalOpen(false))}
     >
       <div ref={panelRef} tabIndex={-1} className={`${theme.bodyBg} border ${theme.border} rounded-3xl shadow-2xl shadow-black/50 w-full max-w-4xl max-h-[90vh] overflow-y-auto relative animate-in fade-in zoom-in duration-300 focus:outline-none`}>
-        <div className={`sticky top-0 bg-gradient-to-r ${theme.headerGradient} border-b ${theme.border} text-white p-6 flex justify-between items-center z-10`}>
-          <div>
-            <p className={`text-xs ${theme.text} font-bold tracking-widest uppercase mb-1`}>{t('label.header_eyebrow')}</p>
-            <h3 id="label-modal-title" className="text-xl sm:text-2xl font-black text-white break-keep text-start">{t('label.header_title')}</h3>
+        <div className={`sticky top-0 bg-gradient-to-r ${theme.headerGradient} border-b ${theme.border} text-white p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center z-10 text-center sm:text-start relative`}>
+          <div className="w-full sm:flex-1 pr-8 sm:pr-0">
+            <p className={`text-[11px] sm:text-xs ${theme.text} font-bold tracking-widest uppercase mb-1 text-center sm:text-start`}>{t('label.header_eyebrow')}</p>
+            <h3 id="label-modal-title" className="text-lg sm:text-2xl font-black text-white break-keep text-center sm:text-start">{t('label.header_title')}</h3>
           </div>
-          <button onClick={() => setIsLabelModalOpen(false)} aria-label={t('common.close')} className="text-white/60 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2 transition-colors">
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <button onClick={() => setIsLabelModalOpen(false)} aria-label={t('common.close')} className="absolute top-3 right-3 sm:relative text-white/60 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2 transition-colors">
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>

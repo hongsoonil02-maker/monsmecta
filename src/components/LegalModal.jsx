@@ -17,16 +17,18 @@ const LegalModal = ({ legalType, setLegalType }) => {
     >
       <div ref={panelRef} tabIndex={-1} className="bg-white rounded-3xl max-w-xl w-full p-6 md:p-8 shadow-2xl border border-slate-100 relative overflow-hidden transform transition-all animate-scale-up focus:outline-none">
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-6">
-          <h3 id="legal-modal-title" className="text-xl font-black text-[#00513b] flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-            {legalType === 'privacy' && t('legal.privacyTitle')}
-            {legalType === 'terms' && t('legal.termsTitle')}
-            {legalType === 'business' && t('legal.businessTitle')}
+        <div className="flex flex-col sm:flex-row items-center justify-between pb-4 border-b border-slate-200 mb-6 text-center sm:text-start relative">
+          <h3 id="legal-modal-title" className="text-lg sm:text-xl font-black text-[#00513b] flex items-center justify-center sm:justify-start gap-2 pr-8 sm:pr-0">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0"></span>
+            <span>
+              {legalType === 'privacy' && t('legal.privacyTitle')}
+              {legalType === 'terms' && t('legal.termsTitle')}
+              {legalType === 'business' && t('legal.businessTitle')}
+            </span>
           </h3>
           <button
             onClick={() => setLegalType(null)}
-            className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors font-bold text-lg"
+            className="absolute top-0 right-0 sm:relative w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors font-bold text-base sm:text-lg"
             aria-label={t('common.close')}
           >
             ✕

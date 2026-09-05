@@ -147,21 +147,23 @@ export default function ClinicalCaseStudy() {
             <div className="absolute -right-6 -bottom-6 w-40 h-40 bg-amber-200/40 rounded-full blur-2xl pointer-events-none" />
             
             <div className="relative z-10">
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500 text-slate-950 font-black text-xs sm:text-sm shadow-xs">
-                  <span className="text-base">⚠️</span>
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 mb-3.5">
+                <div className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500 text-slate-950 font-black text-xs sm:text-sm shadow-xs mx-auto sm:mx-0">
+                  <span className="text-base" aria-hidden="true">⚠️</span>
                   <span>{t('clinicalCase.exclusiveFactTitle', '김동준 원장 강조 팩트 (Clinical Proof)')}</span>
                 </div>
                 {/* 3대 핵심 처치 배제 태그 */}
-                <div className="flex items-center gap-2 text-xs font-extrabold">
+                <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-extrabold w-full sm:w-auto">
                   <span className="px-2.5 py-1 rounded-lg bg-slate-900 text-white shadow-xs">수액 처치 0ml</span>
                   <span className="px-2.5 py-1 rounded-lg bg-slate-900 text-white shadow-xs">기타 약물 처치 일체 배제</span>
                   <span className="px-3 py-1 rounded-lg bg-emerald-600 text-white font-black shadow-xs">오직 몬스멕타 단독 급여</span>
                 </div>
               </div>
 
-              <h3 className="text-base sm:text-xl font-black text-slate-900 leading-snug break-keep mb-2.5">
-                "초진 내원 후 골든타임 48시간(2일) 동안, <span className="text-amber-700 underline decoration-amber-400 decoration-2 underline-offset-4">수액 및 기타 약물 처방을 일체 배제</span>하고 <span className="text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-lg">오직 몬스멕타만 단독 급여</span>했습니다."
+              <h3 className="text-sm sm:text-xl font-black text-slate-900 leading-snug sm:leading-snug break-keep mb-3 text-center sm:text-start">
+                "초진 내원 후 골든타임 48시간(2일) 동안,<br className="sm:hidden" />
+                {' '}<span className="text-amber-700 underline decoration-amber-400 decoration-2 underline-offset-4">수액 및 기타 약물 처방을 일체 배제</span>하고<br className="sm:hidden" />
+                {' '}<span className="text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-lg inline-block my-0.5">오직 몬스멕타만 단독 급여</span>했습니다."
               </h3>
 
               <p className="text-xs sm:text-base text-slate-700 leading-relaxed break-keep font-medium">
@@ -187,8 +189,8 @@ export default function ClinicalCaseStudy() {
         <div className="mb-10 w-full p-4 sm:p-7 bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432] rounded-3xl border border-emerald-500/50 shadow-xl text-start flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden group text-white">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-3xl pointer-events-none" />
           
-          <div className="space-y-2.5 z-10 flex-1">
-            <div className="flex flex-wrap items-center gap-2">
+          <div className="space-y-3 z-10 flex-1 text-center md:text-start">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
               <span className="px-3 py-1 bg-amber-300 text-slate-950 text-xs sm:text-sm font-black rounded-full shadow-sm">
                 {t('clinicalCase.docuBadge', '🎬 2분 54초 풀 다큐멘터리 완성본')}
               </span>
@@ -196,10 +198,10 @@ export default function ClinicalCaseStudy() {
                 {t('clinicalCase.docuSpec', '1080p 세로 직캠 + AI 성우 내레이션')}
               </span>
             </div>
-            <h3 className="text-lg sm:text-2xl lg:text-3xl font-black text-white leading-snug break-keep">
+            <h3 className="text-lg sm:text-2xl lg:text-3xl font-black text-white leading-snug break-keep text-center md:text-start">
               {t('clinicalCase.docuBannerTitle', '55일령 발작 토이푸들의 7일간의 기적 (전편 통합본)')}
             </h3>
-            <p className="text-xs sm:text-base text-emerald-100 leading-relaxed max-w-2xl break-keep">
+            <p className="text-xs sm:text-base text-emerald-100 leading-relaxed max-w-2xl break-keep text-center md:text-start mx-auto md:mx-0">
               {t('clinicalCase.docuBannerDesc', '응급 내원부터 1차 펌프 투약, 신경 반사 회복, 캔사료 폭풍 완식 먹방, 그리고 최종 완치 퇴원까지 8편의 직캠과 자필 차트를 2분 54초의 감동적인 다큐멘터리로 감상하고 동료 수의사분들께 바로 공유해 보세요.')}
             </p>
           </div>
@@ -524,14 +526,14 @@ export default function ClinicalCaseStudy() {
             className="relative max-w-4xl w-full max-h-[90dvh] bg-[#002b1e] rounded-3xl p-4 sm:p-6 border border-emerald-500/40 flex flex-col shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-3 text-start">
-              <div>
-                <h4 className="kr-title-2line text-sm sm:text-lg font-bold text-white" style={{WebkitLineClamp: 2}}>{currentChart.title}</h4>
-                <p className="text-xs text-emerald-300">{currentChart.period} · 하남 사랑동물병원 김동준 원장 자필 차트</p>
+            <div className="relative flex flex-col sm:flex-row items-center justify-between mb-3 border-b border-white/10 pb-3 text-center sm:text-start">
+              <div className="w-full sm:flex-1 pr-8 sm:pr-0">
+                <h4 className="text-sm sm:text-lg font-bold text-white break-keep text-center sm:text-start">{currentChart.title}</h4>
+                <p className="text-xs text-emerald-300 mt-0.5 text-center sm:text-start">{currentChart.period} · 하남 사랑동물병원 김동준 원장 자필 차트</p>
               </div>
               <button
                 onClick={() => setIsChartModalOpen(false)}
-                className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                className="absolute top-0 right-0 sm:relative w-8 h-8 sm:w-10 sm:h-10 min-w-[32px] min-h-[32px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 aria-label={t('clinicalCase.chartClose', '차트 닫기')}
               >
                 ✕
@@ -561,18 +563,16 @@ export default function ClinicalCaseStudy() {
             className="relative max-w-sm sm:max-w-md w-full bg-[#002b1e] rounded-3xl p-4 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between mb-3 border-b border-white/10 pb-3 text-start">
-              <div className="pe-2 flex-1">
-                <div className="kr-hanging-title">
-                  <span className={`kr-icon text-[10px] font-bold px-2 py-0.5 rounded-full ${modalVideo.badgeColor}`}>
-                    {modalVideo.badge}
-                  </span>
-                  <h4 className="kr-text text-sm sm:text-base font-bold text-white leading-snug">{modalVideo.title}</h4>
-                </div>
+            <div className="relative flex flex-col sm:flex-row items-center justify-between mb-3 border-b border-white/10 pb-3 text-center sm:text-start">
+              <div className="w-full sm:flex-1 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1.5 sm:gap-2 pr-8 sm:pr-0">
+                <span className={`kr-icon text-[10px] font-bold px-2.5 py-0.5 rounded-full inline-block shrink-0 ${modalVideo.badgeColor}`}>
+                  {modalVideo.badge}
+                </span>
+                <h4 className="text-sm sm:text-base font-bold text-white leading-snug break-keep text-center sm:text-start">{modalVideo.title}</h4>
               </div>
               <button
                 onClick={() => setIsVideoModalOpen(false)}
-                className="w-9 h-9 min-w-[36px] min-h-[36px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                className="absolute top-0 right-0 sm:relative w-8 h-8 sm:w-9 sm:h-9 min-w-[32px] min-h-[32px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-sm sm:text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
                 aria-label={t('clinicalCase.videoClose', '비디오 닫기')}
               >
                 ✕
@@ -613,20 +613,18 @@ export default function ClinicalCaseStudy() {
             className="relative max-w-sm sm:max-w-md w-[94vw] sm:w-full bg-[#002b1e] rounded-3xl p-3.5 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between mb-2.5 sm:mb-3 border-b border-white/10 pb-2.5 sm:pb-3 text-start">
-              <div className="pe-2 flex-1">
-                <div className="kr-hanging-title">
-                  <span className="kr-icon text-[10px] font-black px-2.5 py-0.5 rounded-full bg-yellow-400 text-slate-950">
-                    🎬 2분 54초
-                  </span>
-                  <h4 className="kr-text text-xs sm:text-base font-bold text-white leading-snug">
-                    {t('clinicalCase.docuModalTitle', '55일령 발작 환축의 7일간의 기적')}
-                  </h4>
-                </div>
+            <div className="relative flex flex-col sm:flex-row items-center justify-between mb-2.5 sm:mb-3 border-b border-white/10 pb-2.5 sm:pb-3 text-center sm:text-start">
+              <div className="w-full sm:flex-1 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1.5 sm:gap-2 pr-8 sm:pr-0">
+                <span className="kr-icon text-[10px] font-black px-2.5 py-0.5 rounded-full bg-yellow-400 text-slate-950 inline-block shrink-0">
+                  🎬 2분 54초
+                </span>
+                <h4 className="text-xs sm:text-base font-bold text-white leading-snug break-keep text-center sm:text-start">
+                  {t('clinicalCase.docuModalTitle', '55일령 발작 환축의 7일간의 기적')}
+                </h4>
               </div>
               <button
                 onClick={() => setIsDocuModalOpen(false)}
-                className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 cursor-pointer"
+                className="absolute top-0 right-0 sm:relative w-8 h-8 sm:w-10 sm:h-10 min-w-[32px] min-h-[32px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-sm sm:text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 cursor-pointer"
                 aria-label={t('common.close', '닫기')}
               >
                 ✕
