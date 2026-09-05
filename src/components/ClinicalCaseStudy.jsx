@@ -99,8 +99,8 @@ export default function ClinicalCaseStudy() {
       {/* 모바일 여유로운 컨테이너 */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* 헤더 섹션 */}
-        <header className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        {/* 헤더 섹션 - max-w-5xl로 확장하여 메인 그리드 및 전체 섹션 박스와 좌우 끝단 정렬 일치 */}
+        <header className="text-center max-w-5xl mx-auto mb-8 sm:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs sm:text-sm font-black mb-4 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" aria-hidden="true" />
             {t('clinicalCase.badge', '🎙️ 몬스멕타 자문위원 리얼 임상 다큐멘터리')}
@@ -123,7 +123,7 @@ export default function ClinicalCaseStudy() {
           </div>
 
           {/* 환축 초진 스펙 바 */}
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-sm text-start">
+          <div className="mt-6 w-full grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200/90 shadow-sm text-start">
             <div className="border-e border-slate-100 pe-2">
               <span className="text-[11px] font-bold text-slate-400 block">{t('clinicalCase.patient', '환축 정보')}</span>
               <span className="text-xs sm:text-sm font-bold text-slate-900">{t('clinicalCase.patientVal', '토이푸들 ♂ (55일령)')}</span>
@@ -143,7 +143,7 @@ export default function ClinicalCaseStudy() {
           </div>
 
           {/* ★ 김동준 원장 핵심 임상 팩트: 첫 2일간 수액/기타 처치 일체 배제, 오직 몬스멕타 단독 처방 콜아웃 카드 */}
-          <div className="mt-5 p-4 sm:p-5 bg-gradient-to-br from-amber-500/10 via-amber-50/70 to-emerald-50/60 rounded-2xl border-2 border-amber-400/80 shadow-md text-start relative overflow-hidden">
+          <div className="mt-5 w-full p-4 sm:p-5 bg-gradient-to-br from-amber-500/10 via-amber-50/70 to-emerald-50/60 rounded-2xl border-2 border-amber-400/80 shadow-md text-start relative overflow-hidden">
             <div className="absolute -right-6 -bottom-6 w-32 h-32 bg-amber-200/40 rounded-full blur-2xl pointer-events-none" />
             
             <div className="relative z-10">
@@ -184,7 +184,7 @@ export default function ClinicalCaseStudy() {
         </header>
 
         {/* 2분 54초 리얼 다큐멘터리 완성본 스페셜 쇼케이스 & 원클릭 공유 배너 */}
-        <div className="mb-10 max-w-4xl mx-auto p-4 sm:p-6 bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432] rounded-3xl border border-emerald-500/50 shadow-xl text-start flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden group text-white">
+        <div className="mb-10 max-w-5xl mx-auto p-4 sm:p-6 bg-gradient-to-r from-[#006247] via-[#00513b] to-[#004432] rounded-3xl border border-emerald-500/50 shadow-xl text-start flex flex-col md:flex-row items-center justify-between gap-5 relative overflow-hidden group text-white">
           <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 blur-3xl pointer-events-none" />
           
           <div className="space-y-2 z-10 flex-1">
@@ -224,7 +224,7 @@ export default function ClinicalCaseStudy() {
         </div>
 
         {/* 3단계 타임라인 스텝퍼 탭 */}
-        <nav aria-label="임상 경과 타임라인" className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 max-w-4xl mx-auto mb-10">
+        <nav aria-label="임상 경과 타임라인" className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 max-w-5xl mx-auto mb-10">
           {CLINICAL_CASE_DATA.charts.map((chart, idx) => {
             const isActive = idx === activePhaseIndex;
             return (
