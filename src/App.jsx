@@ -52,7 +52,7 @@ const isValidBizNumber = (num) => {
 
 const MonsmectaSNJLanding = () => {
   const iframeHeights = useIframeHeight(ALLOWED_IFRAME_SOURCES);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
   const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
   const [legalType, setLegalType] = useState(null);
