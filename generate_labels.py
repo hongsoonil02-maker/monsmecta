@@ -65,7 +65,7 @@ products = {
         'ing_box_ref': '1L 기준',
         'front_ingredients': [
             {'name': 'Montmorillonite (몬모릴로나이트)', 'val': '고함량'},
-            {'name': 'Lactobacillus Longum', 'val': '1.0 x 10⁶ cfu/g'},
+            {'name': 'Bifidobacterium longum', 'val': '1.0 x 10¹¹ cfu'},
             {'name': '비타민 A (Vitamin A)', 'val': '400,000 IU'},
             {'name': '비타민 D3 (Vitamin D3)', 'val': '80,000 IU'},
             {'name': '비타민 E (Vitamin E)', 'val': '200 IU'},
@@ -126,10 +126,11 @@ def get_html(product_key, data):
     ing_rows = ""
     for item in data['front_ingredients']:
         val_sub = f"<span class='sub-val'>{item.get('sub', '')}</span>" if item.get('sub') else ""
+        formatted_val = item['val'].replace('10¹¹', '10<sup class="sup-exp">11</sup>').replace('10⁶', '10<sup class="sup-exp">6</sup>').replace('10⁷', '10<sup class="sup-exp">7</sup>')
         ing_rows += f"""
         <div class="ing-row">
             <span class="ing-name">{item['name']}</span>
-            <span class="ing-val">{item['val']} {val_sub}</span>
+            <span class="ing-val">{formatted_val} {val_sub}</span>
         </div>
         """
         
@@ -432,6 +433,13 @@ def get_html(product_key, data):
             margin-left: 0.4mm;
             font-family: 'Noto Sans KR', sans-serif;
         }}
+        .ing-val .sup-exp {{
+            font-size: 0.72em;
+            vertical-align: 0.45em;
+            line-height: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 800;
+        }}
 
         /* Pack volume tag */
         .pack-tag {{
@@ -695,41 +703,15 @@ def get_html(product_key, data):
 
         .recycle-block {{
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: {theme['primary']};
+            margin-top: -0.6mm;
+            padding-left: 0.5mm;
             flex-shrink: 0;
-            padding-left: 0.3mm;
         }}
-        .recycle-icon-wrap {{
-            width: 3.2mm;
-            height: 3.2mm;
-            position: relative;
-        }}
-        .recycle-icon {{
-            width: 100%;
-            height: 100%;
-        }}
-        .recycle-text {{
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75mm;
-            font-weight: 900;
-            color: #ffffff;
-            padding-top: 0.45mm;
-            letter-spacing: -0.05em;
-        }}
-        .recycle-sub {{
-            font-size: 0.78mm;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: 0.05em;
-            line-height: 1;
-            margin-top: 0.1mm;
+        .recycle-svg {{
+            width: 4.5mm;
+            height: 5.17mm;
         }}
 
         /* Print media settings */
@@ -885,21 +867,21 @@ def get_html(product_key, data):
 
                     <!-- Manufacturer -->
                     <div class="company-info" style="border-left: 0.15mm solid rgba(255,255,255,0.15); padding-left: 0.6mm;">
-                        <div class="co-title">제조원: ㈜엠오바이오</div>
+                        <div class="co-title">제조원: 엠오바이오</div>
                         <div>화성시 팔탄면 석포로 74번길 10-25</div>
                         <div><span class="tel-accent">TEL:</span> 031-458-1240</div>
                     </div>
 
                     <!-- Recycling info -->
                     <div class="recycle-block">
-                        <div class="recycle-icon-wrap">
-                            <svg viewBox="0 0 100 100" class="recycle-icon" stroke="currentColor" stroke-width="6" fill="none" stroke-linejoin="round" stroke-linecap="round">
-                                <path d="M50 12 L88 78 L12 78 Z"/>
-                                <path d="M50 12 L60 22 M88 78 L73 78 M12 78 L22 63" />
-                            </svg>
-                            <div class="recycle-text">플라스틱</div>
-                        </div>
-                        <div class="recycle-sub">OTHER</div>
+                        <svg viewBox="0 0 100 115" class="recycle-svg">
+                            <g stroke="{theme['primary']}" stroke-width="7" fill="none" stroke-linejoin="round" stroke-linecap="round">
+                                <path d="M50 8 L90 74 L10 74 Z"/>
+                                <path d="M50 8 L61 19 M90 74 L75 74 M10 74 L21 59"/>
+                            </g>
+                            <text x="50" y="52" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="20" font-weight="900" font-family="'Noto Sans KR', sans-serif" letter-spacing="-0.5px">플라스틱</text>
+                            <text x="50" y="100" text-anchor="middle" dominant-baseline="central" fill="#ffffff" font-size="19" font-weight="900" font-family="'Orbitron', 'Noto Sans KR', sans-serif" letter-spacing="1px">OTHER</text>
+                        </svg>
                     </div>
                 </div>
             </div>

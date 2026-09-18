@@ -31,3 +31,4 @@ public/KakaoTalk_*.jpg
 *.njsproj
 *.sln
 *.sw?
+__pycache__/
