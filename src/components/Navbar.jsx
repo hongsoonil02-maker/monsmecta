@@ -25,6 +25,19 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
+      {/* 수의사 전용 공지 탑바 */}
+      <div className="bg-slate-950 text-slate-200 text-xs py-1.5 px-3 border-b border-slate-800 flex items-center justify-center gap-2 text-center">
+        <span className="bg-emerald-600/30 text-emerald-300 px-2 py-0.5 rounded font-bold text-[10px] border border-emerald-500/30 shrink-0">
+          동물병원 처방 전용
+        </span>
+        <span className="text-slate-300 text-[11px] sm:text-xs">
+          몬스멕타는 수의사 처방 전용입니다. 일반 가정 상비용: <strong>[파보겔(쿠팡/스마트스토어)]</strong>
+        </span>
+        <a href="https://parvogel.kr" target="_blank" rel="noopener noreferrer" className="text-emerald-400 hover:text-emerald-300 font-bold underline underline-offset-2 shrink-0">
+          파보겔 공식몰 →
+        </a>
+      </div>
+
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-1 sm:gap-4">
         {/* Brand Logo & Name */}
         <a href="#" className="flex items-center gap-1.5 sm:gap-2.5 shrink-0 min-w-0 max-w-[45%] sm:max-w-none">
