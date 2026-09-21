@@ -31,7 +31,7 @@ const GeneralNoticeModal = () => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-fade-in"
       role="dialog"
       aria-modal="true"
       onClick={handleClose}
@@ -59,7 +59,7 @@ const GeneralNoticeModal = () => {
             동물병원 수의사 전용 처방 제품입니다
           </h3>
           <p className="text-xs sm:text-sm text-emerald-100/90 mt-2 font-medium leading-relaxed break-keep">
-            본 사이트는 동물병원 수의사 선생님들의 권익과 진료 체계를 보호하기 위해 폐쇄형 B2B 인증제로 운영됩니다.
+            본 사이트는 동물병원 수의사 선생님들의 권익과 진료 체계를 보호하기 위해 폐쇄형 B2B 인증제로 운영되며, 공급 단가는 일반인에게 공개되지 않습니다.
           </p>
         </div>
 
@@ -71,7 +71,7 @@ const GeneralNoticeModal = () => {
               <span>비공개 영역 (수의사 전용) 안내</span>
             </div>
             <p className="text-slate-300 text-xs leading-relaxed break-keep">
-              <strong>공급 단가, 병원 발주 시스템, 수의사 전용 임상 프로토콜 다운로드는 사업자 등록증 인증 회원에게만 노출</strong>됩니다. 일반인에게는 도매 가격 및 발주 기능이 공개되지 않습니다.
+              <strong>공급 단가, 병원 발주 시스템, 수의사 전용 임상 프로토콜 다운로드는 사업자 등록증 인증 회원에게만 노출</strong>됩니다. 일반인 및 비인증 사용자에게는 도매 가격 및 발주 기능이 철저히 비공개(Lock)되어 있습니다.
             </p>
           </div>
 

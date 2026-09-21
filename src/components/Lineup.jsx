@@ -44,18 +44,13 @@ const Lineup = ({ setIsLabelModalOpen, setActiveProduct, onOpenSampleModal }) =>
                   <p className="text-[10px] text-slate-400 mb-2 font-mono uppercase tracking-wider">{product.name_en}</p>
                   <p className="text-xs text-slate-600 leading-relaxed break-keep">{t(`products.${product.id}.desc`, { defaultValue: product.desc })}</p>
                   
-                  {/* 가격 및 출시 상태 안내 */}
+                  {/* 가격 비공개 락 안내 */}
                   <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
                     <span className="text-[11px] text-slate-500 font-medium">{t('lineup.priceLabel', '공급가')}</span>
-                    {product.price ? (
-                      <span className="text-xs sm:text-sm font-black text-emerald-700 font-mono">
-                        {product.price.toLocaleString()}{t('order.won', '원')} <span className="text-[9px] text-slate-400 font-normal">(VAT포함)</span>
-                      </span>
-                    ) : (
-                      <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
-                        {t('lineup.priceTBD', '출시 예정 (가격미책정)')}
-                      </span>
-                    )}
+                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200 select-none shadow-inner">
+                      <span>🔒</span>
+                      <span>수의사 전용 비공개</span>
+                    </span>
                   </div>
                 </div>
                 <div className="space-y-2 mt-auto">

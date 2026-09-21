@@ -293,7 +293,7 @@ const OrderForm = ({
                     <optgroup label="✅ 즉시 발주 가능 품목">
                       {Object.values(PRODUCTS).filter(p => !p.isComingSoon && p.price).map(p => (
                         <option key={p.id} value={p.id}>
-                          {getProductDisplayName(p, isKoreanLang)} ({p.volume}) - {p.price.toLocaleString()}원
+                          {getProductDisplayName(p, isKoreanLang)} ({p.volume}) [🔒 병원공급용]
                         </option>
                       ))}
                     </optgroup>
@@ -347,12 +347,11 @@ const OrderForm = ({
                             {getProductDisplayName(p, isKoreanLang)} 
                             <span className="text-sm font-bold text-slate-500 ml-1.5">{p.volume ? `(${p.volume} / 병)` : t('order.unit', '(병)')}</span>
                           </div>
-                          <div className="text-sm font-medium text-slate-500 mt-1">
-                            {t('order.supply_price')}{' '}
-                            <span className={`font-bold ${key === 'monsmecta' ? 'text-[#00513b]' : 'text-emerald-700'} ml-1 font-mono text-base`}>
-                              {p.price ? p.price.toLocaleString() : '0'}{t('order.won')}
-                            </span>{' '}
-                            <span className="text-[10px] text-slate-500">{t('order.vat_included')}</span>
+                          <div className="text-sm font-medium text-slate-500 mt-1 flex items-center gap-2">
+                            <span>{t('order.supply_price')}</span>
+                            <span className="font-bold text-slate-700 font-mono text-xs bg-slate-100 px-2.5 py-1 rounded border border-slate-200 select-none">
+                              🔒 병원 사업자 인증 시 도매가 적용
+                            </span>
                           </div>
                         </div>
                         <div className={`flex items-center bg-white border ${key === 'monsmecta' ? 'border-slate-200' : 'border-emerald-200'} rounded-xl overflow-hidden shadow-sm shrink-0`}>
@@ -370,7 +369,12 @@ const OrderForm = ({
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-emerald-300 opacity-20 rounded-full blur-3xl"></div>
                 <div className="flex flex-col md:flex-row justify-between items-center mb-6 sm:mb-8 gap-4 relative z-10">
                   <span className="text-lg sm:text-xl font-bold text-slate-700">{t('order.total_price')}</span>
-                  <span className="text-4xl sm:text-5xl font-black text-emerald-900 drop-shadow-sm tracking-tight font-mono">{totalPrice.toLocaleString()}<span className="text-xl sm:text-2xl ml-2 text-emerald-700 font-bold">{t('order.won')}</span></span>
+                  <div className="text-center md:text-right">
+                    <span className="text-lg sm:text-2xl font-black text-emerald-900 bg-emerald-100/90 px-4 py-2 rounded-xl border border-emerald-300 inline-block font-mono">
+                      🔒 동물병원 사업자 전용 도매가 적용
+                    </span>
+                    <p className="text-[11px] text-slate-500 mt-1 font-normal">* 수의사 면허 및 사업자등록증 확인 후 세금계산서 청구 시 최종 금액 확정</p>
+                  </div>
                 </div>
                 <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 text-xl sm:text-2xl font-black py-4 sm:py-5 rounded-2xl transition duration-300 shadow-lg shadow-amber-500/20 transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer">
                   <span>{isSubmitting ? t('order.submitting') : t('order.btn')}</span>
