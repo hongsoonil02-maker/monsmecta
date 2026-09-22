@@ -36,6 +36,15 @@ const Footer = ({ setLegalType }) => {
           >
             {t('legal.businessTitle')}
           </button>
+          <span className="text-slate-300">|</span>
+          <a
+            href="https://parvogel.kr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-emerald-700 transition-colors underline underline-offset-4 decoration-slate-300 hover:decoration-emerald-700 cursor-pointer text-slate-400 text-xs"
+          >
+            가정용 상비(파보겔) 안내
+          </a>
         </div>
 
         <div className="pt-6 border-t border-slate-200 text-xs sm:text-sm font-medium tracking-wider text-slate-500">
