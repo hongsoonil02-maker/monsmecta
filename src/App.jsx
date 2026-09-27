@@ -1,4 +1,4 @@
-import { useState, useRef, lazy, Suspense } from 'react';
+﻿import { useState, useRef, lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from './data/products';
 import Navbar from './components/Navbar';
@@ -16,6 +16,9 @@ import Footer from './components/Footer';
 import StickyBottomCTA from './components/StickyBottomCTA';
 import useIframeHeight from './hooks/useIframeHeight';
 import A11yToolbar from './components/A11yToolbar';
+import MonsmectaLineupSection from './components/MonsmectaLineupSection';
+import MonsmectaMoaSection from './components/MonsmectaMoaSection';
+import MonsmectaClinicalCase from './components/MonsmectaClinicalCase';
 
 // 상호작용 이후에만 필요한 컴포넌트는 지연 로딩하여 초기 번들을 줄인다.
 const Chatbot = lazy(() => import('./components/Chatbot'));
@@ -262,6 +265,9 @@ const MonsmectaSNJLanding = () => {
         <Values activeProduct={activeProduct} />
         <ClinicalEvidence activeProduct={activeProduct} />
         <ClinicalCaseStudy />
+        <MonsmectaLineupSection />
+        <MonsmectaMoaSection />
+        <MonsmectaClinicalCase />
         <Infographics iframeHeights={iframeHeights} />
         <Letter />
         <AudioTestimonial />
