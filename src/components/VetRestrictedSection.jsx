@@ -1,5 +1,3 @@
-import React from 'react';
-
 const VetRestrictedSection = ({ onOpenSampleModal }) => {
   return (
     <section aria-labelledby="restricted-heading" className="my-12">
