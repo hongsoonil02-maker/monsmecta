@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function MonsmectaClinicalCase() {
   const timeline = [
     { time: 'Day 0 (0h)', state: '극심한 허탈 및 신경 발작', detail: '55일령 토이푸들(♂), 체온 저하, 의식 불명에 준하는 경련 상태 내원. IV 카테터 삽입조차 위험한 혈관 허탈.' },
