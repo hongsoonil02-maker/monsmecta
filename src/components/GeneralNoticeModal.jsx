@@ -91,40 +91,6 @@ const GeneralNoticeModal = () => {
               </a>
             </div>
 
-            {/* 일반 상비용 파보겔 안내 */}
-            <div className="bg-emerald-950/40 border border-emerald-500/40 rounded-2xl p-4 space-y-2.5">
-              <div className="space-y-1">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-emerald-400">🚀 긴급 가정 상비용</span>
-                  <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold">익일 로켓배송</span>
-                </div>
-                <p className="text-xs font-bold text-white">
-                  동일 나노 복합 포뮬러 가정 상비용 <span className="text-emerald-300">[파보겔]</span> 바로 구매
-                </p>
-                <p className="text-[11px] text-slate-300 leading-relaxed">
-                  몬스멕타와 동일한 초미세 나노 몬모릴로나이트(800m²/g) & 특허 유산균 배양물이 함유된 1초 원터치 펌프형 가정용 보조사료입니다.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2 pt-1">
-                <a
-                  href="https://www.coupang.com/vp/products/9690739565?itemId=28983118193&vendorItemId=95912261090"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1 py-2.5 px-2 bg-[#e31837] hover:bg-[#c9122e] text-white font-bold rounded-xl text-xs transition"
-                >
-                  쿠팡 로켓배송
-                </a>
-                <a
-                  href="https://smartstore.naver.com/petschury/products/13718496355"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1 py-2.5 px-2 bg-[#03c75a] hover:bg-[#02b350] text-white font-bold rounded-xl text-xs transition"
-                >
-                  스마트스토어
-                </a>
-              </div>
-            </div>
           </div>
 
           <div className="pt-2 flex items-center justify-between text-xs border-t border-slate-800">
