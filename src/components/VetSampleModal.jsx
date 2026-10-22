@@ -25,7 +25,7 @@ export default function VetSampleModal({ isOpen, onClose }) {
     vetName: '',
     phone: '',
     address: '',
-    requestType: t('sampleModal.type1', '무료 샘플 신청 (100g 2개)'),
+    requestType: '신제품 시제품 2종 키트 (헤파맥스 30ml + 레날디톡스 30ml)',
   });
 
   // 모달 공통 동작 (ESC 닫기, 스크롤 잠금, 포커스 관리)
@@ -270,11 +270,26 @@ export default function VetSampleModal({ isOpen, onClose }) {
               <select
                 value={form.requestType}
                 onChange={(e) => setForm({ ...form, requestType: e.target.value })}
-                className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none bg-white"
+                className="w-full px-3.5 py-2.5 border border-gray-300 rounded-xl text-sm focus:ring-2 focus:ring-blue-500 outline-none bg-white font-medium"
               >
-                <option>{t('sampleModal.type1', '무료 샘플 신청 (100g 2개)')}</option>
-                <option>{t('sampleModal.type2', '지역 독점 공급권 및 단가 문의')}</option>
-                <option>{t('sampleModal.type3', '임상 연구 데이터 요청')}</option>
+                <option value="신제품 시제품 2종 키트 (헤파맥스 30ml + 레날디톡스 30ml)">
+                  🎁 [신제품 시제품 2종 키트] 헤파맥스 30ml + 레날디톡스 30ml
+                </option>
+                <option value="몬스멕타 레날디톡스 30ml 시제품 (B.longum 1,000억 CFU)">
+                  💧 [신제품] 몬스멕타 레날디톡스 30ml (신장 요독 디톡스)
+                </option>
+                <option value="몬스멕타 헤파맥스 30ml 시제품 (간 기능 개선)">
+                  🧪 [신제품] 몬스멕타 헤파맥스 30ml (간 기능 개선)
+                </option>
+                <option value="몬스멕타 오리지널 무료 샘플 (100g 2개)">
+                  🌿 몬스멕타 오리지널 무료 샘플 (100g 2개)
+                </option>
+                <option value="지역 독점 공급권 및 단가 문의">
+                  🔒 병원 공급 단가 및 지역 독점 처방권 문의
+                </option>
+                <option value="임상 연구 데이터 및 학술 자료 요청">
+                  📚 임상 연구 데이터 및 학술 자료 요청
+                </option>
               </select>
             </div>
 

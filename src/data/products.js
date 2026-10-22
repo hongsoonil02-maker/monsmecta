@@ -62,7 +62,7 @@ export const PRODUCTS = {
     name_ko: '몬스멕타 레날디톡스',
     name_en: 'MONSMECTA RENAL DETOX',
     volume: '30ml',
-    desc: '신장 요독 흡착 및 비뇨기 디톡스 보조제 (30ml)',
+    desc: 'B. longum 1,000억 CFU & 나노 몬모릴로나이트 장-신장 축 요독 디톡스 보조제 (30ml)',
     icon: '💧',
     color: 'indigo',
     bg: 'hover:bg-indigo-900',
@@ -73,7 +73,7 @@ export const PRODUCTS = {
     isComingSoon: false,
     hero: {
       title: '임상수의사의 해답\nRENAL DETOX',
-      subtitle: '몬모릴로나이트의 강력한 요독 흡착력과 세계적인 아디세오(Adisseo)의 프리미엄 비타민을 결합한 신장 요독 디톡스 및 비뇨기 건강 보조제입니다.',
+      subtitle: '초고농도 비피도박테리움 롱검(1,000억 CFU)과 나노 몬모릴로나이트의 듀얼 시너지! 장-신장 축(Gut-Kidney Axis)을 통한 장내 요독 분해 및 인독실설페이트·요소(Urea) 강력 흡착 배출로 만성 신부전 환축의 신장 수치(BUN/Cre)를 지켜줍니다.',
       badge: '동물병원 전용 B2B 처방 솔루션 · 신장 요독 디톡스 프리미엄 케어 (30ml)',
       badgeText: '신장/요독 디톡스 (30ml)',
       badgeColor: 'bg-indigo-700',
@@ -81,9 +81,9 @@ export const PRODUCTS = {
       bgColor: 'bg-indigo-50'
     },
     values: {
-      title: '에스앤제이의 3대 가치 약속',
-      formulaTitle: '독보적인 배합 비율',
-      formulaDesc: '임상 현장에서 검증된 강력한 원료 배합으로 확실한 효과를 이끌어냅니다.'
+      title: '장-신장 축(Gut-Kidney Axis) 듀얼 디톡스',
+      formulaTitle: 'B. longum 1,000억 & 나노 몬모릴로나이트',
+      formulaDesc: '장내에서 요독 물질을 분해하는 초고농도 비피도박테리움 롱검(1.0x10¹¹ CFU/L)과 인독실설페이트를 물리적으로 흡착·배출하는 나노 몬모릴로나이트, 항산화 비타민 A·D3·E 복합 처방.'
     }
   },
   cancercare: {

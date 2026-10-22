@@ -1,4 +1,4 @@
-﻿import { useState, useRef, lazy, Suspense } from 'react';
+import { useState, useRef, lazy, Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS } from './data/products';
 import Navbar from './components/Navbar';
@@ -263,7 +263,7 @@ const MonsmectaSNJLanding = () => {
         <Hero setIsLabelModalOpen={setIsLabelModalOpen} onOpenSampleModal={() => setIsSampleModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <Lineup setIsLabelModalOpen={setIsLabelModalOpen} onOpenSampleModal={() => setIsSampleModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <Values activeProduct={activeProduct} />
-        <ClinicalEvidence activeProduct={activeProduct} />
+        <ClinicalEvidence activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <ClinicalCaseStudy />
         <MonsmectaLineupSection />
         <MonsmectaMoaSection />

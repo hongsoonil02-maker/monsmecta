@@ -1,14 +1,66 @@
 import { useTranslation } from 'react-i18next';
 
-const ClinicalEvidence = ({ activeProduct }) => {
+const ClinicalEvidence = ({ activeProduct, setActiveProduct }) => {
   const { t } = useTranslation();
 
   return (
     <section id="clinical" className="py-10 sm:py-14 md:py-[68px] bg-slate-100 border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold mb-3 shadow-sm">
+            <span>✨</span>
+            <span>수의사 전용 시제품 샘플 출하 & 학술 데이터</span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-extrabold text-[#00513b] break-keep">{t('clinical.title', '학술 검증 및 임상 시험 데이터')}</h2>
-          <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-6 rounded-full mb-8"></div>
+          <div className="w-24 h-1.5 bg-yellow-400 mx-auto mt-4 rounded-full mb-6"></div>
+          
+          {/* 시제품 2종 (헤파맥스 / 레날디톡스) 퀵 전환 탭 */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 max-w-4xl mx-auto">
+            <button
+              type="button"
+              onClick={() => setActiveProduct && setActiveProduct('hepamax')}
+              className={`px-4 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-black transition-all flex items-center gap-2 shadow-sm cursor-pointer ${
+                activeProduct === 'hepamax'
+                  ? 'bg-amber-600 text-white ring-4 ring-amber-300/70 shadow-lg scale-105'
+                  : 'bg-white text-slate-700 hover:bg-amber-50 hover:text-amber-800 border border-slate-300'
+              }`}
+            >
+              <span className="text-base">🧪</span>
+              <span>몬스멕타 헤파맥스 (간 건강 30ml)</span>
+              <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${activeProduct === 'hepamax' ? 'bg-black/25 text-white' : 'bg-amber-100 text-amber-800'}`}>
+                시제품 샘플 배포
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveProduct && setActiveProduct('urinary')}
+              className={`px-4 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-black transition-all flex items-center gap-2 shadow-sm cursor-pointer ${
+                activeProduct === 'urinary'
+                  ? 'bg-indigo-600 text-white ring-4 ring-indigo-300/70 shadow-lg scale-105'
+                  : 'bg-white text-slate-700 hover:bg-indigo-50 hover:text-indigo-800 border border-slate-300'
+              }`}
+            >
+              <span className="text-base">💧</span>
+              <span>몬스멕타 레날디톡스 (신장 요독 30ml)</span>
+              <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${activeProduct === 'urinary' ? 'bg-black/25 text-white' : 'bg-indigo-100 text-indigo-800'}`}>
+                B.longum 1,000억 CFU
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveProduct && setActiveProduct('monsmecta')}
+              className={`px-4 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-black transition-all flex items-center gap-2 shadow-sm cursor-pointer ${
+                activeProduct === 'monsmecta'
+                  ? 'bg-emerald-700 text-white ring-4 ring-emerald-300/70 shadow-lg scale-105'
+                  : 'bg-white text-slate-700 hover:bg-emerald-50 hover:text-emerald-800 border border-slate-300'
+              }`}
+            >
+              <span className="text-base">🌿</span>
+              <span>몬스멕타 오리지널 (100ml 정장제)</span>
+            </button>
+          </div>
         </div>
 
         {activeProduct === 'monsmecta' ? (
@@ -371,42 +423,70 @@ const ClinicalEvidence = ({ activeProduct }) => {
           {/* Urinary Card 1: Key Benefits */}
           <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
             <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-100 text-indigo-900 text-xs font-black mb-3">
+                <span>🔬</span>
+                <span>장-신장 축 (Gut-Kidney Axis) 듀얼 디톡스 솔루션</span>
+              </div>
               <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
                 <span className="w-9 h-9 rounded-full shrink-0 bg-indigo-700 text-white flex items-center justify-center text-sm font-bold shadow-md">1</span>
-                <span>요독 흡착 및 비뇨기 핵심 효능</span>
+                <span>신장·요독 디톡스 핵심 효능</span>
               </h3>
-              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
-                레날디톡스는 요독증 완화와 활력 증진을 위해 설계된 신장 디톡스 및 비뇨기 특화 처방 솔루션입니다.
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal break-keep">
+                레날디톡스는 <strong className="text-indigo-900 font-bold">초고농도 비피도박테리움 롱검(1.0 × 10¹¹ CFU/L)</strong>의 장내 요독 분해와 <strong className="text-indigo-900 font-bold">나노 몬모릴로나이트</strong>의 물리적 흡착 배출을 결합한 동물병원 수의사 전용 신장 처방 솔루션입니다.
               </p>
               <div className="space-y-3.5">
-                <div className="bg-indigo-50 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
+                <div className="bg-indigo-50/80 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
+                  <div className="w-10 h-10 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🦠</div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <h4 className="font-bold text-slate-800">B. longum 1,000억 CFU 장내 요독 직접 분해</h4>
+                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-indigo-200 text-indigo-900 font-extrabold">장내 투석 효과</span>
+                    </div>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed break-keep">
+                      신부전 시 장내에 증식하는 유해균의 부패 발효를 억제하고, 장관 내에서 요소(Urea)와 요독 전구물질을 미생물 대사로 직접 분해·소비하여 혈액으로 재흡수되는 요독을 원천 감소시킵니다.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-indigo-50/80 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
                   <div className="w-10 h-10 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🧲</div>
                   <div>
-                    <h4 className="font-bold text-slate-800">강력한 요독 흡착 배출</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">몬모릴로나이트의 양이온 교환 능력으로 요소(Urea)와 인독실설페이트(Indoxyl Sulfate)를 강력하게 흡착하여 배출합니다.</p>
+                    <h4 className="font-bold text-slate-800">나노 몬모릴로나이트의 요독(IS, Urea) 강력 물리 흡착</h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed break-keep">
+                      비표면적 800m²/g의 초미세 층상 구조가 혈관으로 빠져나가지 못하는 단백 결합성 난치 요독 인독실설페이트(Indoxyl Sulfate)와 요소를 장내에서 포획(Trap)하여 대변으로 신속히 배출합니다.
+                    </p>
                   </div>
                 </div>
-                <div className="bg-indigo-50 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
+
+                <div className="bg-indigo-50/80 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
                   <div className="w-10 h-10 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">🩺</div>
                   <div>
-                    <h4 className="font-bold text-slate-800">신장 기능 저하 보조</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">요독의 장내 배출을 통해 신장 수치를 안정화하고 만성 신부전 환축의 요독증 완화에 기여합니다.</p>
+                    <h4 className="font-bold text-slate-800">신장 수치(BUN, Creatinine) 안정화 및 잔존 신기능 보호</h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed break-keep">
+                      체내 요독 부하를 경감시켜 만성 신부전(CKD) 환축의 잔존 네프론(Nephron) 손상을 방어하고 신장 수치 안정화를 강력하게 보조합니다.
+                    </p>
                   </div>
                 </div>
-                <div className="bg-indigo-50 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
+
+                <div className="bg-indigo-50/80 rounded-2xl p-4 border border-indigo-200 hover:border-indigo-400 transition-colors shadow-sm flex items-start gap-4">
                   <div className="w-10 h-10 bg-indigo-100 text-indigo-700 rounded-full flex items-center justify-center text-lg shrink-0 mt-0.5">⚡</div>
                   <div>
-                    <h4 className="font-bold text-slate-800">활력 증진 및 영양 공급</h4>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">아디세오 비고비솔의 비타민 A, D3, E, B군 등이 신장 질환 시 부족해지기 쉬운 에너지를 대사하고 항산화 효과를 제공합니다.</p>
+                    <h4 className="font-bold text-slate-800">비타민 A, D3, E 복합 처방 (항산화 및 에너지 대사)</h4>
+                    <p className="text-xs text-slate-600 mt-1 leading-relaxed break-keep">
+                      신장·요로 점막 상피세포 보호(비타민 A 40만IU), 신부전 시 결핍되는 칼슘·인 대사 조절(비타민 D3 8만IU), 신장 조직의 지질 과산화 방어(비타민 E 200IU)로 활력 증진을 도모합니다.
+                    </p>
                   </div>
                 </div>
                 
                 {/* Google Reference Button in Card 1 */}
-                <div className="mt-4 p-4 bg-indigo-100/50 rounded-2xl border border-indigo-200">
+                <div className="mt-4 p-4 bg-indigo-100/60 rounded-2xl border border-indigo-200">
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <p className="text-xs font-bold text-indigo-900 break-keep">💡 몬모릴로나이트 요독 흡착 학술 검증 (Urea & Indoxyl Sulfate)</p>
+                    <div>
+                      <p className="text-xs font-bold text-indigo-950 break-keep">💡 B. longum & 몬모릴로나이트 장-신장 축 학술 검증</p>
+                      <p className="text-[11px] text-indigo-800">Gut-Kidney Axis & Uremic Toxins Adsorption Global Papers</p>
+                    </div>
                     <a
-                      href="https://scholar.google.com/scholar?q=Montmorillonite+Urea+Indoxyl+Sulfate+adsorption"
+                      href="https://scholar.google.com/scholar?q=Bifidobacterium+longum+Montmorillonite+Uremic+Toxins+Gut+Kidney+Axis"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-1.5 shrink-0 bg-indigo-700 hover:bg-indigo-900 text-white text-[11px] font-bold px-3 py-1.5 rounded-xl transition-all shadow-sm"
@@ -424,46 +504,96 @@ const ClinicalEvidence = ({ activeProduct }) => {
           {/* Urinary Card 2: Ingredients */}
           <div className="bg-white p-4 sm:p-6 md:p-9 rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
             <div>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-100 text-indigo-900 text-xs font-black mb-3">
+                <span>📋</span>
+                <span>라벨 등록 성분량 (1L 기준 공식 포뮬러)</span>
+              </div>
               <h3 className="text-xl md:text-2xl font-black text-slate-800 mb-4 flex items-center gap-3 break-keep">
                 <span className="w-9 h-9 rounded-full shrink-0 bg-indigo-700 text-white flex items-center justify-center text-sm font-bold shadow-md">2</span>
-                <span>핵심 성분 및 약리기전</span>
+                <span>핵심 성분 및 약리기전 (5대 시너지)</span>
               </h3>
-              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal">
-                몬모릴로나이트와 아디세오 비고비솔의 독자적인 시너지 포뮬러입니다.
+              <p className="text-slate-600 mb-6 leading-relaxed text-sm md:text-base font-normal break-keep">
+                라벨 등록 기준을 엄격 준수한 비피도박테리움 롱검 초고농도 유익균과 몬모릴로나이트 복합 처방입니다.
               </p>
               
               <div className="space-y-3">
+                {/* 1. Bifidobacterium longum */}
                 <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-indigo-300 transition-colors">
-                  <div className="shrink-0 flex flex-col gap-1 sm:w-1/3">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
-                      <h5 className="font-bold text-slate-800 text-sm">Montmorillonite</h5>
+                  <div className="shrink-0 flex flex-col gap-0.5 sm:w-2/5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-indigo-600 animate-pulse"></span>
+                      <h5 className="font-bold text-slate-900 text-sm">B. longum</h5>
                     </div>
-                    <span className="text-indigo-700 text-xs font-bold">(몬모릴로나이트 흡착제)</span>
+                    <span className="text-indigo-700 text-xs font-black">1.0 × 10¹¹ CFU/L (1,000억 CFU)</span>
+                    <span className="text-[10px] text-slate-500 font-medium">초고농도 장-신장 축 특화 균주</span>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
-                    비표면적 800m²/g 이상의 나노 몬모릴로나이트가 장내에서 요소(Urea) 및 단백질 결합성 요독인 인독실설페이트(Indoxyl Sulfate)를 수소 결합과 정전기적 척력 변형으로 강력하게 트랩(Trap)하여 체외 배설을 돕습니다.
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3 break-keep">
+                    장관 내 밀착연접(Tight Junction)을 복구하여 요독 물질의 혈류 누출을 막고, 장내 요소(Urea)와 인독실 전구물질을 효소적으로 분해 소비하여 신장의 해독 부담을 획기적으로 낮춥니다.
                   </p>
                 </div>
 
+                {/* 2. Montmorillonite */}
                 <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-indigo-300 transition-colors">
-                  <div className="shrink-0 flex flex-col gap-1 sm:w-1/3">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
-                      <h5 className="font-bold text-slate-800 text-sm">Adisseo Vigovisol</h5>
+                  <div className="shrink-0 flex flex-col gap-0.5 sm:w-2/5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                      <h5 className="font-bold text-slate-900 text-sm">Montmorillonite</h5>
                     </div>
-                    <span className="text-indigo-700 text-xs font-bold">(글로벌 아디세오 프리미엄 비타민)</span>
+                    <span className="text-indigo-700 text-xs font-bold">초미세 나노 정제 (고함량)</span>
+                    <span className="text-[10px] text-slate-500 font-medium">비표면적 800m²/g 이상</span>
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed sm:w-2/3 border-l-0 sm:border-l border-slate-200 sm:pl-3">
-                    세계적인 사료첨가제 기업 아디세오(Adisseo)의 액상 종합 비타민으로, 활력 증진 및 에너지 대사에 필수적인 영양을 공급합니다. (Vit A 400만IU, D3 80만IU, E 2천IU, B군, C, K3 복합 배합)
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3 break-keep">
+                    비표면적 800m²/g의 다공성 층상 구조로 장내에서 단백 결합성 요독(인독실설페이트)과 요소를 정전기적으로 강력 포획(Trap)하여 체외 배출을 유도합니다.
+                  </p>
+                </div>
+
+                {/* 3. Vitamin A */}
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-indigo-300 transition-colors">
+                  <div className="shrink-0 flex flex-col gap-0.5 sm:w-2/5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                      <h5 className="font-bold text-slate-900 text-sm">비타민 A (Vitamin A)</h5>
+                    </div>
+                    <span className="text-indigo-700 text-xs font-bold">400,000 IU/L</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3 break-keep">
+                    신장 사구체 및 비뇨기 점막 상피세포의 회복을 촉진하고 요로 점막 면역 장벽을 탄탄하게 유지합니다.
+                  </p>
+                </div>
+
+                {/* 4. Vitamin D3 */}
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-indigo-300 transition-colors">
+                  <div className="shrink-0 flex flex-col gap-0.5 sm:w-2/5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                      <h5 className="font-bold text-slate-900 text-sm">비타민 D3 (Vitamin D3)</h5>
+                    </div>
+                    <span className="text-indigo-700 text-xs font-bold">80,000 IU/L</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3 break-keep">
+                    신기능 저하 시 필연적으로 발생하는 활성 비타민D 결핍을 예방하고 칼슘·인 대사 조절을 지원합니다.
+                  </p>
+                </div>
+
+                {/* 5. Vitamin E */}
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-3 hover:bg-white hover:border-indigo-300 transition-colors">
+                  <div className="shrink-0 flex flex-col gap-0.5 sm:w-2/5">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
+                      <h5 className="font-bold text-slate-900 text-sm">비타민 E (Vitamin E)</h5>
+                    </div>
+                    <span className="text-indigo-700 text-xs font-bold">200 IU/L</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed sm:w-3/5 border-l-0 sm:border-l border-slate-200 sm:pl-3 break-keep">
+                    신장 모세혈관과 세포막의 지질 과산화를 방어하여 신장 섬유화 진행 억제에 기여하는 항산화제입니다.
                   </p>
                 </div>
               </div>
             </div>
             
             <div className="mt-5 bg-indigo-50/90 border border-indigo-200 rounded-2xl p-4 text-xs font-medium text-indigo-900 leading-relaxed shadow-sm">
-              <p className="font-bold mb-1">📌 S&J 동물병원 자문단 코멘트:</p>
-              <p>"요독 흡착과 신장 질환 시 떨어지기 쉬운 활력을 돕는 비타민 복합체 배합으로 만성 신부전 환축의 삶의 질 향상에 탁월한 보조제가 될 것입니다."</p>
+              <p className="font-bold mb-1">📌 S&J 동물병원 자문단 임상 코멘트:</p>
+              <p className="break-keep">"신부전 환축 진료에서 요독증(Uremia) 관리는 수명과 삶의 질을 결정짓는 핵심입니다. 레날디톡스는 단순 흡착제 수준을 넘어, <strong className="font-extrabold text-indigo-950">초고농도 비피도박테리움 롱검(1,000억 CFU)의 장내 요독 분해와 나노 몬모릴로나이트의 흡착 배출이 동시 작용하는 '장-신장 축(Gut-Kidney Axis)' 혁신 처방 보조제</strong>입니다. 시제품 샘플을 처방해 보신 원장님들께서 BUN 수치 안정화와 식욕 개선에서 뛰어난 피드백을 주고 계십니다."</p>
             </div>
           </div>
         </div>
