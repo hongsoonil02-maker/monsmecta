@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LABEL_DATA } from '../data/labels';
 import { useModalBehavior, handleBackdropClick } from '../hooks/useModalBehavior';
@@ -128,9 +129,12 @@ const THEME_MAP = {
 
 const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, onOpenPrint, activeProduct }) => {
   const { t } = useTranslation();
+  const [photoSide, setPhotoSide] = useState('front');
   const labelData = LABEL_DATA[activeProduct] || LABEL_DATA['monsmecta'];
   const theme = THEME_MAP[activeProduct] || THEME_MAP['monsmecta'];
   const panelRef = useModalBehavior(isLabelModalOpen, () => setIsLabelModalOpen(false));
+
+  const hasRealPhotos = activeProduct === 'hepamax' || activeProduct === 'urinary';
 
   if (!isLabelModalOpen) return null;
 
@@ -158,8 +162,52 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, onOpenPrint, active
         <div className="p-8">
           <div className="flex flex-col md:flex-row gap-8">
             <div className={`md:w-1/3 flex flex-col items-center border-r border-white/10 pr-0 md:pr-8`}>
-              <div className={`${theme.accentBg} w-full p-6 flex justify-center items-center mb-6 border border-white/5 overflow-hidden`} style={{ borderRadius: '40px' }}>
-                <img src={`${import.meta.env.BASE_URL}assets/${activeProduct === 'monsmecta' ? 'bottle' : activeProduct}_mockup.png`} alt={labelData.product_name} className="w-3/4 max-w-[200px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform" style={{ borderRadius: '24px' }} />
+              <div className={`${theme.accentBg} w-full p-4 sm:p-5 flex flex-col justify-center items-center mb-6 border border-white/5 overflow-hidden`} style={{ borderRadius: '32px' }}>
+                {hasRealPhotos && (
+                  <div className="flex items-center gap-1 p-1 bg-black/50 rounded-xl mb-3 border border-white/10 w-full justify-center">
+                    <button
+                      type="button"
+                      onClick={() => setPhotoSide('front')}
+                      className={`px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                        photoSide === 'front'
+                          ? 'bg-white text-slate-900 shadow-md font-black'
+                          : 'text-slate-300 hover:text-white'
+                      }`}
+                    >
+                      앞면 실사
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPhotoSide('back')}
+                      className={`px-3 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                        photoSide === 'back'
+                          ? 'bg-white text-slate-900 shadow-md font-black'
+                          : 'text-slate-300 hover:text-white'
+                      }`}
+                    >
+                      뒷면 (표시사항)
+                    </button>
+                  </div>
+                )}
+                
+                <img
+                  src={
+                    hasRealPhotos
+                      ? `${import.meta.env.BASE_URL}assets/${activeProduct}_real_${photoSide}.png`
+                      : `${import.meta.env.BASE_URL}assets/${activeProduct === 'monsmecta' ? 'bottle' : activeProduct}_mockup.png`
+                  }
+                  alt={labelData.product_name}
+                  className="w-3/4 max-w-[200px] drop-shadow-[0_12px_24px_rgba(0,0,0,0.6)] hover:scale-105 transition-transform"
+                  style={{ borderRadius: '20px' }}
+                />
+
+                {hasRealPhotos && (
+                  <div className="mt-2 text-center">
+                    <span className="inline-block text-[10px] text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded-full font-bold border border-emerald-500/30">
+                      📸 30ml 펌프 실물 시제품 촬영
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="w-full text-center">
                 <h4 className={`text-xl font-black ${theme.text} mb-2`}>{labelData.product_name}</h4>
