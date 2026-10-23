@@ -140,7 +140,7 @@
     "min_order": "* 최소 주문 수량: 5병",
     "total_price": "총 결제 금액",
     "won": "원",
-    "bank_info": "무통장입금: 카카오뱅크 3333-37-2664149 (예금주: 홍순일)",
+    "bank_info": "무통장입금: 카카오뱅크 3333-37-2664149 (예금주: 홍순일(에스앤제이동물병원))",
     "submitting": "주문 접수 중...",
     "success_title": "주문이 접수되었습니다!",
     "success_desc": "주문이 정상적으로 접수되었습니다. 아래 계좌로 입금해 주시면 신속히 배송해 드리겠습니다.",
@@ -149,7 +149,7 @@
     "deposit_account_label": "입금 계좌",
     "deposit_account_value": "3333-37-2664149",
     "deposit_holder_label": "예금주",
-    "deposit_holder_value": "홍순일",
+    "deposit_holder_value": "홍순일(에스앤제이동물병원)",
     "deposit_amount_label": "입금 금액",
     "success_notice_prefix": "입금 확인 후 ",
     "success_notice_highlight": "발주가 확정",
@@ -276,7 +276,7 @@
     "info1": "대표: 홍순일 (Dr. James Hong) | 사업자등록번호: 792-66-00615",
     "info2": "주소: 경기도 용인시 처인구 포곡읍 선장1로 98-8",
     "info3": "연락처: 031-321-6562 | 팩스: 050-4006-5708 | 이메일: Soonilhong@naver.com",
-    "bank": "입금계좌: 카카오뱅크 3333-37-2664149 (예금주: 홍순일)",
+    "bank": "입금계좌: 카카오뱅크 3333-37-2664149 (예금주: 홍순일(에스앤제이동물병원))",
     "notice": "※ 본 사이트는 전국 수의사 원장님들께만 발송되는 비밀 유지 문서입니다."
   },
   "sampleModal": {
