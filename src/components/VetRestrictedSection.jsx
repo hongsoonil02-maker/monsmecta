@@ -1,5 +1,3 @@
-import React from 'react';
-
 const VetRestrictedSection = ({ onOpenSampleModal }) => {
   return (
     <section aria-labelledby="restricted-heading" className="my-12">
@@ -48,7 +46,7 @@ const VetRestrictedSection = ({ onOpenSampleModal }) => {
 
               <div className="pt-4">
                 <a
-                  href="#order-section"
+                  href="#order"
                   className="w-full py-2.5 px-3 bg-[#003828] hover:bg-emerald-800 text-emerald-100 hover:text-white text-xs font-semibold rounded-xl border border-emerald-700/60 transition flex items-center justify-center gap-1.5"
                 >
                   <span>🔒 사업자 인증 후 발주하기</span>

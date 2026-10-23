@@ -1,4 +1,3 @@
-import React from 'react';
 
 export default function MonsmectaLineupSection() {
   const lineups = [
@@ -68,7 +67,9 @@ export default function MonsmectaLineupSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-[#003828] via-[#002d20] to-[#001f16] border border-emerald-700/60 rounded-3xl p-6 sm:p-10 space-y-8 shadow-2xl relative overflow-hidden text-slate-100">
+    <section className="py-8 sm:py-12 bg-slate-50 border-t border-slate-200/80">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-[#003828] via-[#002d20] to-[#001f16] border border-emerald-700/60 rounded-3xl p-6 sm:p-10 space-y-8 shadow-2xl relative overflow-hidden text-slate-100">
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-emerald-800/80 pb-6 relative">
@@ -146,6 +147,8 @@ export default function MonsmectaLineupSection() {
             </div>
           </div>
         ))}
+      </div>
+          </div>
       </div>
     </section>
   );

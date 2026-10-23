@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const GeneralNoticeModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
+  const [isOpen, setIsOpen] = useState(() => {
     try {
       const today = new Date().toISOString().slice(0, 10);
       const saved = localStorage.getItem('hide_monsmecta_general_notice');
-      if (saved !== today) {
-        setIsOpen(true);
-      }
+      return saved !== today;
     } catch {
-      setIsOpen(true);
+      return true;
     }
-  }, []);
+  });
 
   const handleClose = () => {
     setIsOpen(false);
