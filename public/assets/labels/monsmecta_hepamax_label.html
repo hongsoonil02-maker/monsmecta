@@ -109,11 +109,11 @@
             z-index: 1;
         }
 
-        /* 슬림 탑 골드 바 */
+        /* 슬림 탑 엑센트 바 */
         .top-accent-bar {
             height: 0.35mm;
             background: linear-gradient(90deg, #b8860b, #ffd700, #b8860b);
-            box-shadow: 0 0 1.0mm rgba(255, 215, 0, 0.8);
+            box-shadow: 0 0 1.2mm rgba(255, 215, 0, 0.8);
             z-index: 2;
             flex-shrink: 0;
         }
@@ -158,7 +158,7 @@
             width: 0.8mm;
             height: 0.8mm;
             background: #000;
-            border: 0.15mm solid #D4AF37;
+            border: 0.15mm solid #ffd700;
             transform: rotate(45deg);
         }
 
@@ -230,7 +230,7 @@
             font-size: 1.65mm;
             font-weight: 900;
             color: #ffd700;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.05em;
             line-height: 1;
         }
 
@@ -275,7 +275,7 @@
             white-space: nowrap;
         }
         .eff-item {
-            font-size: 1.28mm;
+            font-size: 1.26mm;
             font-weight: 800;
             color: #ffffff;
             display: inline-flex;
@@ -306,15 +306,15 @@
             background: rgba(0, 0, 0, 0.55);
             border: 0.15mm solid rgba(255, 215, 0, 0.35);
             border-radius: 0.5mm;
-            padding: 0.18mm 0.55mm;
+            padding: 0.25mm 0.55mm;
         }
         .ing-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
             border-bottom: 0.1mm solid rgba(255, 215, 0, 0.4);
-            padding-bottom: 0.05mm;
-            margin-bottom: 0.05mm;
+            padding-bottom: 0.06mm;
+            margin-bottom: 0.06mm;
         }
         .ing-header .title {
             font-size: 1.28mm;
@@ -331,9 +331,9 @@
             justify-content: space-between;
             align-items: center;
             font-size: 1.14mm;
-            line-height: 1.14;
+            line-height: 1.18;
             border-bottom: 0.05mm solid rgba(255, 255, 255, 0.08);
-            padding: 0.02mm 0;
+            padding: 0.04mm 0;
         }
         .ing-row:last-child {
             border-bottom: none;
@@ -521,7 +521,7 @@
             white-space: nowrap;
         }
 
-        /* 4. 주의사항 박스: 상하폭 넓힘 + 1), 2), 3) 간격 균일화 + 박스선-내용 여백 확보 */
+        /* 4. 주의사항 박스: 상하폭 넓힘 + 1), 2), 3) 간격 균일화 + 테두리 여백 확보 */
         .warn-box {
             background: rgba(220, 38, 38, 0.15);
             border: 0.15mm solid rgba(239, 68, 68, 0.65);
@@ -700,7 +700,7 @@
 
 <div class="no-print" style="position:fixed; top:12px; left:50%; transform:translateX(-50%); z-index:99999; background:rgba(15,23,42,0.95); border:1px solid #ffd700; padding:10px 24px; border-radius:12px; display:flex; align-items:center; gap:16px; box-shadow:0 10px 30px rgba(0,0,0,0.8); font-family:sans-serif;">
     <div style="color:#fff; font-size:13px; font-weight:700;">
-        <span style="color:#ffd700;">★ 85mm × 40mm 최적화</span> | 소제목 좌측 정렬 · 원료명칭 2줄 줄맞춤 · 주의사항 박스 확장 · 재활용 상단 이동
+        <span style="color:#ffd700;">★ 몬스멕타 헤파맥스 (85mm × 40mm)</span> | 소제목 좌측 정렬 · 원료명칭 2줄 줄맞춤 · 주의사항 박스 확장 · 재활용 상단 이동
     </div>
     <button onclick="window.print()" style="background:linear-gradient(135deg, #ffd700, #b8860b); color:#000; font-weight:800; font-size:13px; padding:6px 16px; border:none; border-radius:8px; cursor:pointer;">
         라벨 즉시 인쇄 (Ctrl+P)
@@ -734,19 +734,16 @@
                     <div class="effects-badge-top">핵심 효능</div>
                     <div class="effects-card">
                         <div class="effects-row">
-                            <span class="eff-item"><span class="eff-dot"></span>간 건강 개선</span>
-                            <span class="eff-item"><span class="eff-dot"></span>장 건강 개선</span>
-                            <span class="eff-item"><span class="eff-dot"></span>지방간 개선</span>
+                            <span class="eff-item"><span class="eff-dot"></span>간 건강 개선</span><span class="eff-item"><span class="eff-dot"></span>장 건강 개선</span><span class="eff-item"><span class="eff-dot"></span>지방간 개선</span>
                         </div>
                         <div class="effects-row">
-                            <span class="eff-item"><span class="eff-dot"></span>항병력 증진</span>
-                            <span class="eff-item"><span class="eff-dot"></span>질병 회복 촉진</span>
+                            <span class="eff-item"><span class="eff-dot"></span>항병력 증진</span><span class="eff-item"><span class="eff-dot"></span>질병 회복 촉진</span>
                             <span class="eff-note">(*등의 개선에 도움)</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Ingredients Table (주요 성분량 1L 기준) -->
+                <!-- Ingredients Table (주요 성분량) -->
                 <div class="tech-box-ing">
                     <div class="ing-header">
                         <span class="title">주요 성분량</span>
@@ -757,32 +754,26 @@
                         <span class="ing-name">Montmorillonite (몬모릴로나이트)</span>
                         <span class="ing-val">고함량</span>
                     </div>
-                    
                     <div class="ing-row">
                         <span class="ing-name">Taurine (타우린)</span>
                         <span class="ing-val">2,000mg</span>
                     </div>
-                    
                     <div class="ing-row">
                         <span class="ing-name">D-Sorbitol (D-소르비톨)</span>
                         <span class="ing-val">45g</span>
                     </div>
-                    
                     <div class="ing-row">
                         <span class="ing-name">L-lysine HCl</span>
                         <span class="ing-val">300mg</span>
                     </div>
-                    
                     <div class="ing-row">
                         <span class="ing-name">L-methionine</span>
                         <span class="ing-val">300mg</span>
                     </div>
-                    
                     <div class="ing-row">
                         <span class="ing-name">Vitamin B1</span>
                         <span class="ing-val">1,000μg</span>
                     </div>
-                    
                     <div class="ing-row">
                         <span class="ing-name">기타 식물추출물 및 부형제</span>
                         <span class="ing-val">적량</span>
@@ -802,7 +793,7 @@
                 <div class="divider-diamond"></div>
             </div>
 
-            <!-- RIGHT COLUMN (오른쪽-뒷면: 요청 1, 2, 3, 4 완벽 적용) -->
+            <!-- RIGHT COLUMN (오른쪽-뒷면: 법정 고시사항) -->
             <div class="col-right">
                 <div class="legal-panel">
                     <!-- 헤더: 성분등록번호 & 사료의 종류와 명칭 / 형태 / 용도 -->
