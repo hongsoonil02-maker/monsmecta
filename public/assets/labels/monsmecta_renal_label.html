@@ -53,7 +53,7 @@
                 align-items: center;
             }
             .label-sheet {
-                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(129, 140, 248, 0.35);
+                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px #818cf855;
                 transform: scale(2.5);
                 transform-origin: top center;
                 margin-bottom: 75mm;
@@ -112,8 +112,8 @@
         /* 슬림 탑 엑센트 바 */
         .top-accent-bar {
             height: 0.35mm;
-            background: linear-gradient(90deg, #6366f1, #a855f7, #ffd700, #6366f1);
-            box-shadow: 0 0 1.2mm rgba(129, 140, 248, 0.9);
+            background: linear-gradient(90deg, #6366f1, #818cf8, #a5b4fc, #6366f1);
+            box-shadow: 0 0 1.2mm #818cf8E6;
             z-index: 2;
             flex-shrink: 0;
         }
@@ -125,22 +125,22 @@
             display: flex;
             height: calc(40mm - 0.35mm);
             width: 85mm;
-            padding: 0.25mm 0.55mm 0.25mm 0.55mm;
+            padding: 0.20mm 0.30mm 0.20mm 0.30mm;
             justify-content: space-between;
         }
 
-        /* 좌측: 전면 메인 노출부 (너비 39.0mm) */
+        /* 좌측: 전면 메인 노출부 (너비 39.5mm) */
         .col-left {
-            width: 39.0mm;
+            width: 39.5mm;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        /* 중앙 디바이더 */
+        /* 중앙 디바이더 (너비 1.8mm: 좌우 분리 간격 확실히 확보) */
         .divider-col {
-            width: 0.4mm;
+            width: 1.8mm;
             height: 100%;
             position: relative;
             display: flex;
@@ -150,7 +150,7 @@
         .divider-line {
             width: 0.15mm;
             height: 98%;
-            background: linear-gradient(180deg, transparent, #818cf8, #ffd700, transparent);
+            background: linear-gradient(180deg, transparent, #818cf8, transparent);
             opacity: 0.7;
         }
         .divider-diamond {
@@ -158,13 +158,13 @@
             width: 0.8mm;
             height: 0.8mm;
             background: #000;
-            border: 0.15mm solid #ffd700;
+            border: 0.15mm solid #818cf8;
             transform: rotate(45deg);
         }
 
-        /* 우측: 법정 고시사항 노출부 (너비 44.5mm) */
+        /* 우측: 법정 고시사항 노출부 (너비 43.1mm) */
         .col-right {
-            width: 44.5mm;
+            width: 43.1mm;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -177,7 +177,7 @@
             justify-content: center;
             gap: 0.6mm;
             background: rgba(0, 0, 0, 0.65);
-            border: 0.15mm solid #ffd700;
+            border: 0.15mm solid #818cf8;
             border-radius: 999px;
             padding: 0.12mm 1.0mm;
             line-height: 1;
@@ -199,7 +199,7 @@
             align-items: center;
         }
         .brand-badge .accent {
-            color: #ffd700;
+            color: #818cf8;
             font-weight: 900;
         }
 
@@ -218,7 +218,7 @@
             text-shadow: 0 0 0.6mm rgba(0,0,0,0.8);
         }
         .main-title {
-            font-size: 3.85mm;
+            font-size: 3.95mm;
             font-weight: 900;
             color: #ffffff;
             line-height: 1.0;
@@ -227,9 +227,9 @@
             margin-bottom: 0.04mm;
         }
         .en-title {
-            font-size: 1.52mm;
+            font-size: 1.62mm;
             font-weight: 900;
-            color: #ffd700;
+            color: #818cf8;
             letter-spacing: 0.05em;
             line-height: 1;
         }
@@ -245,7 +245,7 @@
             top: 0;
             left: 1.2mm;
             z-index: 3;
-            background: #ffd700;
+            background: #818cf8;
             color: #000;
             border: 0.12mm solid #000;
             border-radius: 0.25mm;
@@ -260,41 +260,41 @@
         }
         .effects-card {
             background: rgba(0, 0, 0, 0.65);
-            border: 0.15mm solid #ffd700;
+            border: 0.15mm solid #818cf8;
             border-radius: 0.5mm;
-            padding: 1.10mm 0.55mm 0.35mm 0.55mm;
+            padding: 0.85mm 0.50mm 0.25mm 0.50mm;
             display: flex;
             flex-direction: column;
-            gap: 0.26mm;
+            gap: 0.20mm;
         }
         .effects-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            line-height: 1.15;
+            line-height: 1.10;
             white-space: nowrap;
         }
         .eff-item {
-            font-size: 1.26mm;
+            font-size: 1.32mm;
             font-weight: 800;
             color: #ffffff;
             display: inline-flex;
             align-items: center;
-            gap: 0.25mm;
-            line-height: 1;
+            gap: 0.22mm;
+            line-height: 1.05;
             white-space: nowrap;
         }
         .eff-dot {
-            width: 0.55mm;
-            height: 0.55mm;
+            width: 0.60mm;
+            height: 0.60mm;
             border-radius: 50%;
-            background: #ffd700;
-            box-shadow: 0 0 0.3mm #ffd700;
+            background: #818cf8;
+            box-shadow: 0 0 0.3mm #818cf8;
             flex-shrink: 0;
         }
         .eff-note {
-            font-size: 0.96mm;
-            color: #fcd34d;
+            font-size: 1.05mm;
+            color: #a5b4fc;
             font-weight: 700;
             line-height: 1;
             white-space: nowrap;
@@ -304,34 +304,34 @@
         /* 성분 테이블 */
         .tech-box-ing {
             background: rgba(0, 0, 0, 0.55);
-            border: 0.15mm solid rgba(255, 215, 0, 0.35);
+            border: 0.15mm solid #818cf855;
             border-radius: 0.5mm;
-            padding: 0.25mm 0.55mm;
+            padding: 0.18mm 0.50mm;
         }
         .ing-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            border-bottom: 0.1mm solid rgba(255, 215, 0, 0.4);
-            padding-bottom: 0.06mm;
-            margin-bottom: 0.06mm;
+            border-bottom: 0.1mm solid #818cf866;
+            padding-bottom: 0.04mm;
+            margin-bottom: 0.04mm;
         }
         .ing-header .title {
-            font-size: 1.28mm;
+            font-size: 1.30mm;
             font-weight: 800;
             color: #fff;
         }
         .ing-header .ref {
-            font-size: 1.08mm;
-            color: #ffd700;
+            font-size: 1.15mm;
+            color: #818cf8;
             font-weight: 800;
         }
         .ing-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 1.14mm;
-            line-height: 1.18;
+            font-size: 1.32mm;
+            line-height: 1.15;
             border-bottom: 0.05mm solid rgba(255, 255, 255, 0.08);
             padding: 0.04mm 0;
         }
@@ -346,17 +346,17 @@
             font-weight: 900;
             color: #ffffff;
             font-family: 'Orbitron', 'Noto Sans KR', sans-serif;
-            font-size: 1.14mm;
+            font-size: 1.32mm;
         }
 
         /* 포장단위 배지 */
         .pack-tag {
             align-self: center;
             background: rgba(0, 0, 0, 0.65);
-            border: 0.18mm solid #ffd700;
+            border: 0.18mm solid #818cf8;
             border-radius: 999px;
             padding: 0.14mm 1.4mm;
-            font-size: 1.28mm;
+            font-size: 1.32mm;
             font-weight: 800;
             display: flex;
             gap: 0.5mm;
@@ -367,7 +367,7 @@
             color: #ffffff;
         }
         .pack-tag .val {
-            color: #ffd700;
+            color: #818cf8;
             font-weight: 900;
         }
 
@@ -379,7 +379,7 @@
             border: 0.15mm solid rgba(255, 255, 255, 0.22);
             border-radius: 0.5mm;
             height: 100%;
-            padding: 0.20mm 0.55mm 0.15mm 0.55mm;
+            padding: 0.15mm 0.50mm 0.12mm 0.50mm;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -387,62 +387,63 @@
 
         /* 헤더: 성분등록번호 & 종류/명칭 */
         .legal-header {
-            border-bottom: 0.1mm solid rgba(255, 215, 0, 0.4);
-            padding-bottom: 0.05mm;
+            border-bottom: 0.1mm solid #818cf866;
+            padding-bottom: 0.10mm;
             display: flex;
             flex-direction: column;
-            gap: 0.04mm;
+            gap: 0.16mm;
         }
         .reg-num-line {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+            line-height: 1.15;
         }
         .reg-num-label {
-            font-size: 1.05mm;
-            color: #ffd700;
+            font-size: 1.14mm;
+            color: #818cf8;
             font-weight: 800;
             line-height: 1;
         }
         .reg-num-val {
-            font-size: 1.25mm;
+            font-size: 1.28mm;
             font-weight: 900;
             color: #ffffff;
             line-height: 1;
         }
         .feed-type-line {
-            font-size: 0.92mm;
+            font-size: 0.98mm;
             font-weight: 700;
             color: #e2e8f0;
             line-height: 1.15;
             white-space: nowrap;
         }
         .feed-type-line .lbl {
-            color: #ffd700;
+            color: #818cf8;
             font-weight: 800;
         }
 
-        /* 1. 고시 본문 영역: 모든 노란색 소제목 좌측선(left: 0) 완벽 일치 */
+        /* 1. 고시 본문 영역: 모든 소제목 좌측선 완벽 일치 */
         .sec-content {
             display: flex;
             flex-direction: column;
-            gap: 0.14mm;
-            margin: 0.04mm 0;
+            gap: 0.08mm;
+            margin: 0.02mm 0;
             text-align: left;
         }
         
         .info-row {
             display: flex;
             align-items: baseline;
-            font-size: 1.00mm;
-            line-height: 1.18;
+            font-size: 1.15mm;
+            line-height: 1.22;
             color: #f8fafc;
             text-align: left;
         }
         .sec-lbl {
             font-weight: 800;
-            color: #ffd700;
-            margin-right: 0.3mm;
+            color: #818cf8;
+            margin-right: 0.25mm;
             white-space: nowrap;
             flex-shrink: 0;
             text-align: left;
@@ -453,103 +454,103 @@
             flex: 1;
         }
 
-        /* 2. 사용한 원료의 명칭: 2줄 넉넉하게 + 둘째줄 '바'자 밑 좌측 줄맞춤 */
+        /* 2. 사용한 원료의 명칭: 2줄 넉넉하게 */
         .materials-val-box {
             display: flex;
             flex-direction: column;
-            gap: 0.04mm;
+            gap: 0.02mm;
             flex: 1;
             color: #f8fafc;
             font-weight: 600;
-            line-height: 1.16;
+            line-height: 1.20;
         }
 
         /* 효과 3가지 리스트 */
         .effects-sub-list {
             list-style: none;
-            padding-left: 0.6mm;
+            padding-left: 0.4mm;
             display: flex;
             flex-direction: column;
-            gap: 0.03mm;
-            margin: 0.02mm 0;
+            gap: 0.04mm;
+            margin: 0.01mm 0;
         }
         .effects-sub-list li {
-            font-size: 0.98mm;
+            font-size: 1.12mm;
             font-weight: 600;
             color: #f1f5f9;
-            line-height: 1.15;
+            line-height: 1.22;
             display: flex;
             align-items: baseline;
         }
         .effects-sub-list .roman {
-            color: #ffd700;
-            font-weight: 800;
-            margin-right: 0.25mm;
+            color: #818cf8;
+            font-weight: 900;
+            margin-right: 0.20mm;
             flex-shrink: 0;
         }
 
         /* 용법 및 용량 */
         .dose-box {
-            background: rgba(212, 175, 55, 0.18);
-            border: 0.12mm solid #ffd700;
+            background: #818cf822;
+            border: 0.12mm solid #818cf8;
             border-radius: 0.35mm;
-            padding: 0.16mm 0.45mm;
+            padding: 0.12mm 0.45mm;
             display: flex;
             align-items: baseline;
             justify-content: space-between;
-            line-height: 1.15;
+            line-height: 1.12;
             box-sizing: border-box;
             flex-wrap: wrap;
-            gap: 0.2mm;
+            gap: 0.15mm;
         }
         .dose-title {
-            font-size: 1.08mm;
+            font-size: 1.16mm;
             font-weight: 900;
-            color: #ffd700;
+            color: #818cf8;
             white-space: nowrap;
         }
         .dose-desc {
-            font-size: 1.16mm;
+            font-size: 1.25mm;
             font-weight: 900;
             color: #ffffff;
             white-space: nowrap;
         }
         .dose-sub {
-            font-size: 0.94mm;
+            font-size: 1.02mm;
             color: #f1f5f9;
             font-weight: 700;
             white-space: nowrap;
         }
 
-        /* 4. 주의사항 박스: 상하폭 넓힘 + 1), 2), 3) 간격 균일화 + 테두리 여백 확보 */
+        /* 4. 주의사항 박스 */
         .warn-box {
             background: rgba(220, 38, 38, 0.15);
             border: 0.15mm solid rgba(239, 68, 68, 0.65);
             border-radius: 0.45mm;
-            padding: 0.35mm 0.6mm 0.35mm 0.6mm;
+            padding: 0.20mm 0.50mm 0.20mm 0.50mm;
             box-sizing: border-box;
-            margin: 0.1mm 0;
+            margin: 0.04mm 0;
         }
         .warn-title {
-            font-size: 1.06mm;
+            font-size: 1.16mm;
             font-weight: 800;
             color: #f87171;
             display: flex;
             align-items: center;
-            gap: 0.25mm;
+            gap: 0.20mm;
             line-height: 1;
-            margin-bottom: 0.15mm;
+            margin-bottom: 0.08mm;
         }
         .warn-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.12mm;
+            gap: 0.06mm;
         }
         .warn-item {
-            font-size: 0.96mm;
+            font-size: 1.10mm;
             color: #f8fafc;
-            line-height: 1.20;
+            line-height: 1.18;
             font-weight: 600;
             display: flex;
             align-items: baseline;
@@ -561,31 +562,32 @@
             flex-shrink: 0;
         }
         .warn-item .hl-shake {
-            color: #ffd700;
+            color: #818cf8;
             text-decoration: underline;
             text-decoration-thickness: 0.12mm;
             text-underline-offset: 0.12mm;
             font-weight: 800;
         }
 
-        /* 3. 제조 및 유통기한 바 & 재활용 표식 상단 배치 (위로 2줄 이상 올림) */
+        /* 3. 제조 및 유통기한 바 & 재활용 표식 상단 배치 */
         .mfg-exp-bar-with-recycle {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-top: 0.1mm solid rgba(255, 255, 255, 0.2);
             border-bottom: 0.1mm solid rgba(255, 255, 255, 0.2);
-            padding: 0.12mm 0.25mm;
+            padding: 0.08mm 0.20mm;
             line-height: 1;
             box-sizing: border-box;
         }
         .mfg-exp-info {
             display: flex;
             align-items: center;
-            gap: 1.2mm;
-            font-size: 1.00mm;
+            gap: 0.7mm;
+            font-size: 0.98mm;
             font-weight: 700;
             color: #e2e8f0;
+            white-space: nowrap;
         }
         .mfg-exp-info .lbl {
             color: #cbd5e1;
@@ -596,7 +598,7 @@
             font-weight: 800;
         }
 
-        /* 3. 단정하고 깔끔한 재활용 표식 (선 삐져나옴 0% 완벽 차단) */
+        /* 3. 단정하고 깔끔한 재활용 표식 */
         .recycle-badge-raised {
             display: flex;
             align-items: center;
@@ -631,38 +633,39 @@
             letter-spacing: -0.05em;
         }
         .recycle-sub {
-            font-size: 0.82mm;
+            font-size: 0.90mm;
             font-weight: 900;
             color: #ffffff;
             line-height: 1;
             letter-spacing: 0.02em;
         }
 
-        /* 제조원 및 판매원 풋터 (노란 소제목 좌측 정렬) */
+        /* 제조원 및 판매원 풋터 */
         .legal-footer {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             padding-top: 0.08mm;
-            gap: 0.4mm;
+            gap: 0.50mm;
         }
         .company-block {
             display: flex;
             align-items: flex-start;
-            gap: 0.3mm;
+            gap: 0.25mm;
+            flex: 1;
         }
         .company-logo-circle {
             width: 3.2mm;
             height: 3.2mm;
             border-radius: 50%;
             background: #fff;
-            border: 0.15mm solid #ffd700;
+            border: 0.15mm solid #818cf8;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             flex-shrink: 0;
-            box-shadow: 0 0 0.6mm rgba(255, 215, 0, 0.6);
+            box-shadow: 0 0 0.6mm #818cf899;
             margin-top: 0.05mm;
         }
         .company-logo-circle img {
@@ -672,16 +675,16 @@
             padding: 0.06mm;
         }
         .company-info {
-            font-size: 0.86mm;
+            font-size: 0.92mm;
             color: #f1f5f9;
-            line-height: 1.16;
+            line-height: 1.18;
             font-weight: 600;
             text-align: left;
         }
         .company-info .co-title {
             font-weight: 800;
-            color: #ffd700;
-            font-size: 0.94mm;
+            color: #818cf8;
+            font-size: 1.00mm;
         }
         .company-info .co-title .co-name {
             color: #ffffff;
@@ -691,18 +694,18 @@
             color: #cbd5e1;
         }
         .company-info .tel-accent {
-            color: #ffd700;
+            color: #818cf8;
             font-weight: 800;
         }
     </style>
 </head>
 <body>
 
-<div class="no-print" style="position:fixed; top:12px; left:50%; transform:translateX(-50%); z-index:99999; background:rgba(15,23,42,0.95); border:1px solid #ffd700; padding:10px 24px; border-radius:12px; display:flex; align-items:center; gap:16px; box-shadow:0 10px 30px rgba(0,0,0,0.8); font-family:sans-serif;">
+<div class="no-print" style="position:fixed; top:12px; left:50%; transform:translateX(-50%); z-index:99999; background:rgba(15,23,42,0.95); border:1px solid #818cf8; padding:10px 24px; border-radius:12px; display:flex; align-items:center; gap:16px; box-shadow:0 10px 30px rgba(0,0,0,0.8); font-family:sans-serif;">
     <div style="color:#fff; font-size:13px; font-weight:700;">
-        <span style="color:#ffd700;">★ 몬스멕타 레날 디톡스 (85mm × 40mm)</span> | 소제목 좌측 정렬 · 원료명칭 2줄 줄맞춤 · 주의사항 박스 확장 · 재활용 상단 이동
+        <span style="color:#818cf8;">★ 몬스멕타 레날 디톡스 (85mm × 40mm)</span> | 30ml 프리미엄 라벨 규격
     </div>
-    <button onclick="window.print()" style="background:linear-gradient(135deg, #ffd700, #b8860b); color:#000; font-weight:800; font-size:13px; padding:6px 16px; border:none; border-radius:8px; cursor:pointer;">
+    <button onclick="window.print()" style="background:linear-gradient(135deg, #818cf8, #6366f1); color:#fff; font-weight:800; font-size:13px; padding:6px 16px; border:none; border-radius:8px; cursor:pointer;">
         라벨 즉시 인쇄 (Ctrl+P)
     </button>
 </div>
@@ -734,10 +737,12 @@
                     <div class="effects-badge-top">핵심 효능</div>
                     <div class="effects-card">
                         <div class="effects-row">
-                            <span class="eff-item"><span class="eff-dot"></span>요소(Urea) 및 요독 배출 촉진</span><span class="eff-item"><span class="eff-dot"></span>인독실설페이트 흡착 제거</span>
+                            <span class="eff-item"><span class="eff-dot"></span>요소(Urea) 및 요독 배출 촉진</span>
+                            <span class="eff-item"><span class="eff-dot"></span>인독실설페이트 흡착 제거</span>
                         </div>
                         <div class="effects-row">
-                            <span class="eff-item"><span class="eff-dot"></span>신장 수치 안정화 보조</span><span class="eff-item"><span class="eff-dot"></span>활력 증진 및 에너지 대사</span>
+                            <span class="eff-item"><span class="eff-dot"></span>신장 수치 안정화 보조</span>
+                            <span class="eff-item"><span class="eff-dot"></span>활력 증진 및 에너지 대사</span>
                             <span class="eff-note">(*등의 개선에 도움)</span>
                         </div>
                     </div>
@@ -756,7 +761,7 @@
                     </div>
                     <div class="ing-row">
                         <span class="ing-name">Bifidobacterium longum</span>
-                        <span class="ing-val">1.0 x 10<sup style="font-size:0.75em; vertical-align:0.38em; font-family:'Noto Sans KR', sans-serif;">11</sup> cfu</span>
+                        <span class="ing-val">1.0 x 10¹¹ cfu</span>
                     </div>
                     <div class="ing-row">
                         <span class="ing-name">비타민 A (Vitamin A)</span>
@@ -769,6 +774,10 @@
                     <div class="ing-row">
                         <span class="ing-name">비타민 E (Vitamin E)</span>
                         <span class="ing-val">200 IU</span>
+                    </div>
+                    <div class="ing-row">
+                        <span class="ing-name">기타 식물추출물 및 부형제</span>
+                        <span class="ing-val">적량</span>
                     </div>
                 </div>
 
@@ -799,30 +808,30 @@
                         </div>
                     </div>
 
-                    <!-- 1 & 2. 고시 본문: 모든 노란 소제목 좌측선 일치 + 사용한 원료 명칭 2줄 '바'자 밑 정렬 -->
+                    <!-- 1 & 2. 고시 본문: 모든 소제목 좌측선 일치 + 사용한 원료 명칭 2줄 정렬 -->
                     <div class="sec-content">
                         <!-- 등록성분량 -->
                         <div class="info-row">
                             <span class="sec-lbl">등록성분량 :</span>
-                            <span class="sec-val">바실러스 서브틸리스 1.0 x 10<sup style="font-size:0.75em; vertical-align:0.38em; font-family:'Noto Sans KR', sans-serif;">6</sup> cfu/g 이상, 부형제( 정제수 )</span>
+                            <span class="sec-val">바실러스 서브틸리스 1.0 x 10⁶ cfu/g 이상, 부형제( 정제수 )</span>
                         </div>
 
-                        <!-- 2. 사용한 원료의 명칭 (2줄 넉넉하게 + 둘째줄 '바'자 밑 정렬) -->
+                        <!-- 2. 사용한 원료의 명칭 -->
                         <div class="info-row">
                             <span class="sec-lbl">사용한 원료의 명칭 :</span>
                             <div class="materials-val-box">
                                 <div>바실러스 서브틸리스, 비타민A, 아세트산 나트륨,</div>
-                                <div>프로피온산 나트륨, 포도당, 정제수</div>
+                                <div>프로피온산 나트륨, 포도당, 몬모릴로나이트, 정제수</div>
                             </div>
                         </div>
 
-                        <!-- 1. 대상 (좌측선 칼맞춤) -->
+                        <!-- 대상 -->
                         <div class="info-row">
                             <span class="sec-lbl">대상 :</span>
                             <span class="sec-val">반려견, 반려묘</span>
                         </div>
 
-                        <!-- 1. 효과 (좌측선 칼맞춤) -->
+                        <!-- 효과 -->
                         <div class="info-row">
                             <span class="sec-lbl">효과 :</span>
                         </div>
@@ -842,7 +851,7 @@
                         <span class="dose-sub">( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능</span>
                     </div>
 
-                    <!-- 4. 주의사항 박스: 상하폭 넓힘 + 1), 2), 3) 간격 균등화 + 테두리 여백 확보 -->
+                    <!-- 4. 주의사항 박스 -->
                     <div class="warn-box">
                         <div class="warn-title">
                             <svg width="2.0mm" height="2.0mm" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
@@ -864,19 +873,19 @@
                         </ul>
                     </div>
 
-                    <!-- 3. 제조 및 유통기한 바 & 재활용 표식 (위로 2줄 이상 올림!) -->
+                    <!-- 3. 제조 및 유통기한 바 & 재활용 표식 -->
                     <div class="mfg-exp-bar-with-recycle">
                         <div class="mfg-exp-info">
-                            <div><span class="lbl">포장 단위 :</span><span class="val">30ml</span></div>
-                            <div><span class="lbl">제조일자 :</span><span class="val">2026년 9월 15일</span></div>
-                            <div><span class="lbl">유통기한 :</span><span class="val">제조일로부터 18 개월</span></div>
+                            <div style="white-space:nowrap;"><span class="lbl">포장 단위 :</span><span class="val">30ml</span></div>
+                            <div style="white-space:nowrap;"><span class="lbl">제조일자 :</span><span class="val">2026.09.15</span></div>
+                            <div style="white-space:nowrap;"><span class="lbl">유통기한 :</span><span class="val">제조일로부터 18개월</span></div>
                         </div>
 
-                        <!-- 3. 재활용 표식: 위로 2줄 이상 올림 -->
+                        <!-- 3. 재활용 표식 -->
                         <div class="recycle-badge-raised">
                             <div class="recycle-icon-wrap">
                                 <svg class="recycle-icon" viewBox="0 0 100 100">
-                                    <path d="M50 14 L88 80 L12 80 Z" fill="none" stroke="#ffd700" stroke-width="7" stroke-linejoin="round"/>
+                                    <path d="M50 14 L88 80 L12 80 Z" fill="none" stroke="#818cf8" stroke-width="7" stroke-linejoin="round"/>
                                 </svg>
                                 <span class="recycle-text">플라스틱</span>
                             </div>
@@ -884,7 +893,7 @@
                         </div>
                     </div>
 
-                    <!-- 판매원 / 제조원 풋터 (노란색 소제목 좌측선 맞춤 정렬) -->
+                    <!-- 판매원 / 제조원 풋터 -->
                     <div class="legal-footer">
                         <!-- 판매원: 에스앤제이 동물병원 -->
                         <div class="company-block">
