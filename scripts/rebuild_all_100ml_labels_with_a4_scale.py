@@ -465,7 +465,7 @@ def render_100ml_label_html(p):
             border-radius: 1.0mm;
             padding: 1.1mm 1.6mm 1.0mm 1.6mm;
             position: relative;
-            margin-bottom: 5.2mm; /* 주요 성분 데이터 박스를 아래로 충분히 내리기 위한 여유 공간 */
+            margin-bottom: 9.2mm; /* 주요 성분 데이터 박스를 아래로 3줄 이상 충분히 내리기 위한 여유 공간 */
         }}
         .box-tag-label {{
             position: absolute;
@@ -510,14 +510,14 @@ def render_100ml_label_html(p):
             margin-left: auto;
         }}
 
-        /* 주요 성분 데이터 표: 사용자의 요청대로 행간을 절반으로 줄여 컴팩트하게 배치하고 아래로 충분히 내림 */
+        /* 주요 성분 데이터 표: 행간을 절반으로 줄이고 아래로 3줄 이상 푹 내려서 배치 */
         .ingredients-table-box {{
             background: rgba(0, 0, 0, 0.65);
             border: 0.25mm solid rgba(255, 255, 255, 0.25);
             border-radius: 1.0mm;
             padding: 1.0mm 1.5mm;
             position: relative;
-            margin-bottom: 1.5mm;
+            margin-bottom: 1.2mm;
             display: flex;
             flex-direction: column;
         }}
@@ -826,30 +826,30 @@ def render_100ml_label_html(p):
             line-height: 1;
         }}
 
-        /* 하단 푸터: 사용자 요청에 따라 글씨 크기를 대폭 늘리고 선명하게 배치 */
+        /* 하단 푸터: 사용자 요청에 따라 로고 및 글씨 크기를 50% 수준으로 축소하여 정갈하게 배치 */
         .original-footer {{
-            margin-top: 0.7mm;
+            margin-top: 0.6mm;
             border-top: 0.25mm solid #cbd5e1;
-            padding-top: 0.7mm;
+            padding-top: 0.5mm;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-between;
             gap: 1.0mm;
         }}
         .footer-seller {{
             display: flex;
-            align-items: flex-start;
-            gap: 1.0mm;
+            align-items: center;
+            gap: 0.8mm;
             flex: 1.08;
         }}
         .footer-maker {{
             flex: 1.0;
             border-left: 0.25mm solid #cbd5e1;
-            padding-left: 1.2mm;
+            padding-left: 1.0mm;
         }}
         .co-logo-circle {{
-            width: 7.2mm;
-            height: 7.2mm;
+            width: 3.8mm; /* 기존 7.2mm의 약 50% 축소 */
+            height: 3.8mm;
             border-radius: 50%;
             overflow: hidden;
             display: flex;
@@ -857,8 +857,7 @@ def render_100ml_label_html(p):
             justify-content: center;
             flex-shrink: 0;
             background: #ffffff;
-            border: 0.25mm solid #cbd5e1;
-            margin-top: 0.3mm;
+            border: 0.20mm solid #cbd5e1;
         }}
         .co-logo-img {{
             width: 100%;
@@ -868,29 +867,28 @@ def render_100ml_label_html(p):
         .co-text-col {{
             display: flex;
             flex-direction: column;
-            gap: 0.3mm;
-            line-height: 1.25;
+            gap: 0.15mm;
+            line-height: 1.2;
             min-width: 0;
         }}
         .co-line-main {{
-            font-size: 1.70mm; /* 대폭 확대 */
+            font-size: 1.05mm; /* 기존 1.70mm 대비 약 50% 축소 */
             font-weight: 900;
             white-space: nowrap;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
         }}
         .co-line-sub {{
-            font-size: 1.48mm; /* 대폭 확대 */
+            font-size: 0.90mm; /* 기존 1.48mm 대비 약 50% 축소 */
             font-weight: 700;
-            line-height: 1.3;
-            letter-spacing: -0.02em;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
             word-break: keep-all;
         }}
         .co-tel-line {{
-            font-size: 1.45mm;
+            font-size: 0.90mm; /* 기존 1.45mm 대비 약 50% 축소 */
             font-weight: 800;
             white-space: nowrap;
-            letter-spacing: -0.01em;
-            margin-top: 0.1mm;
+            letter-spacing: 0;
         }}
 
         /* ========================================================================= */
