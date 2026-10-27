@@ -26,9 +26,9 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
 
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-1 sm:gap-4">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-1 sm:gap-4 overflow-hidden">
         {/* Brand Logo & Name */}
-        <a href="#" className="flex items-center gap-1.5 sm:gap-2.5 shrink-0 min-w-0 max-w-[45%] sm:max-w-none">
+        <a href="#" className="flex items-center gap-1 sm:gap-2.5 shrink min-w-0 max-w-[36%] sm:max-w-none">
           <img src={`${import.meta.env.BASE_URL}assets/sj_logo.png`} alt={t('footer.title')} className="h-6 sm:h-8 w-auto shrink-0 drop-shadow-sm" onError={(e) => e.target.style.display = 'none'} />
           <span className="font-black text-xs sm:text-xl text-[#00513b] tracking-tight truncate">{t('footer.title')}</span>
         </a>
@@ -45,14 +45,14 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
         </div>
 
         {/* Right Controls */}
-        <div className="flex items-center gap-1 sm:gap-3 shrink-0">
+        <div className="flex items-center gap-1 sm:gap-2.5 shrink-0">
           {/* Product selector - Compact on mobile */}
           <div className="flex items-center">
             <select
               value={activeProduct}
               onChange={(e) => setActiveProduct(e.target.value)}
               aria-label="제품 선택"
-              className="bg-emerald-50 border border-emerald-300/80 text-[#00513b] text-[11px] sm:text-xs font-bold rounded-full px-2 sm:px-3 py-1 sm:py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-emerald-100 transition-colors shadow-sm max-w-[115px] sm:max-w-[190px] truncate"
+              className="bg-emerald-50 border border-emerald-300/80 text-[#00513b] text-[10px] sm:text-xs font-bold rounded-full px-1.5 sm:px-3 py-1 sm:py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-emerald-100 transition-colors shadow-xs max-w-[96px] xs:max-w-[110px] sm:max-w-[190px] truncate"
             >
               {Object.values(PRODUCTS).map(p => (
                 <option key={p.id} value={p.id}>
@@ -84,7 +84,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
               value={i18n.language || 'ko'}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
               aria-label={t('nav.lang')}
-              className="bg-slate-100 border border-slate-300 text-[#00513b] text-xs font-bold rounded-full min-h-[36px] px-2 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer shadow-xs active:bg-slate-200"
+              className="bg-slate-100 border border-slate-300 text-[#00513b] text-[11px] font-bold rounded-full h-8 px-1.5 py-0.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer shadow-xs active:bg-slate-200"
             >
               {LANGUAGES.map(lang => (
                 <option key={lang.code} value={lang.code}>
@@ -102,10 +102,10 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
             {t('nav.order')}
           </a>
 
-          {/* Mobile Hamburger Menu Button (Always visible) */}
+          {/* Mobile Hamburger Menu Button (Always visible without clipping) */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-[#00513b] hover:bg-emerald-50 active:bg-emerald-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00513b] w-9 h-9 min-w-[36px] flex shrink-0 items-center justify-center rounded-lg transition-colors border border-emerald-200/80"
+            className="md:hidden text-[#00513b] hover:bg-emerald-50 active:bg-emerald-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00513b] w-8 h-8 sm:w-9 sm:h-9 min-w-[32px] sm:min-w-[36px] flex shrink-0 items-center justify-center rounded-lg transition-colors border border-emerald-200/80"
             aria-label={t('nav.menuToggle')}
             aria-expanded={isMobileMenuOpen}
           >

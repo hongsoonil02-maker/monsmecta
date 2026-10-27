@@ -6,9 +6,9 @@ export default function StickyBottomCTA({ onOpenModal, onOpenNoticeModal }) {
   return (
     <nav 
       aria-label={t('stickyCta.navLabel', '하단 바로가기 메뉴')}
-      className="fixed bottom-0 left-0 right-0 z-40 bg-[#003d2b]/95 backdrop-blur-md border-t border-emerald-500/30 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] sm:px-6 text-white"
+      className="fixed bottom-0 left-0 right-0 z-40 bg-[#003d2b]/95 backdrop-blur-md border-t border-emerald-500/30 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] px-3 sm:px-6 pt-2.5 pb-[calc(0.5rem+env(safe-area-inset-bottom,0px))] sm:pt-3 sm:pb-[calc(0.75rem+env(safe-area-inset-bottom,0px))] text-white"
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
+      <div className="max-w-6xl mx-auto flex items-center justify-between gap-2 sm:gap-3">
         <div className="hidden md:flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-xl shadow-md border border-slate-200">
             🩺

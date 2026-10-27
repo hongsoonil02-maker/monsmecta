@@ -107,7 +107,7 @@ const A11yToolbar = () => {
   return (
     <aside
       aria-label={t('a11y.toolbarLabel', '웹 접근성 설정 도구')}
-      className="fixed bottom-[calc(5.2rem+env(safe-area-inset-bottom,0px))] start-3 sm:start-6 z-[80] flex flex-col items-start gap-2"
+      className="fixed bottom-[calc(4.4rem+env(safe-area-inset-bottom,0px))] start-2.5 sm:start-6 z-[80] flex flex-col items-start gap-2"
     >
       {isOpen && (
         <div
@@ -205,16 +205,16 @@ const A11yToolbar = () => {
         </div>
       )}
 
-      {/* 플로팅 접근성 토글 버튼 (한국아그로 스타일 딥그린 원형 + 유니버설 접근성 아이콘) */}
+      {/* 플로팅 접근성 토글 버튼 (모바일 최적화) */}
       <button
         ref={triggerRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#00513b] hover:bg-[#003d2b] active:bg-[#00281d] text-lime-300 w-14 h-14 min-w-[48px] min-h-[48px] rounded-full shadow-2xl border-2 border-lime-400/80 flex items-center justify-center focus:outline-none focus-visible:ring-4 focus-visible:ring-lime-400/50 transition-all hover:scale-110 active:scale-95 group cursor-pointer"
+        className="bg-[#00513b] hover:bg-[#003d2b] active:bg-[#00281d] text-lime-300 w-11 h-11 sm:w-14 sm:h-14 min-w-[44px] min-h-[44px] rounded-full shadow-xl border-2 border-lime-400/80 flex items-center justify-center focus:outline-none focus-visible:ring-4 focus-visible:ring-lime-400/50 transition-all hover:scale-105 active:scale-95 group cursor-pointer"
         aria-label={t('a11y.openMenu', '장애인 접근 편의 도구 열기')}
         aria-expanded={isOpen}
         aria-haspopup="dialog"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-7 h-7 transition-transform group-hover:scale-105" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 sm:w-7 sm:h-7 transition-transform group-hover:scale-105" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
           <circle cx="12" cy="12" r="10" strokeWidth="1.6" />
           <circle cx="12" cy="6.8" r="1.6" fill="currentColor" stroke="none" />
           <path strokeLinecap="round" strokeLinejoin="round" d="M6.5 10.2h11M12 9.5v4.5l-2.2 4.5M12 14l2.2 4.5" />

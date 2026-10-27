@@ -36,6 +36,20 @@ def render_100ml_label_html(p):
     name_ko_display = p["name_ko"].replace("몬스멕타", f"몬스멕타{tm_badge}")
     name_en_display = p["name_en"].replace("MONSMECTA", f"MONSMECTA{tm_badge}")
 
+    # 몬스멕타는 '오리지널' 수식어 없이 단독 브랜드명이므로 글씨를 키워 존재감 극대화
+    if p["id"] == "monsmecta":
+        title_font_size = "7.6mm"
+        en_title_font_size = "3.2mm"
+        en_letter_spacing = "0.12em"
+        hero_margin_bottom = "5.4mm"
+        calib_title = "몬스멕타™"
+    else:
+        title_font_size = "5.8mm"
+        en_title_font_size = "2.65mm"
+        en_letter_spacing = "0.07em"
+        hero_margin_bottom = "7.0mm"
+        calib_title = f"몬스멕타™ {p['name_ko'].replace('몬스멕타 ', '')}"
+
     # 1. Front effects
     row1 = p["front_effects"][0]
     row2 = p["front_effects"][1]
@@ -430,7 +444,7 @@ def render_100ml_label_html(p):
         .hero-section {{
             text-align: center;
             padding: 0;
-            margin-bottom: 7.0mm; /* 핵심 효능 박스를 아래로 1줄 추가 하향 */
+            margin-bottom: {hero_margin_bottom}; /* 핵심 효능 박스와의 최적 간격 */
         }}
         .sub-desc {{
             font-size: 1.85mm;
@@ -441,7 +455,7 @@ def render_100ml_label_html(p):
             margin-bottom: 0.6mm;
         }}
         .main-title {{
-            font-size: 5.8mm;
+            font-size: {title_font_size};
             font-weight: 900;
             color: #ffffff;
             letter-spacing: -0.03em;
@@ -450,10 +464,10 @@ def render_100ml_label_html(p):
             margin-bottom: 0.5mm;
         }}
         .en-title {{
-            font-size: 2.65mm;
+            font-size: {en_title_font_size};
             font-weight: 900;
             color: {neon};
-            letter-spacing: 0.07em;
+            letter-spacing: {en_letter_spacing};
             line-height: 1;
             text-shadow: 0 0 1.5mm {neon}AA;
         }}
@@ -1086,7 +1100,7 @@ def render_100ml_label_html(p):
     <!-- [A4 인쇄 전용 헤더: 50mm 실측 캘리브레이션 자] -->
     <div class="a4-calibration-header">
         <div style="font-size:11pt; font-weight:900; color:#0f172a; margin-bottom:2mm;">
-            [100ml 정품 규격] 몬스멕타™ {p["name_ko"].replace("몬스멕타 ", "")} 용기 라벨 (110mm × 75mm)
+            [100ml 정품 규격] {calib_title} 용기 라벨 (110mm × 75mm)
         </div>
         <div style="font-size:8.5pt; color:#475569; margin-bottom:3mm;">
             ※ 인쇄 설정 시 반드시 <strong>[배율: 맞춤(100%)]</strong> 또는 <strong>[실제 크기(Actual Size)]</strong>로 지정하십시오.

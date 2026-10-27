@@ -75,14 +75,14 @@ export default function Chatbot() {
   if (typeof document === 'undefined') return null;
 
   return createPortal((
-    <div className={`fixed bottom-[calc(5.2rem+env(safe-area-inset-bottom,0px))] z-[80] ${isRtl ? 'left-3 sm:left-6' : 'right-3 sm:right-6'}`}>
-      {/* 챗봇 토글 버튼 */}
+    <div className={`fixed bottom-[calc(4.4rem+env(safe-area-inset-bottom,0px))] z-[80] ${isRtl ? 'left-2.5 sm:left-6' : 'right-2.5 sm:right-6'}`}>
+      {/* 챗봇 토글 버튼 (모바일 최적화) */}
       <button
         onClick={toggleChat}
-        className={`${isOpen ? 'hidden' : 'flex'} items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#00513b] hover:bg-[#003d2b] active:bg-[#00281d] text-white rounded-full shadow-2xl border-2 border-emerald-400/50 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-400/50`}
+        className={`${isOpen ? 'hidden' : 'flex'} items-center justify-center w-11 h-11 sm:w-16 sm:h-16 min-w-[44px] min-h-[44px] bg-[#00513b] hover:bg-[#003d2b] active:bg-[#00281d] text-white rounded-full shadow-xl border-2 border-emerald-400/50 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-400/50 cursor-pointer`}
         aria-label={t('chat.openLabel', 'AI 임상 챗봇 열기')}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
         </svg>
       </button>
@@ -90,7 +90,7 @@ export default function Chatbot() {
       {/* 챗봇 창 */}
       <div
         dir={isRtl ? 'rtl' : 'ltr'}
-        className={`${isOpen ? 'flex' : 'hidden'} absolute bottom-0 ${isRtl ? 'left-0 origin-bottom-left' : 'right-0 origin-bottom-right'} flex-col w-[350px] max-w-[calc(100vw-24px)] sm:w-[400px] sm:max-w-[400px] h-[550px] max-h-[82vh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300`}
+        className={`${isOpen ? 'flex' : 'hidden'} absolute bottom-0 ${isRtl ? 'left-0 origin-bottom-left' : 'right-0 origin-bottom-right'} flex-col w-[calc(100vw-20px)] max-w-[390px] sm:w-[400px] sm:max-w-[400px] h-[520px] max-h-[75vh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300`}
       >
         {/* 헤더 */}
         <div className="flex items-center justify-between px-4 py-3 bg-[#00513b] text-white">

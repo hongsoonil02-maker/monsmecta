@@ -46,24 +46,24 @@ const Hero = ({ setIsLabelModalOpen, onOpenSampleModal, activeProduct }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div className="md:w-1/2 space-y-4 sm:space-y-6 md:space-y-8 text-center md:text-left">
-          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white/10 text-xs sm:text-sm font-medium border border-white/20 backdrop-blur-sm shadow-xl max-w-full text-balance">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white/10 text-[11px] sm:text-sm font-medium border border-white/20 backdrop-blur-sm shadow-xl max-w-full text-balance">
             <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.8)] shrink-0"></span>
-            <span className="truncate">{current.badge}</span>
+            <span className="truncate max-w-[280px] xs:max-w-[340px] sm:max-w-none">{current.badge}</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-black leading-snug sm:leading-tight tracking-tight drop-shadow-xl break-keep text-balance whitespace-pre-line">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-black leading-snug sm:leading-tight tracking-tight drop-shadow-xl break-keep text-balance whitespace-pre-line">
             {current.title}
           </h1>
-          <p className="text-sm sm:text-base md:text-xl text-emerald-50/95 leading-relaxed max-w-xl mx-auto md:mx-0 font-light whitespace-pre-line break-keep text-balance">
+          <p className="text-xs sm:text-base md:text-xl text-emerald-50/95 leading-relaxed max-w-xl mx-auto md:mx-0 font-light whitespace-pre-line break-keep text-balance">
             {current.subtitle}
           </p>
-          <div className="pt-2 sm:pt-4 flex flex-wrap sm:flex-nowrap gap-2.5 sm:gap-3 justify-center md:justify-start">
-            <button onClick={handleOrderClick} className="flex-1 sm:flex-initial text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-sm sm:text-base md:text-lg font-black px-5 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-300">
+          <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full max-w-md mx-auto md:mx-0 justify-center md:justify-start">
+            <button onClick={handleOrderClick} className="w-full sm:w-auto text-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-[#00513b] text-sm sm:text-base md:text-lg font-black px-5 sm:px-7 py-3 sm:py-3.5 rounded-full shadow-[0_10px_30px_rgba(250,204,21,0.3)] hover:shadow-[0_15px_40px_rgba(250,204,21,0.5)] transform hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center">
               {t('hero.orderBtn')}
             </button>
-            <button onClick={onOpenSampleModal} className="flex-1 sm:flex-initial text-center bg-emerald-500/80 hover:bg-emerald-500 text-white text-sm sm:text-base md:text-lg font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full border border-emerald-300/60 shadow-lg hover:shadow-emerald-500/40 transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-300">
+            <button onClick={onOpenSampleModal} className="w-full sm:w-auto text-center bg-emerald-500/80 hover:bg-emerald-500 text-white text-sm sm:text-base md:text-lg font-bold px-5 sm:px-7 py-3 sm:py-3.5 rounded-full border border-emerald-300/60 shadow-lg hover:shadow-emerald-500/40 transform hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center">
               {t('hero.sampleBtn', '📦 원장님 무료 샘플')}
             </button>
-            <button onClick={() => setIsLabelModalOpen(true)} className="w-full sm:w-auto text-center bg-white/10 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-full hover:bg-white/20 transform hover:-translate-y-0.5 transition-all duration-300">
+            <button onClick={() => setIsLabelModalOpen(true)} className="w-full sm:w-auto text-center bg-white/10 backdrop-blur-md border border-white/30 text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2.5 sm:py-3 rounded-full hover:bg-white/20 transform hover:-translate-y-0.5 active:scale-95 transition-all duration-300 flex items-center justify-center">
               {t('hero.specBtn')}
             </button>
           </div>

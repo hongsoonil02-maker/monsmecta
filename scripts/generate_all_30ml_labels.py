@@ -11,8 +11,8 @@ PRODUCTS = [
     {
         "id": "monsmecta",
         "file_name": "monsmecta_original_label.html",
-        "name_ko": "몬스멕타 오리지널",
-        "name_en": "MONSMECTA ORIGINAL",
+        "name_ko": "몬스멕타",
+        "name_en": "MONSMECTA",
         "sub_desc": "연변 시 장 기능 개선 및 정장 작용에 뛰어난",
         "neon": "#10b981",
         "neon_sub": "#34d399",
