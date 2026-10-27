@@ -6,7 +6,7 @@ vault_path = r"C:\Users\master\agrolib"
 log_path = os.path.join(vault_path, "obsidian_log.md")
 
 now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-log_entry = f"\n- **{now_str}**: 몬스멕타 전 라인업(11종) 30ml 맞춤형 고가독성 신규 라벨(85x40mm) 포맷 일괄 생성 및 1:1 인쇄용 PDF, 고해상도 PNG 렌더링 완료 (고유 색상, 성분, 효능, 법정표시 완벽 반영).\n"
+log_entry = f"\n- **{now_str}**: 몬스멕타 전 라인업 용기 100ml 교체(30ml 펌프 작동 불가 문제 개선) 및 라벨 정밀 규격 110mm x 75mm (100ml 정품 규격) 전역 리뉴얼 반영 완료.\n"
 
 with open(log_path, "a", encoding="utf-8") as f:
     f.write(log_entry)
@@ -15,7 +15,7 @@ print("Obsidian log appended.")
 
 cmds = [
     ["git", "add", "."],
-    ["git", "commit", "-m", "auto-sync: dev log update (all 11 monsmecta 30ml labels)"],
+    ["git", "commit", "-m", "auto-sync: update 100ml vessel and 110x75mm labels across monsmecta lineup"],
     ["git", "push"]
 ]
 

@@ -26,7 +26,7 @@ const ClinicalEvidence = ({ activeProduct, setActiveProduct }) => {
               }`}
             >
               <span className="text-base">🧪</span>
-              <span>몬스멕타 헤파맥스 (간 건강 30ml)</span>
+              <span>몬스멕타 헤파맥스 (간 건강 100ml)</span>
               <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${activeProduct === 'hepamax' ? 'bg-black/25 text-white' : 'bg-amber-100 text-amber-800'}`}>
                 시제품 샘플 배포
               </span>
@@ -42,7 +42,7 @@ const ClinicalEvidence = ({ activeProduct, setActiveProduct }) => {
               }`}
             >
               <span className="text-base">💧</span>
-              <span>몬스멕타 레날디톡스 (신장 요독 30ml)</span>
+              <span>몬스멕타 레날디톡스 (신장 요독 100ml)</span>
               <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${activeProduct === 'urinary' ? 'bg-black/25 text-white' : 'bg-indigo-100 text-indigo-800'}`}>
                 B.longum 1,000억 CFU
               </span>

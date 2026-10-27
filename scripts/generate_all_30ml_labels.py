@@ -765,7 +765,7 @@ def render_html(p):
             color: #000;
             border: 0.12mm solid #000;
             border-radius: 0.25mm;
-            padding: 0.12mm 0.65mm;
+            padding: 0.05mm 0.65mm 0.23mm 0.65mm;
             font-size: 1.15mm;
             font-weight: 900;
             line-height: 1;
@@ -1010,11 +1010,11 @@ def render_html(p):
             background: {p["neon"]}22;
             border: 0.12mm solid {p["neon"]};
             border-radius: 0.35mm;
-            padding: 0.12mm 0.45mm;
+            padding: 0.22mm 0.45mm;
             display: flex;
-            align-items: baseline;
+            align-items: center;
             justify-content: space-between;
-            line-height: 1.12;
+            line-height: 1;
             box-sizing: border-box;
             flex-wrap: wrap;
             gap: 0.15mm;
@@ -1024,18 +1024,27 @@ def render_html(p):
             font-weight: 900;
             color: {p["neon"]};
             white-space: nowrap;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
         }}
         .dose-desc {{
             font-size: 1.25mm;
             font-weight: 900;
             color: #ffffff;
             white-space: nowrap;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
         }}
         .dose-sub {{
             font-size: 1.02mm;
             color: #f1f5f9;
             font-weight: 700;
             white-space: nowrap;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
         }}
 
         /* 4. 주의사항 박스 */
@@ -1200,9 +1209,10 @@ def render_html(p):
         .company-info .co-title {{
             font-weight: 800;
             color: {p["neon"]};
-            font-size: 1.00mm;
+            font-size: 0.94mm;
+            letter-spacing: -0.02em;
         }}
-        .company-info .co-title .co-name {{
+        .company-info .co-name {{
             color: #ffffff;
             font-weight: 800;
         }}
@@ -1245,7 +1255,7 @@ def render_html(p):
                 <div class="hero-section">
                     <div class="sub-desc">{p["sub_desc"]}</div>
                     <h1 class="main-title">{p["name_ko"]}</h1>
-                    <h2 class="en-title orbitron">{p["name_en"]}</h2>
+                    <h2 class="en-title orbitron">{p["name_en"].replace("MONSMECTA", "MONSMECTA<span style=\"font-size:0.65em; vertical-align:super; color:" + p["neon_sub"] + "; margin-left:0.3mm;\">™</span>")}</h2>
                 </div>
 
                 <!-- 핵심 효능 박스 -->
@@ -1289,9 +1299,12 @@ def render_html(p):
                 <div class="legal-panel">
                     <!-- 헤더: 성분등록번호 & 사료의 종류와 명칭 / 형태 / 용도 -->
                     <div class="legal-header">
-                        <div class="reg-num-line">
-                            <span class="reg-num-label">사료의 성분등록번호 :</span>
-                            <span class="reg-num-val">{p["reg_no"]}</span>
+                        <div class="reg-num-line" style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <span class="reg-num-label">사료의 성분등록번호 :</span>
+                                <span class="reg-num-val">{p["reg_no"]}</span>
+                            </div>
+                            <span style="font-size:0.95mm; color:{p["neon_sub"]}; font-weight:800; white-space:nowrap;">U.S. TM App: 50/041,096</span>
                         </div>
                         <div class="feed-type-line">
                             <span class="lbl">사료의 종류와 명칭 / 형태 / 용도 :</span> {p["feed_type"]}
@@ -1331,7 +1344,7 @@ def render_html(p):
 
                     <!-- 용법 및 용량 -->
                     <div class="dose-box">
-                        <div style="display:flex; align-items:baseline; gap:0.3mm;">
+                        <div style="display:flex; align-items:center; gap:0.3mm;">
                             <span class="dose-title">용법 및 용량 :</span>
                             <span class="dose-desc">{p["dosage_desc"]}</span>
                         </div>
@@ -1382,22 +1395,22 @@ def render_html(p):
 
                     <!-- 판매원 / 제조원 풋터 -->
                     <div class="legal-footer">
-                        <!-- 판매원: 에스앤제이 동물병원 -->
+                        <!-- 위탁제조판매원: 에스앤제이 동물병원 -->
                         <div class="company-block">
                             <div class="company-logo-circle">
                                 <img src="{LOGO_B64}" alt="에스앤제이 동물병원">
                             </div>
                             <div class="company-info">
-                                <div><span class="co-title">판매원 :</span> <span class="co-name">에스앤제이 동물병원</span></div>
+                                <div><span class="co-title">위탁제조판매원 :</span> <span class="co-name">에스앤제이 동물병원</span></div>
                                 <div class="co-addr">주소 : 경기도 용인시 포곡읍 선장1로 98-8</div>
                                 <div>전화번호 : <span class="tel-accent">031-321-6562</span></div>
                             </div>
                         </div>
 
-                        <!-- 제조원: ㈜엠오바이오 -->
+                        <!-- 제조원: 엠오바이오 -->
                         <div class="company-block">
                             <div class="company-info">
-                                <div><span class="co-title">제조원 :</span> <span class="co-name">㈜엠오바이오</span></div>
+                                <div><span class="co-title">제조원:</span><span class="co-name">엠오바이오</span></div>
                                 <div class="co-addr">주소 : 경기도 화성시 팔탄면 석포로 74번길 10-25</div>
                                 <div>전화번호 : <span class="tel-accent">031-458-1240</span></div>
                             </div>

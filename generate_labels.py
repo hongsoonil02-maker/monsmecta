@@ -338,7 +338,7 @@ def get_html(product_key, data):
             background: {theme['badge_bg']};
             border: 0.15mm solid {theme['primary']};
             border-radius: 0.3mm;
-            padding: 0.22mm 0.8mm;
+            padding: 0.08mm 0.8mm 0.25mm 0.8mm;
             font-size: 1.15mm;
             font-weight: 800;
             color: {theme['primary']};
@@ -859,7 +859,7 @@ def get_html(product_key, data):
                             <img src="{logo_src}" alt="S&J">
                         </div>
                         <div class="company-info">
-                            <div class="co-title">판매원: 에스앤제이 동물병원</div>
+                            <div class="co-title">위탁제조판매원: 에스앤제이 동물병원</div>
                             <div>용인시 처인구 포곡읍 선장1로 98-8</div>
                             <div><span class="tel-accent">TEL:</span> 031-321-6562</div>
                         </div>
@@ -867,7 +867,7 @@ def get_html(product_key, data):
 
                     <!-- Manufacturer -->
                     <div class="company-info" style="border-left: 0.15mm solid rgba(255,255,255,0.15); padding-left: 0.6mm;">
-                        <div class="co-title">제조원: 엠오바이오</div>
+                        <div class="co-title">제조원:엠오바이오</div>
                         <div>화성시 팔탄면 석포로 74번길 10-25</div>
                         <div><span class="tel-accent">TEL:</span> 031-458-1240</div>
                     </div>

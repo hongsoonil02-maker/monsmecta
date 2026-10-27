@@ -1,13 +1,14 @@
 export const LABEL_DATA = {
   monsmecta: {
-    product_name: "몬스멕타(MONSMECTA)",
+    product_name: "몬스멕타(MONSMECTA™)",
+    trademark_app_no: "50/041,096",
     desc: "연변 시 장 기능 개선 및 정장 작용에 뛰어난",
     feed1: "1일 두당 2~4ml",
     feed2: "5~7일간 경구 급여",
     feed3: "개, 고양이, 전축종",
     ingredients_title: "성분(5가지 복합체)",
     ingredients: [
-      { title: "1) 항균·항바이러스 작용", desc: "- 1-deoxynojirimycin (DNJ) 천연성분 함유", note: "• 특허균주 Bacillus subtilis MORI 균주\n• Patent No. 201180042602.8" },
+      { title: "1) 항균·항바이러스 작용", desc: "- 1-deoxynojirimycin (DNJ) 천연성분 함유", note: "• 특허균주 Bacillus subtilis MORI 균주\n• Patent No. 201180042602.8\n• U.S. Trademark App. No. 50/041,096" },
       { title: "2) 장 기능 개선 및 정장 작용", desc: "- 포도당" },
       { title: "3) 상피세포의 회복", desc: "- 비타민 A" },
       { title: "4) 전해질제", desc: "- Sodium acetate, Sodium propionate" },
@@ -54,7 +55,7 @@ export const LABEL_DATA = {
       "장-간 축(Gut-Liver Axis)을 통한 장내 유해물질 차단",
       "지방간 개선 및 활력 증진"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -86,7 +87,7 @@ export const LABEL_DATA = {
       "유해균 억제 및 장벽 방어력(Gut Barrier) 강화",
       "염증성 장질환(IBD) 및 과민성 대장 증후군(IBS) 개선"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -118,7 +119,7 @@ export const LABEL_DATA = {
       "인독실설페이트(IS) 등 유해 요독소 강력 흡착 제거",
       "만성 신부전 환축 신장 수치(BUN/Cre) 안정화 보조 및 활력 증진"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -154,7 +155,7 @@ export const LABEL_DATA = {
       "암세포 자멸 유도 및 신생 혈관 억제를 통한 전이 방지 보조",
       "표준 항암 치료(화학/방사선) 부작용 완화 및 악액질(체중 감소) 방지"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -186,7 +187,7 @@ export const LABEL_DATA = {
       "호흡기 점막 면역 강화 및 기관지 윤활",
       "비염, 마른 기침, 호흡 곤란 증상 완화 보조"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -217,7 +218,7 @@ export const LABEL_DATA = {
       "알러지 유발 독소 배출 및 즉각적인 가려움증 억제",
       "피부 모질 개선 및 탈모 방지 보조"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -250,7 +251,7 @@ export const LABEL_DATA = {
       "심부전 진행 지연 보조",
       "혈압 정상화 보조"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -283,7 +284,7 @@ export const LABEL_DATA = {
       "관절 윤활액 증가 보조",
       "관절염 진행 지연"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -314,7 +315,7 @@ export const LABEL_DATA = {
       "수술 후 빠른 회복 촉진",
       "노령견/묘 기력 증진 및 대사 활성화"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [
@@ -347,7 +348,7 @@ export const LABEL_DATA = {
       "피로 회복 및 항산화 작용",
       "뼈·치아 건강 및 대사 활성화"
     ],
-    weight_val: "30ml",
+    weight_val: "100ml",
     mfg_val: "제조일자 별도 표기",
     exp_val: "유통기한 제조일로부터 18개월",
     warnings: [

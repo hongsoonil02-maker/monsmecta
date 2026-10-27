@@ -204,7 +204,7 @@ const LabelModal = ({ isLabelModalOpen, setIsLabelModalOpen, onOpenPrint, active
                 {hasRealPhotos && (
                   <div className="mt-2 text-center">
                     <span className="inline-block text-[10px] text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded-full font-bold border border-emerald-500/30">
-                      📸 30ml 펌프 실물 시제품 촬영
+                      📸 100ml 실물 시제품 촬영
                     </span>
                   </div>
                 )}
