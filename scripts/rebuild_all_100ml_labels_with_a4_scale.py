@@ -405,7 +405,7 @@ def render_100ml_label_html(p):
             padding: 0.55mm 2.2mm;
             line-height: 1;
             box-sizing: border-box;
-            margin-bottom: 1.6mm;
+            margin-bottom: 3.2mm; /* 제품명을 아래로 1줄 내리기 위한 여백 */
         }}
         .brand-badge .emoji {{
             font-size: 3.4mm;
@@ -430,7 +430,7 @@ def render_100ml_label_html(p):
         .hero-section {{
             text-align: center;
             padding: 0;
-            margin-bottom: 2.2mm;
+            margin-bottom: 5.0mm; /* 핵심 효능 박스를 아래로 2줄 내리기 위한 여백 */
         }}
         .sub-desc {{
             font-size: 1.85mm;
@@ -465,7 +465,7 @@ def render_100ml_label_html(p):
             border-radius: 1.0mm;
             padding: 1.1mm 1.6mm 1.0mm 1.6mm;
             position: relative;
-            margin-bottom: 9.2mm; /* 주요 성분 데이터 박스를 아래로 3줄 이상 충분히 내리기 위한 여유 공간 */
+            margin-bottom: 5.6mm; /* 주요 성분 데이터 표와의 균형 잡힌 호흡 공간 */
         }}
         .box-tag-label {{
             position: absolute;
