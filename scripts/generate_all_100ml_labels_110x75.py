@@ -1027,7 +1027,7 @@ def render_100ml_label_html(p):
                                     <img src="data:image/png;base64,{LOGO_B64}" class="co-logo-img" alt="S&J">
                                 </div>
                                 <div class="co-text-col">
-                                    <div class="co-line-main">위탁제조판매원 : 에스앤제이 동물병원</div>
+                                    <div class="co-line-main">위탁제조판매원 : S&J 동물병원</div>
                                     <div class="co-line-sub">경기도 용인시 처인구 포곡읍 선장1로 98-8</div>
                                     <div class="co-line-sub"><span style="color:{neon}; font-weight:800;">TEL</span> 031-321-6562</div>
                                 </div>
@@ -1175,7 +1175,7 @@ def render_100ml_label_html(p):
                                     <img src="data:image/png;base64,{LOGO_B64}" class="co-logo-img" alt="S&J">
                                 </div>
                                 <div class="co-text-col">
-                                    <div class="co-line-main">위탁제조판매원 : 에스앤제이 동물병원</div>
+                                    <div class="co-line-main">위탁제조판매원 : S&J 동물병원</div>
                                     <div class="co-line-sub">경기도 용인시 처인구 포곡읍 선장1로 98-8</div>
                                     <div class="co-line-sub"><span style="color:#000000; font-weight:800;">TEL</span> 031-321-6562</div>
                                 </div>

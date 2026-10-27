@@ -38,16 +38,16 @@ def render_100ml_label_html(p):
 
     # 몬스멕타는 '오리지널' 수식어 없이 단독 브랜드명이므로 글씨를 키워 존재감 극대화
     if p["id"] == "monsmecta":
-        title_font_size = "7.6mm"
-        en_title_font_size = "3.2mm"
-        en_letter_spacing = "0.12em"
-        hero_margin_bottom = "5.4mm"
+        title_font_size = "7.2mm"
+        en_title_font_size = "3.0mm"
+        en_letter_spacing = "0.10em"
+        hero_margin_bottom = "3.2mm"
         calib_title = "몬스멕타™"
     else:
-        title_font_size = "5.8mm"
-        en_title_font_size = "2.65mm"
+        title_font_size = "5.6mm"
+        en_title_font_size = "2.55mm"
         en_letter_spacing = "0.07em"
-        hero_margin_bottom = "7.0mm"
+        hero_margin_bottom = "3.5mm"
         calib_title = f"몬스멕타™ {p['name_ko'].replace('몬스멕타 ', '')}"
 
     # 1. Front effects
@@ -339,7 +339,7 @@ def render_100ml_label_html(p):
         }}
 
         .top-accent-bar {{
-            height: 0.80mm;
+            height: 0.60mm;
             background: {top_bar};
             box-shadow: 0 0 1.5mm {neon}E6;
             z-index: 2;
@@ -351,9 +351,9 @@ def render_100ml_label_html(p):
             position: relative;
             z-index: 2;
             display: flex;
-            height: calc(75mm - 0.80mm);
+            height: calc(75mm - 0.60mm);
             width: 110mm;
-            padding: 1.2mm 1.6mm;
+            padding: 0.8mm 1.5mm 0.5mm 1.5mm;
             justify-content: space-between;
         }}
 
@@ -419,7 +419,7 @@ def render_100ml_label_html(p):
             padding: 0.55mm 2.2mm;
             line-height: 1;
             box-sizing: border-box;
-            margin-bottom: 3.2mm; /* 제품명을 아래로 1줄 내리기 위한 여백 */
+            margin-bottom: 2.0mm;
         }}
         .brand-badge .emoji {{
             font-size: 3.4mm;
@@ -477,9 +477,9 @@ def render_100ml_label_html(p):
             background: rgba(0, 0, 0, 0.65);
             border: 0.25mm solid {neon};
             border-radius: 1.0mm;
-            padding: 1.1mm 1.6mm 1.0mm 1.6mm;
+            padding: 0.9mm 1.5mm 0.8mm 1.5mm;
             position: relative;
-            margin-bottom: 5.0mm; /* 주요 성분 데이터 표와의 균형 잡힌 호흡 공간 */
+            margin-bottom: 2.5mm;
         }}
         .box-tag-label {{
             position: absolute;
@@ -529,9 +529,9 @@ def render_100ml_label_html(p):
             background: rgba(0, 0, 0, 0.65);
             border: 0.25mm solid rgba(255, 255, 255, 0.25);
             border-radius: 1.0mm;
-            padding: 1.0mm 1.5mm;
+            padding: 0.8mm 1.4mm;
             position: relative;
-            margin-bottom: 1.2mm;
+            margin-bottom: 0.6mm;
             display: flex;
             flex-direction: column;
         }}
@@ -604,8 +604,9 @@ def render_100ml_label_html(p):
             background: rgba(0, 0, 0, 0.8);
             border: 0.25mm solid {neon};
             border-radius: 0.8mm;
-            padding: 0.8mm 1.5mm;
+            padding: 0.6mm 1.2mm;
             margin-top: auto;
+            margin-bottom: 0.3mm;
         }}
         .left-btm-brand {{
             font-size: 1.50mm;
@@ -636,40 +637,40 @@ def render_100ml_label_html(p):
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            padding: 0.8mm 1.3mm;
+            padding: 0.3mm 0.8mm 0.2mm 0.8mm;
             border-radius: 1.0mm;
-            font-size: 1.58mm;
-            line-height: 1.38;
+            font-size: 1.48mm;
+            line-height: 1.25;
         }}
 
         .top-reg-grid {{
             display: flex;
             flex-direction: column;
-            gap: 0.45mm;
+            gap: 0.22mm;
             border-bottom: 0.25mm solid #cbd5e1;
-            padding-bottom: 0.55mm;
+            padding-bottom: 0.30mm;
         }}
         .reg-num-line {{
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 900;
-            font-size: 1.80mm;
+            font-size: 1.65mm;
         }}
         .tm-dual-grid {{
             display: flex;
             flex-direction: column;
-            gap: 0.3mm;
+            gap: 0.18mm;
             border-top: 0.20mm dashed #cbd5e1;
-            padding-top: 0.35mm;
-            margin-top: 0.15mm;
+            padding-top: 0.22mm;
+            margin-top: 0.10mm;
         }}
         .tm-line {{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 1.40mm;
-            line-height: 1.25;
+            font-size: 1.25mm;
+            line-height: 1.18;
         }}
         .tm-lbl {{
             font-weight: 800;
@@ -680,13 +681,13 @@ def render_100ml_label_html(p):
         }}
         .tm-flag {{
             display: inline-block;
-            font-size: 1.05mm;
+            font-size: 0.95mm;
             font-weight: 900;
-            padding: 0.1mm 0.8mm;
+            padding: 0.1mm 0.6mm;
             border-radius: 0.3mm;
             background: #0f172a;
             color: #ffffff;
-            margin-right: 0.6mm;
+            margin-right: 0.5mm;
             vertical-align: middle;
             line-height: 1.1;
         }}
@@ -695,100 +696,100 @@ def render_100ml_label_html(p):
             color: #000000;
         }}
         .feed-type-line {{
-            font-size: 1.48mm;
-            line-height: 1.35;
+            font-size: 1.32mm;
+            line-height: 1.22;
             word-break: break-all;
         }}
 
         .sec-block {{
-            margin-top: 0.45mm;
+            margin-top: 0.25mm;
         }}
         .sec-line {{
             display: flex;
             align-items: baseline;
-            gap: 0.8mm;
-            line-height: 1.3;
+            gap: 0.6mm;
+            line-height: 1.22;
         }}
         .sec-lbl {{
-            font-size: 1.70mm;
+            font-size: 1.50mm;
             font-weight: 900;
             flex-shrink: 0;
         }}
         .sec-val {{
-            font-size: 1.58mm;
-            line-height: 1.3;
+            font-size: 1.42mm;
+            line-height: 1.22;
         }}
 
         .materials-val-box {{
-            font-size: 1.55mm;
-            line-height: 1.35;
-            margin-top: 0.25mm;
-            padding-left: 0.4mm;
+            font-size: 1.32mm;
+            line-height: 1.20;
+            margin-top: 0.12mm;
+            padding-left: 0.3mm;
         }}
 
         .effects-sub-list {{
             list-style: none;
-            padding-left: 0.4mm;
-            margin-top: 0.25mm;
+            padding-left: 0.3mm;
+            margin-top: 0.12mm;
             display: flex;
             flex-direction: column;
-            gap: 0.45mm;
+            gap: 0.20mm;
         }}
         .effects-sub-list li {{
-            font-size: 1.55mm;
-            line-height: 1.35;
+            font-size: 1.32mm;
+            line-height: 1.20;
             display: flex;
             align-items: baseline;
-            gap: 0.8mm;
+            gap: 0.6mm;
         }}
         .effects-sub-list .roman {{
             font-weight: 900;
-            font-size: 1.45mm;
+            font-size: 1.25mm;
             flex-shrink: 0;
         }}
 
         .dose-box-single {{
-            margin-top: 0.65mm;
+            margin-top: 0.25mm;
             border-radius: 0.8mm;
-            padding: 0.65mm 1.3mm;
+            padding: 0.30mm 0.9mm;
             display: flex;
             flex-direction: column;
-            gap: 0.3mm;
-            line-height: 1.3;
+            gap: 0.18mm;
+            line-height: 1.20;
         }}
         .dose-title-line {{
             display: flex;
             align-items: baseline;
-            gap: 1.4mm;
+            gap: 1.0mm;
         }}
         .dose-box-single .title {{
             font-weight: 900;
-            font-size: 1.72mm;
+            font-size: 1.50mm;
             white-space: nowrap;
         }}
         .dose-box-single .desc {{
             font-weight: 800;
-            font-size: 1.70mm;
+            font-size: 1.48mm;
             white-space: nowrap;
         }}
         .dose-box-single .sub {{
-            font-size: 1.38mm;
+            font-size: 1.20mm;
             font-weight: 700;
-            line-height: 1.25;
-            padding-left: 0.4mm;
+            line-height: 1.18;
+            padding-left: 0.3mm;
         }}
 
         .warn-grid {{
-            margin-top: 0.45mm;
+            margin-top: 0.25mm;
             display: flex;
             flex-direction: column;
-            gap: 0.35mm;
-            font-size: 1.45mm;
-            line-height: 1.35;
+            gap: 0.16mm;
+            font-size: 1.26mm;
+            line-height: 1.18;
         }}
         .warn-header {{
             font-weight: 900;
-            font-size: 1.62mm;
+            font-size: 1.40mm;
             display: flex;
             align-items: center;
             gap: 0.4mm;
@@ -802,16 +803,16 @@ def render_100ml_label_html(p):
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 0.55mm;
+            margin-top: 0.25mm;
             border-top: 0.25mm solid #cbd5e1;
-            padding-top: 0.55mm;
-            font-size: 1.55mm;
+            padding-top: 0.25mm;
+            font-size: 1.32mm;
             font-weight: 800;
         }}
         .mfg-date-row {{
             display: flex;
             align-items: center;
-            gap: 0.8mm;
+            gap: 0.6mm;
         }}
         .mfg-date-row .lbl {{
             font-weight: 900;
@@ -819,51 +820,52 @@ def render_100ml_label_html(p):
         .recycle-wrap {{
             display: flex;
             align-items: center;
-            gap: 0.6mm;
-            font-size: 1.35mm;
+            gap: 0.5mm;
+            font-size: 1.15mm;
             font-weight: 900;
         }}
         .recycle-triangle {{
-            width: 3.6mm;
-            height: 3.6mm;
-            border: 0.28mm solid currentColor;
+            width: 2.8mm;
+            height: 2.8mm;
+            border: 0.25mm solid currentColor;
             transform: rotate(45deg);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 0.4mm;
+            margin-right: 0.3mm;
         }}
         .recycle-triangle span {{
             transform: rotate(-45deg);
-            font-size: 0.95mm;
+            font-size: 0.80mm;
             font-weight: 900;
             line-height: 1;
         }}
 
-        /* 하단 푸터: 사용자 요청에 따라 로고 및 글씨 크기를 50% 수준으로 축소하여 정갈하게 배치 */
+        /* 하단 푸터: 사용자 요청에 따라 최적화 및 바닥 잘림 완벽 방지 */
         .original-footer {{
-            margin-top: 0.6mm;
+            margin-top: 0.25mm;
             border-top: 0.25mm solid #cbd5e1;
-            padding-top: 0.5mm;
+            padding-top: 0.25mm;
+            margin-bottom: 0.3mm;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 1.0mm;
+            gap: 0.8mm;
         }}
         .footer-seller {{
             display: flex;
             align-items: center;
-            gap: 0.8mm;
-            flex: 1.08;
+            gap: 0.6mm;
+            flex: 1.12;
         }}
         .footer-maker {{
             flex: 1.0;
             border-left: 0.25mm solid #cbd5e1;
-            padding-left: 1.0mm;
+            padding-left: 0.7mm;
         }}
         .co-logo-circle {{
-            width: 3.8mm; /* 기존 7.2mm의 약 50% 축소 */
-            height: 3.8mm;
+            width: 3.0mm;
+            height: 3.0mm;
             border-radius: 50%;
             overflow: hidden;
             display: flex;
@@ -881,28 +883,29 @@ def render_100ml_label_html(p):
         .co-text-col {{
             display: flex;
             flex-direction: column;
-            gap: 0.15mm;
-            line-height: 1.2;
+            gap: 0.08mm;
+            line-height: 1.12;
             min-width: 0;
         }}
         .co-line-main {{
-            font-size: 1.05mm; /* 기존 1.70mm 대비 약 50% 축소 */
+            font-size: 0.98mm;
             font-weight: 900;
             white-space: nowrap;
             letter-spacing: -0.01em;
         }}
         .co-line-sub {{
-            font-size: 0.90mm; /* 기존 1.48mm 대비 약 50% 축소 */
+            font-size: 0.82mm;
             font-weight: 700;
-            line-height: 1.25;
+            line-height: 1.12;
             letter-spacing: -0.01em;
             word-break: keep-all;
         }}
         .co-tel-line {{
-            font-size: 0.90mm; /* 기존 1.45mm 대비 약 50% 축소 */
+            font-size: 0.82mm;
             font-weight: 800;
             white-space: nowrap;
             letter-spacing: 0;
+            line-height: 1.12;
         }}
 
         /* ========================================================================= */
@@ -1255,7 +1258,7 @@ def render_100ml_label_html(p):
                                     <span>2) 제품 특성상 가라앉는 성분이 있으므로 <span class="hl-shake">흔들어서 사용</span>하십시오.</span>
                                 </div>
                                 <div class="warn-item-orig">
-                                    <span>3) 제품에 대하여 문의하실 경우 제조원 또는 판매원으로 연락하여 주시기 바랍니다.</span>
+                                    <span>3) 제품에 대하여 문의하실 경우 제조원 또는 위탁제조판매원으로 연락하여 주시기 바랍니다.</span>
                                 </div>
                             </div>
 
@@ -1283,7 +1286,7 @@ def render_100ml_label_html(p):
                                         <img src="{LOGO_SRC}" class="co-logo-img" alt="S&J">
                                     </div>
                                     <div class="co-text-col">
-                                        <div class="co-line-main">위탁제조판매원 : 에스앤제이 동물병원</div>
+                                        <div class="co-line-main">위탁제조판매원 : S&J 동물병원</div>
                                         <div class="co-line-sub">경기도 용인시 처인구<br>포곡읍 선장1로 98-8</div>
                                         <div class="co-tel-line"><span style="font-weight:900;">TEL</span> 031-321-6562</div>
                                     </div>
@@ -1438,7 +1441,7 @@ def render_100ml_label_html(p):
                                     <span>2) 제품 특성상 가라앉는 성분이 있으므로 <span class="hl-shake">흔들어서 사용</span>하십시오.</span>
                                 </div>
                                 <div class="warn-item-orig">
-                                    <span>3) 제품에 대하여 문의하실 경우 제조원 또는 판매원으로 연락하여 주시기 바랍니다.</span>
+                                    <span>3) 제품에 대하여 문의하실 경우 제조원 또는 위탁제조판매원으로 연락하여 주시기 바랍니다.</span>
                                 </div>
                             </div>
 
@@ -1466,7 +1469,7 @@ def render_100ml_label_html(p):
                                         <img src="{LOGO_SRC}" class="co-logo-img" alt="S&J">
                                     </div>
                                     <div class="co-text-col">
-                                        <div class="co-line-main">위탁제조판매원 : 에스앤제이 동물병원</div>
+                                        <div class="co-line-main">위탁제조판매원 : S&J 동물병원</div>
                                         <div class="co-line-sub">경기도 용인시 처인구<br>포곡읍 선장1로 98-8</div>
                                         <div class="co-tel-line"><span style="font-weight:900;">TEL</span> 031-321-6562</div>
                                     </div>
