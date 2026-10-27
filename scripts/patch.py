@@ -158,7 +158,7 @@ new_template = """template = \"\"\"<!DOCTYPE html>
                             </div>
                             <div class="w-[2px] h-20 bg-white/20 mx-4"></div>
                             <div class="flex flex-col gap-1">
-                                <div class="font-bold text-white text-[20px] mb-1">제조원 : ㈜ 엠오 바이오</div>
+                                <div class="font-bold text-white text-[20px] mb-1">제조원 : 엠오 바이오</div>
                                 <div class="text-amber-200/80">경기도 화성시 팔탄면 석포로 74번길 10-25 (공장)</div>
                                 <div class="text-amber-200/80"><span class="font-bold text-teal-400">TEL</span> 031-458-1240 / www.mobio.co.kr</div>
                             </div>

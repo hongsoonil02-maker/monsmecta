@@ -1034,7 +1034,7 @@ def render_100ml_label_html(p):
                             </div>
                             <div class="footer-maker">
                                 <div class="co-text-col">
-                                    <div class="co-line-main">제조원 : ㈜ 엠오 바이오</div>
+                                    <div class="co-line-main">제조원 : 엠오 바이오</div>
                                     <div class="co-line-sub">화성시 팔탄면 석포로 74번길 10-25</div>
                                     <div class="co-line-sub"><span style="color:{neon}; font-weight:800;">TEL</span> 031-458-1240</div>
                                 </div>
@@ -1182,7 +1182,7 @@ def render_100ml_label_html(p):
                             </div>
                             <div class="footer-maker">
                                 <div class="co-text-col">
-                                    <div class="co-line-main">제조원 : ㈜ 엠오 바이오</div>
+                                    <div class="co-line-main">제조원 : 엠오 바이오</div>
                                     <div class="co-line-sub">화성시 팔탄면 석포로 74번길 10-25</div>
                                     <div class="co-line-sub"><span style="color:#000000; font-weight:800;">TEL</span> 031-458-1240</div>
                                 </div>

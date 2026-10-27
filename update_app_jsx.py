@@ -104,7 +104,7 @@ replacements = {
     "제품에 대하여 문의하실 경우 제조원 또는 판매원으로 연락하여 주시기 바랍니다.": "{t('label.warning3')}",
     "판매원 : 에스앤제이 동물병원": "{t('label.seller_name')}",
     "경기도 용인시 처인구 포곡읍 선장1로 98-8<br />": "{t('label.seller_addr')}<br />",
-    "제조원 : ㈜ 엠오 바이오": "{t('label.maker_name')}",
+    "제조원 : 엠오 바이오": "{t('label.maker_name')}",
     "경기도 화성시 팔탄면 석포로 74번길 10-25(공장)<br />": "{t('label.maker_addr')}<br />",
     "🖨️ 인쇄용 원본 라벨 보기": "{t('label.print_btn')}",
     "🖨️ 인쇄용 라벨 (고해상도)": "{t('label.print_title')}"

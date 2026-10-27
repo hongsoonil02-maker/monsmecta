@@ -11,7 +11,7 @@ export const PRODUCTS = {
     border: 'hover:border-emerald-500',
     text: 'text-emerald-400',
     shadow: 'hover:shadow-emerald-500/20',
-    price: 7700,
+    price: 7000,
     isComingSoon: false,
     hero: {
       titleKey: 'hero.title',
@@ -40,7 +40,7 @@ export const PRODUCTS = {
     border: 'hover:border-amber-500',
     text: 'text-amber-400',
     shadow: 'hover:shadow-amber-500/20',
-    price: 3300,
+    price: 9000,
     isComingSoon: false,
     hero: {
       title: '임상수의사의 해답\nHEPAMAX',
@@ -69,7 +69,7 @@ export const PRODUCTS = {
     border: 'hover:border-indigo-500',
     text: 'text-indigo-400',
     shadow: 'hover:shadow-indigo-500/20',
-    price: 4400,
+    price: 11000,
     isComingSoon: false,
     hero: {
       title: '임상수의사의 해답\nRENAL DETOX',
