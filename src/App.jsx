@@ -247,8 +247,23 @@ const MonsmectaSNJLanding = () => {
     setIsOrderComplete(false);
   };
 
+  const LABEL_FILE_MAP = {
+    monsmecta: 'monsmecta_original_white_label.html',
+    hepamax: 'monsmecta_hepamax_white_label.html',
+    urinary: 'monsmecta_renal_white_label.html',
+    cancercare: 'monsmecta_cancercare_white_label.html',
+    coldzero: 'monsmecta_coldzero_white_label.html',
+    skincare: 'monsmecta_skincare_white_label.html',
+    heartcare: 'monsmecta_heartcare_white_label.html',
+    jointcare: 'monsmecta_jointcare_white_label.html',
+    powerase: 'monsmecta_powerase_white_label.html',
+    probiotics: 'monsmecta_probiotics_white_label.html',
+    vitaplus: 'monsmecta_vitaplus_white_label.html',
+  };
+
   const openPrintModal = (product) => {
-    setPrintUrl(`${import.meta.env.BASE_URL}assets/labels/${product}_label_print.html?v=${Date.now()}`);
+    const filename = LABEL_FILE_MAP[product] || `${product}_label_print.html`;
+    setPrintUrl(`${import.meta.env.BASE_URL}assets/labels/${filename}?v=${Date.now()}`);
     setIsPrintModalOpen(true);
   };
 
