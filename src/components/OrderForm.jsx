@@ -31,6 +31,28 @@ const OrderForm = ({
   const { t, i18n } = useTranslation();
   const isKoreanLang = (i18n.language || 'ko').toLowerCase().startsWith('ko');
   const [selectedProduct, setSelectedProduct] = useState(Object.keys(PRODUCTS)[0]);
+  const [showPriceManual, setShowPriceManual] = useState(() => {
+    try {
+      return localStorage.getItem('monsmecta_show_price_v1') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const toggleShowPrice = () => {
+    setShowPriceManual(prev => {
+      const next = !prev;
+      try {
+        localStorage.setItem('monsmecta_show_price_v1', String(next));
+      } catch { /* ignore */ }
+      return next;
+    });
+  };
+
+  // 사업자번호 10자리 입력 완료 여부
+  const isBizNumberFilled = (bizNumber || '').replace(/[^0-9]/g, '').length === 10;
+  // 가격 공개 여부: 사업자번호 10자리가 입력되었거나, 수동으로 토글을 켰을 때
+  const isPriceRevealed = isBizNumberFilled || showPriceManual;
 
   const formatBizNumber = (value) => {
     const raw = value.replace(/[^0-9]/g, '').slice(0, 10);
@@ -186,16 +208,28 @@ const OrderForm = ({
                   <>
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_number')} <span className="text-red-500">*</span></label>
+                        <div className="flex items-center justify-between mb-2">
+                          <label className="block text-sm font-bold text-slate-700">{t('order.biz_number')} <span className="text-red-500">*</span></label>
+                          {isBizNumberFilled && (
+                            <span className="text-[11px] text-emerald-700 font-extrabold bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                              ✓ 도매 공급가 자동 해제됨
+                            </span>
+                          )}
+                        </div>
                         <input
                           type="text"
                           value={bizNumber}
                           onChange={handleBizNumberChange}
-                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide"
+                          className={`w-full px-5 py-4 rounded-xl border ${isBizNumberFilled ? 'border-emerald-500 ring-2 ring-emerald-500/20 bg-emerald-50/20' : 'border-slate-300'} focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide`}
                           placeholder={t('order.biz_number_placeholder', '000-00-00000')}
                           required
                           maxLength="12"
                         />
+                        <p className={`text-[11px] mt-1.5 font-medium transition-colors ${isBizNumberFilled ? 'text-emerald-700 font-bold' : 'text-slate-400'}`}>
+                          {isBizNumberFilled
+                            ? '✓ 사업자등록번호 10자리 확인 완료: 하단 발주 품목의 병원 도매단가와 결제금액이 활성화되었습니다.'
+                            : '※ 사업자등록번호 10자리를 입력하시면 병원 도매단가 및 결제금액이 자동으로 표시됩니다.'}
+                        </p>
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.email')} <span className="text-red-500">*</span></label>
@@ -279,10 +313,27 @@ const OrderForm = ({
               </div>
 
               <div className="space-y-6">
-                <h3 className="text-xl font-black text-slate-800 border-b-2 border-emerald-100 pb-3 flex items-center gap-2">
-                  <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm">2</span>
-                  {t('order.quantity_select', '발주 품목 및 수량 선택')}
-                </h3>
+                <div className="border-b-2 border-emerald-100 pb-3 flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="text-xl font-black text-slate-800 flex items-center gap-2">
+                    <span className="bg-emerald-100 text-[#00513b] w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                    {t('order.quantity_select', '발주 품목 및 수량 선택')}
+                  </h3>
+
+                  {/* 수의사/관리자 전용 가격 토글 버튼 */}
+                  <button
+                    type="button"
+                    onClick={toggleShowPrice}
+                    className={`inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-95 ${
+                      isPriceRevealed
+                        ? 'bg-emerald-600 hover:bg-emerald-700 text-white ring-2 ring-emerald-300'
+                        : 'bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-[#00513b] border border-slate-300 hover:border-emerald-300'
+                    }`}
+                    title="일반인에게는 도매가가 보호되며, 클릭 시 수의사 전용 도매 공급가가 표시됩니다."
+                  >
+                    <span>{isPriceRevealed ? '🔓 병원 공급단가 표시 중' : '🔒 수의사 공급단가 확인'}</span>
+                    <span className="text-[10px] opacity-80 underline">{isPriceRevealed ? '숨기기' : '클릭'}</span>
+                  </button>
+                </div>
                 
                 <div className="flex flex-col sm:flex-row gap-3 mb-6 bg-slate-100 p-4 rounded-xl border border-slate-200">
                   <select 
@@ -293,7 +344,7 @@ const OrderForm = ({
                     <optgroup label="✅ 즉시 발주 가능 품목">
                       {Object.values(PRODUCTS).filter(p => !p.isComingSoon && p.price).map(p => (
                         <option key={p.id} value={p.id}>
-                          {getProductDisplayName(p, isKoreanLang)} ({p.volume}) [🔒 병원공급용]
+                          {getProductDisplayName(p, isKoreanLang)} ({p.volume}) {isPriceRevealed ? `- ${p.price?.toLocaleString()}원 [병원공급가]` : '[🔒 병원공급용]'}
                         </option>
                       ))}
                     </optgroup>
@@ -347,11 +398,29 @@ const OrderForm = ({
                             {getProductDisplayName(p, isKoreanLang)} 
                             <span className="text-sm font-bold text-slate-500 ml-1.5">{p.volume ? `(${p.volume} / 병)` : t('order.unit', '(병)')}</span>
                           </div>
-                          <div className="text-sm font-medium text-slate-500 mt-1 flex items-center gap-2">
-                            <span>{t('order.supply_price')}</span>
-                            <span className="font-bold text-slate-700 font-mono text-xs bg-slate-100 px-2.5 py-1 rounded border border-slate-200 select-none">
-                              🔒 병원 사업자 인증 시 도매가 적용
-                            </span>
+                          <div className="text-sm font-medium text-slate-600 mt-1 flex flex-wrap items-center justify-center md:justify-start gap-2">
+                            <span>{t('order.supply_price', '공급단가')}:</span>
+                            {isPriceRevealed ? (
+                              <>
+                                <span className="font-black text-emerald-900 font-mono text-sm bg-emerald-100/90 px-2.5 py-0.5 rounded-lg border border-emerald-300">
+                                  {p.price ? `${p.price.toLocaleString()}원` : '-'}
+                                </span>
+                                {q > 0 && p.price && (
+                                  <span className="text-xs font-bold text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200">
+                                    소계: <strong className="text-slate-900 font-mono font-black">{((p.price || 0) * q).toLocaleString()}원</strong>
+                                  </span>
+                                )}
+                              </>
+                            ) : (
+                              <button
+                                type="button"
+                                onClick={toggleShowPrice}
+                                className="font-bold text-slate-700 font-mono text-xs bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded border border-slate-200 select-none transition-colors cursor-pointer flex items-center gap-1"
+                              >
+                                <span>🔒 병원 사업자 인증 시 도매가 적용</span>
+                                <span className="text-[10px] text-emerald-700 underline font-sans ml-1 font-bold">확인하기</span>
+                              </button>
+                            )}
                           </div>
                         </div>
                         <div className={`flex items-center bg-white border ${key === 'monsmecta' ? 'border-slate-200' : 'border-emerald-200'} rounded-xl overflow-hidden shadow-sm shrink-0`}>
@@ -370,10 +439,31 @@ const OrderForm = ({
                 <div className="flex flex-col md:flex-row justify-between items-center mb-6 sm:mb-8 gap-4 relative z-10">
                   <span className="text-lg sm:text-xl font-bold text-slate-700">{t('order.total_price')}</span>
                   <div className="text-center md:text-right">
-                    <span className="text-lg sm:text-2xl font-black text-emerald-900 bg-emerald-100/90 px-4 py-2 rounded-xl border border-emerald-300 inline-block font-mono">
-                      🔒 동물병원 사업자 전용 도매가 적용
-                    </span>
-                    <p className="text-[11px] text-slate-500 mt-1 font-normal">* 수의사 면허 및 사업자등록증 확인 후 세금계산서 청구 시 최종 금액 확정</p>
+                    {isPriceRevealed ? (
+                      <div>
+                        <div className="flex items-center justify-center md:justify-end gap-2">
+                          <span className="text-2xl sm:text-4xl font-black text-rose-600 font-mono tracking-tight">
+                            {totalPrice.toLocaleString()}원
+                          </span>
+                          <span className="text-xs bg-[#00513b] text-emerald-200 font-extrabold px-2.5 py-1 rounded-full shadow-xs">
+                            병원 도매가
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-slate-500 mt-1 font-normal">* 세금계산서 청구 기준 / 배송비 무료</p>
+                      </div>
+                    ) : (
+                      <div>
+                        <button
+                          type="button"
+                          onClick={toggleShowPrice}
+                          className="text-base sm:text-2xl font-black text-emerald-900 bg-emerald-100/90 hover:bg-emerald-200/90 px-4 py-2 rounded-xl border border-emerald-300 inline-flex items-center gap-2 font-mono transition-colors cursor-pointer"
+                        >
+                          <span>🔒 동물병원 사업자 전용 도매가 적용</span>
+                          <span className="text-xs text-emerald-800 underline font-sans font-bold">금액 보기</span>
+                        </button>
+                        <p className="text-[11px] text-slate-500 mt-1 font-normal">* 사업자번호 10자리 입력 시 자동 해제 또는 클릭하여 확인</p>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 text-xl sm:text-2xl font-black py-4 sm:py-5 rounded-2xl transition duration-300 shadow-lg shadow-amber-500/20 transform hover:-translate-y-1 flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 cursor-pointer">
