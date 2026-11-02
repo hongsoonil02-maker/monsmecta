@@ -11,8 +11,7 @@ export const PRODUCTS = {
     border: 'hover:border-emerald-500',
     text: 'text-emerald-400',
     shadow: 'hover:shadow-emerald-500/20',
-    price: 7700,
-    supply_price: 7700,
+    price: null,
     retail_price: 15000,
     isComingSoon: false,
     hero: {
@@ -42,8 +41,7 @@ export const PRODUCTS = {
     border: 'hover:border-amber-500',
     text: 'text-amber-400',
     shadow: 'hover:shadow-amber-500/20',
-    price: 8800,
-    supply_price: 8800,
+    price: null,
     retail_price: 17000,
     isComingSoon: false,
     hero: {
@@ -73,8 +71,7 @@ export const PRODUCTS = {
     border: 'hover:border-indigo-500',
     text: 'text-indigo-400',
     shadow: 'hover:shadow-indigo-500/20',
-    price: 11000,
-    supply_price: 11000,
+    price: null,
     retail_price: 22000,
     isComingSoon: false,
     hero: {

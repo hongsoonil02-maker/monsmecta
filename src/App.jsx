@@ -194,7 +194,7 @@ const MonsmectaSNJLanding = () => {
           totalPrice += q * (PRODUCTS[key]?.price || 0);
         }
       });
-      formData.append('총 결제금액', totalPrice);
+      formData.append('총 결제금액', totalPrice > 0 ? `${totalPrice.toLocaleString()}원` : '1:1 유선 협의');
       formData.append('접수일시', new Date().toLocaleString('ko-KR'));
 
       const response = await fetch(scriptURL, {

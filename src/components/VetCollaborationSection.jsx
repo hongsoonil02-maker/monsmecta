@@ -87,7 +87,7 @@ const VetCollaborationSection = () => {
                 </div>
                 <div className="flex items-center gap-2 font-semibold">
                   <span className="text-emerald-600">✓</span>
-                  <span>권장소비자가 기준 공급: 몬스멕타 15,000원 / 헤파맥스 17,000원 / 레날 22,000원</span>
+                  <span>권장소비자가: 몬스멕타 15,000원 / 헤파맥스 17,000원 / 레날 22,000원</span>
                 </div>
               </div>
             </div>
@@ -206,3 +206,4 @@ const VetCollaborationSection = () => {
 };
 
 export default VetCollaborationSection;
+

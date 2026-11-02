@@ -50,7 +50,7 @@ const VetInquiryModal = ({ isOpen, onClose }) => {
               <span>🔒</span>
               <span>동물병원 마진 보호 및 도매가 1:1 유선 상담 원칙</span>
             </div>
-            몬스멕타는 오프라인 동물병원과의 상생과 약 50%의 병원 마진 보호를 위해, 
+            몬스멕타는 오프라인 동물병원과의 상생과 병원 마진 보호 및 원장님별 맞춤 협의를 위해, 
             <strong> 웹상에 도매 공급가를 일절 노출하지 않고 1:1 직통 유선 상담</strong>으로만 공급 및 단가 안내를 진행하고 있습니다.
           </div>
 
@@ -158,3 +158,4 @@ const VetInquiryModal = ({ isOpen, onClose }) => {
 };
 
 export default VetInquiryModal;
+
