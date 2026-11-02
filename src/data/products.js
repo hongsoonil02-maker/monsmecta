@@ -11,7 +11,9 @@ export const PRODUCTS = {
     border: 'hover:border-emerald-500',
     text: 'text-emerald-400',
     shadow: 'hover:shadow-emerald-500/20',
-    price: 7000,
+    price: 7700,
+    supply_price: 7700,
+    retail_price: 15000,
     isComingSoon: false,
     hero: {
       titleKey: 'hero.title',
@@ -40,7 +42,9 @@ export const PRODUCTS = {
     border: 'hover:border-amber-500',
     text: 'text-amber-400',
     shadow: 'hover:shadow-amber-500/20',
-    price: 10000,
+    price: 8800,
+    supply_price: 8800,
+    retail_price: 17000,
     isComingSoon: false,
     hero: {
       title: '임상수의사의 해답\nHEPAMAX',
@@ -59,7 +63,7 @@ export const PRODUCTS = {
   },
   urinary: {
     id: 'urinary',
-    name_ko: '몬스멕타 레날디톡스',
+    name_ko: '몬스멕타 레날 디톡스',
     name_en: 'MONSMECTA RENAL DETOX',
     volume: '100ml',
     desc: 'B. longum 1,000억 CFU & 나노 몬모릴로나이트 장-신장 축 요독 디톡스 보조제 (100ml)',
@@ -69,7 +73,9 @@ export const PRODUCTS = {
     border: 'hover:border-indigo-500',
     text: 'text-indigo-400',
     shadow: 'hover:shadow-indigo-500/20',
-    price: 13000,
+    price: 11000,
+    supply_price: 11000,
+    retail_price: 22000,
     isComingSoon: false,
     hero: {
       title: '임상수의사의 해답\nRENAL DETOX',

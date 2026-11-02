@@ -19,7 +19,7 @@ const LANGUAGES = [
   { code: 'tr', label: 'Türkçe', flag: '🇹🇷' },
 ];
 
-const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, activeProduct, setActiveProduct }) => {
+const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, onOpenVetInquiryModal, activeProduct, setActiveProduct }) => {
   const { t, i18n } = useTranslation();
   const isKoreanLang = (i18n.language || 'ko').toLowerCase().startsWith('ko');
 
@@ -95,6 +95,13 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
           </div>
 
           {/* Desktop Action Buttons */}
+          <button 
+            onClick={onOpenVetInquiryModal} 
+            className="hidden md:inline-flex items-center gap-1.5 bg-amber-50 text-amber-900 border border-amber-300 px-3.5 py-2 rounded-full text-xs font-black shadow-xs hover:bg-amber-100 transition-all duration-200 cursor-pointer"
+          >
+            <span>🏥</span>
+            <span>병원 입점 문의</span>
+          </button>
           <button onClick={onOpenNoticeModal} className="hidden md:inline-block bg-teal-50 text-[#00513b] border border-[#00513b] px-4 py-2.5 rounded-full text-sm font-bold shadow-sm hover:bg-teal-100 transition-all duration-200">
             {t('nav.noticeBtn')}
           </button>
@@ -123,6 +130,20 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, acti
       {/* Mobile Menu Panel */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-3.5 shadow-xl animate-in fade-in">
+          {/* B2B Vet Inquiry Banner in Mobile Drawer */}
+          <div className="pb-3 border-b border-slate-100">
+            <button
+              onClick={() => { setIsMobileMenuOpen(false); onOpenVetInquiryModal && onOpenVetInquiryModal(); }}
+              className="w-full py-2.5 px-3 bg-amber-50 border border-amber-300 text-amber-900 rounded-xl text-xs font-black flex items-center justify-between shadow-xs"
+            >
+              <span className="flex items-center gap-1.5">
+                <span>🏥</span>
+                <span>동물병원 원장님 전용 1:1 입점 문의</span>
+              </span>
+              <span className="text-[10px] text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded">유선 상담 ↗</span>
+            </button>
+          </div>
+
           {/* Quick Product Switcher in Mobile Drawer */}
           <div className="pb-3 border-b border-slate-100">
             <span className="text-[11px] font-bold text-slate-400 mb-2 block">

@@ -19,6 +19,7 @@ import A11yToolbar from './components/A11yToolbar';
 import MonsmectaLineupSection from './components/MonsmectaLineupSection';
 import MonsmectaMoaSection from './components/MonsmectaMoaSection';
 import MonsmectaClinicalCase from './components/MonsmectaClinicalCase';
+import VetCollaborationSection from './components/VetCollaborationSection';
 
 // 상호작용 이후에만 필요한 컴포넌트는 지연 로딩하여 초기 번들을 줄인다.
 const Chatbot = lazy(() => import('./components/Chatbot'));
@@ -28,6 +29,7 @@ const VetSampleModal = lazy(() => import('./components/VetSampleModal'));
 const LegalModal = lazy(() => import('./components/LegalModal'));
 const NoticeGeneratorModal = lazy(() => import('./components/NoticeGeneratorModal'));
 const GeneralNoticeModal = lazy(() => import('./components/GeneralNoticeModal'));
+const VetInquiryModal = lazy(() => import('./components/VetInquiryModal'));
 
 const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
 
@@ -60,6 +62,7 @@ const MonsmectaSNJLanding = () => {
   const { t, i18n } = useTranslation();
   const [isSampleModalOpen, setIsSampleModalOpen] = useState(false);
   const [isNoticeModalOpen, setIsNoticeModalOpen] = useState(false);
+  const [isVetInquiryModalOpen, setIsVetInquiryModalOpen] = useState(false);
   const [legalType, setLegalType] = useState(null);
   const [activeProduct, setActiveProduct] = useState('monsmecta');
   const [quantities, setQuantities] = useState(
@@ -273,9 +276,10 @@ const MonsmectaSNJLanding = () => {
         {t('nav.skipToContent')}
       </a>
 
-      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
+      <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} onOpenVetInquiryModal={() => setIsVetInquiryModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
       <main id="main-content">
         <Hero setIsLabelModalOpen={setIsLabelModalOpen} onOpenSampleModal={() => setIsSampleModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
+        <VetCollaborationSection />
         <Lineup setIsLabelModalOpen={setIsLabelModalOpen} onOpenSampleModal={() => setIsSampleModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <Values activeProduct={activeProduct} />
         <ClinicalEvidence activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
@@ -345,6 +349,9 @@ const MonsmectaSNJLanding = () => {
         <GeneralNoticeModal />
         {isNoticeModalOpen && (
           <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
+        )}
+        {isVetInquiryModalOpen && (
+          <VetInquiryModal isOpen={isVetInquiryModalOpen} onClose={() => setIsVetInquiryModalOpen(false)} />
         )}
       </Suspense>
       <StickyBottomCTA onOpenModal={() => setIsSampleModalOpen(true)} onOpenNoticeModal={() => setIsNoticeModalOpen(true)} />

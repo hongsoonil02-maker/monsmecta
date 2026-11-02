@@ -44,13 +44,18 @@ const Lineup = ({ setIsLabelModalOpen, setActiveProduct, onOpenSampleModal }) =>
                   <p className="text-[10px] text-slate-400 mb-2 font-mono uppercase tracking-wider">{product.name_en}</p>
                   <p className="text-xs text-slate-600 leading-relaxed break-keep">{t(`products.${product.id}.desc`, { defaultValue: product.desc })}</p>
                   
-                  {/* 가격 비공개 락 안내 */}
+                  {/* 소비자 권장가격 표기 */}
                   <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[11px] text-slate-500 font-medium">{t('lineup.priceLabel', '공급가')}</span>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200 select-none shadow-inner">
-                      <span>🔒</span>
-                      <span>수의사 전용 비공개</span>
-                    </span>
+                    <span className="text-[11px] text-slate-500 font-semibold">{t('lineup.retailPriceLabel', '권장소비자가')}</span>
+                    {product.retail_price ? (
+                      <span className="text-sm font-black text-emerald-800 tracking-tight">
+                        {product.retail_price.toLocaleString()}원
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200 select-none">
+                        <span>출시 예정</span>
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="space-y-2 mt-auto">
@@ -90,6 +95,24 @@ const Lineup = ({ setIsLabelModalOpen, setActiveProduct, onOpenSampleModal }) =>
             );
           })}
         </div>
+
+        {/* B2B 병원 직통 안내 배너 */}
+        <div className="mt-10 bg-emerald-900/90 text-white rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg border border-emerald-700/60">
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <span className="text-2xl sm:text-3xl">🏥</span>
+            <div>
+              <p className="font-extrabold text-sm sm:text-base">동물병원 원장님이신가요? (입점 및 대량 납품 1:1 직통 상담)</p>
+              <p className="text-xs text-emerald-200 mt-0.5">병원 마진(약 50%) 보호를 위해 도매 공급가는 유선상으로만 1:1 안내해 드립니다.</p>
+            </div>
+          </div>
+          <button
+            onClick={() => onOpenSampleModal && onOpenSampleModal()}
+            className="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm rounded-xl shadow-md transition-all shrink-0 cursor-pointer"
+          >
+            병원 직통 상담 신청 ↗
+          </button>
+        </div>
+
       </div>
     </section>
   );
