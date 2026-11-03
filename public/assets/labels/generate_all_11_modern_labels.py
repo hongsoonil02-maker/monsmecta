@@ -560,12 +560,12 @@ body.size-30 .ir .l {{ font-size: 1.280mm; font-weight: 900; margin-right: 0.350
 body.size-30 .ir .v {{ font-size: 1.250mm; font-weight: 800; color: #0f172a; }}
 body.size-30 .ef {{ gap: 0.020mm; }}
 body.size-30 .ef li {{ font-size: 1.240mm; line-height: 1.10; font-weight: 800; color: #1e293b; }}
-body.size-30 .dose {{ padding: 0.200mm 0.500mm; gap: 0.150mm; overflow: hidden; }}
-body.size-30 .dose-lbl {{ font-size: 0.780mm; font-weight: 900; color: #1d4ed8; white-space: nowrap; flex-shrink: 0; line-height: 1.15; }}
+body.size-30 .dose {{ padding: 0.150mm 0.400mm; gap: 0.120mm; overflow: hidden; }}
+body.size-30 .dose-lbl {{ font-size: 0.470mm; font-weight: 900; color: #1d4ed8; white-space: nowrap; flex-shrink: 0; line-height: 1.15; }}
 body.size-30 .dose-body {{ display: flex; flex-direction: column; text-align: left; min-width: 0; }}
-body.size-30 .dose-t {{ font-size: 0.800mm; font-weight: 900; display: flex; align-items: baseline; gap: 0.200mm; white-space: nowrap; line-height: 1.15; }}
-body.size-30 .dose-t span:first-child {{ font-size: 0.800mm; font-weight: 900; }}
-body.size-30 .dose-sub {{ font-size: 0.700mm; font-weight: 700; color: #4b5563; text-align: left; line-height: 1.10; }}
+body.size-30 .dose-t {{ font-size: 0.480mm; font-weight: 900; display: flex; align-items: baseline; gap: 0.150mm; white-space: nowrap; line-height: 1.15; }}
+body.size-30 .dose-t span:first-child {{ font-size: 0.480mm; font-weight: 900; }}
+body.size-30 .dose-sub {{ font-size: 0.420mm; font-weight: 700; color: #4b5563; text-align: left; line-height: 1.10; }}
 body.size-30 .warn {{ padding: 0.250mm 0.500mm 0.300mm; border-radius: 0.800mm; border: 0.200mm solid #fecdd3; }}
 body.size-30 .warn-t {{ font-size: 1.160mm; font-weight: 900; margin-bottom: 0.250mm; }}
 body.size-30 .warn-b {{ display: flex; flex-direction: column; gap: 0.220mm; font-size: 1.050mm; line-height: 1.12; font-weight: 700; color: #334155; }}
