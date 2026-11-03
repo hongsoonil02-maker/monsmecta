@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>몬스멕타 스킨케어 Label (123mm x 75mm & 101mm x 42mm) - 접착면 포함 실측 인쇄</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Jua&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+
+    <style id="page-style">
+        @page { size: A4 portrait; margin: 8mm 0 0; }
+    </style>
+
+    <style>
+        :root {
+            --deep: #3d0d26;
+            --deep-2: #591338;
+            --deep-3: #260617;
+            --emerald: #db2777;
+            --mint: #fbcfe8;
+            --lime: #f472b6;
+            --cream: #fff6e3;
+            --peach: #ffc9a3;
+            --coral: #e8553b;
+            --ink: #2b071a;
+            --label-width: 123mm;
+            --label-height: 75mm;
+            --front-w: 50mm;
+            --back-w: 56mm;
+            --fz: 1;
+            --bz: 1;
+            --font-body: 'Pretendard', 'Noto Sans KR', -apple-system, 'Segoe UI', sans-serif;
+            --font-title: 'Jua', 'Pretendard', 'Noto Sans KR', sans-serif;
+            --font-en: 'Fredoka', 'Pretendard', Arial, sans-serif;
+        }
+        .size-30 {
+            --label-width: 101mm;
+            --label-height: 42mm;
+            --front-w: 39.5mm;
+            --back-w: 44.5mm;
+            --fz: 0.72;
+            --bz: 0.66;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+        html, body { font-family: var(--font-body); background: #eef3ee; color: var(--deep); }
+
+        /* ================= 라벨 본체 (실측 mm) ================= */
+        .label-sheet {
+            width: var(--label-width);
+            height: var(--label-height);
+            background: #fff;
+            padding: 0 3mm 0 7mm;
+            display: flex;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .panel-gap { width: 7mm; flex-shrink: 0; }
+
+        /* ---------- 전면 ---------- */
+        .front {
+            width: var(--front-w);
+            height: 100%;
+            flex-shrink: 0;
+            background: var(--deep);
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+        .front-in {
+            zoom: var(--fz);
+            width: calc(var(--front-w) / var(--fz));
+            height: calc(var(--label-height) / var(--fz));
+            padding: 2.2mm 2.2mm 2mm;
+            display: flex;
+            flex-direction: column;
+            gap: 1.15mm;
+            position: relative;
+        }
+        .front-in > * { position: relative; }
+
+        .f-top {
+            height: 4mm; flex: none;
+            display: flex; align-items: center; justify-content: center; gap: 1.2mm;
+            border: .25mm solid rgba(191, 240, 214, .55);
+            border-radius: 4mm;
+            font-size: 1.45mm; font-weight: 800; letter-spacing: .035em; line-height: 1;
+        }
+        .f-top b { color: var(--lime); font-weight: 900; }
+        .f-top svg { width: 1.9mm; height: 1.9mm; fill: var(--lime); flex: none; }
+
+        /* 히어로 */
+        .hero {
+            flex: none;
+            height: 23.5mm;
+            background: var(--cream);
+            color: var(--deep);
+            border-radius: 6mm 6mm 6mm 1.2mm;
+            padding: 2.1mm 2.4mm;
+            overflow: hidden;
+            position: relative;
+        }
+        .hero .blob { position: absolute; border-radius: 50%; }
+        .hero .b1 { width: 17mm; height: 17mm; right: -6mm; top: -7mm; background: #cdf2de; }
+        .hero .b2 { width: 3.4mm; height: 3.4mm; right: 8mm; top: 6mm; background: var(--lime); }
+        .hero .paw { position: absolute; width: 5mm; height: 5mm; right: 2.2mm; top: 1.6mm; fill: var(--deep); opacity: .16; transform: rotate(18deg); }
+        .tagline {
+            display: inline-block; position: relative;
+            background: var(--deep); color: var(--cream);
+            border-radius: 3mm; padding: .65mm 1.7mm;
+            font-size: 1.3mm; font-weight: 800; line-height: 1.2; letter-spacing: -.01em;
+            max-width: 95%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .title {
+            position: relative;
+            font-family: var(--font-title); font-weight: 400;
+            font-size: 5.6mm; line-height: 1.05; letter-spacing: -.03em;
+            margin-top: 1.6mm; color: var(--deep); white-space: nowrap;
+        }
+        .tm { font-family: var(--font-body); font-size: .3em; font-weight: 800; vertical-align: super; margin-left: .3mm; letter-spacing: 0; }
+        .title .tm { vertical-align: top; position: relative; top: .5em; }
+        .en {
+            position: relative;
+            font-family: var(--font-en); font-weight: 700;
+            font-size: 2.3mm; line-height: 1; letter-spacing: .08em;
+            margin-top: .8mm; color: #0e9f6e; white-space: nowrap;
+        }
+        .en .tm { font-size: .42em; letter-spacing: 0; }
+        .mascots { position: absolute; right: 1.0mm; bottom: -1.8mm; display: flex; align-items: flex-end; }
+        .mascots svg { width: 7.2mm; height: 7.2mm; }
+        .mascots svg + svg { margin-left: -1.2mm; }
+
+        /* 핵심 효능 */
+        .effects {
+            flex: none;
+            margin-top: .55mm;
+            padding: 1.7mm 1.5mm .8mm;
+            border: .25mm dashed rgba(191, 240, 214, .6);
+            border-radius: 2.6mm;
+            position: relative;
+        }
+        .effects .tag {
+            position: absolute; left: 2.2mm; top: -1.25mm;
+            background: var(--lime); color: var(--deep);
+            border-radius: 2mm; padding: .2mm 1.5mm 0;
+            height: 2.4mm; display: inline-flex; align-items: center;
+            font-size: 1.4mm; font-weight: 900; line-height: 1;
+        }
+        .effects ul { list-style: none; display: grid; gap: .50mm; }
+        .effects li {
+            display: flex; align-items: center; gap: .9mm;
+            font-size: 1.45mm; font-weight: 800; line-height: 1.22; white-space: nowrap;
+        }
+        .ck { width: 1.9mm; height: 1.9mm; border-radius: 50%; flex: none; background: var(--lime) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.2 10.4l3.2 3.2 6.4-7' fill='none' stroke='%233d0d26' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat; }
+        .effects .note { color: var(--mint); font-size: 1.15mm; font-weight: 700; }
+
+        /* 성분 */
+        .ing {
+            flex: 1; min-height: 0;
+            background: rgba(255, 255, 255, .08);
+            border-radius: 2.6mm;
+            padding: 1.3mm 1.6mm;
+            display: flex; flex-direction: column;
+        }
+        .ing-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: .8mm; }
+        .ing-head h3 { font-size: 1.75mm; font-weight: 900; color: var(--lime); letter-spacing: -.01em; }
+        .ing-head span { font-size: 1.15mm; font-weight: 800; color: var(--deep); background: var(--mint); border-radius: 2mm; padding: .3mm 1.1mm; }
+        .ing ol { list-style: none; display: grid; gap: .75mm; }
+        .ing li { display: grid; grid-template-columns: 2.1mm 1fr; column-gap: .9mm; align-items: start; }
+        .no {
+            width: 2.1mm; height: 2.1mm; border-radius: 50%;
+            background: var(--lime); color: var(--deep);
+            font-size: 1.3mm; font-weight: 900; line-height: 2.1mm; text-align: center;
+            margin-top: .1mm;
+        }
+        .ing .m { font-size: 1.48mm; font-weight: 800; line-height: 1.25; }
+        .ing .m em { font-style: normal; color: var(--lime); font-size: 1.25mm; font-weight: 800; margin-left: .5mm; }
+        .ing .s { font-size: 1.12mm; line-height: 1.35; font-weight: 500; color: rgba(255, 255, 255, .85); }
+        .ing .s i { font-style: normal; color: var(--mint); font-weight: 700; }
+
+        .f-bottom {
+            height: 4.4mm; flex: none;
+            display: flex; align-items: center; justify-content: space-between; gap: 1mm;
+            font-size: 1.2mm; font-weight: 700; color: var(--mint);
+        }
+        .f-bottom b { color: #fff; font-weight: 900; }
+        .f-bottom .for {
+            background: var(--lime); color: var(--deep);
+            border-radius: 3mm; padding: .75mm 1.6mm;
+            font-size: 1.4mm; font-weight: 900; white-space: nowrap;
+        }
+
+        /* ---------- 후면 (정보 고시) ---------- */
+        .back {
+            --b-bg: #fff; --b-ink: #0b2a20; --b-label: #06402f; --b-line: #cfe3d8;
+            --b-chip: #06402f; --b-chip-ink: #d8f46a;
+            --b-dose: #fce7f3; --b-dose-ink: #06402f;
+            --b-warn: #fff1cc; --b-warn-ink: #4a3a10; --b-warn-title: #d6452b;
+            --b-sub: #4f6b5e;
+            width: var(--back-w);
+            height: 100%;
+            flex-shrink: 0;
+            background: var(--b-bg);
+            color: var(--b-ink);
+            overflow: hidden;
+            border: 0.35mm solid #0f172a;
+            border-radius: 1.2mm;
+        }
+        .back.theme-dark {
+            --b-bg: #06402f; --b-ink: #f4fff9; --b-label: #d8f46a; --b-line: rgba(191, 240, 214, .35);
+            --b-chip: #d8f46a; --b-chip-ink: #06402f;
+            --b-dose: #fce7f3; --b-dose-ink: #f4fff9;
+            --b-warn: #fff1cc; --b-warn-ink: #4a3a10; --b-warn-title: #d6452b;
+            --b-sub: #bff0d6;
+            border: 0.35mm solid var(--lime);
+        }
+        .back-in {
+            zoom: var(--bz);
+            width: calc(var(--back-w) / var(--bz));
+            height: calc(var(--label-height) / var(--bz));
+            padding: 2.1mm 2.1mm 1.8mm;
+            display: flex; flex-direction: column; gap: .85mm;
+            font-size: 1.48mm; line-height: 1.36;
+        }
+        .b-reg { display: flex; align-items: center; justify-content: space-between; gap: 1mm; }
+        .b-reg .k { font-size: 1.55mm; font-weight: 800; }
+        .b-reg .v {
+            background: var(--b-chip); color: var(--b-chip-ink);
+            border-radius: 2mm 2mm 2mm .6mm; padding: .55mm 1.7mm;
+            font-size: 2.05mm; font-weight: 900; line-height: 1.2; white-space: nowrap;
+        }
+        .b-tm { display: grid; gap: .45mm; padding: .2mm 0 .8mm; border-bottom: .22mm dashed var(--b-line); }
+        .b-tm div { display: flex; align-items: center; justify-content: space-between; gap: 1mm; font-size: 1.38mm; font-weight: 700; }
+        .b-tm .c {
+            display: inline-block; margin-right: .8mm;
+            background: var(--b-chip); color: var(--b-chip-ink);
+            border-radius: .7mm; padding: .1mm .6mm; font-size: 1mm; font-weight: 900;
+        }
+        .b-tm .n { font-weight: 900; text-align: right; }
+
+        .b-info { display: grid; gap: .65mm; }
+        .b-info p { font-size: 1.45mm; font-weight: 600; line-height: 1.35; }
+        .b-info p b { color: var(--b-label); font-weight: 900; }
+        .b-info .sup { font-size: .7em; vertical-align: super; line-height: 0; }
+        .b-effects { list-style: none; display: grid; gap: .45mm; margin-top: .3mm; }
+        .b-effects li { display: grid; grid-template-columns: 3.2mm 1fr; column-gap: .8mm; font-size: 1.45mm; font-weight: 600; }
+        .b-effects .r {
+            background: var(--b-chip); color: var(--b-chip-ink);
+            border-radius: .8mm; font-size: 1.1mm; font-weight: 900; text-align: center;
+            height: 2mm; line-height: 2mm; margin-top: .1mm;
+        }
+
+        .b-dose {
+            background: var(--b-dose); color: var(--b-dose-ink);
+            border-radius: 2.4mm; padding: 1.0mm 1.5mm;
+            display: grid; grid-template-columns: 4.4mm 1fr; column-gap: 1.2mm; align-items: center;
+        }
+        .b-dose .ic { width: 4.4mm; height: 4.4mm; border-radius: 50%; background: var(--b-chip); display: grid; place-items: center; }
+        .b-dose .ic svg { width: 2.7mm; height: 2.7mm; fill: var(--b-chip-ink); }
+        .b-dose .t { font-size: 1.42mm; font-weight: 900; }
+        .b-dose .t span { font-size: 2.05mm; margin-left: .8mm; letter-spacing: -.01em; }
+        .b-dose .s { font-size: 1.20mm; font-weight: 700; opacity: .85; }
+
+        .b-warn {
+            background: var(--b-warn); color: var(--b-warn-ink);
+            border-radius: 2.4mm; padding: .9mm 1.5mm;
+        }
+        .b-warn h4 { font-size: 1.50mm; font-weight: 900; color: var(--b-warn-title); }
+        .b-warn ul { list-style: none; display: grid; gap: .25mm; margin-top: .3mm; }
+        .b-warn li { font-size: 1.28mm; font-weight: 600; line-height: 1.35; }
+        .b-warn mark { background: var(--lime); color: var(--deep); font-weight: 900; border-radius: .6mm; padding: 0 .5mm; }
+
+        .b-meta { display: flex; flex-wrap: wrap; align-items: center; column-gap: 1.8mm; row-gap: .3mm; font-size: 1.28mm; font-weight: 700; }
+        .b-meta b { color: var(--b-label); font-weight: 900; }
+        .rc { display: inline-flex; align-items: center; gap: .6mm; margin-left: auto; font-size: 1.12mm; font-weight: 900; }
+        .rc svg { width: 3.2mm; height: 3mm; }
+
+        .b-foot { margin-top: auto; border-top: .22mm dashed var(--b-line); padding-top: .7mm; display: grid; gap: .55mm; }
+        .b-foot .row { display: flex; align-items: center; gap: 1.2mm; }
+        .b-foot .logo { width: 5.4mm; height: 5.4mm; border-radius: 50%; border: .3mm solid var(--lime); background: #fff; flex: none; object-fit: cover; }
+        .b-foot .row.maker { padding-left: 6.6mm; }
+        .b-foot .nm { font-size: 1.30mm; font-weight: 900; }
+        .b-foot .nm span { margin-left: 1.2mm; font-weight: 700; color: var(--b-sub); }
+        .b-foot .ad { font-size: 1.18mm; font-weight: 600; color: var(--b-sub); }
+
+        /* ---------- 30ml 보정 ---------- */
+        .size-30 .front-in { padding: 1.5mm 1.8mm 1.2mm; gap: .7mm; }
+        .size-30 .f-top { height: 2.3mm; border: 0; font-size: 1.3mm; }
+        .size-30 .hero { height: 18.4mm; padding: 1.4mm 2mm; }
+        .size-30 .title { font-size: 4.4mm; margin-top: .9mm; }
+        .size-30 .en { font-size: 1.9mm; margin-top: .6mm; }
+        .size-30 .tagline { font-size: 1.1mm; padding: .4mm 1.3mm; }
+        .size-30 .mascots { bottom: -1.2mm; }
+        .size-30 .mascots svg { width: 6.2mm; height: 6.2mm; }
+        .size-30 .hero .b1 { width: 12.5mm; height: 12.5mm; top: -5mm; right: -4mm; }
+        .size-30 .hero .b2 { width: 2.5mm; height: 2.5mm; right: 5.6mm; top: 4.2mm; }
+        .size-30 .hero .paw { width: 3.6mm; height: 3.6mm; right: 1.5mm; top: 1.1mm; }
+        .size-30 .effects { margin-top: .5mm; padding: 1.5mm 1.4mm .6mm; }
+        .size-30 .effects .tag { height: 2.1mm; font-size: 1.3mm; top: -1.1mm; }
+        .size-30 .effects ul { gap: .35mm; }
+        .size-30 .effects li { font-size: 1.25mm; line-height: 1.15; }
+        .size-30 .ck { width: 1.6mm; height: 1.6mm; }
+        .size-30 .ing { padding: .9mm 1.3mm; }
+        .size-30 .ing-head { margin-bottom: .6mm; }
+        .size-30 .ing-head h3 { font-size: 1.5mm; }
+        .size-30 .ing-head span { font-size: 1mm; }
+        .size-30 .ing ol { gap: .45mm; }
+        .size-30 .no { width: 1.8mm; height: 1.8mm; line-height: 1.8mm; font-size: 1.1mm; }
+        .size-30 .ing li { grid-template-columns: 1.8mm 1fr; }
+        .size-30 .ing .m { font-size: 1.38mm; line-height: 1.25; }
+        .size-30 .ing .m em { font-size: 1.1mm; }
+        .size-30 .ing .s { font-size: 1.05mm; line-height: 1.3; }
+        .size-30 .f-bottom { height: 3mm; font-size: 1.1mm; }
+        .size-30 .f-bottom .for { font-size: 1.25mm; padding: .5mm 1.3mm; }
+
+        .size-30 .back-in { padding: 1.4mm 1.8mm 1.2mm; gap: .55mm; }
+        .size-30 .b-reg .v { padding: .4mm 1.5mm; font-size: 1.9mm; }
+        .size-30 .b-tm { padding-bottom: .6mm; gap: .25mm; }
+        .size-30 .b-info { gap: .45mm; }
+        .size-30 .b-effects { gap: .3mm; margin-top: .1mm; }
+        .size-30 .b-effects .r { height: 1.8mm; line-height: 1.8mm; }
+        .size-30 .b-dose { padding: .7mm 1.4mm; grid-template-columns: 3.4mm 1fr; }
+        .size-30 .b-dose .ic { width: 3.4mm; height: 3.4mm; }
+        .size-30 .b-dose .ic svg { width: 2.1mm; height: 2.1mm; }
+        .size-30 .b-warn { padding: .7mm 1.4mm; }
+        .size-30 .b-warn ul { margin-top: .1mm; gap: .1mm; }
+        .size-30 .b-foot { padding-top: .6mm; grid-template-columns: 1fr 1.15fr; gap: 1.2mm; margin-bottom: .6mm; }
+        .size-30 .b-foot .row.maker { padding-left: 0; }
+        .size-30 .b-foot .ad { font-size: 1.08mm; }
+        .size-30 .b-foot .logo { width: 4.6mm; height: 4.6mm; }
+        .size-30 .b-foot .nm span { display: block; margin-left: 0; }
+        .size-30 .back-in { gap: .75mm; }
+
+        /* ================= 스튜디오(화면 전용) ================= */
+        .a4-calibration-header, .a4-cut-instructions, .crop-line { display: none; }
+        .mode-white #card-dark, .mode-dark #card-white { display: none; }
+
+        @media screen {
+            body { padding: 0 40px 64px; }
+            .studio-header {
+                max-width: 1000px; margin: auto; min-height: 88px;
+                display: flex; align-items: center; justify-content: space-between; gap: 20px;
+                border-bottom: 1px solid #cfdcd2;
+            }
+            .studio-brand { color: var(--deep); text-decoration: none; font: 700 24px var(--font-en); letter-spacing: .02em; }
+            .studio-brand span { display: block; font: 600 9px var(--font-body); letter-spacing: 2px; margin-top: 6px; color: #4f6b5e; }
+            .studio-spec { font: 11px monospace; color: #4f6b5e; }
+            .studio-intro { max-width: 1000px; margin: 44px auto 28px; }
+            .studio-eyebrow { color: #0e9f6e; font: 800 10px var(--font-body); letter-spacing: 2px; margin-bottom: 12px; }
+            .studio-intro h1 { font: 400 clamp(26px, 3.5vw, 40px)/1.25 var(--font-title); letter-spacing: -1px; }
+            .studio-intro h1 span { color: #0e9f6e; }
+            .studio-description { margin-top: 10px; font-size: 13px; color: #607468; }
+            .studio-toolbar { display: flex; flex-wrap: wrap; gap: 12px; max-width: 1000px; margin: 0 auto 30px; align-items: center; }
+            .control-group { display: flex; padding: 4px; border: 1px solid #cfdcd2; border-radius: 999px; gap: 3px; background: #fff; }
+            .studio-toolbar button { background: transparent; color: #4f6b5e; border: 0; border-radius: 999px; padding: 9px 15px; font: 700 12px var(--font-body); cursor: pointer; }
+            .studio-toolbar button[aria-pressed="true"] { background: var(--deep); color: var(--lime); }
+            .studio-toolbar button:hover { background: #d8efe2; color: var(--deep); }
+            .studio-toolbar button:focus-visible { outline: 2px solid #0e9f6e; outline-offset: 3px; }
+            .paper-controls { margin-left: auto; }
+            .studio-toolbar .print-button { background: var(--lime); color: var(--deep); padding: 13px 20px; border: 1px solid var(--deep); }
+            .adhesive-guide { max-width: 1000px; margin: -14px auto 28px; font-size: 11px; color: #607468; }
+            .labels-stage { --preview-scale: 1; width: 100%; max-width: 1000px; margin: auto; display: flex; flex-direction: column; gap: 40px; }
+            .label-card-wrapper { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+            .label-type-tag { display: flex; justify-content: space-between; gap: 12px; font-size: 10px; font-weight: 800; letter-spacing: .8px; color: #4f6b5e; }
+            .label-type-tag span:last-child { font-weight: 500; letter-spacing: 0; }
+            .crop-marks-box { position: relative; width: calc(var(--label-width) * var(--preview-scale)); height: calc(var(--label-height) * var(--preview-scale)); }
+            .label-sheet {
+                position: absolute; top: 0; left: 0;
+                transform: scale(var(--preview-scale)); transform-origin: top left;
+                box-shadow: 0 10px 24px rgba(6, 64, 47, .16);
+            }
+            #card-white { order: -1; }
+        }
+        #card-white { order: -1; }
+        @media screen and (max-width: 640px) {
+            body { padding: 0 16px 36px; }
+            .studio-header { min-height: 72px; }
+            .studio-spec { font-size: 9px; text-align: right; }
+            .studio-intro { margin: 28px auto 20px; }
+            .studio-toolbar { gap: 8px; }
+            .studio-toolbar button { padding: 8px 10px; font-size: 11px; }
+            .paper-controls { margin-left: 0; }
+            .label-type-tag { font-size: 8px; }
+        }
+
+        /* ================= 인쇄 ================= */
+        @media print {
+            html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
+            .no-print { display: none !important; }
+            .labels-stage { --preview-scale: 1 !important; display: flex; flex-direction: column; align-items: center; gap: 12mm; }
+            .label-card-wrapper { break-inside: avoid; }
+            .label-type-tag { display: none; }
+            .crop-marks-box { position: relative; width: var(--label-width); height: var(--label-height); margin: 0 auto; }
+            .label-sheet { position: relative; transform: none !important; box-shadow: none; }
+
+            body.paper-a4 { width: 210mm; margin: 0 auto !important; }
+            body.paper-a4 .labels-stage { padding-top: 5mm; width: 210mm; }
+            body.paper-a4 .a4-calibration-header { display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 2mm; }
+            body.paper-a4 .a4-cut-instructions { display: block; font-size: 8.5pt; color: #334155; text-align: center; }
+            body.paper-a4 .crop-line { display: block; position: absolute; background: #0f172a; z-index: 9999; }
+            .crop-tl-h { top: 0; left: -5mm; width: 4mm; height: .3mm; }
+            .crop-tl-v { top: -5mm; left: 0; width: .3mm; height: 4mm; }
+            .crop-tr-h { top: 0; right: -5mm; width: 4mm; height: .3mm; }
+            .crop-tr-v { top: -5mm; right: 0; width: .3mm; height: 4mm; }
+            .crop-bl-h { bottom: 0; left: -5mm; width: 4mm; height: .3mm; }
+            .crop-bl-v { bottom: -5mm; left: 0; width: .3mm; height: 4mm; }
+            .crop-br-h { bottom: 0; right: -5mm; width: 4mm; height: .3mm; }
+            .crop-br-v { bottom: -5mm; right: 0; width: .3mm; height: 4mm; }
+
+            body.paper-roll, body.paper-roll .labels-stage { width: var(--label-width); margin: 0; padding: 0; gap: 0; }
+            body.paper-roll .label-card-wrapper { width: var(--label-width); height: var(--label-height); break-after: page; }
+            body.paper-roll .label-card-wrapper:last-of-type { break-after: auto; }
+        }
+    </style>
+</head>
+<body class="mode-white paper-a4 size-100">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-paw" viewBox="0 0 24 24">
+        <ellipse cx="12" cy="16.2" rx="5.2" ry="4.4"/>
+        <ellipse cx="4.8" cy="10.6" rx="2.2" ry="2.9"/>
+        <ellipse cx="9.2" cy="5.6" rx="2.2" ry="3"/>
+        <ellipse cx="14.8" cy="5.6" rx="2.2" ry="3"/>
+        <ellipse cx="19.2" cy="10.6" rx="2.2" ry="2.9"/>
+    </symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24">
+        <path d="M12 2.5c3.4 4.4 6.2 7.6 6.2 11.4a6.2 6.2 0 0 1-12.4 0C5.8 10.1 8.6 6.9 12 2.500z"/>
+    </symbol>
+</svg>
+
+<header class="studio-header no-print">
+    <a class="studio-brand" href="#">몬스멕타 스킨케어<span id="studio-volume">LABEL STUDIO / 100ml</span></a>
+    <span class="studio-spec" id="studio-spec">123 × 75 mm / PRINT EDITION</span>
+</header>
+<main class="studio-intro no-print">
+    <p class="studio-eyebrow">S&amp;J ADVANCED VET FORMULA</p>
+    <h1>피부 장벽과 가려움 완화, <span>로즈 핑크의 화사함.</span></h1>
+    <p class="studio-description">몬스멕타 스킨케어 - 퀘르세틴·브로멜라인·오메가3 아토피·피부 장벽 보호 (로즈 핑크 정체성 컬러).</p>
+</main>
+<nav class="studio-toolbar no-print" aria-label="라벨 미리보기 및 인쇄 설정">
+    <div class="control-group" aria-label="용량 및 크기 선택">
+        <button id="btn-size-100" onclick="setLabelSize('100')" aria-pressed="true">100ml</button>
+        <button id="btn-size-30" onclick="setLabelSize('30')" aria-pressed="false">30ml</button>
+    </div>
+    <div class="control-group" aria-label="디자인 선택">
+        <button id="btn-white-label" onclick="setViewMode('white')" aria-pressed="true">화이트 뒷면</button>
+        <button id="btn-dark-label" onclick="setViewMode('dark')" aria-pressed="false">딥그린 뒷면</button>
+        <button id="btn-compare-label" onclick="setViewMode('compare')" aria-pressed="false">비교 보기</button>
+    </div>
+    <div class="control-group paper-controls" aria-label="인쇄 규격 선택">
+        <button id="btn-paper-a4" onclick="setPaperMode('a4')" aria-pressed="true">A4 재단선</button>
+        <button id="btn-paper-roll" onclick="setPaperMode('roll')" aria-pressed="false">롤 라벨</button>
+    </div>
+    <button class="print-button" onclick="doPrint()">인쇄 / PDF <span aria-hidden="true">↗</span></button>
+</nav>
+<p class="adhesive-guide no-print" id="adhesive-guide"></p>
+
+<div class="labels-stage">
+
+    <div class="a4-calibration-header">
+        <div id="calib-title" style="font-size:12pt; font-weight:900; color:#0f172a; margin-bottom:2mm;"></div>
+        <div style="font-size:9pt; color:#475569; margin-bottom:3mm;">
+            ※ 인쇄 설정 시 반드시 <strong>[배율: 맞춤(100%)]</strong> 또는 <strong>[실제 크기(Actual Size)]</strong>로 지정하십시오.
+        </div>
+        <div style="display:flex; align-items:center; gap:3mm; font-size:8.5pt; font-family:monospace; color:#334155;">
+            <span>실측 확인용 눈금자:</span>
+            <div style="width:50mm; height:5mm; border:0.3mm solid #0f172a; border-top:none; position:relative;">
+                <div style="position:absolute; top:0; left:0; width:0.3mm; height:3mm; background:#0f172a;"></div>
+                <div style="position:absolute; top:0; left:10mm; width:0.3mm; height:2mm; background:#0f172a;"></div>
+                <div style="position:absolute; top:0; left:20mm; width:0.3mm; height:2mm; background:#0f172a;"></div>
+                <div style="position:absolute; top:0; left:30mm; width:0.3mm; height:2mm; background:#0f172a;"></div>
+                <div style="position:absolute; top:0; left:40mm; width:0.3mm; height:2mm; background:#0f172a;"></div>
+                <div style="position:absolute; top:0; right:0; width:0.3mm; height:3mm; background:#0f172a;"></div>
+                <span style="position:absolute; bottom:0.5mm; left:1mm; font-size:6.5pt;">0</span>
+                <span style="position:absolute; bottom:0.5mm; right:1mm; font-size:6.5pt;">50mm</span>
+            </div>
+            <span>(자로 쟀을 때 정확히 5cm)</span>
+        </div>
+    </div>
+
+    <div class="label-card-wrapper" id="card-dark">
+        <div class="label-type-tag no-print"><span>02 / ROSE PINK</span><span class="dims"></span></div>
+        <div class="crop-marks-box">
+            <div class="crop-line crop-tl-h"></div><div class="crop-line crop-tl-v"></div>
+            <div class="crop-line crop-tr-h"></div><div class="crop-line crop-tr-v"></div>
+            <div class="crop-line crop-bl-h"></div><div class="crop-line crop-bl-v"></div>
+            <div class="crop-line crop-br-h"></div><div class="crop-line crop-br-v"></div>
+        </div>
+    </div>
+
+    <div class="label-card-wrapper" id="card-white">
+        <div class="label-type-tag no-print"><span>01 / SIGNATURE WHITE</span><span class="dims"></span></div>
+        <div class="crop-marks-box">
+            <div class="crop-line crop-tl-h"></div><div class="crop-line crop-tl-v"></div>
+            <div class="crop-line crop-tr-h"></div><div class="crop-line crop-tr-v"></div>
+            <div class="crop-line crop-bl-h"></div><div class="crop-line crop-bl-v"></div>
+            <div class="crop-line crop-br-h"></div><div class="crop-line crop-br-v"></div>
+        </div>
+    </div>
+
+    <div class="a4-cut-instructions"></div>
+</div>
+
+<template id="label-tpl">
+    <div class="label-sheet">
+        <section class="front">
+            <div class="front-in">
+                <div class="f-top">
+                    <svg><use href="#i-paw"/></svg>
+                    <span><b>S&amp;J</b>&nbsp;ADVANCED VET FORMULA</span>
+                    <svg><use href="#i-paw"/></svg>
+                </div>
+
+                <div class="hero">
+                    <span class="blob b1"></span>
+                    <span class="blob b2"></span>
+                    <svg class="paw"><use href="#i-paw"/></svg>
+                    <div class="tagline">피부 및 아토피 개선 보조제</div>
+                    <h1 class="title">몬스멕타<span class="tm">™</span> <span style="font-size:0.78em; letter-spacing:-0.04em;">스킨케어</span></h1>
+                    <h2 class="en">MONSMECTA<span class="tm">™</span> SKINCARE</h2>
+                    <div class="mascots">
+                        <svg viewBox="0 0 44 44" aria-label="강아지">
+                            <path d="M9 11C2 11 0 26 6 32c3.5.5 5.5-6 5-13.500z" fill="#e9a869" stroke="#06402f" stroke-width="1.6" stroke-linejoin="round"/>
+                            <path d="M35 11c7 0 9 15 3 21-3.5.5-5.5-6-5-13.500z" fill="#e9a869" stroke="#06402f" stroke-width="1.6" stroke-linejoin="round"/>
+                            <circle cx="22" cy="24" r="14.5" fill="#ffe0b8" stroke="#06402f" stroke-width="1.6"/>
+                            <circle cx="14" cy="28.5" r="2.6" fill="#ffb4a2" opacity=".7"/>
+                            <circle cx="30" cy="28.5" r="2.6" fill="#ffb4a2" opacity=".7"/>
+                            <circle cx="16.5" cy="22" r="1.9" fill="#06402f"/>
+                            <circle cx="27.5" cy="22" r="1.9" fill="#06402f"/>
+                            <ellipse cx="22" cy="29" rx="5.5" ry="4" fill="#fff" stroke="#06402f" stroke-width="1.3"/>
+                            <ellipse cx="22" cy="27" rx="2.3" ry="1.6" fill="#06402f"/>
+                            <path d="M22 28.500v1.500M19.5 30.800q2.5 2.2 5 0" fill="none" stroke="#06402f" stroke-width="1.2" stroke-linecap="round"/>
+                            <path d="M21 32.200q1 3.3 2 0z" fill="#ff8fa3"/>
+                        </svg>
+                        <svg viewBox="0 0 44 44" aria-label="고양이">
+                            <path d="M8.5 22L9.5 3.5 22 12.500z" fill="#fff" stroke="#06402f" stroke-width="1.6" stroke-linejoin="round"/>
+                            <path d="M35.5 22L34.5 3.5 22 12.500z" fill="#fff" stroke="#06402f" stroke-width="1.6" stroke-linejoin="round"/>
+                            <path d="M11.5 13l.400-5 4.6 3.600z" fill="#ffb4c0"/>
+                            <path d="M32.5 13l-.400-5-4.6 3.600z" fill="#ffb4c0"/>
+                            <ellipse cx="22" cy="25.5" rx="15.5" ry="13" fill="#fff" stroke="#06402f" stroke-width="1.6"/>
+                            <circle cx="13.5" cy="29" r="2.6" fill="#ffb4a2" opacity=".7"/>
+                            <circle cx="30.5" cy="29" r="2.6" fill="#ffb4a2" opacity=".7"/>
+                            <path d="M13 24.500q2.5-3 5 0M26 24.500q2.5-3 5 0" fill="none" stroke="#06402f" stroke-width="1.7" stroke-linecap="round"/>
+                            <path d="M20.3 28h3.400l-1.7 2z" fill="#ff8fa3"/>
+                            <path d="M22 30q-1.5 2.3-3.2 1M22 30q1.5 2.3 3.2 1" fill="none" stroke="#06402f" stroke-width="1.2" stroke-linecap="round"/>
+                            <path d="M5.5 27l6 1M5.5 31l6-1.500M38.5 27l-6 1M38.5 31l-6-1.5" stroke="#06402f" stroke-width="1" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="effects">
+                    <span class="tag">핵심 효능</span>
+                    <ul>
+                        <li><i class="ck"></i>피부 장벽 강화 및 재생</li>
+                        <li><i class="ck"></i>가려움증 및 발적 완화</li>
+                        <li><i class="ck"></i>아토피 등 알러지 억제</li>
+                        <li><i class="ck"></i>모질 개선 및 탈모 방지</li>
+                    </ul>
+                </div>
+
+                <div class="ing">
+                    <div class="ing-head">
+                        <h3>주요 성분량(5대 복합)</h3>
+                        <span><span class="vol">100ml</span> 정품 규격</span>
+                    </div>
+                    <ol>
+                        <li>
+                            <span class="no">1</span>
+                            <div>
+                                <div class="m">Montmorillonite (알러지 독소 흡착) <em>- 고함량</em></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="no">2</span>
+                            <div>
+                                <div class="m">Quercetin (퀘르세틴) <em>- 40,000mg</em></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="no">3</span>
+                            <div>
+                                <div class="m">Bromelain (브로멜라인) <em>- 30,000mg</em></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="no">4</span>
+                            <div>
+                                <div class="m">Omega-3 (오메가3 EPA/DHA) <em>- 30,000mg</em></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="no">5</span>
+                            <div>
+                                <div class="m">Monsmecta 베이스 배합 <em>- 핵심 원료</em></div>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="f-bottom">
+                    <span><b>S&amp;J VET FORMULA</b>&nbsp;· 동물병원 처방</span>
+                    <span class="for">반려견·반려묘 (<span class="vol">100ml</span>)</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="panel-gap"></div>
+
+        <section class="back">
+            <div class="back-in">
+                <div class="b-reg">
+                    <span class="k">사료의 성분등록번호 :</span>
+                    <span class="v">제 XX9UY0145호</span>
+                </div>
+
+                <div class="b-tm">
+                    <div><span><span class="c">KR</span>특허청 상표출원</span><span class="n">제40-2026-0140274호 (05류/31류)</span></div>
+                    <div><span><span class="c">US</span>미국 USPTO 출원</span><span class="n">App No. 50/041,096</span></div>
+                </div>
+
+                <div class="b-info">
+                    <p><b>사료의 종류와 명칭 / 형태 / 용도 :</b> 보조사료/미생물제/바실러스 서브틸리스(액상)/반려동물</p>
+                    <p><b>등록성분량 :</b> 바실러스 서브틸리스 1.0 x 10⁶ cfu/g 이상, 부형제( 정제수 )</p>
+                    <p><b>사용한 원료의 명칭 :</b> 바실러스 서브틸리스, 몬모릴로나이트, 퀘르세틴, 브로멜라인, 오메가3(EPA/DHA), 히알루론산, 정제수</p>
+                    <p><b>대상 :</b> 반려견, 반려묘</p>
+                    <p><b>효과 :</b></p>
+                    <ul class="b-effects">
+                        <li><span class="r">I</span><span>피부 장벽 강화 및 피부 재생 촉진에 도움</span></li>
+                        <li><span class="r">II</span><span>가려움증, 발적 및 아토피성 알레르기 억제</span></li>
+                        <li><span class="r">III</span><span>피모 건강 유지, 모질 개선 및 탈모 방지에 도움</span></li>
+                    </ul>
+                </div>
+
+                <div class="b-dose">
+                    <div class="ic"><svg><use href="#i-drop"/></svg></div>
+                    <div>
+                        <div class="t">용법 및 용량 :<span>1일 1~2ml / 체중 5kg</span></div>
+                        <div class="s">( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능</div>
+                    </div>
+                </div>
+
+                <div class="b-warn">
+                    <h4>▲ 주의사항 :</h4>
+                    <ul>
+                        <li>1) 직사광선을 피하여 서늘한 곳에 보관하십시오.</li>
+                        <li>2) 제품특성상 가라앉는 성분들이 있어서 <mark>흔들어서 사용</mark> 하십시오.</li>
+                        <li>3) 제품에 대하여 문의하실 경우 제조원 또는 판매원으로 연락하여 주시기 바랍니다</li>
+                    </ul>
+                </div>
+
+                <div class="b-meta">
+                    <span><b>포장 단위 :</b> <span class="vol">100ml</span></span>
+                    <span><b>제조일자 :</b> 2026. 10. 20.</span>
+                    <span><b>유통기한 :</b> 제조일로부터 18개월</span>
+                </div>
+
+                <div class="b-foot">
+                    <div class="row">
+                        <img class="logo" src="monsmecta_label_sj_logo.png" alt="S&amp;J">
+                        <div>
+                            <div class="nm">위탁제조판매원 : 에스앤제이 동물병원<span>TEL 031-321-6562</span></div>
+                            <div class="ad">주소 : 경기도 용인시 포곡읍 선장1로 98-8</div>
+                        </div>
+                    </div>
+                    <div class="row maker">
+                        <div>
+                            <div class="nm">제조원 : 엠오바이오<span>TEL 031-458-1240</span></div>
+                            <div class="ad">주소 : 경기도 화성시 팔탄면 석포로 74번길 10-25</div>
+                        </div>
+                        <span class="rc">
+                            <svg viewBox="0 0 110 100" aria-hidden="true">
+                                <path d="M55 6L104 88H6z" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linejoin="round"/>
+                                <text x="55" y="74" font-size="18.5" font-weight="900" text-anchor="middle" fill="currentColor" letter-spacing="-1">플라스틱</text>
+                            </svg>
+                            OTHER
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</template>
+
+<script>
+    const tpl = document.getElementById('label-tpl');
+    for (const [id, theme] of [['card-white', 'light'], ['card-dark', 'dark']]) {
+        const sheet = tpl.content.cloneNode(true);
+        sheet.querySelector('.back').classList.add('theme-' + theme);
+        document.querySelector('#' + id + ' .crop-marks-box').appendChild(sheet);
+    }
+
+    const stage = document.querySelector('.labels-stage');
+
+    function setPaperMode(mode) {
+        document.body.classList.remove('paper-a4', 'paper-roll');
+        document.body.classList.add('paper-' + mode);
+        const small = document.body.classList.contains('size-30');
+        document.getElementById('page-style').textContent = mode === 'roll'
+            ? `@page { size: ${small ? '101mm 42mm' : '123mm 75mm'}; margin: 0; }`
+            : '@page { size: A4 portrait; margin: 8mm 0 0; }';
+        for (const paper of ['a4', 'roll']) {
+            document.getElementById('btn-paper-' + paper).setAttribute('aria-pressed', paper === mode);
+        }
+    }
+
+    function setViewMode(mode) {
+        document.body.classList.remove('mode-white', 'mode-dark', 'mode-compare');
+        document.body.classList.add('mode-' + mode);
+        for (const view of ['white', 'dark', 'compare']) {
+            document.getElementById('btn-' + view + '-label').setAttribute('aria-pressed', view === mode);
+        }
+    }
+
+    async function doPrint() {
+        await document.fonts.ready;
+        window.print();
+    }
+
+    function fitPreview() {
+        const width = document.body.classList.contains('size-30') ? 101 : 123;
+        stage.style.setProperty('--preview-scale', Math.min(stage.clientWidth / (width * 96 / 25.4), 2.4));
+    }
+
+    function setLabelSize(size) {
+        const small = size === '30';
+        const dimensions = small ? '101 × 42 mm' : '123 × 75 mm';
+        document.body.classList.toggle('size-30', small);
+        document.body.classList.toggle('size-100', !small);
+        document.querySelectorAll('.vol').forEach(node => { node.textContent = size + 'ml'; });
+        for (const value of ['100', '30']) {
+            document.getElementById('btn-size-' + value).setAttribute('aria-pressed', value === size);
+        }
+        document.title = `몬스멕타 스킨케어 ${size}ml Label (${dimensions}) - 접착면 포함 실측 인쇄`;
+        document.getElementById('studio-volume').textContent = `LABEL STUDIO / ${size}ml`;
+        document.getElementById('studio-spec').textContent = dimensions + ' / PRINT EDITION';
+        document.getElementById('adhesive-guide').textContent = `좌측 접착면 7mm / 전면 ${small ? '39.5' : '50'}mm / 중앙 접착면 7mm / 후면 ${small ? '44.5' : '56'}mm / 우측 접착면 3mm`;
+        document.getElementById('calib-title').textContent = `몬스멕타 스킨케어 ${size}ml · ${dimensions} (접착면 포함)`;
+        document.querySelector('.a4-cut-instructions').textContent = `바깥쪽 재단선을 따라 자르십시오. 전체 ${dimensions}, 좌측 7mm · 중앙 7mm · 우측 3mm는 흰색 접착면입니다.`;
+        for (const card of document.querySelectorAll('.label-card-wrapper')) {
+            card.querySelector('.dims').textContent = `${card.id === 'card-white' ? '화이트' : '딥그린'} 뒷면 · ${dimensions}`;
+        }
+        setPaperMode(document.body.classList.contains('paper-roll') ? 'roll' : 'a4');
+        fitPreview();
+    }
+
+    new ResizeObserver(fitPreview).observe(stage);
+    setLabelSize(new URLSearchParams(location.search).get('size') === '30' ? '30' : '100');
+</script>
+</body>
+</html>

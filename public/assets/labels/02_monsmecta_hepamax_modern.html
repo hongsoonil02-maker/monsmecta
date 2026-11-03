@@ -686,15 +686,22 @@ function setSize(size) {
   document.body.classList.remove('size-100', 'size-30');
   document.body.classList.add('size-' + size);
 
-  document.getElementById('btn-100').className = size === '100' ? 'btn-size active' : 'btn-size';
-  document.getElementById('btn-30').className = size === '30' ? 'btn-size active' : 'btn-size';
+  const b100 = document.getElementById('btn-100');
+  if (b100) b100.className = size === '100' ? 'btn-size active' : 'btn-size';
+  const b30 = document.getElementById('btn-30');
+  if (b30) b30.className = size === '30' ? 'btn-size active' : 'btn-size';
 
   const is100 = size === '100';
-  document.getElementById('guide-dims').textContent = is100 ? '(좌 7 + 중 7 + 우 3 = 총 118×76mm)' : '(좌 7 + 중 7 + 우 3 = 총 101×42mm)';
-  document.getElementById('cut-dims').textContent = is100 ? '총 118mm × 76mm 실측 스티커' : '총 101mm × 42mm 실측 스티커';
-  document.getElementById('ing-vol-tag').textContent = '본제 1L 기준';
-  document.getElementById('pack-vol').textContent = is100 ? '100ml' : '30ml';
-  document.getElementById('meta-vol').textContent = is100 ? '100ml' : '30ml';
+  const gDims = document.getElementById('guide-dims');
+  if (gDims) gDims.textContent = is100 ? '(좌 7 + 중 7 + 우 3 = 총 118×76mm)' : '(좌 7 + 중 7 + 우 3 = 총 101×42mm)';
+  const cDims = document.getElementById('cut-dims');
+  if (cDims) cDims.textContent = is100 ? '총 118mm × 76mm 실측 스티커' : '총 101mm × 42mm 실측 스티커';
+  const ivTag = document.getElementById('ing-vol-tag');
+  if (ivTag) ivTag.textContent = '본제 1L 기준';
+  const pVol = document.getElementById('pack-vol');
+  if (pVol) pVol.textContent = is100 ? '100ml' : '30ml';
+  const mVol = document.getElementById('meta-vol');
+  if (mVol) mVol.textContent = is100 ? '100ml' : '30ml';
 
   document.querySelectorAll('.fx-card-100').forEach(e => e.style.display = is100 ? 'flex' : 'none');
   document.querySelectorAll('.fx-card-30').forEach(e => e.style.display = is100 ? 'none' : 'flex');

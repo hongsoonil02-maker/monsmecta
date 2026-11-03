@@ -518,6 +518,29 @@ def render_lineup_label_html(p):
             font-weight: 900;
             line-height: 1;
         }}
+        .tm-dual-grid {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.08mm;
+            border-top: 0.15mm dashed #cbd5e1;
+            padding-top: 0.10mm;
+            margin-top: 0.04mm;
+            margin-bottom: 0.04mm;
+        }}
+        .tm-line {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.96mm;
+            line-height: 1.12;
+        }}
+        .tm-lbl {{
+            font-weight: 800;
+        }}
+        .tm-num {{
+            font-weight: 800;
+            letter-spacing: 0.01em;
+        }}
         .feed-type-line {{
             font-size: 0.98mm;
             font-weight: 700;
@@ -731,6 +754,9 @@ def render_lineup_label_html(p):
         }}
         #card-dark .reg-num-label {{ color: {neon}; }}
         #card-dark .reg-num-val {{ color: #ffffff; }}
+        #card-dark .tm-dual-grid {{ border-top-color: rgba(255, 255, 255, 0.25); }}
+        #card-dark .tm-line .tm-lbl {{ color: {neon}; font-weight: 800; }}
+        #card-dark .tm-line .tm-num {{ color: #fef08a; font-weight: 900; }}
         #card-dark .feed-type-line {{ color: #ffffff; }}
         #card-dark .feed-type-line .lbl {{ color: {neon}; }}
 
@@ -777,6 +803,9 @@ def render_lineup_label_html(p):
         }}
         #card-white .reg-num-label {{ color: #000000 !important; font-weight: 900 !important; }}
         #card-white .reg-num-val {{ color: #000000 !important; font-weight: 900 !important; }}
+        #card-white .tm-dual-grid {{ border-top-color: #94a3b8 !important; }}
+        #card-white .tm-line .tm-lbl {{ color: #000000 !important; font-weight: 900 !important; }}
+        #card-white .tm-line .tm-num {{ color: #000000 !important; font-weight: 900 !important; }}
         #card-white .feed-type-line {{ color: #000000 !important; font-weight: 700 !important; }}
         #card-white .feed-type-line .lbl {{ color: #000000 !important; font-weight: 900 !important; }}
 
@@ -936,6 +965,16 @@ def render_lineup_label_html(p):
                                 <span class="reg-num-label">사료의 성분등록번호 :</span>
                                 <span class="reg-num-val">{p["reg_no"]}</span>
                             </div>
+                            <div class="tm-dual-grid">
+                                <div class="tm-line">
+                                    <span class="tm-lbl">🇰🇷 특허청 상표출원</span>
+                                    <span class="tm-num">제40-2026-0140274호 (05류/31류)</span>
+                                </div>
+                                <div class="tm-line">
+                                    <span class="tm-lbl">🇺🇸 미국 USPTO 출원</span>
+                                    <span class="tm-num orbitron">App No. 50/041,096</span>
+                                </div>
+                            </div>
                             <div class="feed-type-line">
                                 <span class="lbl">사료의 종류와 명칭 / 형태 / 용도 :</span> {p["feed_type"]}
                             </div>
@@ -984,7 +1023,7 @@ def render_lineup_label_html(p):
                         <!-- 포장/제조/유통 + 재활용 -->
                         <div class="mfg-date-row">
                             <span><span class="lbl">포장 단위 :</span> <span class="val">30ml</span></span>
-                            <span><span class="lbl">제조일자 :</span> <span class="val">2026.09.15</span></span>
+                            <span><span class="lbl">제조일자 :</span> <span class="val">2026. 10. 20.</span></span>
                             <span><span class="lbl">유통기한 :</span> <span class="val">제조일로부터 18개월</span></span>
                             <div class="recycle-wrap">
                                 <svg width="2.4mm" height="2.4mm" viewBox="0 0 100 100">
@@ -1086,6 +1125,16 @@ def render_lineup_label_html(p):
                                 <span class="reg-num-label">사료의 성분등록번호 :</span>
                                 <span class="reg-num-val">{p["reg_no"]}</span>
                             </div>
+                            <div class="tm-dual-grid">
+                                <div class="tm-line">
+                                    <span class="tm-lbl">🇰🇷 특허청 상표출원</span>
+                                    <span class="tm-num">제40-2026-0140274호 (05류/31류)</span>
+                                </div>
+                                <div class="tm-line">
+                                    <span class="tm-lbl">🇺🇸 미국 USPTO 출원</span>
+                                    <span class="tm-num orbitron">App No. 50/041,096</span>
+                                </div>
+                            </div>
                             <div class="feed-type-line">
                                 <span class="lbl">사료의 종류와 명칭 / 형태 / 용도 :</span> {p["feed_type"]}
                             </div>
@@ -1134,7 +1183,7 @@ def render_lineup_label_html(p):
                         <!-- 포장/제조/유통 + 재활용 -->
                         <div class="mfg-date-row">
                             <span><span class="lbl">포장 단위 :</span> <span class="val">30ml</span></span>
-                            <span><span class="lbl">제조일자 :</span> <span class="val">2026.09.15</span></span>
+                            <span><span class="lbl">제조일자 :</span> <span class="val">2026. 10. 20.</span></span>
                             <span><span class="lbl">유통기한 :</span> <span class="val">제조일로부터 18개월</span></span>
                             <div class="recycle-wrap">
                                 <svg width="2.4mm" height="2.4mm" viewBox="0 0 100 100">

@@ -4,9 +4,9 @@ import os
 
 now_str = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 log_entry = f"""
-### [{now_str}] 몬스멕타 전 라인업(11종) 30ml 라벨 화이트 뒷면(Type B) 및 선택 토글 뷰 생성 완료
-- 몬스멕타 11종 전체 라인업(85x40mm)에 원본 올 다크(Type A)와 화이트 뒷면(Type B) 토글 및 비교 뷰 구축.
-- 원본 제조사/판매원 정보(에스앤제이 동물병원 용인, 엠오바이오 화성) 100% 원본 유지 및 고해상도 인쇄용 PDF/PNG 산출물 생성 완료.
+### [{now_str}] 몬스멕타 30ml 라벨 5대 세부 레이아웃 보정 (핵심효능·성분박스·글씨크기·용법용량·주의사항)
+- 좌측 핵심효능 배지 및 내부 텍스트 상하 정중앙 배치, 5가지 복합체 성분 박스 상·하단 여백 확장.
+- 우측 사료의 종류와 명칭 글씨 크기를 등록성분량(1.08mm)과 동일하게 맞추고, 용법용량 박스 수직 중앙 정렬 및 주의사항 박스 내 줄간격/상하 여백 균일화 완료.
 """
 
 vault_path = r"C:\Users\master\agrolib"
@@ -21,7 +21,7 @@ except Exception as e:
 
 try:
     subprocess.run(["git", "add", "."], cwd=vault_path, check=True)
-    subprocess.run(["git", "commit", "-m", "auto-sync: dev log update (all 11 monsmecta labels white-back toggle support)"], cwd=vault_path, check=True)
+    subprocess.run(["git", "commit", "-m", "auto-sync: dev log update (fix seller name and label bottom crop)"], cwd=vault_path, check=True)
     subprocess.run(["git", "push"], cwd=vault_path, check=True)
     print("Agrolib git sync completed successfully.")
 except Exception as e:

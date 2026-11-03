@@ -1109,7 +1109,7 @@ def generate_label_html(page_title="MONSMECTA HEPAMAX Label (85mm x 40mm) - Dark
                         <div class="mfg-exp-bar-with-recycle">
                             <div class="mfg-exp-info">
                                 <div style="white-space:nowrap;"><span class="lbl">포장 단위 :</span><span class="val">30ml</span></div>
-                                <div style="white-space:nowrap;"><span class="lbl">제조일자 :</span><span class="val">2026.09.15</span></div>
+                                <div style="white-space:nowrap;"><span class="lbl">제조일자 :</span><span class="val">2026. 10. 20.</span></div>
                                 <div style="white-space:nowrap;"><span class="lbl">유통기한 :</span><span class="val">제조일로부터 18개월</span></div>
                             </div>
                             <div class="recycle-badge-raised">
@@ -1280,7 +1280,7 @@ def generate_label_html(page_title="MONSMECTA HEPAMAX Label (85mm x 40mm) - Dark
                         <div class="mfg-exp-bar-with-recycle">
                             <div class="mfg-exp-info">
                                 <div style="white-space:nowrap;"><span class="lbl">포장 단위 :</span><span class="val">30ml</span></div>
-                                <div style="white-space:nowrap;"><span class="lbl">제조일자 :</span><span class="val">2026.09.15</span></div>
+                                <div style="white-space:nowrap;"><span class="lbl">제조일자 :</span><span class="val">2026. 10. 20.</span></div>
                                 <div style="white-space:nowrap;"><span class="lbl">유통기한 :</span><span class="val">제조일로부터 18개월</span></div>
                             </div>
                             <div class="recycle-badge-raised">

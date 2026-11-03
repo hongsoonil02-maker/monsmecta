@@ -6,6 +6,15 @@ os.makedirs(out_dir, exist_ok=True)
 
 with open(r"scripts/extracted_logo_b64.txt", encoding="utf-8") as f:
     LOGO_B64 = f.read().strip()
+def hex_to_rgb(hex_str):
+    hex_str = hex_str.lstrip('#')
+    if len(hex_str) == 3:
+        hex_str = ''.join([c*2 for c in hex_str])
+    r = int(hex_str[0:2], 16)
+    g = int(hex_str[2:4], 16)
+    b = int(hex_str[4:6], 16)
+    return f'{r}, {g}, {b}'
+
 
 PRODUCTS = [
     {
@@ -46,8 +55,8 @@ PRODUCTS = [
             "면역 기능 및 건강 상태 유지에 도움",
             "장 기능 개선 및 정장 작용에 도움"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "hepamax",
@@ -55,12 +64,12 @@ PRODUCTS = [
         "name_ko": "몬스멕타 헤파맥스",
         "name_en": "MONSMECTA HEPAMAX",
         "sub_desc": "간 기능 보호 및 해독 활성화 보조제",
-        "neon": "#ffd700",
-        "neon_sub": "#fbbf24",
-        "neon_pale": "#fef08a",
-        "border": "#d97706",
-        "bg_gradient": "linear-gradient(135deg, #2a1205 0%, #150802 50%, #0d0c05 100%)",
-        "top_bar": "linear-gradient(90deg, #b45309, #f59e0b, #fef08a, #b45309)",
+        "neon": "#ea580c",
+        "neon_sub": "#fb923c",
+        "neon_pale": "#fed7aa",
+        "border": "#c2410c",
+        "bg_gradient": "linear-gradient(135deg, #3d1406 0%, #230b02 50%, #150601 100%)",
+        "top_bar": "linear-gradient(90deg, #c2410c, #ea580c, #fed7aa, #c2410c)",
         "front_effects": [
             ("간 건강 개선", "지방간 개선"),
             ("장 건강 개선", "항병력 증진", "(*등의 개선에 도움)")
@@ -88,8 +97,8 @@ PRODUCTS = [
             "장 건강 개선 및 체내 독소 배출 보조",
             "항병력 증진 및 질병 회복 촉진에 도움"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "urinary",
@@ -97,12 +106,12 @@ PRODUCTS = [
         "name_ko": "몬스멕타 레날 디톡스",
         "name_en": "MONSMECTA RENAL DETOX",
         "sub_desc": "비뇨기 및 신장 건강 보조제",
-        "neon": "#818cf8",
-        "neon_sub": "#a5b4fc",
-        "neon_pale": "#c7d2fe",
-        "border": "#6366f1",
-        "bg_gradient": "linear-gradient(135deg, #180b2d 0%, #0b071a 50%, #050d14 100%)",
-        "top_bar": "linear-gradient(90deg, #6366f1, #818cf8, #a5b4fc, #6366f1)",
+        "neon": "#3b82f6",
+        "neon_sub": "#60a5fa",
+        "neon_pale": "#bfdbfe",
+        "border": "#2563eb",
+        "bg_gradient": "linear-gradient(135deg, #0b203d 0%, #06152a 50%, #030c18 100%)",
+        "top_bar": "linear-gradient(90deg, #1d4ed8, #3b82f6, #93c5fd, #1d4ed8)",
         "front_effects": [
             ("요소(Urea) 및 요독 배출 촉진", "인독실설페이트 흡착 제거"),
             ("신장 수치 안정화 보조", "활력 증진 및 에너지 대사", "(*등의 개선에 도움)")
@@ -129,8 +138,8 @@ PRODUCTS = [
             "면역 기능 및 건강 상태 유지에 도움",
             "장 기능 개선 및 정장 작용에 도움"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "cancercare",
@@ -171,8 +180,8 @@ PRODUCTS = [
             "종양 억제 보조 기전 및 세포 건강 유지",
             "항암 치료 시 부작용 완화 및 염증 반응 억제에 도움"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "coldzero",
@@ -212,8 +221,8 @@ PRODUCTS = [
             "호흡기 점막 면역 강화 및 기관지 윤활에 도움",
             "비염, 마른 기침 증상 완화 및 알레르기 억제에 도움"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "skincare",
@@ -253,8 +262,8 @@ PRODUCTS = [
             "가려움증, 발적 및 아토피성 알레르기 억제",
             "피모 건강 유지, 모질 개선 및 탈모 방지에 도움"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "heartcare",
@@ -294,8 +303,8 @@ PRODUCTS = [
             "혈전 예방, 혈류 개선 및 혈압 안정화에 도움",
             "심부전 진행 지연 보조 및 심혈관 항염 작용"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "jointcare",
@@ -335,8 +344,8 @@ PRODUCTS = [
             "관절 염증 완화 및 통증 경감에 도움",
             "퇴행성 관절염 진행 지연 및 기동성 개선"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "powerase",
@@ -375,8 +384,8 @@ PRODUCTS = [
             "수술 후 빠른 회복 및 소화기 안정화 지원",
             "노령견·묘 기력 증진 및 체내 대사 활성화에 도움"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "probiotics",
@@ -417,8 +426,8 @@ PRODUCTS = [
             "항생제 연관 설사, 장염 예방 및 IBS 증상 완화",
             "유해균 억제, 유익균 증식 및 장벽 방어력 강화"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     },
     {
         "id": "vitaplus",
@@ -458,12 +467,20 @@ PRODUCTS = [
             "피로 회복, 항산화 작용 및 면역 건강 유지",
             "뼈·치아 건강 및 체내 대사 활성화에 도움"
         ],
-        "dosage_desc": "1일 1~2ml / 체중 5kg",
-        "dosage_sub": "( 1 펌프 = 약 1ml ) - 증상에 따라 조절 가능"
+        "dosage_desc": "1일 2~3회, 1회 2ml ( 1 펌프 = 약 2ml ) / 5kg 기준",
+        "dosage_sub": "- 증상에 따라 조절 가능"
     }
 ]
 
 def render_html(p):
+    if p["id"] == "monsmecta":
+        title_html = '<h1 class="main-title">몬스멕타<span class="tm-mark">™</span></h1>'
+    else:
+        sub_name = p['name_ko'].replace('몬스멕타 ', '').strip()
+        title_html = f'''<div class="title-2tier">
+                        <div class="t-main">몬스멕타<span class="tm-mark">™</span></div>
+                        <div class="t-sub">{sub_name}</div>
+                    </div>'''
     ing_rows_html = []
     # Dynamic styling depending on number of ingredient rows
     num_ing = len(p["ingredients"])
@@ -500,7 +517,11 @@ def render_html(p):
     if row2[1]: row2_items.append(f'<span class="eff-item"><span class="eff-dot"></span>{row2[1]}</span>')
     row2_joined = "\n                            ".join(row2_items)
     if note_html:
-        row2_joined += f"\n                            {note_html}"
+        note_row_html = f'''                        <div class="effects-row" style="justify-content: flex-end; margin-top: 0.10mm; margin-bottom: 0;">
+                            {note_html}
+                        </div>'''
+    else:
+        note_row_html = ""
     
     # Statutory effects list
     stat_eff_html = []
@@ -742,6 +763,31 @@ def render_html(p):
             text-shadow: 0 0 1.2mm rgba(255, 255, 255, 0.5), 0 1px 2px #000;
             margin-bottom: 0.04mm;
         }}
+        .title-2tier {{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            margin-bottom: 0.05mm;
+        }}
+        .title-2tier .t-main {{
+            font-size: 3.35mm;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            line-height: 1.0;
+            text-shadow: 0 0 1.0mm rgba({hex_to_rgb(p["neon"])}, 0.6);
+        }}
+        .title-2tier .t-sub {{
+            font-size: 2.75mm;
+            font-weight: 900;
+            color: {p["neon"]};
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            margin-top: 0.12mm;
+            text-shadow: 0 0 0.8mm rgba({hex_to_rgb(p["neon"])}, 0.5);
+        }}
         .en-title {{
             font-size: 1.62mm;
             font-weight: 900;
@@ -809,12 +855,13 @@ def render_html(p):
             flex-shrink: 0;
         }}
         .eff-note {{
-            font-size: 1.05mm;
+            font-size: 0.95mm;
             color: {p["neon_sub"]};
             font-weight: 700;
             line-height: 1;
             white-space: nowrap;
-            opacity: 0.95;
+            margin-left: auto;
+            text-align: right;
         }}
 
         /* 성분 테이블 */
@@ -1010,41 +1057,41 @@ def render_html(p):
             background: {p["neon"]}22;
             border: 0.12mm solid {p["neon"]};
             border-radius: 0.35mm;
-            padding: 0.22mm 0.45mm;
+            padding: 0.25mm 0.45mm;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            line-height: 1;
+            align-items: flex-start;
+            gap: 0.30mm;
             box-sizing: border-box;
-            flex-wrap: wrap;
-            gap: 0.15mm;
+            text-align: left;
         }}
         .dose-title {{
-            font-size: 1.16mm;
+            font-size: 1.05mm;
             font-weight: 900;
             color: {p["neon"]};
+            line-height: 1.20;
             white-space: nowrap;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
+            flex-shrink: 0;
+        }}
+        .dose-content {{
+            display: flex;
+            flex-direction: column;
+            gap: 0.10mm;
+            text-align: left;
         }}
         .dose-desc {{
-            font-size: 1.25mm;
+            font-size: 1.05mm;
             font-weight: 900;
             color: #ffffff;
+            line-height: 1.20;
             white-space: nowrap;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
         }}
         .dose-sub {{
-            font-size: 1.02mm;
+            font-size: 0.92mm;
             color: #f1f5f9;
             font-weight: 700;
+            line-height: 1.15;
             white-space: nowrap;
-            line-height: 1;
-            display: inline-flex;
-            align-items: center;
+            text-align: left;
         }}
 
         /* 4. 주의사항 박스 */
@@ -1254,7 +1301,7 @@ def render_html(p):
                 <!-- Hero Title -->
                 <div class="hero-section">
                     <div class="sub-desc">{p["sub_desc"]}</div>
-                    <h1 class="main-title">{p["name_ko"]}</h1>
+                    {title_html}
                     <h2 class="en-title orbitron">{p["name_en"].replace("MONSMECTA", "MONSMECTA<span style=\"font-size:0.65em; vertical-align:super; color:" + p["neon_sub"] + "; margin-left:0.3mm;\">™</span>")}</h2>
                 </div>
 
@@ -1268,6 +1315,7 @@ def render_html(p):
                         <div class="effects-row">
                             {row2_joined}
                         </div>
+{note_row_html}
                     </div>
                 </div>
 
@@ -1299,12 +1347,13 @@ def render_html(p):
                 <div class="legal-panel">
                     <!-- 헤더: 성분등록번호 & 사료의 종류와 명칭 / 형태 / 용도 -->
                     <div class="legal-header">
-                        <div class="reg-num-line" style="display:flex; justify-content:space-between; align-items:center;">
-                            <div>
-                                <span class="reg-num-label">사료의 성분등록번호 :</span>
-                                <span class="reg-num-val">{p["reg_no"]}</span>
-                            </div>
-                            <span style="font-size:0.95mm; color:{p["neon_sub"]}; font-weight:800; white-space:nowrap;">U.S. TM App: 50/041,096</span>
+                        <div class="reg-num-line">
+                            <span class="reg-num-label">사료의 성분등록번호 :</span>
+                            <span class="reg-num-val">{p["reg_no"]}</span>
+                        </div>
+                        <div class="tm-dual-grid" style="display:flex; justify-content:space-between; align-items:center; border-top:0.15mm dashed {p['border']}; border-bottom:0.15mm dashed {p['border']}; padding:0.15mm 0; margin:0.1mm 0; font-size:0.92mm; line-height:1.15;">
+                            <span style="font-weight:800; color:{p['neon']}; white-space:nowrap;">🇰🇷 특허청 상표출원: <strong style='color:#ffffff;'>제40-2026-0140274호 (05류/31류)</strong></span>
+                            <span style="font-weight:800; color:{p['neon_sub']}; white-space:nowrap;">🇺🇸 USPTO: <strong style='color:#ffffff;'>App No. 50/041,096</strong></span>
                         </div>
                         <div class="feed-type-line">
                             <span class="lbl">사료의 종류와 명칭 / 형태 / 용도 :</span> {p["feed_type"]}
@@ -1344,11 +1393,11 @@ def render_html(p):
 
                     <!-- 용법 및 용량 -->
                     <div class="dose-box">
-                        <div style="display:flex; align-items:center; gap:0.3mm;">
-                            <span class="dose-title">용법 및 용량 :</span>
+                        <span class="dose-title">용법 및 용량 :</span>
+                        <div class="dose-content">
                             <span class="dose-desc">{p["dosage_desc"]}</span>
+                            <span class="dose-sub">{p["dosage_sub"]}</span>
                         </div>
-                        <span class="dose-sub">{p["dosage_sub"]}</span>
                     </div>
 
                     <!-- 4. 주의사항 박스 -->
@@ -1377,7 +1426,7 @@ def render_html(p):
                     <div class="mfg-exp-bar-with-recycle">
                         <div class="mfg-exp-info">
                             <div style="white-space:nowrap;"><span class="lbl">포장 단위 :</span><span class="val">30ml</span></div>
-                            <div style="white-space:nowrap;"><span class="lbl">제조일자 :</span><span class="val">2026.09.15</span></div>
+                            <div style="white-space:nowrap;"><span class="lbl">제조일자 :</span><span class="val">2026. 11. 20.</span></div>
                             <div style="white-space:nowrap;"><span class="lbl">유통기한 :</span><span class="val">제조일로부터 18개월</span></div>
                         </div>
 
@@ -1427,12 +1476,11 @@ def render_html(p):
 '''
     return html
 
-for p in PRODUCTS:
-    target_path = os.path.join(out_dir, p["file_name"])
-    # If it's renal or hepamax, keep existing if requested or overwrite with exact format
-    html_content = render_html(p)
-    with open(target_path, "w", encoding="utf-8") as f:
-        f.write(html_content)
-    print(f"Generated {p['name_ko']} -> {target_path}")
-
-print("All 11 product labels generated successfully!")
+if __name__ == '__main__':
+    for p in PRODUCTS:
+        target_path = os.path.join(out_dir, p["file_name"])
+        html_content = render_html(p)
+        with open(target_path, "w", encoding="utf-8") as f:
+            f.write(html_content)
+        print(f"Generated {p['name_ko']} -> {target_path}")
+    print('All 11 product labels generated successfully!')
