@@ -11,7 +11,6 @@ import Infographics from './components/Infographics';
 import Letter from './components/Letter';
 import AudioTestimonial from './components/AudioTestimonial';
 import OrderForm from './components/OrderForm';
-import VetRestrictedSection from './components/VetRestrictedSection';
 import Footer from './components/Footer';
 import StickyBottomCTA from './components/StickyBottomCTA';
 import useIframeHeight from './hooks/useIframeHeight';
@@ -28,7 +27,6 @@ const PrintModal = lazy(() => import('./components/PrintModal'));
 const VetSampleModal = lazy(() => import('./components/VetSampleModal'));
 const LegalModal = lazy(() => import('./components/LegalModal'));
 const NoticeGeneratorModal = lazy(() => import('./components/NoticeGeneratorModal'));
-const GeneralNoticeModal = lazy(() => import('./components/GeneralNoticeModal'));
 const VetInquiryModal = lazy(() => import('./components/VetInquiryModal'));
 
 const ALLOWED_IFRAME_SOURCES = new Set(['james', 'dashboard', 'scenario']);
@@ -290,7 +288,6 @@ const MonsmectaSNJLanding = () => {
         <Infographics iframeHeights={iframeHeights} />
         <Letter />
         <AudioTestimonial />
-        <VetRestrictedSection onOpenSampleModal={() => setIsSampleModalOpen(true)} />
         <OrderForm
           isOrderComplete={isOrderComplete}
           setIsOrderComplete={setIsOrderComplete}
@@ -346,7 +343,6 @@ const MonsmectaSNJLanding = () => {
         {legalType && (
           <LegalModal legalType={legalType} setLegalType={setLegalType} />
         )}
-        <GeneralNoticeModal />
         {isNoticeModalOpen && (
           <NoticeGeneratorModal isOpen={isNoticeModalOpen} onClose={() => setIsNoticeModalOpen(false)} />
         )}
