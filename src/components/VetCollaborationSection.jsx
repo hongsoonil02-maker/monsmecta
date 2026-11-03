@@ -37,107 +37,86 @@ const VetCollaborationSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Badge & Title */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-xs sm:text-sm font-extrabold mb-4 shadow-xs">
             <span>🤝</span>
             <span>OFFICIAL VET PARTNERSHIP</span>
           </div>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            하남사랑동물병원 <span className="text-emerald-700">김동준 원장</span> &amp;<br className="hidden sm:inline" />
-            온라인동물병원 카페 <span className="text-teal-700">박선생</span> 공식 협업
+            하남사랑동물병원 <span className="text-emerald-700">김동준 원장</span>
+            <span className="block text-lg sm:text-2xl md:text-3xl font-extrabold text-teal-800 mt-2">
+              (네이버 10만 카페 &lsquo;온라인동물병원&rsquo; 박선생) 공식 협업
+            </span>
           </h2>
           <p className="mt-4 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed break-keep">
-            임상 현장에서 검증된 전문 수의사의 처방 노하우와 10만 반려동물 보호자의 건강 멘토가 함께합니다. 
+            임상 현장의 전문 처방 노하우와 10만 반려인의 건강 멘토(박선생)로 신뢰받는 김동준 원장과 몬스멕타가 함께합니다. 
             가격 덤핑 없이 안전한 정품 공급과 전용 사은 혜택을 약속드립니다.
           </p>
         </div>
 
-        {/* 2 Partners Bento Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
-          
-          {/* Partner 1: 하남사랑동물병원 김동준 원장 */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-emerald-200/80 shadow-md hover:shadow-xl transition-all relative overflow-hidden flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full pointer-events-none"></div>
-            <div>
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-800 text-white flex items-center justify-center text-3xl shadow-md font-bold">
-                  👨‍⚕️
-                </div>
-                <div>
-                  <span className="text-[11px] font-extrabold text-emerald-800 uppercase tracking-wider bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                    임상 자문 및 공식 처방 병원
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">
-                    하남사랑동물병원 <span className="text-emerald-700">김동준 원장</span>
-                  </h3>
-                  <p className="text-xs text-slate-500">소화기 내과 · 신장 요독 케어 전문 임상 수의사</p>
-                </div>
+        {/* Unified Single Profile Card (1인 단일 통합 카드 - 중복 분리 제거) */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border border-emerald-200/90 shadow-xl hover:shadow-2xl transition-all relative overflow-hidden mb-12">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-teal-500/10 via-emerald-500/5 to-transparent rounded-bl-full pointer-events-none" />
+
+          {/* Top Profile Header */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-100">
+            <div className="flex items-start sm:items-center gap-4 sm:gap-5">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-800 text-white flex items-center justify-center text-3xl sm:text-4xl shadow-md font-bold shrink-0">
+                👨‍⚕️
               </div>
-
-              <blockquote className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 border-l-4 border-emerald-600 p-4 rounded-r-xl mb-5 break-keep">
-                “만성 묽은변과 파보·코로나 장염, 간·신장 질환 환축에서 몬스멕타는 단순 영양제가 아닌 
-                <strong> 정전기적 독소 흡착과 신속한 장 점막 코팅</strong>으로 실질적인 임상 결과를 보여줍니다. 
-                병원 처방 기준의 정품 라인업을 안심하고 급여하셔도 좋습니다.”
-              </blockquote>
-
-              <div className="space-y-1.5 text-xs text-slate-600">
-                <div className="flex items-center gap-2 font-semibold">
-                  <span className="text-emerald-600">✓</span>
-                  <span>임상 처방 공식 규격: 전 제품 100ml 정품 처방</span>
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-[11px] font-black text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
+                    🏥 임상 자문 및 처방 전문의
+                  </span>
+                  <span className="text-[11px] font-black text-teal-800 bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200">
+                    💬 네이버 10만 반려인 카페 운영자 &lsquo;박선생&rsquo;
+                  </span>
                 </div>
-                <div className="flex items-center gap-2 font-semibold">
-                  <span className="text-emerald-600">✓</span>
-                  <span>권장소비자가: 몬스멕타 15,000원 / 헤파맥스 17,000원 / 레날 22,000원</span>
-                </div>
+                <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                  김동준 대표원장 <span className="text-teal-700 font-extrabold text-base sm:text-xl">(하남사랑동물병원 · 닉네임: 박선생)</span>
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 font-medium">
+                  경기 하남시 소재 하남사랑동물병원 대표원장 · 소화기 내과 및 신장 질환 표적 케어 전문 임상 수의사
+                </p>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span className="font-bold text-slate-700">📍 경기 하남시 소재 오프라인 진료 병원</span>
-              <span className="text-emerald-700 font-extrabold">전문 임상 자문처</span>
+            <div className="shrink-0 flex sm:flex-col items-center sm:items-end justify-between gap-1 text-xs">
+              <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold">📍 경기 하남시 소재 오프라인 병원</span>
+              <span className="text-emerald-700 font-extrabold text-xs sm:text-sm">전문 임상 자문처</span>
             </div>
           </div>
 
-          {/* Partner 2: 온라인동물병원 카페 (운영자: 박선생) */}
-          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-teal-200/80 shadow-md hover:shadow-xl transition-all relative overflow-hidden flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/10 rounded-bl-full pointer-events-none"></div>
-            <div>
-              <div className="flex items-center gap-4 mb-5">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-800 text-white flex items-center justify-center text-3xl shadow-md font-bold">
-                  💬
-                </div>
-                <div>
-                  <span className="text-[11px] font-extrabold text-teal-800 uppercase tracking-wider bg-teal-50 px-2 py-0.5 rounded border border-teal-200">
-                    반려동물 건강 커뮤니티 파트너십
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">
-                    온라인동물병원 카페 <span className="text-teal-700">(운영자: 박선생)</span>
-                  </h3>
-                  <p className="text-xs text-slate-500">반려인 10만 회원 소통 커뮤니티 · 분변 케어 멘토링</p>
-                </div>
-              </div>
+          {/* Vet Quote */}
+          <div className="my-6 sm:my-8 bg-slate-50/90 border-l-4 border-emerald-600 p-5 sm:p-6 rounded-r-2xl">
+            <blockquote className="text-xs sm:text-base text-slate-700 leading-relaxed font-medium break-keep">
+              “만성 묽은변과 파보·코로나 장염, 간·신장 질환 환축에서 몬스멕타는 단순 보조제를 넘어 
+              <strong className="text-slate-900 font-black"> 정전기적 독소 흡착과 신속한 장 점막 코팅</strong>으로 신뢰할 수 있는 임상 결과를 보여줍니다. 
+              동시에 밤마다 아이들 설사로 발을 동동 구르시는 10만 카페 가족분들을 위해, 
+              불법 덤핑 대신 <strong className="text-emerald-800 font-black">수의사가 보증하는 안전한 정품 공급과 전용 무료배송·사은품 혜택</strong>을 약속드립니다.”
+            </blockquote>
+          </div>
 
-              <blockquote className="text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 border-l-4 border-teal-600 p-4 rounded-r-xl mb-5 break-keep">
-                “아이들이 갑자기 무른변이나 설사를 볼 때 밤마다 발을 동동 구르시는 카페 가족분들을 위해, 
-                수의사 선생님들이 실제 처방하는 몬스멕타와 손을 잡았습니다. 
-                <strong> 시장 질서를 해치는 불법 덤핑 대신, 카페 회원만을 위한 정품 무료배송과 전용 사은품 혜택</strong>을 준비했습니다.”
-              </blockquote>
-
-              <div className="space-y-1.5 text-xs text-slate-600">
-                <div className="flex items-center gap-2 font-semibold">
-                  <span className="text-teal-600">✓</span>
-                  <span>카페 회원 전용 시크릿 프로모션 코드 상시 운영</span>
-                </div>
-                <div className="flex items-center gap-2 font-semibold">
-                  <span className="text-teal-600">✓</span>
-                  <span>Fecal Score(변 상태 1~7단계) 맞춤 상담 피드백 연계</span>
-                </div>
-              </div>
+          {/* 3 Key Guarantees Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
+            <div className="bg-emerald-50/60 border border-emerald-100 rounded-2xl p-4">
+              <span className="text-emerald-700 font-black block text-sm mb-1">✓ 정품 규격 처방</span>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                임상 현장과 동일한 전 제품 100ml 정품 처방 기준 엄수
+              </p>
             </div>
-
-            <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span className="font-bold text-slate-700">네이버 대표 반려동물 건강 카페</span>
-              <span className="text-teal-700 font-extrabold">공식 제휴 채널</span>
+            <div className="bg-teal-50/60 border border-teal-100 rounded-2xl p-4">
+              <span className="text-teal-700 font-black block text-sm mb-1">✓ 권장소비자가격 보호</span>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                몬스멕타 15,000원 / 헤파맥스 17,000원 / 레날 22,000원
+              </p>
+            </div>
+            <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-4">
+              <span className="text-amber-800 font-black block text-sm mb-1">✓ 카페 회원 단독 혜택</span>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                시크릿 코드 적용 시 무료배송 + 정품 체험 파우치 무료 증정
+              </p>
             </div>
           </div>
 
@@ -150,7 +129,7 @@ const VetCollaborationSection = () => {
               🎁 Secret Benefit Voucher
             </div>
             <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
-              온라인동물병원 카페 회원 전용 시크릿 프로모션
+              온라인동물병원 카페 회원(박선생 추천) 전용 시크릿 프로모션
             </h3>
             <p className="text-xs sm:text-sm text-emerald-200 leading-relaxed break-keep">
               카페 게시판 또는 박선생님 추천 글에서 확인하신 <strong>시크릿 코드</strong>를 입력하시면, 
@@ -206,4 +185,3 @@ const VetCollaborationSection = () => {
 };
 
 export default VetCollaborationSection;
-
