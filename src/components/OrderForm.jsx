@@ -227,8 +227,8 @@ const OrderForm = ({
                         />
                         <p className={`text-[11px] mt-1.5 font-medium transition-colors ${isBizNumberFilled ? 'text-emerald-700 font-bold' : 'text-slate-400'}`}>
                           {isBizNumberFilled
-                            ? '✓ 사업자등록번호 10자리 확인 완료: 세금계산서 청구 및 맞춤 도매 공급가 협의가 연동됩니다.'
-                            : '※ 정확한 세금계산서 발행 및 도매 공급단가 안내를 위해 사업자등록번호 10자리를 입력해주세요.'}
+                            ? '✓ 사업자등록번호 10자리 확인 완료: 세금계산서 청구 및 맞춤 단가 안내가 연동됩니다.'
+                            : '※ 정확한 세금계산서 발행 및 맞춤 단가 안내를 위해 사업자등록번호 10자리를 입력해주세요.'}
                         </p>
                       </div>
                       <div>
@@ -416,11 +416,11 @@ const OrderForm = ({
                         1:1 직통 유선 협의 후 확정
                       </span>
                       <span className="text-xs bg-[#00513b] text-emerald-200 font-extrabold px-2.5 py-1 rounded-full shadow-xs">
-                        병원 마진 보호
+                        원장 직통 상담
                       </span>
                     </div>
                     <p className="text-[11px] text-slate-500 mt-1 font-normal break-keep">
-                      * 발주서 접수 즉시 담당 수의사가 원장님께 직접 유선(031-321-6562)으로 연락드려 공급단가 및 세금계산서 청구 안내를 진행합니다.
+                      * 동물병원 맞춤 단가 및 계산서 관련은 에스앤제이 동물병원 원장과 직접 상의하시기 바랍니다. (직통 유선: 031-321-6562)
                     </p>
                   </div>
                 </div>
@@ -428,7 +428,7 @@ const OrderForm = ({
                   <span>{isSubmitting ? t('order.submitting', '접수 중...') : '발주 신청서 접수하기 (유선 상담 확정)'}</span>
                   {!isSubmitting && <svg className="w-6 h-6 sm:w-7 sm:h-7 animate-bounce-x text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>}
                 </button>
-                <p className="text-center text-slate-600 text-xs sm:text-sm mt-5 sm:mt-6 font-medium">* 발주서 접수 즉시 담당 수의사가 원장님과 1:1 유선 협의를 통해 최종 공급단가 및 세금계산서 청구를 진행합니다.</p>
+                <p className="text-center text-slate-600 text-xs sm:text-sm mt-5 sm:mt-6 font-medium">* 동물병원 맞춤 단가 및 계산서 관련은 에스앤제이 동물병원 원장과 직접 상의하시기 바랍니다.</p>
               </div>
             </form>
           )}

@@ -47,11 +47,10 @@ const VetInquiryModal = ({ isOpen, onClose }) => {
           {/* VIP Notice Banner */}
           <div className="bg-amber-50 border border-amber-200/90 rounded-xl p-4 text-xs text-amber-900 leading-relaxed">
             <div className="font-extrabold flex items-center gap-1.5 text-amber-950 mb-1 text-sm">
-              <span>🔒</span>
-              <span>동물병원 마진 보호 및 도매가 1:1 유선 상담 원칙</span>
+              <span>📞</span>
+              <span>동물병원 상담 및 계산서 발행 안내</span>
             </div>
-            몬스멕타는 오프라인 동물병원과의 상생과 병원 마진 보호 및 원장님별 맞춤 협의를 위해, 
-            <strong> 웹상에 도매 공급가를 일절 노출하지 않고 1:1 직통 유선 상담</strong>으로만 공급 및 단가 안내를 진행하고 있습니다.
+            동물병원 맞춤 단가 및 계산서 관련은 에스앤제이 동물병원 원장과 직접 상의하시기 바랍니다.
           </div>
 
           {isSubmitted ? (

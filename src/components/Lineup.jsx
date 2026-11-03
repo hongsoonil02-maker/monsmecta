@@ -102,7 +102,7 @@ const Lineup = ({ setIsLabelModalOpen, setActiveProduct, onOpenSampleModal }) =>
             <span className="text-2xl sm:text-3xl">🏥</span>
             <div>
               <p className="font-extrabold text-sm sm:text-base">동물병원 원장님이신가요? (입점 및 대량 납품 1:1 직통 상담)</p>
-              <p className="text-xs text-emerald-200 mt-0.5">병원 마진 보호 및 원장님별 맞춤 단가 협의를 위해 도매 공급가는 유선상으로만 1:1 안내해 드립니다.</p>
+              <p className="text-xs text-emerald-200 mt-0.5">동물병원 맞춤 단가 및 계산서 관련은 에스앤제이 동물병원 원장과 직접 상의하시기 바랍니다.</p>
             </div>
           </div>
           <button
