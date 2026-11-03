@@ -19,6 +19,7 @@ import MonsmectaLineupSection from './components/MonsmectaLineupSection';
 import MonsmectaMoaSection from './components/MonsmectaMoaSection';
 import MonsmectaClinicalCase from './components/MonsmectaClinicalCase';
 import VetCollaborationSection from './components/VetCollaborationSection';
+import CommunitySection from './components/CommunitySection';
 
 // 상호작용 이후에만 필요한 컴포넌트는 지연 로딩하여 초기 번들을 줄인다.
 const Chatbot = lazy(() => import('./components/Chatbot'));
@@ -278,6 +279,7 @@ const MonsmectaSNJLanding = () => {
       <main id="main-content">
         <Hero setIsLabelModalOpen={setIsLabelModalOpen} onOpenSampleModal={() => setIsSampleModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <VetCollaborationSection />
+        <CommunitySection />
         <Lineup setIsLabelModalOpen={setIsLabelModalOpen} onOpenSampleModal={() => setIsSampleModalOpen(true)} activeProduct={activeProduct} setActiveProduct={setActiveProduct} />
         <Values activeProduct={activeProduct} />
         <ClinicalEvidence activeProduct={activeProduct} setActiveProduct={setActiveProduct} />

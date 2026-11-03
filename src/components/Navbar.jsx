@@ -41,6 +41,10 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, onOp
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
             {t('nav.caseStudy', '임상 다큐')}
           </a>
+          <a href="#community" className="text-sm font-bold text-teal-800 hover:text-[#00513b] transition-colors flex items-center gap-1">
+            <span>💬</span>
+            <span>커뮤니티 & 후기</span>
+          </a>
           <a href="#values" className="text-sm font-semibold text-slate-600 hover:text-[#00513b] transition-colors">{t('nav.values')}</a>
         </div>
 
@@ -175,6 +179,10 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, onOp
           <a href="#clinical-case-study" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-bold text-emerald-700 hover:text-emerald-900 py-1 transition-colors flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             {t('nav.caseStudy', '임상 다큐 (55일령 발작 환축)')}
+          </a>
+          <a href="#community" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-bold text-teal-800 hover:text-[#00513b] py-1 transition-colors flex items-center gap-2">
+            <span>💬</span>
+            <span>커뮤니티 & 후기 (박선생 Q&A)</span>
           </a>
           <a href="#values" onClick={() => setIsMobileMenuOpen(false)} className="block text-base font-semibold text-slate-700 hover:text-[#00513b] py-1 transition-colors">{t('nav.values')}</a>
           
