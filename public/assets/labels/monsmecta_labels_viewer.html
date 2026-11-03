@@ -61,10 +61,14 @@
                     </button>
                 </div>
 
-                <!-- Size Badge (100ml Standardized) -->
-                <div class="flex items-center gap-1.5 bg-[#070d0b] px-3.5 py-1.5 rounded-xl border border-emerald-800/60 text-xs font-black text-[#d8f46a]">
-                    <span>📦</span>
-                    <span>100ml 표준 규격 단일화 (자문단 확정)</span>
+                <!-- Size Switcher (100ml / 30ml) -->
+                <div class="flex items-center bg-[#070d0b] p-1 rounded-xl border border-emerald-800/60">
+                    <button id="size-100" onclick="changeGlobalSize('100')" class="px-3.5 py-1.5 rounded-lg text-xs font-black transition-all bg-[#d8f46a] text-[#06402f]">
+                        📦 100ml
+                    </button>
+                    <button id="size-30" onclick="changeGlobalSize('30')" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-emerald-300 hover:text-white transition-all">
+                        🧴 30ml
+                    </button>
                 </div>
 
                 <!-- Print Direct -->
@@ -206,18 +210,19 @@
 
         function updateViewer() {
             const frame = document.getElementById('label-frame');
+            const dims = currentSize === '100' ? '118mm × 76mm' : '101mm × 42mm';
             if (currentStyle === 'youth') {
-                const targetUrl = `${currentProduct.youthFile || currentProduct.modernFile}?size=100`;
+                const targetUrl = `${currentProduct.youthFile || currentProduct.modernFile}?size=${currentSize}`;
                 frame.src = targetUrl;
-                document.getElementById('info-title').textContent = `${currentProduct.name} 유스 에디션 (100ml)`;
+                document.getElementById('info-title').textContent = `${currentProduct.name} 유스 에디션 (${currentSize}ml)`;
                 document.getElementById('info-tagline').textContent = `${currentProduct.tagline} · 가독성 개선 시안 (밝은 크림/민트 톤)`;
-                document.getElementById('info-dims').textContent = '118mm × 76mm';
+                document.getElementById('info-dims').textContent = dims;
             } else if (currentStyle === 'modern') {
-                const targetUrl = `${currentProduct.modernFile}?size=100`;
+                const targetUrl = `${currentProduct.modernFile}?size=${currentSize}`;
                 frame.src = targetUrl;
-                document.getElementById('info-title').textContent = `${currentProduct.name} 모던 (100ml)`;
+                document.getElementById('info-title').textContent = `${currentProduct.name} 모던 (${currentSize}ml)`;
                 document.getElementById('info-tagline').textContent = `${currentProduct.tagline} · 모던 ${currentProduct.tag}`;
-                document.getElementById('info-dims').textContent = '118mm × 76mm';
+                document.getElementById('info-dims').textContent = dims;
             } else {
                 frame.src = currentProduct.tightFile;
                 document.getElementById('info-title').textContent = `${currentProduct.name} 100ml 정품 라벨 (타이트 실측)`;
@@ -244,9 +249,9 @@
 
         function openExternal() {
             if (currentStyle === 'youth') {
-                window.open(`${currentProduct.youthFile || currentProduct.modernFile}?size=100`, '_blank');
+                window.open(`${currentProduct.youthFile || currentProduct.modernFile}?size=${currentSize}`, '_blank');
             } else if (currentStyle === 'modern') {
-                window.open(`${currentProduct.modernFile}?size=100`, '_blank');
+                window.open(`${currentProduct.modernFile}?size=${currentSize}`, '_blank');
             } else {
                 window.open(currentProduct.tightFile, '_blank');
             }
