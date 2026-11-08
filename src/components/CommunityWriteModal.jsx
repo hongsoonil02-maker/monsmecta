@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const FECAL_SCORES = [
   { score: 1, label: '1단계: 완전한 물설사 (수양성)' },
@@ -19,7 +19,7 @@ const CommunityWriteModal = ({ isOpen, onClose, onAddPost, initialType = 'review
   const [feedDays, setFeedDays] = useState('3일차');
   const [beforeScore, setBeforeScore] = useState(2);
   const [afterScore, setAfterScore] = useState(5);
-  const [rating, setRating] = useState(5);
+  const rating = 5;
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [pin, setPin] = useState('');

@@ -31,28 +31,8 @@ const OrderForm = ({
   const { t, i18n } = useTranslation();
   const isKoreanLang = (i18n.language || 'ko').toLowerCase().startsWith('ko');
   const [selectedProduct, setSelectedProduct] = useState(Object.keys(PRODUCTS)[0]);
-  const [showPriceManual, setShowPriceManual] = useState(() => {
-    try {
-      return localStorage.getItem('monsmecta_show_price_v1') === 'true';
-    } catch {
-      return false;
-    }
-  });
-
-  const toggleShowPrice = () => {
-    setShowPriceManual(prev => {
-      const next = !prev;
-      try {
-        localStorage.setItem('monsmecta_show_price_v1', String(next));
-      } catch { /* ignore */ }
-      return next;
-    });
-  };
-
   // 사업자번호 10자리 입력 완료 여부
   const isBizNumberFilled = (bizNumber || '').replace(/[^0-9]/g, '').length === 10;
-  // 가격 공개 여부: 사업자번호 10자리가 입력되었거나, 수동으로 토글을 켰을 때
-  const isPriceRevealed = isBizNumberFilled || showPriceManual;
 
   const formatBizNumber = (value) => {
     const raw = value.replace(/[^0-9]/g, '').slice(0, 10);
