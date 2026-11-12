@@ -201,7 +201,7 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            border: 0.20mm solid #2563eb;
+            border: 0.25mm solid #d97706;
             flex-shrink: 0;
         }
 
@@ -217,11 +217,12 @@
             z-index: 1;
         }
 
-        .top-accent-bar {
-            height: 0.50mm;
-            background: linear-gradient(90deg, #1d4ed8, #3b82f6, #93c5fd, #1d4ed8);
-            box-shadow: 0 0 1.5mm #3b82f6E6;
-            z-index: 2;
+        .top-accent-bar,
+        .bottom-accent-bar {
+            height: 0.55mm;
+            background: linear-gradient(90deg, #78350f, #b45309, #d97706, #f59e0b, #d97706, #b45309, #78350f);
+            box-shadow: 0 0 1.2mm rgba(217, 119, 6, 0.75);
+            z-index: 3;
             flex-shrink: 0;
         }
 
@@ -229,7 +230,7 @@
             position: relative;
             z-index: 2;
             display: flex;
-            height: calc(75mm - 0.50mm);
+            height: calc(75mm - 1.10mm);
             width: 110mm;
             padding: 0.40mm 0.80mm 0.40mm 0.80mm;
             justify-content: space-between;
@@ -255,17 +256,17 @@
             justify-content: center;
         }
         .divider-line {
-            width: 0.20mm;
+            width: 0.25mm;
             height: 98%;
-            background: linear-gradient(180deg, transparent, #3b82f6, transparent);
-            opacity: 0.7;
+            background: linear-gradient(180deg, transparent, #b45309, #f59e0b, #b45309, transparent);
+            opacity: 0.85;
         }
         .divider-diamond {
             position: absolute;
             width: 1.1mm;
             height: 1.1mm;
             background: #000;
-            border: 0.20mm solid #3b82f6;
+            border: 0.22mm solid #d97706;
             transform: rotate(45deg);
         }
 
@@ -465,9 +466,10 @@
             margin-bottom: 0.18mm;
         }
         .ing-header .title {
-            font-size: 1.65mm;
-            font-weight: 800;
-            color: #3b82f6;
+            font-size: 1.85mm;
+            font-weight: 900;
+            color: #34d399;
+            text-shadow: 0 0 0.8mm rgba(52, 211, 153, 0.45);
             line-height: 1;
         }
         .ing-header .ref {
@@ -480,12 +482,12 @@
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            font-size: 1.50mm;
+            font-size: 1.72mm;
             line-height: 1.22;
         }
         .ing-name {
-            color: #e2e8f0;
-            font-weight: 600;
+            color: #f8fafc;
+            font-weight: 800;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -493,7 +495,7 @@
         }
         .ing-val {
             color: #ffffff;
-            font-weight: 800;
+            font-weight: 900;
             white-space: nowrap;
             flex-shrink: 0;
             margin-left: 0.6mm;
@@ -1234,7 +1236,7 @@
 
                             <div class="mfg-date-row">
                                 <span><span class="lbl">포장 단위 :</span> <span class="val">100ml</span></span>
-                                <span><span class="lbl">제조일자 :</span> <span class="val">2026. 11. 13.</span></span>
+                                <span><span class="lbl">제조일자 :</span> <span class="val">2026. 12. 15.</span></span>
                                 <span><span class="lbl">유통기한 :</span> <span class="val">제조일로부터 18개월</span></span>
                                 <div class="recycle-wrap">
                                     <svg width="4.5mm" height="4.2mm" viewBox="0 0 110 100" style="flex-shrink:0;">
@@ -1269,6 +1271,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="bottom-accent-bar"></div>
             </div>
         </div>
     </div>
@@ -1441,7 +1444,7 @@
 
                             <div class="mfg-date-row">
                                 <span><span class="lbl">포장 단위 :</span> <span class="val">100ml</span></span>
-                                <span><span class="lbl">제조일자 :</span> <span class="val">2026. 11. 13.</span></span>
+                                <span><span class="lbl">제조일자 :</span> <span class="val">2026. 12. 15.</span></span>
                                 <span><span class="lbl">유통기한 :</span> <span class="val">제조일로부터 18개월</span></span>
                                 <div class="recycle-wrap">
                                     <svg width="4.5mm" height="4.2mm" viewBox="0 0 110 100" style="flex-shrink:0;">
@@ -1476,6 +1479,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="bottom-accent-bar"></div>
             </div>
         </div>
     </div>
