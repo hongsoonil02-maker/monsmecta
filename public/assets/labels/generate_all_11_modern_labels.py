@@ -418,7 +418,7 @@ body.size-100 .ing-body-30 {{ display: none !important; }}
 body.size-100 .badge {{ gap: 1.100mm; padding: 0.850mm 2.800mm; }}
 body.size-100 .badge .t {{ font-size: 1.850mm; font-weight: 900; letter-spacing: .04em; }}
 body.size-100 .badge svg {{ width: 2.200mm; height: 2.200mm; }}
-body.size-100 .tag {{ font-size: 1.900mm; font-weight: 900; padding: 0.700mm 2.500mm; line-height: 1.15; margin-bottom: 0.900mm; }}
+body.size-100 .tag {{ font-size: 1.900mm; font-weight: 900; padding: 0.950mm 2.500mm 0.450mm; line-height: 1.0; margin-bottom: 0.900mm; }}
 body.size-100 .hero-row {{ gap: 1.100mm; }}
 body.size-100 .pet {{ width: 8.200mm; height: 8.200mm; flex: 0 0 8.200mm; }}
 
@@ -430,7 +430,7 @@ body.size-100 .sub-orig {{ font-size: 2.200mm; font-weight: 900; padding: 0.500m
 /* 100ml 라인업(02~11) 2단 타이틀 */
 body.size-100 .brand-sub-main {{ font-size: 5.800mm; margin-bottom: 0.250mm; font-weight: 900; }}
 body.size-100 .brand-sub-name {{ font-size: 4.600mm; margin-bottom: 0.350mm; font-weight: 900; }}
-body.size-100 .brand-sub-en {{ font-size: 1.650mm; font-weight: 900; padding: 0.350mm 1.800mm; }}
+body.size-100 .brand-sub-en {{ font-size: 1.650mm; font-weight: 900; padding: 0.450mm 1.800mm 0.280mm; line-height: 1.0; }}
 
 body.size-100 .fx {{ margin-top: 1.200mm; }}
 body.size-100 .fx-tab {{ top: -1.800mm; left: 2.200mm; font-size: 1.780mm; font-weight: 900; padding: 0.900mm 2.000mm 0.350mm; line-height: 1.0; }}
@@ -441,14 +441,14 @@ body.size-100 .chk {{ width: 2.350mm; height: 2.350mm; font-size: 1.450mm; flex:
 body.size-100 .ing {{ padding: 1.250mm 1.600mm 1.150mm; border-radius: 2.600mm; }}
 body.size-100 .ing-h {{ padding-bottom: 0.550mm; margin-bottom: 0.650mm; }}
 body.size-100 .ing-h .ti {{ font-size: 1.850mm; font-weight: 900; }}
-body.size-100 .ing-h .ref {{ font-size: 1.450mm; font-weight: 900; padding: 0.350mm 1.500mm; }}
+body.size-100 .ing-h .ref {{ font-size: 1.450mm; font-weight: 900; padding: 0.550mm 1.500mm 0.250mm; line-height: 1.0; }}
 body.size-100 .row {{ gap: 0.950mm; margin-bottom: 0.500mm; }}
 body.size-100 .no {{ font-family: 'Outfit', sans-serif !important; width: 2.050mm !important; height: 2.050mm !important; min-width: 2.050mm !important; min-height: 2.050mm !important; flex: 0 0 2.050mm !important; border-radius: 50% !important; font-size: 1.350mm !important; font-weight: 900 !important; display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; line-height: 1 !important; margin-top: 0.150mm !important; }}
 body.size-100 .rm-name {{ font-size: 1.680mm; font-weight: 900; }}
 body.size-100 .rm-val {{ font-size: 1.720mm; font-weight: 900; }}
 body.size-100 .rn {{ font-size: 1.280mm; font-weight: 700; line-height: 1.20; padding-left: 0.200mm; }}
 
-body.size-100 .pack {{ padding: 0.950mm 3.400mm; font-size: 2.250mm; font-weight: 900; gap: 1.000mm; margin-bottom: 0.400mm; }}
+body.size-100 .pack {{ padding: 1.100mm 3.400mm 0.800mm; font-size: 2.250mm; font-weight: 900; gap: 1.000mm; margin-bottom: 0.400mm; }}
 body.size-100 .pack::before {{ width: 2.600mm; height: 2.600mm; }}
 
 body.size-100 .legal {{ padding: 1.000mm 1.200mm; }}
@@ -463,11 +463,11 @@ body.size-100 .ir .l {{ font-size: 1.850mm; font-weight: 900; margin-right: 0.60
 body.size-100 .ir .v {{ font-size: 1.780mm; font-weight: 800; color: #0f172a; }}
 body.size-100 .ef {{ gap: 0.180mm; margin-top: 0.180mm; }}
 body.size-100 .ef li {{ font-size: 1.750mm; line-height: 1.20; font-weight: 800; color: #1e293b; }}
-body.size-100 .dose {{ padding: 0.350mm 0.800mm; gap: 0.350mm; }}
-body.size-100 .dose-lbl {{ font-size: 1.850mm; font-weight: 900; color: #1d4ed8; white-space: nowrap; flex-shrink: 0; line-height: 1.22; }}
+body.size-100 .dose {{ padding: 0.350mm 0.650mm; gap: 0.280mm; }}
+body.size-100 .dose-lbl {{ font-size: 1.720mm; font-weight: 900; color: #1d4ed8; white-space: nowrap; flex-shrink: 0; line-height: 1.22; }}
 body.size-100 .dose-body {{ display: flex; flex-direction: column; text-align: left; gap: 0.150mm; }}
-body.size-100 .dose-t {{ font-size: 1.750mm; font-weight: 800; display: flex; align-items: baseline; gap: 0.300mm; white-space: nowrap; line-height: 1.20; }}
-body.size-100 .dose-t span:first-child {{ font-size: 1.750mm; font-weight: 800; }}
+body.size-100 .dose-t {{ font-size: 1.650mm; font-weight: 800; display: flex; align-items: baseline; gap: 0.220mm; white-space: nowrap; line-height: 1.20; letter-spacing: -0.02em; }}
+body.size-100 .dose-t span:first-child {{ font-size: 1.650mm; font-weight: 800; }}
 body.size-100 .dose-sub {{ font-size: 1.450mm; font-weight: 700; color: #4b5563; text-align: left; line-height: 1.15; }}
 body.size-100 .warn {{ padding: 0.550mm 0.900mm 0.650mm; border-radius: 1.200mm; border: 0.300mm solid #fecdd3; }}
 body.size-100 .warn-t {{ font-size: 1.800mm; font-weight: 900; margin-bottom: 0.400mm; }}
@@ -482,8 +482,8 @@ body.size-100 .sj-foot-logo {{ height: 2.800mm; width: 2.800mm; }}
 body.size-100 .co-n {{ font-size: 1.550mm; }}
 body.size-100 .co-a, body.size-100 .co-tel {{ font-size: 1.300mm; line-height: 1.25; }}
 body.size-100 .rc {{ margin-right: 3.000mm; }}
-body.size-100 .rc .w {{ width: 3.200mm; height: 3.200mm; }}
-body.size-100 .rc .x {{ font-size: 0.850mm; padding-top: 0.400mm; }}
+body.size-100 .rc .w {{ width: 3.600mm; height: 3.600mm; }}
+body.size-100 .rc .x {{ font-size: 0.500mm; padding-top: 0.900mm; letter-spacing: -0.08em; }}
 body.size-100 .rc .o {{ font-size: 1.150mm; }}
 
 /* ==========================================================================
@@ -506,7 +506,7 @@ body.size-30 .badge {{ gap: 0.600mm; padding: 0.420mm 1.800mm; box-shadow: 0 0.2
 body.size-30 .badge .t {{ font-size: 1.350mm; font-weight: 900 !important; letter-spacing: .02em; -webkit-text-stroke: 0.035mm currentColor; }}
 body.size-30 .badge svg {{ width: 1.600mm; height: 1.600mm; }}
 
-body.size-30 .tag {{ font-size: 1.380mm; font-weight: 900 !important; padding: 0.320mm 1.500mm; line-height: 1.1; margin-bottom: 0.200mm; -webkit-text-stroke: 0.03mm currentColor; }}
+body.size-30 .tag {{ font-size: 1.380mm; font-weight: 900 !important; padding: 0.480mm 1.500mm 0.200mm; line-height: 1.0; margin-bottom: 0.200mm; -webkit-text-stroke: 0.03mm currentColor; }}
 body.size-30 .hero-row {{ gap: 0.700mm; }}
 body.size-30 .pet {{ width: 5.200mm; height: 5.200mm; flex: 0 0 5.200mm; }}
 
@@ -530,7 +530,7 @@ body.size-30 .chk {{ width: 1.600mm; height: 1.600mm; font-size: 1.000mm; font-w
 body.size-30 .ing {{ padding: 0.550mm 0.850mm 0.450mm; border-radius: 1.600mm; }}
 body.size-30 .ing-h {{ padding-bottom: 0.200mm; margin-bottom: 0.220mm; }}
 body.size-30 .ing-h .ti {{ font-size: 1.280mm; font-weight: 900 !important; -webkit-text-stroke: 0.03mm currentColor; }}
-body.size-30 .ing-h .ref {{ font-size: 1.000mm; font-weight: 900 !important; padding: 0.180mm 0.850mm; -webkit-text-stroke: 0.025mm currentColor; }}
+body.size-30 .ing-h .ref {{ font-size: 1.000mm; font-weight: 900 !important; padding: 0.320mm 0.850mm 0.120mm; line-height: 1.0; -webkit-text-stroke: 0.025mm currentColor; }}
 body.size-30 .row {{ gap: 0.550mm; margin-bottom: 0.120mm; line-height: 1.12; }}
 body.size-30 .no {{ font-family: 'Outfit', sans-serif !important; width: 1.550mm !important; height: 1.550mm !important; min-width: 1.550mm !important; min-height: 1.550mm !important; flex: 0 0 1.550mm !important; border-radius: 50% !important; font-size: 0.950mm !important; font-weight: 900 !important; display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; line-height: 1 !important; margin-top: 0.080mm !important; }}
 body.size-30 .rm-name {{ font-size: 1.150mm; font-weight: 900 !important; letter-spacing: -0.035em; -webkit-text-stroke: 0.035mm currentColor; }}
@@ -582,8 +582,8 @@ body.size-30 .co-n {{ font-size: 0.880mm; }}
 body.size-30 .co-a {{ font-size: 0.700mm; line-height: 1.10; color: #64748b; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block !important; }}
 body.size-30 .co-tel {{ font-size: 0.740mm; line-height: 1.12; color: #475569; font-weight: 600; white-space: nowrap; display: block !important; }}
 body.size-30 .rc {{ gap: 0.300mm; margin-right: 1.800mm; }}
-body.size-30 .rc .w {{ width: 1.700mm; height: 1.700mm; }}
-body.size-30 .rc .x {{ font-size: 0.500mm; padding-top: 0.200mm; }}
+body.size-30 .rc .w {{ width: 2.100mm; height: 2.100mm; }}
+body.size-30 .rc .x {{ font-size: 0.300mm; padding-top: 0.550mm; letter-spacing: -0.08em; }}
 body.size-30 .rc .o {{ font-size: 0.700mm; }}
 
 /* 인쇄 스타일 */
