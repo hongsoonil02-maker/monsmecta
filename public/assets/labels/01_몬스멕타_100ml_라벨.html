@@ -465,9 +465,10 @@
             margin-bottom: 0.18mm;
         }
         .ing-header .title {
-            font-size: 1.65mm;
-            font-weight: 800;
-            color: #10b981;
+            font-size: 1.85mm;
+            font-weight: 900;
+            color: #34d399; /* 밝은 민트 - 어두운 배경 가독성 */
+            text-shadow: 0 0 0.8mm rgba(52, 211, 153, 0.45);
             line-height: 1;
         }
         .ing-header .ref {
@@ -508,31 +509,33 @@
             flex-direction: column;
             line-height: 1.20;
         }
+        /* 성분 박스 글씨 크기 = 핵심 효능(.effects-row) 1.72mm 와 동일 */
         .c5-main {
-            font-size: 1.42mm;
-            font-weight: 800;
+            font-size: 1.72mm;
+            font-weight: 900;
             color: #ffffff;
         }
         .c5-inline {
-            font-size: 1.36mm;
-            font-weight: 700;
+            font-size: 1.72mm;
+            font-weight: 900;
             color: #a7f3d0;
             margin-left: 0.5mm;
         }
         .c5-sub {
-            font-size: 1.24mm;
-            font-weight: 600;
+            font-size: 1.72mm;
+            font-weight: 900;
             color: #e2e8f0;
             padding-left: 2.2mm;
         }
         .c5-pat {
             color: #fde047;
-            font-weight: 700;
-            font-size: 1.16mm;
+            font-weight: 900;
+            font-size: 1.72mm;
+            white-space: nowrap; /* 특허번호가 중간에서 끊기지 않도록 */
         }
         .c5-note {
             color: #94a3b8;
-            font-size: 1.16mm;
+            font-size: 1.72mm;
         }
 
         /* 좌측 하단 바 (10/28 스크린샷 푸터 스타일 완벽 재현) */
