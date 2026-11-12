@@ -217,11 +217,12 @@
             z-index: 1;
         }
 
-        .top-accent-bar {
-            height: 0.50mm;
-            background: linear-gradient(90deg, #059669, #10b981, #6ee7b7, #059669);
-            box-shadow: 0 0 1.5mm #10b981E6;
-            z-index: 2;
+        .top-accent-bar,
+        .bottom-accent-bar {
+            height: 0.55mm;
+            background: linear-gradient(90deg, #78350f, #b45309, #d97706, #f59e0b, #d97706, #b45309, #78350f);
+            box-shadow: 0 0 1.2mm rgba(217, 119, 6, 0.75);
+            z-index: 3;
             flex-shrink: 0;
         }
 
@@ -229,7 +230,7 @@
             position: relative;
             z-index: 2;
             display: flex;
-            height: calc(75mm - 0.50mm);
+            height: calc(75mm - 1.10mm);
             width: 110mm;
             padding: 0.40mm 0.80mm 0.40mm 0.80mm;
             justify-content: space-between;
@@ -1265,6 +1266,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="bottom-accent-bar"></div>
             </div>
         </div>
     </div>
@@ -1463,6 +1465,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="bottom-accent-bar"></div>
             </div>
         </div>
     </div>
