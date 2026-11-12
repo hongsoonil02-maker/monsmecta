@@ -164,14 +164,16 @@ def generate_modern_html(prod, p_id):
           <span class="brand-sub-en en">{prod['en']}<sup class="tm">™</sup></span>
         </div>"""
 
-    # 효능 목록 HTML (최대 4개)
+    # 효능 목록 HTML (최대 4개 + 하단 주석)
     effects_html_100 = ""
     for eff in prod["effects"][:4]:
         effects_html_100 += f"""<div class="fx-item"><span class="chk">✓</span><span>{eff}</span></div>\n"""
+    effects_html_100 += """<div class="fx-note">(*등의 개선에 도움)</div>\n"""
         
     effects_html_30 = ""
     for eff in prod["effects"][:3]:  # 30ml는 3개 압축
         effects_html_30 += f"""<div class="fx-item"><span class="chk">✓</span><span>{eff}</span></div>\n"""
+    effects_html_30 += """<div class="fx-note">(*등의 개선에 도움)</div>\n"""
 
     # 성분 목록 HTML (성분명 좌측 + 실제 수치 우측 끝 맞춤)
     ing_title = prod["ing_title"]
@@ -332,6 +334,7 @@ html, body {{ font-family: 'Pretendard Variable', Pretendard, 'Noto Sans KR', -a
 .fx-tab {{ position: absolute; background: {c['point']}; color: {c['deep']}; font-weight: 900; border-radius: 999px; z-index: 3; box-shadow: 0 0.250mm 0 rgba(0,0,0,.3); }}
 .fx-card {{ background: {c['card_bg']}; color: {c['deep']}; border-radius: 2.400mm; display: flex; flex-direction: column; box-shadow: 0 0.400mm 0 rgba(0,0,0,.3); }}
 .fx-item {{ display: flex; align-items: center; font-weight: 800; line-height: 1.2; white-space: nowrap; }}
+.fx-note {{ align-self: flex-end; text-align: right; color: {c['primary']}; font-weight: 800; line-height: 1; white-space: nowrap; }}
 .chk {{ border-radius: 50%; background: {c['primary']}; color: #fff; font-weight: 900; display: flex; align-items: center; justify-content: center; line-height: 1; }}
 
 /* 성분 테이블 (우측 끝 맞춤 Flex 시스템) */
@@ -434,8 +437,9 @@ body.size-100 .brand-sub-en {{ font-size: 1.650mm; font-weight: 900; padding: 0.
 
 body.size-100 .fx {{ margin-top: 1.200mm; }}
 body.size-100 .fx-tab {{ top: -1.800mm; left: 2.200mm; font-size: 1.780mm; font-weight: 900; padding: 0.900mm 2.000mm 0.350mm; line-height: 1.0; }}
-body.size-100 .fx-card {{ padding: 2.300mm 1.800mm 1.600mm; gap: 1.000mm; border-radius: 2.600mm; }}
+body.size-100 .fx-card {{ padding: 2.150mm 1.800mm 1.250mm; gap: 0.850mm; border-radius: 2.600mm; }}
 body.size-100 .fx-item {{ gap: 1.150mm; font-size: 1.900mm; font-weight: 900; line-height: 1.22; }}
+body.size-100 .fx-note {{ font-size: 1.280mm; margin-top: -0.250mm; }}
 body.size-100 .chk {{ width: 2.350mm; height: 2.350mm; font-size: 1.450mm; flex: 0 0 2.350mm; }}
 
 body.size-100 .ing {{ padding: 1.250mm 1.600mm 1.150mm; border-radius: 2.600mm; }}
@@ -522,8 +526,9 @@ body.size-30 .brand-sub-en {{ font-size: 1.200mm; font-weight: 900 !important; p
 
 body.size-30 .fx {{ margin-top: 0.400mm; }}
 body.size-30 .fx-tab {{ top: -1.250mm; left: 1.500mm; font-size: 1.220mm; font-weight: 900 !important; padding: 0.250mm 1.200mm; -webkit-text-stroke: 0.03mm currentColor; }}
-body.size-30 .fx-card {{ padding: 1.200mm 1.050mm 0.750mm; gap: 0.350mm; border-radius: 1.600mm; }}
+body.size-30 .fx-card {{ padding: 1.100mm 1.050mm 0.550mm; gap: 0.280mm; border-radius: 1.600mm; }}
 body.size-30 .fx-item {{ gap: 0.700mm; font-size: 1.380mm; font-weight: 900 !important; line-height: 1.15; -webkit-text-stroke: 0.035mm currentColor; }}
+body.size-30 .fx-note {{ font-size: 0.920mm; margin-top: -0.050mm; }}
 body.size-30 .chk {{ width: 1.600mm; height: 1.600mm; font-size: 1.000mm; font-weight: 900 !important; flex: 0 0 1.600mm; }}
 
 /* 30ml 성분 박스 (우측 끝 맞춤) */
