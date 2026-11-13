@@ -101,7 +101,7 @@
             </div>
             <div class="flex items-center gap-4 text-emerald-200">
                 <span>규격: <b class="text-[#d8f46a]" id="info-dims">123mm × 75mm</b></span>
-                <span>접착 여백: <b class="text-white">좌 7mm + 중 7mm + 우 3mm</b></span>
+                <span>접착 여백: <b class="text-white">좌 7mm + 중 7mm + 우 2mm</b></span>
                 <span>모드: <b class="text-white">화이트 / 딥그린 뒷면 지원</b></span>
             </div>
         </div>
@@ -204,13 +204,13 @@
                 ? 'px-3.5 py-1.5 rounded-lg text-xs font-black transition-all bg-[#d8f46a] text-[#06402f]'
                 : 'px-3.5 py-1.5 rounded-lg text-xs font-bold text-emerald-300 hover:text-white transition-all';
 
-            document.getElementById('info-dims').textContent = size === '100' ? (currentStyle === 'classic' ? '123mm × 75mm' : '118mm × 76mm') : '101mm × 42mm';
+            document.getElementById('info-dims').textContent = size === '100' ? (currentStyle === 'classic' ? '123mm × 75mm' : '117mm × 76mm') : '100mm × 42mm';
             updateViewer();
         }
 
         function updateViewer() {
             const frame = document.getElementById('label-frame');
-            const dims = currentSize === '100' ? '118mm × 76mm' : '101mm × 42mm';
+            const dims = currentSize === '100' ? '117mm × 76mm' : '100mm × 42mm';
             if (currentStyle === 'youth') {
                 const targetUrl = `${currentProduct.youthFile || currentProduct.modernFile}?size=${currentSize}`;
                 frame.src = targetUrl;
@@ -260,5 +260,6 @@
         renderTabs();
         updateViewer();
     </script>
+<!-- v2.1-wing2mm -->
 </body>
 </html>

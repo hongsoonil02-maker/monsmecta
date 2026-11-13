@@ -744,7 +744,7 @@
         document.getElementById('studio-spec').textContent = dimensions + ' / PRINT EDITION';
         document.getElementById('adhesive-guide').textContent = `좌측 접착면 7mm / 전면 ${small ? '39.5' : '50'}mm / 중앙 접착면 7mm / 후면 ${small ? '44.5' : '56'}mm / 우측 접착면 3mm`;
         document.getElementById('calib-title').textContent = `몬스멕타 ${size}ml · ${dimensions} (접착면 포함)`;
-        document.querySelector('.a4-cut-instructions').textContent = `바깥쪽 재단선을 따라 자르십시오. 전체 ${dimensions}, 좌측 7mm · 중앙 7mm · 우측 3mm는 흰색 접착면입니다.`;
+        document.querySelector('.a4-cut-instructions').textContent = `바깥쪽 재단선을 따라 자르십시오. 전체 ${dimensions}, 좌측 7mm · 중앙 7mm · 우측 2mm는 흰색 접착면입니다.`;
         for (const card of document.querySelectorAll('.label-card-wrapper')) {
             card.querySelector('.dims').textContent = `${card.id === 'card-white' ? '화이트' : '딥그린'} 뒷면 · ${dimensions}`;
         }
