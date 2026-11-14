@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MONSMECTA 11종 컬러 아이덴티티 라벨 통합 뷰어 (100ml 정품 규격 117x76mm)</title>
+    <title>MONSMECTA 11종 컬러 아이덴티티 라벨 통합 뷰어 (100ml 정품 규격 117x78mm)</title>
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -51,7 +51,7 @@
                 <!-- Style Selector -->
                 <div class="flex items-center bg-[#070d0b] p-1 rounded-xl border border-emerald-800/60">
                     <button id="style-wing" onclick="changeDesignStyle('wing')" class="px-3.5 py-1.5 rounded-lg text-xs font-black transition-all bg-[#10b981] text-white shadow-md">
-                        🏷️ 접착 여백 라벨 (117×76mm)
+                        🏷️ 접착 여백 라벨 (117×78mm)
                     </button>
                     <button id="style-tight" onclick="changeDesignStyle('tight')" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-emerald-300 hover:text-white transition-all">
                         📦 여백 제외 (110×75mm)
@@ -99,11 +99,11 @@
             <div class="flex items-center gap-3">
                 <span class="w-3.5 h-3.5 rounded-full border border-white/50 shadow-sm" id="info-dot"></span>
                 <span class="font-extrabold text-white text-sm" id="info-title">몬스멕타 오리지널</span>
-                <span class="px-2 py-0.5 rounded text-[10px] font-black border" id="info-color-tag">WING 117×76</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-black border" id="info-color-tag">WING 117×78</span>
                 <span class="text-emerald-300 ml-2" id="info-tagline">연변 시 장 기능 개선 및 정장 작용에 뛰어난</span>
             </div>
             <div class="flex items-center gap-4 text-emerald-200">
-                <span>규격: <b class="text-[#d8f46a]" id="info-dims">117mm × 76mm</b></span>
+                <span>규격: <b class="text-[#d8f46a]" id="info-dims">117mm × 78mm</b></span>
                 <span>접착 여백: <b class="text-white" id="info-wings">좌 7mm + 중 7mm + 우 2mm</b></span>
                 <span>모드: <b class="text-white">화이트 / 딥그린 뒷면 지원</b></span>
             </div>
@@ -214,13 +214,13 @@
 
         function updateViewer() {
             const frame = document.getElementById('label-frame');
-            const dims = currentSize === '100' ? '117mm × 76mm' : '100mm × 42mm';
+            const dims = currentSize === '100' ? '117mm × 78mm' : '100mm × 42mm';
             
             if (currentStyle === 'wing') {
                 frame.src = currentProduct.wingFile;
-                document.getElementById('info-title').textContent = `${currentProduct.name} 접착 여백 라벨 (117×76mm)`;
+                document.getElementById('info-title').textContent = `${currentProduct.name} 접착 여백 라벨 (117×78mm)`;
                 document.getElementById('info-tagline').textContent = `${currentProduct.tagline} · 좌7mm + 중간7mm + 우2mm 실물 접착 여백 포함`;
-                document.getElementById('info-dims').textContent = '117mm × 76mm (실측 인쇄)';
+                document.getElementById('info-dims').textContent = '117mm × 78mm (실측 인쇄)';
                 document.getElementById('info-wings').textContent = '좌 7mm + 중 7mm + 우 2mm';
             } else if (currentStyle === 'tight') {
                 frame.src = currentProduct.tightFile;
@@ -248,7 +248,7 @@
             dot.style.backgroundColor = currentProduct.color;
 
             const tag = document.getElementById('info-color-tag');
-            tag.textContent = currentStyle === 'wing' ? `WING 117×76 · ${currentProduct.tag}` : (currentStyle === 'youth' ? 'YOUTH · 100ml' : (currentStyle === 'modern' ? `MODERN · ${currentProduct.tag}` : `TIGHT · ${currentProduct.tag}`));
+            tag.textContent = currentStyle === 'wing' ? `WING 117×78 · ${currentProduct.tag}` : (currentStyle === 'youth' ? 'YOUTH · 100ml' : (currentStyle === 'modern' ? `MODERN · ${currentProduct.tag}` : `TIGHT · ${currentProduct.tag}`));
             tag.style.color = currentProduct.color;
             tag.style.borderColor = currentProduct.color;
             tag.style.backgroundColor = `${currentProduct.color}22`;

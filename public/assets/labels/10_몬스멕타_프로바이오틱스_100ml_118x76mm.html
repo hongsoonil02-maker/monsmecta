@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>MONSMECTA PROBIOTICS 100ml Label (117mm x 76mm - 좌7+중7+우2) - 정품 규격 1:1 실측 인쇄</title>
+    <title>MONSMECTA PROBIOTICS 100ml Label (117mm x 78mm - 좌7+중7+우2) - 정품 규격 1:1 실측 인쇄</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
@@ -219,7 +219,7 @@
 
         .top-accent-bar,
         .bottom-accent-bar {
-            height: 0.55mm;
+            height: 1.55mm;
             background: linear-gradient(90deg, #78350f, #b45309, #d97706, #f59e0b, #d97706, #b45309, #78350f);
             box-shadow: 0 0 1.2mm rgba(217, 119, 6, 0.75);
             z-index: 3;
@@ -1004,7 +1004,7 @@
     <style id="unified-118x76-override">
         .crop-marks-box {
             width: 117mm !important;
-            height: 76mm !important;
+            height: 78mm !important;
         }
         @media screen {
             .label-sheet {
@@ -1025,14 +1025,14 @@
         @media print {
             body.paper-a4 .crop-marks-box {
                 width: 117mm !important;
-                height: 76mm !important;
+                height: 78mm !important;
             }
             body.paper-roll,
             body.paper-roll .labels-stage,
             body.paper-roll .label-card-wrapper,
             body.paper-roll .crop-marks-box {
                 width: 117mm !important;
-                height: 76mm !important;
+                height: 78mm !important;
             }
             .sticker-wing-container {
                 transform: none !important;
@@ -1045,7 +1045,7 @@
             flex-direction: row !important;
             align-items: stretch !important;
             width: 117mm !important;
-            height: 76mm !important;
+            height: 78mm !important;
             background: #ffffff !important;
             box-sizing: border-box !important;
             margin: 0 auto !important;
@@ -1092,15 +1092,21 @@
             width: 108mm !important;
             min-width: 108mm !important;
             max-width: 108mm !important;
-            height: 76mm !important;
-            min-height: 76mm !important;
-            max-height: 76mm !important;
+            height: 78mm !important;
+            min-height: 78mm !important;
+            max-height: 78mm !important;
             border: 0.25mm solid #d97706 !important;
             box-sizing: border-box !important;
         }
+        .sticker-wing-container .top-accent-bar,
+        .sticker-wing-container .bottom-accent-bar {
+            height: 1.55mm !important;
+            min-height: 1.55mm !important;
+            max-height: 1.55mm !important;
+        }
         .sticker-wing-container .content-wrap {
             width: 108mm !important;
-            height: calc(76mm - 1.10mm) !important;
+            height: calc(78mm - 3.10mm) !important;
             padding: 0.40mm 0.45mm !important;
             justify-content: space-between !important;
         }
@@ -1176,7 +1182,7 @@
     <div style="color:#ffffff; font-size:13px; font-weight:700; display:flex; align-items:center; gap:8px; white-space:nowrap;">
         <span style="color:#4ade80; font-size:16px;">★</span>
         <span style="color:#4ade80; font-weight:900;">몬스멕타 프로바이오틱스 100ml</span>
-        <span style="color:#38bdf8; font-size:11px; background:rgba(56,189,248,0.12); padding:3px 8px; border-radius:6px; border:1px solid rgba(56,189,248,0.3); font-weight:800;">117mm × 76mm (좌7+중7+우2 실측)</span>
+        <span style="color:#38bdf8; font-size:11px; background:rgba(56,189,248,0.12); padding:3px 8px; border-radius:6px; border:1px solid rgba(56,189,248,0.3); font-weight:800;">117mm × 78mm (좌7+중7+우2 실측)</span>
         <span style="color:#fde047; font-size:11px; background:rgba(253,224,71,0.15); padding:3px 8px; border-radius:6px; border:1px solid rgba(253,224,71,0.35); font-weight:800;">특허청 상표출원 완료</span>
     </div>
 
@@ -1666,7 +1672,7 @@
     </div>
 
     <div class="a4-cut-instructions">
-        ✂️ 검정색 테두리 코너 재단선(Crop Marks)을 따라 칼이나 가위로 자르면 정확히 117mm × 76mm (좌7mm + 중7mm + 우2mm) 정품 라벨이 완성됩니다.
+        ✂️ 검정색 테두리 코너 재단선(Crop Marks)을 따라 칼이나 가위로 자르면 정확히 117mm × 78mm (좌7mm + 중7mm + 우2mm) 정품 라벨이 완성됩니다.
     </div>
 
 </div>
@@ -1680,7 +1686,7 @@
         if (mode === 'roll') {
             document.body.classList.remove('paper-a4');
             document.body.classList.add('paper-roll');
-            pageStyle.innerHTML = '@page { size: 117mm 76mm; margin: 0; }';
+            pageStyle.innerHTML = '@page { size: 117mm 78mm; margin: 0; }';
             btnRoll.style.background = '#0284c7';
             btnRoll.style.color = '#ffffff';
             btnRoll.style.border = '1px solid #38bdf8';
