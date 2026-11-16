@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
+
+// URL 파라미터 (?ref=... 또는 ?code=...) 자동 감지
+const getInitialPromoCode = () => {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref') || urlParams.get('code');
+    if (ref && (ref.toLowerCase().includes('vettalk') || ref.toLowerCase().includes('park') || ref.toLowerCase().includes('hanam'))) {
+      return ref;
+    }
+  } catch {
+    // ignore
+  }
+  return '';
+};
 
 const VetCollaborationSection = () => {
-  const [promoCode, setPromoCode] = useState('');
-  const [isCodeApplied, setIsCodeApplied] = useState(false);
+  const [promoCode, setPromoCode] = useState(getInitialPromoCode);
+  const [isCodeApplied, setIsCodeApplied] = useState(() => Boolean(promoCode));
   const [errorMessage, setErrorMessage] = useState('');
-
-  // URL 파라미터 (?ref=... 또는 ?code=...) 자동 감지
-  useEffect(() => {
-    try {
-      const urlParams = new URLSearchParams(window.location.search);
-      const ref = urlParams.get('ref') || urlParams.get('code');
-      if (ref && (ref.toLowerCase().includes('vettalk') || ref.toLowerCase().includes('park') || ref.toLowerCase().includes('hanam'))) {
-        setPromoCode(ref);
-        setIsCodeApplied(true);
-      }
-    } catch {
-      // ignore
-    }
-  }, []);
 
   const handleApplyCode = (e) => {
     e.preventDefault();
