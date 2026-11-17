@@ -1,49 +1,64 @@
 import React, { useState } from 'react';
+import { useModalBehavior, handleBackdropClick } from '../hooks/useModalBehavior';
 
 const VetInquiryModal = ({ isOpen, onClose }) => {
   const [hospitalName, setHospitalName] = useState('');
   const [vetName, setVetName] = useState('');
   const [phone, setPhone] = useState('');
   const [memo, setMemo] = useState('');
+  const [formError, setFormError] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const panelRef = useModalBehavior(isOpen, onClose);
 
   if (!isOpen) return null;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!hospitalName || !phone) {
-      alert('병원명과 연락처를 입력해 주세요.');
+    if (!hospitalName.trim() || !phone.trim()) {
+      setFormError('병원명과 연락처를 입력해 주세요.');
       return;
     }
+    setFormError('');
     // 접수 완료 시뮬레이션
     setIsSubmitted(true);
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden border border-emerald-100 flex flex-col">
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4 animate-in fade-in"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="vet-inquiry-modal-title"
+      onClick={(e) => handleBackdropClick(e, onClose)}
+    >
+      <div
+        ref={panelRef}
+        tabIndex={-1}
+        className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[92dvh] overflow-hidden border border-emerald-100 flex flex-col focus:outline-none"
+      >
         {/* Header */}
-        <div className="bg-gradient-to-r from-emerald-800 to-teal-900 px-6 py-5 text-white flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <span className="text-2xl">🏥</span>
-            <div>
-              <h3 className="font-extrabold text-lg sm:text-xl tracking-tight">동물병원 입점 및 납품 직통 상담</h3>
+        <div className="bg-gradient-to-r from-emerald-800 to-teal-900 px-5 sm:px-6 py-4 sm:py-5 text-white flex items-center justify-between gap-2 shrink-0">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="text-2xl shrink-0" aria-hidden="true">🏥</span>
+            <div className="min-w-0">
+              <h3 id="vet-inquiry-modal-title" className="font-extrabold text-base sm:text-xl tracking-tight">동물병원 입점 및 납품 직통 상담</h3>
               <p className="text-xs text-emerald-200 mt-0.5">전국 동물병원 원장님을 위한 1:1 VIP 전담 상담 창구</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 p-1.5 rounded-full transition-colors cursor-pointer"
+            className="text-white/80 hover:text-white bg-white/10 hover:bg-white/20 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-colors cursor-pointer shrink-0"
             aria-label="닫기"
           >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-6 overflow-y-auto max-h-[80vh] space-y-5">
+        <div className="p-5 sm:p-6 overflow-y-auto flex-1 space-y-5">
           {/* VIP Notice Banner */}
           <div className="bg-amber-50 border border-amber-200/90 rounded-xl p-4 text-xs text-amber-900 leading-relaxed">
             <div className="font-extrabold flex items-center gap-1.5 text-amber-950 mb-1 text-sm">
@@ -95,55 +110,66 @@ const VetInquiryModal = ({ isOpen, onClose }) => {
               </div>
 
               {/* Inquiry Form */}
-              <form onSubmit={handleSubmit} className="space-y-3">
+              <form onSubmit={handleSubmit} className="space-y-3" noValidate>
+                {formError && (
+                  <p role="alert" className="text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200 rounded-xl px-3.5 py-2.5">
+                    {formError}
+                  </p>
+                )}
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">동물병원 상호명 *</label>
+                  <label htmlFor="vet-inquiry-hospital" className="block text-xs font-bold text-slate-700 mb-1">동물병원 상호명 *</label>
                   <input
+                    id="vet-inquiry-hospital"
                     type="text"
                     required
                     value={hospitalName}
                     onChange={(e) => setHospitalName(e.target.value)}
-                    placeholder="예) 하남사랑동물병원"
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-emerald-600 focus:bg-white outline-none"
+                    placeholder="예) 에스앤제이 동물병원"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-base sm:text-sm focus:ring-2 focus:ring-emerald-600 focus:bg-white outline-none"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">원장님 성함</label>
+                    <label htmlFor="vet-inquiry-vet" className="block text-xs font-bold text-slate-700 mb-1">원장님 성함</label>
                     <input
+                      id="vet-inquiry-vet"
                       type="text"
                       value={vetName}
                       onChange={(e) => setVetName(e.target.value)}
-                      placeholder="예) 김동준 원장"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-emerald-600 focus:bg-white outline-none"
+                      placeholder="예) 홍순일 원장"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-base sm:text-sm focus:ring-2 focus:ring-emerald-600 focus:bg-white outline-none"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">연락처 *</label>
+                    <label htmlFor="vet-inquiry-phone" className="block text-xs font-bold text-slate-700 mb-1">연락처 *</label>
                     <input
+                      id="vet-inquiry-phone"
                       type="tel"
+                      inputMode="tel"
+                      autoComplete="tel"
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="010-0000-0000"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-emerald-600 focus:bg-white outline-none"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-base sm:text-sm focus:ring-2 focus:ring-emerald-600 focus:bg-white outline-none"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">문의 사항 / 필요 라인업</label>
+                  <label htmlFor="vet-inquiry-memo" className="block text-xs font-bold text-slate-700 mb-1">문의 사항 / 필요 라인업</label>
                   <textarea
+                    id="vet-inquiry-memo"
                     rows={2}
                     value={memo}
                     onChange={(e) => setMemo(e.target.value)}
                     placeholder="초도 샘플 요청, 납품 최소 수량(MOQ), 결제 방식 등 자유롭게 기재해 주세요."
-                    className="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-emerald-600 focus:bg-white outline-none resize-none"
+                    className="w-full px-3.5 py-2 bg-slate-50 border border-slate-300 rounded-xl text-base sm:text-sm focus:ring-2 focus:ring-emerald-600 focus:bg-white outline-none resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-gradient-to-r from-emerald-700 to-teal-800 hover:from-emerald-800 hover:to-teal-900 text-white font-extrabold rounded-xl shadow-md text-sm transition-all cursor-pointer mt-2"
+                  className="w-full min-h-[44px] py-3 bg-gradient-to-r from-emerald-700 to-teal-800 hover:from-emerald-800 hover:to-teal-900 text-white font-extrabold rounded-xl shadow-md text-sm transition-all cursor-pointer mt-2"
                 >
                   입점 상담 및 공급가 안내 요청하기 🚀
                 </button>

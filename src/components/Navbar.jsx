@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PRODUCTS, getProductDisplayName } from '../data/products';
 
@@ -23,8 +24,17 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, onOp
   const { t, i18n } = useTranslation();
   const isKoreanLang = (i18n.language || 'ko').toLowerCase().startsWith('ko');
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return undefined;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setIsMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isMobileMenuOpen, setIsMobileMenuOpen]);
+
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
+    <nav aria-label={t('nav.mainNav', '주 메뉴')} className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm transition-all duration-300">
 
       <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-1 sm:gap-4 overflow-hidden">
         {/* Brand Logo & Name */}
@@ -56,7 +66,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, onOp
               value={activeProduct}
               onChange={(e) => setActiveProduct(e.target.value)}
               aria-label="제품 선택"
-              className="bg-emerald-50 border border-emerald-300/80 text-[#00513b] text-[10px] sm:text-xs font-bold rounded-full px-1.5 sm:px-3 py-1 sm:py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-emerald-100 transition-colors shadow-xs max-w-[96px] xs:max-w-[110px] sm:max-w-[190px] truncate"
+              className="bg-emerald-50 border border-emerald-300/80 text-[#00513b] text-[11px] sm:text-xs font-bold rounded-full h-10 sm:h-auto px-2 sm:px-3 py-1 sm:py-1.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer hover:bg-emerald-100 transition-colors shadow-xs max-w-[96px] xs:max-w-[116px] sm:max-w-[190px] truncate"
             >
               {Object.values(PRODUCTS).map(p => (
                 <option key={p.id} value={p.id}>
@@ -88,7 +98,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, onOp
               value={i18n.language || 'ko'}
               onChange={(e) => i18n.changeLanguage(e.target.value)}
               aria-label={t('nav.lang')}
-              className="bg-slate-100 border border-slate-300 text-[#00513b] text-[11px] font-bold rounded-full h-8 px-1.5 py-0.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer shadow-xs active:bg-slate-200"
+              className="bg-slate-100 border border-slate-300 text-[#00513b] text-xs font-bold rounded-full h-10 px-2 py-0.5 focus:outline-none focus:ring-2 focus:ring-[#00513b] cursor-pointer shadow-xs active:bg-slate-200"
             >
               {LANGUAGES.map(lang => (
                 <option key={lang.code} value={lang.code}>
@@ -116,11 +126,12 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, onOp
           {/* Mobile Hamburger Menu Button (Always visible without clipping) */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-[#00513b] hover:bg-emerald-50 active:bg-emerald-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00513b] w-8 h-8 sm:w-9 sm:h-9 min-w-[32px] sm:min-w-[36px] flex shrink-0 items-center justify-center rounded-lg transition-colors border border-emerald-200/80"
+            className="md:hidden text-[#00513b] hover:bg-emerald-50 active:bg-emerald-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00513b] w-10 h-10 min-w-[40px] min-h-[40px] flex shrink-0 items-center justify-center rounded-lg transition-colors border border-emerald-200/80"
             aria-label={t('nav.menuToggle')}
             aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-nav-drawer"
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               {isMobileMenuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -133,7 +144,7 @@ const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen, onOpenNoticeModal, onOp
 
       {/* Mobile Menu Panel */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-3.5 shadow-xl animate-in fade-in">
+        <div id="mobile-nav-drawer" className="md:hidden bg-white border-b border-gray-200 px-4 py-4 space-y-3.5 shadow-xl animate-in fade-in max-h-[calc(100dvh-4rem)] overflow-y-auto">
           {/* B2B Vet Inquiry Banner in Mobile Drawer */}
           <div className="pb-3 border-b border-slate-100">
             <button

@@ -135,7 +135,7 @@ const OrderForm = ({
                 </label>
               </div>
               {orderError && (
-                <div className="rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-medium text-rose-700">
+                <div role="alert" className="rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm font-medium text-rose-700">
                   {orderError}
                 </div>
               )}
@@ -178,27 +178,31 @@ const OrderForm = ({
                 )}
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">
+                    <label htmlFor="order-hospital-name" className="block text-sm font-bold text-slate-700 mb-2">
                       {isKoreanLang ? t('order.hospital_name') : t('order.intl_clinic_name', '동물병원명 / 기관명 (Clinic or Organization Name)')} <span className="text-red-500">*</span>
                     </label>
                     <input
+                      id="order-hospital-name"
                       type="text"
+                      autoComplete="organization"
                       value={hospitalName}
                       onChange={(e) => onHospitalNameChange(e.target.value)}
-                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium text-base sm:text-sm"
                       placeholder={isKoreanLang ? t('order.hospital_name_placeholder') : 'e.g. Tokyo Central Animal Hospital'}
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-2">
+                    <label htmlFor="order-vet-name" className="block text-sm font-bold text-slate-700 mb-2">
                       {isKoreanLang ? t('order.vet_name') : t('order.intl_vet_name', '원장님/담당자 성함 (Veterinarian / Contact Person)')} <span className="text-red-500">*</span>
                     </label>
                     <input
+                      id="order-vet-name"
                       type="text"
+                      autoComplete="name"
                       value={vetName}
                       onChange={(e) => setVetName(e.target.value)}
-                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                      className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium text-base sm:text-sm"
                       placeholder={isKoreanLang ? t('order.vet_name_placeholder') : 'Dr. Alexander Smith'}
                       required
                     />
@@ -209,7 +213,7 @@ const OrderForm = ({
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <label className="block text-sm font-bold text-slate-700">{t('order.biz_number')} <span className="text-red-500">*</span></label>
+                          <label htmlFor="order-biz-number" className="block text-sm font-bold text-slate-700">{t('order.biz_number')} <span className="text-red-500">*</span></label>
                           {isBizNumberFilled && (
                             <span className="text-[11px] text-emerald-700 font-extrabold bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
                               ✓ 사업자 확인 완료
@@ -217,27 +221,31 @@ const OrderForm = ({
                           )}
                         </div>
                         <input
+                          id="order-biz-number"
                           type="text"
+                          inputMode="numeric"
                           value={bizNumber}
                           onChange={handleBizNumberChange}
-                          className={`w-full px-5 py-4 rounded-xl border ${isBizNumberFilled ? 'border-emerald-500 ring-2 ring-emerald-500/20 bg-emerald-50/20' : 'border-slate-300'} focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide`}
+                          className={`w-full px-5 py-4 rounded-xl border ${isBizNumberFilled ? 'border-emerald-500 ring-2 ring-emerald-500/20 bg-emerald-50/20' : 'border-slate-300'} focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium tracking-wide text-base sm:text-sm`}
                           placeholder={t('order.biz_number_placeholder', '000-00-00000')}
                           required
                           maxLength="12"
                         />
-                        <p className={`text-[11px] mt-1.5 font-medium transition-colors ${isBizNumberFilled ? 'text-emerald-700 font-bold' : 'text-slate-400'}`}>
+                        <p className={`text-[11px] mt-1.5 font-medium transition-colors ${isBizNumberFilled ? 'text-emerald-700 font-bold' : 'text-slate-500'}`}>
                           {isBizNumberFilled
                             ? '✓ 사업자등록번호 10자리 확인 완료: 세금계산서 청구 및 맞춤 단가 안내가 연동됩니다.'
                             : '※ 정확한 세금계산서 발행 및 맞춤 단가 안내를 위해 사업자등록번호 10자리를 입력해주세요.'}
                         </p>
                       </div>
                       <div>
-                        <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.email')} <span className="text-red-500">*</span></label>
+                        <label htmlFor="order-email" className="block text-sm font-bold text-slate-700 mb-2">{t('order.email')} <span className="text-red-500">*</span></label>
                         <input
+                          id="order-email"
                           type="email"
+                          autoComplete="email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium text-base sm:text-sm"
                           placeholder={t('order.email_placeholder')}
                           required
                         />
@@ -245,23 +253,25 @@ const OrderForm = ({
                     </div>
                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                       <div>
-                        <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_category')} <span className="text-red-500">*</span></label>
+                        <label htmlFor="order-biz-category" className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_category')} <span className="text-red-500">*</span></label>
                         <input
+                          id="order-biz-category"
                           type="text"
                           value={bizCategory}
                           onChange={(e) => setBizCategory(e.target.value)}
-                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium text-base sm:text-sm"
                           placeholder={t('order.biz_category_placeholder')}
                           required
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_type')} <span className="text-red-500">*</span></label>
+                        <label htmlFor="order-biz-type" className="block text-sm font-bold text-slate-700 mb-2">{t('order.biz_type')} <span className="text-red-500">*</span></label>
                         <input
+                          id="order-biz-type"
                           type="text"
                           value={bizType}
                           onChange={(e) => setBizType(e.target.value)}
-                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                          className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium text-base sm:text-sm"
                           placeholder={t('order.biz_type_placeholder')}
                           required
                         />
@@ -271,41 +281,48 @@ const OrderForm = ({
                 ) : (
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">
+                      <label htmlFor="order-intl-email" className="block text-sm font-bold text-slate-700 mb-2">
                         {t('order.email', '이메일 (Email)')} <span className="text-red-500">*</span>
                       </label>
                       <input
+                        id="order-intl-email"
                         type="email"
+                        autoComplete="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium text-base sm:text-sm"
                         placeholder="vet@hospital.com"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">
+                      <label htmlFor="order-intl-phone" className="block text-sm font-bold text-slate-700 mb-2">
                         {t('order.whatsapp', '전화번호 / WhatsApp (Phone or WhatsApp)')}
                       </label>
                       <input
+                        id="order-intl-phone"
                         type="text"
+                        inputMode="tel"
+                        autoComplete="tel"
                         value={bizType}
                         onChange={(e) => setBizType(e.target.value)}
-                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                        className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium text-base sm:text-sm"
                         placeholder="+1 555-0199 or WhatsApp ID"
                       />
                     </div>
                   </div>
                 )}
                 <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">
+                  <label htmlFor="order-address" className="block text-sm font-bold text-slate-700 mb-2">
                     {isKoreanLang ? t('order.address') : t('order.intl_address', '배송지 국가 및 주소 (Country & Shipping Address)')} <span className="text-red-500">*</span>
                   </label>
                   <input
+                    id="order-address"
                     type="text"
+                    autoComplete="street-address"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium"
+                    className="w-full px-5 py-4 rounded-xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-[#00513b] outline-none bg-slate-50 transition-all font-medium text-base sm:text-sm"
                     placeholder={isKoreanLang ? t('order.address_placeholder') : 'Country, City, Street Address, Postal Code'}
                     required
                   />
@@ -380,10 +397,15 @@ const OrderForm = ({
                     
                     return (
                       <div key={key} className={`flex flex-col md:flex-row items-center justify-between ${key === 'monsmecta' ? 'bg-slate-50 border-slate-200' : 'bg-emerald-50/30 border-emerald-200'} p-6 rounded-2xl border shadow-sm relative`}>
-                        <button type="button" onClick={() => setQuantities(prev => ({ ...prev, [key]: 0 }))} className="absolute top-4 right-4 text-slate-400 hover:text-red-500 transition-colors">
-                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                        <button
+                          type="button"
+                          onClick={() => setQuantities(prev => ({ ...prev, [key]: 0 }))}
+                          aria-label={`${getProductDisplayName(p, isKoreanLang)} 삭제`}
+                          className="absolute top-2.5 right-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-slate-400 hover:text-red-600 hover:bg-rose-50 transition-colors cursor-pointer"
+                        >
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                         </button>
-                        <div className="mb-4 md:mb-0 text-center md:text-left pr-8">
+                        <div className="mb-4 md:mb-0 text-center md:text-left pr-10">
                           <div className="font-black text-xl text-slate-800 tracking-tight">
                             {getProductDisplayName(p, isKoreanLang)} 
                             <span className="text-sm font-bold text-slate-500 ml-1.5">{p.volume ? `(${p.volume} / 병)` : t('order.unit', '(병)')}</span>
@@ -396,9 +418,19 @@ const OrderForm = ({
                           </div>
                         </div>
                         <div className={`flex items-center bg-white border ${key === 'monsmecta' ? 'border-slate-200' : 'border-emerald-200'} rounded-xl overflow-hidden shadow-sm shrink-0`}>
-                          <button type="button" onClick={() => setQuantities(prev => ({ ...prev, [key]: Math.max(1, prev[key] - 1) }))} className={`w-12 h-12 flex items-center justify-center ${key === 'monsmecta' ? 'bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b]' : 'bg-emerald-50 text-slate-600 hover:bg-emerald-100 hover:text-emerald-800'} text-xl font-black transition-colors`}>-</button>
-                          <div className={`w-16 h-12 flex items-center justify-center font-black text-xl text-slate-800 border-x ${key === 'monsmecta' ? 'border-slate-200' : 'border-emerald-200'}`}>{q}</div>
-                          <button type="button" onClick={() => setQuantities(prev => ({ ...prev, [key]: prev[key] + 1 }))} className={`w-12 h-12 flex items-center justify-center ${key === 'monsmecta' ? 'bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b]' : 'bg-emerald-50 text-slate-600 hover:bg-emerald-100 hover:text-emerald-800'} text-xl font-black transition-colors`}>+</button>
+                          <button
+                            type="button"
+                            onClick={() => setQuantities(prev => ({ ...prev, [key]: Math.max(1, prev[key] - 1) }))}
+                            aria-label={`${getProductDisplayName(p, isKoreanLang)} 수량 감소`}
+                            className={`w-12 h-12 flex items-center justify-center ${key === 'monsmecta' ? 'bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b]' : 'bg-emerald-50 text-slate-600 hover:bg-emerald-100 hover:text-emerald-800'} text-xl font-black transition-colors cursor-pointer`}
+                          >-</button>
+                          <div aria-live="polite" className={`w-16 h-12 flex items-center justify-center font-black text-xl text-slate-800 border-x ${key === 'monsmecta' ? 'border-slate-200' : 'border-emerald-200'}`}>{q}</div>
+                          <button
+                            type="button"
+                            onClick={() => setQuantities(prev => ({ ...prev, [key]: prev[key] + 1 }))}
+                            aria-label={`${getProductDisplayName(p, isKoreanLang)} 수량 증가`}
+                            className={`w-12 h-12 flex items-center justify-center ${key === 'monsmecta' ? 'bg-slate-50 text-slate-600 hover:bg-emerald-50 hover:text-[#00513b]' : 'bg-emerald-50 text-slate-600 hover:bg-emerald-100 hover:text-emerald-800'} text-xl font-black transition-colors cursor-pointer`}
+                          >+</button>
                         </div>
                       </div>
                     );

@@ -100,10 +100,10 @@ export default function AudioTestimonial() {
           <div className="flex items-center gap-3 w-full">
             <button
               onClick={togglePlay}
-              aria-label={isPlaying ? 'Pause audio interview' : 'Play audio interview'}
-              className="w-12 h-12 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md transition-transform active:scale-95 shrink-0 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+              aria-label={isPlaying ? t('audioTestimonial.pauseAria', '음성 인터뷰 일시정지') : t('audioTestimonial.playAria', '음성 인터뷰 재생')}
+              className="w-12 h-12 min-w-[44px] min-h-[44px] bg-emerald-600 hover:bg-emerald-700 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md transition-transform active:scale-95 shrink-0 focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer"
             >
-              {isPlaying ? '⏸' : '▶'}
+              <span aria-hidden="true">{isPlaying ? '⏸' : '▶'}</span>
             </button>
             <div className="flex-1 min-w-0">
               <div className="text-xs font-extrabold text-slate-900 truncate">
@@ -114,14 +114,16 @@ export default function AudioTestimonial() {
               </div>
               <div
                 role="slider"
-                aria-label="Audio progress"
+                aria-label={t('audioTestimonial.progressAria', '음성 재생 진행률')}
                 aria-valuemin={0}
                 aria-valuemax={100}
                 aria-valuenow={Math.round(progress * 100)}
+                aria-valuetext={`${formatTime(currentTime)} / ${formatTime(duration)}`}
                 tabIndex={0}
                 onClick={seek}
                 onKeyDown={(e) => {
                   if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                    e.preventDefault();
                     const audio = audioRef.current;
                     if (audio && audio.duration) {
                       const step = 5;
@@ -129,7 +131,7 @@ export default function AudioTestimonial() {
                     }
                   }
                 }}
-                className="w-full bg-slate-200 h-1.5 rounded-full mt-1.5 overflow-hidden cursor-pointer"
+                className="w-full bg-slate-200 h-2.5 rounded-full mt-1.5 overflow-hidden cursor-pointer"
               >
                 <div className="h-full bg-emerald-500" style={{ width: `${progress * 100}%` }} />
               </div>
@@ -147,7 +149,7 @@ export default function AudioTestimonial() {
           <div className="w-full pt-2 border-t border-slate-200/80">
             <button
               onClick={() => setShowTranscript(!showTranscript)}
-              className="text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center justify-center gap-1.5 w-full py-1 rounded hover:bg-emerald-50 transition-colors cursor-pointer"
+              className="min-h-[40px] text-xs font-bold text-emerald-700 hover:text-emerald-800 flex items-center justify-center gap-1.5 w-full py-2 rounded-lg hover:bg-emerald-50 transition-colors cursor-pointer"
               aria-expanded={showTranscript}
               aria-controls="audio-transcript-content"
             >

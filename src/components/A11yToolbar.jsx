@@ -1,16 +1,50 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
+const A11Y_STORAGE_KEY = 'monsmecta_a11y_v1';
+
+const getInitialA11y = () => {
+  try {
+    const saved = JSON.parse(localStorage.getItem(A11Y_STORAGE_KEY) || 'null');
+    if (saved && typeof saved === 'object') {
+      return {
+        highContrast: !!saved.highContrast,
+        largeText: !!saved.largeText,
+        reduceMotion: !!saved.reduceMotion,
+        readableFont: !!saved.readableFont,
+      };
+    }
+  } catch { /* ignore */ }
+  const prefersReduced = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  return {
+    highContrast: false,
+    largeText: false,
+    reduceMotion: !!prefersReduced,
+    readableFont: false,
+  };
+};
+
 const A11yToolbar = () => {
   const { t, i18n } = useTranslation();
-  const [highContrast, setHighContrast] = useState(false);
-  const [largeText, setLargeText] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
-  const [readableFont, setReadableFont] = useState(false);
+  const initial = getInitialA11y();
+  const [highContrast, setHighContrast] = useState(initial.highContrast);
+  const [largeText, setLargeText] = useState(initial.largeText);
+  const [reduceMotion, setReduceMotion] = useState(initial.reduceMotion);
+  const [readableFont, setReadableFont] = useState(initial.readableFont);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [announcement, setAnnouncement] = useState('');
   const menuRef = useRef(null);
   const triggerRef = useRef(null);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(
+        A11Y_STORAGE_KEY,
+        JSON.stringify({ highContrast, largeText, reduceMotion, readableFont })
+      );
+    } catch { /* ignore */ }
+  }, [highContrast, largeText, reduceMotion, readableFont]);
 
   // 1. 고대비 모드
   useEffect(() => {
@@ -65,7 +99,7 @@ const A11yToolbar = () => {
       t('hero.title', '임상수의사의 해답, MONSMECTA'),
       t('hero.subtitle', '현장 진료의 까다로운 기준을 통과한 위장관 솔루션.'),
       t('clinicalCase.title', '55일령 발작 환축의 7일간의 기적'),
-      t('clinicalCase.subtitle', '하남 사랑동물병원 김동준 원장의 실제 임상 치료 일지입니다.')
+      t('clinicalCase.subtitle', '온라인동물병원 박선생 공식 협업 및 실제 임상 치료 일지입니다.')
     ].join('. ');
 
     const utterance = new SpeechSynthesisUtterance(textToRead);
@@ -92,30 +126,58 @@ const A11yToolbar = () => {
     };
   }, []);
 
-  // ESC 키로 메뉴 닫기 접근성 지원
+  // ESC 키 및 바깥 클릭으로 메뉴 닫기 접근성 지원
   useEffect(() => {
+    if (!isOpen) return undefined;
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === 'Escape') {
         setIsOpen(false);
         triggerRef.current?.focus();
       }
     };
+    const handlePointerDown = (e) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target) &&
+        triggerRef.current &&
+        !triggerRef.current.contains(e.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('pointerdown', handlePointerDown);
+    };
   }, [isOpen]);
+
+  const handleResetA11y = () => {
+    setHighContrast(false);
+    setLargeText(false);
+    setReduceMotion(false);
+    setReadableFont(false);
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+    setIsSpeaking(false);
+    setAnnouncement('접근성 설정이 기본값으로 초기화되었습니다.');
+  };
 
   return (
     <aside
       aria-label={t('a11y.toolbarLabel', '웹 접근성 설정 도구')}
       className="fixed bottom-[calc(4.4rem+env(safe-area-inset-bottom,0px))] start-2.5 sm:start-6 z-[80] flex flex-col items-start gap-2"
     >
+      <span className="sr-only" role="status" aria-live="polite">{announcement}</span>
       {isOpen && (
         <div
           ref={menuRef}
           role="dialog"
           aria-modal="false"
           aria-label={t('a11y.title', '접근성 설정 (A11y)')}
-          className="bg-white dark:bg-slate-900 border border-emerald-300 dark:border-slate-700 rounded-2xl shadow-2xl p-4 flex flex-col gap-2 mb-2 w-64 text-slate-800 dark:text-white backdrop-blur-md origin-bottom-left animate-in fade-in zoom-in"
+          className="bg-white dark:bg-slate-900 border border-emerald-300 dark:border-slate-700 rounded-2xl shadow-2xl p-4 flex flex-col gap-2 mb-2 w-64 max-w-[calc(100vw-20px)] max-h-[70dvh] overflow-y-auto text-slate-800 dark:text-white backdrop-blur-md origin-bottom-left animate-in fade-in zoom-in"
         >
           <div className="flex items-center justify-between border-b border-gray-200 dark:border-slate-800 pb-2 mb-1">
             <span className="text-xs font-black text-gray-800 dark:text-slate-100 flex items-center gap-1.5">
@@ -123,7 +185,7 @@ const A11yToolbar = () => {
             </span>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-white text-xs font-bold p-1 rounded focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
+              className="text-gray-400 hover:text-gray-600 dark:hover:text-white text-xs font-bold min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer"
               aria-label={t('common.close', '닫기')}
             >
               ✕
@@ -132,8 +194,12 @@ const A11yToolbar = () => {
           
           {/* 고대비 모드 */}
           <button
-            onClick={() => setHighContrast(!highContrast)}
-            className={`min-h-[42px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
+            onClick={() => {
+              const next = !highContrast;
+              setHighContrast(next);
+              setAnnouncement(next ? '고대비 모드가 켜졌습니다.' : '고대비 모드가 꺼졌습니다.');
+            }}
+            className={`min-h-[44px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
               highContrast
                 ? 'bg-[#00513b] text-white shadow-md ring-2 ring-lime-400'
                 : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-200 dark:hover:bg-slate-700'
@@ -146,8 +212,12 @@ const A11yToolbar = () => {
 
           {/* 큰 글씨 모드 */}
           <button
-            onClick={() => setLargeText(!largeText)}
-            className={`min-h-[42px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
+            onClick={() => {
+              const next = !largeText;
+              setLargeText(next);
+              setAnnouncement(next ? '큰 글씨 확대가 켜졌습니다.' : '글씨 크기가 복구되었습니다.');
+            }}
+            className={`min-h-[44px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
               largeText
                 ? 'bg-[#00513b] text-white shadow-md ring-2 ring-lime-400'
                 : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-200 dark:hover:bg-slate-700'
@@ -160,8 +230,12 @@ const A11yToolbar = () => {
 
           {/* 움직임 줄이기 */}
           <button
-            onClick={() => setReduceMotion(!reduceMotion)}
-            className={`min-h-[42px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
+            onClick={() => {
+              const next = !reduceMotion;
+              setReduceMotion(next);
+              setAnnouncement(next ? '움직임 줄이기 모드가 켜졌습니다.' : '움직임 효과가 켜졌습니다.');
+            }}
+            className={`min-h-[44px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
               reduceMotion
                 ? 'bg-[#00513b] text-white shadow-md ring-2 ring-lime-400'
                 : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-200 dark:hover:bg-slate-700'
@@ -174,8 +248,12 @@ const A11yToolbar = () => {
 
           {/* 가독성 향상 모드 */}
           <button
-            onClick={() => setReadableFont(!readableFont)}
-            className={`min-h-[42px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
+            onClick={() => {
+              const next = !readableFont;
+              setReadableFont(next);
+              setAnnouncement(next ? '가독성 줄간격 확대가 켜졌습니다.' : '기본 줄간격으로 복구되었습니다.');
+            }}
+            className={`min-h-[44px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
               readableFont
                 ? 'bg-[#00513b] text-white shadow-md ring-2 ring-lime-400'
                 : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-200 dark:hover:bg-slate-700'
@@ -189,7 +267,7 @@ const A11yToolbar = () => {
           {/* 음성 읽어주기 (TTS) */}
           <button
             onClick={handleToggleSpeech}
-            className={`min-h-[42px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
+            className={`min-h-[44px] px-3 py-2 text-xs font-bold rounded-xl text-start transition-all flex items-center justify-between cursor-pointer ${
               isSpeaking
                 ? 'bg-amber-500 text-slate-950 shadow-md ring-2 ring-amber-300 animate-pulse'
                 : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-slate-300 hover:bg-gray-200 dark:hover:bg-slate-700'
@@ -197,11 +275,21 @@ const A11yToolbar = () => {
             aria-pressed={isSpeaking}
           >
             <span className="flex items-center gap-1.5">
-              <span>{isSpeaking ? '🔊' : '🔈'}</span>
+              <span aria-hidden="true">{isSpeaking ? '🔊' : '🔈'}</span>
               <span>{isSpeaking ? t('a11y.readAloudOff', '음성 읽기 멈춤') : t('a11y.readAloudOn', '본문 음성 읽기')}</span>
             </span>
             <span className="text-[11px] px-1.5 py-0.5 rounded bg-black/20">{isSpeaking ? '재생중' : 'OFF'}</span>
           </button>
+
+          {(highContrast || largeText || reduceMotion || readableFont || isSpeaking) && (
+            <button
+              type="button"
+              onClick={handleResetA11y}
+              className="mt-1 min-h-[38px] px-3 py-1.5 text-[11px] font-bold rounded-xl border border-slate-300 text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
+            >
+              ↺ {t('a11y.reset', '접근성 설정 초기화')}
+            </button>
+          )}
         </div>
       )}
 

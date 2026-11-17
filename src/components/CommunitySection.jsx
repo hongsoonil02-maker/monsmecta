@@ -116,6 +116,7 @@ const CommunitySection = () => {
   const [activeTab, setActiveTab] = useState('review'); // 'review' | 'qna'
   const [filterPet, setFilterPet] = useState('all'); // 'all' | '강아지' | '고양이' | '특수동물'
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [likedIds, setLikedIds] = useState([]);
   const [posts, setPosts] = useState(() => {
     try {
       const saved = localStorage.getItem('monsmecta_community_posts_v1');
@@ -139,6 +140,12 @@ const CommunitySection = () => {
     try {
       localStorage.setItem('monsmecta_community_posts_v1', JSON.stringify(updated));
     } catch { /* ignore */ }
+  };
+
+  const handleToggleLike = (postId) => {
+    setLikedIds((prev) =>
+      prev.includes(postId) ? prev.filter((id) => id !== postId) : [...prev, postId]
+    );
   };
 
   const filteredPosts = posts
@@ -187,30 +194,34 @@ const CommunitySection = () => {
         {/* Top Filter & Tab Controller */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           {/* Main 2 Tabs */}
-          <div className="inline-flex bg-slate-200/80 p-1 rounded-2xl w-full sm:w-auto">
+          <div role="tablist" aria-label="커뮤니티 게시판 구분" className="inline-flex bg-slate-200/80 p-1 rounded-2xl w-full sm:w-auto">
             <button
+              role="tab"
+              aria-selected={activeTab === 'review'}
               onClick={() => setActiveTab('review')}
-              className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center justify-center gap-2 ${
+              className={`flex-1 sm:flex-initial min-h-[44px] px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center justify-center gap-2 ${
                 activeTab === 'review'
                   ? 'bg-white text-emerald-950 shadow-md'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <span>💩</span>
+              <span aria-hidden="true">💩</span>
               <span>리얼 급여 후기 (Fecal Score 일지)</span>
               <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold">
                 {posts.filter(p => p.type === 'review').length}
               </span>
             </button>
             <button
+              role="tab"
+              aria-selected={activeTab === 'qna'}
               onClick={() => setActiveTab('qna')}
-              className={`flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center justify-center gap-2 ${
+              className={`flex-1 sm:flex-initial min-h-[44px] px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center justify-center gap-2 ${
                 activeTab === 'qna'
                   ? 'bg-white text-teal-950 shadow-md'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              <span>💬</span>
+              <span aria-hidden="true">💬</span>
               <span>박선생 1:1 Q&amp;A 상담실</span>
               <span className="text-[11px] px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 font-extrabold">
                 {posts.filter(p => p.type === 'qna').length}
@@ -219,8 +230,8 @@ const CommunitySection = () => {
           </div>
 
           {/* Pet Filter Buttons */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 text-xs">
-            <span className="text-slate-400 font-bold mr-1 shrink-0">축종 필터:</span>
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 text-xs" role="group" aria-label="축종 필터">
+            <span className="text-slate-500 font-bold mr-1 shrink-0">축종 필터:</span>
             {[
               { id: 'all', label: '전체' },
               { id: '강아지', label: '🐶 강아지' },
@@ -230,7 +241,8 @@ const CommunitySection = () => {
               <button
                 key={f.id}
                 onClick={() => setFilterPet(f.id)}
-                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer shrink-0 ${
+                aria-pressed={filterPet === f.id}
+                className={`min-h-[38px] px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer shrink-0 ${
                   filterPet === f.id
                     ? 'bg-slate-900 text-white shadow-xs'
                     : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-100'
@@ -319,14 +331,21 @@ const CommunitySection = () => {
               </div>
 
               {/* Card Footer */}
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
+              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
                 <span>{post.createdAt}</span>
                 <button
                   type="button"
-                  className="flex items-center gap-1 text-slate-500 hover:text-emerald-700 font-bold transition-colors cursor-pointer"
+                  onClick={() => handleToggleLike(post.id)}
+                  aria-pressed={likedIds.includes(post.id)}
+                  className={`min-h-[36px] px-2.5 py-1 rounded-lg flex items-center gap-1 font-bold transition-colors cursor-pointer ${
+                    likedIds.includes(post.id)
+                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                      : 'text-slate-600 hover:text-emerald-700 hover:bg-slate-50'
+                  }`}
                 >
-                  <span>👍 도움돼요</span>
-                  <span>{post.likes}</span>
+                  <span aria-hidden="true">👍</span>
+                  <span>도움돼요</span>
+                  <span>{post.likes + (likedIds.includes(post.id) ? 1 : 0)}</span>
                 </button>
               </div>
             </div>

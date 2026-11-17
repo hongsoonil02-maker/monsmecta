@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CLINICAL_CASE_DATA } from '../data/clinicalCaseData';
+import { useModalBehavior, handleBackdropClick } from '../hooks/useModalBehavior';
 
 export default function ClinicalCaseStudy() {
   const { t } = useTranslation();
@@ -61,30 +62,9 @@ export default function ClinicalCaseStudy() {
     setIsVideoModalOpen(true);
   };
 
-  // 모달 키보드 ESC 닫기 접근성 지원
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        if (isChartModalOpen) setIsChartModalOpen(false);
-        if (isVideoModalOpen) setIsVideoModalOpen(false);
-        if (isDocuModalOpen) setIsDocuModalOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isChartModalOpen, isVideoModalOpen, isDocuModalOpen]);
-
-  // 모달 활성화 시 배경 스크롤 락 (모바일 터치 편의 최적화)
-  useEffect(() => {
-    if (isChartModalOpen || isVideoModalOpen || isDocuModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isChartModalOpen, isVideoModalOpen, isDocuModalOpen]);
+  const chartPanelRef = useModalBehavior(isChartModalOpen, () => setIsChartModalOpen(false));
+  const videoPanelRef = useModalBehavior(isVideoModalOpen, () => setIsVideoModalOpen(false));
+  const docuPanelRef = useModalBehavior(isDocuModalOpen, () => setIsDocuModalOpen(false));
 
   return (
     <section 
@@ -520,20 +500,21 @@ export default function ClinicalCaseStudy() {
           aria-modal="true"
           aria-label={t('clinicalCase.handwrittenTitle', '김동준 원장 자필 차트 원본')}
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4"
-          onClick={() => setIsChartModalOpen(false)}
+          onClick={(e) => handleBackdropClick(e, () => setIsChartModalOpen(false))}
         >
           <div 
-            className="relative max-w-4xl w-full max-h-[90dvh] bg-[#002b1e] rounded-3xl p-4 sm:p-6 border border-emerald-500/40 flex flex-col shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
+            ref={chartPanelRef}
+            tabIndex={-1}
+            className="relative max-w-4xl w-full max-h-[90dvh] bg-[#002b1e] rounded-3xl p-4 sm:p-6 border border-emerald-500/40 flex flex-col shadow-2xl focus:outline-none"
           >
             <div className="relative flex flex-col sm:flex-row items-center justify-between mb-3 border-b border-white/10 pb-3 text-center sm:text-start">
-              <div className="w-full sm:flex-1 pr-8 sm:pr-0">
+              <div className="w-full sm:flex-1 pr-12 sm:pr-0">
                 <h4 className="text-sm sm:text-lg font-bold text-white break-keep text-center sm:text-start">{currentChart.title}</h4>
                 <p className="text-xs text-emerald-300 mt-0.5 text-center sm:text-start">{currentChart.period} · 하남 사랑동물병원 김동준 원장 자필 차트</p>
               </div>
               <button
                 onClick={() => setIsChartModalOpen(false)}
-                className="absolute top-0 right-0 sm:relative w-8 h-8 sm:w-10 sm:h-10 min-w-[32px] min-h-[32px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                className="absolute top-0 right-0 sm:relative w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 cursor-pointer"
                 aria-label={t('clinicalCase.chartClose', '차트 닫기')}
               >
                 ✕
@@ -557,14 +538,15 @@ export default function ClinicalCaseStudy() {
           aria-modal="true"
           aria-label={modalVideo.title}
           className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-3 sm:p-4"
-          onClick={() => setIsVideoModalOpen(false)}
+          onClick={(e) => handleBackdropClick(e, () => setIsVideoModalOpen(false))}
         >
           <div 
-            className="relative max-w-sm sm:max-w-md w-full bg-[#002b1e] rounded-3xl p-4 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
+            ref={videoPanelRef}
+            tabIndex={-1}
+            className="relative max-w-sm sm:max-w-md w-full bg-[#002b1e] rounded-3xl p-4 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto focus:outline-none"
           >
             <div className="relative flex flex-col sm:flex-row items-center justify-between mb-3 border-b border-white/10 pb-3 text-center sm:text-start">
-              <div className="w-full sm:flex-1 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1.5 sm:gap-2 pr-8 sm:pr-0">
+              <div className="w-full sm:flex-1 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1.5 sm:gap-2 pr-12 sm:pr-0">
                 <span className={`kr-icon text-[10px] font-bold px-2.5 py-0.5 rounded-full inline-block shrink-0 ${modalVideo.badgeColor}`}>
                   {modalVideo.badge}
                 </span>
@@ -572,7 +554,7 @@ export default function ClinicalCaseStudy() {
               </div>
               <button
                 onClick={() => setIsVideoModalOpen(false)}
-                className="absolute top-0 right-0 sm:relative w-8 h-8 sm:w-9 sm:h-9 min-w-[32px] min-h-[32px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-sm sm:text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
+                className="absolute top-0 right-0 sm:relative w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 cursor-pointer"
                 aria-label={t('clinicalCase.videoClose', '비디오 닫기')}
               >
                 ✕
@@ -607,14 +589,15 @@ export default function ClinicalCaseStudy() {
           aria-modal="true"
           aria-label={t('clinicalCase.docuModalTitle', '55일령 발작 환축의 7일간의 기적 다큐멘터리')}
           className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-2.5 sm:p-4"
-          onClick={() => setIsDocuModalOpen(false)}
+          onClick={(e) => handleBackdropClick(e, () => setIsDocuModalOpen(false))}
         >
           <div 
-            className="relative max-w-sm sm:max-w-md w-[94vw] sm:w-full bg-[#002b1e] rounded-3xl p-3.5 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
+            ref={docuPanelRef}
+            tabIndex={-1}
+            className="relative max-w-sm sm:max-w-md w-[94vw] sm:w-full bg-[#002b1e] rounded-3xl p-3.5 sm:p-5 border border-emerald-500/40 flex flex-col shadow-2xl max-h-[92dvh] overflow-y-auto focus:outline-none"
           >
             <div className="relative flex flex-col sm:flex-row items-center justify-between mb-2.5 sm:mb-3 border-b border-white/10 pb-2.5 sm:pb-3 text-center sm:text-start">
-              <div className="w-full sm:flex-1 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1.5 sm:gap-2 pr-8 sm:pr-0">
+              <div className="w-full sm:flex-1 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-1.5 sm:gap-2 pr-12 sm:pr-0">
                 <span className="kr-icon text-[10px] font-black px-2.5 py-0.5 rounded-full bg-yellow-400 text-slate-950 inline-block shrink-0">
                   🎬 2분 54초
                 </span>
@@ -624,7 +607,7 @@ export default function ClinicalCaseStudy() {
               </div>
               <button
                 onClick={() => setIsDocuModalOpen(false)}
-                className="absolute top-0 right-0 sm:relative w-8 h-8 sm:w-10 sm:h-10 min-w-[32px] min-h-[32px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-sm sm:text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 cursor-pointer"
+                className="absolute top-0 right-0 sm:relative w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center font-bold text-base shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 cursor-pointer"
                 aria-label={t('common.close', '닫기')}
               >
                 ✕

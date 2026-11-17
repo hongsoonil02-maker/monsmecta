@@ -86,8 +86,8 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
             </h3>
             <p className="text-xs text-slate-500 hidden sm:block mt-1">{t('notice.desc', '병원명, 주소, 연락처를 입력하시면 알림판 하단에 자동으로 적용됩니다.')}</p>
           </div>
-          <button onClick={onClose} aria-label={t('common.close', '닫기')} className="absolute top-3.5 right-3.5 sm:relative text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-full p-2 transition-colors focus:outline-none">
-            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <button onClick={onClose} aria-label={t('common.close', '닫기')} className="absolute top-2.5 right-2.5 sm:relative text-slate-400 hover:text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors focus:outline-none cursor-pointer">
+            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -126,53 +126,61 @@ const NoticeGeneratorModal = ({ isOpen, onClose }) => {
             <div className="mb-5 flex-1">
               <div className="space-y-3.5" translate="no">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">{t('notice.hospitalName', '동물병원명')}</label>
+                  <label htmlFor="notice-hospital-name" className="block text-xs font-bold text-slate-700 mb-1">{t('notice.hospitalName', '동물병원명')}</label>
                   <input 
+                    id="notice-hospital-name"
                     type="text" 
                     value={hospitalName}
                     onChange={(e) => setHospitalName(e.target.value)}
                     placeholder={t('notice.hospitalNamePlaceholder', '예) 에스앤제이 동물병원')} 
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-sm"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-base sm:text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">{t('notice.hospitalAddress', '병원주소(선택)')}</label>
+                  <label htmlFor="notice-hospital-address" className="block text-xs font-bold text-slate-700 mb-1">{t('notice.hospitalAddress', '병원주소(선택)')}</label>
                   <input 
+                    id="notice-hospital-address"
                     type="text" 
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     placeholder={t('notice.hospitalAddressPlaceholder', '예) 경기도 용인시 처인구 포곡읍 ...')} 
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-sm"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-base sm:text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">{t('notice.hospitalTel', '병원전화번호(선택)')}</label>
+                  <label htmlFor="notice-hospital-tel" className="block text-xs font-bold text-slate-700 mb-1">{t('notice.hospitalTel', '병원전화번호(선택)')}</label>
                   <input 
-                    type="text" 
+                    id="notice-hospital-tel"
+                    type="tel"
+                    inputMode="tel"
                     value={tel}
                     onChange={(e) => setTel(e.target.value)}
                     placeholder={t('notice.hospitalTelPlaceholder', '예) 031-321-6562')} 
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-sm"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-base sm:text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">{t('notice.vetTel', '원장님전화번호(선택)')}</label>
+                  <label htmlFor="notice-vet-tel" className="block text-xs font-bold text-slate-700 mb-1">{t('notice.vetTel', '원장님전화번호(선택)')}</label>
                   <input 
-                    type="text" 
+                    id="notice-vet-tel"
+                    type="tel"
+                    inputMode="tel"
                     value={vetTel}
                     onChange={(e) => setVetTel(e.target.value)}
                     placeholder={t('notice.vetTelPlaceholder', '예) 010-1234-5678')} 
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-sm"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-base sm:text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">{t('notice.price', '판매가(선택)')}</label>
+                  <label htmlFor="notice-price" className="block text-xs font-bold text-slate-700 mb-1">{t('notice.price', '판매가(선택)')}</label>
                   <input 
-                    type="text" 
+                    id="notice-price"
+                    type="text"
+                    inputMode="numeric"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                     placeholder={t('notice.pricePlaceholder', '예) 18,000')} 
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-sm"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#10B981] focus:border-[#10B981] transition-all bg-slate-50 focus:bg-white text-base sm:text-sm"
                   />
                 </div>
               </div>

@@ -21,6 +21,15 @@ export default function Chatbot() {
 
   const toggleChat = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [isOpen]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
@@ -81,16 +90,21 @@ export default function Chatbot() {
         onClick={toggleChat}
         className={`${isOpen ? 'hidden' : 'flex'} items-center justify-center w-11 h-11 sm:w-16 sm:h-16 min-w-[44px] min-h-[44px] bg-[#00513b] hover:bg-[#003d2b] active:bg-[#00281d] text-white rounded-full shadow-xl border-2 border-emerald-400/50 hover:scale-105 active:scale-95 transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-400/50 cursor-pointer`}
         aria-label={t('chat.openLabel', 'AI 임상 챗봇 열기')}
+        aria-expanded={isOpen}
+        aria-haspopup="dialog"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-8 sm:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
         </svg>
       </button>
 
       {/* 챗봇 창 */}
       <div
+        role="dialog"
+        aria-modal="false"
+        aria-label={t('chat.title', 'MONSMECTA AI')}
         dir={isRtl ? 'rtl' : 'ltr'}
-        className={`${isOpen ? 'flex' : 'hidden'} absolute bottom-0 ${isRtl ? 'left-0 origin-bottom-left' : 'right-0 origin-bottom-right'} flex-col w-[calc(100vw-20px)] max-w-[390px] sm:w-[400px] sm:max-w-[400px] h-[520px] max-h-[75vh] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300`}
+        className={`${isOpen ? 'flex' : 'hidden'} absolute bottom-0 ${isRtl ? 'left-0 origin-bottom-left' : 'right-0 origin-bottom-right'} flex-col w-[calc(100vw-20px)] max-w-[390px] sm:w-[400px] sm:max-w-[400px] h-[520px] max-h-[calc(100dvh-7.5rem)] bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden transition-all duration-300`}
       >
         {/* 헤더 */}
         <div className="flex items-center justify-between px-4 py-3 bg-[#00513b] text-white">
@@ -108,8 +122,8 @@ export default function Chatbot() {
               <p className="text-[11px] text-[#a3e6cd] leading-tight mt-0.5">{t('chat.subtitle', '수의사 학술·임상 전용 어시스턴트')}</p>
             </div>
           </div>
-          <button onClick={toggleChat} aria-label={t('chat.closeLabel', '챗봇 닫기')} className="text-white/80 hover:text-white p-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <button onClick={toggleChat} aria-label={t('chat.closeLabel', '챗봇 닫기')} className="text-white/80 hover:text-white min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -124,7 +138,7 @@ export default function Chatbot() {
         </div>
 
         {/* 메시지 영역 */}
-        <div className="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4">
+        <div role="log" aria-live="polite" aria-label="챗봇 대화 내용" className="flex-1 p-4 overflow-y-auto bg-slate-50 space-y-4">
           <div className="flex justify-start">
             <div className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed bg-white text-slate-800 border border-slate-200 shadow-sm ${isRtl ? 'rounded-br-none' : 'rounded-bl-none'} whitespace-pre-wrap`}>
               {t('chat.greeting', '반갑습니다! 몬스멕타 학술·임상 AI 어시스턴트입니다. 성분, 임상 투여 프로토콜, 타 약물 병용에 대해 무엇이든 질문하세요.')}
@@ -177,13 +191,14 @@ export default function Chatbot() {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder={t('chat.placeholder', '궁금한 점을 입력하세요...')}
-                className="flex-1 bg-transparent px-3 py-2 text-sm focus:outline-none text-slate-800"
+                aria-label={t('chat.placeholder', '궁금한 점을 입력하세요...')}
+                className="flex-1 bg-transparent px-3 py-2 text-base sm:text-sm focus:outline-none text-slate-800"
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={!input.trim() || isLoading}
-                className="w-8 h-8 flex items-center justify-center bg-[#00513b] text-white rounded-full disabled:opacity-50 hover:bg-[#003d2b] transition-colors shrink-0"
+                className="w-10 h-10 min-w-[40px] min-h-[40px] flex items-center justify-center bg-[#00513b] text-white rounded-full disabled:opacity-50 hover:bg-[#003d2b] transition-colors shrink-0 cursor-pointer"
                 aria-label={t('chat.send', '전송')}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transform ${isRtl ? '-rotate-90' : 'rotate-90'}`} viewBox="0 0 20 20" fill="currentColor">
