@@ -43,13 +43,13 @@ const VetCollaborationSection = () => {
             <span>OFFICIAL VET PARTNERSHIP</span>
           </div>
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            하남사랑동물병원 <span className="text-emerald-700">김동준 원장</span>
+            온라인동물병원 <span className="text-emerald-700">박선생</span>
             <span className="block text-lg sm:text-2xl md:text-3xl font-extrabold text-teal-800 mt-2">
-              (네이버 10만 카페 &lsquo;온라인동물병원&rsquo; 박선생) 공식 협업
+              (네이버 10만 카페 &lsquo;온라인동물병원&rsquo;) 공식 협업
             </span>
           </h2>
           <p className="mt-4 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed break-keep">
-            임상 현장의 전문 처방 노하우와 10만 반려인의 건강 멘토(박선생)로 신뢰받는 김동준 원장과 몬스멕타가 함께합니다. 
+            10만 반려인의 건강 멘토로 신뢰받는 온라인동물병원 박선생과 몬스멕타가 함께합니다. 
             가격 덤핑 없이 안전한 정품 공급과 전용 사은 혜택을 약속드립니다.
           </p>
         </div>
@@ -67,24 +67,24 @@ const VetCollaborationSection = () => {
               <div className="space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-[11px] font-black text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                    🏥 임상 자문 및 처방 전문의
+                    🏥 공식 임상 자문 파트너
                   </span>
                   <span className="text-[11px] font-black text-teal-800 bg-teal-50 px-2.5 py-1 rounded-md border border-teal-200">
                     💬 네이버 10만 반려인 카페 운영자 &lsquo;박선생&rsquo;
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  김동준 대표원장 <span className="text-teal-700 font-extrabold text-base sm:text-xl">(하남사랑동물병원 · 닉네임: 박선생)</span>
+                  온라인동물병원 <span className="text-teal-700 font-extrabold">박선생</span>
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 font-medium">
-                  경기 하남시 소재 하남사랑동물병원 대표원장 · 소화기 내과 및 신장 질환 표적 케어 전문 임상 수의사
+                  네이버 대표 반려동물 카페 &lsquo;온라인동물병원&rsquo; 운영자 · 소화기 내과 및 신장 질환 케어 전문 자문
                 </p>
               </div>
             </div>
 
             <div className="shrink-0 flex sm:flex-col items-center sm:items-end justify-between gap-1 text-xs">
-              <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold">📍 경기 하남시 소재 오프라인 병원</span>
-              <span className="text-emerald-700 font-extrabold text-xs sm:text-sm">전문 임상 자문처</span>
+              <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-bold">💬 네이버 10만 카페 공식 파트너</span>
+              <span className="text-emerald-700 font-extrabold text-xs sm:text-sm">공식 협업 파트너</span>
             </div>
           </div>
 

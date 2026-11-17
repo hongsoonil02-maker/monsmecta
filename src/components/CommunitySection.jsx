@@ -18,7 +18,7 @@ const INITIAL_REVIEWS = [
     createdAt: '2026.11.02',
     likes: 38,
     comment: {
-      author: '박선생 (하남사랑동물병원)',
+      author: '박선생 (온라인동물병원)',
       text: '사료 교체 시 장내 미생물총 급변으로 장 점막 상피세포가 자극받은 케이스입니다. 몬스멕타의 고순도 나노 몬모릴로나이트가 장 점막을 즉각 피복하여 수분 과다 누출을 막아주어 빠른 호전을 보였습니다. 잘 케어해 주셨습니다!'
     }
   },
@@ -38,7 +38,7 @@ const INITIAL_REVIEWS = [
     createdAt: '2026.10.29',
     likes: 45,
     comment: {
-      author: '박선생 (하남사랑동물병원)',
+      author: '박선생 (온라인동물병원)',
       text: '레날 디톡스는 장-신장 축(Gut-Kidney Axis)을 기반으로 장내 유독성 질소 화합물을 흡착 배출합니다. 장 건강과 신장 여과 부담 경감을 동시에 기대할 수 있는 모범적인 급여 관리입니다.'
     }
   },
@@ -58,7 +58,7 @@ const INITIAL_REVIEWS = [
     createdAt: '2026.10.25',
     likes: 29,
     comment: {
-      author: '박선생 (하남사랑동물병원)',
+      author: '박선생 (온라인동물병원)',
       text: '이물 섭취나 세균성 외독소(Exotoxin) 유입 시, 몬스멕타의 1g당 800m² 이상의 흡착 표면적이 유해 물질을 장내에서 물리적으로 고착하여 배출시키는 강력한 응급 방어 작용을 한 결과입니다.'
     }
   }
@@ -76,7 +76,7 @@ const INITIAL_QNA = [
     content: '분양받아 온 지 1주일 되었는데 환경 변화 때문인지 약간 무른변을 봅니다. 1kg도 안 나가는 어린 강아지에게 몬스멕타를 먹여도 안전한지, 하루에 몇 번 얼마나 펌핑해서 먹여야 하는지 알고 싶습니다.',
     createdAt: '2026.11.01',
     comment: {
-      author: '박선생 (하남사랑동물병원)',
+      author: '박선생 (온라인동물병원)',
       text: '1kg 미만의 어린 자견은 1회 급여 시 펌프를 반만 살짝 눌러 약 0.5ml를 아침/저녁 식간에 단독으로 급여해 주시면 안전합니다. 몬스멕타는 체내에 흡수되지 않고 물리적으로 점막만 코팅 후 대변으로 배출되므로 어린 자견에게도 매우 안전합니다. 단, 구토나 식욕부진이 동반된다면 단순 식이성이 아닐 수 있으니 내원 진료를 권장합니다.'
     }
   },
@@ -91,7 +91,7 @@ const INITIAL_QNA = [
     content: '매일 아침 유산균 파우더를 츄르에 섞어주고 있습니다. 몬스멕타도 츄르에 함께 섞어서 먹여도 되는지, 아니면 따로 시간을 띄워서 먹여야 흡수나 효과에 방해가 안 되는지 궁금합니다.',
     createdAt: '2026.10.28',
     comment: {
-      author: '박선생 (하남사랑동물병원)',
+      author: '박선생 (온라인동물병원)',
       text: '몬스멕타는 강력한 흡착력과 점막 코팅 능력이 있으므로, 유산균이나 다른 영양제, 처방약과는 최소 1~2시간 이상 시간 간격을 두고 단독 급여하시는 것이 가장 이상적입니다. 예를 들어 유산균은 아침 식사와 함께, 몬스멕타는 식간 공복이나 취침 전에 급여하시면 최상의 시너지를 얻을 수 있습니다.'
     }
   },
@@ -106,7 +106,7 @@ const INITIAL_QNA = [
     content: '건강검진에서 ALT 수치가 정상 범위 상단에 걸쳐 있어 간보호제를 찾던 중 헤파맥스를 보게 되었습니다. 대형견의 경우 100ml 한 병으로 며칠이나 급여 가능한지, 장기 급여해도 간에 부담이 없는지 여쭙니다.',
     createdAt: '2026.10.22',
     comment: {
-      author: '박선생 (하남사랑동물병원)',
+      author: '박선생 (온라인동물병원)',
       text: '헤파맥스는 실리마린, L-메치오닌 및 장-간 순환계 독소 흡착 성분이 복합되어 간세포 항산화와 글루타치온 생성을 돕습니다. 30kg 대형견 기준 1회 4~5ml씩 1일 2회 급여를 권장하며, 체내 대사 부산물 없이 장에서 독소만 끌고 배출되므로 간 대사 부담이 0%에 가깝습니다. 1~2개월 지속 급여 후 혈액검사 재측정을 추천드립니다.'
     }
   }
@@ -120,7 +120,14 @@ const CommunitySection = () => {
     try {
       const saved = localStorage.getItem('monsmecta_community_posts_v1');
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          return parsed.map((p) =>
+            p?.comment?.author?.includes('하남사랑동물병원')
+              ? { ...p, comment: { ...p.comment, author: '박선생 (온라인동물병원)' } }
+              : p
+          );
+        }
       }
     } catch { /* ignore */ }
     return [...INITIAL_REVIEWS, ...INITIAL_QNA];
@@ -155,7 +162,7 @@ const CommunitySection = () => {
               몬스멕타 <span className="text-emerald-700">케이스 라운지</span> &amp; <span className="text-teal-700">박선생 상담소</span>
             </h2>
             <p className="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed break-keep max-w-2xl">
-              실제 보호자님들의 분변 개선 케이스(Fecal Score 일지)와 하남사랑동물병원 김동준 원장(박선생)의 1:1 맞춤 상담이 공유되는 공간입니다.
+              실제 보호자님들의 분변 개선 케이스(Fecal Score 일지)와 온라인동물병원 박선생의 1:1 맞춤 상담이 공유되는 공간입니다.
             </p>
           </div>
 
@@ -296,7 +303,7 @@ const CommunitySection = () => {
                   </p>
                 </div>
 
-                {/* Official Expert Answer: 박선생 (하남사랑동물병원) */}
+                {/* Official Expert Answer: 박선생 (온라인동물병원) */}
                 {post.comment && (
                   <div className="bg-teal-50/70 border border-teal-200 rounded-2xl p-3.5 space-y-1.5 text-start animate-in fade-in">
                     <div className="flex items-center gap-1.5 text-[11px] font-black text-teal-900">
