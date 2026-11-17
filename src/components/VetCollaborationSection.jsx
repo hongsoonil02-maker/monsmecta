@@ -109,7 +109,7 @@ const VetCollaborationSection = () => {
             <div className="bg-teal-50/60 border border-teal-100 rounded-2xl p-4">
               <span className="text-teal-700 font-black block text-sm mb-1">✓ 권장소비자가격 보호</span>
               <p className="text-slate-600 text-xs leading-relaxed">
-                몬스멕타 15,000원 / 헤파맥스 17,000원 / 레날 22,000원
+                몬스멕타 18,000원 / 헤파맥스 20,000원 / 레날 24,000원
               </p>
             </div>
             <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-4">
