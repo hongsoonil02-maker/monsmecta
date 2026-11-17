@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { PRODUCTS } from '../data/products';
 
 const VetCollaborationSection = () => {
   const [promoCode, setPromoCode] = useState('');
@@ -109,7 +110,7 @@ const VetCollaborationSection = () => {
             <div className="bg-teal-50/60 border border-teal-100 rounded-2xl p-4">
               <span className="text-teal-700 font-black block text-sm mb-1">✓ 권장소비자가격 보호</span>
               <p className="text-slate-600 text-xs leading-relaxed">
-                몬스멕타 18,000원 / 헤파맥스 20,000원 / 레날 24,000원
+                몬스멕타 {PRODUCTS.monsmecta.retail_price.toLocaleString()}원 / 헤파맥스 {PRODUCTS.hepamax.retail_price.toLocaleString()}원 / 레날 {PRODUCTS.urinary.retail_price.toLocaleString()}원
               </p>
             </div>
             <div className="bg-amber-50/60 border border-amber-100 rounded-2xl p-4">

@@ -28,6 +28,57 @@ const Lineup = ({ setIsLabelModalOpen, setActiveProduct, onOpenSampleModal }) =>
           </p>
         </div>
 
+        {/* 대표 오리지널 제품 하이라이트 카드 */}
+        {PRODUCTS.monsmecta && (
+          <div className="mb-5 sm:mb-6 bg-white border-2 border-emerald-500/80 rounded-2xl p-4 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-md hover:shadow-xl transition-all">
+            <div className="flex items-start sm:items-center gap-3.5 sm:gap-4">
+              <div className="text-3xl sm:text-4xl shrink-0">{PRODUCTS.monsmecta.icon}</div>
+              <div>
+                <div className="flex flex-wrap items-center gap-2 mb-1">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] font-black">
+                    대표 오리지널
+                  </span>
+                  <h3 className="text-base sm:text-lg font-black text-slate-900">
+                    {getProductDisplayName(PRODUCTS.monsmecta, isKoreanLang)}
+                  </h3>
+                  {PRODUCTS.monsmecta.volume && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
+                      {PRODUCTS.monsmecta.volume}
+                    </span>
+                  )}
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold border border-emerald-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    {t('lineup.available', '공식 처방 가능')}
+                  </span>
+                </div>
+                <p className="text-[10px] text-slate-400 font-mono uppercase tracking-wider mb-1">{PRODUCTS.monsmecta.name_en}</p>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed break-keep">
+                  {t('products.monsmecta.desc', { defaultValue: PRODUCTS.monsmecta.desc })}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex sm:flex-row md:flex-col items-center md:items-end justify-between gap-3 pt-3 md:pt-0 border-t md:border-t-0 border-slate-100 shrink-0 md:min-w-[180px]">
+              <div className="flex items-baseline gap-2">
+                <span className="text-xs text-slate-500 font-semibold">{t('lineup.retailPriceLabel', '권장소비자가')}</span>
+                <span className="text-lg sm:text-xl font-black text-emerald-800 tracking-tight">
+                  {PRODUCTS.monsmecta.retail_price.toLocaleString()}원
+                </span>
+              </div>
+              <button
+                onClick={() => {
+                  setActiveProduct('monsmecta');
+                  setIsLabelModalOpen(true);
+                }}
+                className="px-4 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                {t('lineup.elabelBtn', 'E-Label 확인')}
+              </button>
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-5">
           {LINEUP_PRODUCTS.map((id) => {
             const product = PRODUCTS[id];

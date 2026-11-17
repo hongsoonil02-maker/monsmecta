@@ -1,8 +1,11 @@
 
+import { PRODUCTS } from '../data/products';
+
 export default function MonsmectaLineupSection() {
   const lineups = [
     {
       id: 'original',
+      productKey: 'monsmecta',
       badge: 'B2B STANDARD',
       badgeColor: 'bg-emerald-800 text-emerald-200 border-emerald-600/50',
       title: 'MONSMECTA (오리지널)',
@@ -24,6 +27,7 @@ export default function MonsmectaLineupSection() {
     },
     {
       id: 'hepamax',
+      productKey: 'hepamax',
       badge: 'GUT-LIVER AXIS',
       badgeColor: 'bg-amber-900/60 text-amber-200 border-amber-600/50',
       title: 'MONSMECTA HEPAMAX',
@@ -45,6 +49,7 @@ export default function MonsmectaLineupSection() {
     },
     {
       id: 'renal',
+      productKey: 'urinary',
       badge: 'GUT-KIDNEY AXIS',
       badgeColor: 'bg-teal-900/60 text-teal-200 border-teal-600/50',
       title: 'MONSMECTA RENAL DETOX',
@@ -139,7 +144,15 @@ export default function MonsmectaLineupSection() {
               </div>
             </div>
 
-            <div className="pt-6 border-t border-emerald-800/60 mt-6">
+            <div className="pt-5 border-t border-emerald-800/60 mt-6 space-y-2">
+              {PRODUCTS[item.productKey]?.retail_price && (
+                <div className="text-[11px] text-emerald-200/90 flex items-center justify-between">
+                  <span>권장소비자가</span>
+                  <strong className="text-amber-300 font-black text-sm">
+                    {PRODUCTS[item.productKey].retail_price.toLocaleString()}원
+                  </strong>
+                </div>
+              )}
               <div className="text-[11px] text-emerald-200/80 flex items-center justify-between">
                 <span>간·신장 대사 부담</span>
                 <strong className="text-emerald-300 font-black text-xs">0% (체외 배출)</strong>
